@@ -13,7 +13,7 @@ function initializeNpc()
         return true;
     end
 
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
 
@@ -25,55 +25,55 @@ function initializeNpc()
     -- 11: Quest 1 solved
     -- 12: Game over
     -- Debugging
-    AddTraderTrigger("set 0","Quest status set to 0");
-    AddConsequence("qpg","=",0);
-    AddTraderTrigger("set 11","Quest status set to 11");
-    AddConsequence("qpg","=",11);
+    npcs.base.autonpcfunctions.AddTraderTrigger("set 0","Quest status set to 0");
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",0);
+    npcs.base.autonpcfunctions.AddTraderTrigger("set 11","Quest status set to 11");
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",11);
     -- Help
-    AddTraderTrigger("Help","");
-    AddConsequence("inform","[Game Help] Just say 'quest'. set 0 or set 11 sets your queststatus accordingly.");
-    AddTraderTrigger("Hilfe","");
-    AddConsequence("talk","end");
+    npcs.base.autonpcfunctions.AddTraderTrigger("Help","");
+    npcs.base.autonpcfunctions.AddConsequence("inform","[Game Help] Just say 'quest'. set 0 or set 11 sets your queststatus accordingly.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
+    npcs.base.autonpcfunctions.AddConsequence("talk","end");
     -- 1st quest: Kill 10 mummies.
-    AddTraderTrigger("quest","Kill ten mummies (101-107), plz. Then say 'quest' again.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",0);
-    AddConsequence("qpg","=",1);
-    AddConsequence("inform","[New quest] Smash' em, dude");
-    AddTraderTrigger("quest","THX 4 killing mummies.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",11);
-    AddConsequence("inform","[Quest solved] U rule.");
-    AddConsequence("qpg","=",12);
-    AddTraderTrigger("quest","U already solved quest, noob. Say set 0 to start over.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",12);
-    AddTraderTrigger("quest","U have 2 kill moar mummies, noob.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",0);
-    AddCondition("qpg","<",11);
-    AddCycleText("Frag mich nach einer Queste.","Ask me 4 quest, pl0x.");
-    AddCycleText("GTFO noob","GTFO noob");
+    npcs.base.autonpcfunctions.AddTraderTrigger("quest","Kill ten mummies (101-107), plz. Then say 'quest' again.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("mission");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",0);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",1);
+    npcs.base.autonpcfunctions.AddConsequence("inform","[New quest] Smash' em, dude");
+    npcs.base.autonpcfunctions.AddTraderTrigger("quest","THX 4 killing mummies.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("mission");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",11);
+    npcs.base.autonpcfunctions.AddConsequence("inform","[Quest solved] U rule.");
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",12);
+    npcs.base.autonpcfunctions.AddTraderTrigger("quest","U already solved quest, noob. Say set 0 to start over.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("mission");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",12);
+    npcs.base.autonpcfunctions.AddTraderTrigger("quest","U have 2 kill moar mummies, noob.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("mission");
+    npcs.base.autonpcfunctions.AddCondition("qpg",">",0);
+    npcs.base.autonpcfunctions.AddCondition("qpg","<",11);
+    npcs.base.autonpcfunctions.AddCycleText("Frag mich nach einer Queste.","Ask me 4 quest, pl0x.");
+    npcs.base.autonpcfunctions.AddCycleText("GTFO noob","GTFO noob");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0,1};
     TradStdLang=0;
 
-    increaseLangSkill(TradSpeakLang);
+    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if LangOK(originator,TradSpeakLang) then
-            TellSmallTalk(message,originator);
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
+            npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
         else
-            Confused(
+            npcs.base.autonpcfunctions.Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

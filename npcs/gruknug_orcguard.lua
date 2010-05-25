@@ -24,141 +24,141 @@ function initializeNpc()
         return true;
     end
 
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
 
-	AddCycleText("#me stiert mit seinen gelblich schimmernden Augen in die vom Plätschern des Baches erfüllte Höhle.","#me stares with yellowish glimming eyes into the dark cave.");
-	AddCycleText("#me kratzt sich am kahlen Kopf","#me scratches his pale head.");
-	AddCycleText("#me wirft dir einen aufmerksamen Blick zu, jede deiner Bewegungen für einige Augenblicke wahrnehmend.","#me glances at you with attentive gaze, watching any single movement of you for a few moments.");
+	npcs.base.autonpcfunctions.AddCycleText("#me stiert mit seinen gelblich schimmernden Augen in die vom Plätschern des Baches erfüllte Höhle.","#me stares with yellowish glimming eyes into the dark cave.");
+	npcs.base.autonpcfunctions.AddCycleText("#me kratzt sich am kahlen Kopf","#me scratches his pale head.");
+	npcs.base.autonpcfunctions.AddCycleText("#me wirft dir einen aufmerksamen Blick zu, jede deiner Bewegungen für einige Augenblicke wahrnehmend.","#me glances at you with attentive gaze, watching any single movement of you for a few moments.");
 
-   	AddTraderTrigger("[Gg]rü[sß]","Ullo."); 
-    AddAdditionalTrigger("[Hh]allo"); 
-    AddAdditionalTrigger("[Gg]rue[sß]"); 
-    AddAdditionalTrigger("[Tt]a[gc].*"); 
-    AddAdditionalText("Ullo!"); 
-    AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald."); 
-    AddAdditionalTrigger("[Gg]ötter.+euch"); 
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald"); 
-    AddAdditionalTrigger("[Aa]uf.+[Bb]ald"); 
-    AddAdditionalTrigger("[Ff]ünf.+euch"); 
-    AddTraderTrigger("[Ww]er [bs][ie][si][td] [di][uh].*","Mir Wache sein für Orktor! Keine Ratte hier rein kommen ohne dass "..thisNPC.name.." merken!"); 
-    AddAdditionalTrigger("[Ww]ie.+[Nn]ame"); 
-    AddTraderTrigger("[Hh]ilfe",""..thisNPC.name.." dir nur kann öffnen Tor! Muss bewachen Tor! Frag anderen Bruder oder Schwester für andere Sachen!"); 
-    AddTraderTrigger("[Ww]as.+[Mm]ach.*t",""..thisNPC.name.." öffnen und schließen Orktor! Du wollen rein oder raus? Dann du mir sagen Losungswort!"); 
-    AddTraderTrigger("[Ll]osung.*[Ww]ort","#me grunzt verärgert 'Du denken "..thisNPC.name.." Maden im Kopf haben? Ich dir nicht sagen Wort! Mir nur hören auf Brüder und Schwester, die wissen Wort!'"); 
-    AddTraderTrigger("[Hh]eilig.*[Bb]erg","Dies hier sein Heiliger Berg, yubba! Heiliger Berg von Vater!"); 
-
-
-   	AddTraderTrigger("[Gg]reeting","Greebas!"); 
-    AddAdditionalTrigger("[Hh]ello"); 
-    AddAdditionalTrigger("Gr.*eebs"); 
-    AddAdditionalTrigger("Gr.*eebas"); 
-    AddAdditionalText("Greebs"); 
-   	AddTraderTrigger("[Gg]oodbye","Farrebas."); 
-    AddAdditionalTrigger("[Bb]ye"); 
-    AddAdditionalTrigger("[Ff]ar.*e.*well"); 
-    AddAdditionalTrigger("[Ff]ar.*ebas"); 
-    AddAdditionalTrigger("[Ff]ive.+you"); 
-    AddAdditionalTrigger("[Ff]ive.+yoo"); 
-    AddAdditionalText("Goodbyes"); 
-  	AddTraderTrigger("[Ww]ho.+yo.+","Meh beh "..thisNPC.name..", nub single rat whub enterr orc caves witout meh sees it!"); 
-  	AddTraderTrigger("[Ww]hat.+[Nn]ame", "Meh "..thisNPC.name.."! Meh strong guard ob orc caves!"); 
-  	AddTraderTrigger("[Ww]hub.+[Nn]ame", "Meh "..thisNPC.name.."! Meh strong guard ob orc caves!"); 
-  	AddTraderTrigger("[Hh]elp",""..thisNPC.name.." nub can help yoo muchs! Ask ottur bruddah or sistah! Meh busy beh guardin...hurr, yoo hab seen rat running dere?!"); 
-  	AddTraderTrigger("[Ww]hat.+[Yy]o.*do",""..thisNPC.name.." opens and closes orc gate! Yoo wunt get in or out? Den tell meh keyword"); 
-  	AddTraderTrigger("[Kk]ey.*[Ww]ord","Yoo tink "..thisNPC.name.." stoopid beh? Meh nub tell yoo keyword! Meh just open gate fer bruddahs and sistahs whoo know word!"); 
-    AddAdditionalTrigger("[Pp]as.*word"); 
-    AddTraderTrigger("[Hh]oly.*[Mm]ountain","Yubba, dis beh holy mountain ob father! Orcs libe here since ancient times!"); 
+   	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[sß]","Ullo."); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rue[sß]"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc].*"); 
+    npcs.base.autonpcfunctions.AddAdditionalText("Ullo!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald."); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ötter.+euch"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Aa]uf.+[Bb]ald"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ünf.+euch"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er [bs][ie][si][td] [di][uh].*","Mir Wache sein für Orktor! Keine Ratte hier rein kommen ohne dass "..thisNPC.name.." merken!"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]ie.+[Nn]ame"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe",""..thisNPC.name.." dir nur kann öffnen Tor! Muss bewachen Tor! Frag anderen Bruder oder Schwester für andere Sachen!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Mm]ach.*t",""..thisNPC.name.." öffnen und schließen Orktor! Du wollen rein oder raus? Dann du mir sagen Losungswort!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ll]osung.*[Ww]ort","#me grunzt verärgert 'Du denken "..thisNPC.name.." Maden im Kopf haben? Ich dir nicht sagen Wort! Mir nur hören auf Brüder und Schwester, die wissen Wort!'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]eilig.*[Bb]erg","Dies hier sein Heiliger Berg, yubba! Heiliger Berg von Vater!"); 
 
 
-    AddTraderTrigger("buy","Tanks, meh hab eberytin' meh need."); 
-    AddTraderTrigger("sell","Meh nub sell anyting! Meh looks like merchant? Hurrr, nub!"); 
-    AddTraderTrigger("[Ww]hat.+buy","Tanks, meh hab all meh need."); 
-    AddTraderTrigger("[Ww]hat.+sell","Meh nub sell anyting! Meh do look like merchant? Hurrr, nub!"); 
-    AddTraderTrigger("[Vv]erkaufen","Mir verkaufen nichts. "..thisNPC.name.." aussehen wie Händler?"); 
-    AddTraderTrigger("[Kk]aufen","Danks, mir haben alles was Ork brauchen!"); 
-    AddTraderTrigger("[Ww]as.+verkaufst","Mir verkaufen nichts. "..thisNPC.name.." aussehen wie Händler?"); 
-    AddTraderTrigger("[Ww]as.+kaufst","Danks, mir haben alles was Ork brauchen!"); 
+   	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reeting","Greebas!"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("Gr.*eebs"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("Gr.*eebas"); 
+    npcs.base.autonpcfunctions.AddAdditionalText("Greebs"); 
+   	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Farrebas."); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ar.*e.*well"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ar.*ebas"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ive.+you"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ive.+yoo"); 
+    npcs.base.autonpcfunctions.AddAdditionalText("Goodbyes"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+yo.+","Meh beh "..thisNPC.name..", nub single rat whub enterr orc caves witout meh sees it!"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Nn]ame", "Meh "..thisNPC.name.."! Meh strong guard ob orc caves!"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hub.+[Nn]ame", "Meh "..thisNPC.name.."! Meh strong guard ob orc caves!"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]elp",""..thisNPC.name.." nub can help yoo muchs! Ask ottur bruddah or sistah! Meh busy beh guardin...hurr, yoo hab seen rat running dere?!"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Yy]o.*do",""..thisNPC.name.." opens and closes orc gate! Yoo wunt get in or out? Den tell meh keyword"); 
+  	npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]ey.*[Ww]ord","Yoo tink "..thisNPC.name.." stoopid beh? Meh nub tell yoo keyword! Meh just open gate fer bruddahs and sistahs whoo know word!"); 
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Pp]as.*word"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]oly.*[Mm]ountain","Yubba, dis beh holy mountain ob father! Orcs libe here since ancient times!"); 
+
+
+    npcs.base.autonpcfunctions.AddTraderTrigger("buy","Tanks, meh hab eberytin' meh need."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("sell","Meh nub sell anyting! Meh looks like merchant? Hurrr, nub!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","Tanks, meh hab all meh need."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","Meh nub sell anyting! Meh do look like merchant? Hurrr, nub!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]erkaufen","Mir verkaufen nichts. "..thisNPC.name.." aussehen wie Händler?"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]aufen","Danks, mir haben alles was Ork brauchen!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkaufst","Mir verkaufen nichts. "..thisNPC.name.." aussehen wie Händler?"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kaufst","Danks, mir haben alles was Ork brauchen!"); 
 
 
 --TRIGGER FUER LOCATIONS ENGLISCH    
-    AddTraderTrigger("[Gg]obaith","Tis whole island beh called Gobaith. Nice place, yubba! Good hunting grounds here beh near holy mountain!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Gg]obiath","Tis whole island beh called Gobaith. Nice place, yubba! Good hunting grounds here beh near holy mountain!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Gg]reenbriar","Greenbriar beh small settlement ob tiny and tasty Halflings. Albays good turr go dere fer snack. *he laughs*"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Hh]arbo.*r","Oomie town Troll's Bane and Vanima both hab harbors. The one southwest ob oomie town beh bigger though. Beddur nub go turr smelly elfie island!"); 
-    AddTraderTrigger("[Hh]ellbriar","Hellbriar wus place ob sum servants ob our 'father' in past. Buts dere nub any orcs beh in dis Cult anymor', so father left dem alone and dey all got smashed, dey say."); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Mm]agic [Aa]cademy","Yoo nub wunt go dere! Smelly mages beh dere. Dey nub honorable warriors beh but cowards! Dey whub burrrn yoo... ib yoo lucky beh!"); 
-    AddTraderTrigger("[Mm]age [Aa]cademy","Yoo nub wunt go dere! Smelly mages beh dere. Dey nub honorable warriors beh but cowards! Dey whub burn yoo only ib yoo lucky beh!"); 
-    AddTraderTrigger("[Nn]orthmark","Dey lib on ottur side ob island far in west. Dey hab strrong warriors meh hab heard! And best beh dat dey nub like magic neithurrr - jus' bit like orcs, hurrr."); 
-    AddTraderTrigger("[Ss]ilverbrand","Dis beh stumpie town. Dey hab best smithes on isle, still dey beh hairy stumpies. Meh whub tink twice befor' going into deir halls!"); 
-    AddTraderTrigger("[Vv]anima","Tol Vanima ? Dis beh island full ob flowers, trees and elfies. Beddur avoid going dere! Dey nub like visitors!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Tt]roll['s].*[Bb]ane","Oomie town Troll's Bane beh biggest town on Gobaith. Though, orcs ususally get in trouble in dere! Beh careful when passing town gates!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Vv]arshikar","Desert town Varshikar nub beh far abay from here, just short walk to southeast! Orcs hab peace wit dem! Treat dem fair and dey whub treat yoo fair toos! But beh careful ob mages in desert town!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Dd]esert.*town","Desert town Varshikar nub beh far abay from here, just short walk to southeast! Orcs hab peace wit dem! Treat dem fair and dey whub treat yoo fair toos! But beh careful ob mages in desert town!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obaith","Tis whole island beh called Gobaith. Nice place, yubba! Good hunting grounds here beh near holy mountain!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obiath","Tis whole island beh called Gobaith. Nice place, yubba! Good hunting grounds here beh near holy mountain!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reenbriar","Greenbriar beh small settlement ob tiny and tasty Halflings. Albays good turr go dere fer snack. *he laughs*"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]arbo.*r","Oomie town Troll's Bane and Vanima both hab harbors. The one southwest ob oomie town beh bigger though. Beddur nub go turr smelly elfie island!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ellbriar","Hellbriar wus place ob sum servants ob our 'father' in past. Buts dere nub any orcs beh in dis Cult anymor', so father left dem alone and dey all got smashed, dey say."); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]agic [Aa]cademy","Yoo nub wunt go dere! Smelly mages beh dere. Dey nub honorable warriors beh but cowards! Dey whub burrrn yoo... ib yoo lucky beh!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]age [Aa]cademy","Yoo nub wunt go dere! Smelly mages beh dere. Dey nub honorable warriors beh but cowards! Dey whub burn yoo only ib yoo lucky beh!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]orthmark","Dey lib on ottur side ob island far in west. Dey hab strrong warriors meh hab heard! And best beh dat dey nub like magic neithurrr - jus' bit like orcs, hurrr."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ilverbrand","Dis beh stumpie town. Dey hab best smithes on isle, still dey beh hairy stumpies. Meh whub tink twice befor' going into deir halls!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]anima","Tol Vanima ? Dis beh island full ob flowers, trees and elfies. Beddur avoid going dere! Dey nub like visitors!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]roll['s].*[Bb]ane","Oomie town Troll's Bane beh biggest town on Gobaith. Though, orcs ususally get in trouble in dere! Beh careful when passing town gates!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]arshikar","Desert town Varshikar nub beh far abay from here, just short npcs.base.autonpcfunctions.walk to southeast! Orcs hab peace wit dem! Treat dem fair and dey whub treat yoo fair toos! But beh careful ob mages in desert town!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]esert.*town","Desert town Varshikar nub beh far abay from here, just short npcs.base.autonpcfunctions.walk to southeast! Orcs hab peace wit dem! Treat dem fair and dey whub treat yoo fair toos! But beh careful ob mages in desert town!"); 
     
 --Charakter-Trigger 
-    AddTraderTrigger("[Ff]ather","Yoo nub know father ob orcs? *he snorts* Yoo should talk turr Chief den! He whub make yoo rememburr 'fathurr' fer yoos whole life!"); 
-    AddCondition("lang","english"); 
-    AddTraderTrigger("[Kk]rull.","Krull beh great chief ob Orc Nation! Praise hims and praise fathurr!"); 
-    AddTraderTrigger("[Rr]ugh.*","Rugh... yoo talkin' bout Rugh'toh? he beh da former great chief ob Orcs ob Dar'krest!"); 
-    AddTraderTrigger("[Rr]ukka","Rukka beh strong sistah! She beh smart and looks nicy like roasted halfy."); 
-    AddTraderTrigger("[Oo]rgis","Orgis'Ug good brothurr beh! He beh good friend ob mine!"); 
-    AddTraderTrigger("[Rr]ok.*[Kk]re.*[Hh]o", "Rok beh strong and wise bruddah! He beh clan leader ob Skullcrushers!"); 
-    AddTraderTrigger("[Gg]re.*la", "Gre'la beh da most beautiful orcess meh hab ebbur seen - unfortunately she hab left da caves lon' time ago."); 
-    AddTraderTrigger("[Hh].+['][Gg]reu", "Da best smith ob orcs ob Dark'Krest beh Hu'greu! He makes sharrpest blades and thickest armorrs! Meh tinks is hands hab been blessed by fathurr!"); 
-    AddTraderTrigger("[Bb]rad.*ok.*", "Braddokk nub beh muchs around, buts he good bruddah beh anybay!"); 
-    AddTraderTrigger("[Rr]etlak", "Retlak once hab been da most honorable and strongest orc in isle. Den he hab gone mad and hang around wit too many oomies - nows he dead beh. Beddur dead orc, den flower orcs alive meh albays say."); 
-    AddTraderTrigger("[Gg]riv.*jak", "Grivijak once wus Chief ob orcs. He wus stong, yubba he wus! Buts den he hab left da isle - coward ib yoo askin meh!"); 
-    AddTraderTrigger("[Gg]abon", "Hurrr, meh only hab heard stories about mighty bruddah Gabon! He must hab been grrreat orc! Eben beddur den Chief we hab nows."); 
-    AddTraderTrigger("[Mm]urgo", "Harr, harrrr! Murrrgo - dis beh name ob da most flowery flower orc ob isle! Meh tinks he eben fears bees!"); 
-    AddTraderTrigger("[Gg]ruknug", "#me hits his own chest with his fist '"..thisNPC.name..", dis beh meh, yubba!'"); 
-    AddTraderTrigger("[Kk]ar.*kish", "Yoo talking 'bout mehs sistah, Kar'kish? She beh downstairs, guarding da othur gate!"); 
-    AddTraderTrigger("[Cc]hief", "Hurr, Chief ob orcs beh mighty bruddah Krull! Rememburr his name! He hab done muchs fer orcs, fer our clan!"); 
-    AddTraderTrigger("[Tt]urga", "Hurrr, Mighty bruddah Turga! He is grrreat orc! Eben beddur den Chief we hab nows."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]ather","Yoo nub know father ob orcs? *he snorts* Yoo should talk turr Chief den! He whub make yoo rememburr 'fathurr' fer yoos whole life!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","english"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]rull.","Krull beh great chief ob Orc Nation! Praise hims and praise fathurr!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]ugh.*","Rugh... yoo talkin' bout Rugh'toh? he beh da former great chief ob Orcs ob Dar'krest!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]ukka","Rukka beh strong sistah! She beh smart and looks nicy like roasted halfy."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Oo]rgis","Orgis'Ug good brothurr beh! He beh good friend ob mine!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]ok.*[Kk]re.*[Hh]o", "Rok beh strong and wise bruddah! He beh clan leader ob Skullcrushers!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]re.*la", "Gre'la beh da most beautiful orcess meh hab ebbur seen - unfortunately she hab left da caves lon' time ago."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh].+['][Gg]reu", "Da best smith ob orcs ob Dark'Krest beh Hu'greu! He makes sharrpest blades and thickest armorrs! Meh tinks is hands hab been blessed by fathurr!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]rad.*ok.*", "Braddokk nub beh muchs around, buts he good bruddah beh anybay!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]etlak", "Retlak once hab been da most honorable and strongest orc in isle. Den he hab gone mad and hang around wit too many oomies - nows he dead beh. Beddur dead orc, den flower orcs alive meh albays say."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]riv.*jak", "Grivijak once wus Chief ob orcs. He wus stong, yubba he wus! Buts den he hab left da isle - coward ib yoo askin meh!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]abon", "Hurrr, meh only hab heard stories about mighty bruddah Gabon! He must hab been grrreat orc! Eben beddur den Chief we hab nows."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]urgo", "Harr, harrrr! Murrrgo - dis beh name ob da most flowery flower orc ob isle! Meh tinks he eben fears bees!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]ruknug", "#me hits his own chest with his fist '"..thisNPC.name..", dis beh meh, yubba!'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]ar.*kish", "Yoo talking 'bout mehs sistah, Kar'kish? She beh downstairs, guarding da othur gate!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]hief", "Hurr, Chief ob orcs beh mighty bruddah Krull! Rememburr his name! He hab done muchs fer orcs, fer our clan!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]urga", "Hurrr, Mighty bruddah Turga! He is grrreat orc! Eben beddur den Chief we hab nows."); 
 
 --SONSTIGE TRIGGER 
-    AddTraderTrigger("[Cc]lan", "Yubba, dis beh caves ob strong orc clan! Tell meh clan name and meh whub open gate fer yoo!"); 
-    AddTraderTrigger("[Dd]eser.*t", "#me snorts 'Da desert ob Kumdah beh in south ob orc lands! Oomies and scorpies beh all yoo whub find dere. Some rich mines beh dere after all.'"); 
-    AddTraderTrigger("[Ww][üue]ste", "#me schaubt 'Wüste Kumdah in Süden sein von Orkland! Menschen und Skorpione sein alles du finden da! Die Berge immerhin haben reiche Schätze.'"); 
-    AddTraderTrigger("Or.*c.*", "#me hits his chest with his right fist and grunts 'Hurrr, Orc Nation beh strrongest! Praise father and holy mountain!'"); 
-    AddTraderTrigger("Or.*k.*", "#me schlägt mit seiner rechten Faust auf seine Brust 'Hurrr, Ork Nation die stärksten sein! Ehre für unseren Vater und heiligen Berg!'");  
-    AddTraderTrigger("Tor", "Du wollen dass mir machen Tor auf? Dann sagen Namen von Orkclan!"); 
-    AddTraderTrigger("Gate", "Yoo wunt meh open da gate? Den tell meh da name ob orc clan!"); 
-    AddTraderTrigger("Moshran", "#me growls angrily and shouts at you 'Nub tell father's name! Dis whub brring shame on us! Call him father, hurrr... and now leave meh alone!'"); 
-    AddTraderTrigger("Moshran", "#grunzt erzürnt auf und schreit dich an 'Nicht nennen Vater bei Namen! Bringt Schande über uns! Vater du ihn nennen, hurrr... und jetzt in Ruhe lassen du mich!'"); 
-    AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]lan", "Yubba, dis beh caves ob strong orc clan! Tell meh clan name and meh whub open gate fer yoo!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]eser.*t", "#me snorts 'Da desert ob Kumdah beh in south ob orc lands! Oomies and scorpies beh all yoo whub find dere. Some rich mines beh dere after all.'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww][üue]ste", "#me schaubt 'Wüste Kumdah in Süden sein von Orkland! Menschen und Skorpione sein alles du finden da! Die Berge immerhin haben reiche Schätze.'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("Or.*c.*", "#me hits his chest with his right fist and grunts 'Hurrr, Orc Nation beh strrongest! Praise father and holy mountain!'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("Or.*k.*", "#me schlägt mit seiner rechten Faust auf seine Brust 'Hurrr, Ork Nation die stärksten sein! Ehre für unseren Vater und heiligen Berg!'");  
+    npcs.base.autonpcfunctions.AddTraderTrigger("Tor", "Du wollen dass mir machen Tor auf? Dann sagen Namen von Orkclan!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("Gate", "Yoo wunt meh open da gate? Den tell meh da name ob orc clan!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("Moshran", "#me growls angrily and shouts at you 'Nub tell father's name! Dis whub brring shame on us! Call him father, hurrr... and now leave meh alone!'"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("Moshran", "#grunzt erzürnt auf und schreit dich an 'Nicht nennen Vater bei Namen! Bringt Schande über uns! Vater du ihn nennen, hurrr... und jetzt in Ruhe lassen du mich!'"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
     
     
     
 --TRIGGER FÜR LOCATIONS DEUTSCH 
-    AddTraderTrigger("[Gg]obiath","Insel genannt wird Gobaith. Gute Gegend für Orks! Gute Jagdgründe hier sind in Nähe von heiligem Berg!"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Gg]obaith","Ja, diese Insel genannt wird Gobaith. Gute Gegend für Orks! Gute Jagdgründe hier sind in Nähe von heiligem Berg!"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Gg]reenbriar","Greenbriar kleine Siedlung ist, bewohnt von klein und lecker Halblings. Immer gut da hin gehen für Leckerbissen. *er lacht grunzend auf*"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Hh]afen","Hafen sein im Süden von Menschenstadt Troll's Bane. Auch stinkende Elfeninsel haben Hafen. Aber Wasser nix für Orkse ist, hurr!"); 
-    AddTraderTrigger("[Hh]ellbriar","Hellbriarkult war von Anhängern von unser 'Vater'! Aber alle Orks haben verlassen Kult! Nicht gut er mehr ist. Nur Unheil bringen über orks, wenn du mich fragen."); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Mm]agierakademie","Du besser nicht gehen besuchen Magier! Sie keine Ehre haben und keinen Spaß verstehen. Sie dich gleich verbrennen oder verwandeln in Kröte mit bloßem Blick!"); 
-    AddTraderTrigger("[Nn]ordmark","Die Nordmarkmänner gute Menschen sein! Wie Orks sie nicht mögen Magie! Auch Nordmarkfrauen mit Waffen umgeh'n könn'! Trotzdem sie stinkende Menschen bleiben!"); 
-    AddTraderTrigger("[Ss]ilberbrand","Zwergenstadt groß und heiß sein. Schmelzofen laufen ganzen Tag und Hammerschläge erfüllen Hallen immer mit Lärm. Wenn nicht Zerge wären da, schöner Ort es wäre."); 
-    AddTraderTrigger("[Vv]anima","Hurr! Fern bleiben du von dieser stinkenden Elfeninsel! Nur Unheil auf Orks dort warten!"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Tt]roll['s].*[Bb]ane","Menschenstadt in Mitte der Insel du fragen nach? Groß und hässlich sie sein! Orkse nicht gern gesehen dort! Nim Waffen mit, wenn du in Stadt müssen!"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Vv]arshikar","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!"); 
-    AddCondition("lang","german"); 
-    AddTraderTrigger("[Ww]üstenstadt","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!"); 
-    AddTraderTrigger("[Ww]uestenstadt","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obiath","Insel genannt wird Gobaith. Gute Gegend für Orks! Gute Jagdgründe hier sind in Nähe von heiligem Berg!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obaith","Ja, diese Insel genannt wird Gobaith. Gute Gegend für Orks! Gute Jagdgründe hier sind in Nähe von heiligem Berg!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reenbriar","Greenbriar kleine Siedlung ist, bewohnt von klein und lecker Halblings. Immer gut da hin gehen für Leckerbissen. *er lacht grunzend auf*"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]afen","Hafen sein im Süden von Menschenstadt Troll's Bane. Auch stinkende Elfeninsel haben Hafen. Aber Wasser nix für Orkse ist, hurr!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ellbriar","Hellbriarkult war von Anhängern von unser 'Vater'! Aber alle Orks haben verlassen Kult! Nicht gut er mehr ist. Nur Unheil bringen über orks, wenn du mich fragen."); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]agierakademie","Du besser nicht gehen besuchen Magier! Sie keine Ehre haben und keinen Spaß verstehen. Sie dich gleich verbrennen oder verwandeln in Kröte mit bloßem Blick!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]ordmark","Die Nordmarkmänner gute Menschen sein! Wie Orks sie nicht mögen Magie! Auch Nordmarkfrauen mit Waffen umgeh'n könn'! Trotzdem sie stinkende Menschen bleiben!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ilberbrand","Zwergenstadt groß und heiß sein. Schmelzofen laufen ganzen Tag und Hammerschläge erfüllen Hallen immer mit Lärm. Wenn nicht Zerge wären da, schöner Ort es wäre."); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]anima","Hurr! Fern bleiben du von dieser stinkenden Elfeninsel! Nur Unheil auf Orks dort warten!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]roll['s].*[Bb]ane","Menschenstadt in Mitte der Insel du fragen nach? Groß und hässlich sie sein! Orkse nicht gern gesehen dort! Nim Waffen mit, wenn du in Stadt müssen!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]arshikar","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!"); 
+    npcs.base.autonpcfunctions.AddCondition("lang","german"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]üstenstadt","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!"); 
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]uestenstadt","Wüstenstadt nicht fern von hier. Meisten Wesen dort dumm und stinkig - aber Clanführer, Grrrypus, Ehre haben! Sei gut zu Wüstenvolk, dann sie gut zu Orks sind!");
 
 
 
@@ -166,7 +166,7 @@ function initializeNpc()
     TradSpeakLang={0,5};
     TradStdLang=0;
 
-    increaseLangSkill(TradSpeakLang);
+    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 	doorapos=position( 188, -444, 1);
@@ -176,40 +176,40 @@ end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
  
-    if BasicNPCChecks(originator,2) then  --Npc wird aus nächster Nähe angesprochen
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then  --Npc wird aus nächster Nähe angesprochen
 		  if (originator.activeLanguage==5) then --If the Character speaks orcisch then...
 			if (mainTask(message,originator)~=true) then
-			    TellSmallTalk(message,originator);
+			    npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
 			end
 		  elseif (originator.activeLanguage==0) then --If the Character. speaks Common then
 				if (standardAnswer(message,1) or standardAnswer(message,2)) then --true password but wrong language
 					gText="Du sprechen orkisch zu mir, wenn ich soll anfassen Orktor zu heiligem Berg!";  --HIER DIE TEXTE SCHREIBEN DIE DER NPC SAGT FALLS DAS LOSUNGSWORT RICHTIG; ABER NICHT AUF ORKISCH IST
 					eText="Speak orcish ib yoo wunt meh touch da gate turr holy mountain!";
-					outText=base.common.GetNLS(originator,gText,eText);
-					NPCTalking(thisNPC,outText);
+					outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+					npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				else
-					TellSmallTalk(message,originator);
+					npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
 				end
 		  else --WENN EINE ANDERE SPRACHE GESPROCHEN WURDE DANN(zum Beispiel antik )
-				Confused(
+				npcs.base.autonpcfunctions.Confused(
 				"#me grunzt dich an, als er ob deine Sprache offenbar nicht versteht.",
 				"#me grunts at you as he apparently does not understand you language."
 				);
 		  end
-	elseif BasicNPCChecks(originator,8) then --Npc wird aus mehreren Schritten Entfernung angesprochen
+	elseif npcs.base.autonpcfunctions.BasicNPCChecks(originator,8) then --Npc wird aus mehreren Schritten Entfernung angesprochen
 		  if (originator.activeLanguage==5) then --If the Character speaks orcisch then...
 			mainTask(message, originator);
 		  elseif (originator.activeLanguage==0) then --If the Character. speaks Common then
 				if (standardAnswer(message,1) or standardAnswer(message,2)) then --true password but wrong language
 					gText="Du sprechen orkisch zu mir, wenn ich soll anfassen Orktor zu heiligem Berg!";  --HIER DIE TEXTE SCHREIBEN DIE DER NPC SAGT FALLS DAS LOSUNGSWORT RICHTIG; ABER NICHT AUF ORKISCH IST
 					eText="Speak orcish ib yoo wunt meh touch da gate turr holy mountain!";
-					outText=base.common.GetNLS(originator,gText,eText);
-					NPCTalking(thisNPC,outText);
+					outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+					npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				end
 		  end
 	end
@@ -265,8 +265,8 @@ function mainTask(message, originator)
 		if (doora.id==666 and doorb.id==670) then--door already opened
 			gText="Dummer Ork, Tor sein auf!";
 			eText="Stoopid orc, da gate alrrready beh open!";
-			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+			outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+			npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 		else
 			base.keys.UnlockDoor( doora ); --Tor entriegeln
 			base.keys.UnlockDoor( doorb );
@@ -278,8 +278,8 @@ function mainTask(message, originator)
 
 			gText="#me öffnet schwerfällig das Tor wodurch die Höhle mit einem markerschütternden Knarren erfüllt wird.";
 			eText="#me opens the gate. The whole cave is fillied with a loud noise.";
-			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+			outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+			npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 		end
 		return true;
 	elseif (standardAnswer(message,2)) then --Close gate
@@ -288,14 +288,14 @@ function mainTask(message, originator)
 		if (doora.id==654 and doorb.id==658) then --If both doors are already closed then...
 			gText="Du keine Augen in deinem stinkigen Kopf haben? Tor sein schon zu!";
 			eText="Yoo nub hab eyes in yoos smelly head? Da gate alrrready beh closed!";
-			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+			outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+			npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 		else	
 			if ( world:isCharacterOnField(doorapos) or world:isCharacterOnField(doorbpos)) then -- Is a char. on the position of the doors?
 				gText="Ich nix können Tor zumachen wenn da jemand rumstehen!";
                 eText="Me nub can close dat gate when someone standing there!";
-                outText=base.common.GetNLS(originator,gText,eText);
-		        NPCTalking(thisNPC,outText);	
+                outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+		        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);	
 			else
 				CloseDoor( doora ); --Tore schließen
 				CloseDoor( doorb );
@@ -306,8 +306,8 @@ function mainTask(message, originator)
 				base.keys.LockDoor( doorb );
 				gText="#me lässt die Flügel des Tores krachend zufallen und sperrt ab."; --HIER DIE TEXTE REINSCHREIBEN DIE BEIM ZUMACHEN KOMMEN SOLLEN
 				eText="#me shuts the gate crashing then locks it.";
-				outText=base.common.GetNLS(originator,gText,eText);
-				NPCTalking(thisNPC,outText);
+				outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			end
 		end
 		return true;

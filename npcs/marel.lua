@@ -10,7 +10,7 @@
 
 --	dofile("npc_nanginis_nargunpriest.lua");
 require("base.common")
-dofile("npc_autonpcfunctions.lua") --für die Funktion increaseLangSkill
+dofile("npc_autonpcfunctions.lua") --für die Funktion npcs.base.autonpcfunctions.increaseLangSkill
 
 function nextCycle()
 end
@@ -37,7 +37,7 @@ function receiveText(texttype, message, originator)
 
 --[[	if not FirstTime then
 		TradStdLang=0;
-	    increaseLangSkill(TradSpeakLang);
+	    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
 	    thisNPC.activeLanguage=TradStdLang;
 	    FirstTime=true;
     end

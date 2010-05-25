@@ -14,40 +14,40 @@ function initializeNpc()
         return true;
     end
 
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
 
     QuestID = 0815;
-    AddTraderTrigger("gimme %NUMBER","Sure dude, here you have %NUMBER coins.");
-    AddConsequence("money","+","%NUMBER");
-    AddTraderTrigger("%NUMBER","You have less than %NUMBER coins.");
-    AddCondition("money","<","%NUMBER");
-    AddTraderTrigger("%NUMBER","You have more than %NUMBER coins.");
-    AddCondition("money",">","%NUMBER");
-    AddTraderTrigger("%NUMBER","You have exactly %NUMBER coins.");
-    AddCondition("money","=","%NUMBER");
-    AddTraderTrigger("%NUMBER","Erm, something is wrong here.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("gimme %NUMBER","Sure dude, here you have %NUMBER coins.");
+    npcs.base.autonpcfunctions.AddConsequence("money","+","%NUMBER");
+    npcs.base.autonpcfunctions.AddTraderTrigger("%NUMBER","You have less than %NUMBER coins.");
+    npcs.base.autonpcfunctions.AddCondition("money","<","%NUMBER");
+    npcs.base.autonpcfunctions.AddTraderTrigger("%NUMBER","You have more than %NUMBER coins.");
+    npcs.base.autonpcfunctions.AddCondition("money",">","%NUMBER");
+    npcs.base.autonpcfunctions.AddTraderTrigger("%NUMBER","You have exactly %NUMBER coins.");
+    npcs.base.autonpcfunctions.AddCondition("money","=","%NUMBER");
+    npcs.base.autonpcfunctions.AddTraderTrigger("%NUMBER","Erm, something is wrong here.");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0,1};
     TradStdLang=0;
 
-    increaseLangSkill(TradSpeakLang);
+    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if LangOK(originator,TradSpeakLang) then
-            TellSmallTalk(message,originator);
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
+            npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
         else
-            Confused(
+            npcs.base.autonpcfunctions.Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

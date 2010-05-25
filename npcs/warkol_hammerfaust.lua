@@ -23,54 +23,54 @@ end
 
 
 function initializeNpc()
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
 QuestID= 2
 
-AddTraderTrigger("[Hh]allo","Tach, ich bin %NPCNAME der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
-AddAdditionalTrigger("[Gg]r[ueü][sß]+");
-AddAdditionalTrigger("[Tt]a[gc]+");
-AddAdditionalText("Grüß dich, mein Name ist %NPCNAME, ich bin der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Tach, ich bin %NPCNAME der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]r[ueü][sß]+");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[gc]+");
+npcs.base.autonpcfunctions.AddAdditionalText("Grüß dich, mein Name ist %NPCNAME, ich bin der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Kk][aä]mpf","Du willst kämpfen? Ich könnte dir höchstens eine Ausrüstung verkaufen. Willst du eine Kampfausrüstung kaufen?");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Kk][aä]mpf","Du willst kämpfen? Ich könnte dir höchstens eine Ausrüstung verkaufen. Willst du eine Kampfausrüstung kaufen?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Rr][ueü]stung","Willst du eine meiner Kampfausrüstungen kaufen?");
-AddConsequence("qpg","=",27);
-AddTraderTrigger("[Hh]ilfe","Wenn du eine Kampfausrüstung kaufen willst dann frag mich einfach danach, falls du allerdings nochmal einige Grundfunktionen wie das Reden oder Objekte bewegen wiederholen willst solltest du nochmal zu 'Henry' dem ersten NPC gehen.");
-AddConsequence("qpg","=",27);
-AddTraderTrigger("[Hh]elp","If you want to buy a fighting equipment then I am the right person ,just ask for it, if you want to repeat some basic things like talking and moving of objects you should go back to 'Henry' the first NPC.");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Rr][ueü]stung","Willst du eine meiner Kampfausrüstungen kaufen?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Wenn du eine Kampfausrüstung kaufen willst dann frag mich einfach danach, falls du allerdings nochmal einige Grundfunktionen wie das Reden oder Objekte bewegen wiederholen willst solltest du nochmal zu 'Henry' dem ersten NPC gehen.");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]elp","If you want to buy a fighting equipment then I am the right person ,just ask for it, if you want to repeat some basic things like talking and moving of objects you should go back to 'Henry' the first NPC.");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Hh]i","Tach, ich bin %NPCNAME, der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
-AddCondition("lang","german");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]i","Tach, ich bin %NPCNAME, der Bruder von Nargon und Waffenschmied. Hast du vielleicht Interesse an einer Kampfausrüstung?");
+npcs.base.autonpcfunctions.AddCondition("lang","german");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Hh]i","Greetings, I am %NPCNAME, the brother of Nargon and armorer. Are you interested in buying a fighting equipment?");
-AddCondition("lang","english");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]i","Greetings, I am %NPCNAME, the brother of Nargon and armorer. Are you interested in buying a fighting equipment?");
+npcs.base.autonpcfunctions.AddCondition("lang","english");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Hh]ello","Greetings, I am %NPCNAME, the brother of Nargon and armorer. Are you interested in buying a fighting equipment?");
-AddAdditionalTrigger("[Gg]reeting");
-AddAdditionalText("Hello, my name is %NPCNAME, I am the brother of Nargon and armorer. Do ya' want to buy a fighting equipment?");
-AddConsequence("qpg","=",27);
-AddTraderTrigger("[Ff]ight","You want to fight? I could sell ya' at most a fighting equipment. Are you interested in buying a fighting equipment?");
-AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Greetings, I am %NPCNAME, the brother of Nargon and armorer. Are you interested in buying a fighting equipment?");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reeting");
+npcs.base.autonpcfunctions.AddAdditionalText("Hello, my name is %NPCNAME, I am the brother of Nargon and armorer. Do ya' want to buy a fighting equipment?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]ight","You want to fight? I could sell ya' at most a fighting equipment. Are you interested in buying a fighting equipment?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
 
-AddTraderTrigger("[Aa]rmo[ur]","Are you interested in buying one of my fighting equipments?");
-AddConsequence("qpg","=",27);
-AddTraderTrigger("[Bb]ye","Bye");
-AddAdditionalTrigger("[Ff]arewell");
-AddAdditionalText("Farewell");
-AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-AddAdditionalTrigger("[Tt]schüss");
-AddAdditionalText("Auf bald");
-AddTraderTrigger(".+","Tut mir Leid, hab dich gerade nich verstanden. Sag einfach 'Hilfe', wenn du nicht weißt was zu tun ist.");
-AddCondition("lang","german");
-AddTraderTrigger(".+","I am sorry, I didn't understand you. Say 'help' if you don't know what to do.");
-AddCondition("lang","english");
+npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]rmo[ur]","Are you interested in buying one of my fighting equipments?");
+npcs.base.autonpcfunctions.AddConsequence("qpg","=",27);
+npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Bye");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
+npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]schüss");
+npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+npcs.base.autonpcfunctions.AddTraderTrigger(".+","Tut mir Leid, hab dich gerade nich verstanden. Sag einfach 'Hilfe', wenn du nicht weißt was zu tun ist.");
+npcs.base.autonpcfunctions.AddCondition("lang","german");
+npcs.base.autonpcfunctions.AddTraderTrigger(".+","I am sorry, I didn't understand you. Say 'help' if you don't know what to do.");
+npcs.base.autonpcfunctions.AddCondition("lang","english");
 
     TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
     TradStdLang=0;
@@ -92,7 +92,7 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
     
@@ -140,15 +140,15 @@ function nextCycle()  -- ~10 times per second
 			 end
 	end
     
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
   Progress=originator:getQuestProgress(2);
-  if BasicNPCChecks(originator,2) then
+  if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
         thisNPC.activeLanguage=originator.activeLanguage;
 		
-        if (Progress==24 or Progress==25) then TellSmallTalk(message, originator); --Triggermessages,Char. meets the NPC for the first time
+        if (Progress==24 or Progress==25) then npcs.base.autonpcfunctions.TellSmallTalk(message, originator); --Triggermessages,Char. meets the NPC for the first time
 
         elseif Progress==27 then
                 if (string.find(message,"[Jj]a")~=nil or string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]icher")~=nil or string.find(message,"[Ss]ure")~=nil or
@@ -161,20 +161,20 @@ function receiveText(texttype, message, originator)
                             originator:createItem(2291,1,688,0);--salk. Paladinhelm
                             originator:createItem(4,1,688,0);--Plattenpanzer
                             originator:createItem(2701,1,688,0);--Langschwert
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Hier deine Ausrüstung und danke für das Geld.";
                             eText="Here your armor and thanks for the money.";
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Soll ick dir zeigen wie man die Ausrüstung anlegt?";
                             eText="Shall I show you how to put on the armor?";
                             originator:setQuestProgress(2,28);
                         else
                             gText="Du hast nich genug Geld dabei. Eine Ausrüstung kostet mindestens 50 Kupferstücke.";
                             eText="You don't have enough money with you. A fighting equipment costs at least 50 copper coins.";
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Komm erst wieder her wenn du mehr Geld von meinem Bruder bekommen hast.";
                             eText="Come only again if you have got more coins from my brother.";
                             originator:setQuestProgress(2,25);
@@ -199,16 +199,16 @@ function receiveText(texttype, message, originator)
                 if (string.find(message,"[Jj]a")~=nil or string.find(message,"[Yy]es")~=nil or Progress==29) then
                         gText="Also gut, zunächst mal musst du den Helm den ich dir gegeben habe am schwarzen Feld oben rechts, auf Höhe des Kopfes des Mannes, platzieren.";
                         eText="Fine, at first you have to place the helmet I gave you at the small black box near the head of the man.";
-                        outText=base.common.GetNLS(originator,gText,eText);
-				        NPCTalking(thisNPC,outText);
+                        outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                         gText="Als nächstes musst du den Plattenpanzer am schwarzen Feld auf Höhe der Brust des Mannes platzieren.";
                         eText="At next you have to place the plate armor at the black box which is on a level with the breast of the man.";
-                        outText=base.common.GetNLS(originator,gText,eText);
-				        NPCTalking(thisNPC,outText);
+                        outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				        gText="Als letztes platzierst du das Langschwert in eines der beiden Felder auf Höhe der Hände des Mannes.";
 				        eText="At last you have to place the longsword in one of the both black boxes which are on a level with the hands of the man.";
-                        outText=base.common.GetNLS(originator,gText,eText);
-				        NPCTalking(thisNPC,outText);
+                        outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				        gText="Wenn die Felder bereits durch Gegenstände besetzt sind musst du diese vorher entfernen. Sag einfach 'Fertig' wenn ich überprüfen soll ob du alles richtig angelegt hast.";
                         eText="If the fields are already occupied by other items you have to remove them first. Just say 'Done' if you want me to check whether you have put the equipment at the right fields.";
                         originator:setQuestProgress(2,29);
@@ -237,47 +237,47 @@ function receiveText(texttype, message, originator)
                         gText="Lass mal sehen,hmmm...";
                         eText="Let me have a look at it, hmmm...";                        
                         if (retVarA==1) then
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Der Helm ist an der richtigen Stelle.";
                             eText="The helmet is at the right place.";
                         else
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Dein salkamaerscher Paladinhelm ist nicht an der richtigen Stelle (platziere den Helm am schwarzen Feld oben rechts).";
                             eText="Your salkamaerian paladin's helmet is not at the right place (place the helmet in the small black box on top on the right).";
                         end
                         if (retVarB==1) then
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Das Schwert ist an der richtigen Stelle.";
                             eText="The sword is at the right place.";
                         else
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Das Langschwert ist nicht an der richtigen Stelle (platziere das Schwert in eines der beiden schwarzen Felder auf Höhe der Hände).";
                             eText="The longsword is not at the right place (place the sword in one of the both small black boxes on high of the hands).";
                         end
                         if (retVarC==1) then
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Die Rüstung ist an der richtigen Stelle.";
                             eText="The armor is at the right place.";
                         else
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Der Plattenpanzer ist nicht an der richtigen Stelle (platziere die Rüstung am schwarzen Feld auf Höhe der Brust um sie anzuziehen).";
                             eText="The plate armor is not at the right place (place the armor in the small black box on high of the breast).";
                         end
                         if (retVarD==1) then
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Spitze, alles ist an der richtigen Stelle. Nun kannst du zu meinem Bruder Nargon gehen.";
                             eText="Great, everything is at the right place. Now you can go to my brother Nargon.";
                             originator:setQuestProgress(2,31);
                         else
-                            outText=base.common.GetNLS(originator,gText,eText);
-				            NPCTalking(thisNPC,outText);
+                            outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				            npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                             gText="Einige Ausrüstungsteile waren nicht an der richtigen Stelle, probiers nochmal und sag 'Fertig' wenn ich kontrollieren soll. Wenn ich dir erklären soll wie man die Ausrüstung anlegt sag einfach 'Erklären'.";
                             eText="Some parts of the equipment were not at the right place, try it again and say 'Done' when I shall check again. If you want to know where the several parts of the equipment have to put just say 'Explain'.";
                         end
@@ -324,16 +324,16 @@ function receiveText(texttype, message, originator)
 
 				gText="Also gut, zunächst mal musst du den Helm den ich dir gab am schwarzen Feld oben rechts, auf Höhe des Kopfes des Mannes, platzieren.";
                 eText="Fine, at first you have to place the helmet I gave you at the small black box near the head of the man.";
-                outText=base.common.GetNLS(originator,gText,eText);
-				NPCTalking(thisNPC,outText);
+                outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                 gText="Als nächstes musst du den Plattenpanzer am schwarzen Feld auf Höhe der Brust des Mannes platzieren.";
                 eText="At next you have to place the plate armor at the black box which is on a level with the breast of the man.";
-                outText=base.common.GetNLS(originator,gText,eText);
-				NPCTalking(thisNPC,outText);
+                outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				gText="Als letztes platzierst du das Langschwert in eines der beiden Felder auf Höhe der Hände des Mannes.";
 				eText="At last you have to place the longsword in one of the both black boxes which are on a level with the hands of the man.";
-                outText=base.common.GetNLS(originator,gText,eText);
-				NPCTalking(thisNPC,outText);
+                outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+				npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				gText="Wenn die Felder bereits durch Gegenstände besetzt sind musst du diese vorher per Drag&Drop in den Gürtel oder in die Tasche ziehen.";
                 eText="If the fields are already occupied by other items you have to drag&drop them first in your bag or belt.";
 
@@ -353,8 +353,8 @@ function receiveText(texttype, message, originator)
         end
 
         if (Progress~=25 and Progress~=24) then
-        		outText=base.common.GetNLS(originator,gText,eText);
-			    NPCTalking(thisNPC,outText);
+        		outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+			    npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 		end
   end
 end

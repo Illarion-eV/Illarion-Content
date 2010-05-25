@@ -26,7 +26,7 @@ function initializeNpc()
         return true;
     end
 
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
 
@@ -37,206 +37,206 @@ function initializeNpc()
     -- Queststatus 3: Char muss sich entscheiden, Annahme löst Queststatus 4 aus, Ablehnung führt zurück zu 2
 	
 	
-	SetRadius(15);
+	npcs.base.autonpcfunctions.SetRadius(15);
     QuestID = 63;
 
 	--SMALLTALK
-    AddTraderTrigger("[Gg]rüß","%CHARNAME! Ich habe einen Flo gefangen! Wollt ihr ihn sehen, er ist ganz zahm, hihihi. Nein? Wollt ihr nun doch den Segen empfangen?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalTrigger("[Gg]ruß");
-    AddAdditionalTrigger("[Tt]a[chg]");
-    AddCondition("qpg",">",1);
-    AddConsequence("talk","begin");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rüß","%CHARNAME! Ich habe einen Flo gefangen! Wollt ihr ihn sehen, er ist ganz zahm, hihihi. Nein? Wollt ihr nun doch den Segen empfangen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ruß");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[chg]");
+    npcs.base.autonpcfunctions.AddCondition("qpg",">",1);
+    npcs.base.autonpcfunctions.AddConsequence("talk","begin");
 
-	AddTraderTrigger("[Gg]rüß","Huaaah! Einen glorreichen Tag wünsche ich dir. Und viel Fisch!");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalTrigger("[Gg]ruß");
-    AddAdditionalTrigger("[Tt]a[chg]");
-    AddConsequence("talk","begin");
-	AddConsequence("inform","Vielleicht solltest du ihn genauer nach dem Fisch fragen oder zumindest in Erfahrung bringen wie er heißt.");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rüß","Huaaah! Einen glorreichen Tag wünsche ich dir. Und viel Fisch!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ruß");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]a[chg]");
+    npcs.base.autonpcfunctions.AddConsequence("talk","begin");
+	npcs.base.autonpcfunctions.AddConsequence("inform","Vielleicht solltest du ihn genauer nach dem Fisch fragen oder zumindest in Erfahrung bringen wie er heißt.");
 	
-    AddTraderTrigger("[Ff]isch","Oh ja! Mein 'Herr' liebt Fisch! Und 'Schneestürme'!");
-    AddAdditionalText("Fisch ist die Antwort, alles 'Chaos' leitet sich aus dem Fisch ab!");
-    AddConsequence("inform","Du fragst dich was er wohl damit meint.");
-    AddTraderTrigger("[Ss]chneest[uü]rm.*","Nichts erfreut meinen Herren 'Nargun' mehr als etwas unvorhersehbare unbändige Zerstörung, nicht wahr? Hihihi.");
-    AddAdditionalTrigger("[Cc]haos");
-    AddTraderTrigger("[Hh]err","Gepriesen sei mein Herr 'Nargun'! Oder auch nicht, oder anders, oder überhaupt.");
-    AddAdditionalTrigger("[Gg]ott");
-    --AddCondition("lang","german");
-    AddTraderTrigger("[Pp]riester","In der Tat! Ich bin ein Priester meines Gottes, für eine kleine Spende lass ich dich an seinem 'Segen' teilhaben, wie siehts aus?");
-    AddTraderTrigger("[Ww]er bist","Nanginis! Nennt mich einfach Nanginis! 'Nargun' hat mir diesen Namen in einer Vision geschickt, aber unter uns, eigentlich heiße ich Peter. Hihihi.");
-    AddAdditionalTrigger("[Ww]er seid");
-    AddAdditionalTrigger("[Ww]ie hei[ßs]t");
-    AddAdditionalTrigger("[Ww]ie [Nn]ame");
-    AddTraderTrigger("[Vv]ision","Ja! Es hat nur 10 Krüge Zwergenbräu gebraucht um 'Nargun' gnädig zu stimmen mit mir zu sprechen. Der bittere Geschmack liegt mir noch immer auf der Zunge!");
-    AddCondition("lang","german");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]isch","Oh ja! Mein 'Herr' liebt Fisch! Und 'Schneestürme'!");
+    npcs.base.autonpcfunctions.AddAdditionalText("Fisch ist die Antwort, alles 'Chaos' leitet sich aus dem Fisch ab!");
+    npcs.base.autonpcfunctions.AddConsequence("inform","Du fragst dich was er wohl damit meint.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]chneest[uü]rm.*","Nichts erfreut meinen Herren 'Nargun' mehr als etwas unvorhersehbare unbändige Zerstörung, nicht wahr? Hihihi.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Cc]haos");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]err","Gepriesen sei mein Herr 'Nargun'! Oder auch nicht, oder anders, oder überhaupt.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ott");
+    --npcs.base.autonpcfunctions.AddCondition("lang","german");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]riester","In der Tat! Ich bin ein Priester meines Gottes, für eine kleine Spende lass ich dich an seinem 'Segen' teilhaben, wie siehts aus?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er bist","Nanginis! Nennt mich einfach Nanginis! 'Nargun' hat mir diesen Namen in einer Vision geschickt, aber unter uns, eigentlich heiße ich Peter. Hihihi.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]er seid");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]ie hei[ßs]t");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]ie [Nn]ame");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]ision","Ja! Es hat nur 10 Krüge Zwergenbräu gebraucht um 'Nargun' gnädig zu stimmen mit mir zu sprechen. Der bittere Geschmack liegt mir noch immer auf der Zunge!");
+    npcs.base.autonpcfunctions.AddCondition("lang","german");
     
-    AddTraderTrigger("[Ww]as mach","Hört die Unke rufen, sie berufen euch und machen auch viel! Hihi nein, berufen bin ich die Worte Narguns zu verkünden und seinen Segen zu verbreiten.");
-    AddAdditionalTrigger("[Bb]eruf");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as mach","Hört die Unke rufen, sie berufen euch und machen auch viel! Hihi nein, berufen bin ich die Worte Narguns zu verkünden und seinen Segen zu verbreiten.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]eruf");
 	
 	
     
-    AddTraderTrigger("[Jj]a","Für eine Spende von 5 Silberstücken hast du die Chance auf etwas Besonderes! Also, hast du Interesse?");
-    AddAdditionalTrigger("[Ee]rzähl");
-    AddAdditionalTrigger("[Ss]egnung");
-    AddCondition("qpg","=",1);
-    AddConsequence("qpg","=",2);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Jj]a","Für eine Spende von 5 Silberstücken hast du die Chance auf etwas Besonderes! Also, hast du Interesse?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]rzähl");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]egnung");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
 	
-    AddTraderTrigger("[Jj]a","Aber wir kennen uns doch garnicht! Sag mir zuerst deinen Namen und deine Lieblingsfarbe.");
-    AddAdditionalTrigger("[Ee]rzähl");
-    AddAdditionalTrigger("[Ss]egnung");
-    AddAdditionalTrigger("[Ss]icher");
-    AddAdditionalTrigger("[Kk]lar");
-    AddCondition("qpg","<",1);
-    AddTraderTrigger("[Nn]ame ist","Sehr schön, sehr schön! Nargun sei neben dir %CHARNAME. Du dachtest doch nicht wirklich dass die Farbe mich interessiert. Aber zurück zum Segen, noch interessiert?");
-    AddAdditionalTrigger("[Hh]eiße");
-    AddAdditionalTrigger("[Ii]ch bin");
-    AddCondition("qpg","<",1);
-    AddConsequence("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Jj]a","Aber wir kennen uns doch garnicht! Sag mir zuerst deinen Namen und deine Lieblingsfarbe.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]rzähl");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]egnung");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]icher");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Kk]lar");
+    npcs.base.autonpcfunctions.AddCondition("qpg","<",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]ame ist","Sehr schön, sehr schön! Nargun sei neben dir %CHARNAME. Du dachtest doch nicht wirklich dass die Farbe mich interessiert. Aber zurück zum Segen, noch interessiert?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]eiße");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii]ch bin");
+    npcs.base.autonpcfunctions.AddCondition("qpg","<",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",1);
     
-    AddTraderTrigger("[Nn]argun","Ahh! Gelobt sei sein Name, wir verstehn uns, er und ich. Bringt das 'Priester' sein so mit sich.");
-    AddCondition("lang","german");
-    AddTraderTrigger("[Aa]uf bald","Pah! Wie langweilig, weiß eure Mutter eigentlich was für ein Feigling ihr seid?");
-    AddAdditionalTrigger("[Gg]ötter euch");
-    AddAdditionalTrigger("[Bb]is bald");
-    AddAdditionalTrigger("[Ff]ünf euch");
-    AddCondition("qpg","=",3);
-    AddConsequence("qpg","=",2);
-    AddConsequence("talk","end");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]argun","Ahh! Gelobt sei sein Name, wir verstehn uns, er und ich. Bringt das 'Priester' sein so mit sich.");
+    npcs.base.autonpcfunctions.AddCondition("lang","german");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf bald","Pah! Wie langweilig, weiß eure Mutter eigentlich was für ein Feigling ihr seid?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ötter euch");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is bald");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ünf euch");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",3);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
+    npcs.base.autonpcfunctions.AddConsequence("talk","end");
     
-	AddTraderTrigger("[Aa]uf bald","Oh ihr geht schon? Das tut mir aber leid, jedoch nicht weh, hihihi. Passt auf den Fisch auf.");
-    AddAdditionalTrigger("[Gg]ötter euch");
-    AddAdditionalTrigger("[Bb]is bald");
-    AddAdditionalTrigger("[Ff]ünf euch");
-    AddConsequence("talk","end");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf bald","Oh ihr geht schon? Das tut mir aber leid, jedoch nicht weh, hihihi. Passt auf den Fisch auf.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ötter euch");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is bald");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ünf euch");
+    npcs.base.autonpcfunctions.AddConsequence("talk","end");
     
-	AddTraderTrigger("[Hh]ilfe","Ohh buhuhu! Hat sich der kleine Matz etwa verlaufen? Nun, erwartet keine Hilfe von mir ich habe wichtigeres zu tun.");
-	AddConsequence("inform","Vielleicht solltest du ihn nach seinem Namen fragen, das wäre zumindest ein Anfang.");
-    AddTraderTrigger("[Hh]elp","Ohh boohoo! Little child got lost eh? Well don't expect any help from me, I've got more important things to do.");
-	AddConsequence("inform","Maybe you should ask him after his name, that would be at least a beginning.");
-	AddTraderTrigger("[Kk]auf[st]","Pah! Seh ich so aus als wäre ich ein Händler? Ich trag genug Trödel mit mir herum, in meinem Kopf!");
-    AddAdditionalTrigger("[Vv]erkauf[st]");
-    AddTraderTrigger("[Bb]uy","Pah! Do I look like a merchant? I carry enough rubbish around with me, in my head!");
-    AddAdditionalTrigger("[Ss]ell");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","Ohh buhuhu! Hat sich der kleine Matz etwa verlaufen? Nun, erwartet keine Hilfe von mir ich habe wichtigeres zu tun.");
+	npcs.base.autonpcfunctions.AddConsequence("inform","Vielleicht solltest du ihn nach seinem Namen fragen, das wäre zumindest ein Anfang.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]elp","Ohh boohoo! Little child got lost eh? Well don't expect any help from me, I've got more important things to do.");
+	npcs.base.autonpcfunctions.AddConsequence("inform","Maybe you should ask him after his name, that would be at least a beginning.");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]auf[st]","Pah! Seh ich so aus als wäre ich ein Händler? Ich trag genug Trödel mit mir herum, in meinem Kopf!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Vv]erkauf[st]");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]uy","Pah! Do I look like a merchant? I carry enough rubbish around with me, in my head!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]ell");
     
-	AddTraderTrigger("[Gg]obaith","Well it's an island, duh! I don't know more.");
-    AddCondition("lang","english");
-    AddTraderTrigger("[Gg]obaith","Nun, es ist eine Insel, bäh! Mehr weiß ich nicht.");
-    AddCondition("lang","german");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obaith","Well it's an island, duh! I don't know more.");
+    npcs.base.autonpcfunctions.AddCondition("lang","english");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obaith","Nun, es ist eine Insel, bäh! Mehr weiß ich nicht.");
+    npcs.base.autonpcfunctions.AddCondition("lang","german");
     
-	AddTraderTrigger("[Gg]obiath","Hihihi. Right, I may have found a new follower for Nargun with you. Misspronouncing words is what we do in our freetime. It's called Gobaith you idiot!");
-    AddCondition("lang","english");
-    AddTraderTrigger("[Gg]obiath","Hihihi. Klar, in dir hab ich wohl einen neuen Nargun Anhänger gefunden. Wörter falsch aussprechen tun wir in unserer Freizeit. Es heißt Gobaith du Idiot!");
-    AddCondition("lang","german");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obiath","Hihihi. Right, I may have found a new follower for Nargun with you. Misspronouncing words is what we do in our freetime. It's called Gobaith you idiot!");
+    npcs.base.autonpcfunctions.AddCondition("lang","english");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]obiath","Hihihi. Klar, in dir hab ich wohl einen neuen Nargun Anhänger gefunden. Wörter falsch aussprechen tun wir in unserer Freizeit. Es heißt Gobaith du Idiot!");
+    npcs.base.autonpcfunctions.AddCondition("lang","german");
     
-	AddTraderTrigger("[Cc]hance","Ich kann bei Nargun ein gutes Wort für dich einlegen! Meistens zeigt sich der Erfolg sofort nach dem Gebet! Interessiert?");
-    AddAdditionalTrigger("[Bb]esonderes");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ss]pende","Es kostet dich nur 5 Silberstücke die ich zur 'Lobpreisung' Narguns verwenden werde. Ich werde ein 'Gebet' für dich sprechen und dessen 'Erfolg' wird sich sofort zeigen.");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ll]obpreisung","Berauschende Substanzen bezahlen sich nicht von selbst, ich muss 5 Silberstücke verlangen für ein Gebet, das dir großen 'Nutzen' bereiten wird!");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ee]rfolg","Er könnte dich in ein Schwein verwandeln, oder Blitze vom Himmel schleudern, oder Stinkwolken. Aber am wahrscheinlichsten wird er dir ein 'Geschenk' machen!");
-    AddAdditionalTrigger("[Gg]ebet");
-    AddAdditionalTrigger("[Nn]utzen");
-    AddCondition("qpg",">",1);
-    AddTraderTrigger("[Gg]eschenk","Nargun mag kleine glitzernde magische 'Steinchen'. Wenn er dich mag teilt er vielleicht mit dir, vielleicht passiert aber auch garnichts, er ist manchmal launisch wisst ihr.");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ss]tein","Ja! Steinchen die ihrem Träger was von ihrer Kraft abgeben wenn er sie lieb behandelt. Du hast sicher schon davon gehört. Also hast du Interesse?");
-    AddAdditionalTrigger("[Mm]agi");
-    AddCondition("qpg","=",1);
-    AddConsequence("qpg","=",2);
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]hance","Ich kann bei Nargun ein gutes Wort für dich einlegen! Meistens zeigt sich der Erfolg sofort nach dem Gebet! Interessiert?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]esonderes");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]pende","Es kostet dich nur 5 Silberstücke die ich zur 'Lobpreisung' Narguns verwenden werde. Ich werde ein 'Gebet' für dich sprechen und dessen 'Erfolg' wird sich sofort zeigen.");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ll]obpreisung","Berauschende Substanzen bezahlen sich nicht von selbst, ich muss 5 Silberstücke verlangen für ein Gebet, das dir großen 'Nutzen' bereiten wird!");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rfolg","Er könnte dich in ein Schwein verwandeln, oder Blitze vom Himmel schleudern, oder Stinkwolken. Aber am wahrscheinlichsten wird er dir ein 'Geschenk' machen!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ebet");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Nn]utzen");
+    npcs.base.autonpcfunctions.AddCondition("qpg",">",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]eschenk","Nargun mag kleine glitzernde magische 'Steinchen'. Wenn er dich mag teilt er vielleicht mit dir, vielleicht passiert aber auch garnichts, er ist manchmal launisch wisst ihr.");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]tein","Ja! Steinchen die ihrem Träger was von ihrer Kraft abgeben wenn er sie lieb behandelt. Du hast sicher schon davon gehört. Also hast du Interesse?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]agi");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
     
-    AddTraderTrigger("[Jj]a.*","#me nimmt ein kleines Pergament hervor und liest vor \"Nargun und seine Abgesandten übernehmen keinerlei Haftung für etwaige Schäden an Vermögen, Gesundheit oder anderen Interessensverletzungen die durch die angebotene Dienstleistung beim Auftraggebenden oder einem Dritten entstehen. Akzeptiert ihr diese Vereinbarung?\"");
-    AddAdditionalTrigger("[Ii]nteress.*");
-    AddAdditionalTrigger("[Ss]icher");
-    AddAdditionalTrigger("[Kk]lar");
-    AddCondition("qpg","=",2)
-    AddConsequence("qpg","=",3);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Jj]a.*","#me nimmt ein kleines Pergament hervor und liest vor \"Nargun und seine Abgesandten übernehmen keinerlei Haftung für etwaige Schäden an Vermögen, Gesundheit oder anderen Interessensverletzungen die durch die angebotene Dienstleistung beim Auftraggebenden oder einem Dritten entstehen. Akzeptiert ihr diese Vereinbarung?\"");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii]nteress.*");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]icher");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Kk]lar");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",2)
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",3);
     
 	--
 	
-	AddTraderTrigger("[Gg]reet","%CHARNAME! I have caught a flea! Want to see it, he's really tame, hihihi. No? Well have you come back for the blessing then?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddCondition("qpg",">",1);
-    AddTraderTrigger("[Gg]reet","Huaaah! I bid you a glorious welcome. And a lot of fish!");
-    AddAdditionalTrigger("[Hh]ello");
-    AddConsequence("talk","begin");
-    AddConsequence("inform","Maybe you should ask him about the fish or atleast after his name.");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","%CHARNAME! I have caught a flea! Want to see it, he's really tame, hihihi. No? Well have you come back for the blessing then?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddCondition("qpg",">",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Huaaah! I bid you a glorious welcome. And a lot of fish!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddConsequence("talk","begin");
+    npcs.base.autonpcfunctions.AddConsequence("inform","Maybe you should ask him about the fish or atleast after his name.");
 
-	AddTraderTrigger("[Ff]ish","Oh yes! My 'lord' adores fish! And 'snowstorms'!");
-    AddAdditionalText("Fish is the answer, all 'chaos' derrives from the fish!");
-    AddConsequence("inform","You wonder what he could mean by this.");
+	npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]ish","Oh yes! My 'lord' adores fish! And 'snowstorms'!");
+    npcs.base.autonpcfunctions.AddAdditionalText("Fish is the answer, all 'chaos' derrives from the fish!");
+    npcs.base.autonpcfunctions.AddConsequence("inform","You wonder what he could mean by this.");
     
-    AddTraderTrigger("[Ss]nowstorm.*","Nothing pleases my lord 'Nargun' more than a bit of unpredictable, unleashed destruction, right? Hihihi");
-    AddAdditionalTrigger("[Cc]haos");
-    AddTraderTrigger("[Ll]ord","Bless the name of my lord, 'Nargun'! Or don't, or do it differently, or not at all.");
-    AddAdditionalTrigger("[Gg]od");
-    AddAdditionalTrigger("[Dd]eity");
-    --AddCondition("lang","english");
-    AddTraderTrigger("[Pp]riest","Indeed! I am a priest of my god. And for a small donation I will let you have some of his blessing, how about it?");
-    AddTraderTrigger("[Ww]ho are","Nanginis! Just call me Nanginis! 'Nargun' has granted me this name in a vision, but to be frank my real name is Peter, hihihi.");
-    AddAdditionalTrigger("[Ww]hat [Nn]ame");
-    AddTraderTrigger("[Vv]ision","Yes! It only took 10 mugs of dwarven ale to please Nargun and make him speak to me. I still got that foul taste on my tongue!");
-    AddCondition("lang","english");
-    AddTraderTrigger("[Pp]rofession","Hear the frogs, they are calling you, professional aswell! Hihi no, my profession is to preach the words of 'Nargun' and share his blessing with others.");
-    AddTraderTrigger("[Bb]lessing","Nothing's for free in this world, much is in vain. Do you want to learn more about Narguns 'benefication'?");
-    AddAdditionalTrigger("[Dd]onation");
-    AddTraderTrigger("[Yy]es","For a small donation of 5 silvercoins you have the chance to receive something very special. Interested?");
-    AddAdditionalTrigger("[Tt]ell");
-    AddAdditionalTrigger("[Bb]enefication");
-    AddCondition("qpg","=",1);
-    AddConsequence("qpg","=",2);
-    AddTraderTrigger("[Yy]es","But we don't even know each other! Tell me your name and your favourite color first.");
-    AddAdditionalTrigger("[Ss]ure");
-	AddAdditionalTrigger("[Tt]ell");
-    AddAdditionalTrigger("[Bb]enefication");
-    AddCondition("qpg","<",1);
-    AddTraderTrigger("I am","Very good, very good! Nargun be beside you %CHARNAME. You didn't realy expect your favourite color to matter at all to me. Anyways, back to the blessing. Are you still interrested?");
-    AddAdditionalTrigger("[Mm]y name");
-    AddCondition("qpg","<",1);
-    AddConsequence("qpg","=",1);
-    AddTraderTrigger("[Nn]argun","Ahh! Bless his name, we're close friends, you know. But that's what being a 'priest' is all about anyway.");
-    AddCondition("lang","english");
-    AddTraderTrigger("[Ff]arewell","Pah! Boring. Does your mother know what a coward you are anyway?");
-    AddAdditionalTrigger("[Gg]oodbye");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalTrigger("[Ff]ive you");
-    AddCondition("qpg","=",3);
-    AddConsequence("qpg","=",2);
-    AddConsequence("talk","end");
-    AddTraderTrigger("[Ff]arewell","Oh, leaving already? I regret that, but it doesn't trouble me at all, hihihi. Take care and mind the fish.");
-    AddAdditionalTrigger("[Gg]oodbye");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalTrigger("[Ff]ive you");
-    AddConsequence("talk","end");
-    AddTraderTrigger("[Cc]hance","I can sweettalk Nargun for you! The effect of that usually reveals itself immidiately after the prayer! Interested?");
-    AddAdditionalTrigger("[Ss]pecial");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Dd]onation","It's only 5 silvercoins which I will spend to 'worship' Nargun. I will chant a 'prayer' for you and it's effect will reveal itself at once.");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ww]orship","Intoxicating substances don't pay for themselves, so I am forced to charge 5 silvercoins for a prayer, which will 'benefit' you greatly.");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ss]ucess","He might turn you into a pig, or throw lightning down from the sky, gasbombs perhaps, or nothing at all might happen. But most likely he will 'gift' you a 'present'!");
-    AddAdditionalTrigger("[Pp]rayer");
-    AddAdditionalTrigger("[Cc]hant");
-    AddAdditionalTrigger("[Bb]enefit");
-    AddAdditionalTrigger("[Ee]ffect");
-    AddTraderTrigger("[Pp]resent","Nargun likes small glittery magical 'stones'. If he likes you he might share some with you, mayhaps he doesn't, he can be moody at times.");
-    AddAdditionalTrigger("[Gg]ift");
-    AddCondition("qpg","=",1);
-    AddTraderTrigger("[Ss]tone","Yes! Stones that grant the one carrying them part of their power if you treat them nicely. Of course you've heard about those already. Are you... interrested then?");
-    AddAdditionalTrigger("[Mm]agi");
-    AddCondition("qpg","=",1);
-    AddConsequence("qpg","=",2);
-    AddTraderTrigger("[Yy]es","#me unfolds a small piece of parchment and starts to read \"Nargun and his representatives do not take any responsibility for damage of property or health or infringement other interests which may occur to you or a third party due to the use of the offered service. Do you accept this agreement?\"");
-    AddAdditionalTrigger("[Ii]nteres");
-    AddAdditionalTrigger("[Ss]ure");
-    AddCondition("qpg","=",2);
-    AddConsequence("qpg","=",3);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]nowstorm.*","Nothing pleases my lord 'Nargun' more than a bit of unpredictable, unleashed destruction, right? Hihihi");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Cc]haos");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ll]ord","Bless the name of my lord, 'Nargun'! Or don't, or do it differently, or not at all.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]od");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Dd]eity");
+    --npcs.base.autonpcfunctions.AddCondition("lang","english");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]riest","Indeed! I am a priest of my god. And for a small donation I will let you have some of his blessing, how about it?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho are","Nanginis! Just call me Nanginis! 'Nargun' has granted me this name in a vision, but to be frank my real name is Peter, hihihi.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]hat [Nn]ame");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Vv]ision","Yes! It only took 10 mugs of dwarven ale to please Nargun and make him speak to me. I still got that foul taste on my tongue!");
+    npcs.base.autonpcfunctions.AddCondition("lang","english");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]rofession","Hear the frogs, they are calling you, professional aswell! Hihi no, my profession is to preach the words of 'Nargun' and share his blessing with others.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]lessing","Nothing's for free in this world, much is in vain. Do you want to learn more about Narguns 'benefication'?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Dd]onation");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]es","For a small donation of 5 silvercoins you have the chance to receive something very special. Interested?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]ell");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]enefication");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]es","But we don't even know each other! Tell me your name and your favourite color first.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]ure");
+	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]ell");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]enefication");
+    npcs.base.autonpcfunctions.AddCondition("qpg","<",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("I am","Very good, very good! Nargun be beside you %CHARNAME. You didn't realy expect your favourite color to matter at all to me. Anyways, back to the blessing. Are you still interrested?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]y name");
+    npcs.base.autonpcfunctions.AddCondition("qpg","<",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]argun","Ahh! Bless his name, we're close friends, you know. But that's what being a 'priest' is all about anyway.");
+    npcs.base.autonpcfunctions.AddCondition("lang","english");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Pah! Boring. Does your mother know what a coward you are anyway?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]oodbye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ive you");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",3);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
+    npcs.base.autonpcfunctions.AddConsequence("talk","end");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Oh, leaving already? I regret that, but it doesn't trouble me at all, hihihi. Take care and mind the fish.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]oodbye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]ive you");
+    npcs.base.autonpcfunctions.AddConsequence("talk","end");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]hance","I can sweettalk Nargun for you! The effect of that usually reveals itself immidiately after the prayer! Interested?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]pecial");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]onation","It's only 5 silvercoins which I will spend to 'worship' Nargun. I will chant a 'prayer' for you and it's effect will reveal itself at once.");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]orship","Intoxicating substances don't pay for themselves, so I am forced to charge 5 silvercoins for a prayer, which will 'benefit' you greatly.");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ucess","He might turn you into a pig, or throw lightning down from the sky, gasbombs perhaps, or nothing at all might happen. But most likely he will 'gift' you a 'present'!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Pp]rayer");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Cc]hant");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]enefit");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]ffect");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]resent","Nargun likes small glittery magical 'stones'. If he likes you he might share some with you, mayhaps he doesn't, he can be moody at times.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ift");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]tone","Yes! Stones that grant the one carrying them part of their power if you treat them nicely. Of course you've heard about those already. Are you... interrested then?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]agi");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]es","#me unfolds a small piece of parchment and starts to read \"Nargun and his representatives do not take any responsibility for damage of property or health or infringement other interests which may occur to you or a third party due to the use of the offered service. Do you accept this agreement?\"");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii]nteres");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]ure");
+    npcs.base.autonpcfunctions.AddCondition("qpg","=",2);
+    npcs.base.autonpcfunctions.AddConsequence("qpg","=",3);
 	--
-    AddTraderTrigger("[Ss]pende","Nichts ist umsonst auf der Welt, vieles sinnlos. Soll ich dir mehr über Narguns Segnung erzählen?");
-    AddAdditionalTrigger("[Ss]egen");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]pende","Nichts ist umsonst auf der Welt, vieles sinnlos. Soll ich dir mehr über Narguns Segnung erzählen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]egen");
     
     
     -- ********* END DYNAMIC PART ********
@@ -244,7 +244,7 @@ function initializeNpc()
     TradStdLang=0;
 	startPrayer=false;
 	i=0;
-    increaseLangSkill(TradSpeakLang);
+    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
    
     RandomStart(thisNPC);
@@ -256,7 +256,7 @@ end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 	if startPrayer then
 		if i==10 then
 			gText="#me streckt seine Arme nach links und rechts aus so weit er kann.";
@@ -266,8 +266,8 @@ function nextCycle()  -- ~10 times per second
   		elseif i==40 then
 		  	gText="Ich hab mal einen Fisch gefangen, der war SO GROß!"	
   			eText="Once I cought a fish THIS BIG!"
-			outText=base.common.GetNLS(User,gText,eText);
-			NPCTalking(thisNPC,outText);
+			outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+			npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
   		elseif i==70 then --some sound and graphic
 			thePosition=base.common.GetFrontPosition(thisNPC);
 			world:gfx(45,thePosition);
@@ -279,8 +279,8 @@ function nextCycle()  -- ~10 times per second
 		elseif i==120 then
 			gText="Hihihi. Da, ich hoffe du hast bekommen was du wolltest. Es gibt keinen Ersatz, aber versuchs doch nochmal wenn du nicht zufrieden bist. Willst du nochmal?";
 			eText="Hihihi. There, I hope you got what you wanted. Remember, no refunds, but you're welcome to try again if you want. Want to try it again?";
-			outText=base.common.GetNLS(User,gText,eText);
-			NPCTalking(thisNPC,outText);
+			outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+			npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			i=-1;
 			User:setQuestProgress(63,3);
 			startPrayer=false;
@@ -291,9 +291,9 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
 		User = getCharForId(originator.id);
-		--stops walking--
+		--stops npcs.base.autonpcfunctions.walking--
 		currentTalk = User.id;
 		idle=false;
 		-----------------
@@ -304,17 +304,17 @@ function receiveText(texttype, message, originator)
 			User:setQuestProgress(63,0);
     		User:inform("Reset done");
 		end
-        if LangOK(User,TradSpeakLang) then
+        if npcs.base.autonpcfunctions.LangOK(User,TradSpeakLang) then
 			if (User:getQuestProgress(63)==3) then
-				EnoughMoney=CheckMoney(User,500);
+				EnoughMoney=npcs.base.autonpcfunctions.CheckMoney(User,500);
 				if not startPrayer then --already praying?
 					if string.find(message,"[Nn]ein")~=nil or string.find(message,"[Aa]kzep.+nicht")~=nil or
 					   string.find(message,"[Nn]o"  )~=nil or string.find(message,"I.+not.+accept")~=nil then
 			
 						gText="Pah! Langweiler, hinfort mit euch. Soll euch der Fisch holen.";
 		                eText="Pah! Boring, begone. The fish shall come after you.";
-		                outText=base.common.GetNLS(User,gText,eText);
-				        NPCTalking(thisNPC,outText);
+		                outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+				        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 						User:setQuestProgress(63,2);
 				        	
 					elseif string.find(message,"[Jj]a" )~=nil or string.find(message,"[Aa]kzep" )~=nil or
@@ -323,32 +323,32 @@ function receiveText(texttype, message, originator)
 					    if EnoughMoney then  
 							gText="Sehr schön! Ahja, die Summe stimmt. Dann werde ich sofort beginnen.";
 			                eText="Very good! Ah yes, the sum is correct. I shall begin immediately.";
-			                outText=base.common.GetNLS(User,gText,eText);
-					        NPCTalking(thisNPC,outText);
-							PayTheNPC(User,500);
+			                outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+					        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+							npcs.base.autonpcfunctions.PayTheNPC(User,500);
 							startPrayer=true; --starts the prayer
 							i=0;
 					    elseif not EnoughMoney then
 							gText="Möge Nargun dich kreuzbuckeln! Du hast nicht genug Geld, hinfort mit euch!";
 			                eText="Nargun shall smite you with angerberries! You don't have enough money, begone!";
-			                outText=base.common.GetNLS(User,gText,eText);
-					        NPCTalking(thisNPC,outText);
+			                outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+					        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 							User:setQuestProgress(63,2);
 						end
 					else
-						TellSmallTalk(message,User);
+						npcs.base.autonpcfunctions.TellSmallTalk(message,User);
 					end
 				else
 					gText="Seht ihr nicht das ich beschäftigt bin? Wartet ein bisschen!";
 	                eText="Can't you see that I'm busy right now? Wait a bit!";
-	                outText=base.common.GetNLS(User,gText,eText);
-			        NPCTalking(thisNPC,outText);
+	                outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
+			        npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				end
 			else
-				TellSmallTalk(message,User);
+				npcs.base.autonpcfunctions.TellSmallTalk(message,User);
 			end 
         else
-            Confused(
+            npcs.base.autonpcfunctions.Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

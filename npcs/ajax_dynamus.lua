@@ -112,39 +112,39 @@ function initializeNpc()
         return true;
     end
 
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
-    AddTraderTrigger("[Gg]reetings","Be greeted!");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Greetings.");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Cadomyrs order traders!");
-    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I have delivery orders at which you could help me.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Be greeted!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalText("Greetings.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Cadomyrs order traders!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I have delivery orders at which you could help me.");
     
-    AddTraderTrigger("[Gg]oodbye","Be well.");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalText("Farewell");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddTraderTrigger("[Ww]hat.+buy","I don't buy anything, but I have delivery orders at which you could help me.");
-    AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
-    AddTraderTrigger("I'm .+","I am "..thisNPC.name..". Nice to meet you!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Be well.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I don't buy anything, but I have delivery orders at which you could help me.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","I am "..thisNPC.name..". Nice to meet you!");
 
-    AddTraderTrigger("[Gg]r[üu][ßs]+","Seid gegrüßt");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Grüße");
-    AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer der Großauftragshändler Cadomyrs!");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf Wiedersehen");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
-    AddTraderTrigger("[Ww]as.+[Kk]auf","Ich kaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt.");
-    AddTraderTrigger("[Ii]ch.+bin","Schön dich kennen zu lernen! Ich bin "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üu][ßs]+","Seid gegrüßt");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalText("Grüße");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer der Großauftragshändler Cadomyrs!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf Wiedersehen");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]auf","Ich kaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+bin","Schön dich kennen zu lernen! Ich bin "..thisNPC.name..".");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0};
     TradStdLang=0;
 
-    increaseLangSkill(TradSpeakLang);
+    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 
@@ -163,9 +163,9 @@ end
 
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
     	myOrderNPC:receiveText(originator,message);
-        TellSmallTalk(message,originator);
+        npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
 	end  
 end
 
@@ -326,20 +326,20 @@ if not InitPrices then
 	price [   772   ] =    8   ; --    tobacco   ,   Crop   plants 
 	price [   778   ] =    8   ; --    sugarcane   ,   Crop   plants 
 	price [   2493   ] =    8   ; --    carrots   ,   Crop   plants 
-	price [   89   ] =    200   ; --    sling   ,   Distance   leather 
-	price [   294   ] =    5   ; --    throwing star   ,   Distance   metal 
-	price [   2645   ] =    10   ; --    throwing axe   ,   Distance   metal 
-	price [   293   ] =    20   ; --    throwing spear   ,   Distance   wood 
-	price [   65   ] =    220   ; --    short bow   ,   Distance   wood 
-	price [   2646   ] =    520   ; --    serinjah-rider's bow   ,   Distance   wood 
-	price [   2714   ] =    540   ; --    hunting bow   ,   Distance   wood 
-	price [   2727   ] =    880   ; --    fire-hunters bow   ,   Distance   wood 
-	price [   2780   ] =    920   ; --    magical poisonbow   ,   Distance   wood 
-	price [   2708   ] =    1000   ; --    long bow   ,   Distance   wood 
-	price [   2718   ] =    1600   ; --    elven composite longbow   ,   Distance   wood 
-	price [   70   ] =    1700   ; --    crossbow   ,   Distance   wood 
-	price [   2685   ] =    3400   ; --    elven shortbow   ,   Distance   wood 
-	price [   2739   ] =    3500   ; --    magical icebow   ,   Distance   wood 
+	price [   89   ] =    200   ; --    sling   ,   npcs.base.autonpcfunctions.Distance   leather 
+	price [   294   ] =    5   ; --    throwing star   ,   npcs.base.autonpcfunctions.Distance   metal 
+	price [   2645   ] =    10   ; --    throwing axe   ,   npcs.base.autonpcfunctions.Distance   metal 
+	price [   293   ] =    20   ; --    throwing spear   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   65   ] =    220   ; --    short bow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2646   ] =    520   ; --    serinjah-rider's bow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2714   ] =    540   ; --    hunting bow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2727   ] =    880   ; --    fire-hunters bow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2780   ] =    920   ; --    magical poisonbow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2708   ] =    1000   ; --    long bow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2718   ] =    1600   ; --    elven composite longbow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   70   ] =    1700   ; --    crossbow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2685   ] =    3400   ; --    elven shortbow   ,   npcs.base.autonpcfunctions.Distance   wood 
+	price [   2739   ] =    3500   ; --    magical icebow   ,   npcs.base.autonpcfunctions.Distance   wood 
 	price [   306   ] =    40   ; --    ham   ,   Food   default 
 	price [   453   ] =    40   ; --    cookies   ,   Food   default 
 	price [   455   ] =    40   ; --    smoked fish   ,   Food   default 
