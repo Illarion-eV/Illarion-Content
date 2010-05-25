@@ -1,9 +1,11 @@
 -- Holzarbeiten mit dem Hobel
 
--- UPDATE common SET com_script='I_2715_hobel_oop.lua' WHERE com_itemid=2715;
+-- UPDATE common SET com_script='items.2715_plane' WHERE com_itemid IN (2715);
 
-dofile( "base_lookat.lua" );
+require("items.general.wood")
 require("items.base.crafts")
+
+module("items.2715_plane", package.seeall(), package.seeall(items.general.wood))
 
 -- Holzarbeiten mit dem Hobel
 function InitCraftingTool( )
@@ -345,7 +347,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         carpenter:ToolCreateItem( User, Param, nil, ltstate,SourceItem );
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end

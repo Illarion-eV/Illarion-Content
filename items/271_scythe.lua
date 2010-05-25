@@ -2,11 +2,13 @@
 
 -- reifes Getreide  --> Getreidebündel
 
--- UPDATE common SET com_script='I_271_sense.lua' WHERE com_itemid IN (271);
+-- UPDATE common SET com_script='items.271_scythe' WHERE com_itemid IN (271);
 
 require("base.common")
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("content.gathering")
+
+module("items.271_scythe", package.seeall(), package.seeall(items.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )   
 	content.gathering.InitGathering();
@@ -61,8 +63,4 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
         "Du kannst nichts mehr halten.",
         "You can't carry any more.");
     end
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false) );
 end

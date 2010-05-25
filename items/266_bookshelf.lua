@@ -1,6 +1,10 @@
 -- Side note: "BS" = Bookshelf
 -- Bookshelves contain a list of positions of bookshelves and a list of books
 
+-- UPDATE common SET com_script='items.266_bookshelf' WHERE com_itemid IN (266, 267);
+
+module("items.266_bookshelf", package.seeall())
+
 function InitLibraries()
       
     Libraries = {}    
