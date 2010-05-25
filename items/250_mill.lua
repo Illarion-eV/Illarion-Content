@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 0.5s - 3s
 -- Zusätzliches Werkzeug: Holzkelle ( 312 )
 
--- UPDATE common SET com_script='I_250_muehlstein.lua' WHERE com_itemid IN (250);
+-- UPDATE common SET com_script='items.250_mill' WHERE com_itemid IN (250);
 
 require("base.common")
+
+module("items.250_mill", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

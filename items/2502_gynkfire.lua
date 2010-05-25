@@ -1,3 +1,7 @@
+-- UPDATE common SET com_script='items.2502_gynkfire' WHERE com_itemid IN (2502);
+
+module("items.2502_gynkfire", package.seeall(), package.seeall(items.general.wood))
+
 function LookAtItem(User,Item)
     if (User:getPlayerLanguage() == 0) then
         world:itemInform(User,Item,"Du siehst ein"..( math.floor(Item.quality/100) == 2 and " brennendes " or " " ).."Gynkesisches Feuer.");

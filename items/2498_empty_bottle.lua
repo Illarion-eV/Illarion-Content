@@ -1,6 +1,11 @@
 -- Fairy's Tears oder Trolls Blood erhalten (Quellwasser)
 -- Alternativ: Gesegnetes Wasser von Irundar erhalten
 -- vilarion
+
+-- UPDATE common SET com_script='items.2498_empty_bottle' WHERE com_itemid IN (2498);
+
+module("items.2498_empty_bottle", package.seeall())
+
 function UseItemWithField(User,SourceItem,TargetPos,Counter,Param)
     --User:inform("using bottle on field");
     if ((User:getItemAt(6).id == 2498)or(User:getItemAt(5).id == 2498)) then

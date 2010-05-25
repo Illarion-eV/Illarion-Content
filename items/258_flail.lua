@@ -4,10 +4,12 @@
 
 -- Arbeitscyclus: 0.5s - 4s
 
--- UPDATE common SET com_script='I_258_dreschflegel.lua' WHERE com_itemid IN (258);
+-- UPDATE common SET com_script='items.258_flail' WHERE com_itemid IN (258);
 
-require("base.common")
+require("items.general.wood")
 dofile( "base_lookat.lua" );
+
+module("items.258_flail", package.seeall(), package.seeall(items.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate );
@@ -114,10 +116,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end              
     User:learn( 2, "peasantry", 2, 100 ); -- Lernen
     base.common.GetHungry( User, 200 ); -- Hungrig werden
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 2, false, false) );
 end
 
 -- Menge der Items die erstellt werden festlegen
