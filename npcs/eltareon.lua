@@ -17,7 +17,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     --    HistTextD={};
     --    HistTextE={};
 
@@ -25,23 +25,23 @@ function initializeNpc()
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Greetings. Nice to meet you.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüße. Freut mich euch zu treffen.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho","I am "..thisNPC.name.."");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..".");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye.","Be well");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf balde");
+    AddTraderTrigger("[Hh]ello","Greetings. Nice to meet you.");
+    AddAdditionalTrigger("[Gg]reetings");
+    AddAdditionalTrigger("[Hh]i");
+    AddTraderTrigger("[Hh]allo","Grüße. Freut mich euch zu treffen.");
+    AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    AddTraderTrigger("[Ww]ho","I am "..thisNPC.name.."");
+    AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..".");
+    AddTraderTrigger("[Bb]ye.","Be well");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Auf bald");
+    AddAdditionalText("Auf balde");
 
-    npcs.base.autonpcfunctions.AddCycleText("#me blättert in einem Buch herum","#me browses through a book");
-    npcs.base.autonpcfunctions.AddCycleText("#me gähnt verhalten","#me yawns restrained");
+    AddCycleText("#me blättert in einem Buch herum","#me browses through a book");
+    AddCycleText("#me gähnt verhalten","#me yawns restrained");
 
     TradSpeakLang={0,1};
     TradStdLang=0;
@@ -62,24 +62,24 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
 
-            npcs.base.autonpcfunctions.TellSmallTalk(message);
+            TellSmallTalk(message);
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
-                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+                outText=GetNLS(originator,gText,eText);
+                NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end

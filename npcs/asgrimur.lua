@@ -22,28 +22,28 @@ end
 
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Seid gegrüßt");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[hH]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Seid gegrüßt");
+    AddAdditionalTrigger("[hH]allo");
+    AddAdditionalText("Guten Tag");
+	AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Auf bald");
 
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho","I am "..thisNPC.name..". I am the herold of the King of Silverbrand.");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..". Ich bin der Herold des Königs von Silberbrand.");
+    AddTraderTrigger("[Ww]ho","I am "..thisNPC.name..". I am the herold of the King of Silverbrand.");
+	AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..". Ich bin der Herold des Königs von Silberbrand.");
     
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Be greeted");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Greetings");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Farewell.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell.");
+    AddTraderTrigger("[Gg]reetings","Be greeted");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Greetings");
+	AddTraderTrigger("[Gg]oodbye","Farewell.");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell.");
 
     TradSpeakLang={0,2};
     TradStdLang=0;
@@ -64,14 +64,14 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,1) then
+    if BasicNPCChecks(originator,1) then
 
              	local players = world:getPlayersInRangeOf(thisNPC.pos, 10);
                 	for i, player in pairs(players) do
@@ -102,7 +102,7 @@ function receiveText(texttype, message, originator)
 				end
 			 
 			 else
-                npcs.base.autonpcfunctions.TellSmallTalk(message, originator); --npcs.base.autonpcfunctions.TellSmallTalk for everyone beside Manron
+                TellSmallTalk(message, originator); --TellSmallTalk for everyone beside Manron
 			 end
 
     end

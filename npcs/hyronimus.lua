@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -29,32 +29,32 @@ function initializeNpc()
 
     TraderCopper=0;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Greetings my friend.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
-    npcs.base.autonpcfunctions.AddAdditionalText("A pleasure to meet you, friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüße mein Freund.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rü[sß]+e");
-    npcs.base.autonpcfunctions.AddAdditionalText("Ist mir eine Freude euch zu treffen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]ission","My friend, I am selling potions to adventurers who fight the evil in the dungeon of Hellbriar..");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uftrag","Mein Freund, ich verkaufe Tränke an alle Abenteurer, die die Hölle von Briar betreten.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Qq]uest","My friend, I am a simple man with no needs.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rave","I take care of them as good as I can, but sometimes they even scare me.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I cannot offer you much, but my potions.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkaufen","Ich kann nicht viel Anbieten. Vielleicht ein paar Tränke.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat buy","I fear, my friend, that there is nothing I would want to buy right now.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%skauf","Ich fürchte, mein Freund, es gibt nichts was ich im Augenblick von euch kaufen würde.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Yy]ou","I am Brother "..thisNPC.name.." of the White Flame.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Bruder "..thisNPC.name.." von der Weißen Flamme.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ellbriar","The foul armies of death and decay live in this area.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ölle","Die Armeen des Todes und der Finsternis leben in diesem Gebiet.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Walk in peace, my friend.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]are.*well");
-    npcs.base.autonpcfunctions.AddAdditionalText("Walk in peace, my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Geh in Frieden, mein Freund.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Geh in Frieden, mein Freund.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Hh]ello","Greetings my friend.");
+    AddAdditionalTrigger("[Gg]reetings");
+    AddAdditionalText("A pleasure to meet you, friend.");
+    AddTraderTrigger("[Hh]allo","Grüße mein Freund.");
+    AddAdditionalTrigger("[Gg]rü[sß]+e");
+    AddAdditionalText("Ist mir eine Freude euch zu treffen.");
+    AddTraderTrigger("[Mm]ission","My friend, I am selling potions to adventurers who fight the evil in the dungeon of Hellbriar..");
+    AddTraderTrigger("[Aa]uftrag","Mein Freund, ich verkaufe Tränke an alle Abenteurer, die die Hölle von Briar betreten.");
+    AddTraderTrigger("[Qq]uest","My friend, I am a simple man with no needs.");
+    AddTraderTrigger("[Gg]rave","I take care of them as good as I can, but sometimes they even scare me.");
+    AddTraderTrigger("[Ww]hat.+sell","I cannot offer you much, but my potions.");
+    AddTraderTrigger("[Ww]as.+verkaufen","Ich kann nicht viel Anbieten. Vielleicht ein paar Tränke.");
+    AddTraderTrigger("[Ww]hat buy","I fear, my friend, that there is nothing I would want to buy right now.");
+    AddTraderTrigger("[Ww]as.+%skauf","Ich fürchte, mein Freund, es gibt nichts was ich im Augenblick von euch kaufen würde.");
+    AddTraderTrigger("[Ww]ho.+[Yy]ou","I am Brother "..thisNPC.name.." of the White Flame.");
+    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Bruder "..thisNPC.name.." von der Weißen Flamme.");
+    AddTraderTrigger("[Hh]ellbriar","The foul armies of death and decay live in this area.");
+    AddTraderTrigger("[Hh]ölle","Die Armeen des Todes und der Finsternis leben in diesem Gebiet.");
+    AddTraderTrigger("[Bb]ye","Walk in peace, my friend.");
+    AddAdditionalTrigger("[Ff]are.*well");
+    AddAdditionalText("Walk in peace, my friend.");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Geh in Frieden, mein Freund.");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Geh in Frieden, mein Freund.");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -82,17 +82,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -100,7 +100,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -165,7 +165,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -192,7 +192,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -47,60 +47,60 @@ function initializeNpc()
 
     TraderCopper=2000;
 
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings. How can I help you?");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Hello. Do you need some of smithed goods? Best quality!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Tach, wie kann ich dir helfen?");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]alle");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Grüß dich. Brauchst was geschmiedetes? Beste Qualität!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","Sure, I am trader of my own goods: gems, armors, helmets and more. You are interested on my wares?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[IiDd][uh]r*.+[Hh]ändler","Sicher, ich verkauf meine eigenen Sachen: Edelsteine, Rüstungen, Helme und mehr. Bist an meinen Waren interessiert?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I trade with gems, armors, helmets, weapons and more.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich handel mit Edelsteinen, Rüstungen, Waffen und mehr.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]ares","I have gems, armors, helmets, weapons and more.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]aren","Ich hab Edelsteinen, Rüstungen, Waffen und mehr.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Gg]em","Take a short look. But do not touch them! I trade with amethysts, emeralds, rubies and topaz.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ee]delstein","Sieh sie dir kurz an. Aber FASS sie nicht an! Ich handel mit Amethysten, Smaragden, Rubinen und Topasen.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Aa]rmor","Do not trust the Lizard in the shop and her waste. My armors are better! I have chain shirts, plate armors, dwarvenplates and short blue steel greaves.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Rr]üstung","Trau der Echsen und ihrem Müll im Laden nicht. Meine Rüstungen sind besser! Sind ja von nem Zwerg! Ich hab Kettenhemden, Plattenpanzer, Zwergenpanzer und kurze blaue Stahlbeinschienen.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Hh]elm","Oh, i have nice helmets. They are made by the smiths of Silverbrand. Look what i have: salkamaerian paladin's helmet, chain helmets and round steel hat");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Hh]elm","Oh, schau dir diese tollen Helme an. Sie wurden von den Schmieden Silberbrands gemacht. Schau welche ist habe: salkamaerischer Paladinhelme, Kettenhelme und runde Stahlhelme.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]eapon","Ah, You are interested on my weapons? A good choice! I have the best sortiment of axes: throwing axes, dwarven axes, waraxes, double axes, large waraxes, longaxes.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]affe","Ah, du bist an meinen Waffen interessiert? Eine gute Wahl! Har. Ich habe das beste sortiment an Äxten: Wauf, Zwergen und Kriegsäxte. Außerdem Doppeläxte und Langäxte.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Mm]ore","You are smith yourself? Look, maybe do you want some iron ignots and iron plates?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Mm]ehr","Du bist auch ein Schmied? Schau, vielleicht willst du Eisen Barren oder Platten?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Irmorom with you. Good day.");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Good day. Irmorom may help you to have good trades.");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Farewell!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Irmorom mit dir, Schönen Tag noch.");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Schönen Tag. Irmorom möge dir helfen ein paar gute Geschäfte zu machen");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","I am Sorgan Stonemate, a miner and smith of Silverbrand");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Sorgan Stonemate, Bergarbeiter und Schmied von Silberbrand");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Ahr! Nice to meet you.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+[Bb]in.+","Arrr, Freut mich!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","Hrmm, I know where you can find copper ore, iron ore, coal and some gems. But do not tell it around! This knowledge should not be public. Right?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ww]as","Hrm. Ich weis wo du Kupfer und Eisenerz, Kohle und ein paar Edelsteine finden kannst. Aber erzähl es nicht rum. Dieses Wissen sollte nicht jeder haben. Richtig?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]opper.+[Oo]re","Hrmm. Where i begin? Do you know the Cooper Mountains in front the East Gate at the path to Silverbrand? What do you think why these Mountains are called so? There you can find this ore everywhere at the surface. You only have to collect it!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]upfer.+[Ee]rz","Hrm. Wo soll ich anfangen? Kennst du die Kupfer Berge außerhalb des Ost Tores auf dem Pfad nach Silverbrand. Warum denkst du heißen diese Berge so? Dort kannst du das Erz überall auf der Oberfläche finden. Musst es nur einsammeln.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ron.+[Oo]re","Hehe, around this town iron ore is rare. Maybe you have some luck in the mine of the Copper Mountains. But the best mines for iron ore are in Silverbrand and in the north of the Fearys Tears River.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]isen.+[Ee]rz","Hehe. Das ist um diese Stadt herum ziemlich selten. Villeicht hast du Glück in der Mine in den Kupfer Bergen. Aber die Beste Mine für dieses Erz ist in Silberbrand und im Norden das Fearys Tears Fluss.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]oal","Coal can be found nearly everywhere. You only have to look for the grey rocks in the next mountains.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]ohle","Kohle kann eigentlich überall gefunden werden. Musst dich nur nach diesen grauen Steinen im nächsten Gebirge umsehen.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]em","Oh, hehe. The location of good gems are a big secret. But, i did not tell you, right? Maybe you can find some Smaragds in the center of the Copper Mountains.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]delstein","Oh. Hehe. Die Verstecke von guten Edelsteinen sind ein großes Geheimniss. Das hab ich dir nicht gesagt, ok? Du findest vielleicht ein paar Smaragde in der Mitte der Kupfer Berge.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]opper.+[Mm]ountain","You are new here, right? Pass the eastern or northern gate of this town and went to east. You can not fail these big mountains.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]upfer.+[Bb]erge","Du bist neu hier, oder? Geh aus dem Nord oder Ost Tor dieser Stadt und halte dich nach Osten. Du kannst dieses Gebirge nicht verfehlen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ilverbrand","Aaarr, you want to visit our dwarven town? Fine, take the northern or eastern gate and went to northeast. When you passed the Copper Mountains you can see the Faerys Tears River. Take a brigde to cross the river and you arrive the entrance of Silverbrand.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ilberbrand","Arr. Du willst die Zwergenstadt sehen. Nimm die Straße durch das Nord oder Osttor und halte dich nach Nordosten. Wenn du die Kupfer Berge passiert hast, siehst du den Raerys Tears Fluss. Überquere die Brücke und die erreichst den Eingang nach Silberbrand.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    --AddTraderTrigger("[Gg]reetings","Greetings. How can I help you?");
+    --AddAdditionalTrigger("[Hh]ello");
+    --AddAdditionalText("Hello. Do you need some of smithed goods? Best quality!");
+    --AddTraderTrigger("[Gg]rü[ßs]+e","Tach, wie kann ich dir helfen?");
+    --AddAdditionalTrigger("[Hh]alle");
+    --AddAdditionalText("Grüß dich. Brauchst was geschmiedetes? Beste Qualität!");
+    --AddTraderTrigger("[Yy]ou.+[Tt]rader","Sure, I am trader of my own goods: gems, armors, helmets and more. You are interested on my wares?");
+    --AddTraderTrigger("[IiDd][uh]r*.+[Hh]ändler","Sicher, ich verkauf meine eigenen Sachen: Edelsteine, Rüstungen, Helme und mehr. Bist an meinen Waren interessiert?");
+    --AddTraderTrigger("[Ww]hat.+sell","I trade with gems, armors, helmets, weapons and more.");
+    --AddTraderTrigger("[Ww]as.+verkauf","Ich handel mit Edelsteinen, Rüstungen, Waffen und mehr.");
+    --AddTraderTrigger("[Ww]hat.+[Ww]ares","I have gems, armors, helmets, weapons and more.");
+    --AddTraderTrigger("[Ww]as.+[Ww]aren","Ich hab Edelsteinen, Rüstungen, Waffen und mehr.");
+    --AddTraderTrigger("[Ww]hat.+[Gg]em","Take a short look. But do not touch them! I trade with amethysts, emeralds, rubies and topaz.");
+    --AddTraderTrigger("[Ww]as.+[Ee]delstein","Sieh sie dir kurz an. Aber FASS sie nicht an! Ich handel mit Amethysten, Smaragden, Rubinen und Topasen.");
+    --AddTraderTrigger("[Ww]hat.+[Aa]rmor","Do not trust the Lizard in the shop and her waste. My armors are better! I have chain shirts, plate armors, dwarvenplates and short blue steel greaves.");
+    --AddTraderTrigger("[Ww]as.+[Rr]üstung","Trau der Echsen und ihrem Müll im Laden nicht. Meine Rüstungen sind besser! Sind ja von nem Zwerg! Ich hab Kettenhemden, Plattenpanzer, Zwergenpanzer und kurze blaue Stahlbeinschienen.");
+    --AddTraderTrigger("[Ww]hat.+[Hh]elm","Oh, i have nice helmets. They are made by the smiths of Silverbrand. Look what i have: salkamaerian paladin's helmet, chain helmets and round steel hat");
+    --AddTraderTrigger("[Ww]as.+[Hh]elm","Oh, schau dir diese tollen Helme an. Sie wurden von den Schmieden Silberbrands gemacht. Schau welche ist habe: salkamaerischer Paladinhelme, Kettenhelme und runde Stahlhelme.");
+    --AddTraderTrigger("[Ww]hat.+[Ww]eapon","Ah, You are interested on my weapons? A good choice! I have the best sortiment of axes: throwing axes, dwarven axes, waraxes, double axes, large waraxes, longaxes.");
+    --AddTraderTrigger("[Ww]as.+[Ww]affe","Ah, du bist an meinen Waffen interessiert? Eine gute Wahl! Har. Ich habe das beste sortiment an Äxten: Wauf, Zwergen und Kriegsäxte. Außerdem Doppeläxte und Langäxte.");
+    --AddTraderTrigger("[Ww]hat.+[Mm]ore","You are smith yourself? Look, maybe do you want some iron ignots and iron plates?");
+    --AddTraderTrigger("[Ww]as.+[Mm]ehr","Du bist auch ein Schmied? Schau, vielleicht willst du Eisen Barren oder Platten?");
+    --AddTraderTrigger("[Gg]oodbye","Irmorom with you. Good day.");
+    --AddAdditionalTrigger("[Ff]arewell");
+    --AddAdditionalTrigger("[Bb]ye");
+    --AddAdditionalText("Good day. Irmorom may help you to have good trades.");
+    --AddAdditionalText("Farewell!");
+    --AddTraderTrigger("[Aa]uf.+[Bb]ald","Irmorom mit dir, Schönen Tag noch.");
+    --AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    --AddAdditionalText("Schönen Tag. Irmorom möge dir helfen ein paar gute Geschäfte zu machen");
+    --AddTraderTrigger("[Ww]ho.+you?","I am Sorgan Stonemate, a miner and smith of Silverbrand");
+    --AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Sorgan Stonemate, Bergarbeiter und Schmied von Silberbrand");
+    --AddTraderTrigger("I'm .+","Ahr! Nice to meet you.");
+    --AddTraderTrigger("[Ii]ch.+[Bb]in.+","Arrr, Freut mich!");
+    --AddTraderTrigger("[Tt]ell.+[Ss]omething","Hrmm, I know where you can find copper ore, iron ore, coal and some gems. But do not tell it around! This knowledge should not be public. Right?");
+    --AddTraderTrigger("[Ee]rzähl.+[Ww]as","Hrm. Ich weis wo du Kupfer und Eisenerz, Kohle und ein paar Edelsteine finden kannst. Aber erzähl es nicht rum. Dieses Wissen sollte nicht jeder haben. Richtig?");
+    --AddTraderTrigger("[Cc]opper.+[Oo]re","Hrmm. Where i begin? Do you know the Cooper Mountains in front the East Gate at the path to Silverbrand? What do you think why these Mountains are called so? There you can find this ore everywhere at the surface. You only have to collect it!");
+    --AddTraderTrigger("[Kk]upfer.+[Ee]rz","Hrm. Wo soll ich anfangen? Kennst du die Kupfer Berge außerhalb des Ost Tores auf dem Pfad nach Silverbrand. Warum denkst du heißen diese Berge so? Dort kannst du das Erz überall auf der Oberfläche finden. Musst es nur einsammeln.");
+    --AddTraderTrigger("[Ii]ron.+[Oo]re","Hehe, around this town iron ore is rare. Maybe you have some luck in the mine of the Copper Mountains. But the best mines for iron ore are in Silverbrand and in the north of the Fearys Tears River.");
+    --AddTraderTrigger("[Ee]isen.+[Ee]rz","Hehe. Das ist um diese Stadt herum ziemlich selten. Villeicht hast du Glück in der Mine in den Kupfer Bergen. Aber die Beste Mine für dieses Erz ist in Silberbrand und im Norden das Fearys Tears Fluss.");
+    --AddTraderTrigger("[Cc]oal","Coal can be found nearly everywhere. You only have to look for the grey rocks in the next mountains.");
+    --AddTraderTrigger("[Kk]ohle","Kohle kann eigentlich überall gefunden werden. Musst dich nur nach diesen grauen Steinen im nächsten Gebirge umsehen.");
+    --AddTraderTrigger("[Gg]em","Oh, hehe. The location of good gems are a big secret. But, i did not tell you, right? Maybe you can find some Smaragds in the center of the Copper Mountains.");
+    --AddTraderTrigger("[Ee]delstein","Oh. Hehe. Die Verstecke von guten Edelsteinen sind ein großes Geheimniss. Das hab ich dir nicht gesagt, ok? Du findest vielleicht ein paar Smaragde in der Mitte der Kupfer Berge.");
+    --AddTraderTrigger("[Cc]opper.+[Mm]ountain","You are new here, right? Pass the eastern or northern gate of this town and went to east. You can not fail these big mountains.");
+    --AddTraderTrigger("[Kk]upfer.+[Bb]erge","Du bist neu hier, oder? Geh aus dem Nord oder Ost Tor dieser Stadt und halte dich nach Osten. Du kannst dieses Gebirge nicht verfehlen.");
+    AddTraderTrigger("[Ss]ilverbrand","Aaarr, you want to visit our dwarven town? Fine, take the northern or eastern gate and went to northeast. When you passed the Copper Mountains you can see the Faerys Tears River. Take a brigde to cross the river and you arrive the entrance of Silverbrand.");
+    AddTraderTrigger("[Ss]ilberbrand","Arr. Du willst die Zwergenstadt sehen. Nimm die Straße durch das Nord oder Osttor und halte dich nach Nordosten. Wenn du die Kupfer Berge passiert hast, siehst du den Raerys Tears Fluss. Überquere die Brücke und die erreichst den Eingang nach Silberbrand.");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
-    npcs.base.autonpcfunctions.AddCycleText("Arrr...","Arrr...");
-    npcs.base.autonpcfunctions.AddCycleText("Arrr!","Arrr!");
-    npcs.base.autonpcfunctions.AddCycleText("#me brummt verärgert:'Ich streike!'","#me grumbles in anger:'I am on strike!'");
+    AddCycleText("Arrr...","Arrr...");
+    AddCycleText("Arrr!","Arrr!");
+    AddCycleText("#me brummt verärgert:'Ich streike!'","#me grumbles in anger:'I am on strike!'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -128,17 +128,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -146,7 +146,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -211,7 +211,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -238,7 +238,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -16,7 +16,7 @@ function nextCycle()
 			end
 			delay=delay+1;				-- On each call of "nextCycle", increase "delay"
 								-- by 1.
-			if delay==20 then			-- To let the NPC npcs.base.autonpcfunctions.walk at normal speed, let him do
+			if delay==20 then			-- To let the NPC walk at normal speed, let him do
 				if schritt<5 then		-- a step only every 20 calls.
 					dir=0; ymod=-1; xmod=0;	-- Make 4 steps to north.
 				elseif schritt<9 then
@@ -68,7 +68,7 @@ function receiveText(texttype, message, originator)
 	if string.find(message,"stop!") ~= nil then		-- set "stand" to 1 which affects "nextCycle":
         	stand=1;			-- if stand==1 then he stands still, else he ...
         end	
-        					-- ... npcs.base.autonpcfunctions.walks around.
+        					-- ... walks around.
         if string.find(message,"start!") ~= nil then
         	stand=2;
 		pgr1 = world:getCharacterOnField(position(thisNPC.pos.x+1,thisNPC.pos.y+1,0));

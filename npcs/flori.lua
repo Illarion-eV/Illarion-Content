@@ -13,7 +13,7 @@ function initializeNpc()
         return true;
     end
 
-    npcs.base.autonpcfunctions.InitTalkLists();
+    InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
 
@@ -21,35 +21,35 @@ function initializeNpc()
     -- NPC by Nanuk
     -- Revised by Estralis Seborian
     -- Milo's mule
-    npcs.base.autonpcfunctions.AddCycleText("Iiihhhh-aahhhh!","Iiihhhh-aahhhh!");
-    npcs.base.autonpcfunctions.AddCycleText("#me stampft störrisch auf.","#me stubbornly stamps one foot.");
-    npcs.base.autonpcfunctions.AddCycleText("#me zerrt am Halfter.","#me tears at the headcollar.");
-    npcs.base.autonpcfunctions.AddCycleText("#me versucht den Halbling zu beißen.","#me tries to bite the halfling.");
-    npcs.base.autonpcfunctions.AddCycleText("#me schüttelt seinen Kopf.","#me tosses his head.");
-    npcs.base.autonpcfunctions.AddCycleText("#me tritt mit den Hinterläufen aus.","#me kicks with his hind legs.");
-    npcs.base.autonpcfunctions.AddCycleText("#me bäumt sich auf.","#me rears up.");
-    npcs.base.autonpcfunctions.AddCycleText("#me lässt ein paar Eselsäpfel fallen.","#me drops some mule droppings.");
-    npcs.base.autonpcfunctions.AddCycleText("#me schlägt mit dem Schwanz nach ein paar Fliegen.","#me wags his tail to get rid of some flies.");
+    AddCycleText("Iiihhhh-aahhhh!","Iiihhhh-aahhhh!");
+    AddCycleText("#me stampft störrisch auf.","#me stubbornly stamps one foot.");
+    AddCycleText("#me zerrt am Halfter.","#me tears at the headcollar.");
+    AddCycleText("#me versucht den Halbling zu beißen.","#me tries to bite the halfling.");
+    AddCycleText("#me schüttelt seinen Kopf.","#me tosses his head.");
+    AddCycleText("#me tritt mit den Hinterläufen aus.","#me kicks with his hind legs.");
+    AddCycleText("#me bäumt sich auf.","#me rears up.");
+    AddCycleText("#me lässt ein paar Eselsäpfel fallen.","#me drops some mule droppings.");
+    AddCycleText("#me schlägt mit dem Schwanz nach ein paar Fliegen.","#me wags his tail to get rid of some flies.");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0,1};
     TradStdLang=0;
 
-    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
+    increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
+    if BasicNPCChecks(originator,2) then
+        if LangOK(originator,TradSpeakLang) then
+            TellSmallTalk(message,originator);
         else
-            npcs.base.autonpcfunctions.Confused(
+            Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -38,34 +38,34 @@ function initializeNpc()
 
     TraderCopper=400;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Hello sunshine!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß+]","Hallo Sonnenschein!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hallöchen Sonnenschein");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I trade plants, pipes, beer, elven wine, baby fir trees, buckets, and nice noise-makers for those shiny things");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich handel mit Pflanzen, Pfeifen, Bier, Elbenwein, Tannen Kindern, Eimern und nette Geräusche Macher für diese glitzernden Stückchen");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]lants","Yes, plants. I have a sibanac farm right here and pipes to go with it.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]flanz","Ja. Pflanzen. Ich habe hier eine Sibanac Farm und Pfeifen um es zu rauchen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+do","I watch plants grow.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[mt][au][cst]","Ich sehe den Pflanzen beim Wachsen zu.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]umor","You talking about rumors? I have a fact to tell you, much better than rumors. The other day I saw gnolls dancing in the moonlight. I think they were having fun.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]erüch","Du sprichst von Gerüchten? Ich habe etwas wahres was viel besser ist. Ich habe an einem anderen Tag Gnolle, im Mondlicht tanzen sehen. Ich denke sie hatten Spass.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]ews","You interested in the latest news? A priest of Sirani told me that the goddess herself told his cousin that all spiders should be loved as our friends. That, my friend, is what happens when you mix 'shrooms with Sibanac.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]euigkeit","Du bist an Neuigkeiten interessiert? Ein Priesterin von Sirani hat mir gesagt das ihr Göttin persönlich, ihrem Cousin gesagt hat, das alle Spinnen von unseren Freunden geliebt werden sollen. Das mein Freund, passiert wenn man Pilze und Sibanac mischt.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I'll give you round shiny things for cylindrical vessels containing hop-flavored brew, or that sweet elven stuff. I’ll even trade buckets, harps, lutes, or even horns! I can get a nice fir tree seedling! Isn’t a tree much nicer than copper?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%skauf","Ich gebe dir diese runden glitzernden Dinger für zylindrische Gefäße, befüllt mit, mit Hopfen gewürztem, Gebräu oder mit dem süßen Elbenzeugs. Ich handle auch mit Eimern und Instrumenten. Und ich kauf auch Tannen Setzlinge.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]'m.+","Good for you, sunshine");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+bin","Gut für dich, Sonnenschein");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]aby [Ff]ir [Tt]rees","Yes, I sell baby fir trees. You might call them fir tree seedlings. I buy them, too.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]annenbaum.+[Kk]ind","Ja. Ich verkaufe Tannenbaum Kinder. Du sagst vielleicht Tannen Baum Setzlinge dazu. Die kaufe ich auch.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Farewell, sunshine");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]oodbye");
-    npcs.base.autonpcfunctions.AddAdditionalText("Bye, sunshine");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf bald, Sonnenschein.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Gg]reet","Hello sunshine!");
+    AddAdditionalTrigger("[Hh]ello");
+    AddTraderTrigger("[Gg]r[uü][sß+]","Hallo Sonnenschein!");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Hallöchen Sonnenschein");
+    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I trade plants, pipes, beer, elven wine, baby fir trees, buckets, and nice noise-makers for those shiny things");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich handel mit Pflanzen, Pfeifen, Bier, Elbenwein, Tannen Kindern, Eimern und nette Geräusche Macher für diese glitzernden Stückchen");
+    AddTraderTrigger("[Pp]lants","Yes, plants. I have a sibanac farm right here and pipes to go with it.");
+    AddTraderTrigger("[Pp]flanz","Ja. Pflanzen. Ich habe hier eine Sibanac Farm und Pfeifen um es zu rauchen.");
+    AddTraderTrigger("[Ww]hat.+do","I watch plants grow.");
+    AddTraderTrigger("[Ww]as.+[mt][au][cst]","Ich sehe den Pflanzen beim Wachsen zu.");
+    AddTraderTrigger("[Rr]umor","You talking about rumors? I have a fact to tell you, much better than rumors. The other day I saw gnolls dancing in the moonlight. I think they were having fun.");
+    AddTraderTrigger("[Gg]erüch","Du sprichst von Gerüchten? Ich habe etwas wahres was viel besser ist. Ich habe an einem anderen Tag Gnolle, im Mondlicht tanzen sehen. Ich denke sie hatten Spass.");
+    AddTraderTrigger("[Nn]ews","You interested in the latest news? A priest of Sirani told me that the goddess herself told his cousin that all spiders should be loved as our friends. That, my friend, is what happens when you mix 'shrooms with Sibanac.");
+    AddTraderTrigger("[Nn]euigkeit","Du bist an Neuigkeiten interessiert? Ein Priesterin von Sirani hat mir gesagt das ihr Göttin persönlich, ihrem Cousin gesagt hat, das alle Spinnen von unseren Freunden geliebt werden sollen. Das mein Freund, passiert wenn man Pilze und Sibanac mischt.");
+    AddTraderTrigger("[Ww]hat.+buy","I'll give you round shiny things for cylindrical vessels containing hop-flavored brew, or that sweet elven stuff. I’ll even trade buckets, harps, lutes, or even horns! I can get a nice fir tree seedling! Isn’t a tree much nicer than copper?");
+    AddTraderTrigger("[Ww]as.+%skauf","Ich gebe dir diese runden glitzernden Dinger für zylindrische Gefäße, befüllt mit, mit Hopfen gewürztem, Gebräu oder mit dem süßen Elbenzeugs. Ich handle auch mit Eimern und Instrumenten. Und ich kauf auch Tannen Setzlinge.");
+    AddTraderTrigger("[Ii]'m.+","Good for you, sunshine");
+    AddTraderTrigger("[Ii]ch.+bin","Gut für dich, Sonnenschein");
+    AddTraderTrigger("[Bb]aby [Ff]ir [Tt]rees","Yes, I sell baby fir trees. You might call them fir tree seedlings. I buy them, too.");
+    AddTraderTrigger("[Tt]annenbaum.+[Kk]ind","Ja. Ich verkaufe Tannenbaum Kinder. Du sagst vielleicht Tannen Baum Setzlinge dazu. Die kaufe ich auch.");
+    AddTraderTrigger("[Ff]arewell","Farewell, sunshine");
+    AddAdditionalTrigger("[Gg]oodbye");
+    AddAdditionalText("Bye, sunshine");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf bald, Sonnenschein.");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -91,17 +91,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -109,7 +109,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -191,7 +191,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -218,7 +218,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

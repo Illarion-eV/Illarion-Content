@@ -19,7 +19,7 @@ end
 
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -41,49 +41,49 @@ function initializeNpc()
 
     TraderCopper=1000;
 
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Aahr! Be greeted in 'The Fluffy Sheep Tavern'. What do you want to drink?");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Hello. What do I have to make you?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","Drinks and more. What do you thought? It's a Bar. And now, tell me: What do you want?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Bb]arkeeper","What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]are","It's a damned bar, what do you think I sell? But here, look at the list: drinks and more.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Dd]rink","All kind: bottle of elven wine, of water, of mead, of cider, of red wine, of beer, beer mug, goblet red wine, goblet water, goblet cider, goblet mead. But the mugs, goblets and bottles - give them back when you are ready. There is a refund on them.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Mm]ore","Oh, I need glass mugs, copper goblets and grey bottles for they everyday business. Do you have some of them?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Good day!");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Aye. Come back whenever you are thirsty.");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Farewell friend!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?"..thisNPC.name..". I work here for Tialdin, the owner of this tavern.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Great. I am "..thisNPC.name..", the barkeeper. Do you want something to drink?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","Arr, Where shall I begin? I could tell you lots of what is spoken in this tavern, but if I would do that, no one would come back. No, I am not a traitor to my guests. Sorry!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
+    --AddTraderTrigger("[Gg]reet","Aahr! Be greeted in 'The Fluffy Sheep Tavern'. What do you want to drink?");
+    --AddAdditionalTrigger("[Hh]ello");
+    --AddAdditionalText("Hello. What do I have to make you?");
+    --AddTraderTrigger("[Ww]hat.+sell","Drinks and more. What do you thought? It's a Bar. And now, tell me: What do you want?");
+    --AddTraderTrigger("[Yy]ou.+[Bb]arkeeper","What do you think I have to do here? What a stupid question. Aaarh! Drink or eat something or leave!");
+    --AddTraderTrigger("[Ww]hat.+[Ww]are","It's a damned bar, what do you think I sell? But here, look at the list: drinks and more.");
+    --AddTraderTrigger("[Ww]hat.+[Dd]rink","All kind: bottle of elven wine, of water, of mead, of cider, of red wine, of beer, beer mug, goblet red wine, goblet water, goblet cider, goblet mead. But the mugs, goblets and bottles - give them back when you are ready. There is a refund on them.");
+    --AddTraderTrigger("[Ww]hat.+[Mm]ore","Oh, I need glass mugs, copper goblets and grey bottles for they everyday business. Do you have some of them?");
+    --AddTraderTrigger("[Gg]oodbye","Good day!");
+    --AddAdditionalTrigger("[Bb]ye");
+    --AddAdditionalText("Aye. Come back whenever you are thirsty.");
+    --AddAdditionalTrigger("[Ff]arewell");
+    --AddAdditionalText("Farewell friend!");
+    --AddTraderTrigger("[Ww]ho.+you?"..thisNPC.name..". I work here for Tialdin, the owner of this tavern.");
+    --AddTraderTrigger("I'm .+","Great. I am "..thisNPC.name..", the barkeeper. Do you want something to drink?");
+    --AddTraderTrigger("[Tt]ell.+[Ss]omething","Arr, Where shall I begin? I could tell you lots of what is spoken in this tavern, but if I would do that, no one would come back. No, I am not a traitor to my guests. Sorry!");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
 
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Willkommen in der Fluffy Sheep Taverne, was willst Du trinken?");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag. Was soll ich Dir machen?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[IiDd][hu][r ].*[Ww]irt","Genau, ich bin hier der Wirt. Was willst Du trinken?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe alles, was das Herz begehrt: Met, Wein, Bier, und so weiter. Willst du was?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Gg]etränke","Das hier ist 'ne Kneipe, was glaubst du, was wir hier verkaufen?");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+was","Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]schüss","Schönen Tag noch.");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Aa]uf.+[Bb]ald");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Bis bald.");
-    --npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    --npcs.base.autonpcfunctions.AddAdditionalText("Auf bald!");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[IiDd][hu][r ]?","Ich bin "..thisNPC.name..". Ich arbeite hier für Tialdin als Wirt der Kneipe.");
-    --npcs.base.autonpcfunctions.AddTraderTrigger("Ich bin .+","Ich bin "..thisNPC.name..". Willst Du was trinken?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    --AddTraderTrigger("[Gg]rü[ßs]+e","Willkommen in der Fluffy Sheep Taverne, was willst Du trinken?");
+    --AddAdditionalTrigger("[Hh]allo");
+    --AddAdditionalText("Guten Tag. Was soll ich Dir machen?");
+    --AddTraderTrigger("[IiDd][hu][r ].*[Ww]irt","Genau, ich bin hier der Wirt. Was willst Du trinken?");
+    --AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe alles, was das Herz begehrt: Met, Wein, Bier, und so weiter. Willst du was?");
+    --AddTraderTrigger("[Ww]as.+[Gg]etränke","Das hier ist 'ne Kneipe, was glaubst du, was wir hier verkaufen?");
+    --AddTraderTrigger("[Ee]rzähl.+was","Ich höre viel und weiss eigentlich fast alles. Ich erzähl' dir aber nichts davon, das geht dich nunmal nichts an.");
+    --AddTraderTrigger("[Tt]schüss","Schönen Tag noch.");
+    --AddAdditionalTrigger("[Aa]uf.+[Bb]ald");
+    --AddAdditionalText("Bis bald.");
+    --AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    --AddAdditionalText("Auf bald!");
+    --AddTraderTrigger("[Ww]er.+[IiDd][hu][r ]?","Ich bin "..thisNPC.name..". Ich arbeite hier für Tialdin als Wirt der Kneipe.");
+    --AddTraderTrigger("Ich bin .+","Ich bin "..thisNPC.name..". Willst Du was trinken?");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
-    --npcs.base.autonpcfunctions.AddCycleText("#me trocknet einen Bierkrug ab","#me wipes a beer mug clean");
-    --npcs.base.autonpcfunctions.AddCycleText("#me sieht sich gelangweilt um","#me looks around bored");
-    --npcs.base.autonpcfunctions.AddCycleText("#me spielt mit einer Kupfermünze","#me plays with a copper coin");
-    --npcs.base.autonpcfunctions.AddCycleText("#me wischt über die Theke","#me wipes over the bar");
-    npcs.base.autonpcfunctions.AddCycleText("Arrr...","Arrr...");
-    npcs.base.autonpcfunctions.AddCycleText("Arrr!","Arrr!");
-    npcs.base.autonpcfunctions.AddCycleText("Arrr...?","Arrr...?");
-    --npcs.base.autonpcfunctions.AddCycleText("#me trinkt ein Bier","#me gulps down a beer");
-    npcs.base.autonpcfunctions.AddCycleText("#me brummt verärgert:'Ich streike!'","#me grumbles in anger:'I am on strike!'");
+    --AddCycleText("#me trocknet einen Bierkrug ab","#me wipes a beer mug clean");
+    --AddCycleText("#me sieht sich gelangweilt um","#me looks around bored");
+    --AddCycleText("#me spielt mit einer Kupfermünze","#me plays with a copper coin");
+    --AddCycleText("#me wischt über die Theke","#me wipes over the bar");
+    AddCycleText("Arrr...","Arrr...");
+    AddCycleText("Arrr!","Arrr!");
+    AddCycleText("Arrr...?","Arrr...?");
+    --AddCycleText("#me trinkt ein Bier","#me gulps down a beer");
+    AddCycleText("#me brummt verärgert:'Ich streike!'","#me grumbles in anger:'I am on strike!'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -111,17 +111,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -129,7 +129,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -194,7 +194,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -222,7 +222,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -19,30 +19,30 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings. Can i help you?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Be greeted. I'm "..thisNPC.name..". Can I help you?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Kann ich euch helfen?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[hH]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag. Ich bin "..thisNPC.name..". Kann ich euch helfen?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","No. I'm no trader. I'm the tax collector of Trollsbane.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nein ich bin kein Händler. Ich bin der Steuerneintreiber von Trollsbane.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","Nothing. I'm no trader so i sell nothing.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich bin kein Händler also verkaufe ich auch nichts.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","What shall I tell you? Tell me what you want or leave. But do not waste my time.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ww]as","Was soll ich euch erzählen? Sagt mir was ihr wollt, aber verschwendet meine Zeit nicht.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Be well.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell!");
-    npcs.base.autonpcfunctions.AddAdditionalText("Good bye.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    AddTraderTrigger("[Gg]reetings","Greetings. Can i help you?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Be greeted. I'm "..thisNPC.name..". Can I help you?");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Kann ich euch helfen?");
+    AddAdditionalTrigger("[hH]allo");
+    AddAdditionalText("Guten Tag. Ich bin "..thisNPC.name..". Kann ich euch helfen?");
+    AddTraderTrigger("[Yy]ou.+[Tt]rader","No. I'm no trader. I'm the tax collector of Trollsbane.");
+    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nein ich bin kein Händler. Ich bin der Steuerneintreiber von Trollsbane.");
+    AddTraderTrigger("[Ww]hat.+sell","Nothing. I'm no trader so i sell nothing.");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich bin kein Händler also verkaufe ich auch nichts.");
+    AddTraderTrigger("[Tt]ell.+[Ss]omething","What shall I tell you? Tell me what you want or leave. But do not waste my time.");
+    AddTraderTrigger("[Ee]rzähl.+[Ww]as","Was soll ich euch erzählen? Sagt mir was ihr wollt, aber verschwendet meine Zeit nicht.");
+    AddTraderTrigger("[Gg]oodbye","Be well.");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell!");
+    AddAdditionalText("Good bye.");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Auf bald");
     
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
 
@@ -76,19 +76,19 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=TakeTaxes(originator, message)
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Gefragt nach Steuern, darf sie aber nicht nehmen
@@ -111,7 +111,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -138,7 +138,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

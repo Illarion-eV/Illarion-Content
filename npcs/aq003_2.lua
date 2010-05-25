@@ -17,28 +17,28 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     StudentStats={};
 
     --originator:inform("Init()");
     thisNPC:increaseSkill(1,"common language",100);
     TraderFirst=1;
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Hello! Can you help me?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Greetings.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Hallo, ich brauche deine Hilfe!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hallo!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you","My name is Clarissa, and I have a problem. Can you help me?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+du","Ich bin Clarissa, und ich hab' ein Problem, bei dem du mir helfen könntest.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]er.+ihr");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+problem","For ages I haven't heard anything from my friend Progor in Greenbriar. Could you go there and ask him to write me a message?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]hat.+help");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ow.+help");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Pp]roblem","Ich hab' seit Ewigkeiten nichts mehr von meinem Freund Progor aus Greenbriar gehört. Kannst du dort hingehen und ihn daran erinnern, dass er mir eine Nachricht schreiben sollte?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]as.+[Hh]ilfe");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]ie.+[Hh]elfen");
+    AddTraderTrigger("[Gg]reetings","Hello! Can you help me?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Greetings.");
+    AddTraderTrigger("[Gg]r[uü][sß]+","Hallo, ich brauche deine Hilfe!");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Hallo!");
+    AddTraderTrigger("[Ww]ho.+you","My name is Clarissa, and I have a problem. Can you help me?");
+    AddTraderTrigger("[Ww]er.+du","Ich bin Clarissa, und ich hab' ein Problem, bei dem du mir helfen könntest.");
+    AddAdditionalTrigger("[Ww]er.+ihr");
+    AddTraderTrigger("[Ww]hat.+problem","For ages I haven't heard anything from my friend Progor in Greenbriar. Could you go there and ask him to write me a message?");
+    AddAdditionalTrigger("[Ww]hat.+help");
+    AddAdditionalTrigger("[Hh]ow.+help");
+    AddTraderTrigger("[Ww]as.+[Pp]roblem","Ich hab' seit Ewigkeiten nichts mehr von meinem Freund Progor aus Greenbriar gehört. Kannst du dort hingehen und ihn daran erinnern, dass er mir eine Nachricht schreiben sollte?");
+    AddAdditionalTrigger("[Ww]as.+[Hh]ilfe");
+    AddAdditionalTrigger("[Ww]ie.+[Hh]elfen");
 
     TradSpeakLang={0,6};
     TradStdLang=0;
@@ -59,18 +59,18 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
+        increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=NachrichtGeben(originator,message);
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             -------------------------------------------------------------------------
 
@@ -88,13 +88,13 @@ function receiveText(texttype, message, originator)
                 eText="You don't have the message with you yet!";
             end
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,npcs.base.npcautofunction.GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
             end
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -29,8 +29,8 @@ function lookAtNpc( player, mode )
 end
 
 function useNPC(User,counter,param)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(User,2) then
-        if (npcs.base.autonpcfunctions.LangOK(User,TradSpeakLang)==true) then
+    if BasicNPCChecks(User,2) then
+        if (LangOK(User,TradSpeakLang)==true) then
             User:inform("param "..param);
 			if ( param == 228 ) then
                User:inform(TraderInterface:addItem(User));
@@ -95,7 +95,7 @@ function GetItems( User, ItemID, DataValue )
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -121,38 +121,38 @@ function initializeNpc()
 
     TraderCopper=5000;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Greetingsss. What isss it you want? Zss.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Greetingsss. You are interesssted in my waresss?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I trade with shieldsss, greavesss, armorsss and weaponsss. Everything made of metal. sss");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ss]hield","Whatever you likesss: light, normal and large  metal shieldsss and round metalshieldsss");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Aa]rmor","Besst armosss: steel glovesss, steel bootsss, albarian officersss armorss, light mercenary armorss, Lor-Angur guardiansss armorss, steel plate, heavy red plate armorss and heavy plate armorss. For more goodsss asssk for my lissst of waresss.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]eapon","I trade with two-handed swordss, rapierss, razor bladess, serinjah-swordss. For more goodsss asssk for my lissst of waresss.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Gg]reave","Look. I have: blue steel greavesss, brassss greavesss, red steel greavesss. For more goodsss asssk for my lissst of waresss!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Good day. Zhelphia may blesss you. Ssss.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]e [Ww]ell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Sss. Farewell. You are welcome to come back.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüssse. Wasss wollt ihr? Zsss");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Grüssse. Habt ihr Interessse an meinen Waren? Zsss");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kauf","Sss. Ich handle mit Ssschilden, Beinschienen, Rüssstungen und Waffen. Alles aus Metall. ssss");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ss]child","Wasss auch immer du brauchssst: leichte, normale und große Metallschilde und Metallrundsschilde");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Rr]üstung","Bessste Rüssstungen: Ssstahl Handschuhe und Ssstiefel, Albarische Offiziersss Rüssstungen, leicht Sssöldner Rüssstungen, Lor-Angur Wächter Rüssstungen, Ssstahl Plattenpanzer, ssschwere Rote und ssschwere Ssstahlpanzer.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]affen","Ich handle mit Degen, Rasssierklingen, Ssserinjah-Ssschwertern und Zzweihänderr.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ss]chienen","Sssieh! Ich habe: blaue Ssstahl Beinssschienen, Bronze Beinssschienen und rote Ssstahl Beinssschienen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald. Zhelphia sssegne euch. Zsss.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is [Bb]als");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]achs [Gg]ut");
-    npcs.base.autonpcfunctions.AddAdditionalText("Sss. Bis bald. Ihr könnt gern wieder kommen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Gg]reet","Greetingsss. What isss it you want? Zss.");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Greetingsss. You are interesssted in my waresss?");
+    AddTraderTrigger("[Ww]hat.+sell","I trade with shieldsss, greavesss, armorsss and weaponsss. Everything made of metal. sss");
+    AddTraderTrigger("[Ww]hat.+[Ss]hield","Whatever you likesss: light, normal and large  metal shieldsss and round metalshieldsss");
+    AddTraderTrigger("[Ww]hat.+[Aa]rmor","Besst armosss: steel glovesss, steel bootsss, albarian officersss armorss, light mercenary armorss, Lor-Angur guardiansss armorss, steel plate, heavy red plate armorss and heavy plate armorss. For more goodsss asssk for my lissst of waresss.");
+    AddTraderTrigger("[Ww]hat.+[Ww]eapon","I trade with two-handed swordss, rapierss, razor bladess, serinjah-swordss. For more goodsss asssk for my lissst of waresss.");
+    AddTraderTrigger("[Ww]hat.+[Gg]reave","Look. I have: blue steel greavesss, brassss greavesss, red steel greavesss. For more goodsss asssk for my lissst of waresss!");
+    AddTraderTrigger("[Bb]ye","Good day. Zhelphia may blesss you. Ssss.");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalTrigger("[Bb]e [Ww]ell");
+    AddAdditionalText("Sss. Farewell. You are welcome to come back.");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Grüssse. Wasss wollt ihr? Zsss");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Grüssse. Habt ihr Interessse an meinen Waren? Zsss");
+    AddTraderTrigger("[Ww]as.+kauf","Sss. Ich handle mit Ssschilden, Beinschienen, Rüssstungen und Waffen. Alles aus Metall. ssss");
+    AddTraderTrigger("[Ww]as.+[Ss]child","Wasss auch immer du brauchssst: leichte, normale und große Metallschilde und Metallrundsschilde");
+    AddTraderTrigger("[Ww]as.+[Rr]üstung","Bessste Rüssstungen: Ssstahl Handschuhe und Ssstiefel, Albarische Offiziersss Rüssstungen, leicht Sssöldner Rüssstungen, Lor-Angur Wächter Rüssstungen, Ssstahl Plattenpanzer, ssschwere Rote und ssschwere Ssstahlpanzer.");
+    AddTraderTrigger("[Ww]as.+[Ww]affen","Ich handle mit Degen, Rasssierklingen, Ssserinjah-Ssschwertern und Zzweihänderr.");
+    AddTraderTrigger("[Ww]as.+[Ss]chienen","Sssieh! Ich habe: blaue Ssstahl Beinssschienen, Bronze Beinssschienen und rote Ssstahl Beinssschienen.");
+    AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald. Zhelphia sssegne euch. Zsss.");
+    AddAdditionalTrigger("[Bb]is [Bb]als");
+    AddAdditionalTrigger("[Mm]achs [Gg]ut");
+    AddAdditionalText("Sss. Bis bald. Ihr könnt gern wieder kommen.");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
     
-    npcs.base.autonpcfunctions.AddCycleText("#me isst einen Fisch","#me eats a fish");
-    npcs.base.autonpcfunctions.AddCycleText("#me schaut sich nach Kunden um","#me looks around for customers");
-    npcs.base.autonpcfunctions.AddCycleText("#me lässt ihren Schwanz hin und her schnalzen","#me flicks her tail");
-    npcs.base.autonpcfunctions.AddCycleText("#me zählt einige Münzen","#me counts some coins");
-    npcs.base.autonpcfunctions.AddCycleText("Die besssten Ssschmiedewaren verkauf ich! Zzzum besssten Preisss.","I sssell the bessst smithsss productsss. For the bessst pricesss");
+    AddCycleText("#me isst einen Fisch","#me eats a fish");
+    AddCycleText("#me schaut sich nach Kunden um","#me looks around for customers");
+    AddCycleText("#me lässt ihren Schwanz hin und her schnalzen","#me flicks her tail");
+    AddCycleText("#me zählt einige Münzen","#me counts some coins");
+    AddCycleText("Die besssten Ssschmiedewaren verkauf ich! Zzzum besssten Preisss.","I sssell the bessst smithsss productsss. For the bessst pricesss");
 
     TraderLang={"Gold","gold","Sssilber", "sssilver","Kupfer","copper","ssstücke","piecesss"};
     
@@ -182,17 +182,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;            
             
             --- by abcfantasy --
@@ -233,7 +233,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

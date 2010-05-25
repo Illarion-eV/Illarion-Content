@@ -29,7 +29,7 @@ function InitNPC()
     	local playerNearby = world:getCharactersInRangeOf(thisNPC.pos, 2); --looks up the escorting player(needs to be changed later to look also for a typical queststatus)
     	
 		player[thisNPC.id] = getCharForId(playerNearby[1].id);--create a save copy of the char struct 
-		move[thisNPC.id]=moveFunction(itemlist,player[thisNPC.id]); --initialize npcs.base.autonpcfunctions.walking
+		move[thisNPC.id]=moveFunction(itemlist,player[thisNPC.id]); --initialize walking
         waypoints[thisNPC.id] = {};
         SpawnAtWP[thisNPC.id] = {};
         --put here the initializiation of the route by random
@@ -44,41 +44,41 @@ function initializeNpc()
         return true;
     end
 
-    npcs.base.autonpcfunctions.InitTalkLists();
+    InitTalkLists();
 
     -- ********* START DYNAMIC PART ********
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Be greeted!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    AddTraderTrigger("[Gg]reetings","Be greeted!");
+    AddAdditionalTrigger("[Hh]ello");
     
-    npcs.base.autonpcfunctions.AddAdditionalText("A good day to you my friend! You look fine today.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Cadomyrs order traders!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I have delivery orders at which you could help me.");
+    AddAdditionalText("A good day to you my friend! You look fine today.");
+    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Cadomyrs order traders!");
+    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I have delivery orders at which you could help me.");
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","You are going my friend? Take care of yourself.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell. I hope you will come back soon my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I don't buy anything, but I have delivery orders at which you could help me.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
-    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","That is the name of a good friend. Nice to meet you!");
+    AddTraderTrigger("[Gg]oodbye","You are going my friend? Take care of yourself.");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalText("Farewell");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell. I hope you will come back soon my friend.");
+    AddTraderTrigger("[Ww]hat.+buy","I don't buy anything, but I have delivery orders at which you could help me.");
+    AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
+    AddTraderTrigger("I'm .+","That is the name of a good friend. Nice to meet you!");
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üu][ßs]+","Hallo mein Freund, du siehst heute wieder gut aus.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag mein Freund! Wie geht es dir mein Freund?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer der Großauftragshändler Cadomyrs!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Du bist schon auf dem Weg mein Freund? Pass auf dich auf und komm bald wieder!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]auf","Ich kaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt mein Freund.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+bin","Das ist der Name eines guten Freundes. Schön dich kennen zu lernen!");
+    AddTraderTrigger("[Gg]r[üu][ßs]+","Hallo mein Freund, du siehst heute wieder gut aus.");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Guten Tag mein Freund! Wie geht es dir mein Freund?");
+    AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer der Großauftragshändler Cadomyrs!");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Du bist schon auf dem Weg mein Freund? Pass auf dich auf und komm bald wieder!");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Auf bald");
+    AddTraderTrigger("[Ww]as.+[Kk]auf","Ich kaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
+    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt mein Freund.");
+    AddTraderTrigger("[Ii]ch.+bin","Das ist der Name eines guten Freundes. Schön dich kennen zu lernen!");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
     TradStdLang=0;
 
-    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
+    increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
 
 
@@ -92,7 +92,7 @@ end
 
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,5) then
+    if BasicNPCChecks(originator,5) then
 		if (string.find(message, "[Rr]emove")~=nil) then  --DEBUG
 			originator:inform("Escort NPC gets deleted");
             world:deleteNPC( thisNPC.id );	
@@ -124,14 +124,14 @@ function receiveText(texttype, message, originator)
 			if tstVar == true then originator:inform("...npc is looking for route..."); end
 			thisNPC:setOnRoute(false);
 		end
-        npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
+        TellSmallTalk(message,originator);
 	end
 end
 
 function useNPC(user,counter,param)
 	if not IsEscortingPlayerOnline(thisNPC) or (user.id == player[thisNPC.id].id and not move[thisNPC.id].status()) then --look if the Escorting Player is still online and npc not moving
 		player[thisNPC.id] = getCharForId(user.id);--create a save copy of the char struct
-		  move[thisNPC.id] = moveFunction(itemlist,player[thisNPC.id]); --initialize npcs.base.autonpcfunctions.walking function
+		  move[thisNPC.id] = moveFunction(itemlist,player[thisNPC.id]); --initialize walking function
 		
 		base.common.TalkNLS(thisNPC, CCharacter.say, player[thisNPC.id].name.." ist meine neue Eskorte.", player[thisNPC.id].name.." is my new escort.");
 	end
@@ -147,7 +147,7 @@ function moveFunction(itemlist,player)
 		faceto			   = 4,         -- The looking direction of the Npc when he reaches the target(0=north,6=west,4=south,2=east)
 		target			   = nil,		-- the destination the npc has to go
 		TimeBetweenSteps   = 0,         -- Time between a step of the npc in seconds
-		timerID            = 0,         -- timerID 0 for npcs.base.autonpcfunctions.walking
+		timerID            = 0,         -- timerID 0 for walking
 		itemlist		   = itemlist,  -- a list with the non-passable items
 		blocked			   = false;     -- true if the npc is blocked by a char or item else false
 
@@ -269,7 +269,7 @@ function moveFunction(itemlist,player)
 
         XOff = thisNPC.pos.x - self.target.x;  --offset between the npc and the target
         YOff = thisNPC.pos.y - self.target.y;
-        if (math.sqrt(XOff*XOff + YOff*YOff) >= 1) then --if the target is atleast 1 step away npcs.base.autonpcfunctions.walk.
+        if (math.sqrt(XOff*XOff + YOff*YOff) >= 1) then --if the target is atleast 1 step away walk.
             if ((math.abs(XOff) < math.abs(YOff)) and not self.blocked) or ((math.abs(XOff) > math.abs(YOff)) and self.blocked) then
                 if not MoveX(XOff) then
                     if not MoveY(YOff) then

@@ -25,7 +25,7 @@ function useNPC_debug(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -53,34 +53,34 @@ function initializeNpc()
 
     TraderCopper=1000;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hello");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Grüß euch");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hallo");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell grey and fine dyed cloth, red and black shirts, cloth gloves, blue dresses and coats, black trousers, needles, scissors and thread.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe graue und gefärbte Stoffe, rote und schwarze Hemden, Stoffhandschuhe, blaue Kleider und Mäntel, schwarze Hose, Nadeln, Scheren und Garn.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I buy dyed cloth, red and black shirts, cloth gloves, blue dresses and coats and black trousers.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%skauf","Ich kaufe gefärbten Stoff, rote, blaue und schwarze Hemden, Stoff Handschuhe, blaue Kleider und schwarze Hosen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you","I'm Maris Maroqué, tailor and trader of tailor needs");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Maris Maroqué, Schneider und Händler für Schneidereibedarf.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]yer","No, I'm not a dyer. Can't tell you any secrets.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]ärber","Nein. Ich bin kein Färber. Ich kann dir keine Geheimnisse verraten.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ailor","Yes, I'm a tailor. If you want to be too, buy needle and scissor, thread and cloth and work with the tailoring table in the workshop.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]chneider","Ja, ich bin Schneider. Wenn du selbst einer werden willst, besorg die Schere und Nadel, Garn und Stoff und arbeite am Schneidertisch in der Werkstatt.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]orkshop","Yes, the workshop is in the western part of the town. There you also can find tools for tailors: a tailoring table, a spinning wheel and a loom");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]erkstatt","Ja, die Werkstatt befindet sich im westlichen teil der Stadt. Da findest du auch als Schneider Werkzeuge: Schneidertisch, Spinnrad und Webstuhl.");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]'m.+","Lovely to meet you. Care to buy anything?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich euch kennen zu lernen. Wollt ihr etwas kaufen?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Farewell");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]oodbye");
-    npcs.base.autonpcfunctions.AddAdditionalText("Come back soon");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]is.+[Bb]ald","Auf bald");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Aa]uf.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Gg]reetings","Greetings");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Hello");
+    AddTraderTrigger("[Gg]r[uü][sß]+","Grüß euch");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Hallo");
+    AddTraderTrigger("[Ww]hat.+sell","I sell grey and fine dyed cloth, red and black shirts, cloth gloves, blue dresses and coats, black trousers, needles, scissors and thread.");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe graue und gefärbte Stoffe, rote und schwarze Hemden, Stoffhandschuhe, blaue Kleider und Mäntel, schwarze Hose, Nadeln, Scheren und Garn.");
+    AddTraderTrigger("[Ww]hat.+buy","I buy dyed cloth, red and black shirts, cloth gloves, blue dresses and coats and black trousers.");
+    AddTraderTrigger("[Ww]as.+%skauf","Ich kaufe gefärbten Stoff, rote, blaue und schwarze Hemden, Stoff Handschuhe, blaue Kleider und schwarze Hosen.");
+    AddTraderTrigger("[Ww]ho.+you","I'm Maris Maroqué, tailor and trader of tailor needs");
+    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Maris Maroqué, Schneider und Händler für Schneidereibedarf.");
+    AddTraderTrigger("[Dd]yer","No, I'm not a dyer. Can't tell you any secrets.");
+    AddTraderTrigger("[Ff]ärber","Nein. Ich bin kein Färber. Ich kann dir keine Geheimnisse verraten.");
+    AddTraderTrigger("[Tt]ailor","Yes, I'm a tailor. If you want to be too, buy needle and scissor, thread and cloth and work with the tailoring table in the workshop.");
+    AddTraderTrigger("[Ss]chneider","Ja, ich bin Schneider. Wenn du selbst einer werden willst, besorg die Schere und Nadel, Garn und Stoff und arbeite am Schneidertisch in der Werkstatt.");
+    AddTraderTrigger("[Ww]orkshop","Yes, the workshop is in the western part of the town. There you also can find tools for tailors: a tailoring table, a spinning wheel and a loom");
+    AddTraderTrigger("[Ww]erkstatt","Ja, die Werkstatt befindet sich im westlichen teil der Stadt. Da findest du auch als Schneider Werkzeuge: Schneidertisch, Spinnrad und Webstuhl.");
+	AddTraderTrigger("[Ii]'m.+","Lovely to meet you. Care to buy anything?");
+    AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich euch kennen zu lernen. Wollt ihr etwas kaufen?");
+    AddTraderTrigger("[Ff]arewell","Farewell");
+    AddAdditionalTrigger("[Gg]oodbye");
+    AddAdditionalText("Come back soon");
+    AddTraderTrigger("[Bb]is.+[Bb]ald","Auf bald");
+    AddAdditionalTrigger("[Aa]uf.+[Bb]ald");
+    AddAdditionalText("Auf bald");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -115,12 +115,12 @@ end
 function nextCycle_debug()
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
@@ -131,8 +131,8 @@ function receiveText(texttype, message, originator)
 end
 
 function receiveText_debug(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -140,7 +140,7 @@ function receiveText_debug(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -205,7 +205,7 @@ function receiveText_debug(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -232,7 +232,7 @@ function receiveText_debug(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

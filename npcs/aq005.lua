@@ -17,42 +17,42 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings", "Um... hello. And who the hell are you?");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]iho");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rüße", "Uhm... hallo. Und wer zum Teufel bist du?");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]uhu");
+	AddTraderTrigger("[Gg]reetings", "Um... hello. And who the hell are you?");
+	AddAdditionalTrigger("[Hh]ello");
+	AddAdditionalTrigger("[Hh]iho");
+	AddTraderTrigger("[Gg]rüße", "Uhm... hallo. Und wer zum Teufel bist du?");
+	AddAdditionalTrigger("[Hh]allo");
+	AddAdditionalTrigger("[Hh]uhu");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]'m", "Oh. Are you the one Weasel sent?");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii] am");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]y name is");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch bin", "Oh. Hat Wiesel dich geschickt?");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]ein Name ist");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii]ch heisse");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ii]ch heiße");
+	AddTraderTrigger("[Ii]'m", "Oh. Are you the one Weasel sent?");
+	AddAdditionalTrigger("[Ii] am");
+	AddAdditionalTrigger("[Mm]y name is");
+	AddTraderTrigger("[Ii]ch bin", "Oh. Hat Wiesel dich geschickt?");
+	AddAdditionalTrigger("[Mm]ein Name ist");
+	AddAdditionalTrigger("[Ii]ch heisse");
+	AddAdditionalTrigger("[Ii]ch heiße");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?", "Shh! I'm Sylvester. Weasel sent you, didn't he?");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+du?", "Psst! Ich bin Sylvester. Wiesel hat dich geschickt, richtig?");
+	AddTraderTrigger("[Ww]ho.+you?", "Shh! I'm Sylvester. Weasel sent you, didn't he?");
+	AddTraderTrigger("[Ww]er.+du?", "Psst! Ich bin Sylvester. Wiesel hat dich geschickt, richtig?");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]o", "What?? You ain't the one he sent? Bahh, buzz off!");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]ein", "Was?? Du bist nicht der den er geschickt hat? Bah, zisch ab!");
+	AddTraderTrigger("[Nn]o", "What?? You ain't the one he sent? Bahh, buzz off!");
+	AddTraderTrigger("[Nn]ein", "Was?? Du bist nicht der den er geschickt hat? Bah, zisch ab!");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]es", "Yeah, I thought so. Hey, it's in the same spot, same brick, a'right? Just 'put yer back to the setting sun,' like they always tell you.");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Jj]a", "Jap, dachte ich's mir doch.. Hey, es ist am selben Platz, der selbe Ziegel, 'n Ordnung? 'Wende deinen Rücken dem Sonnenuntergang zu', wie es immer heisst.");
+	AddTraderTrigger("[Yy]es", "Yeah, I thought so. Hey, it's in the same spot, same brick, a'right? Just 'put yer back to the setting sun,' like they always tell you.");
+	AddTraderTrigger("[Jj]a", "Jap, dachte ich's mir doch.. Hey, es ist am selben Platz, der selbe Ziegel, 'n Ordnung? 'Wende deinen Rücken dem Sonnenuntergang zu', wie es immer heisst.");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]aren", "Ich kriege bessere Preise bei Schwarzhand, Wie kommst du auf die Idee dass ich dir meine Beute verkaufe?");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ares", "I get better prices off Blackhand, who thinks I'll sell my loot to you?");
+	AddTraderTrigger("[Ww]aren", "Ich kriege bessere Preise bei Schwarzhand, Wie kommst du auf die Idee dass ich dir meine Beute verkaufe?");
+	AddTraderTrigger("[Ww]ares", "I get better prices off Blackhand, who thinks I'll sell my loot to you?");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy?", "Folks like me don't BUY, stupid...");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kauf.+?", "Leute wie ich KAUFEN nicht, Dummkopf...");
+	AddTraderTrigger("[Ww]hat.+buy?", "Folks like me don't BUY, stupid...");
+	AddTraderTrigger("[Ww]as.+kauf.+?", "Leute wie ich KAUFEN nicht, Dummkopf...");
 	
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell.+?", "I ain't sellin' any of it to you.");
-	npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]elche.+verkauf.+?", "Ich werde dir überhaupt nichts verkaufen, klar?");
+	AddTraderTrigger("[Ww]hat.+sell.+?", "I ain't sellin' any of it to you.");
+	AddTraderTrigger("[Ww]elche.+verkauf.+?", "Ich werde dir überhaupt nichts verkaufen, klar?");
 
-    npcs.base.autonpcfunctions.AddCycleText("#me schaut sich um und pfeift unschuldig","#me looks around and whistles innocently");
+    AddCycleText("#me schaut sich um und pfeift unschuldig","#me looks around and whistles innocently");
     
     TradSpeakLang={0,6};  -- Sprache die der NPC spricht
     TradStdLang=0;          -- Sprache die der NPC normalerweise spricht
@@ -72,29 +72,29 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end	
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             if (originator:getQuestProgress(5) <= 1) then
-                npcs.base.autonpcfunctions.TellSmallTalk(message);
+                TellSmallTalk(message);
                 if ( ((string.find(message,"[Jj]a") ~= nil)or(string.find(message,"[Yy]es") ~= nil)) and (originator:getQuestProgress(5)==0) ) then
                     originator:setQuestProgress(5,1);
                 end;
             else
-                thisNPC:talk(CCharacter.say,npcs.base.npcautofunction.GetNLS(originator,"Du hast's bereits geholt, richtig? Husch, verschwinde.","You's done already, ain't you? Shoo, go 'way."));
+                thisNPC:talk(CCharacter.say,GetNLS(originator,"Du hast's bereits geholt, richtig? Husch, verschwinde.","You's done already, ain't you? Shoo, go 'way."));
             end;
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

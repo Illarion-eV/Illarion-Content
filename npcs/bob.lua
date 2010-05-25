@@ -9,7 +9,7 @@ function initializeNpc()
         return true;
     end
 
-    npcs.base.autonpcfunctions.InitTalkLists();
+    InitTalkLists();
     
 
 -- ********* START DYNAMIC PART ********
@@ -22,49 +22,49 @@ sex=female
     
 	
 	-- cyletext
-    npcs.base.autonpcfunctions.AddCycleText("#me sortiert Bücher in den Regalen","#me sorts books in the shelfs.");
+    AddCycleText("#me sortiert Bücher in den Regalen","#me sorts books in the shelfs.");
     
     -- Begrüßung
-    npcs.base.autonpcfunctions.AddTraderTrigger("hallo","Sei mir gegrüßt. Brauchst du Hilfe bei der Suche nach einem bestimmten Buch?");
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("gr[üue]+[sß]");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("guten tag");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("aho[ij]");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("tach");
+    AddTraderTrigger("hallo","Sei mir gegrüßt. Brauchst du Hilfe bei der Suche nach einem bestimmten Buch?");
+    AddCondition("lang","german");
+    AddAdditionalTrigger("gr[üue]+[sß]");
+    AddAdditionalTrigger("guten tag");
+    AddAdditionalTrigger("aho[ij]");
+    AddAdditionalTrigger("tach");
     -- Verabschiedung 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]ute nacht","Machs gut. Ich hoff, wir sehen uns bald wieder. Und halt die Großen immer schön fern.");
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-	npcs.base.autonpcfunctions.AddAdditionalTrigger("wieder sehen");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]sch[üue]+[sß]");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]tschau");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]ehabt euch");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Aa]uf bald");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is bald");
+    AddTraderTrigger("[Gg]ute nacht","Machs gut. Ich hoff, wir sehen uns bald wieder. Und halt die Großen immer schön fern.");
+    AddCondition("lang","german");
+	AddAdditionalTrigger("wieder sehen");
+    AddAdditionalTrigger("[Tt]sch[üue]+[sß]");
+    AddAdditionalTrigger("[Tt]tschau");
+    AddAdditionalTrigger("[Gg]ehabt euch");
+    AddAdditionalTrigger("[Aa]uf bald");
+    AddAdditionalTrigger("[Bb]is bald");
     -- Name
-    npcs.base.autonpcfunctions.AddTraderTrigger("Name","Ich bin %name, die Schreiberin hier in der Grauen Zuflucht.");
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("wie hei[sß] du");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("Wer bist du");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
+    AddTraderTrigger("Name","Ich bin %name, die Schreiberin hier in der Grauen Zuflucht.");
+    AddCondition("lang","german");
+    AddAdditionalTrigger("wie hei[sß] du");
+    AddAdditionalTrigger("Wer bist du");
+    AddAdditionalTrigger("wer seid ihr");
     -- Argwohn gegenüber Orks
-    npcs.base.autonpcfunctions.AddTraderTrigger(" ","So einer wie Du hat hier nichts zu suchen. Hau ab oder ich ruf die Wachen!");
-    npcs.base.autonpcfunctions.AddCondition("race", CCharacter.orc);
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
+    AddTraderTrigger(" ","So einer wie Du hat hier nichts zu suchen. Hau ab oder ich ruf die Wachen!");
+    AddCondition("race", CCharacter.orc);
+    AddCondition("lang","german");
     
-    npcs.base.autonpcfunctions.AddTraderTrigger(" ","You should not be here. Leave before i call for guards!");
-    npcs.base.autonpcfunctions.AddCondition("race", CCharacter.orc);
-    npcs.base.autonpcfunctions.AddCondition("lang","english");
+    AddTraderTrigger(" ","You should not be here. Leave before i call for guards!");
+    AddCondition("race", CCharacter.orc);
+    AddCondition("lang","english");
     
     
     
     --Schlüsselabgabe wenn Char einen Siegelring der Rose hat und genügend Geld
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]rauch [Ss]chl[üue]ssel","Hier hast du einen.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm][öoe]chte Schl[üue]ssel");
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-    npcs.base.autonpcfunctions.AddCondition("item",68,"body",">=",1); -- Siegelring der Rose ist ein Rubinring (id 68, data 2)
-    npcs.base.autonpcfunctions.AddCondition("money",">=",100);
-    npcs.base.autonpcfunctions.AddConsequence("money","-",100);
-    npcs.base.autonpcfunctions.AddConsequence("item",1,1,199,0); -- id, number, quality, data
+    AddTraderTrigger("[Bb]rauch [Ss]chl[üue]ssel","Hier hast du einen.");
+    AddAdditionalTrigger("[Mm][öoe]chte Schl[üue]ssel");
+    AddCondition("lang","german");
+    AddCondition("item",68,"body",">=",1); -- Siegelring der Rose ist ein Rubinring (id 68, data 2)
+    AddCondition("money",">=",100);
+    AddConsequence("money","-",100);
+    AddConsequence("item",1,1,199,0); -- id, number, quality, data
 
     
     
@@ -84,20 +84,20 @@ sex=female
     --ancient language=10
 
 
-    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+    increaseLangSkill(TradSpeakLang)
     thisNPC.activeLanguage=TradStdLang;
 
 end
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
+    if BasicNPCChecks(originator,2) then
+        if LangOK(originator,TradSpeakLang) then
+            TellSmallTalk(message,originator);
         else
-            npcs.base.autonpcfunctions.Confused(
+            Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

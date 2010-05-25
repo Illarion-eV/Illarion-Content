@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -53,42 +53,42 @@ function initializeNpc()
 
     TraderCopper=5000;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Hiho. How can I help you?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hello. Do you need something? I'm alchemist and dyes of all colors. All are selfmade!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Hiho! Wie kann ich dir helfen? Ich habe allerhand Farben. Alle selbst gemacht!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Hallo. Wer bist du denn?.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","Yes, i trade with dyes and ingredients to make them.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh][äa]ndler","Ja, ich handle mit Farben und Zutaten zur Herstellung von Farben.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Hh]ealer","No, i am not. I am alchemist and sell dyes");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]eiler","Nein bin ich nicht. Ich bin Alchemist und verkaufe Farben.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","Do you want that i list my wares? Here take a look at the best dyes you can find!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Willst du eine Liste meiner Waren sehen? Hier, schau. Das sind die besten Farben die du finden wirst");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]ares","I trade with dyes and ingredients to make them.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]aren","Ich handele mit Farben und Zutaten zu deren Herstellung.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Pp]otion","I have no potions anymore. I only trade with dyes and ingredients to make them.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Tt]ränke","Ich habe keine Tränke mehr. Ich handele nur noch mit Farben und Zutaten zu deren Herstellung.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Cc]loth","I don't trade with cloth anymore. The business with cloths didn't work.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]leidung","Ich habe keine Kleidung mehr im Angebot. Das Geschäft mit den abgetragenen Klamotten lief nicht gut.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Mm]ore","I need different tools and goods to make dyes");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Mm]ehr","Ich brauche verschiedene Werkzeuge und Sachen um Farben herzustellen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Dd]ye","I'm an alchemist and prepare differnet dyes. You are interested in red, blue, yellow or other?.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ff]arbe","Ja, ich bin Alchemist und verkaufe verschiedene Farben. Bist du vielleicht an Rot oder Blau interessiert? Was anderes?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Have a nice day. Oldra my bless you.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell!");
-    npcs.base.autonpcfunctions.AddAdditionalText("Good day.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Schönen Tag noch! Oldra segne euch!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Schönen Tag!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is Tony Baggins. I am an alchemist and I work here. But I come from Greenbriar. Do you know my home village?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Tony Baggins. Ich bin Alchemist und arbeite hier. Aber ich komme von Greenbriar. Kennst du mein Heimatdorf?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Nice to meet you. Do you need my help?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich! Kann ich dir helfen?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?', 'Erzähl über <etwas>'");
+    AddTraderTrigger("[Gg]reetings","Hiho. How can I help you?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Hello. Do you need something? I'm alchemist and dyes of all colors. All are selfmade!");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Hiho! Wie kann ich dir helfen? Ich habe allerhand Farben. Alle selbst gemacht!");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Hallo. Wer bist du denn?.");
+    AddTraderTrigger("[Yy]ou.+[Tt]rader","Yes, i trade with dyes and ingredients to make them.");
+    AddTraderTrigger("[DdIi][uh]r*.+[Hh][äa]ndler","Ja, ich handle mit Farben und Zutaten zur Herstellung von Farben.");
+    AddTraderTrigger("[Yy]ou.+[Hh]ealer","No, i am not. I am alchemist and sell dyes");
+    AddTraderTrigger("[DdIi][uh]r*.+[Hh]eiler","Nein bin ich nicht. Ich bin Alchemist und verkaufe Farben.");
+    AddTraderTrigger("[Ww]hat.+sell","Do you want that i list my wares? Here take a look at the best dyes you can find!");
+    AddTraderTrigger("[Ww]as.+verkauf","Willst du eine Liste meiner Waren sehen? Hier, schau. Das sind die besten Farben die du finden wirst");
+    AddTraderTrigger("[Ww]hat.+[Ww]ares","I trade with dyes and ingredients to make them.");
+    AddTraderTrigger("[Ww]as.+[Ww]aren","Ich handele mit Farben und Zutaten zu deren Herstellung.");
+    AddTraderTrigger("[Ww]hat.+[Pp]otion","I have no potions anymore. I only trade with dyes and ingredients to make them.");
+    AddTraderTrigger("[Ww]as.+[Tt]ränke","Ich habe keine Tränke mehr. Ich handele nur noch mit Farben und Zutaten zu deren Herstellung.");
+    AddTraderTrigger("[Ww]hat.+[Cc]loth","I don't trade with cloth anymore. The business with cloths didn't work.");
+    AddTraderTrigger("[Ww]as.+[Kk]leidung","Ich habe keine Kleidung mehr im Angebot. Das Geschäft mit den abgetragenen Klamotten lief nicht gut.");
+    AddTraderTrigger("[Ww]hat.+[Mm]ore","I need different tools and goods to make dyes");
+    AddTraderTrigger("[Ww]as.+[Mm]ehr","Ich brauche verschiedene Werkzeuge und Sachen um Farben herzustellen.");
+    AddTraderTrigger("[Ww]hat.+[Dd]ye","I'm an alchemist and prepare differnet dyes. You are interested in red, blue, yellow or other?.");
+    AddTraderTrigger("[Ww]as.+[Ff]arbe","Ja, ich bin Alchemist und verkaufe verschiedene Farben. Bist du vielleicht an Rot oder Blau interessiert? Was anderes?");
+    AddTraderTrigger("[Gg]oodbye","Have a nice day. Oldra my bless you.");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell!");
+    AddAdditionalText("Good day.");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Schönen Tag noch! Oldra segne euch!");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Schönen Tag!");
+    AddTraderTrigger("[Ww]ho.+you?","My name is Tony Baggins. I am an alchemist and I work here. But I come from Greenbriar. Do you know my home village?");
+    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Tony Baggins. Ich bin Alchemist und arbeite hier. Aber ich komme von Greenbriar. Kennst du mein Heimatdorf?");
+    AddTraderTrigger("I'm .+","Nice to meet you. Do you need my help?");
+    AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich! Kann ich dir helfen?");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?', 'Tell <something>'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?', 'Erzähl über <etwas>'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -117,17 +117,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -135,7 +135,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
              ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -200,7 +200,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -227,7 +227,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -76,8 +76,8 @@ function nextCycle()
         ---------------------------------- Sprachteil anfang -------------------------------------
         
         thisNPC:increaseSkill(1,"common language",100);
-        --npcs.base.autonpcfunctions.InitTalkLists()
-        --npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Aye. Was willst' Landratte?");  
+        --InitTalkLists()
+        --AddTraderTrigger("[Gg]rü[ßs]+e","Aye. Was willst' Landratte?");  
         
         TradSpeakLang={0,1};
         TradStdLang=0;

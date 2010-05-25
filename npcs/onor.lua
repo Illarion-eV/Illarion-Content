@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -29,28 +29,28 @@ function initializeNpc()
 
     TraderCopper=0;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Greetings. What can I do for you?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Greetings. You are interested in money?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I exchange coins.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Good day. Safe travels.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]e [Ww]ell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell. You are always welcome.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'Price of ...'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Was kann ich für Euch tun?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Grüße. Habt ihr Interesse an Geld?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald. Eine sichere Reise.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is [Bb]als");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Mm]achs [Gg]ut");
-    npcs.base.autonpcfunctions.AddAdditionalText("Bis bald. Ihr seid immer willkommen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Was ist der Preis von <Ware>'");
+    AddTraderTrigger("[Gg]reet","Greetings. What can I do for you?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Greetings. You are interested in money?");
+    AddTraderTrigger("[Ww]hat.+sell","I exchange coins.");
+    AddTraderTrigger("[Bb]ye","Good day. Safe travels.");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalTrigger("[Bb]e [Ww]ell");
+    AddAdditionalText("Farewell. You are always welcome.");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'Price of ...'");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Was kann ich für Euch tun?");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Grüße. Habt ihr Interesse an Geld?");
+    AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald. Eine sichere Reise.");
+    AddAdditionalTrigger("[Bb]is [Bb]als");
+    AddAdditionalTrigger("[Mm]achs [Gg]ut");
+    AddAdditionalText("Bis bald. Ihr seid immer willkommen.");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Was ist der Preis von <Ware>'");
     
-    npcs.base.autonpcfunctions.AddCycleText("#me schnippst ein Kupferstück in die Luft","#me flips a copper coin into the air");
-    npcs.base.autonpcfunctions.AddCycleText("#me schnippst ein Silberstück in die Luft","#me flips a silver coin into the air");
-    npcs.base.autonpcfunctions.AddCycleText("#me schnippst ein Goldstück in die Luft","#me flips a gold coin into the air");
-    npcs.base.autonpcfunctions.AddCycleText("#me zählt einige Münzen","#me counts some coins");
+    AddCycleText("#me schnippst ein Kupferstück in die Luft","#me flips a copper coin into the air");
+    AddCycleText("#me schnippst ein Silberstück in die Luft","#me flips a silver coin into the air");
+    AddCycleText("#me schnippst ein Goldstück in die Luft","#me flips a gold coin into the air");
+    AddCycleText("#me zählt einige Münzen","#me counts some coins");
     
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -78,17 +78,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -96,7 +96,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -161,7 +161,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -189,7 +189,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

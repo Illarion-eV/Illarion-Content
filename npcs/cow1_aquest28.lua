@@ -11,7 +11,7 @@ function InitNPC()
 		ActiveTask = 0;
 		thisNPC:increaseSkill(1,"common language",100);
 		TradSpeakLang={0,1};
-		npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
+		increaseLangSkill(TradSpeakLang);
     	thisNPC.activeLanguage=0;
     	
                   --comb, water bucket, lute ,   nothing,bundle of grain, big empty bottle         

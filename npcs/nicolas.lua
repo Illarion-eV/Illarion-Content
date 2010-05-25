@@ -13,138 +13,138 @@ function initializeNpc()
         return true;
     end
     
-    npcs.base.autonpcfunctions.InitTalkLists();
+    InitTalkLists();
     
     
     -- ********* START DYNAMIC PART ********
 -- QS=1: comes to npc
 -- QS=2: got to find thief
 QuestID=557;
-    npcs.base.autonpcfunctions.AddTraderTrigger("schinken","Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",0);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",1);
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("schinken","Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("liefer","Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",0);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",1);
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("liefer","Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("ja","Sehr gut. Wie kann ich euch helfen?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",1);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",0);
-    npcs.base.autonpcfunctions.AddTraderTrigger("nein","Nicht? Wie kann das sein, dieser Bote wurde doch von Marcus geschickt, oder? Jedenfalls sagte er das. Er ist Richtung Westen gegangen.");
-    npcs.base.autonpcfunctions.AddCondition("state","=",1);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",2);
-    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("bote","Hm. Irgendwie kam er mir eigenartig vor, er kannte Marcus' Namen nicht. Und er wußte glaube ich auch nicht so recht, in welche Richtung er eigentlich sollte.");
-    npcs.base.autonpcfunctions.AddCondition("state","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("dieb","Meint ihr, der Bote war ein Dieb? Irgendwie würde das wohl passen, stimmt.");
-    npcs.base.autonpcfunctions.AddCondition("state",">",0);
-    npcs.base.autonpcfunctions.AddTraderTrigger("marcus","Marcus ist ein Händler in Troll's Bane, ich sollte ihm zehn Stück Schinken liefern.");
-    npcs.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-    npcs.base.autonpcfunctions.AddTraderTrigger("westen","Ja. Dieser Bote ging nach Westen. Obwohl es doch nach Osten nach Trollsbane geht. Ich hoffe nur das war kein Dieb.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("ham","I gave the delivery with ham to a one-armed carrier already. Did it arrive?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",0);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",1);
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("ham","I gave that ham for Marcus to that strange carrier he sent.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("deliver","I gave the delivery with ham to a one-armed carrier already. Did it arrive?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",0);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",1);
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("deliver","I gave that ham for Marcus to that strange carrier he sent.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npcs.base.autonpcfunctions.AddTraderTrigger("yes","Very good. How can I help you?");
-    npcs.base.autonpcfunctions.AddCondition("state","=",1);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",0);
-    npcs.base.autonpcfunctions.AddTraderTrigger("no","It didn't? How could that happen, Marcus sent that carrier, didn't he?At least that's what he said. He left heading west.");
-    npcs.base.autonpcfunctions.AddCondition("state","=",1);
-    npcs.base.autonpcfunctions.AddConsequence("state","=",2);
-    npcs.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("carrier","Hm. Somehow he appeared a little bit strange to me, he didn't know Marcus' name. And it seemed as if he didn't know in which direction to go.");
-    npcs.base.autonpcfunctions.AddCondition("state","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("thief","You believe that this carrier was a thief in reality? That would fit somehow, right.");
-    npcs.base.autonpcfunctions.AddCondition("state",">",0);
-    npcs.base.autonpcfunctions.AddTraderTrigger("marcus","Marcus is a trader in Troll's Bane. I should deliver ten pieces of ham to him.");
-    npcs.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npcs.base.autonpcfunctions.AddCondition("lang","english");
-    npcs.base.autonpcfunctions.AddTraderTrigger("west","Yes. The carrier headed west. While Trollsbane is in the east. I hope this was no thief.");
-    npcs.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npcs.base.autonpcfunctions.AddTraderTrigger("Hafen","Genau, das hier ist der Hafen. Ein netter Platz, wenn man den Ozean zu schätzen weiß!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("Harbo[u]*r","Exactly, this is the harbor. A nice spot if you like the ocean!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("I am","Greetings, %CHARNAME, nice to meet you.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("I'm","Greetings, %CHARNAME, nice to meet you.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("Ich bin","Seid gegrüßt, %CHARNAME, schön euch zu treffen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("auf bald","Gehabt euch wohl!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("beruf","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("buy","I don't buy anything.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("bye","Farewell!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("dein name","Ich heiße %NPCNAME.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("deine aufgabe","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("eure aufgabe","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("farewell","Farewell, thanks for visiting me!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("good day","Hello.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("gr[üue]+[sß]+e","Seid gegrüßt!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("greetings","Be greeted.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("greets","Be greeted.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("guten tag","Seid gegrüßt!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("hail","Be greeted.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("hallo","Seid gegrüßt!");
-    npcs.base.autonpcfunctions.AddCondition("lang","german");
-    npcs.base.autonpcfunctions.AddTraderTrigger("hallo","Be greeted.");
-    npcs.base.autonpcfunctions.AddCondition("lang","english");
-    npcs.base.autonpcfunctions.AddTraderTrigger("helfen","Wenn du Hilfe brauchst, geh nach Troll's Bane.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("hello","Be greeted.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("help","If you need help, visit Troll's Bane.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("hilfe","Wenn du Hilfe brauchst, geh nach Troll's Bane.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("how are you","I am fine, thanks. How are you?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("job","I am just a simple farmer.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("kaufen","Ich kaufe nichts.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("mein name","Sehr angenehm.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("my name","Nice to meet you.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("sell","I don't sell anything");
-    npcs.base.autonpcfunctions.AddTraderTrigger("verkaufen","Ich handle nicht.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("was kaufst","Ich handle nicht.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("was tust du","Ich warte auf Händler, die ihre Ware hier abholen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("was tut ihr","Ich warte auf Händler, die ihre Ware hier abholen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("was verkaufst","Ich handle nicht mit euch.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("wer seid","Ich bin %NPCNAME.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("what buy","I don't trade with you.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("what sell","I don't trade with you.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("what you do","I wait for traders who pick up their wares here.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("who","I am %NPCNAME.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("wie geht es","Danke, mir geht es gut.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("wie hei[sß]+t du","Ich heiße %NPCNAME.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("you name","My name is %NPCNAME.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("you Nicolas","Indeed. I'm Nicolas. What can i do for you?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("du Nicolas","In der Tat. Ich bin Nicolas. Was kann ich für euch tun?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("ihr Nicolas","In der Tat. Ich bin Nicolas. Was kann ich für euch tun?");
+    AddTraderTrigger("schinken","Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?");
+    AddCondition("state","=",0);
+    AddConsequence("state","=",1);
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("schinken","Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben.");
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("liefer","Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?");
+    AddCondition("state","=",0);
+    AddConsequence("state","=",1);
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("liefer","Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben.");
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("ja","Sehr gut. Wie kann ich euch helfen?");
+    AddCondition("state","=",1);
+    AddConsequence("state","=",0);
+    AddTraderTrigger("nein","Nicht? Wie kann das sein, dieser Bote wurde doch von Marcus geschickt, oder? Jedenfalls sagte er das. Er ist Richtung Westen gegangen.");
+    AddCondition("state","=",1);
+    AddConsequence("state","=",2);
+    AddConsequence("qpg","=",2);
+    AddTraderTrigger("bote","Hm. Irgendwie kam er mir eigenartig vor, er kannte Marcus' Namen nicht. Und er wußte glaube ich auch nicht so recht, in welche Richtung er eigentlich sollte.");
+    AddCondition("state","=",2);
+    AddTraderTrigger("dieb","Meint ihr, der Bote war ein Dieb? Irgendwie würde das wohl passen, stimmt.");
+    AddCondition("state",">",0);
+    AddTraderTrigger("marcus","Marcus ist ein Händler in Troll's Bane, ich sollte ihm zehn Stück Schinken liefern.");
+    AddCondition("qpg",">",0);
+    AddCondition("lang","german");
+    AddTraderTrigger("westen","Ja. Dieser Bote ging nach Westen. Obwohl es doch nach Osten nach Trollsbane geht. Ich hoffe nur das war kein Dieb.");
+    AddCondition("qpg","=",2);
+    AddTraderTrigger("ham","I gave the delivery with ham to a one-armed carrier already. Did it arrive?");
+    AddCondition("state","=",0);
+    AddConsequence("state","=",1);
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("ham","I gave that ham for Marcus to that strange carrier he sent.");
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("deliver","I gave the delivery with ham to a one-armed carrier already. Did it arrive?");
+    AddCondition("state","=",0);
+    AddConsequence("state","=",1);
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("deliver","I gave that ham for Marcus to that strange carrier he sent.");
+    AddCondition("qpg","=",1);
+    AddTraderTrigger("yes","Very good. How can I help you?");
+    AddCondition("state","=",1);
+    AddConsequence("state","=",0);
+    AddTraderTrigger("no","It didn't? How could that happen, Marcus sent that carrier, didn't he?At least that's what he said. He left heading west.");
+    AddCondition("state","=",1);
+    AddConsequence("state","=",2);
+    AddConsequence("qpg","=",2);
+    AddTraderTrigger("carrier","Hm. Somehow he appeared a little bit strange to me, he didn't know Marcus' name. And it seemed as if he didn't know in which direction to go.");
+    AddCondition("state","=",2);
+    AddTraderTrigger("thief","You believe that this carrier was a thief in reality? That would fit somehow, right.");
+    AddCondition("state",">",0);
+    AddTraderTrigger("marcus","Marcus is a trader in Troll's Bane. I should deliver ten pieces of ham to him.");
+    AddCondition("qpg",">",0);
+    AddCondition("lang","english");
+    AddTraderTrigger("west","Yes. The carrier headed west. While Trollsbane is in the east. I hope this was no thief.");
+    AddCondition("qpg","=",2);
+    AddTraderTrigger("Hafen","Genau, das hier ist der Hafen. Ein netter Platz, wenn man den Ozean zu schätzen weiß!");
+    AddTraderTrigger("Harbo[u]*r","Exactly, this is the harbor. A nice spot if you like the ocean!");
+    AddTraderTrigger("I am","Greetings, %CHARNAME, nice to meet you.");
+    AddTraderTrigger("I'm","Greetings, %CHARNAME, nice to meet you.");
+    AddTraderTrigger("Ich bin","Seid gegrüßt, %CHARNAME, schön euch zu treffen.");
+    AddTraderTrigger("auf bald","Gehabt euch wohl!");
+    AddTraderTrigger("beruf","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
+    AddTraderTrigger("buy","I don't buy anything.");
+    AddTraderTrigger("bye","Farewell!");
+    AddTraderTrigger("dein name","Ich heiße %NPCNAME.");
+    AddTraderTrigger("deine aufgabe","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
+    AddTraderTrigger("eure aufgabe","Ich bin Kapitän eines Handelsschiffes. Ich treibe Handel mit Troll's Bane und anderen Städten hier.");
+    AddTraderTrigger("farewell","Farewell, thanks for visiting me!");
+    AddTraderTrigger("good day","Hello.");
+    AddTraderTrigger("gr[üue]+[sß]+e","Seid gegrüßt!");
+    AddTraderTrigger("greetings","Be greeted.");
+    AddTraderTrigger("greets","Be greeted.");
+    AddTraderTrigger("guten tag","Seid gegrüßt!");
+    AddTraderTrigger("hail","Be greeted.");
+    AddTraderTrigger("hallo","Seid gegrüßt!");
+    AddCondition("lang","german");
+    AddTraderTrigger("hallo","Be greeted.");
+    AddCondition("lang","english");
+    AddTraderTrigger("helfen","Wenn du Hilfe brauchst, geh nach Troll's Bane.");
+    AddTraderTrigger("hello","Be greeted.");
+    AddTraderTrigger("help","If you need help, visit Troll's Bane.");
+    AddTraderTrigger("hilfe","Wenn du Hilfe brauchst, geh nach Troll's Bane.");
+    AddTraderTrigger("how are you","I am fine, thanks. How are you?");
+    AddTraderTrigger("job","I am just a simple farmer.");
+    AddTraderTrigger("kaufen","Ich kaufe nichts.");
+    AddTraderTrigger("mein name","Sehr angenehm.");
+    AddTraderTrigger("my name","Nice to meet you.");
+    AddTraderTrigger("sell","I don't sell anything");
+    AddTraderTrigger("verkaufen","Ich handle nicht.");
+    AddTraderTrigger("was kaufst","Ich handle nicht.");
+    AddTraderTrigger("was tust du","Ich warte auf Händler, die ihre Ware hier abholen.");
+    AddTraderTrigger("was tut ihr","Ich warte auf Händler, die ihre Ware hier abholen.");
+    AddTraderTrigger("was verkaufst","Ich handle nicht mit euch.");
+    AddTraderTrigger("wer seid","Ich bin %NPCNAME.");
+    AddTraderTrigger("what buy","I don't trade with you.");
+    AddTraderTrigger("what sell","I don't trade with you.");
+    AddTraderTrigger("what you do","I wait for traders who pick up their wares here.");
+    AddTraderTrigger("who","I am %NPCNAME.");
+    AddTraderTrigger("wie geht es","Danke, mir geht es gut.");
+    AddTraderTrigger("wie hei[sß]+t du","Ich heiße %NPCNAME.");
+    AddTraderTrigger("you name","My name is %NPCNAME.");
+    AddTraderTrigger("you Nicolas","Indeed. I'm Nicolas. What can i do for you?");
+    AddTraderTrigger("du Nicolas","In der Tat. Ich bin Nicolas. Was kann ich für euch tun?");
+    AddTraderTrigger("ihr Nicolas","In der Tat. Ich bin Nicolas. Was kann ich für euch tun?");
     -- ********* END DYNAMIC PART ********
     TradSpeakLang={0,1};
     TradStdLang=0;
     
-    npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+    increaseLangSkill(TradSpeakLang)
     thisNPC.activeLanguage=TradStdLang;
     
 end
 
 function nextCycle()  -- ~10 times per second
     initializeNpc();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npcs.base.autonpcfunctions.TellSmallTalk(message,originator);
+    if BasicNPCChecks(originator,2) then
+        if LangOK(originator,TradSpeakLang) then
+            TellSmallTalk(message,originator);
         else
-            npcs.base.autonpcfunctions.Confused(
+            Confused(
                "#me sieht dich leicht verwirrt an",
                "#me looks at you a little confused"
             );

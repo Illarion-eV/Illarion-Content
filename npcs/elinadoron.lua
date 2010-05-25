@@ -17,19 +17,19 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rüß","Scht! Ihr verscheucht die Tiere.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Bleibt doch ruhig! Sonst verscheucht ihr die Tiere.");
+    AddTraderTrigger("[Gg]rüß","Scht! Ihr verscheucht die Tiere.");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Bleibt doch ruhig! Sonst verscheucht ihr die Tiere.");
     
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Hush! You scare the animals.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
-    npcs.base.autonpcfunctions.AddAdditionalText("Be quiet! You scare the animals.");
+    AddTraderTrigger("[Gg]reetings","Hush! You scare the animals.");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalTrigger("[Hh]i");
+    AddAdditionalText("Be quiet! You scare the animals.");
     
-    npcs.base.autonpcfunctions.AddCycleText("#me blick still in den Wald hinaus","#me quietly peers into the forest");
-    npcs.base.autonpcfunctions.AddCycleText("#me scheint zu horchen","#me seems to hark");
+    AddCycleText("#me blick still in den Wald hinaus","#me quietly peers into the forest");
+    AddCycleText("#me scheint zu horchen","#me seems to hark");
     
     TradSpeakLang={0,1,4};
     TradStdLang=0;
@@ -49,19 +49,19 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end		
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=IrundarInfo(originator, message);
             if (Status==0) then Status=Arrows(originator, message) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
             
             -----------------------------------------------------EDIT BELOW HERE------------------------------------------------------------            
             
@@ -76,14 +76,14 @@ function receiveText(texttype, message, originator)
                 eText="Don't try to cheat me! You don't have enough arrows!";
             end
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
-                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+                outText=GetNLS(originator,gText,eText);
+                NPCTalking(thisNPC,outText);
             end
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

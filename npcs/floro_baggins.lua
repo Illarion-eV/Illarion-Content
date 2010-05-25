@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -37,46 +37,46 @@ function initializeNpc()
 
     TraderCopper=5000;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Welcome to Greenbriar my friend! Can I help you?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
-    npcs.base.autonpcfunctions.AddAdditionalText("A good day to you my friend! You look fine today.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Greenbriar's best traders!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Gg]reenbriar","I'm not as good in history as Timo is. If you want to now something of Greensbriar talk to him my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Tt]imo","Timo is the trader over there my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]here.+[Tt]imo","#me points right to the halfling near the house");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell herbs.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Hh]erb","I trade with all kinds of different herbs. Firnis blossoms for example. What to you my list of wares?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Pp]otion","I do not have any potions anymore");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Bb]ottle","I trade with big and small empty bottles.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","You are going my friend? Take care of yourself.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalText("You are already on the way my friend? Take care of yourself and have a good meal.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell. I hope you will come back soon my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I prefer to buy herbs and bottles.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name.." my friend.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","That is the name of a good friend. Nice to meet you!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Gg]reetings","Welcome to Greenbriar my friend! Can I help you?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalTrigger("[Hh]i");
+    AddAdditionalText("A good day to you my friend! You look fine today.");
+    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Greenbriar's best traders!");
+    AddTraderTrigger("[Tt]ell.+[Gg]reenbriar","I'm not as good in history as Timo is. If you want to now something of Greensbriar talk to him my friend.");
+    AddTraderTrigger("[Ww]ho.+[Tt]imo","Timo is the trader over there my friend.");
+    AddTraderTrigger("[Ww]here.+[Tt]imo","#me points right to the halfling near the house");
+    AddTraderTrigger("[Ww]hat.+sell","I sell herbs.");
+    AddTraderTrigger("[Ww]hat.+[Hh]erb","I trade with all kinds of different herbs. Firnis blossoms for example. What to you my list of wares?");
+    AddTraderTrigger("[Ww]hat.+[Pp]otion","I do not have any potions anymore");
+    AddTraderTrigger("[Ww]hat.+[Bb]ottle","I trade with big and small empty bottles.");
+    AddTraderTrigger("[Gg]oodbye","You are going my friend? Take care of yourself.");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalText("You are already on the way my friend? Take care of yourself and have a good meal.");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell. I hope you will come back soon my friend.");
+    AddTraderTrigger("[Ww]hat.+buy","I prefer to buy herbs and bottles.");
+    AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name.." my friend.");
+    AddTraderTrigger("I'm .+","That is the name of a good friend. Nice to meet you!");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üu][ßs]+","Hallo mein Freund, du siehst heute wieder gut aus.");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag mein Freund! Wie geht es dir mein Freund?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer von Greenbriars besten Händlern mein Freund!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkauf' Pflanzen und Flaschen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Pp]flanz","Ich handel ne ganze Menge Pflanzen und Kräuter. Firnisblüten zum Beispiel.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Tt]r[aä]nk","Ich habe keine Tränke mehr.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ff]lasch","Ich handel mit großen und kleinen leeren Flaschen");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Gg]reenbriar","Ich bin bei weitem nicht so gut in Geschichte wie Timo. Am besten sprichst du mit ihm mein Freund.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[Tt]imo","Timo ist der Händler dort drüben mein Freund.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]o.+[Tt]imo","#me deutet nach Rechts auf den Halbling neben dem Haus");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Du bist schon auf dem Weg mein Freund? Pass auf dich auf und komm bald wieder!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Du gehst schon mein Freund? Gib auf dich acht und iss was Gutes!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%s[Kk]auf","Ich kauf' Pflanzen und Tränke. Hast du sowas dabei?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt mein Freund.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+bin","Das ist der Name eines guten Freundes. Schön dich kennen zu lernen!");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Gg]r[üu][ßs]+","Hallo mein Freund, du siehst heute wieder gut aus.");
+    AddAdditionalTrigger("[Hh]allo");
+    AddAdditionalText("Guten Tag mein Freund! Wie geht es dir mein Freund?");
+    AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer von Greenbriars besten Händlern mein Freund!");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich verkauf' Pflanzen und Flaschen.");
+    AddTraderTrigger("[Ww]as.+[Pp]flanz","Ich handel ne ganze Menge Pflanzen und Kräuter. Firnisblüten zum Beispiel.");
+    AddTraderTrigger("[Ww]as.+[Tt]r[aä]nk","Ich habe keine Tränke mehr.");
+    AddTraderTrigger("[Ww]as.+[Ff]lasch","Ich handel mit großen und kleinen leeren Flaschen");
+    AddTraderTrigger("[Ee]rzähl.+[Gg]reenbriar","Ich bin bei weitem nicht so gut in Geschichte wie Timo. Am besten sprichst du mit ihm mein Freund.");
+    AddTraderTrigger("[Ww]er.+[Tt]imo","Timo ist der Händler dort drüben mein Freund.");
+    AddTraderTrigger("[Ww]o.+[Tt]imo","#me deutet nach Rechts auf den Halbling neben dem Haus");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Du bist schon auf dem Weg mein Freund? Pass auf dich auf und komm bald wieder!");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Du gehst schon mein Freund? Gib auf dich acht und iss was Gutes!");
+    AddTraderTrigger("[Ww]as.+%s[Kk]auf","Ich kauf' Pflanzen und Tränke. Hast du sowas dabei?");
+    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt mein Freund.");
+    AddTraderTrigger("[Ii]ch.+bin","Das ist der Name eines guten Freundes. Schön dich kennen zu lernen!");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -102,17 +102,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -120,7 +120,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -185,7 +185,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -213,7 +213,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

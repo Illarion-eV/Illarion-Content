@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    npcs.base.autonpcfunctions.InitTalkLists()
+    InitTalkLists()
     InitItemLists()
     useIDTrigger=false;
 
@@ -54,37 +54,37 @@ function initializeNpc()
 
     TraderCopper=500;
 
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings, traveler. Can I help you? Need to travel somewhere?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npcs.base.autonpcfunctions.AddAdditionalText("Good day. Do you need something?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüße, Reisender. Kann ich euch helfen? Wollt ihr irgendwohin reisen?");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[hH]allo");
-    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag. Braucht ihr etwas?");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am a trader, yes. I trade with magic journeys.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin Händler, Ja. Ich handel mit Magischen Reisen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell all kinds journeys to the nicest places.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Reisen zu den schönsten Orten dieser Insel.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Jj]ourneys","To big cities and some special locations.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Rr]eisen","Zu großen Städten und zu einigen speziellen Orten.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Pp]laces","I sell journeys to the following places: The harbor, Eldan monastery, Lighthouse.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Oo]rt","Ich verkaufe Reisen zu folgenden Orten: Zum Hafen, zum Eldan Kloster, zum Leuchtturm.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","I am a trader and a traveler.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ww]as","Ich bin ein Händler und ein Reisender.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Have a nice journey!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npcs.base.autonpcfunctions.AddAdditionalText("Farewell!");
-    npcs.base.autonpcfunctions.AddAdditionalText("Good bye.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Gute Reise!");
-    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ravel","Yes, you can travel with the help of the journeys I sell.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Rr]eise","Ja, du kannst mit den Reisen die ich verkaufe, reisen.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]ities","I sell journeys to the cities of Troll's Bane, Silverbrand, Varshikar, Greenbriar and Tol Vanima, the elven town.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]t[aä]dt","Ich verkaufe Reisen in die Städte Trolls Bane, Silverbrand, Varshikar, Greenbriar und Tol Vanima, die Elfen Stadt.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]owns","I sell journeys to the towns of Troll's Bane, Silverbrand, Varshikar, Greenbriar and Tol Vanima, the elven town.");
-    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Gg]reetings","Greetings, traveler. Can I help you? Need to travel somewhere?");
+    AddAdditionalTrigger("[Hh]ello");
+    AddAdditionalText("Good day. Do you need something?");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Grüße, Reisender. Kann ich euch helfen? Wollt ihr irgendwohin reisen?");
+    AddAdditionalTrigger("[hH]allo");
+    AddAdditionalText("Guten Tag. Braucht ihr etwas?");
+    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am a trader, yes. I trade with magic journeys.");
+    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin Händler, Ja. Ich handel mit Magischen Reisen.");
+    AddTraderTrigger("[Ww]hat.+sell","I sell all kinds journeys to the nicest places.");
+    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Reisen zu den schönsten Orten dieser Insel.");
+    AddTraderTrigger("[Ww]hat.+[Jj]ourneys","To big cities and some special locations.");
+    AddTraderTrigger("[Ww]as.+[Rr]eisen","Zu großen Städten und zu einigen speziellen Orten.");
+    AddTraderTrigger("[Pp]laces","I sell journeys to the following places: The harbor, Eldan monastery, Lighthouse.");
+    AddTraderTrigger("[Oo]rt","Ich verkaufe Reisen zu folgenden Orten: Zum Hafen, zum Eldan Kloster, zum Leuchtturm.");
+    AddTraderTrigger("[Tt]ell.+[Ss]omething","I am a trader and a traveler.");
+    AddTraderTrigger("[Ee]rzähl.+[Ww]as","Ich bin ein Händler und ein Reisender.");
+    AddTraderTrigger("[Gg]oodbye","Have a nice journey!");
+    AddAdditionalTrigger("[Bb]ye");
+    AddAdditionalTrigger("[Ff]arewell");
+    AddAdditionalText("Farewell!");
+    AddAdditionalText("Good bye.");
+    AddTraderTrigger("[Aa]uf.+[Bb]ald","Gute Reise!");
+    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    AddAdditionalText("Auf bald");
+    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    AddTraderTrigger("[Tt]ravel","Yes, you can travel with the help of the journeys I sell.");
+    AddTraderTrigger("[Rr]eise","Ja, du kannst mit den Reisen die ich verkaufe, reisen.");
+    AddTraderTrigger("[Cc]ities","I sell journeys to the cities of Troll's Bane, Silverbrand, Varshikar, Greenbriar and Tol Vanima, the elven town.");
+    AddTraderTrigger("[Ss]t[aä]dt","Ich verkaufe Reisen in die Städte Trolls Bane, Silverbrand, Varshikar, Greenbriar und Tol Vanima, die Elfen Stadt.");
+    AddTraderTrigger("[Tt]owns","I sell journeys to the towns of Troll's Bane, Silverbrand, Varshikar, Greenbriar and Tol Vanima, the elven town.");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -112,17 +112,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
+        increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    npcs.base.autonpcfunctions.SpeakerCycle();
+    SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
+    if BasicNPCChecks(originator,2) then
+        if (LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -130,7 +130,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
+            if (Status==0) then TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -195,7 +195,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -222,7 +222,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                outText=GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end
