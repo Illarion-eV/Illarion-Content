@@ -1,8 +1,10 @@
 --WIDE THICK GREY BOOK
 
--- UPDATE common SET com_script='I_2617_graues_buch.lua' WHERE com_itemid=2617;
--- UPDATE itemname SET itn_german='graues Buch', itn_english='grey book' WHERE itn_itemid=2617;
 require("base.books")
+
+module("items.books.2617_grey_book", package.seeall())
+
+-- UPDATE common SET com_script='items.books.2617_grey_book' WHERE com_itemid = 2617;
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
     if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then

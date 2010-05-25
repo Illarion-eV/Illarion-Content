@@ -1,8 +1,10 @@
 -- BIG HEAVY BLACK BOOK WITH RED SIGN
 
--- UPDATE common SET com_script='I_2619_schwarzes_buch.lua' WHERE com_itemid=2619;
--- UPDATE itemname SET itn_german='schwarzes Buch', itn_english='black book' WHERE itn_itemid=2619;
 require("base.books")
+
+module("items.books.2619_black_book", package.seeall())
+
+-- UPDATE common SET com_script='items.books.2619_black_book' WHERE com_itemid = 2619;
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
     if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then

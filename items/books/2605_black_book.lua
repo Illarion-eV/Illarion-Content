@@ -1,7 +1,10 @@
 -- BIG NORMAL BLACK BOOK
 
--- UPDATE common SET com_script='I_2605_schwarzes_buch.lua' WHERE com_itemid=2605;
 require("base.books")
+
+module("items.books.2605_black_book", package.seeall())
+
+-- UPDATE common SET com_script='items.books.2605_black_book' WHERE com_itemid = 2605;
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
     if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then

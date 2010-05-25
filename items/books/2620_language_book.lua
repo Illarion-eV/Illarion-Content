@@ -1,5 +1,9 @@
 require("base.common")
 
+module("items.books.2620_language_book", package.seeall())
+
+-- UPDATE common SET com_script='items.books.2620_language_book' WHERE com_itemid = 2620;
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local langcode = math.floor(SourceItem.data/10);
     local modecode = SourceItem.data - (langcode * 10);

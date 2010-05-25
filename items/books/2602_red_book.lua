@@ -1,9 +1,10 @@
 -- SMALL THIN RED BOOK
 
--- UPDATE common SET com_script='I_2602_rotes_buch.lua' WHERE com_itemid=2602;
--- UPDATE itemname SET itn_german='rotes Buch', itn_english='red book' WHERE itn_itemid=2602;
-
 require("base.books")
+
+module("items.books.2602_red_book", package.seeall())
+
+-- UPDATE common SET com_script='items.books.2602_red_book' WHERE com_itemid = 2602;
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
     if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then
