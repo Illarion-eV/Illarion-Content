@@ -8,7 +8,7 @@
 --Update by:   Nitram
 
 dofile("npc_trader_functions.lua")
-dofile("npc_functions.lua")
+require("npcs.base.functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.functions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -38,34 +38,34 @@ function initializeNpc()
 
     TraderCopper=400;
 
-    AddTraderTrigger("[Gg]reet","Hello sunshine!");
-    AddAdditionalTrigger("[Hh]ello");
-    AddTraderTrigger("[Gg]r[uü][sß+]","Hallo Sonnenschein!");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Hallöchen Sonnenschein");
-    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I trade plants, pipes, beer, elven wine, baby fir trees, buckets, and nice noise-makers for those shiny things");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich handel mit Pflanzen, Pfeifen, Bier, Elbenwein, Tannen Kindern, Eimern und nette Geräusche Macher für diese glitzernden Stückchen");
-    AddTraderTrigger("[Pp]lants","Yes, plants. I have a sibanac farm right here and pipes to go with it.");
-    AddTraderTrigger("[Pp]flanz","Ja. Pflanzen. Ich habe hier eine Sibanac Farm und Pfeifen um es zu rauchen.");
-    AddTraderTrigger("[Ww]hat.+do","I watch plants grow.");
-    AddTraderTrigger("[Ww]as.+[mt][au][cst]","Ich sehe den Pflanzen beim Wachsen zu.");
-    AddTraderTrigger("[Rr]umor","You talking about rumors? I have a fact to tell you, much better than rumors. The other day I saw gnolls dancing in the moonlight. I think they were having fun.");
-    AddTraderTrigger("[Gg]erüch","Du sprichst von Gerüchten? Ich habe etwas wahres was viel besser ist. Ich habe an einem anderen Tag Gnolle, im Mondlicht tanzen sehen. Ich denke sie hatten Spass.");
-    AddTraderTrigger("[Nn]ews","You interested in the latest news? A priest of Sirani told me that the goddess herself told his cousin that all spiders should be loved as our friends. That, my friend, is what happens when you mix 'shrooms with Sibanac.");
-    AddTraderTrigger("[Nn]euigkeit","Du bist an Neuigkeiten interessiert? Ein Priesterin von Sirani hat mir gesagt das ihr Göttin persönlich, ihrem Cousin gesagt hat, das alle Spinnen von unseren Freunden geliebt werden sollen. Das mein Freund, passiert wenn man Pilze und Sibanac mischt.");
-    AddTraderTrigger("[Ww]hat.+buy","I'll give you round shiny things for cylindrical vessels containing hop-flavored brew, or that sweet elven stuff. I’ll even trade buckets, harps, lutes, or even horns! I can get a nice fir tree seedling! Isn’t a tree much nicer than copper?");
-    AddTraderTrigger("[Ww]as.+%skauf","Ich gebe dir diese runden glitzernden Dinger für zylindrische Gefäße, befüllt mit, mit Hopfen gewürztem, Gebräu oder mit dem süßen Elbenzeugs. Ich handle auch mit Eimern und Instrumenten. Und ich kauf auch Tannen Setzlinge.");
-    AddTraderTrigger("[Ii]'m.+","Good for you, sunshine");
-    AddTraderTrigger("[Ii]ch.+bin","Gut für dich, Sonnenschein");
-    AddTraderTrigger("[Bb]aby [Ff]ir [Tt]rees","Yes, I sell baby fir trees. You might call them fir tree seedlings. I buy them, too.");
-    AddTraderTrigger("[Tt]annenbaum.+[Kk]ind","Ja. Ich verkaufe Tannenbaum Kinder. Du sagst vielleicht Tannen Baum Setzlinge dazu. Die kaufe ich auch.");
-    AddTraderTrigger("[Ff]arewell","Farewell, sunshine");
-    AddAdditionalTrigger("[Gg]oodbye");
-    AddAdditionalText("Bye, sunshine");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf bald, Sonnenschein.");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.functions.AddTraderTrigger("[Gg]reet","Hello sunshine!");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.functions.AddTraderTrigger("[Gg]r[uü][sß+]","Hallo Sonnenschein!");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.functions.AddAdditionalText("Hallöchen Sonnenschein");
+    npcs.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I trade plants, pipes, beer, elven wine, baby fir trees, buckets, and nice noise-makers for those shiny things");
+    npcs.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich handel mit Pflanzen, Pfeifen, Bier, Elbenwein, Tannen Kindern, Eimern und nette Geräusche Macher für diese glitzernden Stückchen");
+    npcs.base.functions.AddTraderTrigger("[Pp]lants","Yes, plants. I have a sibanac farm right here and pipes to go with it.");
+    npcs.base.functions.AddTraderTrigger("[Pp]flanz","Ja. Pflanzen. Ich habe hier eine Sibanac Farm und Pfeifen um es zu rauchen.");
+    npcs.base.functions.AddTraderTrigger("[Ww]hat.+do","I watch plants grow.");
+    npcs.base.functions.AddTraderTrigger("[Ww]as.+[mt][au][cst]","Ich sehe den Pflanzen beim Wachsen zu.");
+    npcs.base.functions.AddTraderTrigger("[Rr]umor","You talking about rumors? I have a fact to tell you, much better than rumors. The other day I saw gnolls dancing in the moonlight. I think they were having fun.");
+    npcs.base.functions.AddTraderTrigger("[Gg]erüch","Du sprichst von Gerüchten? Ich habe etwas wahres was viel besser ist. Ich habe an einem anderen Tag Gnolle, im Mondlicht tanzen sehen. Ich denke sie hatten Spass.");
+    npcs.base.functions.AddTraderTrigger("[Nn]ews","You interested in the latest news? A priest of Sirani told me that the goddess herself told his cousin that all spiders should be loved as our friends. That, my friend, is what happens when you mix 'shrooms with Sibanac.");
+    npcs.base.functions.AddTraderTrigger("[Nn]euigkeit","Du bist an Neuigkeiten interessiert? Ein Priesterin von Sirani hat mir gesagt das ihr Göttin persönlich, ihrem Cousin gesagt hat, das alle Spinnen von unseren Freunden geliebt werden sollen. Das mein Freund, passiert wenn man Pilze und Sibanac mischt.");
+    npcs.base.functions.AddTraderTrigger("[Ww]hat.+buy","I'll give you round shiny things for cylindrical vessels containing hop-flavored brew, or that sweet elven stuff. I’ll even trade buckets, harps, lutes, or even horns! I can get a nice fir tree seedling! Isn’t a tree much nicer than copper?");
+    npcs.base.functions.AddTraderTrigger("[Ww]as.+%skauf","Ich gebe dir diese runden glitzernden Dinger für zylindrische Gefäße, befüllt mit, mit Hopfen gewürztem, Gebräu oder mit dem süßen Elbenzeugs. Ich handle auch mit Eimern und Instrumenten. Und ich kauf auch Tannen Setzlinge.");
+    npcs.base.functions.AddTraderTrigger("[Ii]'m.+","Good for you, sunshine");
+    npcs.base.functions.AddTraderTrigger("[Ii]ch.+bin","Gut für dich, Sonnenschein");
+    npcs.base.functions.AddTraderTrigger("[Bb]aby [Ff]ir [Tt]rees","Yes, I sell baby fir trees. You might call them fir tree seedlings. I buy them, too.");
+    npcs.base.functions.AddTraderTrigger("[Tt]annenbaum.+[Kk]ind","Ja. Ich verkaufe Tannenbaum Kinder. Du sagst vielleicht Tannen Baum Setzlinge dazu. Die kaufe ich auch.");
+    npcs.base.functions.AddTraderTrigger("[Ff]arewell","Farewell, sunshine");
+    npcs.base.functions.AddAdditionalTrigger("[Gg]oodbye");
+    npcs.base.functions.AddAdditionalText("Bye, sunshine");
+    npcs.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf bald, Sonnenschein.");
+    npcs.base.functions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.functions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.functions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -91,25 +91,25 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.functions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.functions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.functions.BasicNPCChecks(originator,2) then
+        if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
             if (Status==0) then Status,Values=ShowItemList(originator, message) end
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
-            if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then Status,Values=npcs.base.functions.TellDate(originator, message, TraderMonths) end
+            if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -133,15 +133,15 @@ function receiveText(texttype, message, originator)
                 eText="Sorry, I do not sell that item.";
             end
             if (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // Selling of a single item succeed
-                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
                 eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==7) then -- Verkaufspreis Ansage für ein Item // selling price announcement for an item
-                gText=GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
                 eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
             end
             if (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
-                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
                 eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
             end
             if (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed
@@ -161,7 +161,7 @@ function receiveText(texttype, message, originator)
                 eText="Sorry, I do not buy that item.";
             end
             if (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // Buying of a single item succeed
-                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
                 eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==14) then -- Liste der Waren die der NPC verkauft ist nicht leer // List of the wares the NPC sells, is not empty
@@ -186,12 +186,12 @@ function receiveText(texttype, message, originator)
                 if (seleced==1) then
                     eText="It's day "..Values[1].." of "..Values[2].." of the year "..Values[3]..".";
                 elseif (seleced==2) then
-                    eText="It's the "..EnglDigit(Values[1]).." of "..Values[2].." of the year "..Values[3]..".";
+                    eText="It's the "..npcs.base.functions.EnglDigit(Values[1]).." of "..Values[2].." of the year "..Values[3]..".";
                 end
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -218,7 +218,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

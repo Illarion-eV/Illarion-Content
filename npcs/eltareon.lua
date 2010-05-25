@@ -7,7 +7,7 @@
 --Last Update: 04/16/2006
 --Update by:   Nitram
 
-dofile("npc_functions.lua")
+require("npcs.base.functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -17,7 +17,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.functions.InitTalkLists()
     --    HistTextD={};
     --    HistTextE={};
 
@@ -25,23 +25,23 @@ function initializeNpc()
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
 
-    AddTraderTrigger("[Hh]ello","Greetings. Nice to meet you.");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalTrigger("[Hh]i");
-    AddTraderTrigger("[Hh]allo","Grüße. Freut mich euch zu treffen.");
-    AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    AddTraderTrigger("[Ww]ho","I am "..thisNPC.name.."");
-    AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..".");
-    AddTraderTrigger("[Bb]ye.","Be well");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
-    AddAdditionalText("Auf balde");
+    npcs.base.functions.AddTraderTrigger("[Hh]ello","Greetings. Nice to meet you.");
+    npcs.base.functions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.functions.AddTraderTrigger("[Hh]allo","Grüße. Freut mich euch zu treffen.");
+    npcs.base.functions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    npcs.base.functions.AddTraderTrigger("[Ww]ho","I am "..thisNPC.name.."");
+    npcs.base.functions.AddTraderTrigger("[Ww]er","Ich bin "..thisNPC.name..".");
+    npcs.base.functions.AddTraderTrigger("[Bb]ye.","Be well");
+    npcs.base.functions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.functions.AddAdditionalText("Farewell");
+    npcs.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    npcs.base.functions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.functions.AddAdditionalText("Auf bald");
+    npcs.base.functions.AddAdditionalText("Auf balde");
 
-    AddCycleText("#me blättert in einem Buch herum","#me browses through a book");
-    AddCycleText("#me gähnt verhalten","#me yawns restrained");
+    npcs.base.functions.AddCycleText("#me blättert in einem Buch herum","#me browses through a book");
+    npcs.base.functions.AddCycleText("#me gähnt verhalten","#me yawns restrained");
 
     TradSpeakLang={0,1};
     TradStdLang=0;
@@ -62,24 +62,24 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.functions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.functions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.functions.BasicNPCChecks(originator,2) then
+        if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
 
-            TellSmallTalk(message);
+            npcs.base.functions.TellSmallTalk(message);
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
+                npcs.base.functions.NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end

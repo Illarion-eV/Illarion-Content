@@ -3,7 +3,7 @@
 -- Route: Hafen - Greenbriar
 
 dofile("base_ships.lua");
-dofile("npc_functions.lua");
+require("npcs.base.functions");
 
 -- Insert Statements für Nötige NPCs
 -- INSERT INTO npc VALUES (1000,2,-401,-489,0,0,'f','Ship NPC',NULL,0);
@@ -76,8 +76,8 @@ function nextCycle()
         ---------------------------------- Sprachteil anfang -------------------------------------
         
         thisNPC:increaseSkill(1,"common language",100);
-        --InitTalkLists()
-        --AddTraderTrigger("[Gg]rü[ßs]+e","Aye. Was willst' Landratte?");  
+        --npcs.base.functions.InitTalkLists()
+        --npcs.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Aye. Was willst' Landratte?");  
         
         TradSpeakLang={0,1};
         TradStdLang=0;

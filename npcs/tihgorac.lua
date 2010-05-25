@@ -7,7 +7,7 @@
 --Last Update: 04/26/2006
 --Update by:   Nitram
 
-dofile("npc_functions.lua")
+require("npcs.base.functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -17,22 +17,22 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.functions.InitTalkLists()
     StudentStats={};
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    AddTraderTrigger("[Gg]reetings","Greebs, how be yoo? I is " ..thisNPC.name.. ", the warrior.");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalTrigger("[Oo]rc");
-    AddAdditionalText("Whub? Wut yoo wunt? Mes "..thisNPC.name..", strung warrior. Yubba!");
-    AddTraderTrigger("[Mm]ummies","Yuh. Yoo comes back wid innards of mummies tuh prove yerself and meh will teach yoo some tricks yoo can use tuh knock down big critters!");
-    AddAdditionalTrigger("[Mm]ummy");
-    AddTraderTrigger("[Gg]rü[ßs]+e","Gruß, wies dir geht? Ich "..thisNPC.name..", großer Krieger.");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalTrigger("[Oo]rk");
-    AddAdditionalText("Wus? Wus willst? Ich "..thisNPC.name..", starker Krieger! Har");
-    AddTraderTrigger("[Mm]umie","Ja. Komm her mit Innereinen um dich zu beweisen, dann "..thisNPC.name.." zeigen dir ein paar Tricks um große Viecher tot zu haun!");
+    npcs.base.functions.AddTraderTrigger("[Gg]reetings","Greebs, how be yoo? I is " ..thisNPC.name.. ", the warrior.");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.functions.AddAdditionalTrigger("[Oo]rc");
+    npcs.base.functions.AddAdditionalText("Whub? Wut yoo wunt? Mes "..thisNPC.name..", strung warrior. Yubba!");
+    npcs.base.functions.AddTraderTrigger("[Mm]ummies","Yuh. Yoo comes back wid innards of mummies tuh prove yerself and meh will teach yoo some tricks yoo can use tuh knock down big critters!");
+    npcs.base.functions.AddAdditionalTrigger("[Mm]ummy");
+    npcs.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Gruß, wies dir geht? Ich "..thisNPC.name..", großer Krieger.");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.functions.AddAdditionalTrigger("[Oo]rk");
+    npcs.base.functions.AddAdditionalText("Wus? Wus willst? Ich "..thisNPC.name..", starker Krieger! Har");
+    npcs.base.functions.AddTraderTrigger("[Mm]umie","Ja. Komm her mit Innereinen um dich zu beweisen, dann "..thisNPC.name.." zeigen dir ein paar Tricks um große Viecher tot zu haun!");
 
 
     TradSpeakLang={0,5};
@@ -54,21 +54,21 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.functions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.functions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.functions.BasicNPCChecks(originator,2) then
+        if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=StartLearning(originator,message);
             if (Status==0) then Status=AcceptLearning(originator,message) end
             if (Status==0) then Status=EingeweideGeben(originator,message) end
             if (Status==0) then Status=AxtGeben(originator,message) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
             -------------------------------------------------------------------------
 
@@ -93,13 +93,13 @@ function receiveText(texttype, message, originator)
             elseif (Status==7) then
                 gText="#me zeigt ein Manöver mit der Axt";
                 eText="#me displays a maneuver with his axe";
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.functions.GetNLS(originator,gText,eText));
                 gText="Jetzt du!";
                 eText="Now you try!";
             elseif (Status==8) then
                 gText="#me zeigt ein einfaches Manöver";
                 eText="#me displays a simple maneuver";
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.functions.GetNLS(originator,gText,eText));
                 gText="Jetzt du!";
                 eText="Now you try!";
             elseif (Status==9) then
@@ -114,7 +114,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.functions.GetNLS(originator,gText,eText));
                 if (Status==7) then
                     if (lang==0) then
                         originator:inform("Du denkst du das vielleicht etwas gelernt hast, dadurch das du ihm zugesehen hast.");
@@ -133,7 +133,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -7,7 +7,7 @@
 --Last Update: 12/09/2008
 --Update by:   Lennier
 
-dofile("npc_functions.lua")
+require("npcs.base.functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -17,29 +17,29 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.functions.InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
-    AddTraderTrigger("[Hh]ello","Hello, Hello");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalTrigger("[Hh]i");
-    AddTraderTrigger("[Hh]allo","Grüße euch!");
-    AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
-    AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
-    AddTraderTrigger("[Ff]arewell","Farewell!");
-    AddTraderTrigger("[Bb]ye ","Be well");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nicht! Ich verleihe Esel als Transport- und Lastentiere.");
-    AddTraderTrigger("[Ww]hat.+sell","I don't sell! But you can lend a mule as pack animal.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
-    AddTraderTrigger("cow","I have no cows, I have just mules.")
+    npcs.base.functions.AddTraderTrigger("[Hh]ello","Hello, Hello");
+    npcs.base.functions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.functions.AddTraderTrigger("[Hh]allo","Grüße euch!");
+    npcs.base.functions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    npcs.base.functions.AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
+    npcs.base.functions.AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
+    npcs.base.functions.AddTraderTrigger("[Ff]arewell","Farewell!");
+    npcs.base.functions.AddTraderTrigger("[Bb]ye ","Be well");
+    npcs.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nicht! Ich verleihe Esel als Transport- und Lastentiere.");
+    npcs.base.functions.AddTraderTrigger("[Ww]hat.+sell","I don't sell! But you can lend a mule as pack animal.");
+    npcs.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    npcs.base.functions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.functions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
+    npcs.base.functions.AddTraderTrigger("cow","I have no cows, I have just mules.")
 
-    AddCycleText("#me schaut sich um","#me looks around");
-    AddCycleText("#me niest","#me sneezes");
+    npcs.base.functions.AddCycleText("#me schaut sich um","#me looks around");
+    npcs.base.functions.AddCycleText("#me niest","#me sneezes");
 
     TradSpeakLang={0,1};
     TradStdLang=0;
@@ -66,27 +66,27 @@ function nextCycle()  -- ~10 times per second
     
     if (TraderInit[thisNPC.id] == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang);
+        npcs.base.functions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
         TraderInit[thisNPC.id] = true;
     end
-    SpeakerCycle();
+    npcs.base.functions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.functions.BasicNPCChecks(originator,2) then
+        if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             result = SayPrice(message, originator);
             if not result then result = GetCow(message, originator) end;
             if not result then result = returnCow(message, originator) end;
-            if not result then TellSmallTalk(message) end;
+            if not result then npcs.base.functions.TellSmallTalk(message) end;
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
+                npcs.base.functions.NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end

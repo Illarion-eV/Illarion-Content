@@ -9,7 +9,7 @@
 
 -- INSERT INTO npc VALUES (75, 0, 267,-303,0,6,'f','Lucius van Sareth','npc_lucius.lua',0);
 
-dofile("npc_functions.lua")
+require("npcs.base.functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -19,30 +19,30 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.functions.InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
 
-    AddTraderTrigger("[Gg]reetings","Greetings. Can i help you?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Be greeted. I'm "..thisNPC.name..". Can I help you?");
-    AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Kann ich euch helfen?");
-    AddAdditionalTrigger("[hH]allo");
-    AddAdditionalText("Guten Tag. Ich bin "..thisNPC.name..". Kann ich euch helfen?");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","No. I'm no trader. I'm the tax collector of Varshikar.");
-    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nein ich bin kein Händler. Ich bin der Steuerneintreiber von Varshikar.");
-    AddTraderTrigger("[Ww]hat.+sell","Nothing. I'm no trader so I sell nothing.");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich bin kein Händler also verkaufe ich auch nichts.");
-    AddTraderTrigger("[Tt]ell.+[Ss]omething","Sorry, I'm pretty busy right now.");
-    AddTraderTrigger("[Ee]rzähl.+[Ww]as","Tut mir leid, ich bin grad ziemlich beschäftigt.");
-    AddTraderTrigger("[Gg]oodbye","Be well.");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell!");
-    AddAdditionalText("Good bye.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
+    npcs.base.functions.AddTraderTrigger("[Gg]reetings","Greetings. Can i help you?");
+    npcs.base.functions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.functions.AddAdditionalText("Be greeted. I'm "..thisNPC.name..". Can I help you?");
+    npcs.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Kann ich euch helfen?");
+    npcs.base.functions.AddAdditionalTrigger("[hH]allo");
+    npcs.base.functions.AddAdditionalText("Guten Tag. Ich bin "..thisNPC.name..". Kann ich euch helfen?");
+    npcs.base.functions.AddTraderTrigger("[Yy]ou.+[Tt]rader","No. I'm no trader. I'm the tax collector of Varshikar.");
+    npcs.base.functions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nein ich bin kein Händler. Ich bin der Steuerneintreiber von Varshikar.");
+    npcs.base.functions.AddTraderTrigger("[Ww]hat.+sell","Nothing. I'm no trader so I sell nothing.");
+    npcs.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich bin kein Händler also verkaufe ich auch nichts.");
+    npcs.base.functions.AddTraderTrigger("[Tt]ell.+[Ss]omething","Sorry, I'm pretty busy right now.");
+    npcs.base.functions.AddTraderTrigger("[Ee]rzähl.+[Ww]as","Tut mir leid, ich bin grad ziemlich beschäftigt.");
+    npcs.base.functions.AddTraderTrigger("[Gg]oodbye","Be well.");
+    npcs.base.functions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.functions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.functions.AddAdditionalText("Farewell!");
+    npcs.base.functions.AddAdditionalText("Good bye.");
+    npcs.base.functions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf wiedersehen.");
+    npcs.base.functions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.functions.AddAdditionalText("Auf bald");
     
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
 
@@ -77,19 +77,19 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.functions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.functions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.functions.BasicNPCChecks(originator,2) then
+        if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=TakeTaxes(originator, message)
-            if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then Status,Values=npcs.base.functions.TellDate(originator, message, TraderMonths) end
+            if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Gefragt nach Steuern, darf sie aber nicht nehmen
@@ -107,12 +107,12 @@ function receiveText(texttype, message, originator)
                 if (seleced==1) then
                     eText="It's day "..Values[1].." of "..Values[2].." of the year "..Values[3]..".";
                 elseif (seleced==2) then
-                    eText="It's the "..EnglDigit(Values[1]).." of "..Values[2].." of the year "..Values[3]..".";
+                    eText="It's the "..npcs.base.functions.EnglDigit(Values[1]).." of "..Values[2].." of the year "..Values[3]..".";
                 end
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -139,7 +139,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.functions.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end
