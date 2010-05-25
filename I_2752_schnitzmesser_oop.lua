@@ -3,14 +3,14 @@
 -- UPDATE common SET com_script='I_2752_schnitzmesser_oop.lua' WHERE com_itemid IN (2752);
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 -- Holzarbeiten mit dem Schnitzmesser
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        carpentery = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        carpentery = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "carpentry",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 200,

@@ -6,13 +6,17 @@
 -- Arbeitscyclus: 1s - 4s
 -- Zusätzliches Werkzeug: Schere ( 6 )
 
--- UPDATE common SET com_script='I_171_spinnrad.lua' WHERE com_itemid IN (171);
+-- UPDATE common SET com_script='items.171_spinningwheel' WHERE com_itemid IN (171);
 
 require("base.common")
 require("content.gathering")
 
+module("items.171_spinningwheel", package.seeall())
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	content.gathering.InitGathering();
+	local woolcutting = content.gathering.woolcutting;
+	
     base.common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then
         if (User:increaseAttrib("sex",0) == 0) then

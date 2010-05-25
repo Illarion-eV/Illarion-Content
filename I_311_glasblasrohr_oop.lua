@@ -3,13 +3,13 @@
 -- UPDATE common SET com_script='I_311_glasblasrohr_oop.lua' WHERE com_itemid=311;
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        glassblowing = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        glassblowing = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                                   LeadSkill = "glass blowing",
                                   LeadSkillGroup = 2,
                                   DefaultFoodConsumption = 300,

@@ -3,13 +3,13 @@
 -- UPDATE common SET com_script='I_58_moerser_oop.lua' WHERE com_itemid=58;
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        mortar = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        mortar = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                             LeadSkill = "tailoring",
                             LeadSkillGroup = 2,
                             DefaultFoodConsumption = 300,

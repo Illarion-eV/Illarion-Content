@@ -2,7 +2,7 @@ require("base.lookat")
 
 module("items.general.jewel", package.seeall())
 
--- UPDATE common SET com_script='items.general.jewel' WHERE com_itemid IN (225);
+-- UPDATE common SET com_script='items.general.jewel' WHERE com_itemid IN (225, 1840, 1858);
 
 function LookAtItem(User,Item)
     if (Item.id == 225) then

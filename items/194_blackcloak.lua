@@ -1,8 +1,9 @@
-dofile( "base_lookat.lua" );
+-- UPDATE common SET com_script='items.194_blackcloak' WHERE com_itemid IN (194);
+
+require("items.priest.cloth")
 require("base.common")
-function LookAtItem(User,Item)
-    world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,3,false,true )); 
-end
+
+module("items.194_blackcloak", package.seeall(), package.seeall(items.priest.cloth))
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --anlegen des schattenmantels
@@ -17,4 +18,3 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         end
     end
 end
-

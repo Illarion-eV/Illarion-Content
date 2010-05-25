@@ -3,7 +3,7 @@
 -- added object orientation by vilarion
 require("base.common")
 
-module("base.crafts", package.seeall())
+module("items.base.crafts", package.seeall())
 
 -- ## NOTE: replaced os.time() with 123456789
 

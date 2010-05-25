@@ -3,13 +3,13 @@
 -- UPDATE common SET com_script='I_23_schmieden_oop.lua' WHERE com_itemid IN (23);
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 -- Schmiedeprodukte Initieren
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
-        smithing = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        smithing = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "smithing",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 300,

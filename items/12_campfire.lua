@@ -1,7 +1,9 @@
--- UPDATE common SET com_script='I_12_campfire.lua' where com_itemid=12;
+-- UPDATE common SET com_script='items.12_campfire' where com_itemid=12;
 
 require("base.common")
 require("content.gathering")
+
+module("items.12_campfire", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     

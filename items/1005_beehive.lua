@@ -1,13 +1,16 @@
 -- Honig Sammeln mit neuem Collecting-System
 -- Blay09
 
--- UPDATE common SET com_script='I_1005_bienenstock.lua' WHERE com_itemid=1005;
+-- UPDATE common SET com_script='items.1005_beehive' WHERE com_itemid=1005;
 
 require("base.common")
 require("content.gathering")
 
+module("items.1005_beehive", package.seeall())
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	content.gathering.InitGathering();
+	local honeygathering = content.gathering.honeygathering;
 	
     base.common.ResetInterruption(User, ltstate);
 	if (ltstate == Action.abort) then -- Arbeit unterbrochen

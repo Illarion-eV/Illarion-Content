@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 2s - 8s
 -- Zusätzliches Werkzeug: Nudelholz ( 118 )
 
--- UPDATE common SET com_script='I_119_backofen.lua' WHERE com_itemid IN (119,120);
+-- UPDATE common SET com_script='items.119_backingoven' WHERE com_itemid IN (119,120);
 
 require("base.common")
+
+module("items.119_backingoven", package.seeall());
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

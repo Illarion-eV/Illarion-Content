@@ -3,14 +3,14 @@
 -- UPDATE common SET com_script='I_2715_hobel_oop.lua' WHERE com_itemid=2715;
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 -- Holzarbeiten mit dem Hobel
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
         
-        carpentry = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        carpentry = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "carpentry",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 200,

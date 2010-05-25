@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 1s - 4s
 -- Zusätzliches Werkzeug: Schere ( 6 )
 
--- UPDATE common SET com_script='I_169_webstuhl.lua' WHERE com_itemid IN (169);
+-- UPDATE common SET com_script='items.169_loom' WHERE com_itemid IN (169);
 
 require("base.common")
+
+module("items.169_loom", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

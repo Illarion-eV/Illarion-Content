@@ -1,7 +1,11 @@
 -- Schaf melken
 -- Nop
 
+-- UPDATE common SET com_script='items.164_emptybottle' WHERE com_itemid IN (164);
+
 require("base.common")
+
+module("items.164_emptybottle", package.seeall())
 
 function UseItemWithCharacter(User,SourceItem,Character,Counter,Param)
     --User:inform("char selected");

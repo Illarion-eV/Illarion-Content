@@ -1,9 +1,12 @@
 -- Herblore mit Sichel und Ausbreitung der Pflanzen
 
--- UPDATE common SET com_script='I_126_sickle.lua' WHERE com_itemid=126;
+-- UPDATE common SET com_script='items.126_sickle' WHERE com_itemid=126;
 
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("base.common")
+
+module("items.126_sickle", package.seeall(), package.seeall(items.general.metal))
+
 dofile( "newgaia.lua" );
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )

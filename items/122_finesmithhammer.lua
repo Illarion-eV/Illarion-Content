@@ -1,15 +1,17 @@
 -- Goldschmieden mit Goldschmiedehammer und Amboss
 
--- UPDATE common SET com_script='I_122_goldschmieden_oop.lua' WHERE com_itemid IN (122);
+-- UPDATE common SET com_script='items.122_finesmithhammer' WHERE com_itemid IN (122);
 
-dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.general.metal")
+require("items.base.crafts")
+
+module("items.122_finesmithhammer", package.seeall(), package.seeall(items.general.metal))
 
 -- Schmiedeprodukte Initieren
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
-        smithing = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        smithing = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "goldsmithing",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 300,
@@ -390,10 +392,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     end
   end  
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end
 
 ------------------------Part 2:-------
 function UseItemWithField( User, SourceItem,TargetPos ,Counter , Param)

@@ -3,14 +3,14 @@
 -- UPDATE common SET com_script='I_227_kochen_oop.lua' WHERE com_itemid IN (227);
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 -- Kochen und Brauen Initieren Initieren
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
         
-        cooking = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        cooking = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                              LeadSkill = "baking",
                              LeadSkillGroup = 2,
                              DefaultFoodConsumption = 100,
@@ -18,7 +18,7 @@ function InitCraftingTool( )
                              DefaultSfx = { 7, 15 }
                            };
         
-        brewing = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        brewing = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                              LeadSkill = "baking",
                              LeadSkillGroup = 2,
                              DefaultFoodConsumption = 100,

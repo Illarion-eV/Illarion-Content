@@ -1,4 +1,8 @@
+-- UPDATE common SET com_script='items.1272_markerstone' WHERE com_itemid IN (1272);
+
 require("base.common")
+
+module("items.1272_markerstone", package.seeall())
 
 function CheckStone(Char,StoneNumber)
     retVal=false;

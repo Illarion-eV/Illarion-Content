@@ -1,8 +1,13 @@
 -- teleporter gate
 -- Nop
 
+-- UPDATE common SET com_script='items.10_teleportgate' WHERE com_itemid = 10;
+
 require("base.common")
 dofile( "base_factions.lua" );
+
+module("items.10_teleportgate", package.seeall())
+
 function InitializeGate(  )
 
     if TargetCoor == nil then

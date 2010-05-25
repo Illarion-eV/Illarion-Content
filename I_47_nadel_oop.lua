@@ -3,14 +3,14 @@
 -- UPDATE common SET com_script='I_47_nadel_oop.lua' WHERE com_itemid IN (47);
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 -- Schneiderprodukte Initieren
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
         
-        tailoring = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        tailoring = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "tailoring",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 300,

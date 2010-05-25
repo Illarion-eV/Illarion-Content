@@ -1,16 +1,18 @@
 -- Backen mit Ofenschieber und Backofen
 
--- UPDATE common SET com_script='I_121_ofenschieber_oop.lua' WHERE com_itemid IN (121);
+-- UPDATE common SET com_script='items.121_peel' WHERE com_itemid IN (121);
 
-dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.general.wood")
+require("items.base.crafts")
+
+module("items.121_peel", package.seeall(), package.seeall(items.general.wood))
 
 -- Backprodukte Initieren
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
         
-        baking = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        baking = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                              LeadSkill = "baking",
                              LeadSkillGroup = 2,
                              DefaultFoodConsumption = 100,
@@ -149,9 +151,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         baking:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end
-
-

@@ -3,13 +3,13 @@
 -- UPDATE common SET com_script='I_2140_zange_oop.lua' WHERE com_itemid=2140;
 
 dofile( "base_lookat.lua" );
-require("base.crafts")
+require("items.base.crafts")
 
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        gemcutting = base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        gemcutting = items.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                                   LeadSkill = "gemcutting",
                                   LeadSkillGroup = 2,
                                   DefaultFoodConsumption = 200,
