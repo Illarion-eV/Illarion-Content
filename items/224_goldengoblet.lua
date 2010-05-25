@@ -1,7 +1,9 @@
-dofile( "base_lookat.lua" );
+require("base.lookat")
 require("base.common")
 
--- UPDATE common SET com_script='I_224_golden_goblet.lua' WHERE com_itemid=224;
+-- UPDATE common SET com_script='items.224_goldengoblet' WHERE com_itemid=224;
+
+module("items.224_goldengoblet", package.seeall())
 
 function LookAtItem(User,Item)
     local text = base.lookat.GetItemDescription(User,Item,4,false,false);

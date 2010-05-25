@@ -1,3 +1,5 @@
+module("content.jewelbonus", package.seeall())
+
 function getBonus(Item)                 -- returns gem#, strength of this gem (inserted)
     itData=Item.data;
     if itData>9 and itData<100 then     -- this is an item with 1 gem inserted!

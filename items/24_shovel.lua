@@ -2,11 +2,13 @@
 
 -- Arbeitscyclus: 1s - 4s
 
--- UPDATE common SET com_script='I_24_schaufel.lua' WHERE com_itemid=24;
+-- UPDATE common SET com_script='items.24_shovel' WHERE com_itemid=24;
 
 require("base.common")
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("base.treasure")
+
+module("items.24_shovel", package.seeall(), package.seeall(items.general.metal))
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate );
@@ -238,10 +240,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
     User:learn( 2, "lumberjacking", 2, 50 )
     base.common.GetHungry( User, 200 );
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
 end
 
 -- Arbeitszeit generieren

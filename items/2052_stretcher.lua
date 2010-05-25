@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 2s - 5s
 -- Zusätzliches Werkzeug: Rasiermesser ( 2746 )
 
--- UPDATE common SET com_script='I_2052_spannrahmen.lua' WHERE com_itemid = 2052;
+-- UPDATE common SET com_script='items.2052_stretcher' WHERE com_itemid = 2052;
 
 require("base.common")
+
+module("items.2052_stretcher", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

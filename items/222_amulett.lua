@@ -1,6 +1,9 @@
-dofile( "base_priest_lookat_jewel.lua" );
+-- UPDATE common SET com_script='items.222_amulett' WHERE com_itemid IN (222);
+
+require("items.priest.jewel")
 require("base.common")
 
+module("items.222_amulett", package.seeall(), package.seeall(items.priest.jewel))
 
 function MoveItemBeforeMove( who, sourceItem, targetItem )
     fnd, eff = who.effects:find(9)

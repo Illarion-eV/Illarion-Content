@@ -6,9 +6,11 @@
 -- Arbeitscyclus: 1s - 4s
 -- Zusätzliches Werkzeug: Färberstab ( 2781 )
 
--- UPDATE common SET com_script='I_220_fass.lua' WHERE com_itemid IN (220);
+-- UPDATE common SET com_script='items.220_barrel' WHERE com_itemid IN (220);
 
 require("base.common")
+
+module("items.220_barrel", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

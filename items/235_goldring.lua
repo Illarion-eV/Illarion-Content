@@ -1,8 +1,10 @@
 -- data values in use: 100,101,102,666,700,800, 10000
 
-dofile( "base_lookat.lua" );
+require("base.lookat")
 require("base.common")
-dofile( "base_jewel_bonus.lua" );
+require("content.jewelbonus")
+
+module("items.235_goldring", package.seeall(), package.seeall(content.jewelbonus))
 
 function LookAtItem(User,Item)
 

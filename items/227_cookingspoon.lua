@@ -1,9 +1,11 @@
 -- Kochen und Brauen mit Kessel und Fass
 
--- UPDATE common SET com_script='I_227_kochen_oop.lua' WHERE com_itemid IN (227);
+-- UPDATE common SET com_script='items.227_cookingspoon' WHERE com_itemid IN (227);
 
-dofile( "base_lookat.lua" );
+require("items.general.wood")
 require("items.base.crafts")
+
+module("items.227_cookingspoon", package.seeall(), package.seeall(items.general.wood))
 
 -- Kochen und Brauen Initieren Initieren
 function InitCraftingTool( )
@@ -348,7 +350,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         User:inform(brewmessage);
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 2, false, false ));
-end
