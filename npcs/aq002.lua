@@ -17,22 +17,22 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
     applefrom = { };
     thisNPC:increaseSkill(1,"common language",100);
     TraderFirst=1;
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    AddTraderTrigger("[Gg]reetings","Hiho! Welcome Traveller! Could you help me?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalTrigger("[Hh][Ii]");
-    AddTraderTrigger("[Gg]r[uü][sß]+","Hiho! Willkommen Reisender! Könntest du mir helfen?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddTraderTrigger("[Hh]elp","I need two apples to bake a very tasty pie, could you bring me two?");
-    AddTraderTrigger("[Tt]ree","#me points \"There! The trees. Can you see them?\"");
-    AddTraderTrigger("[Hh]ow.+[gG]et","#w (( hold the shift key. Click on the tree and release the shift key. This is the way you can use items ))");
-    AddTraderTrigger("[Hh][ei]lf","Ich brauche zwei Äpfel um einen sehr leckeren Kuchen zu backen. Könntest du mir welche bringen?");
-    AddTraderTrigger("[Bb][äa]um","#me zeigt auf die Bäume \"Dort! Die Bäume! Kannst du sie sehen?\"");
-    AddTraderTrigger("[Ww]ie.+[Bb]ekomm","#w (( drück die Shift Taste. Klicke den Baum an und lass die Shift-Taste wieder los. So kannst du Gegenstände benutzen ))");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Hiho! Welcome Traveller! Could you help me?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh][Ii]");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Hiho! Willkommen Reisender! Könntest du mir helfen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]elp","I need two apples to bake a very tasty pie, could you bring me two?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ree","#me points \"There! The trees. Can you see them?\"");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ow.+[gG]et","#w (( hold the shift key. Click on the tree and release the shift key. This is the way you can use items ))");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh][ei]lf","Ich brauche zwei Äpfel um einen sehr leckeren Kuchen zu backen. Könntest du mir welche bringen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb][äa]um","#me zeigt auf die Bäume \"Dort! Die Bäume! Kannst du sie sehen?\"");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ie.+[Bb]ekomm","#w (( drück die Shift Taste. Klicke den Baum an und lass die Shift-Taste wieder los. So kannst du Gegenstände benutzen ))");
 
     TradSpeakLang={0,6};
     TradStdLang=0;
@@ -53,18 +53,18 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=Apfelgeben(originator,message)
-            if (Status==0) then TellSmallTalk(message) end;
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end;
 
             -----------------------------------------------------------------------------
             if (Status==1) then
@@ -82,14 +82,14 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an, er scheint die Sprache die du sprichst nicht zu verstehen";
                 eText="#me looks at you a little confused, it seems he doesn't understand the language you speak";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

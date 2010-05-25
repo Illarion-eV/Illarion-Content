@@ -17,30 +17,30 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     StudentStats={};
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    AddTraderTrigger("[Gg]reetings","Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
-    AddTraderTrigger("[Gg]r[uü][sß]+","Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
-    AddTraderTrigger("[Ss]ir [Ee]lf","Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
-    AddTraderTrigger("[Hh]err [Ee]lf","Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
-    AddTraderTrigger("[Cc]ommon","'Tis a dreadful language, I fear. It's horribley blunt and unpoetic. It lacks the fluidity and poetic qualities of my people's language.");
-    AddTraderTrigger("[Aa]llgemein","Das ist eine grässliche Sprache, fürchte ich. Sie ist furchtbar plump und unpoetisch. Ihr fehlt der Fluss und die Poetischen Qualitäten der Sprache meines Volkes.");
-    AddTraderTrigger("[Tt]each.*[Ee]lven","Not so fast. It is not that I am greedy, but it is customary among Elves that a student provide a tribute to his/her teacher.");
-    AddTraderTrigger("[Ee]lvish","Are you interested in learning the Elven Tongue? I assure you that you would find new pathways of thought with the tools that the Elven language provides for the expression of those that understand it.");
-    AddAdditionalTrigger("[Ee]lven [Ll]anguage");
-    AddAdditionalTrigger("[Ee]lven [Tt]ongue");
-    AddTraderTrigger("[Ee]lfisch","Seit ihr daran interessiert die Hohe Sprache der Elfen zu erlernen? Es besteht kein Zweifel, das ihr neue Pfade des Denkens dank der Sprache der Elfen begehen könntet.");
-    AddAdditionalTrigger("[Ee]lfen [Ss]prache");
-    AddAdditionalTrigger("[Ss]prache.+[Ee]lfen");
-    AddTraderTrigger("[Tt]ribute","A Tribute...Now what shall be my tribute? There is no greater tribute than that which is found in nature. Perhaps you could provide me with a Night Angel's Blossom and a Firnis Blossom for starters. Come back with them an i will teach you the language.");
-    AddTraderTrigger("[Gg]abe","Eine Gabe..was soll es sein? Es gibt keine größere Gabe als die die in der Natur gefunden werden kann. Vielleicht könntest du mir eine Nacht Engels Blüte und eine Firnis Blüte bringen. Bring mir diese ich werde dir die Sprache beibringen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalText("Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalText("Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]ir [Ee]lf","Greetings. I fear I am not-so good at speaking the Common Tongue. Please forgive me. Can you speak Elvish?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]err [Ee]lf","Zum Gruße. Ich muss zu meinem Bedauern sagen, das ich der Allgemeinen Sprache nicht zur Gänze mächtig bin. Könnt ihr die Sprache der Elfen sprechen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Cc]ommon","'Tis a dreadful language, I fear. It's horribley blunt and unpoetic. It lacks the fluidity and poetic qualities of my people's language.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]llgemein","Das ist eine grässliche Sprache, fürchte ich. Sie ist furchtbar plump und unpoetisch. Ihr fehlt der Fluss und die Poetischen Qualitäten der Sprache meines Volkes.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]each.*[Ee]lven","Not so fast. It is not that I am greedy, but it is customary among Elves that a student provide a tribute to his/her teacher.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]lvish","Are you interested in learning the Elven Tongue? I assure you that you would find new pathways of thought with the tools that the Elven language provides for the expression of those that understand it.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]lven [Ll]anguage");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]lven [Tt]ongue");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]lfisch","Seit ihr daran interessiert die Hohe Sprache der Elfen zu erlernen? Es besteht kein Zweifel, das ihr neue Pfade des Denkens dank der Sprache der Elfen begehen könntet.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ee]lfen [Ss]prache");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ss]prache.+[Ee]lfen");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ribute","A Tribute...Now what shall be my tribute? There is no greater tribute than that which is found in nature. Perhaps you could provide me with a Night Angel's Blossom and a Firnis Blossom for starters. Come back with them an i will teach you the language.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]abe","Eine Gabe..was soll es sein? Es gibt keine größere Gabe als die die in der Natur gefunden werden kann. Vielleicht könntest du mir eine Nacht Engels Blüte und eine Firnis Blüte bringen. Bring mir diese ich werde dir die Sprache beibringen.");
 
     TradSpeakLang={0,3};
     TradStdLang=0;
@@ -61,21 +61,21 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=StartLearning(originator,message);
             if (Status==0) then Status=FirnisGeben(originator,message) end
             if (Status==0) then Status=NachtGeben(originator,message) end
             if (Status==0) then Status=SibanacGeben(originator,message) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             -------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ function receiveText(texttype, message, originator)
             elseif (Status==10 or Status==11) then
                 gText="#me stopft seine Pfeife mit den Sibanacblättern und zündet sie an. Bald beginnt er dünne Rauchringe wegzublasen";
                 eText="#me puts the Sibanac leaves in a pipe and lights it. He soon begins to puff away at the pipe"
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.npcautofunction.GetNLS(originator,gText,eText));
                 gText="Ahh...so. Wo waren wir? Ahja. Ich war dabei euch die Grundlagen der schönen Sprache der Elfen beizubringen.";
                 eText="Ah. Now where were we? Ah, yes. I was to teach you the basics of the Elven Tongue.";
             elseif (Status==12) then
@@ -127,7 +127,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.npcautofunction.GetNLS(originator,gText,eText));
                 if (Status==10) then
                     if (lang==0) then
                         originator:inform("Seine Ausführungen lassen die Sprache recht leicht erscheinen und du denkst das du schnell lernst.");
@@ -150,7 +150,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

@@ -76,29 +76,29 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
-    AddTraderTrigger("[Hh]ello","Hello, Hello");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalTrigger("[Hh]i");
-    AddTraderTrigger("[Hh]allo","Grüße euch!");
-    AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
-    AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
-    AddTraderTrigger("[Bb]ye ","Be well");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Lasttiere!");
-    AddTraderTrigger("[Ww]hat.+sell","I sell pack animals!");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
-    AddAdditionalText("Auf balde");
-    AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
-    AddTraderTrigger("cow","I have no cows, I have just mules.")
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Hello, Hello");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüße euch!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye ","Be well");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Lasttiere!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell pack animals!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf balde");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("cow","I have no cows, I have just mules.")
 
     TradSpeakLang={0,1};
     TradStdLang=0;
@@ -121,7 +121,7 @@ function nextCycle()  -- ~10 times per second
         TraderInit = 1;
 		initializeNpc();
 		action = false;
-        increaseLangSkill(TradSpeakLang);
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
 		BG_StartGuard(thisNPC);
 		thisNPC:setAttrib("agility",15);
@@ -133,8 +133,8 @@ function nextCycle()  -- ~10 times per second
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) and originator:get_type()==0 then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) and originator:get_type()==0 then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
 			if string.find(message,"delete") then
 				world:deleteNPC(thisNPC.id);
@@ -142,13 +142,13 @@ function receiveText(texttype, message, originator)
 				npcdebug("CurWp: " .. getPos(CurWp.pos) .. "; NextWp: " .. getPos(NextWp.pos));
 			elseif string.find(message,"setroute") then
 				thisNPC:setOnRoute(true);
-			else TellSmallTalk(message) end;
+			else npcs.base.autonpcfunctions.TellSmallTalk(message) end;
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end

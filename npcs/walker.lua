@@ -1,4 +1,4 @@
-dofile( "base_walking.lua" );
+dofile( "base_npcs.base.autonpcfunctions.walking.lua" );
 
 function nextCycle()
     if not slowdown then

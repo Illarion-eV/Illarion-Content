@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -35,45 +35,45 @@ function initializeNpc()
 
     TraderCopper=1000;
 
-    AddTraderTrigger("[Gg]reetings","Greetingss. You are interessted on my wares? Look what i have found at the ground of the sea. Ssss.");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Greetss. I found lots of things in the sea. Ssss. You are interested?");
-    AddTraderTrigger("[Gg]rü[ßs]+e","Grüßsse. Ssseid ihr an meine Waren interesssiert? Ssseht wasss ich am Grund desss Meeresss gefunden habe. sss");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Ssseid gegrüßsst. Ich habe viele Sssachen auf den Meeresss Boden gesssammelt. Ssseid ihr interesssiert? Ssss");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","Yess! Call me Zathrot. Do you want that i lisst my waresss? I found lots thing in the sea.");
-    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ja. Nennet mich Zathrot. Wollt ihr dasss ich euch eine Lissste meiner Waren gebe? sss");
-    AddTraderTrigger("[Ww]hat.+sell","I trade with fishss, toolss and more. Everything i found in zelphiass oceanss.");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich handle mit Fissschen, Werkzeugen und mehr. Alless wasss ich in Zelphiasss Ozeanen gefunden habe. sss");
-    AddTraderTrigger("[Ww]hat.+[Ww]ares","I trade with fishss, tools and more, what i found in the ssea.");
-    AddTraderTrigger("[Ww]as.+[Ww]are","Ich handle mit Fissschen, Werkzeugen und mehr, wasss ich im Meer gefunden habe. sss");
-    AddTraderTrigger("[Ww]hat.+[Ff]ish","I have delicious trouts and salmons.");
-    AddTraderTrigger("[Ww]as.+[Ff]isch","Ich habe ssschmackhafte Forellen und Lachssse.");
-    AddTraderTrigger("[Ww]hat.+[Mm]ore","Letss me show you. I have old combss, oils lampss and some old ropess");
-    AddTraderTrigger("[Ww]as.+[Mm]ehr","Lassst esss mich euch zsseigen. Ich habe alte Kämme, Öl Lampen und ein paar alte Ssseile. sss");
-    AddTraderTrigger("[Ww]hat.+[Tt]ools","I trade with fishing rodsss. But take a look: I found a nice brush.");
-    AddTraderTrigger("[Ww]was.+[Ww]erkzeug","Ich habe Angeln. Aber ssschaut auch mal hier: Ich habe eine ssschöne Bürssste gefunden. sss");
-    AddTraderTrigger("[Gg]oodbye","Zhelphia may blesss you!");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell!");
-    AddAdditionalText("Good day. Zhelphia may be with you!");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Zhelphia mit euch!");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Ssschönen Tag noch. Zhelphia sei mit euch.");
-    AddTraderTrigger("[Ww]ho.+you?","Zathrot! Zathrot iss my name");
-    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Zathrot! Zathrot issst mein Name. sss");
-    AddTraderTrigger("I'm .+","Nice to meet you.");
-    AddTraderTrigger("Ich bin .+","Erfreut sssie kennen zu lernen. sss");
-    AddTraderTrigger("[Tt]ell.+[Ss]omething","Once upon a time, I came here. Now I am here. Isn't that interesting?");
-    AddTraderTrigger("[Ee]rzähl.+[Ee]twas","Vor langer Zeit kam ich her. Nun bin ich hier. Issst dasss nicht interesssant?");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetingss. You are interessted on my wares? Look what i have found at the ground of the sea. Ssss.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalText("Greetss. I found lots of things in the sea. Ssss. You are interested?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüßsse. Ssseid ihr an meine Waren interesssiert? Ssseht wasss ich am Grund desss Meeresss gefunden habe. sss");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalText("Ssseid gegrüßsst. Ich habe viele Sssachen auf den Meeresss Boden gesssammelt. Ssseid ihr interesssiert? Ssss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","Yess! Call me Zathrot. Do you want that i lisst my waresss? I found lots thing in the sea.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ja. Nennet mich Zathrot. Wollt ihr dasss ich euch eine Lissste meiner Waren gebe? sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I trade with fishss, toolss and more. Everything i found in zelphiass oceanss.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich handle mit Fissschen, Werkzeugen und mehr. Alless wasss ich in Zelphiasss Ozeanen gefunden habe. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]ares","I trade with fishss, tools and more, what i found in the ssea.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]are","Ich handle mit Fissschen, Werkzeugen und mehr, wasss ich im Meer gefunden habe. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ff]ish","I have delicious trouts and salmons.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ff]isch","Ich habe ssschmackhafte Forellen und Lachssse.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Mm]ore","Letss me show you. I have old combss, oils lampss and some old ropess");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Mm]ehr","Lassst esss mich euch zsseigen. Ich habe alte Kämme, Öl Lampen und ein paar alte Ssseile. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Tt]ools","I trade with fishing rodsss. But take a look: I found a nice brush.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]was.+[Ww]erkzeug","Ich habe Angeln. Aber ssschaut auch mal hier: Ich habe eine ssschöne Bürssste gefunden. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Zhelphia may blesss you!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell!");
+    npcs.base.autonpcfunctions.AddAdditionalText("Good day. Zhelphia may be with you!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Zhelphia mit euch!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Ssschönen Tag noch. Zhelphia sei mit euch.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","Zathrot! Zathrot iss my name");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Zathrot! Zathrot issst mein Name. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Nice to meet you.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("Ich bin .+","Erfreut sssie kennen zu lernen. sss");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","Once upon a time, I came here. Now I am here. Isn't that interesting?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ee]twas","Vor langer Zeit kam ich her. Nun bin ich hier. Issst dasss nicht interesssant?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
-    AddCycleText("#me isst einen Fisch","#me eats a fish");
-    AddCycleText("#me schaut sich nach Kunden um","#me looks around for customers");
-    AddCycleText("#me lässt ihren Schwanz hin und her schnalzen","#me flicks her tail");
-    AddCycleText("#me reibt an einer Öllampe","#me rubs at an oil lamp");
+    npcs.base.autonpcfunctions.AddCycleText("#me isst einen Fisch","#me eats a fish");
+    npcs.base.autonpcfunctions.AddCycleText("#me schaut sich nach Kunden um","#me looks around for customers");
+    npcs.base.autonpcfunctions.AddCycleText("#me lässt ihren Schwanz hin und her schnalzen","#me flicks her tail");
+    npcs.base.autonpcfunctions.AddCycleText("#me reibt an einer Öllampe","#me rubs at an oil lamp");
 
     TraderLang={"Gold","gold","Sssilber", "sssilver","Kupfer","copper","ssstücke","piecesss"};
     TraderMonths={"Elosss","Tanosss","Zhasss","Ushosss","Sssirosss","Ronasss","Brasss","Eldasss","Irmasss","Malasss","Findosss","Olosss","Adrasss","Narasss","Chosss","Masss"};
@@ -99,17 +99,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -117,7 +117,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -182,7 +182,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -209,7 +209,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

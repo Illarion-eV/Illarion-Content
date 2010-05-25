@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -47,27 +47,27 @@ function initializeNpc()
 
     TraderCopper=10000;
 
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Gg]reet","Greetingsss. How i can help you?.");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalTrigger("[Hh]i");
-    AddAdditionalText("Aye! You are interested in my wares?");
-    AddTraderTrigger("[Ww]hat.+sell","I sell different tools");
-    AddTraderTrigger("[Ww]hat.+[Tt]ool","Whatever you want: scrissors, saws, hammers, shovels, needles, axes, sickles, scythes and glas blow pipes.");
-    AddTraderTrigger("[Ww]ho.+[Ii]rmorom","Irmorom is the god of the dwarves, of the trade and the craftsmanship");
-    AddTraderTrigger("[Bb]ye","Aye! Irmorom may bless you.");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell. You are welcome to come back and to trade with me.");
-    AddTraderTrigger("[Gg]r[uü][sß]+","Aye! Was willst du?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Hallo. Willst du was von meinen Waren kaufen?");
-    AddTraderTrigger("[Ww]as.+kauf","Ja, ich habe Verschiedene Werkzeuge.");
-    AddTraderTrigger("[Ww]as.+[Ww]erkzeug","Was auch immer dir helfen mag: Scheren, Sägen, Hammer, Schaufeln, Nadeln, Äxte, Sicheln, Sensen und Glasblas Rohre.");
-    AddTraderTrigger("[Aa]uf [Bb]ald","Ja, du kannst gern wieder herkommen, wenn du was brauchst. Irmorom sei mit dir!");
-    AddAdditionalTrigger("[Bb]is [Bb]ald");
-    AddAdditionalText("Aye! Kannst gern wieder herkommen, wenn du was brauchst.");
-    AddTraderTrigger("[Ww]er.+[Ii]rmorom","Irmorom ist der Gott der Zwerge, des Handels und der Handwerker");
-    AddTraderTrigger("'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet","Greetingsss. How i can help you?.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.autonpcfunctions.AddAdditionalText("Aye! You are interested in my wares?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell different tools");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Tt]ool","Whatever you want: scrissors, saws, hammers, shovels, needles, axes, sickles, scythes and glas blow pipes.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Ii]rmorom","Irmorom is the god of the dwarves, of the trade and the craftsmanship");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Aye! Irmorom may bless you.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell. You are welcome to come back and to trade with me.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Aye! Was willst du?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalText("Hallo. Willst du was von meinen Waren kaufen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+kauf","Ja, ich habe Verschiedene Werkzeuge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]erkzeug","Was auch immer dir helfen mag: Scheren, Sägen, Hammer, Schaufeln, Nadeln, Äxte, Sicheln, Sensen und Glasblas Rohre.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf [Bb]ald","Ja, du kannst gern wieder herkommen, wenn du was brauchst. Irmorom sei mit dir!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is [Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Aye! Kannst gern wieder herkommen, wenn du was brauchst.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[Ii]rmorom","Irmorom ist der Gott der Zwerge, des Handels und der Handwerker");
+    npcs.base.autonpcfunctions.AddTraderTrigger("'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
@@ -118,17 +118,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -136,7 +136,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -218,7 +218,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -246,7 +246,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

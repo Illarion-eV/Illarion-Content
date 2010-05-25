@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -28,45 +28,45 @@ function initializeNpc()
 
     TraderCopper=0;
 
-    AddTraderTrigger("[Hh]ello","Greetings my friend.");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalText("A pleasure to meet you, friend.");
-    AddTraderTrigger("[Hh]allo","Grüße mein Freund.");
-    AddAdditionalTrigger("[Gg]rü[sß]+e");
-    AddAdditionalText("Ist mir eine Freude euch zu treffen.");
-    AddTraderTrigger("[Jj]ob","I take care of this graveyard");
-    AddTraderTrigger("[Bb]eruf","Ich kümmere mich um diesen Friedhof");
-    AddTraderTrigger("[Gg]ravejard","This is the place where everybody finds the eternal sleep.");
-    AddTraderTrigger("[Ff]riedhof","Das ist der Ort wo jeder seine ewige Ruhe finden kann.");
-    AddTraderTrigger("[Mm]ission","My friend, I am a simple man with no needs.");
-    AddTraderTrigger("[Aa]uftrag","Mein Freund, ich bin ein einfach Mann der nichts braucht.");
-    AddTraderTrigger("[Qq]uest","My friend, I am a simple man with no needs.");
-    AddTraderTrigger("[Nn]eed.+help","All you could do for me, is helping me with the garden work. Like taking care of the graves.");
-    AddTraderTrigger("[Bb]rauch.+[Hh]ilfe","Alles was ihr für mich tun könntet, ist mir bei der Garten Arbeit zu helfen. Zum Beispiel könntet ihr euch etwas um die Gräber kümmern.");
-    AddTraderTrigger("[Gg]rave","I take care of them as good as I can, but sometimes they even scare me.");
-    AddTraderTrigger("[Gg]r[aä]b","Ich kümmere mich um sie, so gut ich kann, aber machmal erschrecken sie mich.");
-    AddTraderTrigger("[Ss]care","During these nights without moon, I could swear that a body left a grave and walked away!");
-    AddTraderTrigger("[Ss]reck","Während der Nächte ohne Mond, könnte ich schwören das ein Körper sein Grab verlassen hat und weg gelaufen ist!");
-    AddTraderTrigger("[Ww]hat.+sell","I cannot offer you much, only maybe one of my old shovels.");
-    AddTraderTrigger("[Ww]as.+verkaufen","I kann nicht viel Anbieten. Allerhöchstens vielleicht meine alten Schaufeln.");
-    AddTraderTrigger("[Ww]hat buy","I fear, my friend, that there is nothing I would want to buy right now.");
-    AddTraderTrigger("[Ww]as.+%skauf","Ich fürchte, mein Freund, es gibt nichts was ich im Augenblick von euch kaufen würde.");
-    AddTraderTrigger("[Ww]ho.+[Yy]ou","I am Brother "..thisNPC.name);
-    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Bruder "..thisNPC.name);
-    AddTraderTrigger("[Dd]ungeon below [Gg]raveyard","What!? I know nothing about it.");
-    AddAdditionalTrigger("[Tt]empel below [Gg]raveyard");
-    AddAdditionalText("What!? I know nothing about it.");
-    AddTraderTrigger("[Hh]öhle.+unter.+[Ff]riedhof","Was? Davon weis ich nichts.");
-    AddAdditionalTrigger("[Tt]empel.+unter.+[Ff]riedhof");
-    AddAdditionalText("Was?! Davon wüsste ich doch!");
-    AddTraderTrigger("[Bb]ye","Walk in peace, my friend.");
-    AddAdditionalTrigger("[Ff]are.*well");
-    AddAdditionalText("Walk in peace, my friend.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Geh in Frieden, mein Freund.");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Geh in Frieden, mein Freund.");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Greetings my friend.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.autonpcfunctions.AddAdditionalText("A pleasure to meet you, friend.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüße mein Freund.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rü[sß]+e");
+    npcs.base.autonpcfunctions.AddAdditionalText("Ist mir eine Freude euch zu treffen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Jj]ob","I take care of this graveyard");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]eruf","Ich kümmere mich um diesen Friedhof");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]ravejard","This is the place where everybody finds the eternal sleep.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]riedhof","Das ist der Ort wo jeder seine ewige Ruhe finden kann.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Mm]ission","My friend, I am a simple man with no needs.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uftrag","Mein Freund, ich bin ein einfach Mann der nichts braucht.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Qq]uest","My friend, I am a simple man with no needs.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Nn]eed.+help","All you could do for me, is helping me with the garden work. Like taking care of the graves.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]rauch.+[Hh]ilfe","Alles was ihr für mich tun könntet, ist mir bei der Garten Arbeit zu helfen. Zum Beispiel könntet ihr euch etwas um die Gräber kümmern.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rave","I take care of them as good as I can, but sometimes they even scare me.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[aä]b","Ich kümmere mich um sie, so gut ich kann, aber machmal erschrecken sie mich.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]care","During these nights without moon, I could swear that a body left a grave and npcs.base.autonpcfunctions.walked away!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ss]reck","Während der Nächte ohne Mond, könnte ich schwören das ein Körper sein Grab verlassen hat und weg gelaufen ist!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I cannot offer you much, only maybe one of my old shovels.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkaufen","I kann nicht viel Anbieten. Allerhöchstens vielleicht meine alten Schaufeln.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat buy","I fear, my friend, that there is nothing I would want to buy right now.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%skauf","Ich fürchte, mein Freund, es gibt nichts was ich im Augenblick von euch kaufen würde.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Yy]ou","I am Brother "..thisNPC.name);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Ich bin Bruder "..thisNPC.name);
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Dd]ungeon below [Gg]raveyard","What!? I know nothing about it.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]empel below [Gg]raveyard");
+    npcs.base.autonpcfunctions.AddAdditionalText("What!? I know nothing about it.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]öhle.+unter.+[Ff]riedhof","Was? Davon weis ich nichts.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Tt]empel.+unter.+[Ff]riedhof");
+    npcs.base.autonpcfunctions.AddAdditionalText("Was?! Davon wüsste ich doch!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Walk in peace, my friend.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]are.*well");
+    npcs.base.autonpcfunctions.AddAdditionalText("Walk in peace, my friend.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Geh in Frieden, mein Freund.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Geh in Frieden, mein Freund.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -94,17 +94,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -112,7 +112,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -177,7 +177,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -205,7 +205,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

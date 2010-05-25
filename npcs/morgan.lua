@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -48,42 +48,42 @@ function initializeNpc()
     
     TraderCopper=5000;
 
-    AddTraderTrigger("[Gg]reet.+","Greetings. How I can help you?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Hello. You are hungry? I have a very good mushroom soup. Or do you need something of my leather wares?");
-    AddTraderTrigger("[Gg]rüße","Grüße. Wie kann ich euch helfen?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalTrigger("[Gg]rüse");
-    AddAdditionalText("Hallo. Bist du hungrig? Ich habe sehr gute Pilzsuppe. Oder brauchst du etwas von meinen Lederwaren?");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","I'm a trader of goods for hunters. Do you need something of my leather wares or weapons? I also have food as proviant for long travels.");
-    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nunja, ich handle mit Sachen für den Jagdbedarf. Brauchst du vielleicht etwas von meinen Lederwaren oder Waffen? ich biete auch Proviant für Reisende an.");
-    AddTraderTrigger("[Ww]hat.+sell","I trade with leather cloths, leather armors, weapons, food and more.");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich handel mit Lederkleidung, Lederrüstungen, Waffen, Nahrung und mehr.");
-    AddTraderTrigger("[Ww]hat.+[Ww]are","I have leather cloths, leather armors, weapons, food and more.");
-    AddTraderTrigger("[Ww]as.+[Ww]are","Ich habe Leder Kleidung, Leder Rüstungen, Waffen, Nahrung und mehr.");
-    AddTraderTrigger("[Ww]hat.+[Cc]loth","See I made good leather gloves, leather boots, short and long leather legs.");
-    AddTraderTrigger("[Ww]as.+[Kk]leidung","Schau, ich habe gute Leder Handschuhe, Stiefel und kurze und lange Leder Hosen.");
-    AddTraderTrigger("[Ww]hat.+[Aa]rmor","Lets me show you. Here, I have the best leather armors you can find: full leatherarmor, leather scale armor, light hunting armor, half leather armor.");
-    AddTraderTrigger("[Ww]as.+[Rr]üstung","Lass sie mich euch zeigen. Ich habe beste Lederrüstungen. Volle und halbe Lederrüstung, Lederschuppenrüstung und die leichte Jagtrüstung.");
-    AddTraderTrigger("[Ww]hat.+[Ww]eapon","Take a look at my sortiment. I trade with simple daggers, sharp daggers, short swords, throwing spear, crossbow and crossbow bolts.");
-    AddTraderTrigger("[Ww]as.+[Ww]affe","Schaut euch mein Sortiment an. Ich handel mit einfachen und scharfen Dolche, Kurzschwertern, Wurfspeeren, Armbrüste und Armbrustbolzen.");
-    AddTraderTrigger("[Ww]hat.+[Ff]ood","I trade with ham, mushroom soup and bread.");
-    AddTraderTrigger("[Ww]as.+[Nn]ahrung","Ich handel mit Schinken, Pilzsuppe und Brot.");
-    AddTraderTrigger("[Ww]hat.+[Mm]ore","I have thread and honeycomb.");
-    AddTraderTrigger("[Ww]as.+[Mm]ehr","Ich habe Garn und Honigwaben.");
-    AddTraderTrigger("[Gg]oodbye","Have a good day");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Good day.");
-    AddAdditionalText("Farewell friend!");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Schönen Tag noch");
-    AddAdditionalTrigger("[BB]is.+[Bb]ald");
-    AddTraderTrigger("[Ww]ho.+you?","Morgan Gronwan I am called. I am ranger and life in the woods");
-    AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Morgan Gronwan werde ich genannt. Ich bin Jäger und lebe in den Wäldern.");
-    AddTraderTrigger("I'm .+","Nice to meet you. Sit down if you want. ... Do you want to taste my mushroom soup?");
-    AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich euch kennen zu lernen. Setzt euch wenn ihr wollt. Wollt ihr meine Pilzsuppe kosten?");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reet.+","Greetings. How I can help you?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalText("Hello. You are hungry? I have a very good mushroom soup. Or do you need something of my leather wares?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rüße","Grüße. Wie kann ich euch helfen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]rüse");
+    npcs.base.autonpcfunctions.AddAdditionalText("Hallo. Bist du hungrig? Ich habe sehr gute Pilzsuppe. Oder brauchst du etwas von meinen Lederwaren?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I'm a trader of goods for hunters. Do you need something of my leather wares or weapons? I also have food as proviant for long travels.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Nunja, ich handle mit Sachen für den Jagdbedarf. Brauchst du vielleicht etwas von meinen Lederwaren oder Waffen? ich biete auch Proviant für Reisende an.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I trade with leather cloths, leather armors, weapons, food and more.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich handel mit Lederkleidung, Lederrüstungen, Waffen, Nahrung und mehr.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]are","I have leather cloths, leather armors, weapons, food and more.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]are","Ich habe Leder Kleidung, Leder Rüstungen, Waffen, Nahrung und mehr.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Cc]loth","See I made good leather gloves, leather boots, short and long leather legs.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]leidung","Schau, ich habe gute Leder Handschuhe, Stiefel und kurze und lange Leder Hosen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Aa]rmor","Lets me show you. Here, I have the best leather armors you can find: full leatherarmor, leather scale armor, light hunting armor, half leather armor.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Rr]üstung","Lass sie mich euch zeigen. Ich habe beste Lederrüstungen. Volle und halbe Lederrüstung, Lederschuppenrüstung und die leichte Jagtrüstung.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ww]eapon","Take a look at my sortiment. I trade with simple daggers, sharp daggers, short swords, throwing spear, crossbow and crossbow bolts.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]affe","Schaut euch mein Sortiment an. Ich handel mit einfachen und scharfen Dolche, Kurzschwertern, Wurfspeeren, Armbrüste und Armbrustbolzen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ff]ood","I trade with ham, mushroom soup and bread.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Nn]ahrung","Ich handel mit Schinken, Pilzsuppe und Brot.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Mm]ore","I have thread and honeycomb.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Mm]ehr","Ich habe Garn und Honigwaben.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Have a good day");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Good day.");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell friend!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Schönen Tag noch");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[BB]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","Morgan Gronwan I am called. I am ranger and life in the woods");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*","Morgan Gronwan werde ich genannt. Ich bin Jäger und lebe in den Wäldern.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Nice to meet you. Sit down if you want. ... Do you want to taste my mushroom soup?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+[Bb]in","Freut mich euch kennen zu lernen. Setzt euch wenn ihr wollt. Wollt ihr meine Pilzsuppe kosten?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -111,17 +111,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -129,7 +129,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -212,7 +212,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -239,7 +239,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

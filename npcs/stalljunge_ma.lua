@@ -17,33 +17,33 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
-    AddTraderTrigger("[Hh]ello","Greetings.");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalTrigger("[Hh]i");
-    AddTraderTrigger("[Hh]allo","Grüß euch!");
-    AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name..", ich bin Magier an dieser Akademie");
-    AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..", I'm a mage of this academy");
-    AddTraderTrigger("[Bb]ye ","Be well");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts! Ich beschwöre höhstens etwas.");
-    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything! I just summon things.");
-    AddTraderTrigger("[Ww]as.+beschwör","Ich kann euch einen Golem beschwören, der Eure Sachen für euch trägt...wäre das nicht toll?");
-    AddTraderTrigger("[Ww]hat.+summon","I can summon a golem for you, which can carry your things...isn't that great?.");
-    AddTraderTrigger("[Ww]hat.+sell","I don't sell anything!");
-    AddTraderTrigger("[Ff]arewell","Farewell");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
-    AddTraderTrigger("[Kk]uh","Ich habe keine Kühe.");
-    AddTraderTrigger("cow","I have no cows.")
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Greetings.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüß euch!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name..", ich bin Magier an dieser Akademie");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..", I'm a mage of this academy");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye ","Be well");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts! Ich beschwöre höhstens etwas.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything! I just summon things.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+beschwör","Ich kann euch einen Golem beschwören, der Eure Sachen für euch trägt...wäre das nicht toll?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+summon","I can summon a golem for you, which can carry your things...isn't that great?.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Farewell");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("cow","I have no cows.")
 
-    AddCycleText("#me schaut sich um","#me looks around");
-    AddCycleText("#me niest","#me sneezes");
+    npcs.base.autonpcfunctions.AddCycleText("#me schaut sich um","#me looks around");
+    npcs.base.autonpcfunctions.AddCycleText("#me niest","#me sneezes");
 
     TradSpeakLang={0,1,10};
     TradStdLang=0;
@@ -70,27 +70,27 @@ function nextCycle()  -- ~10 times per second
     
     if (TraderInit[thisNPC.id] == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang);
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
         TraderInit[thisNPC.id] = true;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             result = SayPrice(message, originator);
             if not result then result = GetCow(message, originator) end;
             if not result then result = returnCow(message, originator) end;
-            if not result then TellSmallTalk(message) end;
+            if not result then npcs.base.autonpcfunctions.TellSmallTalk(message) end;
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end
@@ -140,7 +140,7 @@ function GetCow(message, originator)
     
         if (originator:getQuestProgress(8) == 0) then
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
-            if CheckMoney(originator,GCoins,SCoins,CCoins) then
+            if npcs.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
                     thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Ich darf dir im Augenblick keinen Golem beschwören." );
                     thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"I'm not allowed to summon a golem for you currently, sorry." );
@@ -228,7 +228,7 @@ function returnCow(message, originator)
 end
             
 
-function CheckMoney(User,Gold,Silber,Kupfer)
+function npcs.base.autonpcfunctions.CheckMoney(User,Gold,Silber,Kupfer)
     local UserGold=User:countItem(61);
     local UserSilber=User:countItem(3077);
     local UserKupfer=User:countItem(3076);

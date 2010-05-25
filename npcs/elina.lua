@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -46,41 +46,41 @@ function initializeNpc()
 
     TraderCopper=7000;
 
-    AddTraderTrigger("[Gg]reetings","The five with you. Can I help you?");
-    AddAdditionalTrigger("[Hh]ello");
-    AddAdditionalText("Be blessed, my friend. Do you need something?");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am a trader, yes. I trade different carpentry tools.");
-    AddTraderTrigger("[Ww]hat.+sell","I sell all kinds of carpentry tools");
-    AddTraderTrigger("[Ww]hat.+[Tt]ools","I sell tools for carpenters. Saws, axes, planes and carving tools.");
-    AddTraderTrigger("[Tt]ell.+[Ss]omething","This is Tol Vanima, the home of us elves.");
-    AddTraderTrigger("[Gg]oodbye","The five with you!.");
-    AddAdditionalTrigger("[Bb]ye");
-    AddAdditionalText("May the gods bless your path!");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell, my friend!");
-    AddTraderTrigger("[Ww]hat.+buy","I buy all kinds of bows and crossbows.");
-    AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
-    AddTraderTrigger("I'm .+","Be greeted!");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","The five with you. Can I help you?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddAdditionalText("Be blessed, my friend. Do you need something?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am a trader, yes. I trade different carpentry tools.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell all kinds of carpentry tools");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Tt]ools","I sell tools for carpenters. Saws, axes, planes and carving tools.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","This is Tol Vanima, the home of us elves.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","The five with you!.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
+    npcs.base.autonpcfunctions.AddAdditionalText("May the gods bless your path!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell, my friend!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I buy all kinds of bows and crossbows.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Be greeted!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
 
-    AddTraderTrigger("[Gg]r[üu][ßs]+","Die Fünf zum Gruße, kann ich euch helfen?");
-    AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Möge euer Pfad gesegnet sein! Wie kann ich euch helfen?");
-    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin ein Händler, ja, und ich verkaufe unter anderem Werkzeuge.");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Werkzeuge für jede Art von Tischlerei.");
-    AddTraderTrigger("[Ww]as.+[Ww]erkzeug","Nun, ich verkaufe Tischlerwerkzeug...Sägen, Äxte, Hobel und Schnitzwerkzeuge.");
-    AddTraderTrigger("[Ee]rzähl.+[Ww]as","Dies ist Tol Vanima, die Heimat von uns Elfen.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Die Fünf seien mit euch. Bis bald!");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Bis bald, mein Freund, der Segen der Fünf mit euch!");
-    AddTraderTrigger("[Ww]as.+%s[Kk]auf","Ich kaufe alle Arten von Bögen und Armbrüsten.");
-    AddTraderTrigger("[Ww]er.+[IiDd][hu]r*","Ich bin "..thisNPC.name..".");
-    AddTraderTrigger("Ich bin .+","So grüße ich euch, mein Freund!");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üu][ßs]+","Die Fünf zum Gruße, kann ich euch helfen?");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddAdditionalText("Möge euer Pfad gesegnet sein! Wie kann ich euch helfen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin ein Händler, ja, und ich verkaufe unter anderem Werkzeuge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Werkzeuge für jede Art von Tischlerei.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]erkzeug","Nun, ich verkaufe Tischlerwerkzeug...Sägen, Äxte, Hobel und Schnitzwerkzeuge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ww]as","Dies ist Tol Vanima, die Heimat von uns Elfen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Die Fünf seien mit euch. Bis bald!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Bis bald, mein Freund, der Segen der Fünf mit euch!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+%s[Kk]auf","Ich kaufe alle Arten von Bögen und Armbrüsten.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[IiDd][hu]r*","Ich bin "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("Ich bin .+","So grüße ich euch, mein Freund!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
-    AddCycleText("#me schnitzt mit eleganten Bewegungen an einer kleinen Holzstatue herum","#me carves on a small wooden statue with a elegant motions");
-    AddCycleText("#me blickt sich kurz um","#me looks around a moment");
-    AddCycleText("#me betrachtet einen Pfeil prüfend","#me looks on an arrow with a checking glance");
+    npcs.base.autonpcfunctions.AddCycleText("#me schnitzt mit eleganten Bewegungen an einer kleinen Holzstatue herum","#me carves on a small wooden statue with a elegant motions");
+    npcs.base.autonpcfunctions.AddCycleText("#me blickt sich kurz um","#me looks around a moment");
+    npcs.base.autonpcfunctions.AddCycleText("#me betrachtet einen Pfeil prüfend","#me looks on an arrow with a checking glance");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -108,17 +108,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status,Values=SayPriceSell(originator, message)
             if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
@@ -126,7 +126,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Selling(originator, message) end
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -191,7 +191,7 @@ function receiveText(texttype, message, originator)
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -219,7 +219,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

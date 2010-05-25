@@ -17,32 +17,32 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
 
-    AddTraderTrigger("[Hh]ello","Hello, Hello");
-    AddAdditionalTrigger("[Gg]reetings");
-    AddAdditionalTrigger("[Hh]i");
-    AddTraderTrigger("[Hh]allo","Grüße euch!");
-    AddAdditionalTrigger("[Gg]r[uü][sß]+");
-    AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
-    AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
-    AddTraderTrigger("[Bb]ye ","Be well");
-    AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Lasttiere!");
-    AddTraderTrigger("[Ww]hat.+sell","I sell pack animals!");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddAdditionalText("Farewell");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    AddAdditionalText("Auf bald");
-    AddAdditionalText("Auf balde");
-    AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
-    AddTraderTrigger("cow","I have no cows, I have just mules.")
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","Hello, Hello");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]reetings");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]i");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Grüße euch!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Gg]r[uü][sß]+");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho ","I am "..thisNPC.name.."");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er ","Ich bin "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye ","Be well");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe Lasttiere!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I sell pack animals!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddAdditionalText("Farewell");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Bis Bald");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf bald");
+    npcs.base.autonpcfunctions.AddAdditionalText("Auf balde");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Kk]uh","Ich habe keine Kühe, ich habe nur Esel hier.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("cow","I have no cows, I have just mules.")
 
-    AddCycleText("#me schaut sich um","#me looks around");
-    AddCycleText("#me niest","#me sneezes");
+    npcs.base.autonpcfunctions.AddCycleText("#me schaut sich um","#me looks around");
+    npcs.base.autonpcfunctions.AddCycleText("#me niest","#me sneezes");
 
     TradSpeakLang={0,1};
     TradStdLang=0;
@@ -69,27 +69,27 @@ function nextCycle()  -- ~10 times per second
     
     if (TraderInit[thisNPC.id] == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang);
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
         TraderInit[thisNPC.id] = true;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             result = SayPrice(message, originator);
             if not result then result = GetCow(message, originator) end;
             if not result then result = returnCow(message, originator) end;
-            if not result then TellSmallTalk(message) end;
+            if not result then npcs.base.autonpcfunctions.TellSmallTalk(message) end;
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
                 verwirrt=true;
             end
         end
@@ -97,8 +97,8 @@ function receiveText(texttype, message, originator)
         if string.find(message, "[Ll]end.+[Ee]scort")~=nil then
         	    gText="Hier ist der NPC den du eskortieren sollst.";
                 eText="Here is the npc you shall escort.";
-                outText=GetNLS(originator,gText,eText);
-                NPCTalking(thisNPC,outText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
+                npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			
 			local pos = position(thisNPC.pos.x, thisNPC.pos.y+1, thisNPC.pos.z);
         	world:createDynamicNPC("Escort Quest NPC",5,pos,0,"npc_escortingquest.lua")
@@ -154,7 +154,7 @@ function GetCow(message, originator)
     
         if (originator:getQuestProgress(8) == 0) then
             GCoins,SCoins,CCoins = CalcSilverCopper(PreisProKuh + Kaution);
-            if CheckMoney(originator,GCoins,SCoins,CCoins) then
+            if npcs.base.autonpcfunctions.CheckMoney(originator,GCoins,SCoins,CCoins) then
                 if false then
                       thisNPC:talkLanguage( CCharacter.say, CPlayer.german, "Ich darf dir im Augenblick keinen Esel verkaufen." );
                     thisNPC:talkLanguage( CCharacter.say, CPlayer.english,"I'm not allowed to sell you a mule currently, sorry." );
@@ -255,7 +255,7 @@ function returnCow(message, originator)
 end
             
 
-function CheckMoney(User,Gold,Silber,Kupfer)
+function npcs.base.autonpcfunctions.CheckMoney(User,Gold,Silber,Kupfer)
     local UserGold=User:countItem(61);
     local UserSilber=User:countItem(3077);
     local UserKupfer=User:countItem(3076);

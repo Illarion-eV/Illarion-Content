@@ -1512,13 +1512,13 @@ function receiveText(texttype, message, originator)
         initializeNpc();
         TraderFirst=1;
         --TalkToId=originator.id;
-        increaseLangSkill(thisNPC,TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(thisNPC,TradSpeakLang)
         TraderStdCopper=TraderCopper;
     end
     if (thisNPC:isInRange(originator,2)) then
         if (originator.id ~= thisNPC.id) then
             originator:introduce(thisNPC);
-            if (LangOK(originator,TradSpeakLang)==true) then
+            if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
                 thisNPC.activeLanguage=originator.activeLanguage;
                 i=1;
                 local ready=false;
@@ -1635,7 +1635,7 @@ function receiveText(texttype, message, originator)
                     end
 
                     if (Status~=0) then
-                        outText=GetNLS(originator,gText,eText);
+                        outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                         thisNPC:talk(CCharacter.say,outText);
                     end
 
@@ -1662,7 +1662,7 @@ function receiveText(texttype, message, originator)
             else
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
         end --id

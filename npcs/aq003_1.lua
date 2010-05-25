@@ -17,18 +17,18 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     StudentStats={};
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    AddTraderTrigger("[Gg]reetings","Greetings.");
-    AddAdditionalTrigger("[Hh]ello");
-    AddTraderTrigger("[Gg]r[uü][sß]+","Hallo!");
-    AddAdditionalTrigger("[Hh]allo");
-    AddTraderTrigger("[Ww]ho.+you","I am Progor! I am living here, and enjoy life.");
-    AddTraderTrigger("[Ww]er.+du","Ich bin Progor, ich leb' hier und geniesse mein Leben.");
-    AddAdditionalTrigger("[Ww]er.+ihr");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Greetings.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[uü][sß]+","Hallo!");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you","I am Progor! I am living here, and enjoy life.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+du","Ich bin Progor, ich leb' hier und geniesse mein Leben.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ww]er.+ihr");
 
     TradSpeakLang={0,6};
     TradStdLang=0;
@@ -49,18 +49,18 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang);
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             Status=NachrichtGeben(originator,message);
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             -------------------------------------------------------------------------
 
@@ -72,13 +72,13 @@ function receiveText(texttype, message, originator)
                 eText="You already got my message!";
             end
             if (Status~=0) then
-                thisNPC:talk(CCharacter.say,GetNLS(originator,gText,eText));
+                thisNPC:talk(CCharacter.say,npcs.base.npcautofunction.GetNLS(originator,gText,eText));
             end
         else
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

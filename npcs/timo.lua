@@ -18,7 +18,7 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists()
+    npcs.base.autonpcfunctions.InitTalkLists()
     InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
@@ -44,57 +44,57 @@ function initializeNpc()
 
     TraderCopper=5000;
 
-    AddTraderTrigger("[Gg]reetings","Welcome to Greenbriar! Can I help you?");
-    AddTraderTrigger("[Hh]ello","A good day to you! What do you want to buy?");
-    AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", once I was one of Greenbriar's traders!");
-    --AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Greenbriar's traders!");
-    AddTraderTrigger("[Tt]ell.+[Gg]reenbriar","It was Crosis, leader of the Evergreen halflings, who animated all the other halflings to build the Briary bridge.");
-    AddTraderTrigger("[Tt]ell.+[Cr]osis","His group of halflings built the Briary bridge.");
-    AddTraderTrigger("[Ww]ho.+[Cr]osis","Crosis lead the Evergreen halflings to this land.");
-    AddTraderTrigger("[Ww]hat.+[Gg]reenbriar","Once, Greenbriar was a peacefull little town not far from here. But the peacefull times, in which all live together in harmony are gone.");
-    --AddTraderTrigger("[Ww]hat.+[Gg]reenbriar","All this nature around you belongs to this beautiful island, Greenbriar. You can enter and leave it through the Briary bridge, just north of here.");
-    AddTraderTrigger("[Ww]here.+[Gg]reenbriar","Go to the west, over the bridge and follow the path.");
-    --AddTraderTrigger("[Ww]here.+[Gg]reenbriar","You are already in Greenbriar! Welcome!");
-    AddTraderTrigger("[Ww]hat.+[Bb]riary.+bridge","The Briary bridge was built by the Evergreen halflings, the first people around here.");
-    AddTraderTrigger("[Ww]here.+[Bb]riary.+bridge","Go to the south.");
-    --AddTraderTrigger("[Ww]here.+[Bb]riary.+bridge","It's north of this beautiful town!");
-    AddTraderTrigger("[Ww]ho.+[Ee]vergreen.+halflings","The Evergreen halflings are a group of halflings that founded Greenbriar.");
-    AddTraderTrigger("[Ww]hat.+sell","Oh, I sell clothes, tools and seeds Want to see my list?");
-    AddTraderTrigger("[Ww]hat.+[Cc]lothe","I have really nice hats, gloves and capes.");
-    AddTraderTrigger("[Ww]hat.+[Tt]ool","I have axes, scythes, shovels and so on. For more ask for my list of wares");
-    AddTraderTrigger("[Ww]hat.+[Ss]eed","I have seeds of grain, cabbage, carrots and tomatos.");
-    AddTraderTrigger("[Tt]ell.+[Ss]omething","We halflings discovered this beautiful island when we walked around in the east. It were the Evergreen halflings who built the Briary bridge.");
-    AddTraderTrigger("[Gg]oodbye","Have a nice day!");
-    AddTraderTrigger("[Bb]ye","Good bye!");
-    AddTraderTrigger("[Ff]arewell","Bye!");
-    AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
-    AddTraderTrigger("I'm .+","Nice to meet you!");
-    AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Gg]rü[ßs]+e","Grüß' dich!");
-    AddTraderTrigger("[Hh]allo","Huhu!");
-    AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin "..thisNPC.name..", früher war ich einer von Greenbriars Händlern!");
-    --AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin "..thisNPC.name..", einer von Greenbriars Händlern!");
-    AddTraderTrigger("[Ww]as.+verkauf","Oh, ich verkaufe Kleidung, Werkzeuge und Samen. Willst du meine Liste sehen?");
-    AddTraderTrigger("[Ww]as.+[Kk]leidung","Ich hab sehr schöne Hüte, Umhänge und Handschuhe.");
-    AddTraderTrigger("[Ww]as.+[Ww]erkzeuge","Ich hab Äxte, Sensen, Schaufeln und so weiter. Frag nach meiner Warenliste wenn du es genau wissen willst.");
-    AddTraderTrigger("[Ww]as.+[Ss]ame","Ich habe Samen von Getreide, Kohl, Karotten und Tomaten.");
-    AddTraderTrigger("[Ee]rzähl.+[Ee]twas","Weisst Du, wie wir Halblinge diese Insel entdeckt haben? Das geschah, als wir im Osten herumgewandert sind.");
-    AddTraderTrigger("[Ee]rzähl.+[Gg]reenbriar","Crosis, der Anführer der Evergreen Halblinge hat den Bau der Briary Brücke veranlasst.");
-    AddTraderTrigger("[Ee]rzähl.+[Cr]osis","Er hat die Briary Brücke bauen lassen, mit seinen Halblingen.");
-    AddTraderTrigger("[Ww]er.+[Cr]osis","Crosis hat eine Gruppe von Halblingen angeführt: die Evergreen Halblinge.");
-    AddTraderTrigger("[Ww]as.+[Gg]reenbriar","Einst war Greenbriar ein wunderschöne, friedlicher Ort. Aber Missgunst und Unmut hat sich unter den Bewohnern breit gemacht und den Freiden vertrieben.");
-    --AddTraderTrigger("[Ww]as.+[Gg]reenbriar","Die gesamte Natur um dich herum gehört zur Insel Greenbriar. Du kannst Greenbriar im Norden betreten und wieder verlassen, an der Briary Brücke!");
-    AddTraderTrigger("[Ww]o.+[Gg]reenbriar","Geh nach Westen, über die Brücke und folge einfach dem Pfad.");
-    --AddTraderTrigger("[Ww]o.+[Gg]reenbriar","Du bist mitten in Greenbriar! Willkommen!");
-    AddTraderTrigger("[Ww]as.+[Bb]riary.+[Bb]rücke","Die Briary Brücke wurd' damals von den Evergreen Halblingen gebaut.");
-    AddTraderTrigger("[Ww]o.+[Bb]riary.+[Bb]rücke","Sie liegt genau westlich von hier!");
-    --AddTraderTrigger("[Ww]o.+[Bb]riary.+[Bb]rücke","Sie liegt genau nördlich von hier!");
-    AddTraderTrigger("[Ww]er.+[Ee]vergreen.+[Hh]alblinge","Die Evergreen Halblinge haben die Brücke bauen lassen und diese schöne Insel besiedelt.");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Du gehst schon? Ach schade... Na, dann mach's mal gut!");
-    AddTraderTrigger("[Bb]is.+[Bb]ald","Ich hoffe, du kommst mal wieder vorbei!");
-    AddTraderTrigger("[Ww]er.+du?","Ich werde "..thisNPC.name.." genannt.");
-    AddTraderTrigger("Ich bin .+","Huhu! Schön, dich kennenzulernen!");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Welcome to Greenbriar! Can I help you?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ello","A good day to you! What do you want to buy?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", once I was one of Greenbriar's traders!");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Greenbriar's traders!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Gg]reenbriar","It was Crosis, leader of the Evergreen halflings, who animated all the other halflings to build the Briary bridge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Cr]osis","His group of halflings built the Briary bridge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Cr]osis","Crosis lead the Evergreen halflings to this land.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Gg]reenbriar","Once, Greenbriar was a peacefull little town not far from here. But the peacefull times, in which all live together in harmony are gone.");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Gg]reenbriar","All this nature around you belongs to this beautiful island, Greenbriar. You can enter and leave it through the Briary bridge, just north of here.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]here.+[Gg]reenbriar","Go to the west, over the bridge and follow the path.");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]here.+[Gg]reenbriar","You are already in Greenbriar! Welcome!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Bb]riary.+bridge","The Briary bridge was built by the Evergreen halflings, the first people around here.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]here.+[Bb]riary.+bridge","Go to the south.");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]here.+[Bb]riary.+bridge","It's north of this beautiful town!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+[Ee]vergreen.+halflings","The Evergreen halflings are a group of halflings that founded Greenbriar.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","Oh, I sell clothes, tools and seeds Want to see my list?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Cc]lothe","I have really nice hats, gloves and capes.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Tt]ool","I have axes, scythes, shovels and so on. For more ask for my list of wares");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+[Ss]eed","I have seeds of grain, cabbage, carrots and tomatos.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Tt]ell.+[Ss]omething","We halflings discovered this beautiful island when we npcs.base.autonpcfunctions.walked around in the east. It were the Evergreen halflings who built the Briary bridge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Have a nice day!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye","Good bye!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ff]arewell","Bye!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
+    npcs.base.autonpcfunctions.AddTraderTrigger("I'm .+","Nice to meet you!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]rü[ßs]+e","Grüß' dich!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]allo","Huhu!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin "..thisNPC.name..", früher war ich einer von Greenbriars Händlern!");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[DdIi][uh]r*.+[Hh]ändler","Ich bin "..thisNPC.name..", einer von Greenbriars Händlern!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Oh, ich verkaufe Kleidung, Werkzeuge und Samen. Willst du meine Liste sehen?");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]leidung","Ich hab sehr schöne Hüte, Umhänge und Handschuhe.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ww]erkzeuge","Ich hab Äxte, Sensen, Schaufeln und so weiter. Frag nach meiner Warenliste wenn du es genau wissen willst.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Ss]ame","Ich habe Samen von Getreide, Kohl, Karotten und Tomaten.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Ee]twas","Weisst Du, wie wir Halblinge diese Insel entdeckt haben? Das geschah, als wir im Osten herumgewandert sind.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Gg]reenbriar","Crosis, der Anführer der Evergreen Halblinge hat den Bau der Briary Brücke veranlasst.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ee]rzähl.+[Cr]osis","Er hat die Briary Brücke bauen lassen, mit seinen Halblingen.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[Cr]osis","Crosis hat eine Gruppe von Halblingen angeführt: die Evergreen Halblinge.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Gg]reenbriar","Einst war Greenbriar ein wunderschöne, friedlicher Ort. Aber Missgunst und Unmut hat sich unter den Bewohnern breit gemacht und den Freiden vertrieben.");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Gg]reenbriar","Die gesamte Natur um dich herum gehört zur Insel Greenbriar. Du kannst Greenbriar im Norden betreten und wieder verlassen, an der Briary Brücke!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]o.+[Gg]reenbriar","Geh nach Westen, über die Brücke und folge einfach dem Pfad.");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]o.+[Gg]reenbriar","Du bist mitten in Greenbriar! Willkommen!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Bb]riary.+[Bb]rücke","Die Briary Brücke wurd' damals von den Evergreen Halblingen gebaut.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]o.+[Bb]riary.+[Bb]rücke","Sie liegt genau westlich von hier!");
+    --npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]o.+[Bb]riary.+[Bb]rücke","Sie liegt genau nördlich von hier!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[Ee]vergreen.+[Hh]alblinge","Die Evergreen Halblinge haben die Brücke bauen lassen und diese schöne Insel besiedelt.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Du gehst schon? Ach schade... Na, dann mach's mal gut!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]is.+[Bb]ald","Ich hoffe, du kommst mal wieder vorbei!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+du?","Ich werde "..thisNPC.name.." genannt.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("Ich bin .+","Huhu! Schön, dich kennenzulernen!");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
 
     TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
@@ -120,17 +120,17 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
     TraderCycle();
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             --originator:inform("Ready set false");
             Status,Values=SayPriceSell(originator, message)
@@ -140,7 +140,7 @@ function receiveText(texttype, message, originator)
             if (Status==0) then Status,Values=Buying(originator, message) end
             if (Status==0) then Status=QuestSpecial(originator, message) end
             if (Status==0) then Status,Values=TellDate(originator, message, TraderMonths) end
-            if (Status==0) then TellSmallTalk(message) end
+            if (Status==0) then npcs.base.autonpcfunctions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
@@ -204,11 +204,11 @@ function receiveText(texttype, message, originator)
                 end
             elseif (Status==19) then
                 gText="Irundar...Die Höhle von Irundar. Ich bin da gewesen...langweiliger Ort, hehe. Sie ist einfach leer. Wenn du rein willst, vom Nordende des kleinen Strandes an der Südküste von Gobaith, 40 Schritte nach Norden und 12 Schritte nach Westen.";
-                eText="Irundar...The Cave of Irundar. I have been there...a boring place, hehe. It is just empty. If you want to get in, walk from the north end of a little bay at the south coast of Gobaith 40 steps north and then 12 steps west. Hehe.";
+                eText="Irundar...The Cave of Irundar. I have been there...a boring place, hehe. It is just empty. If you want to get in, npcs.base.autonpcfunctions.walk from the north end of a little bay at the south coast of Gobaith 40 steps north and then 12 steps west. Hehe.";
             end
 
             if (Status~=0) then
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
             end
 
@@ -235,7 +235,7 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me sieht dich leicht verwirrt an";
                 eText="#me looks at you a little confused";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
             end

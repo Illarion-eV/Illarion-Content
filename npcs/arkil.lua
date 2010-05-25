@@ -13,24 +13,24 @@ function useNPC(user,counter,param)
 end
 
 function initializeNpc()
-    InitTalkLists();
+    npcs.base.autonpcfunctions.InitTalkLists();
     npcstatus={};
 	
-    AddTraderTrigger("[Gg]r[üue]+[sß]","Seid Gegrüßt"); -- Fügt Triggertext mit Antwort hinzu
-    AddAdditionalTrigger("[Hh]allo");          -- Fügt zu letztem "AddTraderTrigger" zusätzlichen Triggertext hinzu
-    AddAdditionalText("Guten Tag");    -- Fügt zu letztem "AddTraderTrigger" zusätzliche Antwort hinzu
-    AddTraderTrigger("[Gg]reetings","Hail"); -- Fügt Triggertext mit Antwort hinzu
-    AddAdditionalTrigger("[Hh]ello");          -- Fügt zu letztem "AddTraderTrigger" zusätzlichen Triggertext hinzu
-    AddAdditionalText("Good day");
-    AddTraderTrigger("[Ww]ho ",thisNPC.name.." is my name.");
-    AddTraderTrigger("[Ww]er ",thisNPC.name..", ist mein Name.");
-    AddTraderTrigger("[Bb]ye.","Farewell.");
-    AddAdditionalTrigger("[Ff]arewell");
-    AddTraderTrigger("[Aa]uf.+[Bb]ald","Lebt wohl.");
-    AddAdditionalTrigger("[Bb]is.+[Bb]ald");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üue]+[sß]","Seid Gegrüßt"); -- Fügt Triggertext mit Antwort hinzu
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");          -- Fügt zu letztem "npcs.base.autonpcfunctions.AddTraderTrigger" zusätzlichen Triggertext hinzu
+    npcs.base.autonpcfunctions.AddAdditionalText("Guten Tag");    -- Fügt zu letztem "npcs.base.autonpcfunctions.AddTraderTrigger" zusätzliche Antwort hinzu
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Hail"); -- Fügt Triggertext mit Antwort hinzu
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");          -- Fügt zu letztem "npcs.base.autonpcfunctions.AddTraderTrigger" zusätzlichen Triggertext hinzu
+    npcs.base.autonpcfunctions.AddAdditionalText("Good day");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]ho ",thisNPC.name.." is my name.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Ww]er ",thisNPC.name..", ist mein Name.");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Bb]ye.","Farewell.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
+    npcs.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Lebt wohl.");
+    npcs.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
     
     
-    AddCycleText("#me kramt verzweifelt in seinen Taschen","#me searches his pockets."); -- Fügt Text der alle paar Min gesagt wird hinzu
+    npcs.base.autonpcfunctions.AddCycleText("#me kramt verzweifelt in seinen Taschen","#me searches his pockets."); -- Fügt Text der alle paar Min gesagt wird hinzu
     
     
     
@@ -52,21 +52,21 @@ end
 function nextCycle()  -- ~10 times per second
     if (TraderFirst == nil) then
         initializeNpc();
-        increaseLangSkill(TradSpeakLang)
+        npcs.base.autonpcfunctions.increaseLangSkill(TradSpeakLang)
         thisNPC.activeLanguage=TradStdLang;
     end
-    SpeakerCycle();
+    npcs.base.autonpcfunctions.SpeakerCycle();
 end	
 
 function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if (LangOK(originator,TradSpeakLang)==true) then
+    if npcs.base.autonpcfunctions.BasicNPCChecks(originator,2) then
+        if (npcs.base.autonpcfunctions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
             normalerweise=true;
 			if (((string.find(message,"[Gg]reetings")~=nil) or (string.find(message,"[Hh]ello")~=nil)or (string.find(message,"[Gg]r[üue]+[sß]")~=nil)or (string.find(message,"[Hh]allo")~=nil)) and (originator:getQuestProgress(735)==1)) then
 				gText="Seid gegrüßt! Habt ihr mein Schwert schon gefunden?";
 				eText="Greetings! Have you found my sword?";
-				outText=GetNLS(originator,gText,eText);
+				outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 				thisNPC:talk(CCharacter.say,outText);
 				npcstatus[originator.id]=2;
 				normalerweise=false;
@@ -75,7 +75,7 @@ function receiveText(texttype, message, originator)
 				originator:inform("QuestID:"..originator:getQuestProgress(735));
 				gText="Ich suche mein Schwert, hilfst du mir es zu finden?";
 				eText="I lost my sword, can u help me find it?";
-				outText=GetNLS(originator,gText,eText);
+				outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 				thisNPC:talk(CCharacter.say,outText);
 				npcstatus[originator.id]=1;
 			end
@@ -83,7 +83,7 @@ function receiveText(texttype, message, originator)
 			if (((string.find(message,"[Yy]es")~=nil)or(string.find(message,"[Jj]a")~=nil)) and (npcstatus[originator.id]==1)) then
 				gText="Sehr gut, Ich habs blabla verloren.";
 				eText="Blaenglischertext";
-				outText=GetNLS(originator,gText,eText);
+				outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 				thisNPC:talk(CCharacter.say,outText);
 				npcstatus[originator.id]=0;
 				originator:setQuestProgress( 735,1);
@@ -91,7 +91,7 @@ function receiveText(texttype, message, originator)
 			if (((string.find(message,"[Nn]o ")~=nil)or(string.find(message,"[Nn]ein")~=nil)) and (npcstatus[originator.id]==1)) then
 				gText="Dann verschwendet meine Zeit nicht weiter.";
 				eText="Don't steal my time.";
-				outText=GetNLS(originator,gText,eText);
+				outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 				thisNPC:talk(CCharacter.say,outText);
 				npcstatus[originator.id]=0;
 			end
@@ -100,18 +100,18 @@ function receiveText(texttype, message, originator)
 				if (true) then --schwert im inventar
 					gText="Ihr habt es gefunden! ich danke euch, hier nehmt etwas Gold für eure Mühe.";
 					eText="You found it! Thanks a lot, here take some gold.";
-					outText=GetNLS(originator,gText,eText);
+					outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 					thisNPC:talk(CCharacter.say,outText);
 					--Schwert löschen + geld geben
 					gText="#me nimmt 5 Gold entgegen.";
 					eText="#me takes 5 gold.";
-					outText=GetNLS(originator,gText,eText);
+					outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 					originator:talk(CCharacter.say,outText);
 					originator:setQuestProgress(735,2);
 				else
 					gText="Sehr gut, Ich habs blabla verloren.";
 					eText="Blaenglischertext";
-					outText=GetNLS(originator,gText,eText);
+					outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 					thisNPC:talk(CCharacter.say,outText);
 				end
 				npcstatus[originator.id]=0;
@@ -119,7 +119,7 @@ function receiveText(texttype, message, originator)
 			if (((string.find(message,"[Nn]o ")~=nil)or(string.find(message,"[Nn]ein")~=nil)) and (npcstatus[originator.id]==2)) then
 				gText="Dann verschwendet meine Zeit nicht weiter.";
 				eText="Don't waste my time.";
-				outText=GetNLS(originator,gText,eText);
+				outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
 				thisNPC:talk(CCharacter.say,outText);
 				npcstatus[originator.id]=0;
 			end
@@ -127,13 +127,13 @@ function receiveText(texttype, message, originator)
             if (verwirrt==false) then
                 gText="#me schein verwirrt zu sein.";
                 eText="#me seems to be confused.";
-                outText=GetNLS(originator,gText,eText);
+                outText=npcs.base.npcautofunction.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say,outText);
                 verwirrt=true;
 				normalerweise=false;
             end
         end
 		
-		if (normalerweise==true) then  TellSmallTalk(message); end
+		if (normalerweise==true) then  npcs.base.autonpcfunctions.TellSmallTalk(message); end
     end
 end--function

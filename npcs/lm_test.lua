@@ -38,7 +38,7 @@ BLOCKING_TIME = 100;
 PATROL = 0;
 
 function InitializeNpc()
-	AddTraderTrigger("test","TEST!");
+	npcs.base.autonpcfunctions.AddTraderTrigger("test","TEST!");
 end
 
 function useNPC(user,counter,param)
