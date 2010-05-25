@@ -1,8 +1,10 @@
 -- Location: -29 193 -8
 -- Purpose: react on by mirror expandable ladder
 
-dofile("quest_isItemIdInFieldStack.lua")
-dofile("quest_removeItemIdFromFieldStack.lua")
+require("quest_isItemIdInFieldStack")
+require("quest_removeItemIdFromFieldStack")
+
+module("triggerfields.aq001_mirror", package.seeall())
 
 function MoveFromField( user )
 

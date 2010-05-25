@@ -2,6 +2,8 @@
 --   *  Teleporter for newbies who want to become craftsmen  *
 --   *********************************************************
 
+module("triggerfields.newbie_craft", package.seeall())
+
 function MoveToField(Newbie)
     Newbie:createItem(3076,170,333,0); --copper
     Newbie:createItem(34,1,333,0); -- hose

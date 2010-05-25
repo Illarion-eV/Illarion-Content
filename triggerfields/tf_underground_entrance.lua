@@ -4,7 +4,9 @@
 require("base.common")
 
 -- Include triggerfield functions
-dofile( "base_triggerfield.lua" );
+require("triggerfields.base.triggerfield")
+
+module("triggerfields.underground_entrance", package.seeall())
 
 function MoveToField(User)
 	-- Array with things that can happen. Each thing is an array: {function, odds}.
@@ -35,7 +37,7 @@ function MoveToField(User)
 		},
 	}
 
-	event = getEvent(events, ran); 
+	event = triggerfields.base.triggerfield.getEvent(events, ran); 
 	event();
 end
 

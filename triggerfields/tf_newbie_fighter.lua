@@ -2,6 +2,8 @@
 --   *  Teleporter for newbies who want to become fighter  *
 --   *******************************************************
 
+module("triggerfields.newbie_fighter", package.seeall())
+
 function MoveToField(Newbie)
     Newbie:createItem(3076,150,333,0); --copper
     Newbie:createItem(34,1,333,0); -- trousers

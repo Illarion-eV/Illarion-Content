@@ -1,7 +1,9 @@
--- INSERT INTO triggerfields VALUES (33,21,100,'tf_noobia_spawn.lua');
--- INSERT INTO triggerfields VALUES (33,22,100,'tf_noobia_spawn.lua');
+-- INSERT INTO triggerfields VALUES (33,21,100,'triggerfields.noobia_spawn');
+-- INSERT INTO triggerfields VALUES (33,22,100,'triggerfields.noobia_spawn');
 
 require("base.common")
+
+module("triggerfields.noobia_spawn", package.seeall())
 
 function MoveToField(Character)
     Status=Character:getQuestProgress(2);

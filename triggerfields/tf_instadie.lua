@@ -1,5 +1,7 @@
 require("base.common")
 
+module("triggerfields.instadie", package.seeall())
+
 function MoveToField(User)
 
 	if(Init == nil) then

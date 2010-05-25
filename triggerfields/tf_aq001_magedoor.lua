@@ -3,6 +3,8 @@
 
 require("base.keys")
 
+module("triggerfields.aq001_magedoor", package.seeall())
+
 function CharacterOnField(Character)
     if( string.find( Character.lastSpokenText, "[Ll][Oo][Tt][Hh][Ll][Ee][Nn][Dd][Aa][Rr]" ) ~= nil ) then
         --local doora = GetDoorItem( position( -35, 195, -9 ) );

@@ -1,3 +1,5 @@
+module("triggerfields.loginfield", package.seeall())
+
 function CharacterOnField(character)
     character:talk(CCharacter.say,"Ich befinde mich auf einem Triggerfeld");
 end

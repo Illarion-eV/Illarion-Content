@@ -3,6 +3,8 @@
 -- In work (Kadiya)
 --
 
+module("triggerfields.dragoncave", package.seeall())
+
 function CharacterOnField(mindmage)    
     if ( (string.find( mindmage.lastSpokenText, "[Ww][Ii][Nn][Dd]") ~= nil) or (string.find( mindmage.lastSpokenText, "[Aa][Ii][Rr]") ~= nil) ) then -- Ritual starten
 		find, RitualStatus = mindmage.effects:find(666);

@@ -1,8 +1,10 @@
 -- Location: -29 195 -9
 -- Purpose: react on by statue expandable ladder
 
-dofile("quest_isItemIdInFieldStack.lua")
-dofile("quest_removeItemIdFromFieldStack.lua")
+require("quest_isItemIdInFieldStack")
+require("quest_removeItemIdFromFieldStack")
+
+module("triggerfields.aq001_statueladder", package.seeall())
 
 function MoveToField( user )
     

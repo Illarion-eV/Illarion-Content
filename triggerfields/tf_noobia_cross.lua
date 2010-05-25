@@ -1,7 +1,9 @@
--- INSERT INTO triggerfields VALUES (39,76,100,'tf_noobia_cross.lua');
+-- INSERT INTO triggerfields VALUES (39,76,100,'triggerfields.noobia_cross');
 -- leads the newbie's attention on the yellow cross and the lizard
 
 require("base.common")
+
+module("triggerfields.noobia_cross", package.seeall())
 
 function MoveToField(User)
 	

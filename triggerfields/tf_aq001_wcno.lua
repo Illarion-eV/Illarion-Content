@@ -1,8 +1,10 @@
 -- Location: 33 185 -12
 -- Purpose: switch for secret passage to well
 
-dofile("quest_isItemIdInFieldStack.lua")
-dofile("quest_removeItemIdFromFieldStack.lua")
+require("quest_isItemIdInFieldStack")
+require("quest_removeItemIdFromFieldStack")
+
+module("triggerfields.aq001_wcno", package.seeall())
 
 function MoveToField( user )
 

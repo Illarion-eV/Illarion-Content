@@ -4,15 +4,17 @@
 
 require("base.keys")
 
+module("triggerfields.loo_door", package.seeall())
+
 function MoveToField( User )
 
     if User:get_face_to() == 2 then -- looking east, probably walking inside
         local door = world:getItemOnField( position( -74, -68, 0 ) );
-        CloseDoor( door );
+        base.doors.CloseDoor( door );
         door = world:getItemOnField( position( -74, -68, 0 ) );
         base.keys.LockDoor( door );
         door = world:getItemOnField( position( -74, -68, 0 ) );
-        if door.quality == 333 and CheckClosedDoor( door.id ) then
+        if door.quality == 333 and base.doors.CheckClosedDoor( door.id ) then
             local bucket = world:getItemOnField( position( -72, -69, 0 ) );
             if bucket.id == 51 then
                 bucket.id = 52;

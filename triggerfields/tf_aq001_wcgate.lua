@@ -1,6 +1,8 @@
 -- Location: 28 190 -12
 -- Purpose: invisible wall for secret passage to well, testing for
 
+module("triggerfields.aq001_wcgate", package.seeall())
+
 function MoveToField( user )
     if world:isItemOnField( position( 28, 190, -12) ) then
         if (world:getItemOnField( position( 28, 190, -12) )).id ~= 287 then

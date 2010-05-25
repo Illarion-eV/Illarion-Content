@@ -1,6 +1,8 @@
 -- Quest: The Missing Son
 require("base.common")
 
+module("triggerfields.missingson_caveentrance", package.seeall())
+
 function MoveToField(User)
 	local QuestID = 999;
 	local MonsterPositions = { };

@@ -1,6 +1,8 @@
 -- Quest: The Missing Son
 require("base.common")
 
+module("triggerfields.missingson_woods", package.seeall())
+
 function MoveToField(User)
 	local QuestID = 999;
 	if (User:getQuestProgress(QuestID) == 1) then

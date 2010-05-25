@@ -1,47 +1,49 @@
 -- triggerfields for better atmosphere
 
 --[[ SQL Statements:
-INSERT INTO triggerfields VALUES (-62,-124,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-137,-97,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-138,-97,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-62,-125,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-64,-129,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-66,-116,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-86,-99,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-87,-116,1,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-88,-116,1,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-89,-90,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-91,-115,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-94,-123,1,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-94,-127,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-95,-94,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (-96,-119,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (110,-200,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (111,-200,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (156,-433,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (157,-200,-6,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (157,-433,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (158,-200,-6,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (170,-194,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (186,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (187,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (187,-443,1,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (187,-444,1,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (188,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (189,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (190,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (191,-337,0,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (86,-203,2,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (86,-204,2,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (96,-203,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (96,-211,3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (97,-203,-3,'tf_ambient.lua');
-INSERT INTO triggerfields VALUES (158,-448,0,'tf_ambient.lua');
+INSERT INTO triggerfields VALUES (-62,-124,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-137,-97,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-138,-97,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-62,-125,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-64,-129,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-66,-116,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-86,-99,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-87,-116,1,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-88,-116,1,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-89,-90,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-91,-115,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-94,-123,1,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-94,-127,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-95,-94,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (-96,-119,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (110,-200,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (111,-200,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (156,-433,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (157,-200,-6,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (157,-433,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (158,-200,-6,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (170,-194,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (186,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (187,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (187,-443,1,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (187,-444,1,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (188,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (189,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (190,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (191,-337,0,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (86,-203,2,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (86,-204,2,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (96,-203,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (96,-211,3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (97,-203,-3,'triggerfields.ambient');
+INSERT INTO triggerfields VALUES (158,-448,0,'triggerfields.ambient');
 
-INSERT INTO triggerfields VALUES (,'tf_ambient.lua');
+INSERT INTO triggerfields VALUES (,'triggerfields.ambient');
 ]]
 
 require("base.common")
+
+module("triggerfields.ambient", package.seeall())
 
 --[[
 position: coordinates
@@ -54,7 +56,7 @@ for script:
 AmbientList:add( position(x,y,z), dir, "german", "english", {0,1,23}, {1,2,16} );
 
 for db:
-INSERT INTO triggerfields VALUES (x,y,z,'tf_ambient.lua');
+INSERT INTO triggerfields VALUES (x,y,z,'triggerfields.ambient');
 ]]
 
 

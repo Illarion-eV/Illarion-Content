@@ -1,6 +1,8 @@
 require("base.common")
 
--- INSERT INTO triggerfields VALUES (x,y,z,'tf_traps.lua');
+module("triggerfields.traps", package.seeall())
+
+-- INSERT INTO triggerfields VALUES (x,y,z,'triggerfields.traps');
 
 function InitTraps()
 	--AddFireTrap(POSITION, STRENGTH, GFX, SOUND, {DE_INFORM, EN_INFORM});

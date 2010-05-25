@@ -1,3 +1,4 @@
+module("triggerfields.ma_secret_room", package.seeall())
 
 function CharacterOnField(Character)
 

@@ -1,3 +1,5 @@
+module("triggerfields.eldan_altar", package.seeall())
+
 -- Eldan Shrine praying at the altar
 function CharacterOnField( Ch )
     if( string.find( Ch.lastSpokenText, "eldan" ) ~= nil ) then

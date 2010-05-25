@@ -1,7 +1,9 @@
 -- Location: -32 193 -8
 -- Purpose: react on by mirror expandable ladder
 
-dofile("quest_isItemIdInFieldStack.lua")
+require("quest_isItemIdInFieldStack")
+
+module("triggerfields.aq001_mirrorladder", package.seeall())
 
 function MoveToField( user )
     

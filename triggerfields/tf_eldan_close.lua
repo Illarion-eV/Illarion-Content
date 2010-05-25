@@ -1,3 +1,5 @@
+module("triggerfields.eldan_close", package.seeall())
+
 -- Eldan Shrine close secret door
 function MoveToField( Ch )
     if( Ch:get_face_to() == 2 ) then

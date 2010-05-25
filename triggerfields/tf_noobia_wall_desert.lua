@@ -1,16 +1,18 @@
--- INSERT INTO triggerfields VALUES (59,89,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,90,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,91,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,92,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,93,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,94,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,95,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,96,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,97,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,98,100,'tf_noobia_wall_desert.lua');
--- INSERT INTO triggerfields VALUES (59,99,100,'tf_noobia_wall_desert.lua');
+-- INSERT INTO triggerfields VALUES (59,89,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,90,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,91,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,92,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,93,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,94,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,95,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,96,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,97,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,98,100,'triggerfields.noobia_wall_desert');
+-- INSERT INTO triggerfields VALUES (59,99,100,'triggerfields.noobia_wall_desert');
 
 require("base.common")
+
+module("triggerfields.noobia_wall_desert", package.seeall())
 
 function MoveToField(Character)
 

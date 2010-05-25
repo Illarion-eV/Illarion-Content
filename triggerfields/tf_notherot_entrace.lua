@@ -1,4 +1,6 @@
--- INSERT INTO triggerfields VALUES (244,-362,-6,'tf_notherot_entrace.lua');
+-- INSERT INTO triggerfields VALUES (244,-362,-6,'triggerfields.notherot_entrace');
+
+module("triggerfields.notherot_entrace", package.seeall())
 
 function CharacterOnField(Character)
     local TestItem = Character:getItemAt(CCharacter.right_tool);

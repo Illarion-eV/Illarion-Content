@@ -3,6 +3,8 @@
 require("base.common")
 require("base.keys")
 
+module("triggerfields.stompthebugs", package.seeall())
+
 function MoveToField(User)
 	local QuestID = 27;
 	local MonsterID = 131; -- CHANGE
@@ -21,8 +23,8 @@ function MoveToField(User)
 	--	local door = world:getItemOnField(DoorPosition);
 	--	base.keys.LockDoor(door);
 	--	door = world:getItemOnField(DoorPosition);
-	--	if(CheckOpenDoor(door)) then
-	--		CloseDoor(door);
+	--	if(base.doors.CheckOpenDoor(door)) then
+	--		base.doors.CloseDoor(door);
 	--	end
 	end
 end

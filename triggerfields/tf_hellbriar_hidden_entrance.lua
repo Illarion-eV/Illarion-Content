@@ -1,5 +1,7 @@
--- INSERT INTO triggerfields VALUES (-471,241,0,'tf_hellbriar_hidden_entrance');
--- INSERT INTO triggerfields VALUES (-469,241,0,'tf_hellbriar_hidden_entrance');
+-- INSERT INTO triggerfields VALUES (-471,241,0,'triggerfields.hellbriar_hidden_entrance');
+-- INSERT INTO triggerfields VALUES (-469,241,0,'triggerfields.hellbriar_hidden_entrance');
+
+module("triggerfields.hellbriar_hidden_entrance", package.seeall())
 
 function MoveToField(User)
 	

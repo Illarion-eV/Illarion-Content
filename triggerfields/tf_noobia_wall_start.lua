@@ -1,12 +1,14 @@
--- INSERT INTO triggerfields VALUES (42,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (43,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (44,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (45,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (46,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (47,34,100,'tf_noobia_wall_start.lua');
--- INSERT INTO triggerfields VALUES (48,34,100,'tf_noobia_wall_start.lua');
+-- INSERT INTO triggerfields VALUES (42,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (43,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (44,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (45,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (46,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (47,34,100,'triggerfields.noobia_wall_start');
+-- INSERT INTO triggerfields VALUES (48,34,100,'triggerfields.noobia_wall_start');
 
 require("base.common")
+
+module("triggerfields.noobia_wall_start", package.seeall())
 
 function MoveToField(Character)
 
