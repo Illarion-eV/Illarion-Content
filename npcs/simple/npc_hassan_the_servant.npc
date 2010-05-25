@@ -1,0 +1,126 @@
+name="Hassan the Servant"
+sex=male
+race=human
+position=110, 574, 0 -- Cadomyr Tavern
+direction=East --North/South/West/East
+QuestID=75 --A developer will assign an ID
+
+--NPC by PO Edward Cromwell, translated by Estralis Seborian
+
+--Queststatus Overview
+
+--0: No Quest taken / Quest reset
+--1: NPC tells player to bring him some wine
+--2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
+
+--Debugging
+
+"set 0"->"Quest status set to 0",queststatus=0
+"set 1"->"Quest status set to 1",queststatus=1
+"set 2"->"Quest status set to 2",queststatus=2
+
+--Cycletext:
+
+cycletext "#me knallt seine Faust auf den Tresen: 'Bedienung!'","#me bags his fist on the counter: 'I demand service!'"
+cycletext "#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'","#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'"
+cycletext "Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?","What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?"
+cycletext "#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.","#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil."
+cycletext "Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.","I work in the the Royal Palace. Nothing there happens without my knowledge."
+cycletext "#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'","#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'"
+cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.","I wave the fan at the Queen, to keep her blue blood cool during in the heat of the desert. Now 'that' is an important duty!"
+
+--omg hlp plz
+
+"Help"->inform ( [Game help] This is the NPC Hassan. To learn more about him, your should greet the NPC first. )
+"Hilfe"->inform ( [Spielhilfe] Dies ist der NPC Hassan. Wenn du mehr über ihn erfahren willst, grüße ihn zuerst. )
+
+--First part, the gossiper is thirsty--
+
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening",queststatus=0->"#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine, I will gladly answer your questions.'",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening",queststatus=2->"Ah, hello again. Now that you quenched my thirst, ask whatever you like".
+
+"Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=0->"#me frowns "What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=2->"Hah! My friend, come, let us talk about important things, we're important persons, aren't we?"
+
+"How are you","How feel","How do you do",queststatus=0->"I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"How are you","How feel","How do you do",queststatus=2->"Now that you brought me wine: Fine."
+
+"quest","mission",queststatus=0,english->"Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"quest","mission",queststatus=2,english->"Just ask me and I will share my vast knowledge about the palace with you."
+"task","adventure","question",queststatus=0->"Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"task","adventure","question",queststatus=2->"Just ask me and I will share my vast knowledge about the palace with you."
+
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin",queststatus=0->"#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.",queststatus=1,inform ( [Neues Quest] Der Schwätzer von Cadomyr )
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin",queststatus=2->"Ah, hallo nochmal. Nun, da mein Durst gestillt ist, fragt was immer ihr wollt."
+
+"Hiho","Hallo","Hey","Greebas","Greebs",queststatus=0,german->"#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.",queststatus=1,inform ( [Neues Quest] Der Schwätzer von Cadomyr )
+"Hiho","Hallo","Hey","Greebas","Greebs",queststatus=2,german->"Hah! Mein Freund, lasst uns über wichtige Dinge Reden, denn wir sind wichtige Leute, nicht wahr?"
+
+"Wie geht","Wie fühlst","Wie ist es ergangen",queststatus=0->"Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!",queststatus=1,inform ( [Neues Quest] Der Schwätzer von Cadomyr )
+"Wie geht","Wie fühlst","Wie ist es ergangen",queststatus=2->"Nun, da ihr mir Wein gebracht habt: Fein."
+
+"quest","mission",queststatus=0,german->"Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.",queststatus=1,inform ( [Neues Quest] Der Schwätzer von Cadomyr )
+"quest","mission",queststatus=2,german->"Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
+"Aufgabe","Abenteuer","Frage",queststatus=0->"Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.",queststatus=1,inform ( [Neues Quest] Der Schwätzer von Cadomyr )
+"Aufgabe","Abenteuer","Frage",queststatus=2->"Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
+
+"Farewell","Good bye","Bye","Fare thy well"->"Farewell, traveller!"
+"Ciao","Adieu","Au revoir",english->"Farewell, traveller!"
+"your name","who are you","who art thou"->"Hassan, the royal fan-waver."
+
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Gute Reise."
+"Ciao","Adieu","Au revoir",german->"Gute Reise."
+"dein name","wer bist du","wer seid ihr","wie heißt"->"Hassan, der königliche Fächelwedler."
+
+--Small talk--
+
+"profession"->"I am a servant of the Queen herself!","I am a royal fan-waver! A glorious task!"
+"tavern",english->"A lousy tavern, in the glorious Kingdom of Cadomyr!"
+"beruf"->"Ich ein Diener der Königin.","Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"
+"tavern"->"Eine einfache Taverne im prächtigen Königreich Cadomyr."
+
+--bringing the wine--
+
+".+",queststatus=1,item(2057,all)>0,town=cadomyr,english->"#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'",deleteitem(2057,1),inform( [Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour. ),rankpoints(cadomyr)+20,queststatus=2
+".+",queststatus=1,item(2057,all)>0,english->"#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'",deleteitem(2057,1),inform( [Quest solved] Hassan will now answer your questions. ),queststatus=2
+".+",queststatus=1,item(2057,all)>0,town=cadomyr,german->"#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'",deleteitem(2057,1),inform( [Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt. ),rankpoints(cadomyr)+20,queststatus=2
+".+",queststatus=1,item(2057,all)>0,german->"#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'",deleteitem(2057,1),inform( [Quest gelöst] Hassan wird nun deine Fragen beantworten. ),queststatus=2
+
+".+",queststatus=1,item(2057,all)<1,english->"Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+".+",queststatus=1,item(2057,all)<1,german->"Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+
+--questions--
+
+"town",queststatus=2->"Cadomyr is the most civilized and advanced community! I hear the others live in pitiful clay huts."
+"queen",queststatus=2->"We are ruled by the Queen in Cadomyr! She can trace her ancestors back a millenia or more, having the bluest of blue blood of us all."
+"Rosaline",queststatus=2,english->"Oh, so you have heard about our Queen? Of course, not everyone thought that a woman should rule. Baron Hastings was quite vocal about that, but then he... disappeared."
+"Edwards",queststatus=2,english->"Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albar's bluebloods! The queen's father, King Reginald, ruled the town with firm grip."
+"nobles",queststatus=2->"Like any proper nation, below the Queen are her nobles, just like the men are below the Gods... just as the Gods themselves have intended!"
+"gods",queststatus=2->"#me nods eagerly, spilling some wine on the table 'We are proper, honourful and Gods-fearing people in Cadomyr, unlike our wretched neighbours!'"
+"hono[u]+r",queststatus=2->"We value honour above all in Cadomyr. If you have no honour, then you have nothing at all! Then you are nothing at all!"
+"like[s]",queststatus=2->"The Queen likes the shine of gold and the sparkle of precious gemstones."
+"gift",queststatus=2->"Gifts? Of course our Queen likes gifts! Expensive jewelry and shiny gemstones, especially diamonds, is what she fancies."
+"baron","hastings",queststatus=2,english->"Baron Hastings? He was not all too happy about Queen Rosaline finding a clause that enabled her to succeed his father on the throne, but now he has gone missing..."
+"wine",queststatus=2->"#me sips from the glass, smiling 'The wine is very good, thank you..'."
+"neighbo",queststatus=2->"#me grumbles: 'Oh! Galmair and Runewick! Pox on them! The ancient histories make it clear that the people of Cadomyr are the rightful lords of the land!"
+"Cadomyr",queststatus=2,english->"#me sighs: 'Cadomyr, oh Cadomyr! We are the most honourful and magnificent nation around, held back only by the treachery of our cursed neighbours.'"
+"palace",queststatus=2->"If Cadomyr is the crown of the land, then the palace is certainly the most magnificent crown jewel! Sadly not all the servants in the palace are as reliable and loyal as I am."
+"Runewick",queststatus=2,english->"An false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap chartalans who try to twist the truth to justify their vile customs!"
+"Galmair",queststatus=2,english->"Galmair! That treacherous pit! Filled by the most despicable scum imaginable. Any decent person should steer clear of the place! Of course, I was lucky to never visit it myself."
+
+"stadt",queststatus=2->"Cadomyr ist die zivilisierteste und fortschrittlichste Gesellschaft. Ich hörte, unsere Nachbarn wohnen in erbärmlichen Lehmhütten."
+"Königin",queststatus=2->"Wir werden von der Königin von Cadomyr regiert. Sie kann ihre Ahnen tausend Jahre zurückverfolgen und hat das blauste Blut von allen."
+"Rosaline",queststatus=2->"Nun, was habt ihr über unsere Königin gehört? Nicht jeder stimmt damit überein, dass eine Frau die Macht hat. Baron Hastings war ihr Redelsführer, aber dann verschwand er..."
+"Edwards",queststatus=2->"Cadomyr wird seit seiner Gründung von den Edwards regiert. Feinstes albarisches Blut! Der Vater der Königin, König Reginald, regierte mit harter Hand."
+"Edel",queststatus=2->"Wie in jeder gute Nation bedient sich die Königin ihrer Edelleute, wie die Götter sich den Menschen bedienen. Genauso wollen es die Götter."
+"Gott","Götter",queststatus=2->"#me nickt heftig, etwas Wein verschüttend: 'Wir sind gute, ehrenhaft, götterfürchtige Leute hier in Cadomyr, nicht so unsere verdorbenen Nachbarn.'"
+"Ehre",queststatus=2->"Die Ehre steht über allem hier in Cadomyr. Wenn man keine Ehre hat, hat man gar nichts mehr. Und dann ist man auch ein Nichts."
+"Vorliebe",queststatus=2->"Die Königin hat eine Vorliebe für Gold und funkelnde Edelsteine."
+"Geschenk",queststatus=2->"Geschenke? Na klar liebt unsere Königin Geschenke. Teure Juwelen und Edelsteine, besonders Diamanten, das erfreut sie."
+"Baron","hastings",queststatus=2->"Baron Hastings? Er war nicht sonderlich begeistert, als Königin Rosaline eine Klausel gefunden hat, die ihr ermöglichte, das Erbe ihres Vaters anzutreten. Nun ist er verschwunden..."
+"Wein",queststatus=2->"#me schlürft etwas Wein: 'Danke für den Wein, der ist wirklich gut.'"
+"Nachbar",queststatus=2->"#me knurrt: 'Oh! Galmair und Runewick, die Pest soll über sie kommen. Die Geschichte lehrt uns, dass die Herren von Cadomyr die Herren der Ländereien sind.'"
+"Cadomyr",queststatus=2->"#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegend, nur behindert durch unsere verräterischen Nachbarn.'"
+"Palast",queststatus=2->"Wenn Cadomyr die Krone des Landes ist, dann ist der Palast das funkelnste Kronjuwel. Leider sind nicht alle Palastdiener so loyal und verlässlich wie ich."
+"Runewick",queststatus=2->"Ein falscher Magier regiert dort. Bah, sag ich! Sie reden über Weisheit, meinen aber Lügen. Sie sind nichts als Scharlatane welche die Wahrheit verdrehen, um ihre widerlichen Sitten zu rechtfertigen."
+"Galmair",queststatus=2->"Galmair! Eine Schlangengrube! Gefüllt mit dem widerlichsten Abschaum. Jeder ehrbare Mann sollte Galmair fern bleiben. Zum Glück war ich noch nie dort."

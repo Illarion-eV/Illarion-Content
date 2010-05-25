@@ -1,0 +1,37 @@
+name="Barney Haycrop"
+position= -417,44,0
+sex=male
+race=halfling
+direction= West
+QuestId=22
+
+
+--Non Quest-Related--
+
+"Hello" -> "Ah, good day, and welcome to Greenbriar! Fine day for a nice smoke"
+"Hallo" -> "Ah, Guten Tag und Willkommen in Greenbriar! Ein guter Tag, um eine Pfeife zu rauchen."
+"Greetings"-> "Ah, good day, and welcome to Greenbriar! Fine day for a nice smoke"
+"Grüße" -> "Ah, Guten Tag und Willkommen in Greenbriar! Ein guter Tag, um eine Pfeife zu rauchen."
+"Who" -> "Me name's Barney Haycrop, and its a pleasure to meet you"
+"Wer" -> "Mein Name ist Barney Haycrop und es ist mir ein Vergnügen, euch zu treffen."
+"What" -> "Well, I'm not doing anything really, just lazing about"
+"Was" -> "Nun, ich tue nicht wirklich etwas, bin nur ein wenig am ausruhen."
+"Buy" -> "Buying and selling sounds like too much hard work for me"
+"Kaufe" -> "Das Kaufen und Verkaufen klingt nach zuviel Arbeit für mich."
+"Sell" -> "Buying and selling sounds like too much hard work for me"
+"Verkaufe" -> "Das Kaufen und Verkaufen klingt nach zuviel Arbeit für mich."
+"Wares" -> " 'ave nothign to sell, my friend"
+"Waren" -> "Habe nix zu verkaufen, du."
+"Bye" -> "Ahh, goodbye"
+"Tschüss" -> "Ahh, auf Wiedersehen!"
+
+--Quest Related--
+
+"Locket", queststatus=1 -> "A locket you say... what a coincidence; I found one a few days ago... here, I trust you'll give it to the right owner", queststatus=2, item(222,1,199,0)
+"Medaillon", queststatus=1 -> "Ein Medaillon, sagt ihr? Was für ein Zufall, ich habe eines vor einigen Tagen gefunden. Hier, ich vertraue darauf, dass ihr des dem rechtmäßigen Eigentümer übergebt.", queststatus=2, item(222,1,199,0)
+
+--Cycles--
+
+cycletext "#me nimmt einen tiefen Zug von der Pfeife", "#me inhales deeply from his pipe"
+cycletext "#me ruht sich aus", "#me lazes about"
+cycletext "#me gähnt faul", "#me yawns lazily"

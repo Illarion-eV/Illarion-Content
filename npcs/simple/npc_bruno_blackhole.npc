@@ -1,0 +1,204 @@
+name="Bruno Blackhole"
+sex=male --male/female
+race=dwarf --human, elf, dwarf, lizard, orc,...
+position=-100, -400, 0 --Malachite Mine near Galmair
+direction=South --North/South/West/East
+QuestID=65 --A developer will assign an ID
+
+--NPC by Alsaya, revised by Estralis Seborian
+
+--Queststatus Overview
+
+--0: No Quest taken
+--1: Quest 1 taken - gather 10 raw materials for 50cp
+--2: Quest 1 solved
+--3: Quest 2 taken - gather 20 raw materials for 100cp
+--4: Quest 2 solved
+--5: Quest 3 taken - gather 5 rare raw materials for 100cp
+--6: Quest 3 solved
+--7: Quest 4 taken - gather 10 distant raw materials for 200cp
+--8: Quest 4 solved
+
+--Debugging
+
+"set 0"->"Quest status set to 0",queststatus=0
+"set 1"->"Quest status set to 1",queststatus=1
+"set 2"->"Quest status set to 2",queststatus=2
+"set 3"->"Quest status set to 3",queststatus=3
+"set 4"->"Quest status set to 4",queststatus=4
+"set 5"->"Quest status set to 5",queststatus=5
+"set 6"->"Quest status set to 6",queststatus=6
+"set 7"->"Quest status set to 7",queststatus=7
+"set 8"->"Quest status set to 8",queststatus=8
+
+--Help
+
+"Help"->inform ( [Game Help] This NPC is the miner Bruno Blackhole. Keyphrases: Hello, quest, pick-axe, miner. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter. )
+
+--General speech
+ 
+ "Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"Be greeted ma friend!","Welcome in da Malachite mine.","Greetings I hope ya don't try to steal meh ma gold!"
+ "Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Tach mein Freund!","Willkommen inner Malachitmine!","Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
+ "Hiho","Hallo","Hey","Greebas","Greebs",english->"Be greeted ma friend!","Welcome in da Malachite mine.","Greetings I hope ya don't try to steal meh ma gold!"
+ "Hiho","Hallo","Hey","Greebas","Greebs",german->"Tach mein Freund!","Willkommen inner Malachitmine!","Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
+ "Farewell","Good bye","Bye","Fare thy well"->"May Irmorom guide ya on yar ways!","Come back whenever ya miss the coolness of da mine.","Farewell."
+ "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Möge Irmorom dich auf deinen Wegen beschützen!","Komm' ruhig zurück wenn du die Kühle der Mine vermisst.","Auf bald."
+ "Ciao","Adieu","Au revoir",english->"Farewell is what we say around here.","Fancy words don't bring you further around here. Farewell.","Irmorom with ya!"
+ "Ciao","Adieu","Au revoir",german->"Auf bald sagen wa hier.","Schicke Worte helfen dir auch nicht weiter. Auf bald.","Irmorom mit dir!"
+ "How are you","How feel","How do you do"->"None of ya business.","I'm fine and ya?","I could use some beer."
+ "Wie geht","Wie fühlst","Wie ist es ergangen"->"Geht dich nichts an.","Gut und dir?","Ich könnte 'n Bier vertragen."
+ "your name","who are you","who art thou"->"I'm Bruno Blackhole.","I'm a dwarven miner named Bruno.","Just call meh Bruno for now."
+ "dein name","wer bist du","wer seid ihr","wie heißt"->"Ich bin Bruno Blackhole.","Ich bin 'n zwergischer Bergarbeiter namens Bruno.","Nenn' mich einfach Bruno."
+ 
+-- Catching typical NPC phrases
+ 
+ "what sell","what buy","list wares","price of"->"I do not sell or buy anything, but I could need ya help.","Do I really look like a trader?","I'm no trader, I'm a miner!"
+ "was verkauf","was kauf","warenliste","preis von"->"Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.","Seh' ich wirklich wie 'n Händler aus?","Ich bin kein Händler, sondern 'n Bergarbeiter."
+ "tell something"->"If you want to hear a story, ya in da wrong place.","I'm here to work, not to tell stories.","My gold nugget is my most precious posession."
+ "erzähl was","erzähl etwas"->"Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.","Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.","Mein Goldnugget ist mein wertvollster Besitz."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+ "miner"->"Aye, that's what I am. Da very best miner of Galmair.","A miner mines in da mines of Galmair for ore and coal.","Miners are important to smiths, because they sell ore and coal to them."
+ "Bergarbeiter"->"Aye, das bin ich. Der beste Bergarbeiter von Galmair.","Ein Bergarbeiter sucht in den Minen Galmairs nach Erz und Kohle.","Bergarbeiter sind wichtig für Schmiede, weil sie Erz und Kohle an sie verkaufen."
+ "Malachit",english->"The Malachite mine belongs to Galmair and one can mine for copper and iron here.","Copper and iron are the most common ores here, but when ya get lucky ya might find goldnuggets as well.","The Malachite mine is mah favorite spot. Isn't it nice here?"
+ "Malachit",german->"Die Malachitmine gehört zu Galmair und man findet Kupfer- und Eisenerz hier.","Kupfer- und Eisenerz kommt hier am meisten vor, aber wenn du Glück hast, findest du auch Goldnuggets.","Die Malachitmine ist mein liebster Platz, ist es nicht toll hier?"
+
+--Factions
+
+"Runewick",german->"Ein faules Pack wohnt dort in Runewick. Nett sind sie zwar, aber sowas von faul!"
+"Runewick",english->"Lazy scum is living in Runewick. Gentle they are, but lazy!"
+"Galmair",german->"Der Ort schlechthin: Galmair. Gemütlich, frei und Geld zählt man in großen Beträgen."
+"Galmair",english->"The place to be: Galmair. Cozy, free and money counts in large amounts."
+"Cadomyr",german->"Edel, pff, die Leute aus Cadomyr verhalten sich nur edel, wenn sie ihr Königin anstarren können."
+"Cadomyr",english->"Noble man, pah, the people of Cadomyr behave only noble as long as they stare at the queen."
+
+--Tool hints
+
+ "pick",queststatus=0->"You'll need a pickaxe in order to mine for ore. Just hit the rocks with it. If you want to try it I could give you a little quest."
+ "Hacke",queststatus=0->"Du wirst 'ne Spitzhacke brauchen um nach Erzen zu suchen, einfach auf die Steine hauen damit. Wenn du es probieren willst, könnte ich dir 'nen kleinen Auftrag geben."
+ "pick"->"If ya need another pickaxe, ask a smith or another miner. The best miners can be found in Galmair."
+ "Hacke"->"Wenn du 'ne weitere Spitzhacke brauchst, frag' 'nen Schmied oder 'nen anderen Bergarbeiter. Die besten Bergarbeiter kann man in Galmair finden."
+
+--1st quest: Take a tool and gather 10 raw materials for 50cp.
+
+ "quest","mission",queststatus=0,english->"Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something.",item(2763,1,399,0),queststatus=1,inform ( [New quest] Malachite Mine I ) 
+ "quest","mission",queststatus=0,german->"Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.",item(2763,1,399,0),queststatus=1,inform ( [Neues Quest] Malachitmine I )
+ "task","adventure",queststatus=0->"Aye, I hope ya like hard work. Bring meh ten raw stones and I will give ya a little something.",item(2763,1,399,0),queststatus=1,inform ( [New quest] Malachite Mine I ) 
+ "Auftrag","Aufgabe","Abenteuer",queststatus=0->"Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.",item(2763,1,399,0),queststatus=1,inform ( [Neues Quest] Malachitmine I )
+
+ "quest","mission",queststatus=1,english->"Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe."
+ "quest","mission",queststatus=1,german->"Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben."
+ "task","adventure",queststatus=1->"Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe."
+ "Auftrag","Aufgabe","Abenteuer",queststatus=1->"Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben."
+
+ ".+",queststatus=1,item(735,all)>9,town=galmair,german->"Gute Arbeit, dies zeigt das du kein Schwächling bist.",deleteitem(735,10),inform( [Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+5,money+50,skill(crafting,mining)+1,queststatus=2
+ ".+",queststatus=1,item(735,all)>9,town=galmair,english->"Good work, that shows meh that you're not a whimp.",deleteitem(735,10),inform( [Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+5,money+50,skill(crafting,mining)+1,queststatus=2
+
+ ".+",queststatus=1,item(735,all)>9,german->"Gute Arbeit, dies zeigt das du kein Schwächling bist.",deleteitem(735,10),inform( [Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+50,skill(crafting,mining)+1,queststatus=2
+ ".+",queststatus=1,item(735,all)>9,english->"Good work, that shows meh that you're not a whimp.",deleteitem(735,10),inform( [Quest solved] You are awarded 50 copper coins and your mining skill increases. ),money+50,skill(crafting,mining)+1,queststatus=2
+ ".+",queststatus=1,item(735,all)<10,german->"Du solltest mir zehn rohe Steine bringen und nicht weniger. Versuch es bei den Steinen dort drüben."
+ ".+",queststatus=1,item(735,all)<10,english->"I asked you to bring meh ten raw stones and not less. Try it at the rocks over there."
+
+--2nd quest: Gather 20 different raw materials for 100cp.
+
+ "quest","mission",male,queststatus=2,english->"Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.",queststatus=3,inform ( [New quest] Malachite Mine II )
+ "quest","mission",female,queststatus=2,english->"Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.",queststatus=3,inform ( [New quest] Malachite Mine II )
+ "quest","mission",male,queststatus=2,german->"Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.",queststatus=3,inform ( [Neues Quest] Malachitmine II )
+ "quest","mission",female,queststatus=2,german->"Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.",queststatus=3,inform ( [Neues Quest] Malachitmine II )
+ "task","adventure",male,queststatus=2->"Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.",queststatus=3,inform ( [New quest] Malachite Mine II )
+ "task","adventure",female,queststatus=2->"Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.",queststatus=3,inform ( [New quest] Malachite Mine II )
+ "Auftrag","Aufgabe","Abenteuer",male,queststatus=2->"Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.",queststatus=3,inform ( [Neues Quest] Malachitmine II )
+ "Auftrag","Aufgabe","Abenteuer",female,queststatus=2->"Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.",queststatus=3,inform ( [Neues Quest] Malachitmine II )
+
+ "quest","mission",queststatus=3,english->"I need twenty pieces copper ore, do ya have it yet?"
+ "quest","mission",queststatus=3,german->"Ich brauche zwanzig Brocken Kupfererz, hast du die schon?"
+ "task","adventure",queststatus=3->"I need twenty pieces of copper ore, do ya have it yet?"
+ "Auftrag","Aufgabe","Abenteuer",queststatus=3->"Ich brauche zwanzig Brocken Kupfererz, hast du die schon?"
+
+ ".+",queststatus=3,item(2536,all)>19,town=galmair,english->"Thank ya pal! Here is ya money, don't spend it all at once.",deleteitem(2536,20),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+10,money+100,skill(crafting,mining)+1,queststatus=4 
+ ".+",queststatus=3,item(2536,all)>19,town=galmair,german->"Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.",deleteitem(2536,20),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+10,money+100,skill(crafting,mining)+1,queststatus=4 
+
+ ".+",queststatus=3,item(2536,all)>19,english->"Thank ya pal! Here is ya money, don't spend it all at once.",deleteitem(2536,20),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. ),money+100,skill(crafting,mining)+1,queststatus=4 
+ ".+",queststatus=3,item(2536,all)>19,german->"Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.",deleteitem(2536,20),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+100,skill(crafting,mining)+1,queststatus=4 
+ ".+",queststatus=3,item(2536,all)<20,german->"Ne Kumpel, zwanzig Brocken brauch ich. Soviel hast du noch nicht, also geh wieder an die Arbeit." 
+ ".+",queststatus=3,item(2536,all)<20,english->"Nah pal, I need twenty pieces and ya don't have that much yet, so go back to work." 
+
+--3rd quest: Gather 5 rare raw materials for 100cp.
+
+ "quest","mission",queststatus=4,english->"Another quest? Alright pal, I need five gold nuggets, ya think ya can find them?",queststatus=5,inform ( [New quest] Malachite Mine III )
+ "quest","mission",queststatus=4,german->"Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du kannst die finden?",queststatus=5,inform ( [Neues Quest] Malachitmine III )
+ "task","adventure",queststatus=4->"Another task? Alright pal, I need five gold nuggets, ya think ya can find them?",queststatus=5,inform ( [New quest] Malachite Mine III )
+ "Auftrag","Aufgabe","Abenteuer",queststatus=4->"Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du findest welche?",queststatus=5,inform ( [Neues Quest] Malachitmine III )
+
+ "quest","mission",queststatus=5,english->"Five gold nuggets is what I need. Ya can find them in the rocks."
+ "quest","mission",queststatus=5,german->"Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden."
+ "task","adventure",queststatus=5->"Five gold nuggets is what I need. Ya can find them in the rocks."
+ "Auftrag","Aufgabe","Abenteuer",queststatus=5->"Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden."
+
+ ".+",queststatus=5,item(234,all)>4,town=galmair,german->"Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.",deleteitem(234,5),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+15,money+100,skill(crafting,mining)+1,queststatus=6 
+ ".+",queststatus=5,item(234,all)>4,town=galmair,english->"Now ya are a real miner. Here is a silver coin for ya.",deleteitem(234,5),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+15,money+100,skill(crafting,mining)+1,queststatus=6 
+
+ ".+",queststatus=5,item(234,all)>4,german->"Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.",deleteitem(234,5),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+100,skill(crafting,mining)+1,queststatus=6 
+ ".+",queststatus=5,item(234,all)>4,english->"Now ya are a real miner. Here is a silver coin for ya.",deleteitem(234,5),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. ),money+100,skill(crafting,mining)+1,queststatus=6 
+ ".+",queststatus=5,item(234,all)<5,german->"Schade das du die fünf Goldnuggets noch nicht gefunden hast."
+ ".+",queststatus=5,item(234,all)<5,english->"A pity that ya haven't found those five gold nuggets yet."
+
+--4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
+
+ "quest","mission",queststatus=6,english->"Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.",queststatus=7,inform ( [New quest] Malachite Mine IV )
+ "quest","mission",queststatus=6,german->"Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.",queststatus=7,inform ( [Neues Quest] Malachitmine IV )
+ "task","adventure",queststatus=6->"Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.",queststatus=7,inform ( [New quest] Malachite Mine IV )
+ "Auftrag","Aufgabe","Abenteuer",queststatus=6->"Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.",queststatus=7,inform ( [Neues Quest] Malachitmine IV )
+
+ "quest","mission",queststatus=7,english->"Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
+ "quest","mission",queststatus=7,german->"Hast du die zehn Jungerfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten."
+ "task","adventure",queststatus=7->"Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
+ "Auftrag","Aufgabe","Abenteuer",queststatus=7->"Hast du die zehn Jungfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten."
+
+ ".+",queststatus=7,item(144,all)>9,town=galmair,german->"Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.",deleteitem(144,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+20),money+200,skill(crafting,mining)+1,queststatus=8 
+ ".+",queststatus=7,item(144,all)>9,town=galmair,english->"Thank you, mah wife will be very pleased. Here ya have some compensation money.",deleteitem(144,10),inform( [Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+20,money+200,skill(crafting,mining)+1,queststatus=8 
+
+ ".+",queststatus=7,item(144,all)>9,german->"Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.",deleteitem(144,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+200,skill(crafting,mining)+1,queststatus=8 
+ ".+",queststatus=7,item(144,all)>9,english->"Thank you, mah wife will be very pleased. Here ya have some compensation money.",deleteitem(144,10),inform( [Quest solved] You are awarded 200 copper coins and your mining skill increases. ),money+200,skill(crafting,mining)+1,queststatus=8 
+ ".+",queststatus=7,item(144,all)<10,english->"Come back when ya have ten virgins weed for mah wife, than I will give you your money."
+ ".+",queststatus=7,item(144,all)<10,german->"Komm wieder wenn du zehn Jungfernkraut hast, dann werde ich dir dein Geld geben."
+
+--Final dialogue: No more quests, just nice hints
+
+ "quest","mission",queststatus=8,english->"There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?"
+ "quest","mission",queststatus=8,german->"Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?"
+ "task","adventure",queststatus=8->"There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?"
+ "Auftrag","Aufgabe","Abenteuer",queststatus=8->"Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?"
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here
+
+ "Yes"->"Good for you.","Aye, I see.","Are you sure?","If you say so."
+ "Ja"->"Gut für dich.","Aye, in Ordnung.","Bist du dir sicher?","Wenn du das sagst."
+ "No"->"What a shame.","Maybe you'll change your mind.","Well..."
+ "Nein"->"Schade.","Vielleicht änderst du deine Meinung noch.","Nun..."
+ "nugget",english->"You might find some down here. But you know my wife is my most precious gold nugget for meh. Are you married?"
+ "nugget",german->"Vielleicht findest du welche hier unten. Doch für mich ist meine Frau mein wertwollstes Goldnugget. Bist du verheiratet?"
+ "Raban",english->"Raban is most likely at his grove in the south. He never leaves the places and talks to his plants all day long."
+ "Raban",german->"Raban ist wahrscheinlich in seinem Hain im Süden. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen."
+ "grove"->"Raban's grove is in the forest in the south, I use to get lost between all those trees."
+ "Hain"->"Rabans Hain ist im Wald im Süden. Ich verlauf mich immer zwischen all diesen Bäumen."
+ "Mine",english->"There are several mines close to Galmair. Just aks a fellow miner or a smith."
+ "Mine",german->"Es gibt mehrere Minen hier bei Galmair. Frag' einfach einen anderen Bergarbeiter oder einen Schmied."
+ "ore"->"A smith can make several things out of ore. Tools, swords, shields and more. Just ask one and maybe he'll even give ya work."
+ "erz"->"Ein Schmied kann viele Dinge aus Erz machen. Werkzeuge, Schwerter, Schilder und noch mehr. Frag' doch einfach einen Schmied und vielleicht gibt er dir ja sogar Arbeit."
+ "Stone"->"From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work."
+ "Stein"->"Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten."
+ "Irmorom",english->"Hail Irmorom!"
+ "Irmorom",german->"Lobet Irmorom!"
+
+--Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+ cycletext "#me poliert gedankenverloren ein Goldnugget.","#me seems to be lost in thought while polishing a gold nugget."
+ cycletext "#me tritt nach einem Stein der klimpernd wegspringt.","#me kicks at a small stone which bounces away with a strumming noise."
+ cycletext "#me nuschelt vor sich hin: 'Ich hätte mehr Bier mitnehmen sollen.'","#me mumbles: 'I should have brought more beer.'"
+ cycletext "Irmorom is der Gott des Handwerks und Handels und zudem der Weltenschmied. Er hat die Zwerge nach seinem Ebenbild geschaffen damit sie der Welt und den anderen Rassen eine Stütze sind.","Irmorom is the god of trade and craftmanship and also the worldsmith. He created us dwarves in his own likeness so that we can be a support for the world and the other races."
+ cycletext "Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.","When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learned."
+ cycletext "Hey-ho!","Hey-ho!"
+ cycletext "Glück auf!","Good luck!"

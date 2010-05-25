@@ -1,0 +1,35 @@
+name="Miggs"
+sex=male
+race=dwarf
+position=10, 1, 0 --Galmair
+direction=South --North/South/West/East
+QuestID=77 --A developer will assign an ID
+
+--NPC by Estralis Seborian
+
+--Queststatus Overview
+
+--0: No Quest taken
+--1: Quest 1 taken - kill 10 mummies
+--11: Quest 1 solved
+--12: Game over
+
+--Debugging
+
+"set 0"->"Quest status set to 0",queststatus=0
+"set 11"->"Quest status set to 11",queststatus=11
+
+--Help
+
+"Help"->inform ( [Game Help] Just say 'quest'. set 0 or set 11 sets your queststatus accordingly. )
+"Hilfe"->inform ( [Spielhilfe] Sag einfach 'quest'. set 0 oder set 11 setzen deinen Queststatus entsprechend. )
+
+--1st quest: Kill 10 mummies.
+
+"quest","mission",queststatus=0->"Kill ten mummies (101-107), plz. Then say 'quest' again.",queststatus=1,inform ( [New quest] Smash' em, dude )
+"quest","mission",queststatus=11->"THX 4 killing mummies.",inform( [Quest solved] U rule. ),queststatus=12
+"quest","mission",queststatus=12->"U already solved quest, noob. Say set 0 to start over."
+"quest","mission",queststatus>0,queststatus<11->"U have 2 kill moar mummies, noob."
+
+cycletext "Frag mich nach einer Queste.","Ask me 4 quest, pl0x."
+cycletext "GTFO noob","GTFO noob"

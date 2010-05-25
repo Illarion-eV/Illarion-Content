@@ -1,0 +1,16 @@
+name="Ferano"
+position=-10,-12,0
+sex=male 
+race=elf
+direction=south
+radius=4
+cycletext"#me sieht sich um","#me looks around"
+questid=558
+
+"Hallo","Grüße","Seid gegrüßt", state=0 -> "Seid gegrüßt Reisender", state=1
+"Kann ich euch helfen","Was macht ihr hier", state=1 -> "Ich such jemanden der mir einen Molotov-Cocktail bringt,ich brauch ihn für meine Forschungen,wollt ihr mirhelfen?",state=2
+"Ja", state=2 -> "Wirklich, vielen Dank ich werde euch dafür auch Entlohnen.", state=3
+"Nein", state=2 -> "Schade, dennoch Danke", state=0
+"Molotov-Cocktail", item(2502,all)>=1, state=3 -> "Oh, Vielen Dank hier ist eure Belohnung", deleteitem(2502,1), item(3077,3,333,0), state=4
+"Eisenbarren", item (2502,all)<1, state=3 -> "Ihr habt doch garkein Molotov-Cocktail dabei,kommt wieder wenn ihr einen habt!", state=3
+"Grüße","Hallo","Seid gegrüßt", state=4 -> "Hallo, schön euch wiederzusehen %CHARNAME."

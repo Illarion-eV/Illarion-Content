@@ -1,0 +1,47 @@
+name="Ward Blankman"
+position=68,62,100
+sex=male
+race=human
+direction=south
+
+"greet", "hello" -> "Greetings to you. My name is %NPCNAME. I'm guarding the undead right there."
+"gr[üu][sß]", "grue[sß]", "hallo" -> "Grüß' dich. Mein Name ist %NPCNAME. Ich bewache die Untoten dort drüben."
+
+"bye", "farewell", "be well" -> "Be well.", "Farewell.", "Good bye."
+"auf bald", "bis bald", "leb.+wohl", "tsch[üu][ßs]", "mach.+gut" -> "Auf bald.", "Bis bald.", "Leb wohl.", "Mach's gut."
+
+"who you", "what you" -> "I'm %NPCNAME, the guard of the undead on this isle."
+"wer du", "was du", "wer ihr", "was ihr" -> "Ich bin %NPCNAME, der Wächter der Untoten auf dieser Insel."
+
+"guardian" -> "I don't know any guardian of the undead. Perhaps you'll meet one on Gobaith. But now hurry up, you've talked long enough. Move on, climb up the ladder and enter Findecano's castle."
+"h[uü]ter", "hueter" -> "Ich kenne keinen Hüter der Untoten. Aber vielleicht triffst du einen auf Gobaith. Aber jetzt spute dich, du hast schon lange genug geredet. Geh weiter, kletter die Leiter hoch und betrete das Schloss von Findecano."
+
+"guard" -> "I am a guard of the undead. It is my duty to ensure that both the living and the undead do not endanger the other group."
+"w[äa]chter", "waechter" -> "Ich bin ein Wächter der Untoten. Es ist meine Pflicht sicherzustellen, dass sowohl die Lebenden als auch die Untoten nicht die andere Gruppe gefährden."
+
+"creature" -> "Those creatures are undead."
+"kreatur" -> "Diese Kreaturen sind Untote."
+
+"undead" -> "I've trapped the undead in this cave. Mummies and skeletons. May Cherga release their souls."
+"untot" -> "Ich habe die Untoten in diese Höhle gesperrt. Mumien und Skelette. Möge Cherga ihre Seelen freigeben."
+
+"living" -> "The living should not disturb the undead. They are at a difficult stage on the way to Cherga's realm."
+"lebend" -> "Die Lebenden sollten die Untoten nicht stören. Sie sind in einem schwierigen Abschnitt auf dem Weg zu Chergas Reich."
+
+"cherga", "realm", english -> "Cherga is the Goddess of Spirits and the Underworld. Those undead probably still have to fulfill a certain task. Only then their souls will find peace."
+"cherga", "reich", german -> "Cherga ist die Göttin der Geister und der Unterwelt. Diese Untoten haben wahrscheinlich noch ein bestimmte Aufgabe zu erfüllen. Erst dann werden ihre Seelen Frieden finden."
+
+"soul", "peace" -> "These souls can only find peace when they have fulfilled their task."
+"seele", "friede" -> "Jene Seelen können nur Frieden finden, wenn sie ihre Aufgabe erledigt haben."
+
+"task" -> "I don't know what task they have to do. Usually only the Gods know this. However some chosen ones - the guardians of the undead - are told to help them. They might know more."
+"aufgabe" -> "Ich weiß nicht, was für eine Aufgabe sie erledigen müssen. Normalerweise wissen das nur die Götter. Jedoch sind einige Auserwählte - die Hüter der Untoten - damit beauftragt, ihnen zu helfen. Diese wissen möglicherweise mehr."
+
+"ladder" -> "Yes, climb up that ladder. Just step on it and you'll be on the other side of the ladder."
+"leiter" -> "Ja, kletter diese Leiter hoch. Tret einfach darauf und du wirst am anderen Ende der leiter sein."
+
+"findecano", "castle", english -> "Go to Findecano. He's waiting for you."
+"findecano", "schlo[sß]", german -> "Geh zu Findecano. Er wartet auf dich."
+
+cycletext "#me reibt sich die Hände.","#me rubs his hands."
+cycletext "#me schüttelt den Kopf 'Arme Kreaturen.'","#me shakes his head 'Poor creatures.'"
