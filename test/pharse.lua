@@ -1,9 +1,14 @@
 -- I_2786_ast.lua
 -- TESTSCRIPT FOR PHARSE!!!!!!!111
--- 
+--
+
+-- UPDATE common SET com_script = 'test.pharse' WHERE com_itemid = 2786;
+
 require("base.common")
 dofile ("base_patrol.lua");
 require("base.doors")
+
+module("test.pharse", package.seeall())
 
 wDoor = nil;
 wBridge = nil;

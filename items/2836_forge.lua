@@ -5,10 +5,12 @@
 -- Arbeitscyclus: 1s - 7s
 -- Zusätzliches Werkzeug: Zange mit Tiegel ( 2751 )
 
--- UPDATE common SET com_script='I_2836_esse_aus.lua' WHERE com_itemid IN (2835,2836);
+-- UPDATE common SET com_script='items.2836_forge' WHERE com_itemid IN (2835,2836);
 -- UPDATE common SET com_objectafterrot=2836 WHERE com_itemid = 2835;
 
 require("base.common")
+
+module("items.2836_forge", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     

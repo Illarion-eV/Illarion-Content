@@ -1,7 +1,11 @@
 -- I_2744_pfeife.lua
 --
 require("base.common")
-dofile( "base_lookat.lua" );
+require("items.general.wood")
+
+module("items.2744_pipe", package.seeall(), package.seeall(items.general.wood))
+
+-- UPDATE common SET com_script='items.2744_pipe' WHERE com_itemid = 2744;
 
 function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 

@@ -1,6 +1,9 @@
-dofile("quest_isItemIdInFieldStack.lua")
-dofile("base_wegweiser.lua");
+require("base.common")
 dofile("base_chardesc.lua");
+
+module("items.2874_mirror", package.seeall())
+
+-- UPDATE common SET com_script='items.2874_mirror' WHERE com_itemid = 2874;
 
 function init()
    lpos = position(-32,193,-8);
@@ -19,7 +22,7 @@ function LookAtItem( User, Item )
         else
             world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror");
         end
-        if ( not isItemIdInFieldStack( 35, lpos ) ) then
+        if ( not base.common.isItemIdInFieldStack( 35, lpos ) ) then
             world:createItemFromId( 35, 1, lpos, true, 999 ,0);
         end;
     else

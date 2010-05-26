@@ -1,7 +1,9 @@
--- update common set com_script='I_2830_kiste.lua' where com_itemid=2830;
+-- UPDATE common SET com_script='items.2830_chest' WHERE com_itemid=2830;
 
 require("base.common")
 require("base.treasure")
+
+module("items.2830_chest", package.seeall())
 
 function LookAtItem(User, Item)
     local TreasureName = base.treasure.GetTreasureName( Item.data, User:getPlayerLanguage(), false );

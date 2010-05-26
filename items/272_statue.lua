@@ -1,12 +1,13 @@
-dofile("quest_isItemIdInFieldStack.lua")
-dofile("quest_removeItemIdFromFieldStack.lua")
+require("base.common")
 
--- UPDATE common SET com_script='I_272_statue.lua' WHERE com_itemid=272;
+module("items.272_statue", package.seeall())
+
+-- UPDATE common SET com_script='items.272_statue' WHERE com_itemid=272;
 
 function UseItem( User, Item, TargetItem, counter, param )
     lang=User:getPlayerLanguage();
     if equapos(Item.pos,position(-28, 192, -9)) then
-        if ( not isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
+        if ( not base.common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
             if lang==0 then
                 User:inform("Während du vorsichtig die Statue abtastest öffnet sich plötzlich eine Luke in der Decke und eine hölzerne Leiter fährt herab.");
             else
@@ -19,7 +20,7 @@ function UseItem( User, Item, TargetItem, counter, param )
             else
                 User:inform("After touching the hidden switch again the ladder slides back into the ceiling and the batch closes again.");
             end
-            removeItemIdFromFieldStack( 35, position(-29, 195, -9) );
+            base.common.removeItemIdFromFieldStack( 35, position(-29, 195, -9) );
         end
     elseif equapos(Item.pos,position(-389,-218,2)) then
         if ((User:increaseAttrib("essence",0)+User:increaseAttrib("willpower",0)+User:increaseAttrib("intelligence",0))>29) then

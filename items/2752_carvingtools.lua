@@ -1,9 +1,11 @@
 -- Working with carving tools
 
--- UPDATE common SET com_script='I_2752_schnitzmesser_oop.lua' WHERE com_itemid IN (2752);
+-- UPDATE common SET com_script='items.2752_carvingtools' WHERE com_itemid IN (2752);
 
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("items.base.crafts")
+
+module("items.2752_carvingtools", package.seeall(), package.seeall(items.general.metal))
 
 -- Holzarbeiten mit dem Schnitzmesser
 function InitCraftingTool( )
@@ -356,7 +358,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         carpenter:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end

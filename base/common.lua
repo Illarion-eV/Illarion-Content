@@ -1186,3 +1186,59 @@ function map(ar, f)
     end
     return ar;
 end
+
+--[[
+    This is some strange method written by Vilarion. Its extremly inefficient,
+    very creepy and most likely totally buggy.
+    Usage is not adviced.
+--]]
+function isItemIdInFieldStack( id, pos )
+
+    local stack = {};
+    local i = -1;
+    local found = false;
+    local itm;
+    while( world:isItemOnField(pos) and (not found) ) do
+        itm = world:getItemOnField(pos);
+        if( itm.id == id ) then
+            found = true;
+        else
+            i = i + 1;
+            stack[i] = itm;
+            world:erase( itm, itm.number );
+        end;
+    end;
+    while( i >= 0 ) do
+        world:createItemFromItem( stack[i], pos, true );
+        i = i - 1;
+    end;
+    return found;
+end
+
+--[[
+    This is some strange method written by Vilarion. Its extremly inefficient,
+    very creepy and most likely totally buggy.
+    Usage is not adviced.
+--]]
+function removeItemIdFromFieldStack( id, pos )
+
+    local stack = {};
+    local i = -1;
+    local found = false;
+    local itm;
+    while( world:isItemOnField(pos) and (not found) ) do
+        itm = world:getItemOnField(pos);
+        if( itm.id == id ) then
+            found = true;
+        else
+            i = i + 1;
+            stack[i] = itm;
+        end;
+        world:erase( itm, itm.number );
+    end;
+    while( i >= 0 ) do
+        world:createItemFromItem( stack[i], pos, true );
+        i = i - 1;
+    end;
+
+end

@@ -1,6 +1,6 @@
 -- mining mit Spitzhacke
 
--- UPDATE common SET com_script='I_2763_spitzhacke.lua' WHERE com_itemid=2763;
+-- UPDATE common SET com_script='items.2763_pickaxe' WHERE com_itemid=2763;
 
 -- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1246 WHERE com_itemid = 1246;
 -- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1246 WHERE com_itemid = 915;
@@ -23,9 +23,11 @@
 -- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE com_itemid = 1250;
 -- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE com_itemid = 1251;
 
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("base.common")
 require("base.treasure")
+
+module("items.2763_pickaxe", package.seeall(), package.seeall(items.general.metal))
 
 function Init()
     if InitDone then
@@ -496,10 +498,6 @@ function UseItemWithCharacter(User,SourceItem,TargetChar,counter,param)
     base.common.InformNLS(User,
     "Eine Spitzhacke ist nicht so sehr als Waffe geeignet.",
     "You shouldn't use a pick-axe as a weapon.");
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
 end
 
 -- Arbeitszeit generieren
