@@ -8,7 +8,7 @@
 --Last Update: 05.12.07 
 --Update by:   Kadiya
 
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 
 
 function useNPC(user,counter,param)

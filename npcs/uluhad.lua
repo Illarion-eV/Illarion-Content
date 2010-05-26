@@ -1,5 +1,5 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,1,1,0,4,false,'Uluhad','npc_uluhad.lua',0);
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 
 function buyIn( amount )
     User:setQuestProgress(playerBuyInID, User:getQuestProgress(playerBuyInID)+amount);

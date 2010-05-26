@@ -1,5 +1,5 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,-102, -71, 0 ,0,false,'Athan Denam','npc_athan_denam.lua',0);
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");

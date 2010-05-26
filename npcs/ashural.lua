@@ -1,5 +1,5 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,,,,0,false,'Flora','npc_flora.lua',1);
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -10,7 +10,7 @@
 
 --	dofile("npc_nanginis_nargunpriest.lua");
 require("base.common")
-dofile("npc_autonpcfunctions.lua") --für die Funktion npcs.base.autonpcfunctions.increaseLangSkill
+require("npcs.base.autonpcfunctions") --für die Funktion npcs.base.autonpcfunctions.increaseLangSkill
 
 function nextCycle()
 end

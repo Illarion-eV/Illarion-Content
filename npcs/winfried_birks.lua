@@ -7,7 +7,7 @@
 --Create       1.1.2009 by Dronrul
 
 
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 require("base.common")
 
 

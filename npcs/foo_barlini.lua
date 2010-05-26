@@ -8,7 +8,7 @@
 --Update by:   Kadiya
 
 require("npcs.base.functions")
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 dofile("m_basics.lua");
 
 function useNPC(user,counter,param)

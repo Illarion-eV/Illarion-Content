@@ -1,4 +1,4 @@
-dofile("npc_autonpcfunctions.lua")
+require("npcs.base.autonpcfunctions")
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");

@@ -1,4 +1,4 @@
-dofile( "base_walking.lua" );
+require( "npcs.base.walking" );
 
 function nextCycle()
     if not slowdown then
@@ -9,6 +9,6 @@ function nextCycle()
     slowdown = slowdown + 1;
     if slowdown == 9 then
         slowdown = 0;
-        BW_StepAlongRoad( thisNPC );
+        npcs.base.walking.BW_StepAlongRoad( thisNPC );
     end        
 end
