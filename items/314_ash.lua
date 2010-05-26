@@ -1,5 +1,8 @@
 require("base.common")
 
+module("items.314_ash", package.seeall())
+
+-- UPDATE common SET com_script='items.314_ash' WHERE com_itemid = 314;
 
 function LookAtItem(User,Item)
 

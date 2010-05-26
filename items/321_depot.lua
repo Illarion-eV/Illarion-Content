@@ -1,6 +1,8 @@
 -- Depots
 
--- UPDATE common SET com_script='I_321_depot.lua' WHERE com_itemid=321;
+-- UPDATE common SET com_script='items.321_depot' WHERE com_itemid=321;
+
+module("items.321_depot", package.seeall())
 
 function LookAtItem(User,Item)
     local lang = User:getPlayerLanguage();

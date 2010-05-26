@@ -1,3 +1,7 @@
+module("items.316_sand", package.seeall())
+
+-- UPDATE common SET com_script='items.316_sand' WHERE com_itemid = 316;
+
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     deleteIt=false;
     GroundItem=world:getItemOnField(TargetItem.pos);

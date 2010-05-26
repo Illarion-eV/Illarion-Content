@@ -8,9 +8,11 @@
 -- Zusätzliches Werkzeug: Glasblasrohr ( 311 )
 -- Zusätzliches Werkzeug: Ziegelform ( 734 )
 
--- UPDATE common SET com_script='I_313_glasschmelzofen.lua' WHERE com_itemid IN (313);
+-- UPDATE common SET com_script='items.313_glassmeltoven' WHERE com_itemid IN (313);
 
 require("base.common")
+
+module("items.313_glassmeltoven", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
