@@ -3,8 +3,10 @@
 --Task: Offers big orders for goldsmithing and baking/cooking
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
-module("npcs.rilonna", package.seeall("npc.base.orders"))
-require("npcs.base.autonpcfunctions")
+require("npc.base.orders");
+require("npcs.base.autonpcfunctions");
+module("npcs.rilonna", package.seeall(npc.base.orders));
+
 
 function init()
     rilonna_init = true;

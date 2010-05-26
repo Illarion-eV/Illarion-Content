@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,787,795,0,4,false,'Bippi','npc_bippi_aquest28.lua',0);
 
 require("npcs.base.autonpcfunctions")
-dofile("quest_aquest28.lua");    --the quest file
+require("quest_aquest28");    --the quest file
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

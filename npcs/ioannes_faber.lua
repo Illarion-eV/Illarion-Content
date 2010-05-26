@@ -3,9 +3,10 @@
 --Task: Offers big orders for Glassblowing and finesmithing
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
+require("npc.base.orders");
+require("npcs.base.autonpcfunctions");
+module("npcs.ioannes_faber", package.seeall(npc.base.orders));
 
-module("npcs.ioannes_faber", package.seeall("npc.base.orders"))
-require("npcs.base.autonpcfunctions")
 
 function init()
     teran_init = true;

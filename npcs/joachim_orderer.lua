@@ -50,8 +50,8 @@ function useNPC(user,counter,param)
 end
 	]]--
 	
-	
-module("npcs.joachim_orderer", package.seeall("npc.base.orders"))
+require("npc.base.orders");
+module("npcs.joachim_orderer", package.seeall(npc.base.orders))
 
 function init()
     joachim_init = true;
