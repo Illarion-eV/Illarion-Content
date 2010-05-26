@@ -2,7 +2,7 @@
 --775,793,0
 --Mjilka
 require("npcs.base.autonpcfunctions")
-dofile("quest_aquest28.lua");    --the quest file
+require("quest_aquest28");    --the quest file
 
 function InitNPC()
     if not InitDone then
@@ -16,23 +16,23 @@ function InitNPC()
     	thisNPC.activeLanguage=0;
     	
                   --comb, water bucket, lute ,   nothing,bundle of grain, big empty bottle         
-        itemlist = getTaskItems();
+        itemlist = quest_aquest28.getTaskItems();
        -- npc_names = { "Betsy", "Mjilka", "Cheeseball"};
     end
 end 
 
 function useNPC(originator,Counter,Param)
   	User = getCharForId(originator.id);  --create a save copy of the char struct
-	Cow_useNPC(User, Counter, Param);
+	quest_aquest28.Cow_useNPC(User, Counter, Param);
 end
 
 
 function receiveText(texttype, message, originator)
-	Cow_receiveText(texttype,message,originator);
+	quest_aquest28.Cow_receiveText(texttype,message,originator);
 end
 
 function nextCycle()
     InitNPC();
 
-    Cow_NextCycle(User);
+    quest_aquest28.Cow_NextCycle(User);
 end

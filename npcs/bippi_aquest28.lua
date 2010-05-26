@@ -156,7 +156,7 @@ function receiveText(texttype, message, originator)
                 cowrnd = math.random(3); --choose cow by random
 				local task = 1; local cow = cowrnd; local counter = 6;
 
-				glue_questdata(originator, cow, task, counter);
+				quest_aquest28.glue_questdata(originator, cow, task, counter);
     			NPCStatus[originator.id] = 0;
     			originator:setQuestProgress(28, 1);
     			--------------------------------
@@ -176,7 +176,7 @@ function receiveText(texttype, message, originator)
 				base.common.TempInformNLS(originator, gText,eText);
 			elseif ((string.find(message,"[Hh]inweis")~=nil or string.find(message,"[Hh]int")~=nil) and originator:getQuestProgress(28)>0) then
 				-- GIVE A HINT TO THE TASK
-				dummy1, task = split_questdata(originator);
+				dummy1, task = quest_aquest28.split_questdata(originator);
 
 				dummy1,dummy2,gText,eText = TaskText(task);
 		        outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
@@ -184,13 +184,13 @@ function receiveText(texttype, message, originator)
 			elseif ((string.find(message,"[Aa]ufgabe")~=nil or string.find(message,"[Tt]ask")~=nil) and originator:getQuestProgress(28)>0) then
 
 				aquest28Effect = User.effects:find(32); -- does effect #32 already exist?
-				local dummy_1, noTaskYet= split_questdata(originator); 
+				local dummy_1, noTaskYet= quest_aquest28.split_questdata(originator); 
 				if (aquest28Effect == false and noTaskYet == 0) then --time delay of 1 day is finished, creat new task
-					chooseTask(originator);
+					quest_aquest28.chooseTask(originator);
 				end
 
 				-- TELL the TASK TO DO
-				dummy1, task = split_questdata(originator);
+				dummy1, task = quest_aquest28.split_questdata(originator);
 				
 				gText,eText = TaskText(task);
 		        outText=base.common.npcs.base.npcautofunction.GetNLS(User,gText,eText);
