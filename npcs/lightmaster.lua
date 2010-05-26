@@ -1,5 +1,5 @@
 require("npcs.base.functions")
-dofile ("base_guards.lua");
+require("npcs.base.guards");
 
 Waypoint:new(position(122,604,0),1);
 Waypoint:new(position(130,604,0),1);
@@ -123,7 +123,7 @@ function nextCycle()  -- ~10 times per second
 		action = false;
         npcs.base.functions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
-		BG_StartGuard(thisNPC);
+		npcs.base.guards.BG_StartGuard(thisNPC);
 		thisNPC:setAttrib("agility",15);
 		thisNPC:createAtPos(5,392,1);
 		local torch = thisNPC:getItemAt(5);
@@ -156,13 +156,13 @@ function receiveText(texttype, message, originator)
 end
 
 function abortRoute(theNPC)
-	BG_AbortRoute(theNPC);
+	npcs.base.guards.BG_AbortRoute(theNPC);
 end
 
 function characterOnSight(npc,enemy)
-	BG_CharacterOnSight(npc,enemy);
+	npcs.base.guards.BG_CharacterOnSight(npc,enemy);
 end
 
 function characterNear(npc,enemy)
-	BG_CharacterNear(npc,enemy);
+	npcs.base.guards.BG_CharacterNear(npc,enemy);
 end
