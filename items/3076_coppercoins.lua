@@ -1,5 +1,7 @@
---UPDATE common SET com_script='I_3076_kupferstuecke.lua' WHERE com_itemid=3076;
+--UPDATE common SET com_script='items.3076_coppercoins' WHERE com_itemid=3076;
 require("base.common")
+
+module("items.3076_coppercoins", package.seeall())
 
 if not InitTime then
 	InitTime=true;

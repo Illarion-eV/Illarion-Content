@@ -1,6 +1,11 @@
 require("base.common")
-dofile("base_factions.lua");
-dofile("base_orders.lua");
+require("base.orders")
+require("base.factions")
+
+module("items.3110_scroll", package.seeall(), package.seeall(base.orders), package.seeall(base.factions))
+
+-- UPDATE common SET com_script = 'items.3110_scroll' WHERE com_itemid = 3110;
+
 function LookAtItem(User,Item)
     --abarbeitung der Aufträge
     local order = Order:fromItem(Item);

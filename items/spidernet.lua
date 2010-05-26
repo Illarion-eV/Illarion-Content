@@ -3,7 +3,9 @@
 
 -- Removed the freeze function, because it was just annoying. ~Blay09
 
--- UPDATE common SET com_script='I_3093_spidernet.lua' WHERE com_itemid IN (3093,3094,3095,3096);
+-- UPDATE common SET com_script='items.spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
+
+module("items.spidernet", package.seeall())
 
 function CharacterOnField(User)
     --User:inform("Los");

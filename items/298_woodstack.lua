@@ -2,6 +2,10 @@
 
 require("base.common")
 
+module("items.298_woodstack", package.seeall())
+
+-- UPDATE common SET com_script='items.298_woodstack' WHERE com_itemid IN (298);
+
 function callFireMan(User, fireItem)
 
     --User:inform("checking NPC");

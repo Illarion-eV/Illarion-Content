@@ -1,9 +1,11 @@
 -- Glas Produkte Herstellen
 
--- UPDATE common SET com_script='I_311_glasblasrohr_oop.lua' WHERE com_itemid=311;
+-- UPDATE common SET com_script='items.311_glassblowpipe' WHERE com_itemid=311;
 
-dofile( "base_lookat.lua" );
+require("base.general.metal")
 require("items.base.crafts")
+
+module("items.311_glassblowpipe", package.seeall(), package.seeall(base.general.metal))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
@@ -127,7 +129,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         Glassblowing:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end

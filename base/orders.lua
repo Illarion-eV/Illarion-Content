@@ -1,5 +1,8 @@
 require("base.common")
-dofile("base_factions.lua");
+require("base.factions")
+
+module("base.orders", package.seeall(), package.seeall(base.factions))
+
 --Welches Item ist ein Auftrag (Schriftrolle)
 OrderItem = 3110;
 

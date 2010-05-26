@@ -8,9 +8,11 @@
 --
 -- Arbeitscyclus: 2s - 5s
 
--- UPDATE common SET com_script='I_305_raeucherofenvoll.lua' WHERE com_itemid IN (305,304);
+-- UPDATE common SET com_script='items.305_smokingoven' WHERE com_itemid IN (305,304);
 
 require("base.common")
+
+module("items.305_smokingoven", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate )

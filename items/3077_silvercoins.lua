@@ -1,5 +1,9 @@
 require("base.common")
 
+module("items.3077_silvercoins", package.seeall())
+
+-- UPDATE common SET com_script='items.3077_silvercoins' WHERE com_itemid IN (3077);
+
 if not InitTime then
 	InitTime=true;
 	TimeList = {};

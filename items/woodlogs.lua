@@ -1,8 +1,10 @@
 -- Holz Aufstapeln
 
--- UPDATE common SET com_script='I_3_2560_holz_stapeln.lua' WHERE com_itemid IN (3,543,544,2560);
+-- UPDATE common SET com_script='items.woodlogs' WHERE com_itemid IN (3,543,544,2560);
 
 require("base.common")
+
+module("items.woodlogs", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if (SourceItem:getType()~=3) then

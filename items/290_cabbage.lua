@@ -1,6 +1,8 @@
 -- Kohlbewegungsscript
 
--- UPDATE common SET com_script='I_290_kohl.lua' WHERE com_itemid IN (290); 
+-- UPDATE common SET com_script='items.290_cabbage' WHERE com_itemid IN (290);
+
+module("items.290_cabbage", package.seeall())
 
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     if (SourceItem.data > 0) then

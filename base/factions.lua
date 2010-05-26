@@ -1,6 +1,8 @@
 require("base.common")
 --THE EDITABLE PART FOR NEW TOWNS OR GUILDS IS SOME LINES BELOW
 
+module("base.factions", package.seeall())
+
 function InitFactionLists()
    
 	--Lists for Functions--

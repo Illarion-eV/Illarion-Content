@@ -1,5 +1,8 @@
 require("base.common")
 
+-- UPDATE common SET com_script='items.3105_bookrest' WHERE com_itemid = 3105;
+
+module("items.3105_bookrest", package.seeall())
 
 function LookAtItem(User,Item)
 	if (Item.data == 666) then

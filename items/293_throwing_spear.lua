@@ -1,6 +1,8 @@
--- UPDATE common SET com_script='I_293_throwing_spear.lua' WHERE com_itemid IN (293);
+-- UPDATE common SET com_script='items.293_throwing_spear' WHERE com_itemid IN (293);
 
 dofile( "base_lookat.lua" );
+
+module("items.293_throwing_spear", package.seeall())
 
 function LookAtItem(User, Item)
 	
