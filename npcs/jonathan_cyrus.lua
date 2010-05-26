@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,113,599,0,4,false,'Jonathan Cyrus','npc_jonathan_cyrus.lua',0);
 
 require("npcs.base.autonpcfunctions")
-dofile("quest_mineth.lua"); --addition for the Tailor Quest
+require("quest_mineth"); --addition for the Tailor Quest
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
@@ -327,7 +327,7 @@ function receiveText(texttype, message, originator)
 					eText = "Because Mineth sends you, I have the following riddle for the coat of arms for you:";
 					outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText); npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 					
-                    gText,eText = chooseSentence(originator,1);                    -- tell Riddle Text
+                    gText,eText = quest_mineth.chooseSentence(originator,1);                    -- tell Riddle Text
 					outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText); npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 					 
 					gText = "Es könnte hilfreich sein ihn zu fragen wer die anderen beiden 'Mitglieder' der Trader Company-Gilde sind.";

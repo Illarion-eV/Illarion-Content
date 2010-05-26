@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,740,400,200,0,false,'Mineth','npc_mineth.lua',1);
 
 require("npcs.base.autonpcfunctions")
-dofile("quest_mineth.lua");
+require("quest_mineth");
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
@@ -287,7 +287,7 @@ function QuestTrigger(originator, message)
 	if standardAnswer(message,1) and NPCStatus[originator.id] ==1 then
 		if originator:getQuestProgress(62) == 0 then
 			NPCStatus[originator.id]=0;
-			createQuestID(originator);
+			quest_mineth.createQuestID(originator);
 			gText="Vielen vielen Dank. Ich muss wissen wie das Wappen aussehen soll...die Form, Farbe, das Symbol und die Anzahl an Symbolen.";
 			eText="Many many thanks. I need to know how the coat of arms  shall look like...the shape, color, the symbol and the number of symbols that shall be embroidered.";
 			outText=base.common.npcs.base.npcautofunction.GetNLS(originator,gText,eText); npcs.base.autonpcfunctions.NPCTalking(thisNPC,outText);
@@ -314,7 +314,7 @@ end
 --checks if User has Items for QUEST 2
 function checkTheItems(originator,message)
 	
-	local questdata = split_questdata(originator);
+	local questdata = quest_mineth.split_questdata(originator);
 			--questdata[2], questdata[3],questdata[4],questdata[5]
 			--red cloth,    black cloth, yellow cloth, needle
 	ItemList = {	174,		175,	 	 177,		   47};
@@ -391,7 +391,7 @@ function checkBannerSentence(originator,message)
 	message = string.gsub (message, "ue" , "ü");
 	message = string.gsub (message, "ae" , "ä");
 	message = string.gsub (message, "oe" , "ö");
-	data = split_questdata(originator);
+	data = quest_mineth.split_questdata(originator);
 	--lang = originator:getPlayerLanguage();
 
 	local checksum = 0;
