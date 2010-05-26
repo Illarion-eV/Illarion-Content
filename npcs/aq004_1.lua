@@ -7,7 +7,7 @@
 --Last Update: 12/19/2005
 --Update by:   Markous
 
-dofile("npc_functions_RS.lua")
+require("npcs.base.functions_RS")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -23,32 +23,32 @@ function initializeNpc()
     thisNPC:increaseSkill(1,"common language",100);
     TraderFirst=1;
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
-    AddTraderTrigger("[Gg]reetings","Greetings! Finally, someone came here to help me!");
-    AddTraderTrigger("[Gg]r[uü][sß]+","Hallo! Endlich jemand, der hierherkommt, um mir zu helfen!");
-    AddTraderTrigger("[Hh]ello","Greetings! Finally, someone came here to help me!");
-    AddTraderTrigger("[Hh]allo","Hallo! Endlich jemand, der hierherkommt, um mir zu helfen!");
-    AddTraderTrigger("[Ww]ho.+you","My Name? That doesn't matter. I'm a hermit, and I need your help!");
-    AddTraderTrigger("[Ww]er.+du","Mein Name? Der ist egal. Ich lebe hier als Eremit, und ich brauche deine Hilfe!");
-    AddTraderTrigger("[Ww]er.+ihr","Mein Name? Der ist egal. Ich lebe hier als Eremit, und ich brauche deine Hilfe!");
-    AddTraderTrigger("[Hh]ermit","Yes, I'm a hermit. I came here long ago, but I'm sick of apples and cherries all day. You need to help me!");
-    AddTraderTrigger("[Ee]remit","Ja, ich bin ein Eremit. Ich kam vor langer Zeit hierher, aber jetzt bin ich es leid, immer nur Äpfel und Kirschen zu essen. Hilf mir!");
-    AddTraderTrigger("[Pp]roblem","Well, all I can eat here are apples and cherries! I'm sick of that! Please bring me some aid! I need conifer wood, raw meat and a nice trout! If you're nice, and help, I'll tell you a secret.");
-    AddTraderTrigger("[Hh]elp","Well, all I can eat here are apples and cherries! I'm sick of that! Please bring me some aid! I need conifer wood, raw meat and a nice trout! If you're nice, and help, I'll tell you a secret.");
-    AddTraderTrigger("[Pp]roblem","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
-    AddTraderTrigger("[Hh]ilfe","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
-    AddTraderTrigger("[Hh]elfen","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
-    AddTraderTrigger("[Aa]pple+","Bah! I hate apples!");
-    AddTraderTrigger("[Cc]herrie+","Bah! I hate cherries!");
-    AddTraderTrigger("[ÄäAa]pfel","Igitt! Ich hasse Äpfel!");
-    AddTraderTrigger("[Kk]irsche+","Igitt! Ich hasse Kirschen!");
-    AddTraderTrigger("[Tt]rout","A trout would help me for sure.");
-    AddTraderTrigger("[Mm]eat","Mmm. Some nice meat would be fine.");
-    AddTraderTrigger("[Ww]ood","I need some wood to make a nice fire. So bring me some!");
-    AddTraderTrigger("[Ff]orelle","Eine gute Forelle würde mich sicher satt machen.");
-    AddTraderTrigger("[Ss]chweinefleisch","Rohes Schweinefleisch ist genau das, was ich jetzt brauche!");
-    AddTraderTrigger("[Ff]leisch","Rohes Schweinefleisch ist genau das, was ich jetzt brauche!");
-    AddTraderTrigger("[Nn]adelholz","Ich brauche Holz, damit mir warm wird. Also bring mir welches!");
-    AddTraderTrigger("[Hh]olz","Ich brauche Holz, damit mir warm wird. Also bring mir welches!");
+    npcs.base.functions_RS.AddTraderTrigger("[Gg]reetings","Greetings! Finally, someone came here to help me!");
+    npcs.base.functions_RS.AddTraderTrigger("[Gg]r[uü][sß]+","Hallo! Endlich jemand, der hierherkommt, um mir zu helfen!");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]ello","Greetings! Finally, someone came here to help me!");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]allo","Hallo! Endlich jemand, der hierherkommt, um mir zu helfen!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ww]ho.+you","My Name? That doesn't matter. I'm a hermit, and I need your help!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ww]er.+du","Mein Name? Der ist egal. Ich lebe hier als Eremit, und ich brauche deine Hilfe!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ww]er.+ihr","Mein Name? Der ist egal. Ich lebe hier als Eremit, und ich brauche deine Hilfe!");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]ermit","Yes, I'm a hermit. I came here long ago, but I'm sick of apples and cherries all day. You need to help me!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ee]remit","Ja, ich bin ein Eremit. Ich kam vor langer Zeit hierher, aber jetzt bin ich es leid, immer nur Äpfel und Kirschen zu essen. Hilf mir!");
+    npcs.base.functions_RS.AddTraderTrigger("[Pp]roblem","Well, all I can eat here are apples and cherries! I'm sick of that! Please bring me some aid! I need conifer wood, raw meat and a nice trout! If you're nice, and help, I'll tell you a secret.");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]elp","Well, all I can eat here are apples and cherries! I'm sick of that! Please bring me some aid! I need conifer wood, raw meat and a nice trout! If you're nice, and help, I'll tell you a secret.");
+    npcs.base.functions_RS.AddTraderTrigger("[Pp]roblem","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]ilfe","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]elfen","Nun, alles, was es hier zu essen gibt, sind diese verdammten Äpfel und Kirschen. Das macht mich krank! Bitte bring mit ein paar Hilfsmittel! Ich brauche Nadelholz, rohes Fleisch und eine leckere Forelle. Wenn du mir hilfst, erzähl' ich dir ein Geheimnis.");
+    npcs.base.functions_RS.AddTraderTrigger("[Aa]pple+","Bah! I hate apples!");
+    npcs.base.functions_RS.AddTraderTrigger("[Cc]herrie+","Bah! I hate cherries!");
+    npcs.base.functions_RS.AddTraderTrigger("[ÄäAa]pfel","Igitt! Ich hasse Äpfel!");
+    npcs.base.functions_RS.AddTraderTrigger("[Kk]irsche+","Igitt! Ich hasse Kirschen!");
+    npcs.base.functions_RS.AddTraderTrigger("[Tt]rout","A trout would help me for sure.");
+    npcs.base.functions_RS.AddTraderTrigger("[Mm]eat","Mmm. Some nice meat would be fine.");
+    npcs.base.functions_RS.AddTraderTrigger("[Ww]ood","I need some wood to make a nice fire. So bring me some!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ff]orelle","Eine gute Forelle würde mich sicher satt machen.");
+    npcs.base.functions_RS.AddTraderTrigger("[Ss]chweinefleisch","Rohes Schweinefleisch ist genau das, was ich jetzt brauche!");
+    npcs.base.functions_RS.AddTraderTrigger("[Ff]leisch","Rohes Schweinefleisch ist genau das, was ich jetzt brauche!");
+    npcs.base.functions_RS.AddTraderTrigger("[Nn]adelholz","Ich brauche Holz, damit mir warm wird. Also bring mir welches!");
+    npcs.base.functions_RS.AddTraderTrigger("[Hh]olz","Ich brauche Holz, damit mir warm wird. Also bring mir welches!");
       
     TradSpeakLang={0,1};
     --common language=0
@@ -92,7 +92,7 @@ function receiveText(texttype, message, originator)
         initializeNpc();
         TraderFirst=1;
         --TalkToId=originator.id;
-        increaseLangSkill(thisNPC,TradSpeakLang)
+        npcs.base.functions_RS.increaseLangSkill(thisNPC,TradSpeakLang)
     end
     local gText="";
     local eText="";
@@ -102,7 +102,7 @@ function receiveText(texttype, message, originator)
             if (LangOK(originator,TradSpeakLang)==true) then
                 thisNPC.activeLanguage=originator.activeLanguage;
                 Status=Abgeben(originator,message);
-                if (Status==0) then TellSmallTalk(message) end
+                if (Status==0) then npcs.base.functions_RS.TellSmallTalk(message) end
 
                 -------------------------------------------------------------------------
 
