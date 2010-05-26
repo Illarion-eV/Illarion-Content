@@ -9,7 +9,7 @@
 
 require("npcs.base.functions")
 require("npcs.base.autonpcfunctions")
-dofile("m_basics.lua");
+require("magic.base.basics");
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
