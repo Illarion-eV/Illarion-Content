@@ -2,8 +2,9 @@
 
 -- Route: Hafen - Greenbriar
 
-dofile("base_ships.lua");
+require("npcs.base.ships");
 require("npcs.base.functions");
+module("npcs.blackbeard", package.seeall(npcs.base.ships));
 
 -- Insert Statements für Nötige NPCs
 -- INSERT INTO npc VALUES (1000,2,-401,-489,0,0,'f','Ship NPC',NULL,0);

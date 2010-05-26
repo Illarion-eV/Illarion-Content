@@ -1,5 +1,5 @@
 require("game_poker")
-module("npcs.poker", seeall(game_poker))
+module("npcs.poker", package.seeall(game_poker))
 
 function npcInit(npcDealer)
     if not isInit then

@@ -1,5 +1,5 @@
 require( "game_carddeck" );
-module("game_poker", seeall(game_carddeck))
+module("game_poker", package.seeall(game_carddeck))
 
 function newPokerTable( 
                         npcDealer,           -- Dealer npc
