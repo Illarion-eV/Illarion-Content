@@ -1,4 +1,4 @@
-dofile("npc_lightmaster.lua");
+require("npcs.lightmaster");
 
 WaypointList[1] = {}; -- Troll's Bane
 WaitingList[1] = {}; -- Troll's Bane
@@ -42,19 +42,19 @@ function InitializeNpc()
 end
 
 function useNPC(user,counter,param)
-	LM_useNPC(user,counter,param);
+	npcs.lightmaster.LM_useNPC(user,counter,param);
 end
 
 function nextCycle()
-	LM_nextCycle();
+	npcs.lightmaster.LM_nextCycle();
 end
 
 function receiveText(texttype, message, originator)
-	LM_receiveText(texttype, message, originator);
+	npcs.lightmaster.LM_receiveText(texttype, message, originator);
 end
 
 function lookAtNpc(Char, mode)
-	LM_lookAtNpc(Char, mode);
+	npcs.lightmaster.LM_lookAtNpc(Char, mode);
 end
 
 function Invoke(event,args)
