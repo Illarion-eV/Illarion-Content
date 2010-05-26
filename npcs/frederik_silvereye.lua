@@ -6,7 +6,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,404,263,201,4,false,'Frederik Silvereye','npc_frederik_silvereye.lua',0);
 
 require("npcs.base.autonpcfunctions")
-dofile("npc_trader_functions.lua");
+require("npcs.base.trader_functions");
 
 
 function useNPC(user,counter,param)

@@ -7,7 +7,7 @@
 --Last Update: 08/03/2008
 --Update by:   Lennier
 
-dofile("npc_trader_functions.lua")
+require("npcs.base.trader_functions")
 require("npcs.base.functions")
 
 function useNPC(user,counter,param)
@@ -19,37 +19,37 @@ end
 
 function initializeNpc()
     npcs.base.functions.InitTalkLists()
-    InitItemLists()
+    npcs.base.trader_functions.InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:increaseSkill(6,"halfling language",100);
 --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
     --            EPr ,ID  ,Am,SPr,SA,Qual  ,Dura   ,Data,Catagory
 
-    ------------Selling of potions and dyes
-	AddTraderItem(50  ,2680 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- blue dye
-    AddTraderItem(30  ,2681 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- red dye
-    AddTraderItem(30  ,2682 ,50,0  ,50,{3}  ,{33},0   ,0       ); -- yellow dye
-    AddTraderItem(30  ,2679 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- green dye
-    AddTraderItem(30  ,2678 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- black dye
-    AddTraderItem(30  ,2683 ,50,0  ,50,{5}  ,{33},0   ,0       ); -- grey dye
-    AddTraderItem(50  ,58   ,50,0  ,50,{5,7},{77,90},0,0       ); -- mortar
-    AddTraderItem(50  ,2781 ,50,5  ,50,{5,7},{77,90},0,0       ); -- stirring rod
-    ---------Buying of ressources for potions and dyes
-    AddTraderItem(0   ,51   ,200 ,2  ,30,{5} ,{55},0   ,0       ); -- empty bucket
-    AddTraderItem(0   ,253  ,200 ,10 ,50,{5} ,{55},0   ,0       ); -- raw bluestone
-    AddTraderItem(0   ,21   ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- coal
-    AddTraderItem(0   ,136  ,200 ,1  ,50,{3} ,{33},0   ,0       ); -- angerberries
-    AddTraderItem(0   ,157  ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- rotten bark
-    AddTraderItem(0   ,161  ,200,1  ,50,{5} ,{55},0   ,0       ); -- herder mushroom
-    AddTraderItem(10  ,148  ,200,1  ,50,{3} ,{33},0   ,0       ); -- firnis blossom
-    AddTraderItem(10  ,153  ,200,1  ,50,{3} ,{33},0   ,0       ); -- foot leaf
-    AddTraderItem(10  ,133  ,200,1  ,50,{3} ,{33},0   ,0       ); -- sun herb
-    AddTraderItem(10  ,144  ,200,1  ,50,{3} ,{33},0   ,0       ); -- virgins weed
-    AddTraderItem(10  ,145  ,200,1  ,50,{3} ,{33},0   ,0       ); -- heat flower
-    AddTraderItem(10  ,155  ,200,1  ,50,{3} ,{33},0   ,0       ); -- sibanac leaf
-    AddTraderItem(15  ,178  ,200,1  ,50,{3} ,{33},0   ,0       ); -- white cloth/bandage
-    AddTraderItem(60  ,2744 ,50 ,5  ,10,{3} ,{33},0   ,0       ); -- pipe
+    ------------npcs.base.trader_functions.Selling of potions and dyes
+	npcs.base.trader_functions.AddTraderItem(50  ,2680 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- blue dye
+    npcs.base.trader_functions.AddTraderItem(30  ,2681 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- red dye
+    npcs.base.trader_functions.AddTraderItem(30  ,2682 ,50,0  ,50,{3}  ,{33},0   ,0       ); -- yellow dye
+    npcs.base.trader_functions.AddTraderItem(30  ,2679 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- green dye
+    npcs.base.trader_functions.AddTraderItem(30  ,2678 ,50,0  ,50,{5}  ,{55},0   ,0       ); -- black dye
+    npcs.base.trader_functions.AddTraderItem(30  ,2683 ,50,0  ,50,{5}  ,{33},0   ,0       ); -- grey dye
+    npcs.base.trader_functions.AddTraderItem(50  ,58   ,50,0  ,50,{5,7},{77,90},0,0       ); -- mortar
+    npcs.base.trader_functions.AddTraderItem(50  ,2781 ,50,5  ,50,{5,7},{77,90},0,0       ); -- stirring rod
+    ---------npcs.base.trader_functions.Buying of ressources for potions and dyes
+    npcs.base.trader_functions.AddTraderItem(0   ,51   ,200 ,2  ,30,{5} ,{55},0   ,0       ); -- empty bucket
+    npcs.base.trader_functions.AddTraderItem(0   ,253  ,200 ,10 ,50,{5} ,{55},0   ,0       ); -- raw bluestone
+    npcs.base.trader_functions.AddTraderItem(0   ,21   ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- coal
+    npcs.base.trader_functions.AddTraderItem(0   ,136  ,200 ,1  ,50,{3} ,{33},0   ,0       ); -- angerberries
+    npcs.base.trader_functions.AddTraderItem(0   ,157  ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- rotten bark
+    npcs.base.trader_functions.AddTraderItem(0   ,161  ,200,1  ,50,{5} ,{55},0   ,0       ); -- herder mushroom
+    npcs.base.trader_functions.AddTraderItem(10  ,148  ,200,1  ,50,{3} ,{33},0   ,0       ); -- firnis blossom
+    npcs.base.trader_functions.AddTraderItem(10  ,153  ,200,1  ,50,{3} ,{33},0   ,0       ); -- foot leaf
+    npcs.base.trader_functions.AddTraderItem(10  ,133  ,200,1  ,50,{3} ,{33},0   ,0       ); -- sun herb
+    npcs.base.trader_functions.AddTraderItem(10  ,144  ,200,1  ,50,{3} ,{33},0   ,0       ); -- virgins weed
+    npcs.base.trader_functions.AddTraderItem(10  ,145  ,200,1  ,50,{3} ,{33},0   ,0       ); -- heat flower
+    npcs.base.trader_functions.AddTraderItem(10  ,155  ,200,1  ,50,{3} ,{33},0   ,0       ); -- sibanac leaf
+    npcs.base.trader_functions.AddTraderItem(15  ,178  ,200,1  ,50,{3} ,{33},0   ,0       ); -- white cloth/bandage
+    npcs.base.trader_functions.AddTraderItem(60  ,2744 ,50 ,5  ,10,{3} ,{33},0   ,0       ); -- pipe
 
     TraderCopper=5000;
 
@@ -121,7 +121,7 @@ function nextCycle()  -- ~10 times per second
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
-    TraderCycle();
+    npcs.base.trader_functions.TraderCycle();
     npcs.base.functions.SpeakerCycle();
 end
 
@@ -129,18 +129,18 @@ function receiveText(texttype, message, originator)
     if npcs.base.functions.BasicNPCChecks(originator,2) then
         if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
-            Status,Values=SayPriceSell(originator, message)
-            if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
-            if (Status==0) then Status,Values=ShowItemList(originator, message) end
-            if (Status==0) then Status,Values=Selling(originator, message) end
-            if (Status==0) then Status,Values=Buying(originator, message) end
+            Status,Values=npcs.base.trader_functions.SayPriceSell(originator, message)
+            if (Status==0) then Status,Values=npcs.base.trader_functions.SayPriceBuy(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.ShowItemList(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Selling(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Buying(originator, message) end
             if (Status==0) then Status,Values=npcs.base.functions.TellDate(originator, message, TraderMonths) end
             if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
              ----------------------------EDIT BELOW HERE-----------------------------------
-            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
-                gText="Du willst "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Selling of multible items succeed
+                gText="Du willst "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==2) then -- Item kann wegen Platzmangel nicht erstellt werden // Item can't created, cause of lag of space
                 gText="Tut mir leid, aber du hast nicht genug Platz in deinem Inventar!";
                 eText="Sorry, you do not have enough space in your inventory.";
@@ -153,18 +153,18 @@ function receiveText(texttype, message, originator)
             elseif (Status==5) then -- Item wird nicht verkauft // item
                 gText="Tut mir Leid. Ich verkauf' das nicht.";
                 eText="Sorry, I do not sell that item.";
-            elseif (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // Selling of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was du kaufen willst? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            elseif (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Selling of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was du kaufen willst? Bitte sehr, das macht"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==7) then -- Verkaufspreis Ansage für ein Item // selling price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
-                eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..npcs.base.trader_functions.MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
+                eText="The "..world:getItemName(Values[1],1).." costs"..npcs.base.trader_functions.MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
             elseif (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
-                eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1)..".";
-            elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed
-                gText="Du willst "..Values[1].." "..world:getItemName(Values[2],0).." verkaufen? Ich gebe dir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell "..Values[1].." "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
+                eText="I would pay"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1)..".";
+            elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Buying of multible items succeed
+                gText="Du willst "..Values[1].." "..world:getItemName(Values[2],0).." verkaufen? Ich gebe dir"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell "..Values[1].." "..world:getItemName(Values[2],1).."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==10) then -- Item das gekauft werden soll nicht vorhanden // item that should be buyed is not aviable
                 gText="Komm wieder wenn du das hast!";
                 eText="Come back when you have that!";
@@ -174,9 +174,9 @@ function receiveText(texttype, message, originator)
             elseif (Status==12) then -- Händler kauft das Item nicht // trader didn't buy the item
                 gText="So etwas kaufe ich nicht. Tut mir leid.";
                 eText="Sorry, I do not buy that item.";
-            elseif (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // Buying of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was du verkaufen willst? Ich geb' dir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            elseif (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Buying of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was du verkaufen willst? Ich geb' dir"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==14) then -- Liste der Waren die der NPC verkauft ist nicht leer // List of the wares the NPC sells, is not empty
                 gText="Ich verkaufe verschiedene Farben. Alle selbst gemacht!";
                 eText="I sell different dyes. All i made with my own hands!";

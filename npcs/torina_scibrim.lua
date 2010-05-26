@@ -5,7 +5,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,109,550,200,4,false,'Torina Scibrim','npc_torina_scibrim.lua',1);
 
 require("npcs.base.autonpcfunctions")
-dofile("npc_trader_functions.lua");
+require("npcs.base.trader_functions");
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

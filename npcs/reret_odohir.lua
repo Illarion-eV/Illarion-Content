@@ -5,7 +5,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,109,550,200,4,false,'Reret Odohir','npc_reret_odohir.lua',1);
 
 require("npcs.base.autonpcfunctions")
-dofile("npc_trader_functions.lua");
+require("npcs.base.trader_functions");
 
 
 function useNPC(user,counter,param)

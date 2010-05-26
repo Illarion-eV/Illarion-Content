@@ -7,7 +7,7 @@
 --Last Update: 04/26/2005
 --Update by:   Nitram
 
-dofile("npc_trader_functions.lua")
+require("npcs.base.trader_functions")
 require("npcs.base.functions")
 
 function useNPC(user,counter,param)
@@ -19,22 +19,22 @@ end
 
 function initializeNpc()
     npcs.base.functions.InitTalkLists()
-    InitItemLists()
+    npcs.base.trader_functions.InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
     --            EPr ,ID  ,Am,SPr,SA,Qual ,Dura   ,Data,Catagory
-    AddTraderItem(5   ,155 ,48,0  ,48,{3}  ,{33}   ,0   ,0       ); -- sibanac
-    AddTraderItem(75  ,2744,6 ,0  ,6 ,{4,6},{44,66},0   ,0       ); -- pipe
-    AddTraderItem(12  ,1909,0 ,8  ,11,{5}  ,{50}   ,0   ,0       ); -- beer
-    AddTraderItem(0   ,1318,0 ,15 ,11,{5}  ,{50}   ,0   ,0       ); -- elven wine
-    AddTraderItem(400 ,332 ,3 ,80 ,9 ,{4,6},{44,66},0   ,0       ); -- harp
-    AddTraderItem(500 ,335 ,3 ,100,9 ,{4,6},{44,66},0   ,0       ); -- lute
-    AddTraderItem(40  ,333 ,5 ,6  ,8 ,{4,6},{44,66},0   ,0       ); -- horn
-    AddTraderItem(40  ,150 ,23,3  ,43,{4,6},{44,66},0   ,0       ); -- fir seedling
-    AddItemTrigger("[Bb]aby.+[Ff]ir.+[Tt]ree");
-    AddItemTrigger("[Tt]annenbaum.+[Kk]ind");
-    AddTraderItem(55  ,51  ,6 ,5  ,12,{4,6},{44,66},0   ,0       ); -- bucket
+    npcs.base.trader_functions.AddTraderItem(5   ,155 ,48,0  ,48,{3}  ,{33}   ,0   ,0       ); -- sibanac
+    npcs.base.trader_functions.AddTraderItem(75  ,2744,6 ,0  ,6 ,{4,6},{44,66},0   ,0       ); -- pipe
+    npcs.base.trader_functions.AddTraderItem(12  ,1909,0 ,8  ,11,{5}  ,{50}   ,0   ,0       ); -- beer
+    npcs.base.trader_functions.AddTraderItem(0   ,1318,0 ,15 ,11,{5}  ,{50}   ,0   ,0       ); -- elven wine
+    npcs.base.trader_functions.AddTraderItem(400 ,332 ,3 ,80 ,9 ,{4,6},{44,66},0   ,0       ); -- harp
+    npcs.base.trader_functions.AddTraderItem(500 ,335 ,3 ,100,9 ,{4,6},{44,66},0   ,0       ); -- lute
+    npcs.base.trader_functions.AddTraderItem(40  ,333 ,5 ,6  ,8 ,{4,6},{44,66},0   ,0       ); -- horn
+    npcs.base.trader_functions.AddTraderItem(40  ,150 ,23,3  ,43,{4,6},{44,66},0   ,0       ); -- fir seedling
+    npcs.base.trader_functions.AddItemTrigger("[Bb]aby.+[Ff]ir.+[Tt]ree");
+    npcs.base.trader_functions.AddItemTrigger("[Tt]annenbaum.+[Kk]ind");
+    npcs.base.trader_functions.AddTraderItem(55  ,51  ,6 ,5  ,12,{4,6},{44,66},0   ,0       ); -- bucket
 
     TraderCopper=400;
 
@@ -95,7 +95,7 @@ function nextCycle()  -- ~10 times per second
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
-    TraderCycle();
+    npcs.base.trader_functions.TraderCycle();
     npcs.base.functions.SpeakerCycle();
 end
 
@@ -103,18 +103,18 @@ function receiveText(texttype, message, originator)
     if npcs.base.functions.BasicNPCChecks(originator,2) then
         if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
-            Status,Values=SayPriceSell(originator, message)
-            if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
-            if (Status==0) then Status,Values=ShowItemList(originator, message) end
-            if (Status==0) then Status,Values=Selling(originator, message) end
-            if (Status==0) then Status,Values=Buying(originator, message) end
+            Status,Values=npcs.base.trader_functions.SayPriceSell(originator, message)
+            if (Status==0) then Status,Values=npcs.base.trader_functions.SayPriceBuy(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.ShowItemList(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Selling(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Buying(originator, message) end
             if (Status==0) then Status,Values=npcs.base.functions.TellDate(originator, message, TraderMonths) end
             if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
-            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
-                gText="Ihr möchtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Selling of multible items succeed
+                gText="Ihr möchtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==2) then -- Item kann wegen Platzmangel nicht erstellt werden // Item can't created, cause of lag of space
                 gText="Tut mir leid, aber Ihr habt nicht genug Platz in Eurem Inventar.";
@@ -132,21 +132,21 @@ function receiveText(texttype, message, originator)
                 gText="Tut mir Leid. Ich verkaufe das nicht.";
                 eText="Sorry, I do not sell that item.";
             end
-            if (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // Selling of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Selling of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==7) then -- Verkaufspreis Ansage für ein Item // selling price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
-                eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..npcs.base.trader_functions.MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
+                eText="The "..world:getItemName(Values[1],1).." costs"..npcs.base.trader_functions.MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
             end
             if (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
-                eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
+                eText="I would pay"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
             end
-            if (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed
-                gText="Ihr wollt "..Values[1].." "..world:getItemName(Values[2],0).." verkaufen? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell "..Values[1].." "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==9) then -- Einkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Buying of multible items succeed
+                gText="Ihr wollt "..Values[1].." "..world:getItemName(Values[2],0).." verkaufen? Ich gebe euch"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell "..Values[1].." "..world:getItemName(Values[2],1).."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==10) then -- Item das gekauft werden soll nicht vorhanden // item that should be buyed is not aviable
                 gText="Kommt wieder wenn ihr das habt!";
@@ -160,9 +160,9 @@ function receiveText(texttype, message, originator)
                 gText="So etwas kaufe ich nicht. Tut mir leid.";
                 eText="Sorry, I do not buy that item.";
             end
-            if (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // Buying of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Buying of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             end
             if (Status==14) then -- Liste der Waren die der NPC verkauft ist nicht leer // List of the wares the NPC sells, is not empty
                 gText="Ich verkaufe Sibanac, Pfeifen, Bier, Harfen, Lauten, Hörner, Tannen Kinder und Eimer.";

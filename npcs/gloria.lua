@@ -9,7 +9,7 @@
 --Last Update: 
 --Update by:   
 
-dofile("npc_trader_functions.lua")
+require("npcs.base.trader_functions")
 require("npcs.base.functions")
 
 function useNPC(user,counter,param)
@@ -21,7 +21,7 @@ end
 
 function initializeNpc()
     npcs.base.functions.InitTalkLists()
-    InitItemLists()
+    npcs.base.trader_functions.InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
@@ -38,52 +38,52 @@ function initializeNpc()
     -- NPC verkauft Essen und trinken in der Mensa
     --
     --            EPr ,ID  ,Am,SPr,SA,Qual ,Dura   ,Data,Catagory
-    AddTraderItem(15  ,2057,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with red wine
-    AddItemTrigger( "[Ww]ein" );
-    AddItemTrigger( "wine" );
-    AddTraderItem(11  ,2058,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with water
-    AddItemTrigger( "[Ww]asser" );
-    AddItemTrigger( "water" );
-    AddTraderItem(15  ,2059,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with cider
-    AddItemTrigger( "[Cc]ider" );
-    AddTraderItem(15  ,2056,50 ,0 ,20,{4,6},{33,66},0   ,0       ); --glass with mead
-    AddItemTrigger( "[Mm]et" );
-    AddItemTrigger( "mead" );
-    AddTraderItem(15  ,1909,100,0 ,10,{4,6},{33,66},0   ,0       ); --beer mug
-    AddItemTrigger( "[Bb]ier" );
-    AddItemTrigger( "beer" );
+    npcs.base.trader_functions.AddTraderItem(15  ,2057,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with red wine
+    npcs.base.trader_functions.AddItemTrigger( "[Ww]ein" );
+    npcs.base.trader_functions.AddItemTrigger( "wine" );
+    npcs.base.trader_functions.AddTraderItem(11  ,2058,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with water
+    npcs.base.trader_functions.AddItemTrigger( "[Ww]asser" );
+    npcs.base.trader_functions.AddItemTrigger( "water" );
+    npcs.base.trader_functions.AddTraderItem(15  ,2059,100,0 ,10,{4,6},{33,66},0   ,0       ); --glass with cider
+    npcs.base.trader_functions.AddItemTrigger( "[Cc]ider" );
+    npcs.base.trader_functions.AddTraderItem(15  ,2056,50 ,0 ,20,{4,6},{33,66},0   ,0       ); --glass with mead
+    npcs.base.trader_functions.AddItemTrigger( "[Mm]et" );
+    npcs.base.trader_functions.AddItemTrigger( "mead" );
+    npcs.base.trader_functions.AddTraderItem(15  ,1909,100,0 ,10,{4,6},{33,66},0   ,0       ); --beer mug
+    npcs.base.trader_functions.AddItemTrigger( "[Bb]ier" );
+    npcs.base.trader_functions.AddItemTrigger( "beer" );
 
-    AddTraderItem(30  , 49 ,15,0  ,15,{3}  ,{33}   ,0   ,0       ); -- Brot
-    AddTraderItem(20  ,191 ,8 ,0  ,8 ,{5,7},{55,77},0   ,0       ); -- Brötchen
-    AddTraderItem(20  ,306 ,5 ,0  ,5 ,{5,7},{55,77},0   ,0       ); -- Schinken
-    AddTraderItem(120 ,2276,15,0  ,15,{3}  ,{33}   ,0   ,0       ); -- Eintopf
-    AddTraderItem(150 ,555 ,8 ,0  ,8 ,{5,7},{55,77},0   ,0       ); -- Hasenbraten
+    npcs.base.trader_functions.AddTraderItem(30  , 49 ,15,0  ,15,{3}  ,{33}   ,0   ,0       ); -- Brot
+    npcs.base.trader_functions.AddTraderItem(20  ,191 ,8 ,0  ,8 ,{5,7},{55,77},0   ,0       ); -- Brötchen
+    npcs.base.trader_functions.AddTraderItem(20  ,306 ,5 ,0  ,5 ,{5,7},{55,77},0   ,0       ); -- Schinken
+    npcs.base.trader_functions.AddTraderItem(120 ,2276,15,0  ,15,{3}  ,{33}   ,0   ,0       ); -- Eintopf
+    npcs.base.trader_functions.AddTraderItem(150 ,555 ,8 ,0  ,8 ,{5,7},{55,77},0   ,0       ); -- Hasenbraten
 
-    AddTraderItem(100 ,2744 ,10,0 ,10,{3}  ,{33}   ,0   ,0    	 ); -- Pfeife
-    AddTraderItem(5   ,155  ,8 ,0 ,8 ,{5,7},{55,77},0   ,0       ); -- Sibanac Blatt
-    AddItemTrigger( "[Ss]ibanac" );
+    npcs.base.trader_functions.AddTraderItem(100 ,2744 ,10,0 ,10,{3}  ,{33}   ,0   ,0    	 ); -- Pfeife
+    npcs.base.trader_functions.AddTraderItem(5   ,155  ,8 ,0 ,8 ,{5,7},{55,77},0   ,0       ); -- Sibanac Blatt
+    npcs.base.trader_functions.AddItemTrigger( "[Ss]ibanac" );
 
 -- Er kauft dafür Getränkeflaschen an, sowie die leere Gläser und Teller zum Spottpreis zurück
-    AddTraderItem(0   ,2055 ,5 ,2 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Glas
-    AddItemTrigger( "[Gg]l[aä]s." );
-    AddTraderItem(0   ,2952 ,5 ,3 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Teller
-    AddTraderItem(0   ,2935 ,5 ,3 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Schalen
-    AddTraderItem(0   ,2497 ,50,5 ,40,{4,6},{33,66},0   ,0       ); --orange bottle
-    AddItemTrigger( "[Ff]lasche.+[Mm]et" );
-    AddItemTrigger( "[Mm]et.*[Ff]lasche" );
-    AddItemTrigger( "bottle.+meat" );
-    AddTraderItem(0  ,2499  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --green bottle
-    AddItemTrigger( "[Ff]lasche.+[Cc]ider" );
-    AddItemTrigger( "[Cc]ider.*[Ff]lasche" );
-    AddItemTrigger( "bottle.+cider" );
-    AddTraderItem(0  ,2500  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --red bottle
-    AddItemTrigger( "[Ff]lasche.+[Ww]ein" );
-    AddItemTrigger( "[Ww]ein.*[Ff]lasche" );
-    AddItemTrigger( "bottle.+wine" );
-    AddTraderItem(0  ,2501  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --black bottle
-    AddItemTrigger( "[Ff]lasche.+[Bb]ier" );
-    AddItemTrigger( "[Bb]ier.*[Ff]lasche" );
-    AddItemTrigger( "bottle.+beer" );
+    npcs.base.trader_functions.AddTraderItem(0   ,2055 ,5 ,2 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Glas
+    npcs.base.trader_functions.AddItemTrigger( "[Gg]l[aä]s." );
+    npcs.base.trader_functions.AddTraderItem(0   ,2952 ,5 ,3 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Teller
+    npcs.base.trader_functions.AddTraderItem(0   ,2935 ,5 ,3 ,5 ,{3}  ,{33}   ,0   ,0       ); -- Schalen
+    npcs.base.trader_functions.AddTraderItem(0   ,2497 ,50,5 ,40,{4,6},{33,66},0   ,0       ); --orange bottle
+    npcs.base.trader_functions.AddItemTrigger( "[Ff]lasche.+[Mm]et" );
+    npcs.base.trader_functions.AddItemTrigger( "[Mm]et.*[Ff]lasche" );
+    npcs.base.trader_functions.AddItemTrigger( "bottle.+meat" );
+    npcs.base.trader_functions.AddTraderItem(0  ,2499  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --green bottle
+    npcs.base.trader_functions.AddItemTrigger( "[Ff]lasche.+[Cc]ider" );
+    npcs.base.trader_functions.AddItemTrigger( "[Cc]ider.*[Ff]lasche" );
+    npcs.base.trader_functions.AddItemTrigger( "bottle.+cider" );
+    npcs.base.trader_functions.AddTraderItem(0  ,2500  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --red bottle
+    npcs.base.trader_functions.AddItemTrigger( "[Ff]lasche.+[Ww]ein" );
+    npcs.base.trader_functions.AddItemTrigger( "[Ww]ein.*[Ff]lasche" );
+    npcs.base.trader_functions.AddItemTrigger( "bottle.+wine" );
+    npcs.base.trader_functions.AddTraderItem(0  ,2501  ,50,5 ,20,{4,6},{33,66},0   ,0       ); --black bottle
+    npcs.base.trader_functions.AddItemTrigger( "[Ff]lasche.+[Bb]ier" );
+    npcs.base.trader_functions.AddItemTrigger( "[Bb]ier.*[Ff]lasche" );
+    npcs.base.trader_functions.AddItemTrigger( "bottle.+beer" );
 
     TraderCopper=1000;
 
@@ -148,7 +148,7 @@ function nextCycle()  -- ~10 times per second
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
-    TraderCycle();
+    npcs.base.trader_functions.TraderCycle();
     npcs.base.functions.SpeakerCycle();
 end
 
@@ -156,18 +156,18 @@ function receiveText(texttype, message, originator)
     if npcs.base.functions.BasicNPCChecks(originator,2) then
         if (npcs.base.functions.LangOK(originator,TradSpeakLang)==true) then
             thisNPC.activeLanguage=originator.activeLanguage;
-            Status,Values=SayPriceSell(originator, message)
-            if (Status==0) then Status,Values=SayPriceBuy(originator, message) end
-            if (Status==0) then Status,Values=ShowItemList(originator, message) end
-            if (Status==0) then Status,Values=Selling(originator, message) end
-            if (Status==0) then Status,Values=Buying(originator, message) end
+            Status,Values=npcs.base.trader_functions.SayPriceSell(originator, message)
+            if (Status==0) then Status,Values=npcs.base.trader_functions.SayPriceBuy(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.ShowItemList(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Selling(originator, message) end
+            if (Status==0) then Status,Values=npcs.base.trader_functions.Buying(originator, message) end
             if (Status==0) then Status,Values=npcs.base.functions.TellDate(originator, message, TraderMonths) end
             if (Status==0) then npcs.base.functions.TellSmallTalk(message) end
 
             ----------------------------EDIT BELOW HERE-----------------------------------
-            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
-                gText="Ihr möchtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            if (Status==1) then -- Verkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Selling of multible items succeed
+                gText="Ihr möchtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, macht dann"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==2) then -- Item kann wegen Platzmangel nicht erstellt werden // Item can't created, cause of lag of space
                 gText="Tut mir leid, aber ihr habt nicht genug Platz in eurem Inventar.";
                 eText="Sorry, you do not have enough spacess in your inventory.";
@@ -180,18 +180,18 @@ function receiveText(texttype, message, originator)
             elseif (Status==5) then -- Item wird nicht verkauft // item
                 gText="Tut mir Leid. Ich verkaufe das nicht.";
                 eText="Sorry, I do not sell that item.";
-            elseif (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // Selling of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            elseif (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Selling of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==7) then -- Verkaufspreis Ansage für ein Item // selling price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
-                eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..npcs.base.trader_functions.MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
+                eText="The "..world:getItemName(Values[1],1).." costs"..npcs.base.trader_functions.MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
             elseif (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
-                eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
-            elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed
-                gText="Ihr wollt "..Values[1].." "..wTraderItemNameD[Values[2]].." verkaufen? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell "..Values[1].." "..TraderItemNameE[Values[2]].."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
+                eText="I would pay"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
+            elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // npcs.base.trader_functions.Buying of multible items succeed
+                gText="Ihr wollt "..Values[1].." "..wTraderItemNameD[Values[2]].." verkaufen? Ich gebe euch"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell "..Values[1].." "..TraderItemNameE[Values[2]].."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==10) then -- Item das gekauft werden soll nicht vorhanden // item that should be buyed is not aviable
                 gText="Kommt wieder wenn ihr das habt!";
                 eText="Come back when you have that!";
@@ -201,9 +201,9 @@ function receiveText(texttype, message, originator)
             elseif (Status==12) then -- Händler kauft das Item nicht // trader didn't buy the item
                 gText="So etwas kaufe ich nicht. Tut mir leid.";
                 eText="Sorry, I do not buy that item.";
-            elseif (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // Buying of a single item succeed
-                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
-                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
+            elseif (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // npcs.base.trader_functions.Buying of a single item succeed
+                gText=npcs.base.functions.GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr verkaufen möchtet? Ich gebe euch"..npcs.base.trader_functions.MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..npcs.base.trader_functions.MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==14) then -- Liste der Waren die der NPC verkauft ist nicht leer // List of the wares the NPC sells, is not empty
                 gText="Ich verkaufe alles, was ihr für eine angenehme Pause braucht. Man sollte schließlich nicht mit leerem Magen studieren.";
                 eText="I sell potions, snacks and ink.";

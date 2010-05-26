@@ -7,7 +7,7 @@
 --Last Update: 03/07/2008
 --Update by:   Lennier
 
-dofile("npc_trader_functions.lua")
+require("npcs.base.trader_functions")
 require("npcs.base.functions")
 require("base.common")
 
@@ -45,7 +45,7 @@ function useNPC(User,counter,param)
                User:sendMenu( newMenu );
             end
             
-            --NPCUsed(User,counter,param);
+            --npcs.base.trader_functions.NPCUsed(User,counter,param);
         end;
     end;
     --local lang=User:getPlayerLanguage();
@@ -96,28 +96,28 @@ end
 
 function initializeNpc()
     npcs.base.functions.InitTalkLists()
-    InitItemLists()
+    npcs.base.trader_functions.InitItemLists()
 
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
     --            EPr ,ID  ,Am,SPr,SA,Qual ,Dura   ,Data,Catagory
-    AddTraderItem(60  ,18  ,100,5  ,50,{3,5},{33,66},0   ,0); -- leichter Metallschild
-    AddTraderItem(120 ,20  ,100,7  ,50,{3,5},{33,66},0   ,0); -- Ritterschild
-    AddTraderItem(300 ,186 ,100,10 ,50,{3,5},{33,66},0   ,0); -- Metallrundschild
-    AddTraderItem(90  ,19  ,100,7  ,50,{3,5},{33,66},0   ,0); -- großer Metallschild
-    AddTraderItem(400 ,325 ,100,25 ,50,{3,5},{33,66},0   ,0); -- Stahlhandschuhe
-    AddTraderItem(400 ,326 ,100,25 ,50,{3,5},{33,66},0   ,0); -- Stahlschuhe
-    AddTraderItem(1200,2359,100,80 ,5 ,{3,5},{33,66},0   ,0); -- Söldnerrüstung
-    AddTraderItem(0   ,2360,100,150,5 ,{3,5},{33,66},0   ,0); -- Lor-Angur-Wächterrüstung
-    AddTraderItem(0   ,2393,100,120,5 ,{3,5},{33,66},0   ,0); -- schwerer Stahlharnisch
-    AddTraderItem(1500,2364,100,100,5 ,{3,5},{33,66},0   ,0); -- Stahlharnisch
-    AddTraderItem(0   ,2731,100,30 ,50,{3,5},{33,66},0   ,0); -- Zweihänder
-    AddTraderItem(100 ,2675,100,6  ,50,{3,5},{33,66},0   ,0); -- Degen
-    AddTraderItem(150 ,1   ,100,8  ,50,{3,5},{33,66},0   ,0); -- Serinjahschwert
-    AddTraderItem(100 ,2658,100,6  ,50,{3,5},{33,66},0   ,0); -- Breitschwert
-    AddTraderItem(100 ,2701,100,6  ,50,{3,5},{33,66},0   ,0); -- Langschwert
-    AddTraderItem(400 ,2111,100,35 ,50 ,{3,5},{33,66},0  ,0); -- blaue Stahlbeinschienen
-    AddTraderItem(400 ,2116,100,35 ,50 ,{3,5},{33,66},0  ,0); -- rote Stahlbeinschienen
+    npcs.base.trader_functions.AddTraderItem(60  ,18  ,100,5  ,50,{3,5},{33,66},0   ,0); -- leichter Metallschild
+    npcs.base.trader_functions.AddTraderItem(120 ,20  ,100,7  ,50,{3,5},{33,66},0   ,0); -- Ritterschild
+    npcs.base.trader_functions.AddTraderItem(300 ,186 ,100,10 ,50,{3,5},{33,66},0   ,0); -- Metallrundschild
+    npcs.base.trader_functions.AddTraderItem(90  ,19  ,100,7  ,50,{3,5},{33,66},0   ,0); -- großer Metallschild
+    npcs.base.trader_functions.AddTraderItem(400 ,325 ,100,25 ,50,{3,5},{33,66},0   ,0); -- Stahlhandschuhe
+    npcs.base.trader_functions.AddTraderItem(400 ,326 ,100,25 ,50,{3,5},{33,66},0   ,0); -- Stahlschuhe
+    npcs.base.trader_functions.AddTraderItem(1200,2359,100,80 ,5 ,{3,5},{33,66},0   ,0); -- Söldnerrüstung
+    npcs.base.trader_functions.AddTraderItem(0   ,2360,100,150,5 ,{3,5},{33,66},0   ,0); -- Lor-Angur-Wächterrüstung
+    npcs.base.trader_functions.AddTraderItem(0   ,2393,100,120,5 ,{3,5},{33,66},0   ,0); -- schwerer Stahlharnisch
+    npcs.base.trader_functions.AddTraderItem(1500,2364,100,100,5 ,{3,5},{33,66},0   ,0); -- Stahlharnisch
+    npcs.base.trader_functions.AddTraderItem(0   ,2731,100,30 ,50,{3,5},{33,66},0   ,0); -- Zweihänder
+    npcs.base.trader_functions.AddTraderItem(100 ,2675,100,6  ,50,{3,5},{33,66},0   ,0); -- Degen
+    npcs.base.trader_functions.AddTraderItem(150 ,1   ,100,8  ,50,{3,5},{33,66},0   ,0); -- Serinjahschwert
+    npcs.base.trader_functions.AddTraderItem(100 ,2658,100,6  ,50,{3,5},{33,66},0   ,0); -- Breitschwert
+    npcs.base.trader_functions.AddTraderItem(100 ,2701,100,6  ,50,{3,5},{33,66},0   ,0); -- Langschwert
+    npcs.base.trader_functions.AddTraderItem(400 ,2111,100,35 ,50 ,{3,5},{33,66},0  ,0); -- blaue Stahlbeinschienen
+    npcs.base.trader_functions.AddTraderItem(400 ,2116,100,35 ,50 ,{3,5},{33,66},0  ,0); -- rote Stahlbeinschienen
 
     TraderCopper=5000;
 
@@ -186,7 +186,7 @@ function nextCycle()  -- ~10 times per second
         TraderStdCopper=TraderCopper;
         thisNPC.activeLanguage=TradStdLang;
     end
-    TraderCycle();
+    npcs.base.trader_functions.TraderCycle();
     npcs.base.functions.SpeakerCycle();
 end
 

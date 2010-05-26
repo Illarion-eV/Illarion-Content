@@ -4,7 +4,7 @@
 --Function:    Schweinehirte/Dorfdepp
 
 require("npcs.base.functions")
-dofile("npc_trader_functions.lua")
+require("npcs.base.trader_functions")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();
@@ -246,8 +246,8 @@ function receiveText(texttype, message, originator)
             if ((string.find(message,"[Jj]a") or string.find(message,"[Yy]es")) and npcStatus[originator.id]==1 and npcTalksTo==originator.id) then
                 --ßoriginator:inform("er will spielen");
                 
-                if CheckMoney(originator,0,0,5) then    -- hat user das geld?
-                    Pay(originator,0,0,5);
+                if npcs.base.trader_functions.CheckMoney(originator,0,0,5) then    -- hat user das geld?
+                    npcs.base.trader_functions.Pay(originator,0,0,5);
                     npcStatus[originator.id]=2;
                     lastTime=GetServerSeconds();
                     --originator:inform("set lasttime to "..lastTime);
