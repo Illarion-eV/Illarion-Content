@@ -1,6 +1,6 @@
 --Script zum testen der Bestellungen für npc
 --[[
-dofile("base_orders.lua");
+module("npcs.joachim_orderer", package.seeall("npc.base.orders"))
 
 function init()
     joachim_init = true;
@@ -51,7 +51,7 @@ end
 	]]--
 	
 	
-dofile("base_orders.lua");
+module("npcs.joachim_orderer", package.seeall("npc.base.orders"))
 
 function init()
     joachim_init = true;

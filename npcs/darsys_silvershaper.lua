@@ -3,7 +3,7 @@
 --Task: Offers big orders for Tailoring(NOT ALL TAILORABLE ITEMS INCLUDED)
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
-dofile("base_orders.lua");
+module("npcs.darsys_silvershaper", package.seeall("npc.base.orders"))
 require("npcs.base.autonpcfunctions")
 
 function init()

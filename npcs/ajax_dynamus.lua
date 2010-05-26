@@ -3,7 +3,7 @@
 --Task: Offers big orders for blacksmithing(NOT ALL SMITHABLE ITEMS INCLUDED)
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
-dofile("base_orders.lua");
+module("npcs.ajax_dynamus", package.seeall("npc.base.orders"))
 require("npcs.base.autonpcfunctions")
 
 function init()

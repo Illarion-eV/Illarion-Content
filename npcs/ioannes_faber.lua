@@ -4,7 +4,7 @@
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
 
-dofile("base_orders.lua");
+module("npcs.ioannes_faber", package.seeall("npc.base.orders"))
 require("npcs.base.autonpcfunctions")
 
 function init()
