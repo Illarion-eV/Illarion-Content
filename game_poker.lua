@@ -1,4 +1,5 @@
-dofile( "game_carddeck.lua" );
+require( "game_carddeck" );
+module("game_poker", seeall(game_carddeck))
 
 function newPokerTable( 
                         npcDealer,           -- Dealer npc
