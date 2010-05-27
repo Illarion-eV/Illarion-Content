@@ -8,8 +8,7 @@
 
 	require("base.common")
 	require("content.genus")
-	dofile( "bonusitems.lua" );
-	-- dofile( "base_weaplookat.lua" ); Insignienkram von Nitram rausgenommen
+	require("content.bonusitems")
 	require("content.lookat.custom")
 	require("content.lookat.unique")
 
@@ -22,7 +21,7 @@
 -- German and english name (for RS)
 -- returns a description string
 
-module("base.lookat", package.seeall())
+module("base.lookat", package.seeall(), package.seeall(content.bonusitems))
 
 function GetItemDescription(User,Item,material,Weapon,Priest)
     --User:inform("generic lookAt called");

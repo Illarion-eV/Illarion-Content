@@ -1,3 +1,6 @@
+
+module("content.fighting")
+
 --[[
     Returns the attack value of a race wrestling
 

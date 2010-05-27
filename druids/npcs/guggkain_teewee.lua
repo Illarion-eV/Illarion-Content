@@ -9,14 +9,15 @@
 --Facing:      South
 --Last Update: //200x
 
-module("druids.npcs.guggkain_teewee", package.seeall())
+require("npcs.functions")
+require("npcs.trader_functions")
+
+module("druids.npcs.guggkain_teewee", package.seeall(), package.seeall(npcs.functions), package.seeall(npcs.trader_functions))
 
 --[[
 INSERT INTO npc(npc_type, npc_posx, npc_posy, npc_posz, npc_faceto,          npc_name,                    npc_script, npc_sex, npc_hair, npc_beard, npc_hairred, npc_hairgreen, npc_hairblue, npc_kinred, npc_kingreen, npc_skinblue)
          VALUES(       8,     -208,       29,        0,          6, 'Guggkain Teewee', 'druids.npcs.guggkain_teewee',       0,        0,         0,         255,           255,          255,        255,          255,          255);
 ]]
-dofile("npc_trader_functions.lua")
-dofile("npc_functions.lua")
 
 function initSchleifer()
 	if firsttime==nil then

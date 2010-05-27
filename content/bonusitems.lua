@@ -1,3 +1,5 @@
+module("content.bonusitems", package.seeall())
+
 function initBonus()
 
     preTitle = {}; -- 1==German, 2==English

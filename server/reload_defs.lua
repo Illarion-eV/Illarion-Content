@@ -5,10 +5,9 @@
 require("base.common")
 require("base.doors")
 require("content.signpost")
+require("content.gods")
 
-module("server.reload_defs", package.seeall())
-
-dofile("p_constants.lua");
+module("server.reload_defs", package.seeall(), package.seeall(content.gods))
 
 function onReload()
     -- logToFile("start onReload");

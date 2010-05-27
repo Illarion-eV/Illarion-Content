@@ -9,9 +9,11 @@
 
 require("content.genus")
 require("base.common")
-dofile( "base_factions.lua");
-dofile( "base_lookat_custom.lua" );
-dofile("chardesc_list.lua");
+require("base.factions")
+require("content.lookat.custom")
+require("content.uniquechardescription")
+
+module("server.playerlookat", package.seeall(), package.seeall(base.factions), package.seeall(content.lookat.custom), package.seeall(content.uniquedescription))
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	InitPlayerDesc();

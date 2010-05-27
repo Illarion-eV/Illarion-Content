@@ -7,7 +7,9 @@
 require("base.common")
 
 -- Lists with static values of the fighting system
-dofile( "standardfighting_lists.lua" );
+require("content.fighting")
+
+module("server.standardfighting", package.seeall(), package.seeall(content.fighting))
 
 --[[
     Main Attacking function

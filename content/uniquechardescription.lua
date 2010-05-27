@@ -1,5 +1,7 @@
 -- This could be maybe used for scars or stigmas - would be a good punishment for thieves imo
 
+module("content.uniquechardescription")
+
 function AddPlayerDescription(id, textde, texten)
 	table.insert(PlayerDescriptionsDE[id], textde);
 	table.insert(PlayerDescriptionsEN[id], texten);
