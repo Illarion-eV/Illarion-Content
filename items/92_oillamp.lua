@@ -1,6 +1,10 @@
 -- I_92 Oel-Lampe
 
+-- UPDATE common SET com_script='items.92_oillamp' WHERE com_itemid=92;
+
 require("base.common")
+
+module("items.92_oillamp", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     x=math.random(99);

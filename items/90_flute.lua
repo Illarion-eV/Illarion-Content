@@ -1,7 +1,11 @@
 -- I_90 Floete spielen
 
-dofile("base_music.lua" );
-dofile("base_lookat.lua" );
+-- UPDATE common SET com_script='items.90_flute' WHERE com_itemid=90;
+
+require("items.base.music")
+require("items.general.wood")
+
+module("items.90_flute", package.seeall(), package.seeall(items.general.wood))
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if InitInstruments() then
@@ -12,8 +16,4 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         addTalkText("#me plays a wild tune on the flute","#me spielt eine wilde Melodie auf der Flöte");
     end
     PlayInstrument(User,SourceItem,"flute");
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 2, false, false) );
 end

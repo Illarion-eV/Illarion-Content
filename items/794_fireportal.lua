@@ -1,3 +1,9 @@
+-- UPDATE common SET com_script = 'items.794_fireportal' WHERE com_itemid = 794;
+
+require("base.common")
+
+module("items.794_fireportal", package.seeall())
+
 function CharacterOnField(User)
     local SourceItem = world:getItemOnField(User.pos);
 	

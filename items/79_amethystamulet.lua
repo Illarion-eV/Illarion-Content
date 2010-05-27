@@ -1,5 +1,9 @@
 --For the 'The Library' quest - Llama
 
+-- UPDATE common SET com_script='items.79_amethystamulet' WHERE com_itemid = 79;
+
+module("items.79_amethystamulet", package.seeall())
+
 function LookAtItem(User,Item)
 if (Item.data == 701) then
   if (User:getPlayerLanguage() == 0) then

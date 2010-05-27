@@ -1,5 +1,9 @@
-dofile("base_lookat_unique.lua");
+require("content.lookat.unique")
 require("base.common")
+
+-- UPDATE common SET com_script='items.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
+
+module("items.gems", package.seeall(), package.seeall(content.lookat.unique))
 
 function initStones()
     stoneNumber={};

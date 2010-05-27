@@ -1,7 +1,8 @@
--- UPDATE common SET com_script='I_altar.lua' WHERE com_itemid IN (361,1879,1880,2801,2857,2872);
+-- UPDATE common SET com_script='items.altars' WHERE com_itemid IN (361,1879,1880,2801,2857,2872);
 require("base.common")
-dofile("p_constants.lua");
--- dofile("./p_constants.lua");
+require("content.gods")
+
+module("items.altars", package.seeall(), package.seeall(content.gods))
 
 function LookAtItem( User, Item )
      filepoint,errmsg=io.open("testserver","r");

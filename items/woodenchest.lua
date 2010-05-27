@@ -1,6 +1,8 @@
--- UPDATE common SET com_script='I_wooden_chests.lua' WHERE com_itemid IN (8,1360,1361,1362);
+-- UPDATE common SET com_script='items.woodenchest' WHERE com_itemid IN (8,1360,1361,1362);
 
 require("base.common")
+
+module("items.woodenchest", package.seeall())
 
 ALWAYS = -1;
 DELETE_CHEST = -1;
