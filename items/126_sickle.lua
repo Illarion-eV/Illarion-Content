@@ -4,10 +4,9 @@
 
 require("items.general.metal")
 require("base.common")
+require("scheduled.newgaia")
 
 module("items.126_sickle", package.seeall(), package.seeall(items.general.metal))
-
-dofile( "newgaia.lua" );
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
@@ -103,7 +102,7 @@ end
 
 
 function checkRegion(TargetItem)
-	for HerbID, herb in pairs(herbs) do  
+	for HerbID, herb in pairs(scheduled.newgaia.herbs) do  
 		-- untergrund checken um Regionen zu bestimmen
 		TileID = world:getField(TargetItem.pos):tile();
 		if (TileID==herb.ground) then

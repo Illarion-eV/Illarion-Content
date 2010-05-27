@@ -7,7 +7,6 @@
 -- UPDATE common SET com_script='items.258_flail' WHERE com_itemid IN (258);
 
 require("items.general.wood")
-dofile( "base_lookat.lua" );
 
 module("items.258_flail", package.seeall(), package.seeall(items.general.wood))
 

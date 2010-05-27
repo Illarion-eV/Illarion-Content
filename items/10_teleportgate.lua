@@ -4,9 +4,9 @@
 -- UPDATE common SET com_script='items.10_teleportgate' WHERE com_itemid = 10;
 
 require("base.common")
-dofile( "base_factions.lua" );
+require("base.factions")
 
-module("items.10_teleportgate", package.seeall())
+module("items.10_teleportgate", package.seeall(), package.seeall(base.factions))
 
 function InitializeGate(  )
 

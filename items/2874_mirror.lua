@@ -1,7 +1,7 @@
 require("base.common")
-dofile("base_chardesc.lua");
+require("content.chardescription")
 
-module("items.2874_mirror", package.seeall())
+module("items.2874_mirror", package.seeall(), package.seeall(content.chardescription))
 
 -- UPDATE common SET com_script='items.2874_mirror' WHERE com_itemid = 2874;
 

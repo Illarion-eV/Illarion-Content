@@ -4,7 +4,8 @@ require("base.common")
 module("items.food", package.seeall())
 
 -- UPDATE common SET com_script='items.food' WHERE com_itemid IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
-dofile( "I_453_glueckskeks.lua" );
+
+require("content.furtunecookies")
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -186,7 +187,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			--
 			if (SourceItem.id == 453) then
                 if (math.random(1,100)==1) then
-                    local deText, enText = cookie();
+                    local deText, enText = content.furtunecookies.cookie();
                     base.common.InformNLS( User,
                     "Du findest ein Stück Papier in dem Keks: \""..deText.."\"",
                     "You find a piece of paper inside the cookie: \""..enText.."\"");

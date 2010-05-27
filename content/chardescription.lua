@@ -1,6 +1,8 @@
 -- Alle Funktionen geben >nur< die Stichwoerter zurueck.
 -- Zum groeßten Teil ueberarbeitet von playerlookat.lua
 
+module("content.chardescription", package.seeall())
+
 function getFigureText(height, mass, str, lang)
     if iniFig==nil then
         lowStr={};

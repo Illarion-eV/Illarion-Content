@@ -1,4 +1,6 @@
+module("scheduled.newgaia", package.seeall())
 
+-- INSERT INTO scheduledscripts VALUES('scheduled.newgaia', 10, 30, 'plantdrop');
 
 function initHerbs()
 	-- id  		= Itemid

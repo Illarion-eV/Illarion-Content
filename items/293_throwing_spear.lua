@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script='items.293_throwing_spear' WHERE com_itemid IN (293);
 
-dofile( "base_lookat.lua" );
+require("base.lookat")
 
 module("items.293_throwing_spear", package.seeall())
 

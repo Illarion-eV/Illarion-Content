@@ -1,6 +1,10 @@
 -- Script muss noch in die Datenbank eingefügt werden (Handspiegel, ID 336)
 
-dofile("base_chardesc.lua");
+require("content.chardescription")
+
+module("items.336_mirror", package.seeall(), package.seeall(content.chardescription))
+
+-- UPDATE common SET com_script='items.336_mirror' WHERE com_itemid = 336;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local output = "";

@@ -1,4 +1,4 @@
-module("content.forturecookies", package.seeall())
+module("content.furtunecookies", package.seeall())
 
 function cookie(User)
     local luck=math.random(1,42);
