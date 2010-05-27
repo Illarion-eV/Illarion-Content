@@ -29,7 +29,7 @@ function onLogout( theChar )
         for i, npc in pairs(npcs) do
             find_transporter, effect_transporter = npc.effects:find(10); -- hat eine unsere Transporter Effekt?
             if find_transporter then -- Tatsache!
-                find_owner,value_owner = effect_transporter:findValue("owner"); -- Wem sie gehört?
+                find_owner,value_owner = effect_transporter:findValue("owner"); -- Wem sie gehÃ¶rt?
                 if find_owner then
                     if (value_owner == theChar.id) then -- Unserem Char!
                         npcpos = npc.pos;
@@ -58,10 +58,10 @@ function onLogout( theChar )
 	-- end cow transporter
 	
     -- begin newbie island
-    if (theChar:getQuestProgress(2) == 320) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am Kämpfen
+    if (theChar:getQuestProgress(2) == 320) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am KÃ¤mpfen
 		theChar:setQuestProgress(2,322);
 
-    elseif (theChar:getQuestProgress(2) == 35) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am Kämpfen
+    elseif (theChar:getQuestProgress(2) == 35) then -- Der Char. ist ein Newb und befindet sich gerade auf der Newbieinsel am KÃ¤mpfen
 		theChar:setQuestProgress(2,36);
     end
 	-- end newbie island
