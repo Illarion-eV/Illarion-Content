@@ -4,7 +4,7 @@
 
 module("druids.lte.328_immunity", package.seeall())
 
--- INSERT INTO longtimeeffect VALUES (328, 'druids_immunity', 'druids.lte.328_immunity');
+-- INSERT INTO longtimeeffects VALUES (328, 'druids_immunity', 'druids.lte.328_immunity');
 
 function getAction(Character,Effect,Runde)
 --Hier die eigentlichen Aktionen eintragen  

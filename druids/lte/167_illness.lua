@@ -5,7 +5,7 @@ require("druids.base.outfit")
 
 module("druids.lte.167_illness", package.seeall(druids.base.outfit))
 
--- INSERT INTO longtimeeffect VALUES (167, 'druids_illness', 'druids.lte.167_illness');
+-- INSERT INTO longtimeeffects VALUES (167, 'druids_illness', 'druids.lte.167_illness');
 
 function DoInfection(Character,Runde,Diag)
 -- Ansteckung:

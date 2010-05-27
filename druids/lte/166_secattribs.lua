@@ -3,7 +3,7 @@
 
 module("druids.lte.166_secattribs", package.seeall())
 
--- INSERT INTO longtimeeffect VALUES (166, 'druids_secattribs', 'druids.lte.166_secattribs');
+-- INSERT INTO longtimeeffects VALUES (166, 'druids_secattribs', 'druids.lte.166_secattribs');
 
 function getAction(User,Effect,Runde)
 	--User:inform("Hier passiert etwas")

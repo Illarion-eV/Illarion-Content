@@ -4,7 +4,7 @@ require("base.common")
 
 module("druids.lte.59_attribs", package.seeall())
 
--- INSERT INTO longtimeeffect VALUES (59, 'druids_attribs', 'druids.lte.59_attribs');
+-- INSERT INTO longtimeeffects VALUES (59, 'druids_attribs', 'druids.lte.59_attribs');
 
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
 topBorder = 30;

@@ -16,7 +16,7 @@ require("handler.movelever")
 
 module("items.lever", package.seeall())
 
--- UPDATE common SET com_script="items.lever" WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
+-- UPDATE common SET com_script='items.lever' WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
 
 function init()
     leverList={};

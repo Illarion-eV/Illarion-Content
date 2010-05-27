@@ -5,7 +5,7 @@ require("base.common")
 
 module("druids.lte.329_transformation", package.seeall())
 
--- INSERT INTO longtimeeffect VALUES (329, 'druids_transformation', 'druids.lte.329_transformation');
+-- INSERT INTO longtimeeffects VALUES (329, 'druids_transformation', 'druids.lte.329_transformation');
 
 function getAction(Character,Effect,Runde)
 	--Hier die eigentlichen Aktionen eintragen  
