@@ -2,8 +2,11 @@
 -- Wachs (431) zu Kerzen (43)
 -- Arbeitszeit 2s
 
+-- UPDATE common SET com_script='items.429_candlemold' WHERE com_itemid IN (429);
 
 require("base.common")
+
+module("items.429_candlemold", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

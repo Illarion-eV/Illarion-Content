@@ -1,6 +1,8 @@
--- UPDATE common SET com_script='I_359_feuerfeld.lua' where com_itemid=359;
+-- UPDATE common SET com_script='items.359_firefield' where com_itemid=359;
 
 require("base.common")
+
+module("items.359_firefield", package.seeall())
 
 function IniFireField()
     --hum,dwa,hal,elf,orc,liz,gno,fry,gob,tro,mum,skl,beh,cld,hlr,buy,sel,ins,shp,spd,dsk,rot,dem,scp,pig,inv,sku,wsp,ftr,shd,stn,mgo,gno,dra,drw,drw,lde

@@ -1,6 +1,8 @@
--- UPDATE common SET com_script='I_360_eisfeld.lua' where com_itemid=360;
+-- UPDATE common SET com_script='items.360_icefield' where com_itemid=360;
 
 require("base.common")
+
+module("items.360_icefield", package.seeall())
 
 function IniFireField()
                  --hum,dwa,hal,elf,orc,liz,gno,fry,gob,tro,mum,skl,beh,cld,hlr,buy,sel,ins,shp,spd,dsk,rot,dem,scp,pig,inv,sku,wsp,ftr,shd,stn,mgo,gno,dra,drw,drw,lde

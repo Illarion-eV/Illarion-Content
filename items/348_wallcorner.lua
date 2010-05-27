@@ -1,4 +1,6 @@
--- UPDATE common SET com_script='I_348_mauerecke.lua' WHERE com_itemid = 348;
+-- UPDATE common SET com_script='items.348_wallcorner' WHERE com_itemid = 348;
+
+module("items.348_wallcorner", package.seeall())
 
 function UseItem( User, Item, TargetItem, counter, param )
     if equapos(Item.pos,position(-106,-147,0)) then

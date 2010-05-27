@@ -3,9 +3,11 @@
 -- Distel(141) zu Öl (390)
 -- Arbeitscyclus: 3s
 
--- UPDATE common SET com_script='I_44_presse.lua' WHERE com_itemid IN (44);
+-- UPDATE common SET com_script='items.44_squeezer' WHERE com_itemid IN (44);
 
 require("base.common")
+
+module("items.44_squeezer", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

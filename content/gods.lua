@@ -1,3 +1,5 @@
+module("content.gods", package.seeall())
+
 GOD_NONE     =  0
 GOD_USHARA   =  1
 GOD_BRAGON   =  2
@@ -23,16 +25,16 @@ GOD_LIST = {GOD_NARGUN,GOD_ELARA,GOD_ADRON,GOD_OLDRA,GOD_CHERGA,GOD_MALACHIN,
 
 GOD_EN = {
     [GOD_USHARA]   = "Ushara",
-    [GOD_BRAGON]   = "BrÃ¡gon",
+    [GOD_BRAGON]   = "Brágon",
     [GOD_ELDAN]    = "Eldan",
     [GOD_TANORA]   = "Tanora",
     [GOD_FINDARI]  = "Findari",
-    [GOD_NARGUN]   = "NargÃºn",
+    [GOD_NARGUN]   = "Nargún",
     [GOD_ELARA]    = "Elara",
     [GOD_ADRON]    = "Adron",
     [GOD_OLDRA]    = "Oldra",
     [GOD_CHERGA]   = "Cherga",
-    [GOD_MALACHIN] = "MalachÃ­n",
+    [GOD_MALACHIN] = "Malachín",
     [GOD_IRMOROM]  = "Irmorom",
     [GOD_SIRANI]   = "Sirani",
     [GOD_ZHAMBRA]  = "Zhambra",
@@ -44,22 +46,22 @@ GOD_EN = {
 
 GOD_DE = {
     [GOD_USHARA]   = "Ushara",
-    [GOD_BRAGON]   = "BrÃ¡gon",
+    [GOD_BRAGON]   = "Brágon",
     [GOD_ELDAN]    = "Eldan",
     [GOD_TANORA]   = "Tanora",
     [GOD_FINDARI]  = "Findari",
-    [GOD_NARGUN]   = "NargÃºn",
+    [GOD_NARGUN]   = "Nargún",
     [GOD_ELARA]    = "Elara",
     [GOD_ADRON]    = "Adron",
     [GOD_OLDRA]    = "Oldra",
     [GOD_CHERGA]   = "Cherga",
-    [GOD_MALACHIN] = "MalachÃ­n",
+    [GOD_MALACHIN] = "Malachín",
     [GOD_IRMOROM]  = "Irmorom",
     [GOD_SIRANI]   = "Sirani",
     [GOD_ZHAMBRA]  = "Zhambra",
     [GOD_RONAGAN]  = "Ronagan",
     [GOD_MOSHRAN]  = "Moshran",
-    [GOD_THEFIVE]  = "FÃ¼nf",
+    [GOD_THEFIVE]  = "Fünf",
     [GOD_THEDEVS]  = "Entwickler",
 }
 
@@ -71,8 +73,8 @@ PRAYER_CONVERSION = {
 }
 
 PRAYER_MASS = {
-	[GOD_NARGUN]   = {gText = "preiset narg[uÃº]n, gott des chaos",
-						eText = "praise narg[uÃº]n, god of chaos"},
+	[GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
+						eText = "praise narg[uú]n, god of chaos"},
     [GOD_ELARA]    = {gText = "preiset",
 						eText = "praise"},
     [GOD_ADRON]    = {gText = "preiset",

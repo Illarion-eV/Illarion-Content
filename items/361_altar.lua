@@ -1,5 +1,9 @@
+-- UPDATE common SET com_script='items.361_altar' WHERE com_itemid IN (361);
+
 require("base.common")
-dofile ("p_constants.lua");
+require("content.gods")
+
+module("items.361_altar", package.seeall(), package.seeall(content.gods))
 
 function LookAtItem(User, Item)
 

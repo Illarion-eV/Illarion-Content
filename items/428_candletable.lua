@@ -4,9 +4,11 @@
 -- Arbeitscyclus: 2s
 -- Zusätzliches Werkzeug: Zange mit Tiegel ( 2751 )
 
--- UPDATE common SET com_script='I_428_kerzentisch.lua' WHERE com_itemid IN (428);
+-- UPDATE common SET com_script='items.428_candletable' WHERE com_itemid IN (428);
 
 require("base.common")
+
+module("items.428_candletable", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
