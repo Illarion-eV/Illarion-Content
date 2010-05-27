@@ -1,4 +1,5 @@
 require("npcs.lightmaster");
+module("npcs.lm_merald_thigwart")
 
 WaypointList[1] = {}; -- Troll's Bane
 WaitingList[1] = {}; -- Troll's Bane

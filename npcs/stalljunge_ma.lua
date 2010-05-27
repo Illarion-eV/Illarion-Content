@@ -8,6 +8,7 @@
 --Update by:   Kadiya
 
 require("npcs.base.functions")
+module("npcs.stalljunge_ma")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

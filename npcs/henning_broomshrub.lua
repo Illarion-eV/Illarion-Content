@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),halfing,-371,74,0,2,false,'Henning Broomshrub','npc_henning_broomshrub.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.henning_broomshrub")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

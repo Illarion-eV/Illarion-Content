@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,10,1,0,4,false,'Miggs','npc_miggs.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.miggs")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

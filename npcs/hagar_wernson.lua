@@ -2,6 +2,7 @@
 
 require("npcs.base.autonpcfunctions")
 -- require("npcs.base.autonpcfunctions")
+module("npcs.hagar_wernson")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

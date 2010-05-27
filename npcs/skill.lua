@@ -1,3 +1,5 @@
+module("npcs.skill")
+
 function useNPC(user,counter,param)
     --thisNPC:increaseSkill(1,"common language",100);
     

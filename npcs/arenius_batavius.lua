@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,10,15,0,4,false,'Arenius Batavius','npc_arenius_batavius.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.arenius_batavius")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

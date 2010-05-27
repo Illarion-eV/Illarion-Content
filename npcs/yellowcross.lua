@@ -1,5 +1,7 @@
 -- Basiscript für die Kreuze
 
+module("npcs.yellowcross")
+
 function nextCycle()
 
     EffectArea = 3;

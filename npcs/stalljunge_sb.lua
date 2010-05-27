@@ -8,6 +8,7 @@
 --Update by:   Lennier
 
 require("npcs.base.functions")
+module("npcs.stalljunge_sb")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

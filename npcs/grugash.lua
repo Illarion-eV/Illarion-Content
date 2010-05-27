@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),4,194,-334,0,4,false,'Grugash','npc_grugash.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.grugash")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

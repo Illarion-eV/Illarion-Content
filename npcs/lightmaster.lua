@@ -1,5 +1,6 @@
 require("npcs.base.functions")
 require("npcs.base.guards");
+module("npcs.lightmaster")
 
 Waypoint:new(position(122,604,0),1);
 Waypoint:new(position(130,604,0),1);

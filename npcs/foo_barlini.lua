@@ -10,6 +10,7 @@
 require("npcs.base.functions")
 require("npcs.base.autonpcfunctions")
 require("magic.base.basics");
+module("npcs.foo_barlini")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-54,-218,0,2,false,'Artoss Ishem','npc_artoss_ishem.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.artoss_ishem")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

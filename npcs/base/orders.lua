@@ -1,5 +1,7 @@
 require("base.common")
-dofile("base_factions.lua");
+require("base_factions");
+module("npcs.base.orders")
+
 --Welches Item ist ein Auftrag (Schriftrolle)
 OrderItem = 3110;
 

@@ -1,8 +1,10 @@
 -- Basisscript für NPC Händlerfunktionen
 -- Nitram
 
-dofile("genus.lua")
-dofile("base_factions.lua")
+require("content.genus")
+require("base_factions")
+
+module("npcs.base.trader_functions")
 
 -- Auffüllen der Itembestände
 function refillItems(itNumb)

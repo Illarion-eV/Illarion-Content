@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,-98,-82,0,4,false,'Miss Piggy','npc_miss_piggy.lua',1);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.miss_piggy")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

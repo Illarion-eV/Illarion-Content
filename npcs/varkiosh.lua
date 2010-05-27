@@ -5,6 +5,7 @@
 
 require("npcs.base.autonpcfunctions")
 -- require("npcs.base.autonpcfunctions")
+module("npcs.varkiosh")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -8,6 +8,7 @@
 --Update by:   Markous
 
 require("npcs.base.trader_functions")
+module("npcs.grushub")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

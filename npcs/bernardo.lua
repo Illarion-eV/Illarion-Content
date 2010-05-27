@@ -10,6 +10,7 @@
 -- INSERT INTO npc VALUES (72, 0, -87, -123,1,4,'f','Bernardo von Hochfels','npc_bernardo.lua',0);
 
 require("npcs.base.functions")
+module("npcs.bernardo")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

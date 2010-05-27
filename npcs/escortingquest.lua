@@ -1,5 +1,7 @@
 require("npcs.base.autonpcfunctions")
-dofile("base_escortingquests.lua");
+require("npcs.base.escortingquests");
+module("npcs.escortingquest")
+
 --[[
 function init()
 	InitDone[thisNPC.id] = true;

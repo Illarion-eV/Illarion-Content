@@ -7,6 +7,8 @@
 --Last Update: 05/16/2006
 --Update by:   vilarion
 
+module("npcs.lurandir")
+
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talk(CCharacter.say, "Don't touch me!");

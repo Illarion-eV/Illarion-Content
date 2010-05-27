@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,-100,-400,0,4,false,'Bruno Blackhole','npc_bruno_blackhole.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.bruno_blackhole")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

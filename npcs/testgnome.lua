@@ -5,6 +5,7 @@
 
 require("npcs.base.functions")
 require("npcs.base.trader_functions")
+module("npcs.testgnome")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

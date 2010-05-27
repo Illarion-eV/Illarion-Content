@@ -9,6 +9,7 @@
 
 
 require("npcs.base.functions")
+module("npcs.stalljunge_gb")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

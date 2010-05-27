@@ -3,6 +3,8 @@ function useNPC(user,counter,param)
     thisNPC:talk(CCharacter.say, "Don't you touch me!");
 end
 
+module("npcs.lagan")
+
 --function checkSurround(playerID)
 --    foundHim=false;
 --    NpcPosX=thisNPC.pos.x;

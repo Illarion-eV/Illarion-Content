@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,401,242,1,6,false,'Cormac the Smuggler','npc_cormac_the_smuggler.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.cormac_the_smuggler")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

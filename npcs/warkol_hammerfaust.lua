@@ -12,7 +12,7 @@
 
 require("npcs.base.autonpcfunctions")
 require("base.common")
-
+module("npcs.warkol_hammerfaust")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

@@ -3,6 +3,7 @@
 --Mjilka
 require("npcs.base.autonpcfunctions")
 require("quest_aquest28");    --the quest file
+module("npcs.cow2_aquest28")
 
 function InitNPC()
     if not InitDone then

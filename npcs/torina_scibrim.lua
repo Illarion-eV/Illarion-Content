@@ -6,6 +6,7 @@
 
 require("npcs.base.autonpcfunctions")
 require("npcs.base.trader_functions");
+module("npcs.torina_scibrim")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

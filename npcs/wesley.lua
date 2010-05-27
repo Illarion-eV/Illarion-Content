@@ -1,3 +1,5 @@
+module("npcs.wesley")
+
 function useNPC(user,counter,param)
     --thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talk(CCharacter.say, "Don't you touch me!");

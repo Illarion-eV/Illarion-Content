@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,-135,-400,0,4,false,'Daerbur Wimbert','npc_daerbur_wimbert.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.daermil_wimbert_fonfoodle")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,-125,-400,0,4,false,'Valandil Elensar','npc_valandil_elensar.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.valandil_elensar")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

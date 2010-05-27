@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,883,634,0,4,false,'Milo Deepdelver','npc_milo_deepdelver.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.milo_deepdelver")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

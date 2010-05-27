@@ -2,6 +2,8 @@
 --775,791,0
 require("npcs.base.autonpcfunctions")
 require("quest_aquest28");    --the quest file
+module("npcs.cow1_aquest28")
+
 
 function InitNPC()
     if not InitDone then

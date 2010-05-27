@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,-110,-420,0,4,false,'Ehrom Goldhammer','npc_ehrom_goldhammer.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.ehrom_goldhammer")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

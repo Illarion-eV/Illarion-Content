@@ -4,6 +4,7 @@
 --Function:    Schweinehirte/Dorfdepp
 
 require("npcs.base.functions")
+module("npcs.gloarn")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

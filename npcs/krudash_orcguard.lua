@@ -12,6 +12,7 @@ by: Juniper Onyx
 require("base.common")
 require("npcs.base.autonpcfunctions")
 require("base.keys")
+module("npcs.krudash_orcguard")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

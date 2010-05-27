@@ -1,6 +1,7 @@
 -- base script for patrolling npcs or monsters
-dofile("base_waypoints.lua");
+require("npcs.base.waypoints");
 require("base.doors")
+module("npcs.base.patrol")
 
 -- ** defaults **
 PatrolPointer = 0;				--

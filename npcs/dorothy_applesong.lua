@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,-66,-100,0,2,false,'Dorothy Applesong','npc_dorothy_applesong.lua',1);
 
 require("npcs.base.autonpcfunctions")
--- require("npcs.base.autonpcfunctions")
+module("npcs.dorothy_applesong")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

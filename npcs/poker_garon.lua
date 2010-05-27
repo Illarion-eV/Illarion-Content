@@ -1,4 +1,5 @@
-dofile("game_poker.lua")
+require("game_poker")
+module("npcs.poker_garon")
 
 function npcInit(npcDealer)
     if not isInit then

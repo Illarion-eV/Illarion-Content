@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-495,-484,-40,4,false,'Percy Dryless','npc_percy_dryless.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.percy_dryless")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

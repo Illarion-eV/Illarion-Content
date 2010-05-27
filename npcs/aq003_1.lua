@@ -8,6 +8,7 @@
 --Update by:   Markous
 
 require("npcs.base.functions")
+module("npcs.aq003_1")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

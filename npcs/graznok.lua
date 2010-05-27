@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),4,10,5,0,4,false,'Graznok','npc_graznok.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.graznok")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

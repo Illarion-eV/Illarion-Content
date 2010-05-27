@@ -8,6 +8,7 @@
 --Update by:   Nitram
 
 require("npcs.base.functions")
+module("npcs.aq002")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

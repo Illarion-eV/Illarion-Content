@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,907,794,1,4,false,'Alysa Lorthelia','npc_alysa_lorthelia.lua',1);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.alysa_lorthelia")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

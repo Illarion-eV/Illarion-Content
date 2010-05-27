@@ -1,3 +1,5 @@
+module("npcs.base.functions")
+
 function GetNLS( User, textInDe, textInEn )
     local textNLS = "";
     if User:getPlayerLanguage()==0 then

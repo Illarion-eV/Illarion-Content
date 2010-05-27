@@ -4,6 +4,7 @@
 
 require("base.common")
 require("npcs.base.autonpcfunctions")
+module("npcs.walter_ferendor")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -10,6 +10,7 @@ function: newbie island NPC; last NPC, telling about craftmasters
 
 require("npcs.base.autonpcfunctions")
 require("base.common")
+module("npcs.findecano_melwasul")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

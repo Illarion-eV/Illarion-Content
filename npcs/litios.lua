@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,108,585,0,0,false,'Litios','npc_litios.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.lithios")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

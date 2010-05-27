@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-110,-400,0,4,false,'Rutrus','npc_rutrus.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.rutrus")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,124,581,0,4,false,'Berni Grunweld','npc_berni_grunweld.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.berni_grunweld")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

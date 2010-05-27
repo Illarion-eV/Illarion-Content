@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,-417,44,0,2,false,'Barney Haycrop','npc_barney_haycrop.lua',0);
 
 require("npcs.base.autonpcfunctions")
--- dofile("/usr/share/servers/illarionserver/scripts/npc_autonpcfunctions.lua");
+module("npcs.barney_haycrop")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

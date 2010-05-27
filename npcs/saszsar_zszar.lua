@@ -5,6 +5,7 @@
 
 require("npcs.base.autonpcfunctions")
 -- require("npcs.base.autonpcfunctions")
+module("npcs.saszsar_zszar")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

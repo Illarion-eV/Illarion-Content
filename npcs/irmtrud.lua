@@ -11,6 +11,7 @@ last updated: 17/04/08
 require("base.common")
 require("npcs.base.autonpcfunctions")
 require("base.keys")
+module("npcs.irmtrud")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

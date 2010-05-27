@@ -2,6 +2,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,0,0,0,4,false,'Jeyne Terelorn','npc_jeyne_terelorn.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.jeyne_terelorn")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

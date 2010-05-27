@@ -6,7 +6,9 @@
 --race=halfling
 --direction=south
 -- last updated by Ardian on 25.11.2009
+
 require("npcs.base.autonpcfunctions")
+module("npcs.otto_sauerteig")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

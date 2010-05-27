@@ -11,6 +11,7 @@
 --	dofile("npc_nanginis_nargunpriest.lua");
 require("base.common")
 require("npcs.base.autonpcfunctions") --für die Funktion npcs.base.autonpcfunctions.increaseLangSkill
+module("npcs.marel")
 
 function nextCycle()
 end

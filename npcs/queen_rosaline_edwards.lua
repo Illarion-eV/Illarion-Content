@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,122,520,0,4,false,'Queen Rosaline Edwards','npc_queen_rosaline_edwards.lua',1);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.queen_rosaline_edwards")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

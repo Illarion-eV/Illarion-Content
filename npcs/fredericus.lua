@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,133,581,0,4,false,'Fredericus','npc_fredericus.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.fredericus")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

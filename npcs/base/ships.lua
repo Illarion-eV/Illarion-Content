@@ -1,5 +1,7 @@
 -- Basisfunktion für Passagierschiffe aller Art
 
+module("npcs.base.ships")
+
 function InitShips()
     if (ShipMask == nil) then
         ShipMask = { };

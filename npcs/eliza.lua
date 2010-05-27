@@ -10,6 +10,7 @@
 require("npcs.base.trader_functions")
 require("npcs.base.functions")
 require("base.common")
+module("npcs.eliza")
 
 TraderInterface = {};
 TraderInterface["page"] = {};

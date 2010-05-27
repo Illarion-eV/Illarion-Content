@@ -12,6 +12,7 @@ require("base.common")
 require("npcs.base.autonpcfunctions")
 require("base.keys")
 require("base.doors")
+module("npcs.goldra_felsreisser")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

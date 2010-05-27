@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,898,775,2,2,false,'Archmage Elvaine Morgan','npc_archmage_elvaine_morgan.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.archmage_elvaine_morgan")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

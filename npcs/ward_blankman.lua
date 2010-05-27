@@ -2,6 +2,7 @@
 
 require("npcs.base.autonpcfunctions")
 -- dofile("/usr/share/servers/illarionserver/scripts/npc_autonpcfunctions.lua");
+module("npcs.ward_blankman")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

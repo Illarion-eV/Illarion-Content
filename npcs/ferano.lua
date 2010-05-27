@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),3,371,152,-10,4,false,'Ferano','npc_ferano.lua',0);
 
 require("npcs.base.autonpcfunctions")
--- require("npcs.base.autonpcfunctions")
+module("npcs.ferano")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

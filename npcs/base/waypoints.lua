@@ -1,5 +1,7 @@
 -- base script for waypoints
 
+module("npcs.base.waypoints")
+
 -------------------------
 -- *** DEFINITIONS *** --
 -------------------------

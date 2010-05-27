@@ -1,4 +1,5 @@
 require("npcs.base.functions")
+module("npcs.fala")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

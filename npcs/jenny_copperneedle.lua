@@ -9,6 +9,7 @@
 
 
 require("npcs.base.autonpcfunctions")
+module("npcs.jenny_copperneedle")
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

@@ -4,9 +4,9 @@
 -- telling about tree fall directions, wildfires and recovering from cold
 
 require("npcs.base.autonpcfunctions")
--- require("npcs.base.autonpcfunctions")
-
 require("base.common")
+module("npcs.amelia_kolodem")
+
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

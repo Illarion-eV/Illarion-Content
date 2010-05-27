@@ -1,3 +1,5 @@
+module("npcs.buerger")
+
 function InitWalkNPC()
     thisNPC:increaseSkill(1,"common language",100);
     WalkList={};

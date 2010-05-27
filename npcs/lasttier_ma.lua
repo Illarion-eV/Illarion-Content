@@ -7,6 +7,8 @@
 --Last Update: 05/26/2007
 --Update by:   Nitram
 
+module("npcs.lasttier_ma")
+
 function useNPC(User,Counter,Param)
     if lost[thisNPC.id] then -- Kuh wurde zurück gelassen
         find_transporter, effect_transporter = thisNPC.effects:find(10);

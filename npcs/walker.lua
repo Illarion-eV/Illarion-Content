@@ -1,4 +1,5 @@
 require( "npcs.base.walking" );
+module("npcs.walker")
 
 function nextCycle()
     if not slowdown then

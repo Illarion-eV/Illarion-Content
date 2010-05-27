@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-413, -145, 0,6,false,'Siloli','npc_siloli.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.siloli")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

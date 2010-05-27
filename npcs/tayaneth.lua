@@ -1,3 +1,5 @@
+module("npcs.tayaneth")
+
 function useNPC(user,counter,param)
     --user:talk(CCharacter.say, "test");
     thisNPC:increaseSkill(1,"common language",100);

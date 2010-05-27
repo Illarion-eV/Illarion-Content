@@ -1,3 +1,5 @@
+module("npcs.mathilda")
+
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
     if ( User:getPlayerLanguage()==0 ) then

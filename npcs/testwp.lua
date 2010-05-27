@@ -1,4 +1,4 @@
-
+module("npcs.testwp")
 
 function initializeNpc()
     TraderFirst = false;

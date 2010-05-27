@@ -1,8 +1,9 @@
 -- base script for patrolling faction guards
 
-dofile ("base_patrol.lua");
+require("npcs.base.patrol");
 require("base.common")
-dofile ("base_factions.lua");
+require("base_factions");
+module("npcs.base.guards")
 
 BG_Faction = 0;						-- faction of the guard
 BG_WarpPos = position(0,0,0);	-- position where intruders can be warped to

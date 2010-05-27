@@ -1,3 +1,5 @@
+module("npcs.shiptest")
+
 function useNPC(user,Counter,Param)
        -- user:talk(CCharacter.say, "test");
        thisNPC:talk(CCharacter.say, "I am used by " .. user.name .. " !");

@@ -3,7 +3,9 @@
 --
 -- By martin and nitram
 ---------------------------------------------------------------------------
-dofile("base_factions.lua")
+require("base_factions")
+module("npcs.base.autonpcfunctions")
+
 --[[
 - GetNLS
 - @param User CharStruct

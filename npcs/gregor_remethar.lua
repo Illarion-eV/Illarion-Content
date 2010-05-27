@@ -1,6 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,907,804,0,4,false,'Gregor Remethar','npc_gregor_remethar.lua',0);
 
 require("npcs.base.autonpcfunctions")
+module("npcs.gregor_remethar")
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);
