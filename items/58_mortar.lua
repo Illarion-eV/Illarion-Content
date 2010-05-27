@@ -1,9 +1,11 @@
 -- Farben herstellen
 
--- UPDATE common SET com_script='I_58_moerser_oop.lua' WHERE com_itemid=58;
+-- UPDATE common SET com_script='items.58_mortar' WHERE com_itemid=58;
 
-dofile( "base_lookat.lua" );
+require("items.general.jewel")
 require("items.base.crafts")
+
+require("items.58_mortar", package.seeall(), package.seeall(items.general.jewel))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
@@ -126,7 +128,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         Mortar:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end

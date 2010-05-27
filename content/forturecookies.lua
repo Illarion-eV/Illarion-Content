@@ -1,5 +1,7 @@
+module("content.forturecookies", package.seeall())
+
 function cookie(User)
-    local luck=math.random(1,41);
+    local luck=math.random(1,42);
     local germText;
     local englText;
     if (luck==1) then
@@ -122,6 +124,9 @@ function cookie(User)
     elseif (luck==41) then
         germText="Hilfe! Ich bin in einer Glückkeksbäckerei eingesperrt!";
         englText="Help! I am a prisoner in a fortune cookie bakery!";
+    elseif (luck==42) then
+        germText="Füttere den Troll nicht.";
+        englText="Don't feed the troll.";
     end
 
     return germText,englText;

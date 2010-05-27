@@ -1,6 +1,10 @@
 require("base.common")
 require("base.treasure")
 
+-- UPDATE common SET com_script='items.505_treasuremap' WHERE com_itemid IN (505);
+
+module("items.505_treasuremap", package.seeall())
+
 function LookAtItem(User, Item)
 
     local dir = base.treasure.getDirection( User, Item );

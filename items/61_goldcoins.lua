@@ -1,6 +1,10 @@
 -- I_61.lua Goldm&uuml;nzen einschmelzen
 
+-- UPDATE common SET com_script='items.61_goldcoins' WHERE com_itemid IN (61);
+
 require("base.common")
+
+module("items.61_goldcoins", package.seeall())
 
 if not InitTime then
 	InitTime=true;

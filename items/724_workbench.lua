@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 2s - 5s
 -- Zusätzliches Werkzeug: Säge ( 9 )
 
--- UPDATE common SET com_script='I_724_werkbank.lua' WHERE com_itemid IN (724,725);
+-- UPDATE common SET com_script='items.724_workbench' WHERE com_itemid IN (724,725);
 
 require("base.common")
+
+module("items.724_workbench", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

@@ -1,11 +1,13 @@
 -- Angeln mit neuem Collecting-System
 -- Blay09
 
--- UPDATE common SET com_script='I_72_angel.lua' WHERE com_itemid=72;
+-- UPDATE common SET com_script='items.72_fishingrod' WHERE com_itemid=72;
 
-dofile("base_lookat.lua");
+require("items.general.wood")
 require("base.common")
 require("content.gathering")
+
+module("items.72_fishingrod", package.seeall(), package.seeall(items.general.wood))
 
 
 function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)

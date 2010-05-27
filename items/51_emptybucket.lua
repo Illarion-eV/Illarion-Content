@@ -1,6 +1,10 @@
 -- I_51 Eimer mit Wasser fuellen
 
+-- UPDATE common SET com_script='items.51_emptybucket' WHERE com_itemid IN (51);
+
 require("base.common")
+
+module("items.51_emptybucket", package.seeall())
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     local Field = world:getField(TargetPos);

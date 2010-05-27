@@ -1,9 +1,11 @@
 -- I_6.lua garn aus darm
 
--- UPDATE common SET com_script='I_6_schere.lua' WHERE com_itemid=6;
+-- UPDATE common SET com_script='items.6_scissors' WHERE com_itemid IN (6);
 
-dofile( "base_lookat.lua" );
-require("base.common")
+require("items.general.metal")
+require("items.base.crafts")
+
+module("items.6_scissors", package.seeall(), package.seeall(items.general.metal))
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
@@ -172,8 +174,4 @@ function UseItemWithCharacter(User,SourceItem, Character, Counter, Param,ltstate
     end
     
     base.common.GetHungry( User, 100 ); 
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
 end

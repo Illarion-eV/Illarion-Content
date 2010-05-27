@@ -5,11 +5,12 @@
 
 -- Arbeitscyclus: 4s - 5s
 
--- UPDATE common SET com_script='I_737_chisel.lua' WHERE com_itemid IN (737);
+-- UPDATE common SET com_script='items.737_chisel' WHERE com_itemid IN (737);
 
-require("base.common")
-dofile("base_lookat.lua" );
+require("items.general.metal")
+require("items.base.crafts")
 
+module("items.737_chisel", package.seeall(), package.seeall(items.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate )

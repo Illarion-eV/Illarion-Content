@@ -1,9 +1,11 @@
 -- Schneidern mit Nadel, Schneidertisch
 
--- UPDATE common SET com_script='I_47_nadel_oop.lua' WHERE com_itemid IN (47);
+-- UPDATE common SET com_script='items.47_needle' WHERE com_itemid IN (47);
 
-dofile( "base_lookat.lua" );
+require("items.general.wood")
 require("items.base.crafts")
+
+module("items.47_needle", package.seeall(), package.seeall(items.general.wood))
 
 -- Schneiderprodukte Initieren
 function InitCraftingTool( )
@@ -742,7 +744,3 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         end
     end
 end --function
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false ));
-end

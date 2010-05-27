@@ -1,3 +1,6 @@
+-- UPDATE common SET com_script='items.456_snowball' WHERE com_itemid IN (456);
+
+module("items.456_snowball", package.seeall())
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 	if Round==nil then
@@ -11,6 +14,3 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		Round=nil;
 	end
 end
-
-
-

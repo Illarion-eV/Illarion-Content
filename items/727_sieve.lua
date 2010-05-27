@@ -5,9 +5,11 @@
 -- Arbeitscyclus: 1s - 4s
 -- Zusätzliches Werkzeug: Holzkelle ( 312 )
 
--- UPDATE common SET com_script='I_727_sieb.lua' WHERE com_itemid IN (727);
+-- UPDATE common SET com_script='items.727_sieve' WHERE com_itemid IN (727);
 
 require("base.common")
+
+module("items.727_sieve", package.seeall())
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );

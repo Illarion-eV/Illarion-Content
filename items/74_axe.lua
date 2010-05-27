@@ -2,12 +2,13 @@
 ----------- HOLZ FÄLLEN -----------
 -----------------------------------
 
--- UPDATE common SET com_script='I_74_2946_axt.lua' WHERE com_itemid IN (74,2946);
+-- UPDATE common SET com_script='items.74_axe' WHERE com_itemid IN (74,2946);
 
 require("base.common")
-dofile( "base_lookat.lua" );
+require("items.general.metal")
 require("content.gathering")
 
+module("items.74_axe", package.seeall(), package.seeall(items.general.wood))
 
 function initLists(  )
     -- Initialisierung der Listen
@@ -306,7 +307,3 @@ function Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end
 end -- main function UseItem(  )
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1 ));
-end

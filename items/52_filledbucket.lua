@@ -1,7 +1,11 @@
 -- I_52.lua voller Wassereimer
 
+-- UPDATE common SET com_script='items.52_filledbucket' WHERE com_itemid IN (52);
+
 require("base.common")
 require("base.keys")
+
+module("items.52_filledbucket", package.seeall())
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
