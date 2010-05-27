@@ -3,7 +3,7 @@
 require("items.priest.cloth")
 require("base.common")
 
-module("items.194_blackcloak", package.seeall(), package.seeall(items.priest.cloth))
+module("items.194_blackcloak", package.seeall, package.seeall(items.priest.cloth))
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --anlegen des schattenmantels

@@ -1,8 +1,8 @@
--- LTE für das Druidensystem
+-- LTE fï¿½r das Druidensystem
 -- by Falk
 -- immunity. Has actually nothing to do with healing potion 328 orange bottle
 
-module("druids.lte.328_immunity", package.seeall())
+module("druids.lte.328_immunity", package.seeall)
 
 -- INSERT INTO longtimeeffects VALUES (328, 'druids_immunity', 'druids.lte.328_immunity');
 
@@ -14,7 +14,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 --Character:inform("debug func addEffect") 
 end
 
-function callEffect(Effect,Character)                  -- Effect wird ausgeführt
+function callEffect(Effect,Character)                  -- Effect wird ausgefï¿½hrt
 	
 	local foundImmunity, immunity, retVal = nil,nil,false;
 	for i=1,8 do

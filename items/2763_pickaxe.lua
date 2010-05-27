@@ -27,7 +27,7 @@ require("items.general.metal")
 require("base.common")
 require("base.treasure")
 
-module("items.2763_pickaxe", package.seeall(), package.seeall(items.general.metal))
+module("items.2763_pickaxe", package.seeall, package.seeall(items.general.metal))
 
 function Init()
     if InitDone then
@@ -149,7 +149,7 @@ function Init()
     SetRessource( 6, 1246,  21, 20,  0); -- coal
     -----------Mine  Kupferberge 3 - FERTIG -----------
 
-    ---------------- Mine Wüste ---------------
+    ---------------- Mine Wï¿½ste ---------------
     AddArea( 10, position(122,-270,-0), 10 );
     AddStone( 10, 1273);
     SetRessource( 10, 1273,  22, 80,  0); -- iron ore
@@ -160,7 +160,7 @@ function Init()
     SetRessource( 10, 914,  234,   1,  0); -- gold nuggets
     SetRessource( 10, 914, 254,  2,  0); -- diamonds
     SetRessource( 10, 914, 257,  4, 10); -- topas
-    ----------- Mine Wüste - FERTIG -----------
+    ----------- Mine Wï¿½ste - FERTIG -----------
 
 
     ---------------- Nordmine ---------------
@@ -349,7 +349,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
-        "Deine Rüstung behindert Dich Rohstoffe abzubauen.",
+        "Deine Rï¿½stung behindert Dich Rohstoffe abzubauen.",
         "Your armor disturbes you when mining ores" );
         return
     end
@@ -369,7 +369,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if ( AreaID == false ) then
         base.common.InformNLS(User,
-        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
+        "Die Gegend sieht nicht so aus, als kï¿½nnte man hier etwas finden.",
         "The area doesn't look like a area to mine.");
         return
     end
@@ -392,13 +392,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if base.common.ToolBreaks( User, SourceItem, true ) then
         base.common.InformNLS(User,
-        "Die alte und abgenutzte Spitzhacke in deinen Händen zerbricht.",
+        "Die alte und abgenutzte Spitzhacke in deinen Hï¿½nden zerbricht.",
         "The old and used pick-axe in your hands breaks.");
         return
     end
 
     if breakRock(TargetItem) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me zertrümmert den Stein.");
+        User:talkLanguage( CCharacter.say, CPlayer.german, "#me zertrï¿½mmert den Stein.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me destroys the rock.");
         return
     end
@@ -458,7 +458,7 @@ function UseItemWithField(User,SourceItem,TargetPos,counter,param)
     
     if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
                                                 base.common.GetNLS( User,
-                                                    "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
+                                                    "Du schwingst deine Spitzhacke gegen den steinigen Boden und stï¿½ï¿½t auf etwas das noch hï¿½rter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
                                                     "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The teasure! Digging another time and it yours!" ), false ) then
         return;
     end
@@ -467,15 +467,15 @@ function UseItemWithField(User,SourceItem,TargetPos,counter,param)
     if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
         if ( GroundType == 1 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Ackerboden.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grï¿½bt sich tief in den Ackerboden.",
             "You swing your pick-axe towards the ground and it digs deeply into the farm land.");
         elseif ( GroundType == 2 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Waldboden.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grï¿½bt sich tief in den Waldboden.",
             "You swing your pick-axe towards the ground and it digs deeply into the forest ground.");
         elseif ( GroundType == 4 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in die Wiese.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grï¿½bt sich tief in die Wiese.",
             "You swing your pick-axe towards the ground and it digs deeply into the gras.");
         elseif ( GroundType == 5 ) then
             base.common.InformNLS( User,

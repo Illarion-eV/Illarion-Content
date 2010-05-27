@@ -2,7 +2,7 @@
 
 require("base.books")
 
-module("items.books.2607_blue_book", package.seeall())
+module("items.books.2607_blue_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.2607_blue_book' WHERE com_itemid = 2607;
 
@@ -27,7 +27,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Adrons is the God of Festivities. He is said to appear as an attractive man or an old begger witha bottle. He is very impulsive and can be aggressive at times.",0,0,0); 
             base.books.AddEnglishBookText("Cherga is the Goddess of Death and Souls. She is very neutral and proud. She is for justice and takes pride in such things.",0,0,0); 
             base.books.AddEnglishBookText("Oldra is the Goddess of Life and Fertility. She often appears as an elder woman. Many farmers, mothers, and families pray to her.",0,0,0); 
-            base.books.AddEnglishBookText("Nargùn is the God of Chaos. He loves playing tricks and inacting a cunning revenge. His humor is very dark and his true form is often kept hidden from mortals.",0,0,0); 
+            base.books.AddEnglishBookText("Nargï¿½n is the God of Chaos. He loves playing tricks and inacting a cunning revenge. His humor is very dark and his true form is often kept hidden from mortals.",0,0,0); 
             base.books.AddEnglishBookText("Malachin is the God of Hunting and Battle. He is very dignified and serious, usually neutral on subjects. He is said to appear as a strong knight or a clothed ranger. Many follow this honorable God.",0,0,0); 
             base.books.AddEnglishBookText("Irmorom is the God of Crafts and Trade. He loves wealth and Justice. Those who worship him take pride in their excellent crafts and monetary wealth.",0,0,0); 
             base.books.AddEnglishBookText("Sirani is the Goddess of Love and Pleasure. She usually appears as an attractive female. She is very amiable and intelligent, as well as sympathetic.",0,0,0); 
@@ -35,27 +35,27 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Ronagan is the God of Thieves and Shadows. He stands for spreading wealth to the needed and does not agree with strict set of laws. He is said to help honorable thieves.",0,0,0); 
             base.books.AddEnglishBookText("Moshran is the God of Blood and Bones. The orcs were created with his anger and despair, for he was cursed after saving the land. Afterwards, his status of a great warrior was not as such.",0,0,0); 
             
-            base.books.AddGermanBookText("\n \n Illarions Götterwelt",0,0,0); 
-            base.books.AddGermanBookText("Die Alten Götter",0,0,0); 
-            base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fünf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
-            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Güldene. Er wird als stark, gerecht und großzügig beschrieben. ",0,0,0); 
-            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhänger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund für seine geringe Gefolgschaft.",0,0,0); 
-            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zuständig für die Kunst. Auch ihre Anhänger sind dünn gesäat, in aller Regel Wahrsager und Bänkelsänger.",0,0,0); 
-            base.books.AddGermanBookText("Tanora ist die alte Göttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Göttern, die möglicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
-            base.books.AddGermanBookText("Die alte Gottheit Ushara wacht über die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
-            base.books.AddGermanBookText("Die Jüngeren Götter",0,0,0); 
-            base.books.AddGermanBookText("Die Jüngeren unter den Gottheiten waren elf herausragende Bürgerliche, die, auserwählt von den Alten, bestimmt wurden, zu Göttern aufzusteigen.",0,0,0); 
-            base.books.AddGermanBookText("Elara ist die Göttin des Wissens. Sie wird hauptsächlich von Zauberern und Gelehrten verehrt. Gerüchteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als großgewachsene alterslose Frau.",0,0,0); 
+            base.books.AddGermanBookText("\n \n Illarions Gï¿½tterwelt",0,0,0); 
+            base.books.AddGermanBookText("Die Alten Gï¿½tter",0,0,0); 
+            base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fï¿½nf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
+            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Gï¿½ldene. Er wird als stark, gerecht und groï¿½zï¿½gig beschrieben. ",0,0,0); 
+            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhï¿½nger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund fï¿½r seine geringe Gefolgschaft.",0,0,0); 
+            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zustï¿½ndig fï¿½r die Kunst. Auch ihre Anhï¿½nger sind dï¿½nn gesï¿½at, in aller Regel Wahrsager und Bï¿½nkelsï¿½nger.",0,0,0); 
+            base.books.AddGermanBookText("Tanora ist die alte Gï¿½ttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Gï¿½ttern, die mï¿½glicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
+            base.books.AddGermanBookText("Die alte Gottheit Ushara wacht ï¿½ber die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
+            base.books.AddGermanBookText("Die Jï¿½ngeren Gï¿½tter",0,0,0); 
+            base.books.AddGermanBookText("Die Jï¿½ngeren unter den Gottheiten waren elf herausragende Bï¿½rgerliche, die, auserwï¿½hlt von den Alten, bestimmt wurden, zu Gï¿½ttern aufzusteigen.",0,0,0); 
+            base.books.AddGermanBookText("Elara ist die Gï¿½ttin des Wissens. Sie wird hauptsï¿½chlich von Zauberern und Gelehrten verehrt. Gerï¿½chteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als groï¿½gewachsene alterslose Frau.",0,0,0); 
             base.books.AddGermanBookText("Adrons ist der Gott der Feste. Man sagt von ihm, er erscheine als ansehnlicher Mann oder auch als Bettler mit Flasche. Er ist aufbrausend und bisweilen streitlustig.",0,0,0); 
-            base.books.AddGermanBookText("Cherga is die Göttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht für Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
-            base.books.AddGermanBookText("Oldra is die Göttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ältere Frau auf. Viele Bauern, Mütter und Familien beten zu ihr.",0,0,0);
-            base.books.AddGermanBookText("Nargùn ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
-            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr würdevoll, ernst und für gewöhnlich neutral. Man sagt, er erscheint als starker Krieger oder verhüllter Waldläufer. Viele glauben an diesen ehrwürdigen Gott.",0,0,0);
+            base.books.AddGermanBookText("Cherga is die Gï¿½ttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht fï¿½r Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
+            base.books.AddGermanBookText("Oldra is die Gï¿½ttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ï¿½ltere Frau auf. Viele Bauern, Mï¿½tter und Familien beten zu ihr.",0,0,0);
+            base.books.AddGermanBookText("Nargï¿½n ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
+            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr wï¿½rdevoll, ernst und fï¿½r gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
             base.books.AddGermanBookText("Irmorom ist der Gott des Handwerks und des Handels. Er liebt Wohlstand und Gerechtigkeit. Die, die ihn verehren, sind stolz auf ihre handwerklichen Begabungen und ihren Reichtum.",0,0,0);
-            base.books.AddGermanBookText("Sirani ist die Göttin der Liebe und des Vergnügens. Für gewöhnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
-            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzählt, er würde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hält nichts von solchen Dingen.",0,0,0);
-            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht für das Geben an Bedürftige und hält nichts von strengen Gesetzen. Man erzählt, er helfe ehrwürdigen Dieben.",0,0,0);
-            base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als großer Krieger zerbrochen.",0,0,0);
+            base.books.AddGermanBookText("Sirani ist die Gï¿½ttin der Liebe und des Vergnï¿½gens. Fï¿½r gewï¿½hnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
+            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzï¿½hlt, er wï¿½rde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hï¿½lt nichts von solchen Dingen.",0,0,0);
+            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht fï¿½r das Geben an Bedï¿½rftige und hï¿½lt nichts von strengen Gesetzen. Man erzï¿½hlt, er helfe ehrwï¿½rdigen Dieben.",0,0,0);
+            base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als groï¿½er Krieger zerbrochen.",0,0,0);
 
             ---------------
             
@@ -81,24 +81,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Because halflings are not well in magic, it would be wise to give a practitioner room incase his spell has unwanted effects.",0,0,1);
 
             base.books.AddGermanBookText("\n \n Kultur und Geschichte der Halblinge",0,0,1);
-            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fördert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
-            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der größte Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller Öfentlichkeit präsentieren. Sie neigen dazu, älter zu werden als die Menschen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hügel und Wälder das Bild bestimmen, wo sie ihre Heimstätten in die Erde eingraben. Im Laufe von Generationen können diese Höhlen eine beachtliche Größe erreichen.",0,0,1);
-            base.books.AddGermanBookText("Ihre Häuser sind voller Möbel und anderer Besitztümer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemütlich zu empfinden.",0,0,1);
-            base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanführer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
-            base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dürfen erst wieder gehen, wenn sie pappsatt sind, alles andere gälte als unhöflich. Böse Zungen behaupten, es gäbe im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
-            base.books.AddGermanBookText("Und zwar Frühstück, Mittagessen und Abendbrot!",0,0,1);
-            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermäuler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag über die Kochkünste hält.",0,0,1);
-            base.books.AddGermanBookText("Es ist nicht unüblich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschäftigen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hände Arbeit zu leben. Es gibt Einige, die weltberühmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jäger und Kräutersammler.",0,0,1);
-            base.books.AddGermanBookText("In den Dörfern findet man häufig kleine Oldra-Schreine. Tatsächlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
-            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und geräuscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fähigkeiten gerne für Diebstähle genutzt.",0,0,1);
-            base.books.AddGermanBookText("Es ist ratsam, Halblinge im Auge zu behalten, die mit dem Zeichen Ronagans geschmückt sind, sie könnten Böses im Schilde führen.",0,0,1);
+            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natï¿½rlich fï¿½rdert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
+            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der grï¿½ï¿½te Unterschied zu menschen in ihren groï¿½en und haarigen Fï¿½ï¿½en, die sie stolz in aller ï¿½fentlichkeit prï¿½sentieren. Sie neigen dazu, ï¿½lter zu werden als die Menschen.",0,0,1);
+            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hï¿½gel und Wï¿½lder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen kï¿½nnen diese Hï¿½hlen eine beachtliche Grï¿½ï¿½e erreichen.",0,0,1);
+            base.books.AddGermanBookText("Ihre Hï¿½user sind voller Mï¿½bel und anderer Besitztï¿½mer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
+            base.books.AddGermanBookText("Zuhause leben sie in Groï¿½familien, denen ein Clanfï¿½hrer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
+            base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dï¿½rfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gï¿½be im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
+            base.books.AddGermanBookText("Und zwar Frï¿½hstï¿½ck, Mittagessen und Abendbrot!",0,0,1);
+            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse fï¿½r Essen und Trinken. Sie sind als Schleckermï¿½uler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag ï¿½ber die Kochkï¿½nste hï¿½lt.",0,0,1);
+            base.books.AddGermanBookText("Es ist nicht unï¿½blich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschï¿½ftigen.",0,0,1);
+            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden fï¿½r ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Krï¿½utersammler.",0,0,1);
+            base.books.AddGermanBookText("In den Dï¿½rfern findet man hï¿½ufig kleine Oldra-Schreine. Tatsï¿½chlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
+            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafï¿½r entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne fï¿½r Diebstï¿½hle genutzt.",0,0,1);
+            base.books.AddGermanBookText("Es ist ratsam, Halblinge im Auge zu behalten, die mit dem Zeichen Ronagans geschmï¿½ckt sind, sie kï¿½nnten Bï¿½ses im Schilde fï¿½hren.",0,0,1);
             base.books.AddGermanBookText("Halblinge haben zum Leben eine recht simple Einstellung. Sie sorgen sich selten um die Zukunft und ihr Auskommen, stattdessen bevorzugen sie Entspannung und einen anhaltenden Plausch mit guten Freunden.",0,0,1);
-            base.books.AddGermanBookText("Sie haben keinen Sinn für Hierachien, halten aber Familie und Freundschaften für unverzichtbar. Das kann man auch an ihrer lockeren Gesellschaftsstruktur ablesen.",0,0,1);
+            base.books.AddGermanBookText("Sie haben keinen Sinn fï¿½r Hierachien, halten aber Familie und Freundschaften fï¿½r unverzichtbar. Das kann man auch an ihrer lockeren Gesellschaftsstruktur ablesen.",0,0,1);
             base.books.AddGermanBookText("Ihre kindhafte Erscheinung  mag als Wehrlosigkeit missverstanden werden. Sie sind sehr schwer in Wallung zu bringen, vorausgesetzt, man spielt nicht gerade mit ihrem Essen.",0,0,1);
             base.books.AddGermanBookText("Sie sind auch sehr zielstrebig und man sollte einem halbling nicht in die Quere kommen, wenn er sich erst einmal etwas in den Kopf gesetzt hat. Orks wie Menschen mussten das auf die harte Tour lernen.",0,0,1);
-            base.books.AddGermanBookText("Weil Halblinge keine großartigen Magier sind, empfiehlt es sich, einem Übenden aus dem Weg zu gehen, für den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
+            base.books.AddGermanBookText("Weil Halblinge keine groï¿½artigen Magier sind, empfiehlt es sich, einem ï¿½benden aus dem Weg zu gehen, fï¿½r den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
             
             ----------
             
@@ -107,7 +107,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( " The Festival Of Relationship was of the happiest. It brought them the most cheerful moments.", 0, 0, 2 ); 
             base.books.AddEnglishBookText( " But the war and the everlasting suffering during it, erased the longing for love in the brave heart of the brothers and they seperated from each other more and more. ", 0, 0, 2 );
             base.books.AddEnglishBookText( " The dwarves grew lonely and so it soonly happened, that the tribes of them, which lived in different mountains, lost their bound of friendship between them. ", 0, 0, 2 );
-            base.books.AddEnglishBookText( " But Irmorom saw what had happened to his beeings and so he lured Ragnòl, Elrik's son, the great smith and Heimdal, Ralla's daugther, a mighty warrior, who came from different tribes, ", 0, 0, 2 ); 
+            base.books.AddEnglishBookText( " But Irmorom saw what had happened to his beeings and so he lured Ragnï¿½l, Elrik's son, the great smith and Heimdal, Ralla's daugther, a mighty warrior, who came from different tribes, ", 0, 0, 2 ); 
             base.books.AddEnglishBookText( " into a faraway, old mine, by using a guile. And as soon as the two were lonely together, they became friends and soon, started to meet each other more often in the mine. ", 0, 0, 2 );
             base.books.AddEnglishBookText( " One day, they decided to marry. And they wanted to let the wedding take place at the mine, the place they had met each other so haply. ", 0, 0, 2 );
             base.books.AddEnglishBookText( " But the dwarves had grown leery and ignorant, so that they didn't want to be forced to share with each other in the future. ", 0, 0, 2 );
@@ -122,40 +122,40 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( " When he kept on bothering them, they raised their hands to show their rings, which made clear, that they were the elders. Boisteriously, they said to him: ", 0, 0, 2 );
             base.books.AddEnglishBookText( "'We are the ears and mouths of Irmorom and what we say is the law. An ordinary one like you shouldn't discuss with us!' ", 0, 0, 2 );
             base.books.AddEnglishBookText( " Irmorom lost his patience and raged like he rarely had did before. With a beck of his hands, the fools crumbled to the dust, Irmorom had made them out of. ", 0, 0, 2 ); 
-            base.books.AddEnglishBookText( " Only the rings were left, ten of them, five of each tribe. When Ragnòl and Heimdall had watched that scene and realized, that he was their Creator, they kneeled down and he said to them: ", 0, 0, 2 );
+            base.books.AddEnglishBookText( " Only the rings were left, ten of them, five of each tribe. When Ragnï¿½l and Heimdall had watched that scene and realized, that he was their Creator, they kneeled down and he said to them: ", 0, 0, 2 );
             base.books.AddEnglishBookText( "'You, that have pure hearts, take those rings as a present. Such as the mine. The dwarven folk shall never again forget about the worthy bound of friendship and love! ", 0, 0, 2 );  
             base.books.AddEnglishBookText( " May no dwarf ever betray his brothers and sisters for his greed again!' And so he left them there, as the first rulers of the new dwarven realm.", 0, 0, 2 );
             base.books.AddEnglishBookText( " Since that day, the brothers and sisters celebrate their love in the Winds Of Siros. And since that day, it's also a tradition, that the best smith of the mountain smiths two ", 0, 0, 2 ); 
             base.books.AddEnglishBookText( " glorious rings and, after the ceremony, melts them together for ever, so that the dwarves may never ever sperate from each other again. ", 0, 0, 2 );
             base.books.AddEnglishBookText( " Those holy rings are the sign for steadiness and the endless love of the couple, that can be competed by their ability to hold their drinks and their faith only...", 0, 0, 2 );
-            base.books.AddGermanBookText( " Seit den Orkkriegen waren die Stämme der Zwerge weit verteilt über die Länder, doch stets hielten sie fest an ihrem Glauben und an ihren Traditionen.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Seit den Orkkriegen waren die Stï¿½mme der Zwerge weit verteilt ï¿½ber die Lï¿½nder, doch stets hielten sie fest an ihrem Glauben und an ihren Traditionen.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " So war auch das Fest der Bindung eine von ihnen die den Zwergen oft schon die heitersten Momente brachte...", 0, 0, 2 );
-            base.books.AddGermanBookText( " Doch der Krieg und das andauernde Leid während diesem lies den Drang sich an Liebe zu Binden erschwachen in den tapferen Herzen der Brüder und so lebten sie sich immer weiter auseinander. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stämmen, die in verschiedenen Bergen hausten, zerriss und sie mehr für sich als für einander waren. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschöpfen wiederfahren war und so lockte er den großen Schmied Ragnòl Erik's Sohn und die große Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
-            base.books.AddGermanBookText( " die beiden verschiedene Stämme führten mit Hilfe einer List in ein entlegenes Bergwerk das schon seit langem verlassen war. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und kaum das die beiden für sich waren freundeten sie sich an und trafen sich immer häufiger in der besagten Mine. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Eines Tages beschloßen sie einander zu heiraten und sie wollten die Hochzeit an jenem Ort feiern an dem sie sich so zufällig getroffen hatten. ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Doch die Zwerge waren misstrauisch geworden und engstirnig so das sie nicht einsahen das sie in Zukunft teilen sollten mit den anderen so taten sich die Ältestenräte ", 0, 0, 2 );     
-            base.books.AddGermanBookText( " beider Seiten zusammen und sprachen zu dem Paar: 'Es sei euch genehmigt zu heiraten und die Stämme zu vereinen, an dem Tage an dem das Bergwerk das ihr so sehr mögt wieder ", 0, 0, 2 );
-            base.books.AddGermanBookText( " edele Gesteine hervorbringt.' Das stimmte Irmorom nachdenklich doch er war bereit dem Paar zu helfen und so lies er das Bergwerk vor Gold und Edelsteinen geradezu überquellen. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und als dann das Paar mit der frohen Kunde erneut vor die Ältestenräte trat da sprachen sie: 'Es ist wie ihr verlangt habt das Bergwerk nun der schönsten Steine Pracht in sich birgt!' ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Kaum das der edle Schmied dies gesagt hatte blitzte die Gier in den Augen der Ältesten und ohne auch nur über die Hochzeit zu reden machten sie sich auf in die Minen um all das ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Gold und die Edelsteinen hinfortzutragen. Das erzürnte Irmorom so sehr das er persönlich vom heiligen Berg des Ursprungs herunterkam und als der Langbart, als den man ihn ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " schon oft gesehen hatte, unter die Zwerge trat. Er sprach zu den Ältesten: 'Seht euch an ihr die ihr euch die Weisen und edlen nennt ihr solltet euch schämen der  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Gier zu frönen während euer neuer König nach der Liebe einer Kriegernín trachtet die all eure Probleme lösen könnte.' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Doch sie lauschten ihm nicht denn die Gier hatte sie Blind und taub gleichermaßen gemacht und so erkannten sie ihn auch nicht. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und als er sie weiterhin behelligte und sie ermahnte da hoben sie alle ihre Finger und zeigten ihre Ringe die bewiesen das sie die Ältesten waren und sprachen voller Übermut zu ihm: ", 0, 0, 2 );   
-            base.books.AddGermanBookText( "'Wir sind die Ohren und Münder Irmoroms und was wir sagen ist Gesetz ein einfacher wie du sollte sich nicht mit uns messen!' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Da riß Irmorom der Geduldspfaden und er tobte wie nur selten zuvor, mit einem Wink zerfielen die Toren zu Staub aus dem er sie einst geschaffen hatte, und alles was blieb waren ihre Ringe, ", 0, 0, 2 );     
-            base.books.AddGermanBookText( " die zusammengeschmolzen am Boden lagen, Zehn an der Zahl und von beiden Stämmen Fünf.", 0, 0, 2 );
-            base.books.AddGermanBookText( " Als Ragnòl und Heimdall die Szene beobachteten knieten sie nieder vor ihrem Schöpfer und er sprach zu ihnen:", 0, 0, 2 );   
-            base.books.AddGermanBookText( " 'Ihr die ihr reinen Herzens seit wisset diese Ringe als mein Geschenk, genau wie diese Mine. Auf das das Volk der Zwerge nie vergessen möge wie wertvoll der Bund der Freundschaft ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " und der Liebe sind! Auf das nie mehr Zwerge der Gier wegen ihre Brüder und Schwestern verraten!' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Und so lies er sie zurück die neuen Herscher über das neue Reich der Zwerge!", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Seither feiern die Brüder und Schwestern in den Winden des Siros ihren Bund der Liebe, und seither ist es Tradition das der fähigste Schmied des Berges dem Paar ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " zwei prächtige Ringe schmiedet und nach der Zeremonie auf ewig verschmilzt auf das sie sich so wie die Zwerge nie mehr von einander trennen mögen! ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Diese heiligen Ringe sind das Zeichen der Beständigkeit, der Liebe eines Paares, die nur durch die Trinkfestigkeit und den Glauben der Zwerge noch in Konkurrenz gerät...", 0, 0, 2 );
+            base.books.AddGermanBookText( " Doch der Krieg und das andauernde Leid wï¿½hrend diesem lies den Drang sich an Liebe zu Binden erschwachen in den tapferen Herzen der Brï¿½der und so lebten sie sich immer weiter auseinander. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stï¿½mmen, die in verschiedenen Bergen hausten, zerriss und sie mehr fï¿½r sich als fï¿½r einander waren. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschï¿½pfen wiederfahren war und so lockte er den groï¿½en Schmied Ragnï¿½l Erik's Sohn und die groï¿½e Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
+            base.books.AddGermanBookText( " die beiden verschiedene Stï¿½mme fï¿½hrten mit Hilfe einer List in ein entlegenes Bergwerk das schon seit langem verlassen war. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und kaum das die beiden fï¿½r sich waren freundeten sie sich an und trafen sich immer hï¿½ufiger in der besagten Mine. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Eines Tages beschloï¿½en sie einander zu heiraten und sie wollten die Hochzeit an jenem Ort feiern an dem sie sich so zufï¿½llig getroffen hatten. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Doch die Zwerge waren misstrauisch geworden und engstirnig so das sie nicht einsahen das sie in Zukunft teilen sollten mit den anderen so taten sich die ï¿½ltestenrï¿½te ", 0, 0, 2 );     
+            base.books.AddGermanBookText( " beider Seiten zusammen und sprachen zu dem Paar: 'Es sei euch genehmigt zu heiraten und die Stï¿½mme zu vereinen, an dem Tage an dem das Bergwerk das ihr so sehr mï¿½gt wieder ", 0, 0, 2 );
+            base.books.AddGermanBookText( " edele Gesteine hervorbringt.' Das stimmte Irmorom nachdenklich doch er war bereit dem Paar zu helfen und so lies er das Bergwerk vor Gold und Edelsteinen geradezu ï¿½berquellen. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und als dann das Paar mit der frohen Kunde erneut vor die ï¿½ltestenrï¿½te trat da sprachen sie: 'Es ist wie ihr verlangt habt das Bergwerk nun der schï¿½nsten Steine Pracht in sich birgt!' ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Kaum das der edle Schmied dies gesagt hatte blitzte die Gier in den Augen der ï¿½ltesten und ohne auch nur ï¿½ber die Hochzeit zu reden machten sie sich auf in die Minen um all das ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Gold und die Edelsteinen hinfortzutragen. Das erzï¿½rnte Irmorom so sehr das er persï¿½nlich vom heiligen Berg des Ursprungs herunterkam und als der Langbart, als den man ihn ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " schon oft gesehen hatte, unter die Zwerge trat. Er sprach zu den ï¿½ltesten: 'Seht euch an ihr die ihr euch die Weisen und edlen nennt ihr solltet euch schï¿½men der  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Gier zu frï¿½nen wï¿½hrend euer neuer Kï¿½nig nach der Liebe einer Kriegernï¿½n trachtet die all eure Probleme lï¿½sen kï¿½nnte.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Doch sie lauschten ihm nicht denn die Gier hatte sie Blind und taub gleichermaï¿½en gemacht und so erkannten sie ihn auch nicht. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und als er sie weiterhin behelligte und sie ermahnte da hoben sie alle ihre Finger und zeigten ihre Ringe die bewiesen das sie die ï¿½ltesten waren und sprachen voller ï¿½bermut zu ihm: ", 0, 0, 2 );   
+            base.books.AddGermanBookText( "'Wir sind die Ohren und Mï¿½nder Irmoroms und was wir sagen ist Gesetz ein einfacher wie du sollte sich nicht mit uns messen!' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Da riï¿½ Irmorom der Geduldspfaden und er tobte wie nur selten zuvor, mit einem Wink zerfielen die Toren zu Staub aus dem er sie einst geschaffen hatte, und alles was blieb waren ihre Ringe, ", 0, 0, 2 );     
+            base.books.AddGermanBookText( " die zusammengeschmolzen am Boden lagen, Zehn an der Zahl und von beiden Stï¿½mmen Fï¿½nf.", 0, 0, 2 );
+            base.books.AddGermanBookText( " Als Ragnï¿½l und Heimdall die Szene beobachteten knieten sie nieder vor ihrem Schï¿½pfer und er sprach zu ihnen:", 0, 0, 2 );   
+            base.books.AddGermanBookText( " 'Ihr die ihr reinen Herzens seit wisset diese Ringe als mein Geschenk, genau wie diese Mine. Auf das das Volk der Zwerge nie vergessen mï¿½ge wie wertvoll der Bund der Freundschaft ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " und der Liebe sind! Auf das nie mehr Zwerge der Gier wegen ihre Brï¿½der und Schwestern verraten!' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Und so lies er sie zurï¿½ck die neuen Herscher ï¿½ber das neue Reich der Zwerge!", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Seither feiern die Brï¿½der und Schwestern in den Winden des Siros ihren Bund der Liebe, und seither ist es Tradition das der fï¿½higste Schmied des Berges dem Paar ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " zwei prï¿½chtige Ringe schmiedet und nach der Zeremonie auf ewig verschmilzt auf das sie sich so wie die Zwerge nie mehr von einander trennen mï¿½gen! ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Diese heiligen Ringe sind das Zeichen der Bestï¿½ndigkeit, der Liebe eines Paares, die nur durch die Trinkfestigkeit und den Glauben der Zwerge noch in Konkurrenz gerï¿½t...", 0, 0, 2 );
 
             --------------------------------------
 
@@ -172,14 +172,14 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Bluestone flow into a trinket in which there is another stone embedded.",0,0,3);
 
             base.books.AddGermanBookText("\n\n~~Blausteine~~",284,0,3);
-            base.books.AddGermanBookText("Das kühle Gelassenheit, die Blausteine für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaßen bedeutsam.",0,0,3);
-			base.books.AddGermanBookText("Es heißt, dass die magischen Energien von solchen Blausteinen die Grundlage für viele Arten von Schutzmagie sind.",0,0,3);
-            base.books.AddGermanBookText("Waffen:\n\nLässt man die magischen Energien von Blausteinen in eine Waffe einfließen, so steigert sich dadurch die Fähigkeit des Trägers zur Verteidigung.",2626,0,3);
-			base.books.AddGermanBookText("Rüstungen und Schilde:\n\nIn Rüstungen und Schilden bewirken die magischen Kräfte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
-			base.books.AddGermanBookText("Magierstäbe:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprüchen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
-			base.books.AddGermanBookText("Werkzeuge:\n\nLässt man die magischen Energien eines Blausteines in ein Werkzeug fließen, so steigern diese die Qualität des Werkzeuges.",72,0,3);
-			base.books.AddGermanBookText("Schmuckstücke:\n\nIn Schmuckstücken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Körper des Träger wiederstandsfähiger wird.",71,0,3);
-			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Blausteins in ein Schmuckstück fließen lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
+            base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine fï¿½r die meisten Personen ausstrahlt macht diese Steine fï¿½r Krieger wie auch fï¿½r Magier gleichermaï¿½en bedeutsam.",0,0,3);
+			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Blausteinen die Grundlage fï¿½r viele Arten von Schutzmagie sind.",0,0,3);
+            base.books.AddGermanBookText("Waffen:\n\nLï¿½sst man die magischen Energien von Blausteinen in eine Waffe einflieï¿½en, so steigert sich dadurch die Fï¿½higkeit des Trï¿½gers zur Verteidigung.",2626,0,3);
+			base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nIn Rï¿½stungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
+			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
+			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualitï¿½t des Werkzeuges.",72,0,3);
+			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Kï¿½rper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
+			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Blausteins in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
 
 
           end 
@@ -190,7 +190,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
   function LookAtItem(User,Item) 
       if base.books.InitTitle() then 
         base.books.AddEnglishBookTitle("Book with the title \"Gods of Illarion\"",0); 
-        base.books.AddGermanBookTitle("Buch mit dem Titel \"Götter Illarions\"",0); 
+        base.books.AddGermanBookTitle("Buch mit dem Titel \"Gï¿½tter Illarions\"",0); 
           
         base.books.AddEnglishBookTitle("Book with the title \"Halfling Culture and History\"",1);
         base.books.AddGermanBookTitle("Buch mit dem Titel \"Halblinge - Kultur und Geschichte\"",1);

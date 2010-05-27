@@ -1,6 +1,6 @@
 -- INSERT INTO triggerfields VALUES (x,y,z,'triggerfields.gangeffekt');
 
-module("triggerfields.gangeffekt", package.seeall())
+module("triggerfields.gangeffekt", package.seeall)
 
 function InitTriggers()
 	AddCreateEffect(position(10, 10, 0), 1, { position(15,10,0), position(5,10,0) }, { 2553, 2553 });

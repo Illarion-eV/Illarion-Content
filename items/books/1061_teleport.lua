@@ -1,7 +1,7 @@
 -- UPDATE common SET com_script='items.books.1061_teleport' WHERE com_itemid=1061;
 require("base.common")
 
-module("items.books.1061_teleport", package.seeall())
+module("items.books.1061_teleport", package.seeall)
 
 function InitializeBook(  )
 

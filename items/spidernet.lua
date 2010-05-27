@@ -5,7 +5,7 @@
 
 -- UPDATE common SET com_script='items.spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
 
-module("items.spidernet", package.seeall())
+module("items.spidernet", package.seeall)
 
 function CharacterOnField(User)
     --User:inform("Los");
@@ -31,7 +31,7 @@ function CharacterOnField(User)
     if Ensnarl then
         --User.movepoints=User.movepoints-50;
         if (User:getPlayerLanguage() == 0) then
-            User:inform("Du verfängst dich im Spinnennetz, kannst es aber zerreißen.");
+            User:inform("Du verfï¿½ngst dich im Spinnennetz, kannst es aber zerreiï¿½en.");
         else
             User:inform("You become entangled in the spiderweb, but you can rip it.");
         end

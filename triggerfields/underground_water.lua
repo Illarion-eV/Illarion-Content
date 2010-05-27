@@ -6,7 +6,7 @@ require("base.common")
 -- Include triggerfield functions
 require("triggerfields.base.triggerfield")
 
-module("triggerfields.underground_water", package.seeall())
+module("triggerfields.underground_water", package.seeall)
 
 function MoveToField(User)
 	-- Array with things that can happen. Each thing is an array: {function, odds}.

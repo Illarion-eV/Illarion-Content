@@ -1,7 +1,7 @@
 
 -- UPDATE common SET com_script='gm.items.93_medal' WHERE com_itemid=93;
 
-module("gm.items.93_medal", package.seeall())
+module("gm.items.93_medal", package.seeall)
 
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     if (SourceItem.data==0) then

@@ -1,7 +1,7 @@
 require("base.common")
 require("base.treasure")
 
-module("base.gcraft", package.seeall())
+module("base.gcraft", package.seeall)
 
 RandomItem = {
 	ID = 0,

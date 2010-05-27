@@ -1,4 +1,4 @@
-module("content.lightmasters", package.seeall())
+module("content.lightmasters", package.seeall)
 
 LightmasterList = {};
 --[[

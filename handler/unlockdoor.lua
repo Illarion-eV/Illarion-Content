@@ -1,7 +1,7 @@
 require("base.class")
 require("base.keys")
 
-module("handler.unlockdoor", package.seeall())
+module("handler.unlockdoor", package.seeall)
 
 -- A door is locked if its quality is 333 and unlocked if it is 233. Data has to be ~=0.
 -- it makes sound 19 (world:makeSound(19, Door.pos);) when the door locks.

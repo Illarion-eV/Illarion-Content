@@ -4,7 +4,7 @@
 
 -- UPDATE common SET com_script='items.2498_empty_bottle' WHERE com_itemid IN (2498);
 
-module("items.2498_empty_bottle", package.seeall())
+module("items.2498_empty_bottle", package.seeall)
 
 function UseItemWithField(User,SourceItem,TargetPos,Counter,Param)
     --User:inform("using bottle on field");

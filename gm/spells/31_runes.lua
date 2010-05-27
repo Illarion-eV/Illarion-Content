@@ -1,7 +1,7 @@
 -- GM Rune 31 /1073741824 /
 require("gm.base.log")
 
-module("gm.spells.31_runes", package.seeall())
+module("gm.spells.31_runes", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^30,0,'gm.spells.31_runes');

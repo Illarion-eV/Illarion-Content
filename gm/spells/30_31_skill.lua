@@ -2,7 +2,7 @@
 
 -- INSERT INTO spells VALUES (2^29+2^30,0,'gm_30_31.lua');
 
--- GM Spell zum Instand Skillverändern
+-- GM Spell zum Instand Skillverï¿½ndern
 
 -- Syntax:
 -- [modus] [skill] [value]
@@ -17,7 +17,7 @@
 -- Value of increase,decrease or set
 require("gm.base.log")
 
-module("gm.spells.30_31_skill", package.seeall())
+module("gm.spells.30_31_skill", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^29 + 2^30,0,'gm.spells.30_31_skill');

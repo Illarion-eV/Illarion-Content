@@ -6,7 +6,7 @@
 -- special data for on items: 2 => do not give anything back (e.g. a night watchman has put it on)
 require("base.common")
 
-module("items.lights", package.seeall())
+module("items.lights", package.seeall)
 
 -- UPDATE common SET com_script='items.lights' WHERE com_itemid IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
 
@@ -44,13 +44,13 @@ LightsOff[2856] = { on = 2855, req = { id = 43, num = 1 } }; -- grey, static
 LightsOn[2855] = { off = 2856 };
 
 ReqTexts = {};
-ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
+ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenï¿½l" };
 ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
 		base.common.TempInformNLS(User,
-			"Nimm das Licht in die Hand oder lege es am Grütel ab.",
+			"Nimm das Licht in die Hand oder lege es am Grï¿½tel ab.",
 			"Take the light into your hand or put it on your belt.");
 		return;
 	end
@@ -62,7 +62,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
             --Quest 105: NPC Gregor Remethar "A light at the end of the tunnel
 
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
-                base.common.TempInformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
+                base.common.TempInformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurï¿½ck, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2);
             end
 
@@ -72,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 
 		elseif this.req then
 			base.common.TempInformNLS(User,
-				"Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
+				"Dafï¿½r brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gï¿½rtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
 	elseif LightsOn[SourceItem.id] then

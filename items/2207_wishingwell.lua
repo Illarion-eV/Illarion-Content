@@ -2,7 +2,7 @@ require("base.common")
 
 -- UPDATE common SET com_script='items.2207_wishingwell' WHERE com_itemid IN (2207);
 
-module("items.2207_wishingwell", package.seeall())
+module("items.2207_wishingwell", package.seeall)
 
 function LookAtItem(User, Item)
     if ( Item.data == 666 ) then

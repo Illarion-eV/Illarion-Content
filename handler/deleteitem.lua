@@ -1,6 +1,6 @@
 require("base.class")
 
-module("handler.deleteitem", package.seeall())
+module("handler.deleteitem", package.seeall)
 
 deleteItem = base.class.class(function(delitem, posi, delID)
     delitem.pos=posi;

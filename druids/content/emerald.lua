@@ -1,6 +1,6 @@
 require("base.books")
 
-module("druids.content.emerald", package.seeall())
+module("druids.content.emerald", package.seeall)
 
 -- This file contains the book data for the book "Emeralds"
 
@@ -18,14 +18,14 @@ function loadBook(toData)
     base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Emerald flow into a trinket in which there is another stone embedded.",0,0,toData);
 
     base.books.AddGermanBookText("\n\n~~Smaragde~~",45,0,toData);
-    base.books.AddGermanBookText("Das Grün der Smaragde erinnert oft an das frische Grün einer Frühlingswiese oder eines Sommerwaldes. Darum ist es nicht verwunderlich, dass diese Steine häufig von naturverbundenen Personen getragen werden.",0,0,toData);
-    base.books.AddGermanBookText("Die Kräfte magischer Smaragde sind je nach Gegenstand, auf den sie übertragen werden unterschiedlich. Es lässt sich jedoch oft erkennen, dass sie helfen sich und die Umgebung besser wahrzunehmen.",0,0,toData);
-    base.books.AddGermanBookText("Waffen:\n\nÜberträgt man die magischen Kräfte eines Smaragdes auf eine Waffe, so steigert sie die Zielgenauigkeit der Waffe. Besonders bei Fernkampfwaffen ist dies ein nicht zu unterschätzender Vorteil.",2780,0,toData);
-    base.books.AddGermanBookText("Rüstungen und Schilde:\n\nAuf ein Rüstungsteil oder ein Schild übertragen schützen die magischen Kräfte eines Smaragdes zusätzlich vor Stichschaden.",20,0,toData);
-    base.books.AddGermanBookText("Magierstäbe:\n\nSmaragdenergien in einem Magierstab bündeln die Kräfte des Trägers und erlauben es ihm so seine Zauber mit größerer Reichweite zu sprechen.",76,0,toData);
-    base.books.AddGermanBookText("Werkzeuge:\n\nVerstärkt man ein Werkzeug mit der magischen Energie eines Smaragdes, so wird man feststellen, dass die Gegenstände die man mit diesem Werkzeug herstellt eine größere Haltbarkeit aufweisen.",172,0,toData);
-    base.books.AddGermanBookText("Schmuckstücke:\n\nTrägt man ein Schmuckstück, welches Smaragdenergien enthält, so kann man seine Umgebung besser wahrnehmen. ",62,0,toData);
-    base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Smaragdes in ein Schmuckstück fließen lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,toData);
+    base.books.AddGermanBookText("Das Grï¿½n der Smaragde erinnert oft an das frische Grï¿½n einer Frï¿½hlingswiese oder eines Sommerwaldes. Darum ist es nicht verwunderlich, dass diese Steine hï¿½ufig von naturverbundenen Personen getragen werden.",0,0,toData);
+    base.books.AddGermanBookText("Die Krï¿½fte magischer Smaragde sind je nach Gegenstand, auf den sie ï¿½bertragen werden unterschiedlich. Es lï¿½sst sich jedoch oft erkennen, dass sie helfen sich und die Umgebung besser wahrzunehmen.",0,0,toData);
+    base.books.AddGermanBookText("Waffen:\n\nï¿½bertrï¿½gt man die magischen Krï¿½fte eines Smaragdes auf eine Waffe, so steigert sie die Zielgenauigkeit der Waffe. Besonders bei Fernkampfwaffen ist dies ein nicht zu unterschï¿½tzender Vorteil.",2780,0,toData);
+    base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nAuf ein Rï¿½stungsteil oder ein Schild ï¿½bertragen schï¿½tzen die magischen Krï¿½fte eines Smaragdes zusï¿½tzlich vor Stichschaden.",20,0,toData);
+    base.books.AddGermanBookText("Magierstï¿½be:\n\nSmaragdenergien in einem Magierstab bï¿½ndeln die Krï¿½fte des Trï¿½gers und erlauben es ihm so seine Zauber mit grï¿½ï¿½erer Reichweite zu sprechen.",76,0,toData);
+    base.books.AddGermanBookText("Werkzeuge:\n\nVerstï¿½rkt man ein Werkzeug mit der magischen Energie eines Smaragdes, so wird man feststellen, dass die Gegenstï¿½nde die man mit diesem Werkzeug herstellt eine grï¿½ï¿½ere Haltbarkeit aufweisen.",172,0,toData);
+    base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nTrï¿½gt man ein Schmuckstï¿½ck, welches Smaragdenergien enthï¿½lt, so kann man seine Umgebung besser wahrnehmen. ",62,0,toData);
+    base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Smaragdes in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,toData);
 end;
 
 function loadTitle(toData)

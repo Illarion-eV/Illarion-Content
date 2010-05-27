@@ -1,4 +1,4 @@
-module("content.bonusitems", package.seeall())
+module("content.bonusitems", package.seeall)
 
 function initBonus()
 
@@ -10,31 +10,31 @@ function initBonus()
     postTitle[2] = {};
 
     preTitle[1][ 1] = "Novizen-";   postTitle[1][ 1] = "Usharas";   preTitle[2][ 1] = "Novice-";  postTitle[2][ 1] = "of Ushara";
-    preTitle[1][ 2] = "Novizen-";   postTitle[1][ 2] = "Brágons";   preTitle[2][ 2] = "Novice-";  postTitle[2][ 2] = "of Brágon";
+    preTitle[1][ 2] = "Novizen-";   postTitle[1][ 2] = "Brï¿½gons";   preTitle[2][ 2] = "Novice-";  postTitle[2][ 2] = "of Brï¿½gon";
     preTitle[1][ 3] = "Novizen-";   postTitle[1][ 3] = "Eldans";    preTitle[2][ 3] = "Novice-";  postTitle[2][ 3] = "of Eldan";
     preTitle[1][ 4] = "Novizen-";   postTitle[1][ 4] = "Tanoras";   preTitle[2][ 4] = "Novice-";  postTitle[2][ 4] = "of Tanora";
     preTitle[1][ 5] = "Novizen-";   postTitle[1][ 5] = "Findaris";  preTitle[2][ 5] = "Novice-";  postTitle[2][ 5] = "of Findari";
     preTitle[1][ 6] = "Priester-";  postTitle[1][ 6] = "Usharas";   preTitle[2][ 6] = "Priest-";  postTitle[2][ 6] = "of Ushara";
-    preTitle[1][ 7] = "Priester-";  postTitle[1][ 7] = "Brágons";   preTitle[2][ 7] = "Priest-";  postTitle[2][ 7] = "of Brágon";
+    preTitle[1][ 7] = "Priester-";  postTitle[1][ 7] = "Brï¿½gons";   preTitle[2][ 7] = "Priest-";  postTitle[2][ 7] = "of Brï¿½gon";
     preTitle[1][ 8] = "Priester-";  postTitle[1][ 8] = "Eldans";    preTitle[2][ 8] = "Priest-";  postTitle[2][ 8] = "of Eldan";
     preTitle[1][ 9] = "Priester-";  postTitle[1][ 9] = "Tanoras";   preTitle[2][ 9] = "Priest-";  postTitle[2][ 9] = "of Tanora";
     preTitle[1][10] = "Priester-";  postTitle[1][10] = "Findaris";  preTitle[2][10] = "Priest-";  postTitle[2][10] = "of Findari";
     preTitle[1][11] = "Hohe";       postTitle[1][11] = "Usharas";   preTitle[2][11] = "High";     postTitle[2][11] = "of Ushara";
-    preTitle[1][12] = "Hohe";       postTitle[1][12] = "Brágons";   preTitle[2][12] = "High";     postTitle[2][12] = "of Brágon";
+    preTitle[1][12] = "Hohe";       postTitle[1][12] = "Brï¿½gons";   preTitle[2][12] = "High";     postTitle[2][12] = "of Brï¿½gon";
     preTitle[1][13] = "Hohe";       postTitle[1][13] = "Eldans";    preTitle[2][13] = "High";     postTitle[2][13] = "of Eldan";
     preTitle[1][14] = "Hohe";       postTitle[1][14] = "Tanoras";   preTitle[2][14] = "High";     postTitle[2][14] = "of Tanora";
     preTitle[1][15] = "Hohe";       postTitle[1][15] = "Findaris";  preTitle[2][15] = "High";     postTitle[2][15] = "of Findari";
     preTitle[1][16] = "";           postTitle[1][16] = "Usharas";   preTitle[2][16] = "";         postTitle[2][16] = "of Ushara";
-    preTitle[1][17] = "";           postTitle[1][17] = "Brágons";   preTitle[2][17] = "";         postTitle[2][17] = "of Brágon";
+    preTitle[1][17] = "";           postTitle[1][17] = "Brï¿½gons";   preTitle[2][17] = "";         postTitle[2][17] = "of Brï¿½gon";
     preTitle[1][18] = "";           postTitle[1][18] = "Eldans";    preTitle[2][18] = "";         postTitle[2][18] = "of Eldan";
     preTitle[1][19] = "";           postTitle[1][19] = "Tanoras";   preTitle[2][19] = "";         postTitle[2][19] = "of Tanora";
     preTitle[1][20] = "";           postTitle[1][20] = "Findaris";  preTitle[2][20] = "";         postTitle[2][20] = "of Findari";
-    preTitle[1][21] = "";           postTitle[1][21] = "Nargùns";   preTitle[2][21] = "";         postTitle[2][21] = "of Nargùn";
+    preTitle[1][21] = "";           postTitle[1][21] = "Nargï¿½ns";   preTitle[2][21] = "";         postTitle[2][21] = "of Nargï¿½n";
     preTitle[1][22] = "";           postTitle[1][22] = "Elaras";    preTitle[2][22] = "";         postTitle[2][22] = "of Elara";
     preTitle[1][23] = "";           postTitle[1][23] = "Adrons";    preTitle[2][23] = "";         postTitle[2][23] = "of Adron";
     preTitle[1][24] = "";           postTitle[1][24] = "Oldras";    preTitle[2][24] = "";         postTitle[2][24] = "of Oldra";
     preTitle[1][25] = "";           postTitle[1][25] = "Chergas";   preTitle[2][25] = "";         postTitle[2][25] = "of Cherga";
-    preTitle[1][26] = "";           postTitle[1][26] = "Malachíns"; preTitle[2][26] = "";         postTitle[2][26] = "of Malachín";
+    preTitle[1][26] = "";           postTitle[1][26] = "Malachï¿½ns"; preTitle[2][26] = "";         postTitle[2][26] = "of Malachï¿½n";
     preTitle[1][27] = "";           postTitle[1][27] = "Irmoroms";  preTitle[2][27] = "";         postTitle[2][27] = "of Irmorom";
     preTitle[1][28] = "";           postTitle[1][28] = "Siranis";   preTitle[2][28] = "";         postTitle[2][28] = "of Sirani";
     preTitle[1][29] = "";           postTitle[1][29] = "Zhambras";  preTitle[2][29] = "";         postTitle[2][29] = "of Zhambra";

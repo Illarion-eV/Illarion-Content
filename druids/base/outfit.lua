@@ -1,6 +1,6 @@
 -- item lists
 
-module("druids.base.outfit", package.seeall())
+module("druids.base.outfit", package.seeall)
 
 LIST_outfit = {};
 -- metal

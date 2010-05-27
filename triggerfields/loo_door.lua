@@ -4,7 +4,7 @@
 
 require("base.keys")
 
-module("triggerfields.loo_door", package.seeall())
+module("triggerfields.loo_door", package.seeall)
 
 function MoveToField( User )
 

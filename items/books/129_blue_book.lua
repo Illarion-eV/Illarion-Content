@@ -1,7 +1,7 @@
 require("base.books")
 require("content.books.cooking")
 
-module("items.books.129_blue_book", package.seeall())
+module("items.books.129_blue_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.129_blue_book' WHERE com_itemid = 129;
 

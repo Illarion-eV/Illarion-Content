@@ -1,7 +1,7 @@
 require("base.books")
 require("druids.content.emerald")
 
-module("items.books.115_green_book", package.seeall())
+module("items.books.115_green_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.115_green_book' WHERE com_itemid = 115;
 

@@ -1,7 +1,7 @@
 require("base.keys")
 require("base.common")
 
-module("server.logout", package.seeall())
+module("server.logout", package.seeall)
 
 function onLogout( theChar )
 	  if false then

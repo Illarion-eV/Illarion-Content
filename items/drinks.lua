@@ -1,7 +1,7 @@
 -- empty container with drink
 require("base.common")
 
-module("items.drinks", package.seeall())
+module("items.drinks", package.seeall)
 -- uses items of the new client - don't put this on the RS yet!
 
 -- UPDATE common SET com_script='items.drinks' WHERE com_itemid IN (2189, 2188, 2187, 2186, 2059, 2058, 2057, 2056, 1910, 1909, 1907, 1906, 1861, 2502, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1859, 1860);
@@ -41,7 +41,7 @@ end
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     InitDrinks();
     if User.attackmode then
-        base.common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");
+        base.common.InformNLS( User, "Du wï¿½rdest alles verschï¿½tten.", "You'd spill everything.");
         return -- Abbrechen wenn Spieler im Kampf ist
     end
     local food = drinkList[ SourceItem.id ];
@@ -50,7 +50,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         return
     end
     foodLevel = User:increaseAttrib("foodlevel",0) + food[1]; -- Foodlevel anheben
-    world:makeSound(12,User.pos); -- Trink geräusch machen
+    world:makeSound(12,User.pos); -- Trink gerï¿½usch machen
     if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
         world:erase(SourceItem,1);
         base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
@@ -132,8 +132,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         User.effects:addEffect(alcEffect); -- Effekt an User senden
         -- Alkohol Abhandlung fertig
     end
-    if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
-        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
+    if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prï¿½fen ob Nahrungspunkte geï¿½ndert wurden
+        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- ï¿½nderung durchfï¿½hren
     end
 end
 

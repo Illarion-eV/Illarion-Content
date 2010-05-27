@@ -1,7 +1,7 @@
 -- Alle Funktionen geben >nur< die Stichwoerter zurueck.
--- Zum groeßten Teil ueberarbeitet von playerlookat.lua
+-- Zum groeï¿½ten Teil ueberarbeitet von playerlookat.lua
 
-module("content.chardescription", package.seeall())
+module("content.chardescription", package.seeall)
 
 function getFigureText(height, mass, str, lang)
     if iniFig==nil then
@@ -10,9 +10,9 @@ function getFigureText(height, mass, str, lang)
         highStr={};
         lowStr[0]={"sehr mager", "sehr zierlich", "zierlich", nil, "mollig", "dick", "fett"};
         lowStr[1]={"skinny", "very petite", "petite", nil, "chubby", "plump", "fat"};
-        normalStr[0]={"schmächtig", "dünn", "schlank", nil, "mollig", "dick", "fett"};
+        normalStr[0]={"schmï¿½chtig", "dï¿½nn", "schlank", nil, "mollig", "dick", "fett"};
         normalStr[1]={"lank", "thin", "slim", nil, "chubby", "plump", "fat"};
-        highStr[0]={"drahtig", "sehr drahtig", nil, "athletisch", "muskulös", "kräftig", "stämmig"} -- schmächtig, muskulös, hager, dürr, stämmig, stattlich, gedrungen
+        highStr[0]={"drahtig", "sehr drahtig", nil, "athletisch", "muskulï¿½s", "krï¿½ftig", "stï¿½mmig"} -- schmï¿½chtig, muskulï¿½s, hager, dï¿½rr, stï¿½mmig, stattlich, gedrungen
         highStr[1]={"wiry", "very wiry", nil, "athletic", "muscular", "robust", "sturdy" };
         iniFig=1;
     end
@@ -27,8 +27,8 @@ function getFigureText(height, mass, str, lang)
     Idx=math.max(Idx,1);
     Idx=math.min(Idx,7);
 
-    -- sehr mager, dünn, schlank, (normal), mollig, dick, fett
-    -- athletisch, drahtig, zierlich, kräftig
+    -- sehr mager, dï¿½nn, schlank, (normal), mollig, dick, fett
+    -- athletisch, drahtig, zierlich, krï¿½ftig
     if str<12 then
         return lowStr[lang][Idx];
     elseif str<17 then
@@ -50,7 +50,7 @@ function getAgeText(race,age, language)
         ageName[0][3] = "";                   ageName[1][3] = "";             ageList[3] = {   nil,  nil,     nil, 180,nil,   nil,  nil,  nil,   nil,     30 };
         ageName[0][4] = "erwachsen";          ageName[1][4] = "grown up";     ageList[4] = {    25,   80,      40, nil, 30,   130,   80,   80,    28,     40 };
         ageName[0][5] = "im mittleren Alter"; ageName[1][5] = "in midlife";   ageList[5] = {    35,  125,      60, nil, 45,   250,  125,  150,    38,     50 };
-        ageName[0][6] = "etwas älter";        ageName[1][6] = "elderly";      ageList[6] = {    45,  175,      80, nil, 65,   375,  175,  220,    47,     60 };
+        ageName[0][6] = "etwas ï¿½lter";        ageName[1][6] = "elderly";      ageList[6] = {    45,  175,      80, nil, 65,   375,  175,  220,    47,     60 };
         ageName[0][7] = "alt";                ageName[1][7] = "old";          ageList[7] = {    55,  220,     100, nil, 85,   500,  220,  280,    56,     70 };
         ageName[0][8] = "sehr alt";           ageName[1][8] = "very old";     ageList[8] = {    70,  260,     115, nil,105,   600,  260,  340,    63,     80 };
     end
@@ -75,7 +75,7 @@ end
 function getClothesQualText(qual, lang)
     if initClQText==nil then
         ClQQualText={};
-        ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"};
+        ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schï¿½big","lumpig"};
         ClQQualText[1]={"aristocraticly","nobly", "very fine",  "fine",  "very well", "well", "normaly",  "cheaply",  "shabbyly",  "measly"};
         initClQText=1;
     end

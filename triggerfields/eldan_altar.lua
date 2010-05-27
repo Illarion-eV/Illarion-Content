@@ -1,4 +1,4 @@
-module("triggerfields.eldan_altar", package.seeall())
+module("triggerfields.eldan_altar", package.seeall)
 
 -- Eldan Shrine praying at the altar
 function CharacterOnField( Ch )

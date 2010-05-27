@@ -3,7 +3,7 @@
 require("base.common")
 require("content.gathering")
 
-module("items.harvest", package.seeall())
+module("items.harvest", package.seeall)
 
 -- UPDATE common SET com_script='items.harvest' WHERE com_itemid IN (14,300,387);
 
@@ -96,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             	return
             end
             if (ltstate==Action.none) then
-				User:talkLanguage(CCharacter.say, CPlayer.german, "#me fängt an Früchte zu sammeln");
+				User:talkLanguage(CCharacter.say, CPlayer.german, "#me fï¿½ngt an Frï¿½chte zu sammeln");
                 User:talkLanguage(CCharacter.say, CPlayer.english,"#me starts to collect fruits");
                 User:startAction(7,0,0,0,0);
         		return
@@ -108,7 +108,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
 			-- harvest fruit
             if( success ) then
-                -- Qualität nach Zufall:
+                -- Qualitï¿½t nach Zufall:
                 QualWert = math.random(111,999)
                 --User:inform( "creating harvest" );
                 User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );
@@ -159,7 +159,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             if( not success )then
                 if( boden == 1 ) then
                     base.common.InformNLS( User,
-                    "Deine Hände graben durch die Erde, aber Du findest nichts.",
+                    "Deine Hï¿½nde graben durch die Erde, aber Du findest nichts.",
                     "Your hands muckrake through the dirt, but you do not find anything." );
                 elseif( boden == 2 ) then
                     base.common.InformNLS( User,
@@ -167,11 +167,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     "Dry leaves are all you find." );
                 elseif( boden == 3 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts außer trockenem Sand.",
+                    "Du findest nichts auï¿½er trockenem Sand.",
                     "You find nothing but dry sand" );
                 elseif( boden == 4 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts außer Unkraut und Gras.",
+                    "Du findest nichts auï¿½er Unkraut und Gras.",
                     "You find nothing but weed and grass." );
                 else
                     base.common.InformNLS( User,

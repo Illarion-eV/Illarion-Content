@@ -21,7 +21,7 @@
 -- German and english name (for RS)
 -- returns a description string
 
-module("base.lookat", package.seeall(), package.seeall(content.bonusitems))
+module("base.lookat", package.seeall, package.seeall(content.bonusitems))
 
 function GetItemDescription(User,Item,material,Weapon,Priest)
     --User:inform("generic lookAt called");
@@ -51,12 +51,12 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
     -- initialize arrays if not already done
     if GenericQualDe == nil then
         -- init german descriptions
-        GenericQualDe={"perfekte","exzellente","sehr gute","gute","normale","mäßige","schlechte","sehr schlechte","schreckliche","furchtbare"};
+        GenericQualDe={"perfekte","exzellente","sehr gute","gute","normale","mï¿½ï¿½ige","schlechte","sehr schlechte","schreckliche","furchtbare"};
         GenericDuraDe={};
         GenericDuraDe[1]={"nagelneue" ,"neue"     ,"fast neue","gebrauchte","leicht abgenutzte","abgenutzte","sehr abgenutzte","alte"   ,"rostige"       ,"klapprige"  };
         GenericDuraDe[2]={"nagelneue" ,"neue"     ,"fast neue","gebrauchte","leicht abgenutzte","abgenutzte","sehr abgenutzte","alte"   ,"morsche"       ,"zerfallende"};
         GenericDuraDe[3]={"nagelneue" ,"neue"     ,"fast neue","gebrauchte","leicht abgenutzte","abgenutzte","sehr abgenutzte","alte"   ,"fadenscheinige","zerfetzte"  };
-        GenericDuraDe[4]={"funkelnde","strahlende","glänzende","gebrauchte","angekratzte",      "zerkratzte","matte",          "alte"   ,"stumpfe",       "brüchige"   };
+        GenericDuraDe[4]={"funkelnde","strahlende","glï¿½nzende","gebrauchte","angekratzte",      "zerkratzte","matte",          "alte"   ,"stumpfe",       "brï¿½chige"   };
 
         -- init english descriptions
         GenericQualEn={"perfect","excellent","very good","good","normal","average","bad","very bad","awful","horrible"};
@@ -258,12 +258,12 @@ function checkGemsOnItem(User,Item)
 	        return;
 	    end
 
-        FirstGemStr   = content.lookat.unique.writeStr(User,math.floor(math.mod(Item.data,10)/1)); -- Erste Stelle - Stärke des ersten Steins
+        FirstGemStr   = content.lookat.unique.writeStr(User,math.floor(math.mod(Item.data,10)/1)); -- Erste Stelle - Stï¿½rke des ersten Steins
 		FirstGemName  = content.lookat.unique.writeGem(User,math.floor(math.mod(Item.data,100)/10));   -- Zweite Stelle - Art des ersten Steins
 		SecondGemStr="";
 		SecondGemName="";
 		if gems==2 then
-	        SecondGemStr   = content.lookat.unique.writeStr(User,math.floor(math.mod(Item.data,1000)/100));       -- Dritte Stelle - Stärke des zweiten Steins
+	        SecondGemStr   = content.lookat.unique.writeStr(User,math.floor(math.mod(Item.data,1000)/100));       -- Dritte Stelle - Stï¿½rke des zweiten Steins
 			SecondGemName  = content.lookat.unique.writeGem(User,math.floor(math.mod(Item.data,10000)/1000));       -- Vierte Stelle - Art des zweiten Steins
 		end
 		if gems==2 then

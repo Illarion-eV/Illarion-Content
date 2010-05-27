@@ -2,7 +2,7 @@ require("base.books")
 require("content.books.history")
 require("content.books.magestones")
 
-module("items.books.116_grey_book", package.seeall())
+module("items.books.116_grey_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.116_grey_book' WHERE com_itemid = 116;
 

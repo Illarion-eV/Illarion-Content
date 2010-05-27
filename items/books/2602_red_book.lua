@@ -2,7 +2,7 @@
 
 require("base.books")
 
-module("items.books.2602_red_book", package.seeall())
+module("items.books.2602_red_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.2602_red_book' WHERE com_itemid = 2602;
 
@@ -15,12 +15,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddLanguage("common language",2);
             base.books.AddLanguage("common language",3);
 
-            base.books.AddGermanBookText("Die Höhle von Irundar muss hier irgendwo sein...Ein Waldläufer hat genau diese Bucht beschrieben!",0,0,1);
-            base.books.AddGermanBookText("Diese Höhle ist recht enttäuschend.",0,0,1);
-            base.books.AddGermanBookText("Wenn ich hier noch länger suche werde ich bald den Verstand verlieren...",0,0,1);
-            base.books.AddGermanBookText("Ha! Jetzt ist mir alles klar. Dies ist nicht die Höhle von Irundar...dies ist nur eine Passage, ein Zugang.",0,0,1);
-            base.books.AddGermanBookText("Wahrscheinlich wurde der Zugang vor langer Zeit verschüttet verschüttet...obwohl...was wäre wenn...",0,0,1);
-            base.books.AddGermanBookText("Endlich jenseits der Zugangshöhle und nun: Die Höhle von Irundar...die Höhle ist Irundar, Irundar ist die Höhle. Dies ist einfach überwältigend!",0,0,1);
+            base.books.AddGermanBookText("Die Hï¿½hle von Irundar muss hier irgendwo sein...Ein Waldlï¿½ufer hat genau diese Bucht beschrieben!",0,0,1);
+            base.books.AddGermanBookText("Diese Hï¿½hle ist recht enttï¿½uschend.",0,0,1);
+            base.books.AddGermanBookText("Wenn ich hier noch lï¿½nger suche werde ich bald den Verstand verlieren...",0,0,1);
+            base.books.AddGermanBookText("Ha! Jetzt ist mir alles klar. Dies ist nicht die Hï¿½hle von Irundar...dies ist nur eine Passage, ein Zugang.",0,0,1);
+            base.books.AddGermanBookText("Wahrscheinlich wurde der Zugang vor langer Zeit verschï¿½ttet verschï¿½ttet...obwohl...was wï¿½re wenn...",0,0,1);
+            base.books.AddGermanBookText("Endlich jenseits der Zugangshï¿½hle und nun: Die Hï¿½hle von Irundar...die Hï¿½hle ist Irundar, Irundar ist die Hï¿½hle. Dies ist einfach ï¿½berwï¿½ltigend!",0,0,1);
 
             base.books.AddEnglishBookText("The Cave of Irundar must be somewhere near...A Ranger described exactly this bay!",0,0,1);
             base.books.AddEnglishBookText("This cave is really disappointing.",0,0,1);
@@ -29,15 +29,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("The entrance was properbly closed a long time ago...on the other hand...what if...",0,0,1);
             base.books.AddEnglishBookText("Finally I went passed the entrance cave and now: The Cave of Irundar...the cave is Irundar, Irundar is the cave. This is just amazing!",0,0,1);
 
-            base.books.AddGermanBookText("Endlich bin ich in Irundar, der verborgenen Stadt angelangt. Was ein Treiben auf dem Marktplatz! Ich hätte nicht gedacht dass hier jeder so beschäftigt ist.",0,0,2);
-            base.books.AddGermanBookText("Soeben habe ich bei Quartiermeister Solarin in Schloß Irundar vorgesprochen und ihm das Empfehlungsschreiben von Meister Delarod gezeigt. Ich kann in einer kleinen Wohnung mit Blick auf den Marktplatz wohnen.",0,0,2);
-            base.books.AddGermanBookText("Viele Händler scheinen von außerhalb zu kommen, ich frage mich wie sie die Stadt erreichen; auf meinem Hinweg bin ich nicht vielen Leuten begegnet, bis auf den Torwächter am eher unscheinbaren Stadttor.",0,0,2);
-            base.books.AddGermanBookText("Heute habe ich mich Großmeister Rinaad vorgestellt und ihm das Empfehlungsschreiben von Meister Delarod gezeigt.",0,0,2);
-            base.books.AddGermanBookText("Er hat kurz gelächelt und gemeint: 'Delarod meint also, dass du zum Meister berufen bist? Irenur, richtig? Hmhm...bei mir zählt nur harte Arbeit. Folge mir und ich werde dich in der magischen Schmiedekunst unterweisen!'",0,0,2);
-            base.books.AddGermanBookText("Die erste Woche war recht hart, so dass ich kaum dazu kam Einträge hinzuzufügen. Jeden Abend wenn ich von der Arbeit heimkehre bin ich todmüde.",0,0,2);
-            base.books.AddGermanBookText("Rinaad ist ein harter aber guter Lehrer. Heute war ich in der Lage meine erste magische Dolchklinge zu schaffen. Auch wenn sie nur zu glühen vermag, so ist es doch ein Anfang.",0,0,2);
-            base.books.AddGermanBookText("Es gibt Probleme mit dem Lieferanten. Er ist seit einer Woche überfällig. Großmeister Rinaad hat mich damit beauftragt nach dem Norden zu wandern und bei den Minen nach ihm zu fragen. Das bedeutet dass ich Zwerge sehen werde!",0,0,2);
-            base.books.AddGermanBookText("Außerdem ist dies die erste Gelegenheit Irundar für einige Zeit zu verlassen und wieder auf der Oberfläche zu wandeln. Ich denke, ich werde wohl einige Zeit unterwegs sein.",0,0,2);
+            base.books.AddGermanBookText("Endlich bin ich in Irundar, der verborgenen Stadt angelangt. Was ein Treiben auf dem Marktplatz! Ich hï¿½tte nicht gedacht dass hier jeder so beschï¿½ftigt ist.",0,0,2);
+            base.books.AddGermanBookText("Soeben habe ich bei Quartiermeister Solarin in Schloï¿½ Irundar vorgesprochen und ihm das Empfehlungsschreiben von Meister Delarod gezeigt. Ich kann in einer kleinen Wohnung mit Blick auf den Marktplatz wohnen.",0,0,2);
+            base.books.AddGermanBookText("Viele Hï¿½ndler scheinen von auï¿½erhalb zu kommen, ich frage mich wie sie die Stadt erreichen; auf meinem Hinweg bin ich nicht vielen Leuten begegnet, bis auf den Torwï¿½chter am eher unscheinbaren Stadttor.",0,0,2);
+            base.books.AddGermanBookText("Heute habe ich mich Groï¿½meister Rinaad vorgestellt und ihm das Empfehlungsschreiben von Meister Delarod gezeigt.",0,0,2);
+            base.books.AddGermanBookText("Er hat kurz gelï¿½chelt und gemeint: 'Delarod meint also, dass du zum Meister berufen bist? Irenur, richtig? Hmhm...bei mir zï¿½hlt nur harte Arbeit. Folge mir und ich werde dich in der magischen Schmiedekunst unterweisen!'",0,0,2);
+            base.books.AddGermanBookText("Die erste Woche war recht hart, so dass ich kaum dazu kam Eintrï¿½ge hinzuzufï¿½gen. Jeden Abend wenn ich von der Arbeit heimkehre bin ich todmï¿½de.",0,0,2);
+            base.books.AddGermanBookText("Rinaad ist ein harter aber guter Lehrer. Heute war ich in der Lage meine erste magische Dolchklinge zu schaffen. Auch wenn sie nur zu glï¿½hen vermag, so ist es doch ein Anfang.",0,0,2);
+            base.books.AddGermanBookText("Es gibt Probleme mit dem Lieferanten. Er ist seit einer Woche ï¿½berfï¿½llig. Groï¿½meister Rinaad hat mich damit beauftragt nach dem Norden zu wandern und bei den Minen nach ihm zu fragen. Das bedeutet dass ich Zwerge sehen werde!",0,0,2);
+            base.books.AddGermanBookText("Auï¿½erdem ist dies die erste Gelegenheit Irundar fï¿½r einige Zeit zu verlassen und wieder auf der Oberflï¿½che zu wandeln. Ich denke, ich werde wohl einige Zeit unterwegs sein.",0,0,2);
 
             base.books.AddEnglishBookText("Finally I am in the hidden city of Irundar. What a crowded marketplace! I did not imagine that this was such a busy place.",0,0,2);
             base.books.AddEnglishBookText("Right now I spoke to quartermaster Solarin in Irundar Castle and showed him the EMPFEHLUNGSSCHREIBEN from master Delarod. I can live in a small flat with view on the marketplace.",0,0,2);
@@ -50,29 +50,29 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Furthermore this is my first opportunity to leave Irundar for a longer peroid of time and to wander on the surface again. I will be away for quite a while, I think.",0,0,2);
 
             base.books.AddGermanBookText("Die ersten Seiten sind herausgerissen...",0,0,3);
-            base.books.AddGermanBookText("Zwei leuchtende Dolche für Haredar.",0,0,3);
-            base.books.AddGermanBookText("Ein Feuerschwert für Selan.",0,0,3);
-            base.books.AddGermanBookText("Ein Giftdolch für Murnan.",0,0,3);
-            base.books.AddGermanBookText("Ein giftresistenter Plattenpanzer für den Lord von Krotir.",0,0,3);
-            base.books.AddGermanBookText("50 schnelle Stahlbolzen für Serunir.",0,0,3);
-            base.books.AddGermanBookText("Ein Smaragdschwert für Haldon.",0,0,3);
-            base.books.AddGermanBookText("Ein Ring gegen böse Geister für Cirdon.",0,0,3);
-            base.books.AddGermanBookText("Ein Säuredolch für Murnan.",0,0,3);
-            base.books.AddGermanBookText("Ein säureresistenter Plattenpanzer für den Lord von Krotir.",0,0,3);
-            base.books.AddGermanBookText("Ein Kurzschwert mit Namensgravur für Juroon.",0,0,3);
-            base.books.AddGermanBookText("Ein leichter Metall-Kampfstab für Alatur.",0,0,3);
-            base.books.AddGermanBookText("Ein Eisschwert für Welian.",0,0,3);
-            base.books.AddGermanBookText("Ein Langschwert mit der Gravur 'Lothlendar' für Erzmagier Liv. (Hat seinen Hut bei mir vergessen! - zurückbringen)",0,0,3);
-            base.books.AddGermanBookText("Ein Kältedolch für Murnan.",0,0,3);
-            base.books.AddGermanBookText("Ein kälteresistenter Plattenpanzer für den Lord von Krotir.",0,0,3);
-            base.books.AddGermanBookText("Ein Eisschwert für Urnon.",0,0,3);
-            base.books.AddGermanBookText("Ein Schutzring gegen böse Geister für Cirdon.",0,0,3);
-            base.books.AddGermanBookText("Ein Reiseamulett mit eingefasstem gesegnetem Wasser für Norolith.",0,0,3);
-            base.books.AddGermanBookText("Ein Skimitar des Waldes für Erenar.",0,0,3);
-            base.books.AddGermanBookText("Ein Feuerdolch für Murnan.",0,0,3);
-            base.books.AddGermanBookText("Ein feuerresistenter Plattenpanzer für den Lord von Krotir.",0,0,3);
-            base.books.AddGermanBookText("Ein Schutzring für Cirdon. (gegen böse Geister)",0,0,3);
-            base.books.AddGermanBookText("Eine Katana der Kraft für Ordar.",0,0,3);
+            base.books.AddGermanBookText("Zwei leuchtende Dolche fï¿½r Haredar.",0,0,3);
+            base.books.AddGermanBookText("Ein Feuerschwert fï¿½r Selan.",0,0,3);
+            base.books.AddGermanBookText("Ein Giftdolch fï¿½r Murnan.",0,0,3);
+            base.books.AddGermanBookText("Ein giftresistenter Plattenpanzer fï¿½r den Lord von Krotir.",0,0,3);
+            base.books.AddGermanBookText("50 schnelle Stahlbolzen fï¿½r Serunir.",0,0,3);
+            base.books.AddGermanBookText("Ein Smaragdschwert fï¿½r Haldon.",0,0,3);
+            base.books.AddGermanBookText("Ein Ring gegen bï¿½se Geister fï¿½r Cirdon.",0,0,3);
+            base.books.AddGermanBookText("Ein Sï¿½uredolch fï¿½r Murnan.",0,0,3);
+            base.books.AddGermanBookText("Ein sï¿½ureresistenter Plattenpanzer fï¿½r den Lord von Krotir.",0,0,3);
+            base.books.AddGermanBookText("Ein Kurzschwert mit Namensgravur fï¿½r Juroon.",0,0,3);
+            base.books.AddGermanBookText("Ein leichter Metall-Kampfstab fï¿½r Alatur.",0,0,3);
+            base.books.AddGermanBookText("Ein Eisschwert fï¿½r Welian.",0,0,3);
+            base.books.AddGermanBookText("Ein Langschwert mit der Gravur 'Lothlendar' fï¿½r Erzmagier Liv. (Hat seinen Hut bei mir vergessen! - zurï¿½ckbringen)",0,0,3);
+            base.books.AddGermanBookText("Ein Kï¿½ltedolch fï¿½r Murnan.",0,0,3);
+            base.books.AddGermanBookText("Ein kï¿½lteresistenter Plattenpanzer fï¿½r den Lord von Krotir.",0,0,3);
+            base.books.AddGermanBookText("Ein Eisschwert fï¿½r Urnon.",0,0,3);
+            base.books.AddGermanBookText("Ein Schutzring gegen bï¿½se Geister fï¿½r Cirdon.",0,0,3);
+            base.books.AddGermanBookText("Ein Reiseamulett mit eingefasstem gesegnetem Wasser fï¿½r Norolith.",0,0,3);
+            base.books.AddGermanBookText("Ein Skimitar des Waldes fï¿½r Erenar.",0,0,3);
+            base.books.AddGermanBookText("Ein Feuerdolch fï¿½r Murnan.",0,0,3);
+            base.books.AddGermanBookText("Ein feuerresistenter Plattenpanzer fï¿½r den Lord von Krotir.",0,0,3);
+            base.books.AddGermanBookText("Ein Schutzring fï¿½r Cirdon. (gegen bï¿½se Geister)",0,0,3);
+            base.books.AddGermanBookText("Eine Katana der Kraft fï¿½r Ordar.",0,0,3);
 
             base.books.AddEnglishBookText("The first pages have been torn out...",0,0,3);
             base.books.AddEnglishBookText("Two shining daggers for Haredar.",0,0,3);

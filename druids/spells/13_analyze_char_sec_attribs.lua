@@ -4,16 +4,16 @@
 
 require("base.common")
 
-module("druids.spells.13_analyze_char_sec_attribs", package.seeall())
+module("druids.spells.13_analyze_char_sec_attribs", package.seeall)
 
 -- INSERT INTO spells VALUES (2^12,3,'druids.spells.13_analyze_char_sec_attribs');
 
 function initTerms()
   --Einrichten der Textbausteine
   if firsttime == nil then  
-    Term_1DE = {"Ketzer ","Sünder ","Laie ","Novize ","Bruder ","Priester ","Abt ","Bischof ","Prior ","Heiliger "}
+    Term_1DE = {"Ketzer ","Sï¿½nder ","Laie ","Novize ","Bruder ","Priester ","Abt ","Bischof ","Prior ","Heiliger "}
     Term_1EN = {"heretic ","sinner ","layman ","novice ","brother ","priest ","abbot ","bishop ","prior ","saint "}
-    Term_2DE = {"des Riesen","des Glücks","der Qualen","des Ethos","des Fleißes"}  
+    Term_2DE = {"des Riesen","des Glï¿½cks","der Qualen","des Ethos","des Fleiï¿½es"}  
     Term_2EN = {"of giants","of luck","of pain","of ethos","of diligence"}           
     Term_3 = {"body_height","luck","poisonvalue","attitude","mental capacity"};
     Term_4 = {1,100,1,1,1} --die maximalWerte
@@ -28,7 +28,7 @@ end
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 --Caster:inform("debug #13.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	    
-  --Abfrage der Sekundärattribute
+  --Abfrage der Sekundï¿½rattribute
   initTerms()
   textDE = ""
   textEN = ""
@@ -48,7 +48,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
   	  
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end    

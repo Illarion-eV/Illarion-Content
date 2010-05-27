@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script='items.97_leatherbag' WHERE com_itemid=97;
 
-module("items.97_leatherbag", package.seeall())
+module("items.97_leatherbag", package.seeall)
 
 function LookAtItem(User,Item)
     local txt;

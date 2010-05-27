@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("items.794_fireportal", package.seeall())
+module("items.794_fireportal", package.seeall)
 
 function CharacterOnField(User)
     local SourceItem = world:getItemOnField(User.pos);
@@ -12,7 +12,7 @@ function CharacterOnField(User)
 	User:warp(position(385,552,0))
 	
 	base.common.InformNLS(User,
-      "Du findest dich an der Oberfläche wieder",
+      "Du findest dich an der Oberflï¿½che wieder",
       "You find yourself back on the surface again." );
 	
 	end

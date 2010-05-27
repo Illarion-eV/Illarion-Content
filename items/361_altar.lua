@@ -3,7 +3,7 @@
 require("base.common")
 require("content.gods")
 
-module("items.361_altar", package.seeall(), package.seeall(content.gods))
+module("items.361_altar", package.seeall, package.seeall(content.gods))
 
 function LookAtItem(User, Item)
 

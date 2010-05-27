@@ -5,7 +5,7 @@
 require("base.general.metal")
 require("items.base.crafts")
 
-module("items.311_glassblowpipe", package.seeall(), package.seeall(base.general.metal))
+module("items.311_glassblowpipe", package.seeall, package.seeall(base.general.metal))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
@@ -21,19 +21,19 @@ function InitCraftingTool( )
         glassblowing:AddTool( 313 ); -- Glasschmelzofen
 
         glassblowing:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         glassblowing:AddInterruptMessage(
-        "Du verlierst einen Moment das Gleichgewicht und das Glas nimmt eine bedenklich krumme Form an. Nach kurzem Drehen und Balancieren gelingt es dir, das Werkstück zu retten.",
+        "Du verlierst einen Moment das Gleichgewicht und das Glas nimmt eine bedenklich krumme Form an. Nach kurzem Drehen und Balancieren gelingt es dir, das Werkstï¿½ck zu retten.",
         "You lose your balance and the glowing glass bends worringly. By twisting and balancing, you manage to save the product.");
         
         glassblowing:AddInterruptMessage(
-        "Du stößt ein bereits fertiges Stück an und es droht zu Boden zu fallen. Im letzten Moment gelingt es dir, das Stück mit der Hand zu greifen.",
+        "Du stï¿½ï¿½t ein bereits fertiges Stï¿½ck an und es droht zu Boden zu fallen. Im letzten Moment gelingt es dir, das Stï¿½ck mit der Hand zu greifen.",
         "You touch a finished good and it almost drops to the floor. With luck, you manage to grap it with your hands, preventing the loss.");
         
         glassblowing:AddInterruptMessage(
-        "Du hältst einen Moment inne und überlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
+        "Du hï¿½ltst einen Moment inne und ï¿½berlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
         "You interrupt to apply a gravure, but you reconsider.");
         
         --Small Empty Bottle
@@ -101,14 +101,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     if ( SourceItem:getType() ~= 4 ) then -- Glasblasrohr in der Hand
         base.common.InformNLS( User, 
-        "Du mußt das Glasblasrohr in die Hand nehmen um damit zu arbeiten.", 
+        "Du muï¿½t das Glasblasrohr in die Hand nehmen um damit zu arbeiten.", 
         "You have to take the glasblowpipe in your hand, to work with it." )
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Glas blasen.",
+        "Deine Rï¿½stung behindert beim Glas blasen.",
         "Your armor disturbes you while blowing glass." );
         Glassblowing:SwapToInactiveItem( User );
         return

@@ -1,21 +1,21 @@
 require("base.books")
 
-module("content.books.dyer", package.seeall())
+module("content.books.dyer", package.seeall)
 
 -- This file contains the book data for the book "Tanner and Dyer"
 
 function loadBook(toData)
     base.books.AddLanguage("common language",toData);
     
-    base.books.AddGermanBookText("Das Trocknen von Häuten schafft eine beinahe unriechbare und scharfe Luft. Die Straßen, die den Gerberbezirk umgeben, werden von den ärmsten der Stadtbewohnern bewohnt.",0,0,toData);
-    base.books.AddGermanBookText("Meister und Lehrlinge können draußen gesehen werden, wie sie das Haar und das Fleisch von den über Baumstämmen gelegten Häuten wegkratzen.",0,0,toData);
-    base.books.AddGermanBookText("Die Häute werden durch Einweichen in gegärter Kleie weich gemacht.",0,0,toData);
-    base.books.AddGermanBookText("Als nächstes werden die Häute nacheinander in flüssige Bäder getaucht, die aus Eichenrinde, Galläpfeln und Akazienhülsen gewonnen werden.",0,0,toData);
+    base.books.AddGermanBookText("Das Trocknen von Hï¿½uten schafft eine beinahe unriechbare und scharfe Luft. Die Straï¿½en, die den Gerberbezirk umgeben, werden von den ï¿½rmsten der Stadtbewohnern bewohnt.",0,0,toData);
+    base.books.AddGermanBookText("Meister und Lehrlinge kï¿½nnen drauï¿½en gesehen werden, wie sie das Haar und das Fleisch von den ï¿½ber Baumstï¿½mmen gelegten Hï¿½uten wegkratzen.",0,0,toData);
+    base.books.AddGermanBookText("Die Hï¿½ute werden durch Einweichen in gegï¿½rter Kleie weich gemacht.",0,0,toData);
+    base.books.AddGermanBookText("Als nï¿½chstes werden die Hï¿½ute nacheinander in flï¿½ssige Bï¿½der getaucht, die aus Eichenrinde, Gallï¿½pfeln und Akazienhï¿½lsen gewonnen werden.",0,0,toData);
     base.books.AddGermanBookText("Einige Gruppen der Gesellschaft betrachten das Gerben von Tierhaut als barbarisch.",0,0,toData);
-    base.books.AddGermanBookText("Mitglieder von Gilden oder religiösen Orden tragen oft Kleidung in spezifischen Farben, damit sie leichter erkannt werden können.",0,0,toData);
-    base.books.AddGermanBookText("Nachdem die Schurwolle gewaschen, getrocknet und gekämmt wurde, spinnt sie der Weber an einem Spinnrad.",0,0,toData);
-    base.books.AddGermanBookText("Einen Färber kann man an den Farbresten unter seinen Fingernägeln erkennen.",0,0,toData);
-    base.books.AddGermanBookText("Ein Färber erhitzt einen Zuber mit Wasser über einem Feuer und fügt ungefärbten Stoff, Holzasche und verschiedene pflanzliche Farbstoffe dazu.",0,0,toData);
+    base.books.AddGermanBookText("Mitglieder von Gilden oder religiï¿½sen Orden tragen oft Kleidung in spezifischen Farben, damit sie leichter erkannt werden kï¿½nnen.",0,0,toData);
+    base.books.AddGermanBookText("Nachdem die Schurwolle gewaschen, getrocknet und gekï¿½mmt wurde, spinnt sie der Weber an einem Spinnrad.",0,0,toData);
+    base.books.AddGermanBookText("Einen Fï¿½rber kann man an den Farbresten unter seinen Fingernï¿½geln erkennen.",0,0,toData);
+    base.books.AddGermanBookText("Ein Fï¿½rber erhitzt einen Zuber mit Wasser ï¿½ber einem Feuer und fï¿½gt ungefï¿½rbten Stoff, Holzasche und verschiedene pflanzliche Farbstoffe dazu.",0,0,toData);
 
     base.books.AddEnglishBookText("Curing hides creates a nearly unbareable and pungent atmosphere. The streets surrounding the tanning district are inhabited by the poorest of city dwellers.",0,0,toData);
     base.books.AddEnglishBookText("Masters and apprentices alike may be seen outdoors, scraping away the hair and flesh from the skins over tree trunks.",0,0,toData);
@@ -29,6 +29,6 @@ function loadBook(toData)
 end;
 
 function loadTitle(toData)
-    base.books.AddGermanBookTitle("Buch mit dem Titel \"Gerber und Färber\"",toData);
+    base.books.AddGermanBookTitle("Buch mit dem Titel \"Gerber und Fï¿½rber\"",toData);
     base.books.AddEnglishBookTitle("Book with the title \"Tanner and Dyer\"",toData);
 end;

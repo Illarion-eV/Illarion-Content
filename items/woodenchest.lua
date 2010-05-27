@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("items.woodenchest", package.seeall())
+module("items.woodenchest", package.seeall)
 
 ALWAYS = -1;
 DELETE_CHEST = -1;

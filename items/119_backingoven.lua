@@ -3,19 +3,19 @@
 -- Mehl(2) und Wasser(52) zu Teig(5)
 
 -- Arbeitscyclus: 2s - 8s
--- Zusätzliches Werkzeug: Nudelholz ( 118 )
+-- Zusï¿½tzliches Werkzeug: Nudelholz ( 118 )
 
 -- UPDATE common SET com_script='items.119_backingoven' WHERE com_itemid IN (119,120);
 
 require("base.common")
 
-module("items.119_backingoven", package.seeall());
+module("items.119_backingoven", package.seeall);
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Arbeiten.",
+        "Deine Rï¿½stung behindert beim Arbeiten.",
         "Your armor disturbs while working." );
         return
     end
@@ -25,7 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
     end
     
     if not base.common.FitForWork( User ) then -- Kein Hunger
@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",118)==0) then -- kleine Zange
         base.common.InformNLS( User,
-        "Du benötigst ein Nudelholz um hier zu arbeiten.",
+        "Du benï¿½tigst ein Nudelholz um hier zu arbeiten.",
         "You need a rolling pin to work here." );
         return
     end
@@ -44,7 +44,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool, true) then -- Zange beschädigen
+    if base.common.ToolBreaks( User, Tool, true) then -- Zange beschï¿½digen
         base.common.InformNLS( User, 
         "Dein Nudelholz zerbricht.",
         "Your pin roll breaks." );
@@ -87,7 +87,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if base.common.IsInterrupted( User ) then
         base.common.InformNLS(User,
-        "Du schüttest dir aus Versehen eine Ladung Wasser an die Kleidung.",
+        "Du schï¿½ttest dir aus Versehen eine Ladung Wasser an die Kleidung.",
         "You accidentally pour some water on your clothes.");
         return
     end
@@ -98,7 +98,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     User:eraseItem(52,1);
     local notCreated = User:createItem(51,1,333,0);
     local startagain = true;
-    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
         world:createItemFromId( 51, notCreated, User.pos, true, 333 ,0);
         base.common.InformNLS(User,
         "Du kannst nichts mehr halten.",
@@ -107,7 +107,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     notCreated = User:createItem(5,handleAtOnce,333,0);
-    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
         world:createItemFromId( 5, notCreated, User.pos, true, 333 ,0);
         base.common.InformNLS(User,
         "Du kannst nichts mehr halten.",

@@ -1,7 +1,7 @@
 require("base.common")
 --THE EDITABLE PART FOR NEW TOWNS OR GUILDS IS SOME LINES BELOW
 
-module("base.factions", package.seeall())
+module("base.factions", package.seeall)
 
 function InitFactionLists()
    
@@ -32,21 +32,21 @@ function InitFactionLists()
 					--aspirant guild, member guild, leader guild, main key guild, jail key guild
 	PriceListForDecreeAndKey = {2, 10, 30, 2, 2}; --prices of the membership decrees for a guild and for the keys(in SILVERCOINS!)
 
-    GuildRanklist = { {gusage = "(Anwärter)", eusage = "(aspirant)"}, 
-					  {gusage = "(vollständiges Mitglied)", eusage = "(full member)"}, 
-			 		  {gusage = "(Anführer)", eusage = "(leader)"} };
+    GuildRanklist = { {gusage = "(Anwï¿½rter)", eusage = "(aspirant)"}, 
+					  {gusage = "(vollstï¿½ndiges Mitglied)", eusage = "(full member)"}, 
+			 		  {gusage = "(Anfï¿½hrer)", eusage = "(leader)"} };
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
 	TownRankList = { {gRank = "Leibeigener", eRank = "serf"},                --rank 1
 					 {gRank = "Bauer", eRank = "peasant"},           --rank 2
 					 {gRank = "Arbeiter", eRank = "worker"},         --rank 3
 					 {gRank = "Plebejer", eRank = "plebeian"},       --rank 4
-					 {gRank = "Bürger", eRank = "citizen"},          --rank 5
+					 {gRank = "Bï¿½rger", eRank = "citizen"},          --rank 5
 					 {gRank = "Edelmann", eRank = "knight"},         --rank 6
 					 {gRank = "Patrizier", eRank = "patrician"},     --rank 7
 					 {gRank = "Adliger", eRank = "noble"},           --rank 8
 					 {gRank = "Herrscher", eRank = "sovereign"}};    --rank 9
 					 
-	TownRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
+	TownRankList[0] = {gRank="Geï¿½chteter", eRank="outcast"};         --rank 0
 end
 
 
@@ -354,17 +354,17 @@ function BF_put_Rankpoints(originator,Rankpoints)
 	----lower rank----------
 	if (Rankpoints.rankpointsC <10) then
 		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = DecreaseRank(Rankpoints.rankpointsC,Faction.rankC);
-		if Faction.rankC<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Cadomyr um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Cadomyr." ) end
+		if Faction.rankC<rank then  base.common.InformNLS( originator, "#w Durch deine stï¿½ndigen Konflikte mit dem Gesetz ist dein Rang in Cadomyr um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Cadomyr." ) end
 	end
 
 	if (Rankpoints.rankpointsR <10) then
 		local rank = Faction.rankR; Rankpoints.rankpointsR,Faction.rankR = DecreaseRank(Rankpoints.rankpointsR,Faction.rankR);
-		if Faction.rankR<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Runewick um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Runewick." ) end
+		if Faction.rankR<rank then  base.common.InformNLS( originator, "#w Durch deine stï¿½ndigen Konflikte mit dem Gesetz ist dein Rang in Runewick um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Runewick." ) end
 	end
 
 	if (Rankpoints.rankpointsG <10) then
 		local rank = Faction.rankG; Rankpoints.rankpointsG,Faction.rankG = DecreaseRank(Rankpoints.rankpointsG,Faction.rankG);
-		if Faction.rankG<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
+		if Faction.rankG<rank then  base.common.InformNLS( originator, "#w Durch deine stï¿½ndigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
 	end
 	------save changes----------------
 	BF_put_Faction(originator,Faction);
@@ -444,7 +444,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank)
 
 	elseif theRank==citizenRank then --make char to citizen
 		if (Factionvalues.tid == NpcLocation[thisNPC.id]) then --already citizen
-		 	gText="Ihr seid bereits Bürger dieser Stadt!";
+		 	gText="Ihr seid bereits Bï¿½rger dieser Stadt!";
 			eText="You're already citizen of this town!";
 			outText=base.common.GetNLS(originator,gText,eText);
 			NPCTalking(thisNPC,outText);
@@ -471,7 +471,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank)
 		Factionvalues = BF_put_Faction(originator,Factionvalues); --write Factionvalues in Questprogress
 		Pay(originator,GAmount,SAmount,CAmount); --take money
 
-		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
+		gText="Ihr seid nun als Bï¿½rger dieser Stadt eingetragen.";
 		eText="You're now registered as citizen of this town.";
 		outText=base.common.GetNLS(originator,gText,eText);
 		NPCTalking(thisNPC,outText);
@@ -493,9 +493,9 @@ function createChoice(originator,message,choiceIndex,Factionvalues)
     local theChoice = choiceIndex[originator.id];
 	choiceIndex[originator.id] = nil;
 
---[[ für Ränge =2: Hauptschlüssel, Kerkerschlüssel   (full member)
-	 für Ränge =3 UND Anführer: Hauptschlüssel, Kerkerschlüssel, Anwärterdekret, Mitglieddekret, Anführerdekret (leader of guild)
-	 für Ränge =1: Nix]]-- (aspirant of guild)
+--[[ fï¿½r Rï¿½nge =2: Hauptschlï¿½ssel, Kerkerschlï¿½ssel   (full member)
+	 fï¿½r Rï¿½nge =3 UND Anfï¿½hrer: Hauptschlï¿½ssel, Kerkerschlï¿½ssel, Anwï¿½rterdekret, Mitglieddekret, Anfï¿½hrerdekret (leader of guild)
+	 fï¿½r Rï¿½nge =1: Nix]]-- (aspirant of guild)
 			     --aspirant Guild, full member, leader Guild
 	choiceAuthorizationsGuild = { {nil}, {4,5}, {1,2,3,4,5}}; --includes the choices(key, member decree...) which are Allowed to get bought by the Guildrank
 
@@ -525,7 +525,7 @@ function createChoice(originator,message,choiceIndex,Factionvalues)
 			eText="I'm sorry, these guild is not listed here, probably you slipped of the tongue. Please repeat the name of the guild again.";
 			choiceIndex[originator.id] = theChoice;
 		else
-			gText="Leider finde ich die Gilde nicht auf der Liste. Informiert euch mal beim Baumeister darüber ob sie im Register verzeichnet ist.";
+			gText="Leider finde ich die Gilde nicht auf der Liste. Informiert euch mal beim Baumeister darï¿½ber ob sie im Register verzeichnet ist.";
 			eText="Unfortunately the guild seems not to be listed here. Ask the builder whether the guild is in the register.";
 			TextRepeatCnt[originator.id]=nil; choiceIndex[originator.id] = nil;
 		end
@@ -569,26 +569,26 @@ function createChoice(originator,message,choiceIndex,Factionvalues)
 
 	if (theChoice==4) then  --check if Key exists, if yes create it
         if (GuildMainKey[guildID]==nil) then
-			gText="Für diese Gilde existiert kein Hauptschlüssel!";
+			gText="Fï¿½r diese Gilde existiert kein Hauptschlï¿½ssel!";
 			eText="There does no main key exist for this guild!";
 			outText=base.common.GetNLS(originator,gText,eText);
 			NPCTalking(thisNPC,outText);
 			return;
 		else
 			countUncreated = originator:createItem(GuildMainKey[guildID][1],1,GuildMainKey[guildID][2],GuildMainKey[guildID][3]); --creates Key
-			gText="Hier ist euer Hauptschlüssel.";
+			gText="Hier ist euer Hauptschlï¿½ssel.";
 			eText="Here is your main key.";
 		end
 	elseif (theChoice==5) then --check if Key exists, if yes create it
         if (GuildJailKey[guildID]==nil) then
-			gText="Für diese Gilde existiert kein Kerkerschlüssel!";
+			gText="Fï¿½r diese Gilde existiert kein Kerkerschlï¿½ssel!";
 			eText="There does no jail key exist for this guild!";
 			outText=base.common.GetNLS(originator,gText,eText);
 			NPCTalking(thisNPC,outText);
 			return;
 		else
 			countUncreated = originator:createItem(GuildJailKey[guildID][1],1,GuildJailKey[guildID][2],GuildJailKey[guildID][3]); --creates Key
-			gText="Hier ist euer Kerkerschlüssel.";
+			gText="Hier ist euer Kerkerschlï¿½ssel.";
 			eText="Here is your jail key.";
 		end
 	else    --create Decree
@@ -639,7 +639,7 @@ function deleteDecree(originator)
 			elseif decree[1].quality == 751 then -- unban decree
 			
 				if Factionvalues[DigitToIndex[decree[1].data+RANK_OFFSET]] == 0 then --really banned in the town?
-					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun könnt ihr Bürger dieser Stadt werden wenn Ihr es wollt.";
+					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun kï¿½nnt ihr Bï¿½rger dieser Stadt werden wenn Ihr es wollt.";
 					eText = "You're now deleted from the banned register, now you can join this town as citizen, if you want.";
 					Factionvalues[DigitToIndex[decree[1].data+RANK_OFFSET]] = 1; --set rank to 1
 					Factionvalues = BF_put(originator,Factionvalues); --write faction values
@@ -649,7 +649,7 @@ function deleteDecree(originator)
 					eText = "You're not banned in this town!";
 				end
 			else
-				gText="Dieses Dekret ist nicht einlösbar";
+				gText="Dieses Dekret ist nicht einlï¿½sbar";
 				eText="This decree is not exchangeable";
 			end
 			

@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("items.359_firefield", package.seeall())
+module("items.359_firefield", package.seeall)
 
 function IniFireField()
     --hum,dwa,hal,elf,orc,liz,gno,fry,gob,tro,mum,skl,beh,cld,hlr,buy,sel,ins,shp,spd,dsk,rot,dem,scp,pig,inv,sku,wsp,ftr,shd,stn,mgo,gno,dra,drw,drw,lde
@@ -38,13 +38,13 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
         if not found then
             RaceStrenght=100;
         end
-        resist=SpellResistence(User);      -- Magie Resistenz prüfen
-        if (resist<FieldItem.quality*2) then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
+        resist=SpellResistence(User);      -- Magie Resistenz prï¿½fen
+        if (resist<FieldItem.quality*2) then   -- Qualitï¿½t des Items --> Stï¿½rke mit Magie Resistenz vergleichen
             damageDealt=math.random((3/100)*math.floor((FieldItem.quality-resist)*RaceStrenght),(5/100)*math.floor((FieldItem.quality-resist)*RaceStrenght));--AffectedStren[i]
             User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
             -- Added by abcfantasy, inform user
             if (User:getPlayerLanguage()==0) then
-                User:inform("Du fühlst, wie das glühend heiße Feuer allmählich deine Haut verbrennt.");
+                User:inform("Du fï¿½hlst, wie das glï¿½hend heiï¿½e Feuer allmï¿½hlich deine Haut verbrennt.");
             else
                 User:inform("You feel the scorching fire gradually burn your skin.");
             end

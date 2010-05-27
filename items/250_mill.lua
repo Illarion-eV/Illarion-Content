@@ -1,15 +1,15 @@
--- Mühlstein ( 250 )
+-- Mï¿½hlstein ( 250 )
 
--- Getreidekörner  --> Mehl
+-- Getreidekï¿½rner  --> Mehl
 
 -- Arbeitscyclus: 0.5s - 3s
--- Zusätzliches Werkzeug: Holzkelle ( 312 )
+-- Zusï¿½tzliches Werkzeug: Holzkelle ( 312 )
 
 -- UPDATE common SET com_script='items.250_mill' WHERE com_itemid IN (250);
 
 require("base.common")
 
-module("items.250_mill", package.seeall())
+module("items.250_mill", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
@@ -26,9 +26,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
+    if base.common.Encumbrence(User) then -- Durch Steife Rï¿½stung behindert
         base.common.InformNLS( User,
-        "Deine Rüstung behindert Dich beim Mehl Mahlen.",
+        "Deine Rï¿½stung behindert Dich beim Mehl Mahlen.",
         "Your armor disturbs you when grinding grain" );
         return
     end
@@ -48,7 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User:countItemAt("belt",259) == 0) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du hast nichts was du hier zermahlen könntest.", 
+            "Du hast nichts was du hier zermahlen kï¿½nntest.", 
             "You have nothing that you can grind here." );
         end
         return
@@ -56,7 +56,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",312)==0) then -- Holzkelle
         base.common.InformNLS( User,
-        "Du benötigst eine Holzkelle um das Getreide in die Mühle zu bekommen.",
+        "Du benï¿½tigst eine Holzkelle um das Getreide in die Mï¿½hle zu bekommen.",
         "You need a wooden shovel to get the grain into the mill." );
         return
     end
@@ -66,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool ) then -- Holzkelle beschädigen
+    if base.common.ToolBreaks( User, Tool ) then -- Holzkelle beschï¿½digen
         base.common.InformNLS( User, 
         "Die Holzkelle zerbricht.", 
         "The wooden shovel breaks." );
@@ -84,23 +84,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local selectMessage = math.random(1,5);
         if ( selectMessage == 1 ) then
             base.common.InformNLS(User,
-            "Du wischst dir den Schweiß von der Stirn.",
+            "Du wischst dir den Schweiï¿½ von der Stirn.",
             "You wipe sweat off your forehead.");
         elseif ( selectMessage == 2 ) then
             base.common.InformNLS(User,
-            "Dir rutscht die Holzkelle aus der Hand und fällt in den Mühlstein. Nach einigen Versuchen kannst du sie wieder heraus holen.",
+            "Dir rutscht die Holzkelle aus der Hand und fï¿½llt in den Mï¿½hlstein. Nach einigen Versuchen kannst du sie wieder heraus holen.",
             "Your wooden shovel falls into the mill stone. After some tries you are able to get it out again.");
         elseif ( selectMessage == 3 ) then
             base.common.InformNLS(User,
-            "Du klopfst dir das Mehl aus der Kleidung, da du das Gefühl hast wie ein Geist auszusehen.",
+            "Du klopfst dir das Mehl aus der Kleidung, da du das Gefï¿½hl hast wie ein Geist auszusehen.",
             "You beat the flour out of your clothes so that you do not look like a ghost anymore.");
         elseif ( selectMessage == 4 ) then
             base.common.InformNLS(User,
-            "Du säuberst kurz den Mühlstein um eine bessere Qualität des Mehls zu erreichen.",
+            "Du sï¿½uberst kurz den Mï¿½hlstein um eine bessere Qualitï¿½t des Mehls zu erreichen.",
             "You clean the millstone.");
         else
             base.common.InformNLS(User,
-            "Gerade noch kannst du verhindern, dass ein Stein, der sich wohl ins Korn gemogelt hatte, in den Mühlstein fällt.",
+            "Gerade noch kannst du verhindern, dass ein Stein, der sich wohl ins Korn gemogelt hatte, in den Mï¿½hlstein fï¿½llt.",
             "You made it to get a stone out the the grain short time before it falls into the millstone");
         end
         

@@ -1,6 +1,6 @@
 require("base.lookat")
 
-module("items.priest.wood", package.seeall())
+module("items.priest.wood", package.seeall)
 
 -- UPDATE common SET com_script='items.priest.wood' WHERE com_itemid IN ();
 

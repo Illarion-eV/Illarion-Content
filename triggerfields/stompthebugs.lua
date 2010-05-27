@@ -3,7 +3,7 @@
 require("base.common")
 require("base.keys")
 
-module("triggerfields.stompthebugs", package.seeall())
+module("triggerfields.stompthebugs", package.seeall)
 
 function MoveToField(User)
 	local QuestID = 27;
@@ -15,7 +15,7 @@ function MoveToField(User)
 	    User:inform("Questprogress okay->suche Monster");
 		local m = world:getMonstersInRangeOf(MonsterPosition, 10);
 		if(table.getn(m) < 1) then
-			User:inform("kein Monster in der Nähe gefunden->erschaffene eines");
+			User:inform("kein Monster in der Nï¿½he gefunden->erschaffene eines");
 			world:createMonster(MonsterID, MonsterPosition, 20);
 			User:inform("Monster erschaffen");
 		end

@@ -4,7 +4,7 @@
 require("quest_isItemIdInFieldStack")
 require("quest_removeItemIdFromFieldStack")
 
-module("triggerfields.aq001_wcno", package.seeall())
+module("triggerfields.aq001_wcno", package.seeall)
 
 function MoveToField( user )
 

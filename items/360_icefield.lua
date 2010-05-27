@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("items.360_icefield", package.seeall())
+module("items.360_icefield", package.seeall)
 
 function IniFireField()
                  --hum,dwa,hal,elf,orc,liz,gno,fry,gob,tro,mum,skl,beh,cld,hlr,buy,sel,ins,shp,spd,dsk,rot,dem,scp,pig,inv,sku,wsp,ftr,shd,stn,mgo,gno,dra,drw,drw,lde
@@ -28,8 +28,8 @@ function CharacterOnField(User)
         UserRace=User:get_race();                  -- Char Rasse
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
-                resist=SpellResistence(User);      -- Magie Resistenz prüfen
-                if resist<FieldItem.quality then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
+                resist=SpellResistence(User);      -- Magie Resistenz prï¿½fen
+                if resist<FieldItem.quality then   -- Qualitï¿½t des Items --> Stï¿½rke mit Magie Resistenz vergleichen
                     damageDealt=base.common.NormalRnd((7/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]),(9/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]));--AffectedStren[i]
                     User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
                 end

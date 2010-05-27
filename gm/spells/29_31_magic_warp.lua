@@ -3,7 +3,7 @@
 
 require("gm.base.log")
 
-module("gm.spells.29_31_magic_warp", package.seeall())
+module("gm.spells.29_31_magic_warp", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^28 + 2^30,0,'gm.spells.29_31_magic_warp');

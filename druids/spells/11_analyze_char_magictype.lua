@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.11_analyze_char_magictype", package.seeall())
+module("druids.spells.11_analyze_char_magictype", package.seeall)
 
 -- INSERT INTO spells VALUES (2^10,3,'druids.spells.11_analyze_char_magictype');
 
@@ -19,7 +19,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 		klassenDE = {"Magie","Priester","Barde","Druide"}
 		klassenEN = {"mage","priest","bard","druid"}
 		local magieklasse=TargetCharacter:getMagicType() 
-		textDE="Magiezugehörigkeit: "..klassenDE[magieklasse+1]
+		textDE="Magiezugehï¿½rigkeit: "..klassenDE[magieklasse+1]
 		textEN="Magic classification: "..klassenEN[magieklasse+1]
 		if Caster:getPlayerLanguage() == 0 then
 			Caster:inform("#b|0|0|"..textDE)
@@ -31,7 +31,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
   		
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end

@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script='items.3107_bookrest' WHERE com_itemid = 3107;
 
-module("items.3107_bookrest", package.seeall())
+module("items.3107_bookrest", package.seeall)
 
 function LookAtItem(User, Item) -- Used for THE LIBRARY QUEST
 

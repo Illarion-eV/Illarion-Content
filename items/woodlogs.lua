@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("items.woodlogs", package.seeall())
+module("items.woodlogs", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if (SourceItem:getType()~=3) then
@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end
 
     if not base.common.IsLookingAt(User,SourceItem.pos) then
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
     end
 
     -- Edit by abcfantasy: Unable to light fire if raining or snowing
@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     local curWeather = world.weather;
     if ( ( ( curWeather.percipitation_type == 1 ) or ( curWeather.percipitation_type == 2 ) ) and ( curWeather.percipitation_strength > 20 ) and
        ( User.pos.z >= 0 ) and ( potRoof == nil ) ) then
-        base.common.InformNLS( User, "Wegen dem Wetter wärst du nicht der Lage, ein Feuer zu machen.", "You wouldn't be able to light a fire in this weather." );
+        base.common.InformNLS( User, "Wegen dem Wetter wï¿½rst du nicht der Lage, ein Feuer zu machen.", "You wouldn't be able to light a fire in this weather." );
         return
     end
 

@@ -1,6 +1,6 @@
 require("base.common");
 
-module("triggerfields.base.triggerfield", package.seeall())
+module("triggerfields.base.triggerfield", package.seeall)
 
 -- Messages in an array of things that can happen. Each thing is an array: {function, odds}.
 function getEvent(messages)

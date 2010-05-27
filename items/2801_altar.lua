@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script='items.2801_altar' WHERE com_itemid = 2801;
 
-module("items.2801_altar", package.seeall())
+module("items.2801_altar", package.seeall)
 
 function LookAtItem(User,Item)
 if (Item.data==701) then

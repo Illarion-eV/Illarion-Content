@@ -1,6 +1,6 @@
 require("base.common")
 
-module("items.books.2620_language_book", package.seeall())
+module("items.books.2620_language_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.2620_language_book' WHERE com_itemid = 2620;
 
@@ -17,7 +17,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt in einem Buch zu lesen.");
             User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts reading in a book.");
         elseif ( ltstate == Action.abort ) then
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me hört auf in dem Buch zu lesen.");
+            User:talkLanguage(CCharacter.say, CPlayer.german, "#me hï¿½rt auf in dem Buch zu lesen.");
             User:talkLanguage(CCharacter.say, CPlayer.english,"#me stops reading in the book.");
         end
         return
@@ -97,7 +97,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     elseif (TargetItem.id == 329 ) then
         if ( Skill > 50) then
             if (modecode==0) then
-                base.common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nächsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
+                base.common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nï¿½chsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
                 "You write a short note into the book, which will help the next one, who wants to learn, to start learning the language");
                 SourceItem.data=SourceItem.data+1;
                 world:changeItem(SourceItem);
@@ -131,7 +131,7 @@ function Learning(User,Value,Skillname)
 end
 
 function GetLanguage(code,engl)
-    if (code==0) then return ( engl and "ancient language" or "Altertümlichen Sprache" );
+    if (code==0) then return ( engl and "ancient language" or "Altertï¿½mlichen Sprache" );
     elseif (code==1) then return ( engl and "common language" or "Gemeinsammen Sprache" );
     elseif (code==2) then return ( engl and "human language" or "Sprache der Menschen" );
     elseif (code==3) then return ( engl and "dwarf language" or "Sprache der Zwerge" );

@@ -2,7 +2,7 @@
 
 -- UPDATE common SET com_script='items.321_depot' WHERE com_itemid=321;
 
-module("items.321_depot", package.seeall())
+module("items.321_depot", package.seeall)
 
 function LookAtItem(User,Item)
     local lang = User:getPlayerLanguage();
@@ -25,7 +25,7 @@ function LookAtItem(User,Item)
         LookAtStr = LookAtStr.."Farmers Union";
     elseif (Item.data==6) then
         if (lang==0) then
-            LookAtStr = LookAtStr.."Ork-Höhle";
+            LookAtStr = LookAtStr.."Ork-Hï¿½hle";
         else
             LookAtStr = LookAtStr.."Orc Cave";
         end

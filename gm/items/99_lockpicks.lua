@@ -5,7 +5,7 @@
 require("gm.base.log")
 require("base.common")
 
-module("gm.items.99_lockpicks", package.seeall())
+module("gm.items.99_lockpicks", package.seeall)
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)

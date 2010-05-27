@@ -4,7 +4,7 @@
 
 require "bla.blubb"
 
-module("items.2_flour", package.seeall())
+module("items.2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     User:inform("package.cpath: "..package.cpath);

@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.14_analyze_char_hands", package.seeall())
+module("druids.spells.14_analyze_char_hands", package.seeall)
 
 -- INSERT INTO spells VALUES (2^13,3,'druids.spells.14_analyze_char_hands');
 
@@ -16,7 +16,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	--Caster:inform("debug #14.2")	
 	if Caster:getSkill("exquirere")>math.random(100) then	
 
-	--Feststellung, was TC in den Händen hält
+	--Feststellung, was TC in den Hï¿½nden hï¿½lt
 	  lH=TargetCharacter:getItemAt(5)
 	  rH=TargetCharacter:getItemAt(6)
 		if Caster:getPlayerLanguage() == 0 then
@@ -34,7 +34,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	  	Caster:learn(6,"ars magica",3,100)  
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end  	    

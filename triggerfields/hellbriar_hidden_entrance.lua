@@ -1,7 +1,7 @@
 -- INSERT INTO triggerfields VALUES (-471,241,0,'triggerfields.hellbriar_hidden_entrance');
 -- INSERT INTO triggerfields VALUES (-469,241,0,'triggerfields.hellbriar_hidden_entrance');
 
-module("triggerfields.hellbriar_hidden_entrance", package.seeall())
+module("triggerfields.hellbriar_hidden_entrance", package.seeall)
 
 function MoveToField(User)
 	
@@ -20,7 +20,7 @@ function MoveToField(User)
 		for i,char in charList do
 			if char.pos.z == WALLPOS.z then
 				char:inform(char:getPlayerLanguage()==0 and
-					"#w Du hörst das Geräusch von sich verschiebendem Gestein." or
+					"#w Du hï¿½rst das Gerï¿½usch von sich verschiebendem Gestein." or
 					"#w You hear the sound of moving stone.");
 			end
 		end

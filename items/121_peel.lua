@@ -5,7 +5,7 @@
 require("items.general.wood")
 require("items.base.crafts")
 
-module("items.121_peel", package.seeall(), package.seeall(items.general.wood))
+module("items.121_peel", package.seeall, package.seeall(items.general.wood))
 
 -- Backprodukte Initieren
 function InitCraftingTool( )
@@ -22,7 +22,7 @@ function InitCraftingTool( )
         baking:AddTool( 120 ); -- Backofen
         
         baking:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         baking:AddInterruptMessage(
@@ -30,11 +30,11 @@ function InitCraftingTool( )
         "You take a look into the oven and watch with joy how the dough rises.");
         
         baking:AddInterruptMessage(
-        "Du hältst einen Moment inne und überlegst eine zusätzliche Zutat hinzuzufügen, entscheidest dich aber dagegen.",
+        "Du hï¿½ltst einen Moment inne und ï¿½berlegst eine zusï¿½tzliche Zutat hinzuzufï¿½gen, entscheidest dich aber dagegen.",
         "You hesitate and consider to add additional ingredients to the recipe. Finally, you revise your decision.");
         
         baking:AddInterruptMessage(
-        "Du wäschst dir kurz den klebrigen Teig von den Fingern.",
+        "Du wï¿½schst dir kurz den klebrigen Teig von den Fingern.",
         "You stop to wash the slippery dough off your hands.");
         
         --------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ function InitCraftingTool( )
         ---------------- BREAD ROLL - 191 ----------------------
         product = baking:AddProduct( 0, 191, {0, 20 }, 1, { 10, 20 } );
         product:AddProductionSteps( {   5, 1, "all" }, 1 ); -- Step 1: Dough (5) 1x
-        -------------- BRÖTCHEN - DONE ----------------
+        -------------- BRï¿½TCHEN - DONE ----------------
 
         ---------------- COOKIES - 453 ----------------------
         product = baking:AddProduct( 0, 453, {10, 30 }, 2, { 15, 30 } );
@@ -123,14 +123,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     if ( SourceItem:getType() ~= 4 ) then -- Ofenschieber in der Hand
         base.common.InformNLS( User, 
-        "Du mußt den Ofenschieber in die Hand nehmen um damit zu arbeiten.", 
+        "Du muï¿½t den Ofenschieber in die Hand nehmen um damit zu arbeiten.", 
         "You have to take the peel in your hand to work with it." )
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr steife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr steife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim backen.",
+        "Deine Rï¿½stung behindert beim backen.",
         "Your armor disturbs you while baking." );
         baking:SwapToInactiveItem( User );
         return

@@ -6,7 +6,7 @@
 require("base.common")
 require("content.gathering")
 
-module("items.1005_beehive", package.seeall())
+module("items.1005_beehive", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	content.gathering.InitGathering();
@@ -32,12 +32,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if base.common.Encumbrence(User) then -- Behinderung
         base.common.InformNLS(User,
-        "Deine Rüstung behindert dich beim Honig Sammeln.",
+        "Deine Rï¿½stung behindert dich beim Honig Sammeln.",
         "Your armor disturbs you while collecting honeycombs.");
         return
     end
 	
-	if (ltstate == Action.none) then -- Untätig: Starte Honig Sammeln!
+	if (ltstate == Action.none) then -- Untï¿½tig: Starte Honig Sammeln!
         User:startAction(honeygathering:GenWorkTime(User, nil), 0, 0, 0, 0);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt nach Honig zu suchen.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to search for honey.");
@@ -49,7 +49,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- Spieler sammelt bereits Honig
-	if(math.random(10) <= 6) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60%
+	if(math.random(10) <= 6) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 60%
 		local notcreated = User:createItem(2529, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(2529, notcreated, User.pos, true, 333, 0);

@@ -1,13 +1,13 @@
--- Testskript 1 für Weiterentwicklung Druidenmagie
+-- Testskript 1 fï¿½r Weiterentwicklung Druidenmagie
 -- 2007 by Falk
 -- 2009 by Nitram
--- Trinken aus grüner Flasche (331)
+-- Trinken aus grï¿½ner Flasche (331)
 -- ------------------------------------------------
 
 -- include base.common for additional functions
 require("base.common")
 
-module("druids.items.331_green_bottle", package.seeall())
+module("druids.items.331_green_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druids.items.331_green_bottle' WHERE com_itemid = 331;
 
@@ -19,7 +19,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         -- ALTE FASSUNG ALS HEILTRANK
         if (ltstate == Action.abort) then
 
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
+            User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschï¿½ttet den Trank.");
             User:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
 
             world:erase( SourceItem, 1 );
@@ -37,7 +37,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
         if User.attackmode then
             base.common.InformNLS( User,
-            "Du kannst nichts trinken während du kämpfst.",
+            "Du kannst nichts trinken wï¿½hrend du kï¿½mpfst.",
             "You can't drink something while fighting." );
             return
         end
@@ -78,7 +78,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             "You are stuffed.");
         else
             base.common.InformNLS( User,
-            "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
+            "Du trinkst die Flasche aus und fï¿½hlst wie neue Stï¿½rke dich durchstrï¿½mt.",
             "You drink up the bottle, and you feel the new strength that flows through your body.");
         end
 
@@ -87,7 +87,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     local msg = base.common.GetNLS( User,
-	"Du hast nicht das Gefühl, als ob irgend etwas passiert sei.",
+	"Du hast nicht das Gefï¿½hl, als ob irgend etwas passiert sei.",
 	"You don't feel anything happend at all." );
 
     if (SourceItem.data == 55555555) then
@@ -100,7 +100,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     return;
                 else
                     base.common.InformNLS( User,
-                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum führt kein Weg zurück.",
+                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum fï¿½hrt kein Weg zurï¿½ck.",
                     "#b|0|1008|Attention! There is no way back from this path to druidism." );
                 end
                 Security[ User.id ] = true;
@@ -121,7 +121,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 killSkill( User, 3, "transfreto" );
 
                 msg = base.common.GetNLS( User,
-            	"Du hast das Gefühl etwas ist passiert. Du bist nun ein Druide.",
+            	"Du hast das Gefï¿½hl etwas ist passiert. Du bist nun ein Druide.",
             	"You have the feeling something happend. You are now a druid." );
 
             	Security[ User.id ] = nil;
@@ -129,7 +129,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end
 
-    User:talkLanguage(CCharacter.say, CPlayer.german, "#me trinkt den grünen dickflüssigen Sud.");
+    User:talkLanguage(CCharacter.say, CPlayer.german, "#me trinkt den grï¿½nen dickflï¿½ssigen Sud.");
     User:talkLanguage(CCharacter.say, CPlayer.english, "#me drinks the green viscous broth.");
 
 	world:makeSound(12,User.pos);
@@ -170,7 +170,7 @@ function LookAtItem(User,Item)
         "You look at a sticker telling: \"Healing Potion \"" ) );
     else
         world:itemInform( User, Item, base.common.GetNLS( User,
-        "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
+        "Du siehst ein Flaschenetikett mit der Aufschrift: \"Krï¿½utersud\"",
         "You look at a sticker telling: \"Herbage Broth\"" ) );
     end
 end

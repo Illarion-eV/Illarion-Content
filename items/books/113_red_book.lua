@@ -1,7 +1,7 @@
 require("base.books")
 require("content.books.spinning")
 
-module("items.books.113_red_book", package.seeall())
+module("items.books.113_red_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.113_red_book' WHERE com_itemid = 113;
 

@@ -2,7 +2,7 @@
 require("base.common")
 require("content.gods")
 
-module("items.altars", package.seeall(), package.seeall(content.gods))
+module("items.altars", package.seeall, package.seeall(content.gods))
 
 function LookAtItem( User, Item )
      filepoint,errmsg=io.open("testserver","r");
@@ -42,7 +42,7 @@ function LookAtItem( User, Item )
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, param)
-    -- An welchem Altar stehe ich und was brauche ich da für Edelsteine?
+    -- An welchem Altar stehe ich und was brauche ich da fï¿½r Edelsteine?
     --
     if SourceItem.data==1 then PosGem={45,283} 		-- Ushara   -> Smaragd, Schwarzstein        -> Data 1 (45,283)
     elseif SourceItem.data==2 then PosGem={46,283} 	-- Bragon   -> Rubin, Schwarzstein          -> Data 2 (46,283)
@@ -59,7 +59,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, param)
     itemR = User:getItemAt(6);
 
     if ( itemL~=nil and ((itemL.id==PosGem[1]) or (itemL.id==PosGem[2])) and itemL.data>0 and itemL.data<10 and itemL.number==3) then
-		-- Werden die Steine zerstört?
+		-- Werden die Steine zerstï¿½rt?
 		--
 		if destroyGem(itemL.data) then
 			world:gfx(5,SourceItem.pos);
@@ -77,7 +77,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, param)
 			--world:changeItem( itemL );
 		end
     elseif ( itemR~=nil and ((itemR.id==PosGem[1]) or (itemR.id==PosGem[2])) and itemR.data>0 and itemR.data<10 and itemR.number==3) then
-		-- Werden die Steine zerstört?
+		-- Werden die Steine zerstï¿½rt?
         --
 		if destroyGem(itemR.data) then
 			world:gfx(5,SourceItem.pos);
@@ -98,23 +98,23 @@ function UseItem(User, SourceItem, TargetItem, Counter, param)
 		god_feel=(math.random(1,50));
 		if god_feel==1 then
 		    base.common.InformNLS(User,
-                "Du fühlst dich ein wenig wohler.",
+                "Du fï¿½hlst dich ein wenig wohler.",
                 "You feel better now.");
 		elseif god_feel==2 then
 		    base.common.InformNLS(User,
-                "Der Stein wird warm unter denen Händen.",
+                "Der Stein wird warm unter denen Hï¿½nden.",
     	        "The stone become warmer under your hands.");
 		elseif god_feel==3 then
 		    base.common.InformNLS(User,
-                "Du fühlst dich glücklicher.",
+                "Du fï¿½hlst dich glï¿½cklicher.",
                 "You feel more happy.");
 		elseif god_feel==4 then
 		    base.common.InformNLS(User,
-                "Du fühlst dich spirituell gestärkt.",
+                "Du fï¿½hlst dich spirituell gestï¿½rkt.",
                 "You feel spirituel stronger now.");
 		elseif god_feel==5 then
 		    base.common.InformNLS(User,
-                "Du hörst ein verrücktes Lachen in der Ferne.",
+                "Du hï¿½rst ein verrï¿½cktes Lachen in der Ferne.",
                 "You hear a maniac laughter far away.");
 			world:makeSound(25,SourceItem.pos)
 		else

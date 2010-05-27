@@ -8,7 +8,7 @@ require("base.common")
 require("items.general.metal")
 require("base.treasure")
 
-module("items.24_shovel", package.seeall(), package.seeall(items.general.metal))
+module("items.24_shovel", package.seeall, package.seeall(items.general.metal))
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate );
@@ -20,7 +20,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
     if equapos( position( 99, 40, 0 ), TargetPos ) then
         User:warp( position( 99, 40, -3 ) );
         base.common.InformNLS(User,
-        "Du gräbst ein Loch und der Boden bricht unter dir weg und so fällst du in eine Höhle",
+        "Du grï¿½bst ein Loch und der Boden bricht unter dir weg und so fï¿½llst du in eine Hï¿½hle",
         "You dig a hole and the ground under you collapses and you fall into a cave..." );
         return
     end
@@ -43,7 +43,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
 
     if ( SourceItem:getType() ~= 4 ) then
         base.common.InformNLS( User,
-        "Nimm die Schaufel fest in beide Hände.",
+        "Nimm die Schaufel fest in beide Hï¿½nde.",
         "Take the shovel firmly in your hands." );
         return
     end
@@ -54,7 +54,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
 
     if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
                                                 base.common.GetNLS( User,
-                                                    "Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
+                                                    "Du grï¿½bst mit deiner Schaufel in den Boden und stï¿½ï¿½t auf etwas hartes, von dem ein hï¿½lzerner Klang ausgeht. Noch einmal graben und du hï¿½ltst den Schatz in deinen Hï¿½nden.",
                                                     "You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ), false ) then
         return;
     end
@@ -62,15 +62,15 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
     if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
         if ( GroundType == 1 ) then
             base.common.InformNLS( User,
-            "Du gräbst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
+            "Du grï¿½bst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
             "You dig a small hole into the farming ground. But you find nothing.");
         elseif ( GroundType == 2 ) then
             base.common.InformNLS( User,
-            "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
+            "Du grï¿½bst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
             "You dig a small hole into the forest ground. But you find nothing.");
         elseif ( GroundType == 4 ) then
             base.common.InformNLS( User,
-            "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
+            "Du grï¿½bst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
             "You dig a small hole into the grass. But you find nothing.");
         elseif ( GroundType == 5 ) then
             base.common.InformNLS( User,
@@ -90,7 +90,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
 
     if base.common.ToolBreaks( User, SourceItem, true) then
         base.common.InformNLS(User,
-        "Die alte und abgenutzte Schaufel in deinen Händen zerbricht.",
+        "Die alte und abgenutzte Schaufel in deinen Hï¿½nden zerbricht.",
         "The old and used shovel in your hands breaks.");
         return
     end
@@ -163,7 +163,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
             "You can't carry more sand and it falls to the ground.");
         else
             base.common.InformNLS(User,
-            "Du kannst nicht noch mehr Lehm halten und er fällt zu Boden.",
+            "Du kannst nicht noch mehr Lehm halten und er fï¿½llt zu Boden.",
             "You can't carry more clay and it falls to the ground.");
         end
     end
@@ -213,12 +213,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     if not base.common.FitForWork( User ) then
-        base.common.InformNLS( User, "Du bist zu hungrig um jetzt große Arbeit zu verrichten.", "You are too hungry to do heavy work. " );
+        base.common.InformNLS( User, "Du bist zu hungrig um jetzt groï¿½e Arbeit zu verrichten.", "You are too hungry to do heavy work. " );
         return
     end
 
     if ( SourceItem:getType() ~= 4 ) then
-        base.common.InformNLS( User, "Nimm die Schaufel fest in beide Hände.", "Take the shovel firmly in your hands." );
+        base.common.InformNLS( User, "Nimm die Schaufel fest in beide Hï¿½nde.", "Take the shovel firmly in your hands." );
         return
     end
 

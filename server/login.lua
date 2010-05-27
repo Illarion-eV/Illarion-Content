@@ -2,7 +2,7 @@
 require("base.common")
 require("content.dailymessage")
 
-module("server.login", package.seeall());
+module("server.login", package.seeall);
 
 function onLogin( player )
     player:increaseAttrib("foodlevel",-1);
@@ -34,7 +34,7 @@ function onLogin( player )
 	end
 	-- Abhandlung von Transporttieren fertig
 
-	-- Überprüfung für Korrekt Initiertes Regenerationsscript
+	-- ï¿½berprï¿½fung fï¿½r Korrekt Initiertes Regenerationsscript
 	find, reg_effect = player.effects:find(2);
 	if not find then
 		player.effects:addEffect( CLongTimeEffect(2,10) );
@@ -50,7 +50,7 @@ function onLogin( player )
 		HowAreYouToday( player );
 	end
 
-	-- Langzeitefekt für Runenlehren
+	-- Langzeitefekt fï¿½r Runenlehren
     year=world:getTime("year");
     year=(year-1)*31536000;						-- (year-1)*((15*24) + 5)*24*60*60;
     month=world:getTime("month");
@@ -102,7 +102,7 @@ function onLogin( player )
     --player:inform("moep->Fertig!");
 
 --[[
-	-- Langzeiteffekt für magie
+	-- Langzeiteffekt fï¿½r magie
 	--
 	if ( ( player:getMagicType( ) == 0 ) and ( player:getMagicFlags( 0 ) > 0 ) ) then -- Charakter ist Magier
 		player:inform("Magie start");
@@ -116,7 +116,7 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- Überprüfung auf Newbie-Status
+	-- ï¿½berprï¿½fung auf Newbie-Status
 	NewbieState = player:getQuestProgress(2);
 	if NewbieState == 2 then
 		-- player logged out before moving the first time, let's offer another chance
@@ -135,7 +135,7 @@ function onLogin( player )
 		end ]]
 		if atNewbieSpawn then
 			player:setQuestProgress(2,1); -- player seems to be a newbie, so start "Quest"
-			outText=base.common.GetNLS(player,"Endlich wieder festen Boden unter den Füßen.","Finally standing again on firm ground.");
+			outText=base.common.GetNLS(player,"Endlich wieder festen Boden unter den Fï¿½ï¿½en.","Finally standing again on firm ground.");
 			player:talk(CCharacter.say,outText);
 			foundEffect,newbieEffect = player.effects:find(13);
 			if not foundEffect then
@@ -161,7 +161,7 @@ function onLogin( player )
 			player:talk(CCharacter.say, "Arghh"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
 		end
 	end
-	-- Überprüfung von Newbie-Status fertig
+	-- ï¿½berprï¿½fung von Newbie-Status fertig
 
 	return true;
 end

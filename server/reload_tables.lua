@@ -4,7 +4,7 @@
 
 require("content.lightmasters")
 
-module("server.reload_tables", package.seeall())
+module("server.reload_tables", package.seeall)
 
 function onReload()
     -- Abhandlung Schifffahrer

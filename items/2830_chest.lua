@@ -3,7 +3,7 @@
 require("base.common")
 require("base.treasure")
 
-module("items.2830_chest", package.seeall())
+module("items.2830_chest", package.seeall)
 
 function LookAtItem(User, Item)
     local TreasureName = base.treasure.GetTreasureName( Item.data, User:getPlayerLanguage(), false );
@@ -15,7 +15,7 @@ function UseItem(User,SourceItem)
     level=SourceItem.data;
     posi=SourceItem.pos;
 
-    base.common.TempInformNLS(User, "Du öffnest die Schatzkiste...", "You open the treasure chest...");
+    base.common.TempInformNLS(User, "Du ï¿½ffnest die Schatzkiste...", "You open the treasure chest...");
 	world:erase(SourceItem,1);
 	if SourceItem.data ~= 0 and SourceItem.data < 10 then
         world:gfx(16,posi);

@@ -3,7 +3,7 @@
 
 require("quest_isItemIdInFieldStack")
 
-module("triggerfields.aq001_mirrorladder", package.seeall())
+module("triggerfields.aq001_mirrorladder", package.seeall)
 
 function MoveToField( user )
     

@@ -1,9 +1,9 @@
--- Standartscript für Instrumente spielen
+-- Standartscript fï¿½r Instrumente spielen
 -- Nitram
 
 require("base.common")
 
-module("items.base.music", package.seeall())
+module("items.base.music", package.seeall)
 
 TalkTexts={};
 

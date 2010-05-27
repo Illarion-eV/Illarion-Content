@@ -3,7 +3,7 @@
 
 require("base.common")
 
-module("triggerfields.noobia_spawn", package.seeall())
+module("triggerfields.noobia_spawn", package.seeall)
 
 function MoveToField(Character)
     Status=Character:getQuestProgress(2);
@@ -11,7 +11,7 @@ function MoveToField(Character)
 		Character:setQuestProgress(2,4);
 		if (Status~=3) then
 		base.common.InformNLS(Character,
-			"Um etwas zu sprechen, gib den gewünschten Text mit deiner Tastatur ein - dieser erscheint automatisch im Nachrichtenfenster. Um ihn schließlich zu senden, drücke die Taste [Enter].",
+			"Um etwas zu sprechen, gib den gewï¿½nschten Text mit deiner Tastatur ein - dieser erscheint automatisch im Nachrichtenfenster. Um ihn schlieï¿½lich zu senden, drï¿½cke die Taste [Enter].",
 			"To say something, write the desired text with your keyboard - it will automatically appear in the message window. To finally send it, press the button [Enter].");
 		end
 	end

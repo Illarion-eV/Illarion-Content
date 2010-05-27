@@ -2,7 +2,7 @@
 
 require("gm.base.log")
 
-module("gm.spells.29_kill", package.seeall())
+module("gm.spells.29_kill", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^28,0,'gm.spells.29_kill');

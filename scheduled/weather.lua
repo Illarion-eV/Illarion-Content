@@ -1,4 +1,4 @@
-module("scheduled.weather", package.seeall())
+module("scheduled.weather", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.weather', 350, 900, 'plantdrop');
 
@@ -49,11 +49,11 @@ function largeScaleCloudModifier()      -- larger scale cloud modifier (periods 
 end
 
 function getDayNightTemp(actClouds)                 -- cold at night, warm at day, not definied inbetween
-    thisHour=world:getTime("hour");                 -- variation: 6° when cloudy, 20° when sunny
+    thisHour=world:getTime("hour");                 -- variation: 6ï¿½ when cloudy, 20ï¿½ when sunny
     if actClouds<20 then
-        retTemp=math.floor(10*math.cos(thisHour*math.pi/12));   -- difference between day and night: 20°
+        retTemp=math.floor(10*math.cos(thisHour*math.pi/12));   -- difference between day and night: 20ï¿½
     else
-        retTemp=math.floor(3*math.cos(thisHour*math.pi/12));    -- difference between day and night: 6°
+        retTemp=math.floor(3*math.cos(thisHour*math.pi/12));    -- difference between day and night: 6ï¿½
     end
     return retTemp+math.random(-1,1);               -- add little variation (realistic)
 end

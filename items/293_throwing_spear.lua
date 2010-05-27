@@ -2,7 +2,7 @@
 
 require("base.lookat")
 
-module("items.293_throwing_spear", package.seeall())
+module("items.293_throwing_spear", package.seeall)
 
 function LookAtItem(User, Item)
 	

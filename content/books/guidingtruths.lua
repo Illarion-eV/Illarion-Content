@@ -1,74 +1,74 @@
 require("base.books")
 
-module("content.books.guidingtruths", package.seeall())
+module("content.books.guidingtruths", package.seeall)
 
 -- This file contains the book data for the book "Three Guiding Truths"
 
 function loadBook(toData)
     base.books.AddLanguage("ancient language",toData);
     
-    base.books.AddGermanBookText("\n \n    ~Drei maßgebliche Wahrheiten~ \n \n        von Brer Beothach",0,0,toData); 
+    base.books.AddGermanBookText("\n \n    ~Drei maï¿½gebliche Wahrheiten~ \n \n        von Brer Beothach",0,0,toData); 
     base.books.AddGermanBookText(" \n \n \n    Vorwort",0,65,toData); 
-    base.books.AddGermanBookText("Dieses Buch entstand, während ich in der Wildnis Gobaiths lebte.",0,65,toData); 
+    base.books.AddGermanBookText("Dieses Buch entstand, wï¿½hrend ich in der Wildnis Gobaiths lebte.",0,65,toData); 
     base.books.AddGermanBookText("Nachdem ich mich als Geldwechsler verdingt hatte und versuchte, der Stadt unter der Herrschaft des Gouverneurs Stephen Rothman als Magistrat zu dienen (wenn auch mehr schlecht als recht),",0,65,toData); 
-    base.books.AddGermanBookText("beschloß ich, daß es das Beste wäre, mich meinem Schicksal zu fügen, das durch die Flucht meines Bruders nach Gobaith besiegelt schien.",0,65,toData); 
-    base.books.AddGermanBookText("Wenn man einige Zeit fernab der Zivilisation (vor allem solcher, die man nicht gerade schätzt)gelebt hat, wird man ein Gefühl von unbändiger Freiheit spüren.",0,65,toData); 
-    base.books.AddGermanBookText("Während dieser Zeit der Freiheit kam eine Göttin zu mir, deren Gunst ich vorher noch nie genossen hatte. Elara erschien mir in einem Traum und erklärte mir den Ursprung dieser Ereignisse.",0,65,toData); 
-    base.books.AddGermanBookText("Wenn auch vage, so wußte ich doch dass diese Begegnung mehr war als es den Anschein hatte. Also unterwarf ich mich dieser herrschenden Gottheit und folgte ihr mit Beginn des Monats Elos im neunzehnten Jahr.",0,65,toData); 
-    base.books.AddGermanBookText("Diese Ausführungen werden versuchen die drei Wahrheiten zu definieren die nötig sind, um solche Dinge wie das Leben zu verstehen. Mit diesem Buch glaube ich die Dinge verständlich zu machen, zumindest so wie ich sie interpretiere.",0,65,toData); 
-    base.books.AddGermanBookText("Während des Lesens wird man schnell verstehen, dass nicht jeder diesen Ideen zustimmen wird, es ist aber alles was ich anzubieten habe. Wie immer bestand alles, was ich anzubieten hatte, aus Worten und aus nichts anderem.",0,65,toData); 
-    base.books.AddGermanBookText("Mit diesen Möglichkeiten, habe ich versucht diese Worte so zu formen, dass sie meine Ideen am besten transportieren und für alle zugänglich machen, in der Hoffnung, dass sich jeder die Zeit nimmt, den Worten zu lauschen.",0,65,toData); 
-    base.books.AddGermanBookText("Darüber kann ich nur spekulieren und Hoffnung ist alles, was den Worten Kraft verleiht. Denn wenn niemand den Worten lauscht, sind sie ziemlich nutzlos. Zu Ehren meines Bruders Cliu möchte ich also beginnen.",0,65,toData); 
+    base.books.AddGermanBookText("beschloï¿½ ich, daï¿½ es das Beste wï¿½re, mich meinem Schicksal zu fï¿½gen, das durch die Flucht meines Bruders nach Gobaith besiegelt schien.",0,65,toData); 
+    base.books.AddGermanBookText("Wenn man einige Zeit fernab der Zivilisation (vor allem solcher, die man nicht gerade schï¿½tzt)gelebt hat, wird man ein Gefï¿½hl von unbï¿½ndiger Freiheit spï¿½ren.",0,65,toData); 
+    base.books.AddGermanBookText("Wï¿½hrend dieser Zeit der Freiheit kam eine Gï¿½ttin zu mir, deren Gunst ich vorher noch nie genossen hatte. Elara erschien mir in einem Traum und erklï¿½rte mir den Ursprung dieser Ereignisse.",0,65,toData); 
+    base.books.AddGermanBookText("Wenn auch vage, so wuï¿½te ich doch dass diese Begegnung mehr war als es den Anschein hatte. Also unterwarf ich mich dieser herrschenden Gottheit und folgte ihr mit Beginn des Monats Elos im neunzehnten Jahr.",0,65,toData); 
+    base.books.AddGermanBookText("Diese Ausfï¿½hrungen werden versuchen die drei Wahrheiten zu definieren die nï¿½tig sind, um solche Dinge wie das Leben zu verstehen. Mit diesem Buch glaube ich die Dinge verstï¿½ndlich zu machen, zumindest so wie ich sie interpretiere.",0,65,toData); 
+    base.books.AddGermanBookText("Wï¿½hrend des Lesens wird man schnell verstehen, dass nicht jeder diesen Ideen zustimmen wird, es ist aber alles was ich anzubieten habe. Wie immer bestand alles, was ich anzubieten hatte, aus Worten und aus nichts anderem.",0,65,toData); 
+    base.books.AddGermanBookText("Mit diesen Mï¿½glichkeiten, habe ich versucht diese Worte so zu formen, dass sie meine Ideen am besten transportieren und fï¿½r alle zugï¿½nglich machen, in der Hoffnung, dass sich jeder die Zeit nimmt, den Worten zu lauschen.",0,65,toData); 
+    base.books.AddGermanBookText("Darï¿½ber kann ich nur spekulieren und Hoffnung ist alles, was den Worten Kraft verleiht. Denn wenn niemand den Worten lauscht, sind sie ziemlich nutzlos. Zu Ehren meines Bruders Cliu mï¿½chte ich also beginnen.",0,65,toData); 
     
     base.books.AddGermanBookText("\n \n        Der Grund des Leidens:",0,65,toData);
-    base.books.AddGermanBookText("Um die anderen beiden Grundsätze zu verstehen, ist es nötig, zuerst den Grund des Leidens zu kennen. Er ist der Grundstock, welcher den anderen ihren Sinn verleiht.",0,65,toData);
-    base.books.AddGermanBookText("Tatsächlich ist er, von allen aus dem Leiden entstandenen Dingen, am schwersten zu erklären. Ich musste die Grundlage für meine anderen Theorien definieren, wodurch dies, vor allem anderen, natürlich den größten Teil meiner Überlegungen in Anspruch nahm.",0,65,toData);
-    base.books.AddGermanBookText("Um den Grund für das Leiden zu begreifen, muss man zuerst die Manigfaltigkeit der Welt erkennen, denn die Welt ist voll von unterschiedlichen Sitten und Persönlichkeiten, die es zu umfassen gilt. ",0,65,toData);
-    base.books.AddGermanBookText("Ob diese falsch sind, muss ein jeder für sich selbst entscheiden und während ich große Reden darüber schwingen könnte, wie die Welt ein viel besserer Ort sein könnte, spare ich mir dies für ein weiteres Werk.",0,65,toData);
-    base.books.AddGermanBookText("Selbstverständlich werden meine Theorien Einiges aufwühlen, denn Stolz ist eine Sache die Konflikte hervorruft.",0,65,toData);
-    base.books.AddGermanBookText("Obwohl diese Vielfalt nicht der Grund des Leidens ist, so ist sie doch ein Teil der Erklärung von selbigem.",0,65,toData);
-    base.books.AddGermanBookText("Alleine durch unterschiedliche Bräuche, würden die Leute sich nicht davon abbringen lassen, ihr eigenes Leben zu führen und Konflikten aus dem Weg zu gehen.",0,65,toData);
-    base.books.AddGermanBookText("Außer natürlich, die Grundsätze ihres Glaubens würden sich nicht mit diesen Bräuchen vereinbaren lassen.",0,65,toData);
-    base.books.AddGermanBookText("Es sind vielmehr eben diese Unterschiede, in Verbindung mit der Gesellschaft, die Leiden hervorrufen, denn die Gesellschaft führt Unterschiedliches zusammen, und ruft dadurch Konflikte hervor.",0,65,toData);
-    base.books.AddGermanBookText("Wenn jemand in einer Gemeinschaft lebt, muss er mit Spannungen und Konflikten rechnen, da diese der Grund für das Leiden sind. Das ist es, woraus Weisheit und Wissen wachsen.",0,65,toData);
+    base.books.AddGermanBookText("Um die anderen beiden Grundsï¿½tze zu verstehen, ist es nï¿½tig, zuerst den Grund des Leidens zu kennen. Er ist der Grundstock, welcher den anderen ihren Sinn verleiht.",0,65,toData);
+    base.books.AddGermanBookText("Tatsï¿½chlich ist er, von allen aus dem Leiden entstandenen Dingen, am schwersten zu erklï¿½ren. Ich musste die Grundlage fï¿½r meine anderen Theorien definieren, wodurch dies, vor allem anderen, natï¿½rlich den grï¿½ï¿½ten Teil meiner ï¿½berlegungen in Anspruch nahm.",0,65,toData);
+    base.books.AddGermanBookText("Um den Grund fï¿½r das Leiden zu begreifen, muss man zuerst die Manigfaltigkeit der Welt erkennen, denn die Welt ist voll von unterschiedlichen Sitten und Persï¿½nlichkeiten, die es zu umfassen gilt. ",0,65,toData);
+    base.books.AddGermanBookText("Ob diese falsch sind, muss ein jeder fï¿½r sich selbst entscheiden und wï¿½hrend ich groï¿½e Reden darï¿½ber schwingen kï¿½nnte, wie die Welt ein viel besserer Ort sein kï¿½nnte, spare ich mir dies fï¿½r ein weiteres Werk.",0,65,toData);
+    base.books.AddGermanBookText("Selbstverstï¿½ndlich werden meine Theorien Einiges aufwï¿½hlen, denn Stolz ist eine Sache die Konflikte hervorruft.",0,65,toData);
+    base.books.AddGermanBookText("Obwohl diese Vielfalt nicht der Grund des Leidens ist, so ist sie doch ein Teil der Erklï¿½rung von selbigem.",0,65,toData);
+    base.books.AddGermanBookText("Alleine durch unterschiedliche Brï¿½uche, wï¿½rden die Leute sich nicht davon abbringen lassen, ihr eigenes Leben zu fï¿½hren und Konflikten aus dem Weg zu gehen.",0,65,toData);
+    base.books.AddGermanBookText("Auï¿½er natï¿½rlich, die Grundsï¿½tze ihres Glaubens wï¿½rden sich nicht mit diesen Brï¿½uchen vereinbaren lassen.",0,65,toData);
+    base.books.AddGermanBookText("Es sind vielmehr eben diese Unterschiede, in Verbindung mit der Gesellschaft, die Leiden hervorrufen, denn die Gesellschaft fï¿½hrt Unterschiedliches zusammen, und ruft dadurch Konflikte hervor.",0,65,toData);
+    base.books.AddGermanBookText("Wenn jemand in einer Gemeinschaft lebt, muss er mit Spannungen und Konflikten rechnen, da diese der Grund fï¿½r das Leiden sind. Das ist es, woraus Weisheit und Wissen wachsen.",0,65,toData);
     base.books.AddGermanBookText("Es sind die uns aufgezwungenen Erfahrungen mit Zwist, die uns wissender werden lassen. Erst wenn wir uns aus unserem Alltag entfernen, werden wir lernen.",0,65,toData);
-    base.books.AddGermanBookText("Damit der Geist wachsen kann, muss man erfahren und gefühlt haben, was Missbehagen ist. Dies erfuhr ich, sobald ich mich von der Gesellschaft entfernte. Entzieht man sich diesen Spannungen, verliert man seinen Antrieb.",0,65,toData);
-    base.books.AddGermanBookText("Alle Gedanken, die mich noch beschäftigten, drehten sich um Einsamkeit und um die Gründe für die drei grundlegenden Tatsachen",0,65,toData);
-    base.books.AddGermanBookText("Obwohl man, mit einigen Ausnahmen vielleicht, nur dann lernen kann, wenn man sich aus Isolation und Sicherheit löst, zahlt es sich dennoch aus.",0,65,toData);
-    base.books.AddGermanBookText("Dieser mir neu eröffnete, kleine Pfad, lies mich wie neu geboren fühlen. Er eröffnete mir etwas Neues.",0,65,toData);
-    base.books.AddGermanBookText("Ich begann die Tatsachen des Lebens als das zu verstehen, was sie waren. Ich konnte vergangenes Wissen erweitern und ergänzen. Endlich hatte ich eine Erklärung für so Vieles. Emotionen, Gefühle.",0,65,toData);
-    base.books.AddGermanBookText("Es lies mich über Vergangenes nachdenken. Auf eine Art, auf die nur Isolation und Abgeschiedenheit einen zurückblicken lassen. Wenn man das Leiden verdrängt und nicht darüber nachdenkt, wird es Schmerz hervorrufen.",0,65,toData);
+    base.books.AddGermanBookText("Damit der Geist wachsen kann, muss man erfahren und gefï¿½hlt haben, was Missbehagen ist. Dies erfuhr ich, sobald ich mich von der Gesellschaft entfernte. Entzieht man sich diesen Spannungen, verliert man seinen Antrieb.",0,65,toData);
+    base.books.AddGermanBookText("Alle Gedanken, die mich noch beschï¿½ftigten, drehten sich um Einsamkeit und um die Grï¿½nde fï¿½r die drei grundlegenden Tatsachen",0,65,toData);
+    base.books.AddGermanBookText("Obwohl man, mit einigen Ausnahmen vielleicht, nur dann lernen kann, wenn man sich aus Isolation und Sicherheit lï¿½st, zahlt es sich dennoch aus.",0,65,toData);
+    base.books.AddGermanBookText("Dieser mir neu erï¿½ffnete, kleine Pfad, lies mich wie neu geboren fï¿½hlen. Er erï¿½ffnete mir etwas Neues.",0,65,toData);
+    base.books.AddGermanBookText("Ich begann die Tatsachen des Lebens als das zu verstehen, was sie waren. Ich konnte vergangenes Wissen erweitern und ergï¿½nzen. Endlich hatte ich eine Erklï¿½rung fï¿½r so Vieles. Emotionen, Gefï¿½hle.",0,65,toData);
+    base.books.AddGermanBookText("Es lies mich ï¿½ber Vergangenes nachdenken. Auf eine Art, auf die nur Isolation und Abgeschiedenheit einen zurï¿½ckblicken lassen. Wenn man das Leiden verdrï¿½ngt und nicht darï¿½ber nachdenkt, wird es Schmerz hervorrufen.",0,65,toData);
     base.books.AddGermanBookText("Nehmt zum Beispiel einen Mann, der an einer Krankheit leidet. Wenn sich keiner dieser annimmt, wird sie ihm nur immer wieder Schmerzen bescheren.",0,65,toData);
     base.books.AddGermanBookText("Wenn aber jemand die Krankheit untersucht und eine Heilung findet, werden die Schmerzen ein Ende finden. Schmerz wird vergehen, das neue Wissen das er hervorruft jedoch nicht.",0,65,toData);
-    base.books.AddGermanBookText("Wenn jemand diese Tatsachen erkennt, erkennt er auch, dass man sich aus seiner Isolation lösen und die Sicherheit verlassen muss, bevor man wahrlich lernen kann.",0,65,toData);
-    base.books.AddGermanBookText("Man muss die Gesellschaft also als ein Werkzeug sehen. Ein Werkzeug, das Emotionen hervorruft und dadurch Türen zu neuem Wissen öffnet.",0,65,toData);
-    base.books.AddGermanBookText("Zu leiden ist nötig und ein Teil des Lebens, aber wenn jemand es nicht schafft, dieses Leiden hinter sich zu lassen, ist es nutzlos. Es ist die Unfähigkeit aus Leiden zu lernen, die Gewalt und Habgier hervorruft.",0,65,toData);
+    base.books.AddGermanBookText("Wenn jemand diese Tatsachen erkennt, erkennt er auch, dass man sich aus seiner Isolation lï¿½sen und die Sicherheit verlassen muss, bevor man wahrlich lernen kann.",0,65,toData);
+    base.books.AddGermanBookText("Man muss die Gesellschaft also als ein Werkzeug sehen. Ein Werkzeug, das Emotionen hervorruft und dadurch Tï¿½ren zu neuem Wissen ï¿½ffnet.",0,65,toData);
+    base.books.AddGermanBookText("Zu leiden ist nï¿½tig und ein Teil des Lebens, aber wenn jemand es nicht schafft, dieses Leiden hinter sich zu lassen, ist es nutzlos. Es ist die Unfï¿½higkeit aus Leiden zu lernen, die Gewalt und Habgier hervorruft.",0,65,toData);
 
     base.books.AddGermanBookText("\n \n          Der Grund der Habgier:",0,65,toData);
-    base.books.AddGermanBookText("Habgier ist der nächste Schritt in diesem Prozess, denn Habgier ist ist der Grund für Gewalt. Wenn man unfähig ist, aus Leiden zu lernen, braucht man einen Ersatz für Wissen.",0,65,toData);
-    base.books.AddGermanBookText("Und hier kommt die Habgier ins Spiel. Sie wird benützt, um die Leere zu füllen, die der Schmerz hervorruft. An der Habgier erkennt man also, wie sehr jemand leidet. Allerdings darf man nie vergessen, was Habgier wirklich ist.",0,65,toData);
-    base.books.AddGermanBookText("Jemand, der viel Geld besitzt, ist noch lange nicht habgierig, denn wenn er seinen Reichtum für ein höheres Wohl (die Gesellschaft) verwendet, ist er nicht habgierig, sondern selbstlos.",0,65,toData);
+    base.books.AddGermanBookText("Habgier ist der nï¿½chste Schritt in diesem Prozess, denn Habgier ist ist der Grund fï¿½r Gewalt. Wenn man unfï¿½hig ist, aus Leiden zu lernen, braucht man einen Ersatz fï¿½r Wissen.",0,65,toData);
+    base.books.AddGermanBookText("Und hier kommt die Habgier ins Spiel. Sie wird benï¿½tzt, um die Leere zu fï¿½llen, die der Schmerz hervorruft. An der Habgier erkennt man also, wie sehr jemand leidet. Allerdings darf man nie vergessen, was Habgier wirklich ist.",0,65,toData);
+    base.books.AddGermanBookText("Jemand, der viel Geld besitzt, ist noch lange nicht habgierig, denn wenn er seinen Reichtum fï¿½r ein hï¿½heres Wohl (die Gesellschaft) verwendet, ist er nicht habgierig, sondern selbstlos.",0,65,toData);
     base.books.AddGermanBookText("Ein solcher jemand, erkennt die Wichtigkeit der Gesellschaft und versteht, dass er versuchen muss zu helfen.",0,65,toData);
     base.books.AddGermanBookText("Es ist eindeutig, dass diese Habgier aus dem Leiden resultiert und da es immer die Vielfalt und die Gesellschaft und dadurch auch Konflikte geben wird, wird es auch immer Habgier geben.",0,65,toData);
-    base.books.AddGermanBookText("Da es immer Habgier geben wird, wird es immer Gewalt geben, denn Gewalt entsteht durch Habgier und der Unfähigkeit, das eigene Leiden durch die Vermehrung seiner eigenen Habgier auszumerzen.",0,65,toData);
+    base.books.AddGermanBookText("Da es immer Habgier geben wird, wird es immer Gewalt geben, denn Gewalt entsteht durch Habgier und der Unfï¿½higkeit, das eigene Leiden durch die Vermehrung seiner eigenen Habgier auszumerzen.",0,65,toData);
 
     base.books.AddGermanBookText("\n \n          Der Grund der Gewalt:",0,65,toData);
-    base.books.AddGermanBookText("Die Gewalt ist das Resultat von Habgier und dadurch natürlich des Leidens. Wenn jemand sein Leiden nicht mehr nur durch Habgier vertreiben kann, wird er es mit Gewalt versuchen.",0,65,toData);
-    base.books.AddGermanBookText("Da es immer unstillbare Habgier geben wird, wird das Verlangen nach mehr niemals gesättigt werden können. Gewalt entsteht durch die Unfähigkeit, den Rachen der eigenen Habgier zu füllen",0,65,toData);
-    base.books.AddGermanBookText("Die Frustration, die diese Unfähigkeit hervorruft, kann auf viele Arten abgebaut werden. Jeder, der eine Person an deren Grenzen bringt, kann zum Opfer von Gewalt werden.",0,65,toData);
-    base.books.AddGermanBookText("Auch Gewalt kann erneut in Gewalt resultieren. Tatsächlich sogar, wird einem meistens dann Gewalt widerfahren, wenn man zuvor eben solche gegen jemand anderen angewendet hat.",0,65,toData);
-    base.books.AddGermanBookText("Es ist schwer, dem Verlangen nach Vergeltung nicht nachzugeben. Besonders dann, wenn man ständig Schmerz erfährt, denn schließlich kann Leid der Auslöser für Gewalt sein.",0,65,toData);
-    base.books.AddGermanBookText("Um physischem Schmerz zu bezwingen, muss man sich dies immer wieder in Gedanken rufen. Außer der Akzeptanz für jene und der Verschlimmerung der Lage, welche wiederum zu erneuter Gewalttätigkeit führen wird, kann aus Gewalt nichts gewonnen werden.",0,65,toData);
+    base.books.AddGermanBookText("Die Gewalt ist das Resultat von Habgier und dadurch natï¿½rlich des Leidens. Wenn jemand sein Leiden nicht mehr nur durch Habgier vertreiben kann, wird er es mit Gewalt versuchen.",0,65,toData);
+    base.books.AddGermanBookText("Da es immer unstillbare Habgier geben wird, wird das Verlangen nach mehr niemals gesï¿½ttigt werden kï¿½nnen. Gewalt entsteht durch die Unfï¿½higkeit, den Rachen der eigenen Habgier zu fï¿½llen",0,65,toData);
+    base.books.AddGermanBookText("Die Frustration, die diese Unfï¿½higkeit hervorruft, kann auf viele Arten abgebaut werden. Jeder, der eine Person an deren Grenzen bringt, kann zum Opfer von Gewalt werden.",0,65,toData);
+    base.books.AddGermanBookText("Auch Gewalt kann erneut in Gewalt resultieren. Tatsï¿½chlich sogar, wird einem meistens dann Gewalt widerfahren, wenn man zuvor eben solche gegen jemand anderen angewendet hat.",0,65,toData);
+    base.books.AddGermanBookText("Es ist schwer, dem Verlangen nach Vergeltung nicht nachzugeben. Besonders dann, wenn man stï¿½ndig Schmerz erfï¿½hrt, denn schlieï¿½lich kann Leid der Auslï¿½ser fï¿½r Gewalt sein.",0,65,toData);
+    base.books.AddGermanBookText("Um physischem Schmerz zu bezwingen, muss man sich dies immer wieder in Gedanken rufen. Auï¿½er der Akzeptanz fï¿½r jene und der Verschlimmerung der Lage, welche wiederum zu erneuter Gewalttï¿½tigkeit fï¿½hren wird, kann aus Gewalt nichts gewonnen werden.",0,65,toData);
     base.books.AddGermanBookText("Die Gewalt wird Schmerz und Leiden hervorrufen und den Kreislauf von Neuem beginnen lassen. Wenn man also nicht in der Lage ist, dies wahrzunehmen, um den Kreislauf zu brechen, wird man ihm nicht entkommen.",0,65,toData);
     base.books.AddGermanBookText("Wenn wir dies nicht schaffen, sind wir zu einem Leben verflucht , in dem nur Gewalt, Habgier und Leiden existieren, ohne daraus zu lernen..",0,65,toData);
     base.books.AddGermanBookText("Jemand der dies alles verstanden hat, wird zu der Entscheidung kommen, dass jeder leiden wird, diejenigen jedoch, die aus diesem Leiden lernen gesegnet und die, die das nicht schaffen verflucht sein werden.",0,65,toData);
 
     base.books.AddGermanBookText("\n \n \n          Die Schlussfolgerung:",0,65,toData);
-    base.books.AddGermanBookText("Nun, nachdem wir diese drei Tatsachen festgestellt haben, können wir eine Schlussfolgerung daraus ziehen. So, wie wir nun dieses Leiden als eine Art Perspektive sehen sollten, sollten wir dies auch mit den drei Tatsachen tun.",0,65,toData);
-    base.books.AddGermanBookText("Wir sollten uns klarmachen, dass Leiden, und dadurch auch Gewalt und Habgier, tief in dieser Welt verwurzelt sind. Das sind die Grundsätze unseres Leben und wir können uns ihnen nicht verschließen.",0,65,toData);
-    base.books.AddGermanBookText("Sie mögen keine langfristigen Lösungen sein, aber nichts ist gewonnen, wenn auch das Wissen um sie nur von kurzer Dauer ist. Sie bringen Freude, Zufriedenheit und Friede, aber auch ständiges Wissen mit sich.",0,65,toData);
-    base.books.AddGermanBookText("Es wird niemals vergehen und auf ewig mehr Wert sein, als körperliche Dinge.",0,65,toData);
-    base.books.AddGermanBookText("Diese drei Grundsätze enthalten den Schlüssel zur Ansammlung von Wissen und Verständnis und eine Anleitung, diesen zu benützen. Möge euer Weg mit Weisheit gesegnet sein.",0,65,toData);
+    base.books.AddGermanBookText("Nun, nachdem wir diese drei Tatsachen festgestellt haben, kï¿½nnen wir eine Schlussfolgerung daraus ziehen. So, wie wir nun dieses Leiden als eine Art Perspektive sehen sollten, sollten wir dies auch mit den drei Tatsachen tun.",0,65,toData);
+    base.books.AddGermanBookText("Wir sollten uns klarmachen, dass Leiden, und dadurch auch Gewalt und Habgier, tief in dieser Welt verwurzelt sind. Das sind die Grundsï¿½tze unseres Leben und wir kï¿½nnen uns ihnen nicht verschlieï¿½en.",0,65,toData);
+    base.books.AddGermanBookText("Sie mï¿½gen keine langfristigen Lï¿½sungen sein, aber nichts ist gewonnen, wenn auch das Wissen um sie nur von kurzer Dauer ist. Sie bringen Freude, Zufriedenheit und Friede, aber auch stï¿½ndiges Wissen mit sich.",0,65,toData);
+    base.books.AddGermanBookText("Es wird niemals vergehen und auf ewig mehr Wert sein, als kï¿½rperliche Dinge.",0,65,toData);
+    base.books.AddGermanBookText("Diese drei Grundsï¿½tze enthalten den Schlï¿½ssel zur Ansammlung von Wissen und Verstï¿½ndnis und eine Anleitung, diesen zu benï¿½tzen. Mï¿½ge euer Weg mit Weisheit gesegnet sein.",0,65,toData);
 
     -------
     
@@ -131,6 +131,6 @@ function loadBook(toData)
 end;
 
 function loadTitle(toData)
-    base.books.AddGermanBookTitle("Buch mit dem Titel \"Drei maßgebliche Wahrheiten\"",toData);
+    base.books.AddGermanBookTitle("Buch mit dem Titel \"Drei maï¿½gebliche Wahrheiten\"",toData);
     base.books.AddEnglishBookTitle("Book with the title \"Three Guiding Truths\"",toData);
 end;

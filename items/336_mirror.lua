@@ -1,8 +1,8 @@
--- Script muss noch in die Datenbank eingefügt werden (Handspiegel, ID 336)
+-- Script muss noch in die Datenbank eingefï¿½gt werden (Handspiegel, ID 336)
 
 require("content.chardescription")
 
-module("items.336_mirror", package.seeall(), package.seeall(content.chardescription))
+module("items.336_mirror", package.seeall, package.seeall(content.chardescription))
 
 -- UPDATE common SET com_script='items.336_mirror' WHERE com_itemid = 336;
 

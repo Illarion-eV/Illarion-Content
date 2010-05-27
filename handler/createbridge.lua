@@ -1,6 +1,6 @@
 require("base.class")
 
-module("handler.createbridge", package.seeall())
+module("handler.createbridge", package.seeall)
 
 createBridge = base.class.class(function(crebrg, posi, dire, lng)
     crebrg.pos=posi;

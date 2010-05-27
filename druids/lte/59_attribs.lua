@@ -1,8 +1,8 @@
--- LTE für das Druidensystem
+-- LTE fï¿½r das Druidensystem
 -- by Falk
 require("base.common")
 
-module("druids.lte.59_attribs", package.seeall())
+module("druids.lte.59_attribs", package.seeall)
 
 -- INSERT INTO longtimeeffects VALUES (59, 'druids_attribs', 'druids.lte.59_attribs');
 
@@ -14,7 +14,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
     return true;
 end
 
-function callEffect(Effect,Character)               -- Effect wird ausgeführt
+function callEffect(Effect,Character)               -- Effect wird ausgefï¿½hrt
     find, cntEffects = Effect:findValue("effects");
     if not find or cntEffects == 0 then
         return false;
@@ -39,7 +39,7 @@ function callEffect(Effect,Character)               -- Effect wird ausgeführt
                 Effect:removeValue("zaehler_"..i);
                 if not MessageSend then
                     MessageSend = true;
-                    base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
+                    base.common.InformNLS( Character, "Du fï¿½hlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
                 end
             else
                 Effect:addValue("zaehler_"..i,zaehler);
@@ -75,7 +75,7 @@ function removeEffect(Effect,Character)
             Effect:removeValue("zaehler_"..i);
             if not MessageSend then
                 MessageSend = true;
-                base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
+                base.common.InformNLS( Character, "Du fï¿½hlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
             end
         end
     end

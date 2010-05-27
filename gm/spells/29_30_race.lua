@@ -2,7 +2,7 @@
 
 require("gm.base.log")
 
-module("gm.spells.29_30_race", package.seeall())
+module("gm.spells.29_30_race", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^28 + 2^29,0,'gm.spells.29_30_race');

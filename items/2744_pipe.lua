@@ -3,7 +3,7 @@
 require("base.common")
 require("items.general.wood")
 
-module("items.2744_pipe", package.seeall(), package.seeall(items.general.wood))
+module("items.2744_pipe", package.seeall, package.seeall(items.general.wood))
 
 -- UPDATE common SET com_script='items.2744_pipe' WHERE com_itemid = 2744;
 
@@ -11,7 +11,7 @@ function UseItem( Character, SourceItem, TargetItem, Counter, Param)
 
     if (Character:countItemAt("belt",155)==0) then -- kein Sibanac???
         base.common.InformNLS( Character,
-        "Du benötigst Sibanac-Blätter um Pfeife rauchen zu können.",
+        "Du benï¿½tigst Sibanac-Blï¿½tter um Pfeife rauchen zu kï¿½nnen.",
         "You need sibanac-leafs to smoke a pipe." );
         return
     end

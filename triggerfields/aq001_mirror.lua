@@ -4,7 +4,7 @@
 require("quest_isItemIdInFieldStack")
 require("quest_removeItemIdFromFieldStack")
 
-module("triggerfields.aq001_mirror", package.seeall())
+module("triggerfields.aq001_mirror", package.seeall)
 
 function MoveFromField( user )
 

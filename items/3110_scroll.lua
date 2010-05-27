@@ -2,18 +2,18 @@ require("base.common")
 require("base.orders")
 require("base.factions")
 
-module("items.3110_scroll", package.seeall(), package.seeall(base.orders), package.seeall(base.factions))
+module("items.3110_scroll", package.seeall, package.seeall(base.orders), package.seeall(base.factions))
 
 -- UPDATE common SET com_script = 'items.3110_scroll' WHERE com_itemid = 3110;
 
 function LookAtItem(User,Item)
-    --abarbeitung der Aufträge
+    --abarbeitung der Auftrï¿½ge
     local order = Order:fromItem(Item);
     if ( order ~= nil ) then
         world:itemInform(User,Item,order:lookAt(User));
         return;
     end
-    --ende der aufträge
+    --ende der auftrï¿½ge
     local spell = Item.quality;
     if (spell == 101) then -- teleport
         
@@ -43,16 +43,16 @@ function UseItemWithCharacter(User, SourceItem, Character, counter, param)
     User:inform("useitemwitchchar start");
     if ( Character:get_type() == CCharacter.npc ) then
         User:inform("useitemwitchchar npc");
-        --abarbeitung der Aufträge
+        --abarbeitung der Auftrï¿½ge
         fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
         if ( fnd ) then
-            --wenn funktion true zurück gibt dann war es ein auftrag
+            --wenn funktion true zurï¿½ck gibt dann war es ein auftrag
             --daher restliche funktion abbrechen
             if (ordernpc:checkOrder(SourceItem,User) ) then 
                 return;
             end
         end
-        --ende der aufträge
+        --ende der auftrï¿½ge
     end
     User:inform("useitemwitchchar end");
 end
@@ -94,7 +94,7 @@ function teleportLookAt( User, Item )
     dz = dat - math.floor(dat/1024)*1024 - 500 - User.pos.z;
     
     if ( math.abs(dz) > 15) then
-        return base.common.GetNLS( User, "Die Pergamentrolle glüht bläulich.", "The scroll of parchment glows blueish." );
+        return base.common.GetNLS( User, "Die Pergamentrolle glï¿½ht blï¿½ulich.", "The scroll of parchment glows blueish." );
     end;
     
     dat = math.floor(dat / 1024);
@@ -141,11 +141,11 @@ function teleportLookAt( User, Item )
     elseif ( phi < 9*math.pi/8 ) then
         dirTxt = base.common.GetNLS( User, "Westen", "west" );
     elseif ( phi < 11*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Südwesten", "southwest" );
+        dirTxt = base.common.GetNLS( User, "Sï¿½dwesten", "southwest" );
     elseif ( phi < 13*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Süden", "south" );
+        dirTxt = base.common.GetNLS( User, "Sï¿½den", "south" );
     elseif ( phi < 15*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Südosten", "southeast" );
+        dirTxt = base.common.GetNLS( User, "Sï¿½dosten", "southeast" );
     else
         dirTxt = base.common.GetNLS( User, "Osten", "east" );
     end;
@@ -238,7 +238,7 @@ function summonCreature( Caster, Item )
     elseif (faceto== 6) then 	--west
 	CreaturePos  = position(Caster.pos.x-1,Caster.pos.y,Caster.pos.z);
     else
-    	Caster:inform("moep->Faceto nicht möglich, weil "..faceto.." ist Blickrichtung.");
+    	Caster:inform("moep->Faceto nicht mï¿½glich, weil "..faceto.." ist Blickrichtung.");
     end
 
     if world:isCharacterOnField( CreaturePos ) then

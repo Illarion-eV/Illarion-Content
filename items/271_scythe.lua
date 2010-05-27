@@ -1,6 +1,6 @@
 -- Sense ( 271 )
 
--- reifes Getreide  --> Getreidebündel
+-- reifes Getreide  --> Getreidebï¿½ndel
 
 -- UPDATE common SET com_script='items.271_scythe' WHERE com_itemid IN (271);
 
@@ -8,7 +8,7 @@ require("base.common")
 require("items.general.metal")
 require("content.gathering")
 
-module("items.271_scythe", package.seeall(), package.seeall(items.general.metal))
+module("items.271_scythe", package.seeall, package.seeall(items.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )   
 	content.gathering.InitGathering();
@@ -21,21 +21,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
         return
     end
     
-    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
+    if base.common.Encumbrence(User) then -- Durch Steife Rï¿½stung behindert
         base.common.InformNLS( User,
-        "Deine Rüstung behindert dabei die Feldarbeit zu verrichten.",
+        "Deine Rï¿½stung behindert dabei die Feldarbeit zu verrichten.",
         "Your armor disturbes while farming." );
         return
     end
     
     if ( SourceItem:getType() ~= 4 ) then -- Sense in der Hand
         base.common.InformNLS( User, 
-        "Du mußt die Sense in die Hände nehmen.", 
+        "Du muï¿½t die Sense in die Hï¿½nde nehmen.", 
         "Take the scythe into your hands." )
         return
     end
     
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- Blickrichtung prüfen
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- Blickrichtung prï¿½fen
         base.common.TurnTo( User, TargetItem.pos ); -- notfalls drehen
     end
     
@@ -43,7 +43,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 		return
 	end
 	
-    if base.common.ToolBreaks( User, SourceItem, true ) then -- Sense beschädigen
+    if base.common.ToolBreaks( User, SourceItem, true ) then -- Sense beschï¿½digen
         base.common.InformNLS( User, 
         "Die rostige Sense zerbricht.", 
         "The rusty scythe breaks." );
@@ -54,10 +54,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
         TargetItem.data = TargetItem.data - 1;
         world:changeItem(TargetItem);
     else
-        world:erase( TargetItem, 1 );     -- Getreideitem löschen
+        world:erase( TargetItem, 1 );     -- Getreideitem lï¿½schen
     end
-    local notCreated = User:createItem( 249, 1, 333 ,0); -- Getreidebündel erstellen
-    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+    local notCreated = User:createItem( 249, 1, 333 ,0); -- Getreidebï¿½ndel erstellen
+    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
         world:createItemFromId( 249, notCreated, User.pos, true, 333 ,0);
         base.common.InformNLS(User,
         "Du kannst nichts mehr halten.",

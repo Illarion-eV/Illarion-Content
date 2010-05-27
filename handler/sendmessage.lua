@@ -1,6 +1,6 @@
 require("base.class")
 
-module("handler.sendmessage", package.seeall())
+module("handler.sendmessage", package.seeall)
 
 sendMessage = base.class.class(function(sndMsg, posi, msg, rad)
     sndMsg.pos=posi;

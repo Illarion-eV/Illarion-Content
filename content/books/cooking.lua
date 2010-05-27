@@ -1,6 +1,6 @@
 require("base.books")
 
-module("content.books.cooking", package.seeall())
+module("content.books.cooking", package.seeall)
 
 -- This file contains the book data for the book "Tanner and Dyer"
 
@@ -22,18 +22,18 @@ function loadBook(toData)
     base.books.AddEnglishBookText("Preperation:\n Take the raw pork and shape in, keeping in natural casings. One raw ham will fill two sausages. Cook until browned. These can be used in more complex dishes or eaten plainly.",307,30,toData);
 
     base.books.AddGermanBookText("\n \n Das Grundlegende Kochen und die Rezepte",0,0,toData);
-    base.books.AddGermanBookText("Dieses Buch wird anstrebenden Köchen helfen, ihr Handwerk zu beginnen. Grundlegende Werkzeuge und einfache Rezepte werden besprochen.",0,30,toData);
-    base.books.AddGermanBookText("Das grundlegend erforderlichste Werkzeug um zu kochen ist ein Kochlöffel. Diese können bei Schreinern oder Schnitzern erstanden werden.",227,30,toData);
-    base.books.AddGermanBookText("Sobald ihr einen Kochlöffel erhalten habt, werdet Ihr auch einen Holzeimer brauchen. Wasser wird in jedem Rezept erforderlich sein. Eimer können ebenfalls bei Schreinern erstanden werden.",51,30,toData);
-    base.books.AddGermanBookText("Zuletzt braucht ihr ein heißes Feuer um kochen zu können. Ihr werdet Holzscheite und ein Beil brauchen, um ein Feuer zu entzünden. Nehmt das Beil in die Hand und schlagt den Holzscheit auf den Boden und schürt ein Feuer.",74,30,toData);
+    base.books.AddGermanBookText("Dieses Buch wird anstrebenden Kï¿½chen helfen, ihr Handwerk zu beginnen. Grundlegende Werkzeuge und einfache Rezepte werden besprochen.",0,30,toData);
+    base.books.AddGermanBookText("Das grundlegend erforderlichste Werkzeug um zu kochen ist ein Kochlï¿½ffel. Diese kï¿½nnen bei Schreinern oder Schnitzern erstanden werden.",227,30,toData);
+    base.books.AddGermanBookText("Sobald ihr einen Kochlï¿½ffel erhalten habt, werdet Ihr auch einen Holzeimer brauchen. Wasser wird in jedem Rezept erforderlich sein. Eimer kï¿½nnen ebenfalls bei Schreinern erstanden werden.",51,30,toData);
+    base.books.AddGermanBookText("Zuletzt braucht ihr ein heiï¿½es Feuer um kochen zu kï¿½nnen. Ihr werdet Holzscheite und ein Beil brauchen, um ein Feuer zu entzï¿½nden. Nehmt das Beil in die Hand und schlagt den Holzscheit auf den Boden und schï¿½rt ein Feuer.",74,30,toData);
     base.books.AddGermanBookText("\n Rezepte",0,30,toData);
-    base.books.AddGermanBookText("~Brötchen~\n Zutaten:\n 1 Stück Teig",191,30,toData);
-    base.books.AddGermanBookText("Zubereitung:\n Zuerst braucht ihr den Teig. Teig macht ihr, wenn ihr Mehl mit Wasser mischt. Vergesst nicht wenn ihr kocht, Wasser in der Hand zu halten. Es könnte euch helfen.",2,30,toData);
-    base.books.AddGermanBookText("Als nächstes benutze den Löffel um den Teig in die Nähe des Feuers zu legen und bräune jede Seite. Die Brötchen werden aussen knusprig und innen weich sein.",5,30,toData);
-    base.books.AddGermanBookText("~Pilzsuppe~\n Zutaten:\n 2 Champignon Pilze\n 1 Eimer Wasser\n 1 Suppenschüssel",2456,30,toData);
-    base.books.AddGermanBookText("Zubereitung:\n Beginnt das Wasser zu erhitzen und sobald es kocht fügt ihr die Pilze hinzu.  Rührt um und lasst alles solange  kochen bis es eine Brühe daraus entsteht. Serviere es solange es heiß ist.",163,30,toData);
-    base.books.AddGermanBookText("~Würstchen~\n Zutaten\n 1 roher Schinken",3051,30,toData);
-    base.books.AddGermanBookText("Zubereitung:\n Nehmt den rohen Schinken und gebt ihn in Naturdärme. Ein Schinken füllt zwei Würste. Kocht sie bis sie gar sind. Diese können für komplexere Speisen verwendet oder einfach so gegessen werden.",307,30,toData);
+    base.books.AddGermanBookText("~Brï¿½tchen~\n Zutaten:\n 1 Stï¿½ck Teig",191,30,toData);
+    base.books.AddGermanBookText("Zubereitung:\n Zuerst braucht ihr den Teig. Teig macht ihr, wenn ihr Mehl mit Wasser mischt. Vergesst nicht wenn ihr kocht, Wasser in der Hand zu halten. Es kï¿½nnte euch helfen.",2,30,toData);
+    base.books.AddGermanBookText("Als nï¿½chstes benutze den Lï¿½ffel um den Teig in die Nï¿½he des Feuers zu legen und brï¿½une jede Seite. Die Brï¿½tchen werden aussen knusprig und innen weich sein.",5,30,toData);
+    base.books.AddGermanBookText("~Pilzsuppe~\n Zutaten:\n 2 Champignon Pilze\n 1 Eimer Wasser\n 1 Suppenschï¿½ssel",2456,30,toData);
+    base.books.AddGermanBookText("Zubereitung:\n Beginnt das Wasser zu erhitzen und sobald es kocht fï¿½gt ihr die Pilze hinzu.  Rï¿½hrt um und lasst alles solange  kochen bis es eine Brï¿½he daraus entsteht. Serviere es solange es heiï¿½ ist.",163,30,toData);
+    base.books.AddGermanBookText("~Wï¿½rstchen~\n Zutaten\n 1 roher Schinken",3051,30,toData);
+    base.books.AddGermanBookText("Zubereitung:\n Nehmt den rohen Schinken und gebt ihn in Naturdï¿½rme. Ein Schinken fï¿½llt zwei Wï¿½rste. Kocht sie bis sie gar sind. Diese kï¿½nnen fï¿½r komplexere Speisen verwendet oder einfach so gegessen werden.",307,30,toData);
 end;
 
 function loadTitle(toData)

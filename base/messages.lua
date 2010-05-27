@@ -29,7 +29,7 @@
 --      selected randomly.
 
 require("base.class")
-module("base.messages", package.seeall())
+module("base.messages", package.seeall)
 
 -- create messages class
 Messages = base.class.class(function(msg)

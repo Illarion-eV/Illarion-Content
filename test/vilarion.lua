@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
-module("test.vilarion", package.seeall())
+module("test.vilarion", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     if User.id ~= 64 then

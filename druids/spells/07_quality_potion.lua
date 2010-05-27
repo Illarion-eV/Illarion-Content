@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.07_quality_potion", package.seeall(), package.seeall(s))
+module("druids.spells.07_quality_potion", package.seeall, package.seeall(s))
 
 -- INSERT INTO spells VALUES (2^6,3,'druids.spells.07_quality_potion');
 
@@ -30,7 +30,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 
 	  	Caster:learn(6,"exquirere",3,100)
 	    
-	    textDE="Dieser Trank hat eine "..qListDe[qualstat].." Qualität"
+	    textDE="Dieser Trank hat eine "..qListDe[qualstat].." Qualitï¿½t"
 	    textEN="This potion has a "..qListEn[qualstat].." quality"     
 	    if Caster:getPlayerLanguage() == 0 then
 	    	Caster:inform("#b|0|0|"..textDE)

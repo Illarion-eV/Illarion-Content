@@ -2,24 +2,24 @@
 
 -- PFLANZENLISTE:
 
--- 133 Sonnenkraut                15 / 9001 / 81 "Einblättrige Vierbeere" / "oneleaved fourberry"
--- 134 Vierblättrige Einbeere     16 / 9002 / 72 "Blaue Vogelbeere" / "blue birdsberry"
+-- 133 Sonnenkraut                15 / 9001 / 81 "Einblï¿½ttrige Vierbeere" / "oneleaved fourberry"
+-- 134 Vierblï¿½ttrige Einbeere     16 / 9002 / 72 "Blaue Vogelbeere" / "blue birdsberry"
 -- 135 Gelbkraut                  17 / 9003 / 63 "Schwefelkraut" / "sulfur weed"
 -- 136 Wutbeere                   18 / 9004 / 48 "Frommbeere" / "pious berry"
--- 137 Flamkelchblüte             25 / 9005 / 53 "Wasserblüte" / "water blossom"
--- 138 Nachtengelsblüte           26 / 9006 / 64 "Tagteufel" / "daydevil"
+-- 137 Flamkelchblï¿½te             25 / 9005 / 53 "Wasserblï¿½te" / "water blossom"
+-- 138 Nachtengelsblï¿½te           26 / 9006 / 64 "Tagteufel" / "daydevil"
 -- 140 Donfblatt                  27 / 9007 / 71 "Rauchblatt" / "reek leave"
 -- 141 Schwarze Distel            28 / 9008 / 73 "Graue Distel" / "grey thistle"
--- 142 Sandbeere                  35 / 9009 / 82 "Wüstenbeere" / "desert berry"
+-- 142 Sandbeere                  35 / 9009 / 82 "Wï¿½stenbeere" / "desert berry"
 -- 144 Jungfernkraut              37 / 9010 / 74 "Altweiberkraut" / "gossamer weed"
--- 145 Heideblüte                 38 / 9011 / 83 "Regenkraut" / "rain weed"
--- 146 Wüstenhimmelskapsel        45 / 9012 / 84 "Gottesblume" / "godsflower"
--- 148 Firnisblüte                47 / 9014 / 46 "Trugblüte" / "con blossom"
+-- 145 Heideblï¿½te                 38 / 9011 / 83 "Regenkraut" / "rain weed"
+-- 146 Wï¿½stenhimmelskapsel        45 / 9012 / 84 "Gottesblume" / "godsflower"
+-- 148 Firnisblï¿½te                47 / 9014 / 46 "Trugblï¿½te" / "con blossom"
 -- 152 Lebenswurz                 51 / 9013 / 62 "Feuerwurz" / "Fire root"
 -- 153 Fussblatt                  52 / 9016 / 36 "Wiesen-Rhabarber" / "meadow rhabarb"
 -- 156 Steppenfarn                61 / 9015 / 54 "Wolfsfarn" / "wolverine fern"
 
-module("druids.base.alchemy", package.seeall())
+module("druids.base.alchemy", package.seeall)
 
 dataZList = { }
 plantList =     { 9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}
@@ -30,8 +30,8 @@ for i,plant in pairs(plantList) do
 	plantDataListById[plant] = plantDataList[i];
 end
 
---Qualitätsbezeichnungen
-qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
+--Qualitï¿½tsbezeichnungen
+qListDe={"fï¿½rchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","groï¿½artige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
 bottleList = { 164,331 }
@@ -62,8 +62,8 @@ wirkstoff[6] = "Fenolin";
 wirkstoff[7] = "Caprazin";
 wirkstoff[8] = "Dracolin";
 
-wirkung_de[1] = "gesättigte Anreicherung von";
-wirkung_de[2] = "eine sehr ausgeprägte Menge";
+wirkung_de[1] = "gesï¿½ttigte Anreicherung von";
+wirkung_de[2] = "eine sehr ausgeprï¿½gte Menge";
 wirkung_de[3] = "merklich";
 wirkung_de[4] = "schwache Konzentration an";
 wirkung_de[5] = "kein";
@@ -355,7 +355,7 @@ end
 function ImpactRow2(User,dataZList)
   for i=1,8 do
      -- block
-     -- Wirkungen der Reihe 2 können erst eingebaut werden, wenn wir Zeiteffekte haben.
+     -- Wirkungen der Reihe 2 kï¿½nnen erst eingebaut werden, wenn wir Zeiteffekte haben.
   end
 end
 -- -------------------------------------------------------------------------------
@@ -421,9 +421,9 @@ function generateTasteMessage(lang,dataZList)
 end
 
 function ds_skillgain(User)
-  --Alchemieskill erhöhen
+  --Alchemieskill erhï¿½hen
   User:learn(6,"alchemy",3,100)
-  --Auf Runengewinn prüfen
+  --Auf Runengewinn prï¿½fen
   --Nur Druiden bekommen Runen
   if ( (User:getMagicType() == 3) ) then
       factor_1 = 4
@@ -442,7 +442,7 @@ function ds_skillgain(User)
     -- Runen des Lehrlings: Runen 01 - 07 (alchemySkill  0 - 23)
     -- Runen des Gesellen:  Runen 08 - 14 (alchemySkill 24 - 50)
     -- Runen des Meister:   Runen 15 - 21 (alchemySkill 51 - 89)
-    -- R. des Großmeisters: Runen 22 - 28 (alchemySkill 90 - 99) nur durch Questvergabe
+    -- R. des Groï¿½meisters: Runen 22 - 28 (alchemySkill 90 - 99) nur durch Questvergabe
     -- GM-Runen             Runen 29 - 32
 
     umlauf = math.floor(User:getSkill("alchemy")/factor_1) +factor_2

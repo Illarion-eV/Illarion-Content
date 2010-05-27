@@ -1,7 +1,7 @@
 require("base.common")
 require("content.chardescription")
 
-module("items.2874_mirror", package.seeall(), package.seeall(content.chardescription))
+module("items.2874_mirror", package.seeall, package.seeall(content.chardescription))
 
 -- UPDATE common SET com_script='items.2874_mirror' WHERE com_itemid = 2874;
 
@@ -18,7 +18,7 @@ function LookAtItem( User, Item )
     lang=User:getPlayerLanguage();
     if ( equapos(Item.pos, mpos) and (User:get_face_to() == 2) and equapos(User.pos, position(-29,193,-8)) ) then
         if lang==0 then
-            world:itemInform(User, Item, "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel");
+            world:itemInform(User, Item, "Hinter deinem Rï¿½cken erkennst du deutlich eine Leiter im Spiegel");
         else
             world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror");
         end

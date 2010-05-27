@@ -1,7 +1,7 @@
 require("base.books")
 require("druids.content.ruby")
 
-module("items.books.107_brown_book", package.seeall())
+module("items.books.107_brown_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.107_brown_book' WHERE com_itemid = 107;
 

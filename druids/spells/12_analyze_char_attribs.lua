@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.12_analyze_char_attribs", package.seeall())
+module("druids.spells.12_analyze_char_attribs", package.seeall)
 
 -- INSERT INTO spells VALUES (2^11,3,'druids.spells.12_analyze_char_attribs');
 
@@ -16,7 +16,7 @@ function initTerms()
     Term_2DE = {} 
     Term_2EN = {} 
     Term_3 = {}               
-    Term_1DE = {"Ketzer ","Sünder ","Laie ","Novize ","Bruder ","Priester ","Abt ","Bischof ","Prior ","Heiliger "}
+    Term_1DE = {"Ketzer ","Sï¿½nder ","Laie ","Novize ","Bruder ","Priester ","Abt ","Bischof ","Prior ","Heiliger "}
     Term_1EN = {"heretic ","sinner ","layman ","novice ","brother ","priest ","abbot ","bishop ","prior ","saint "}
     Term_2DE = {"der Kraft","des Willens","der Sinne","des Wissens","des Fleisches","des Windes","des Diebes","des Geistes"}  
     Term_2EN = {"of power","of will","of senses","of wit","of endurance","of the wind","of thieves","of soul"}           
@@ -32,7 +32,7 @@ end
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 --Caster:inform("debug #12.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
-	  --Abfrage der Primärattribute
+	  --Abfrage der Primï¿½rattribute
 	  initTerms()
 	  textDE = ""
 	  textEN = ""
@@ -52,7 +52,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
   	
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end    

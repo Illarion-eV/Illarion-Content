@@ -1,7 +1,7 @@
 require("base.books")
 require("druids.content.amethyst")
 
-module("items.books.108_red_book", package.seeall())
+module("items.books.108_red_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.108_red_book' WHERE com_itemid = 108;
 

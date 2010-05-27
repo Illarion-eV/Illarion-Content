@@ -3,7 +3,7 @@ require("content.books.cakebible")
 require("content.books.dwarfpoems")
 require("content.books.culturegoblins")
 
-module("items.books.2598_blue_book", package.seeall())
+module("items.books.2598_blue_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.2598_blue_book' WHERE com_itemid = 2598;
 

@@ -1,10 +1,10 @@
--- LTE für das Druidensystem
+-- LTE fï¿½r das Druidensystem
 -- by Falk
--- Zeitverlauf und temporäres Sprachverständnis
+-- Zeitverlauf und temporï¿½res Sprachverstï¿½ndnis
 
 require("base.common")
 
-module("druids.lte.330_language", package.seeall())
+module("druids.lte.330_language", package.seeall)
 
 -- INSERT INTO longtimeeffects VALUES (330, 'druids_language', 'druids.lte.330_language');
 
@@ -21,9 +21,9 @@ function addEffect(Effect, Character)
 end
 
 function callEffect(Effect,Character)                  			
---Effect wird ausgeführt
+--Effect wird ausgefï¿½hrt
 --Character:inform("debug func callEffect")
---Erst einmal kommt der Rundenzähler  
+--Erst einmal kommt der Rundenzï¿½hler  
 
   find,zaehler = Effect:findValue("zaehler")
   if find then
@@ -32,7 +32,7 @@ function callEffect(Effect,Character)
      Effect:addValue("zaehler", zaehler)
 
      Effect.nextCalled = 10 
-     --nächster Aufruf in 1 Sekunde 
+     --nï¿½chster Aufruf in 1 Sekunde 
      --Hier jetzt die Aktionen, die pro Runde passieren sollen
 
      getAction(Character,Effect,zaehler)

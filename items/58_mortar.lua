@@ -5,7 +5,7 @@
 require("items.general.jewel")
 require("items.base.crafts")
 
-require("items.58_mortar", package.seeall(), package.seeall(items.general.jewel))
+require("items.58_mortar", package.seeall, package.seeall(items.general.jewel))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
@@ -21,19 +21,19 @@ function InitCraftingTool( )
         mortar:AddTool( 12 ); -- Lagerfeuer
         
         mortar:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         mortar:AddInterruptMessage(
-        "Dir fällt der Mörser aus der Hand. Zum Glück ist er ganz geblieben.",
+        "Dir fï¿½llt der Mï¿½rser aus der Hand. Zum Glï¿½ck ist er ganz geblieben.",
         "You drop your mortar. Luckily it didn't break.");
         
         mortar:AddInterruptMessage(
-        "Du überlegst ob du die Farbe noch intensiver machen solltest, aber entscheidest dich dagegen.",
+        "Du ï¿½berlegst ob du die Farbe noch intensiver machen solltest, aber entscheidest dich dagegen.",
         "You evaluate whether you should deepen the colour, deciding against doing so.");
         
         mortar:AddInterruptMessage(
-        "Ein großer dicker Käfer ist irgendwie in die Zutaten gelangt. Du benötigst eine Weile ihn zu fangen und mit ihm das zu machen was er verdient hat.",
+        "Ein groï¿½er dicker Kï¿½fer ist irgendwie in die Zutaten gelangt. Du benï¿½tigst eine Weile ihn zu fangen und mit ihm das zu machen was er verdient hat.",
         "A big, fat bug has found its way into your ingredients. It takes a while to catch it and seal its fate.");
         
         --Red Dye
@@ -100,14 +100,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     if ( SourceItem:getType() ~= 4 ) then -- Glasblasrohr in der Hand
         base.common.InformNLS( User, 
-        "Du mußt den Mörser in die Hand nehmen um damit zu arbeiten.", 
+        "Du muï¿½t den Mï¿½rser in die Hand nehmen um damit zu arbeiten.", 
         "You have to take the mortar in your hand, to work with it." )
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Farben herstellen.",
+        "Deine Rï¿½stung behindert beim Farben herstellen.",
         "Your armor disturbes you while creating dyes." );
         Tailoring:SwapToInactiveItem( User );
         return

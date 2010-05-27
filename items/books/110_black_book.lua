@@ -3,7 +3,7 @@
 require("base.books")
 require("content.books.guidingtruths")
 
-module("items.books.110_black_book", package.seeall())
+module("items.books.110_black_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.110_black_book' WHERE com_itemid = 110;
 

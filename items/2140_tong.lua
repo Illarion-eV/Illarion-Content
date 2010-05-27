@@ -5,7 +5,7 @@
 require("items.general.metal")
 require("items.base.crafts")
 
-module("items.2140_tong", package.seeall(), package.seeall(items.general.metal))
+module("items.2140_tong", package.seeall, package.seeall(items.general.metal))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
@@ -21,11 +21,11 @@ function InitCraftingTool( )
         gemcutting:AddTool( 270 );  -- Schleifstein
 
         gemcutting:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         gemcutting:AddInterruptMessage(
-        "Der Edelstein rutscht dir aus der Hand und fällt zu Boden. Du musst kurz suchen, ehe du den Stein wieder findest.",
+        "Der Edelstein rutscht dir aus der Hand und fï¿½llt zu Boden. Du musst kurz suchen, ehe du den Stein wieder findest.",
         "The gem slips out of your hand and falls down to the ground. You have to search for a moment to find it again.");
 		
         ---------------- AMETHYST - 197 ----------------
@@ -149,9 +149,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Edelstein schleifen.",
+        "Deine Rï¿½stung behindert beim Edelstein schleifen.",
         "Your armor disturbes you while cutting gems." );
         GemCutting:SwapToInactiveItem( User );
         return

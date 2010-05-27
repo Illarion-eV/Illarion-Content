@@ -4,7 +4,7 @@
 
 require("base.keys")
 
-module("triggerfields.loo_seat", package.seeall())
+module("triggerfields.loo_seat", package.seeall)
 
 function CharacterOnField(Character)
     if( string.find( Character.lastSpokenText, "[Hh][Oo][Kk][Uu][Ss][Ll][Oo][Kk][Uu][Ss]" ) ~= nil ) then

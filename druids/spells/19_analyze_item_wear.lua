@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.19_analyze_item_wear", package.seeall())
+module("druids.spells.19_analyze_item_wear", package.seeall)
 
 -- INSERT INTO spells VALUES (2^18,3,'druids.spells.19_analyze_item_wear');
 
@@ -26,7 +26,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand verrottet in "..TargetItem.wear.." druidischen Zerfallseinheiten", 
---"This item rots within "..TargetItem.wear.." druid rotting-units"); -- das kann man schöner formulieren
+--"This item rots within "..TargetItem.wear.." druid rotting-units"); -- das kann man schï¿½ner formulieren
   textDE="Dieser Gegenstand verrottet in "..TargetItem.wear.." druidischen Zerfallseinheiten"
   textEN="This item rots within "..TargetItem.wear.." druid rotting-units"
 	if Caster:getPlayerLanguage() == 0 then

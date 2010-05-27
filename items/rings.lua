@@ -3,7 +3,7 @@
 require("items.general.jewel")
 require("content.jewelbonus")
 
-require("items.rings", package.seeall(), package.seeall(items.general.jewel))
+require("items.rings", package.seeall, package.seeall(items.general.jewel))
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --User:inform("in move");

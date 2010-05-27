@@ -1,9 +1,9 @@
-module("triggerfields.eldan_close", package.seeall())
+module("triggerfields.eldan_close", package.seeall)
 
 -- Eldan Shrine close secret door
 function MoveToField( Ch )
     if( Ch:get_face_to() == 2 ) then
-        -- Ch:inform( "Tür zu es zieht..." );
+        -- Ch:inform( "Tï¿½r zu es zieht..." );
         pos = { position( -169, -94, 46 ), position( -169, -93, 46 ) };
         for i = 1,2 do
             while( world:isItemOnField( pos[i] ) ) do

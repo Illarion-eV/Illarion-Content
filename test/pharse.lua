@@ -8,7 +8,7 @@ require("base.common")
 dofile ("base_patrol.lua");
 require("base.doors")
 
-module("test.pharse", package.seeall())
+module("test.pharse", package.seeall)
 
 wDoor = nil;
 wBridge = nil;

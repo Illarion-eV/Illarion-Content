@@ -3,7 +3,7 @@ require("content.books.about_humans")
 require("content.books.cultureorcs")
 require("content.books.founding_silverbrand")
 
-module("items.books.2604_black_book", package.seeall())
+module("items.books.2604_black_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.2604_black_book' WHERE com_itemid = 2604;
 

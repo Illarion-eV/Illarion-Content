@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.16_analyze_item_durability", package.seeall())
+module("druids.spells.16_analyze_item_durability", package.seeall)
 
 -- INSERT INTO spells VALUES (2^15,3,'druids.spells.16_analyze_item_durability');
 
@@ -12,7 +12,7 @@ function unitDecleration()
   if firsttime == nil then
     ListDE = {}
     ListEN = {}    
-    ListDE ={"marode", "schlechte", "mäßige", "unauffällige", "brauchbare", "gute", "sehr gute", "hervorragende", "überragende"}
+    ListDE ={"marode", "schlechte", "mï¿½ï¿½ige", "unauffï¿½llige", "brauchbare", "gute", "sehr gute", "hervorragende", "ï¿½berragende"}
     ListEN ={"ramshackle","bad","undistinguished","modest","usable","good", "very good","excellent","superior" }
     firsttime = 1
   end
@@ -39,7 +39,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
   --Caster:inform("ergebnis: "..ergebnis) 
 
   base.common.InformNLS( Caster,
-                "#b|0|0|die Prüfung ergibt eine "..ListDE[ergebnis].." Haltbarkeit",
+                "#b|0|0|die Prï¿½fung ergibt eine "..ListDE[ergebnis].." Haltbarkeit",
                 "#b|0|0|this inspection results a "..ListEN[ergebnis].." durability" )
 
 end

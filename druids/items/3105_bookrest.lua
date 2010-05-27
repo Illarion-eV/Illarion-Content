@@ -1,10 +1,10 @@
 -- ds_3105_pult.lua
--- Pergament für das Druidensystem
+-- Pergament fï¿½r das Druidensystem
 -- Falk
 require("base.books")
 require("base.common")
 
-module("druids.items.3105_bookrest", package.seeall())
+module("druids.items.3105_bookrest", package.seeall)
 
 -- UPDATE common SET com_script='druids.items.3105_bookrest' WHERE com_itemid = 3105;
  
@@ -13,62 +13,62 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
          base.books.AddLanguage("common language",0);
          
         base.books.AddGermanBookText("Das ist das Buch des Druidentums.",0,0,0);
-        base.books.AddGermanBookText("Glassblöcke werden für die Herstellung von Spiegeln benötigt.",0,0,0);
-        base.books.AddGermanBookText("Das Buch über Glassherstellung schreibt: 'Man braucht Quartzsand, Pottasche, ein Glassblasrohr, eine Holzkelle und einen Glassschmelzofen, um Glass herzustellen.",0,0,0);
-        base.books.AddGermanBookText("Druiden sind Heiler, Beschützer der Natur und Freunde allen Lebens.",0,0,0);
-        base.books.AddGermanBookText("Gefahr! Bier - vor allem das von Zwergen gebraut wurde - verträgt nicht jeder.",0,0,0);
-        base.books.AddGermanBookText("Einige glauben, dass der legendäre Seher und Heiler Nifrindarai der Begründer des Druidentums war.",0,0,0);
-        base.books.AddGermanBookText("Einige Lehren berichten von geheimer Zauberkunst, die Druiden Macht über die Natur gibt.",0,0,0);
+        base.books.AddGermanBookText("Glassblï¿½cke werden fï¿½r die Herstellung von Spiegeln benï¿½tigt.",0,0,0);
+        base.books.AddGermanBookText("Das Buch ï¿½ber Glassherstellung schreibt: 'Man braucht Quartzsand, Pottasche, ein Glassblasrohr, eine Holzkelle und einen Glassschmelzofen, um Glass herzustellen.",0,0,0);
+        base.books.AddGermanBookText("Druiden sind Heiler, Beschï¿½tzer der Natur und Freunde allen Lebens.",0,0,0);
+        base.books.AddGermanBookText("Gefahr! Bier - vor allem das von Zwergen gebraut wurde - vertrï¿½gt nicht jeder.",0,0,0);
+        base.books.AddGermanBookText("Einige glauben, dass der legendï¿½re Seher und Heiler Nifrindarai der Begrï¿½nder des Druidentums war.",0,0,0);
+        base.books.AddGermanBookText("Einige Lehren berichten von geheimer Zauberkunst, die Druiden Macht ï¿½ber die Natur gibt.",0,0,0);
         base.books.AddGermanBookText("Einige Pilze wachsen am besten im Kompost.",0,0,0);
-        base.books.AddGermanBookText("Jede lebende und unbelebte Kreatur existiert nur durch die Vermischung der fünf Ursprünge.",0,0,0);
+        base.books.AddGermanBookText("Jede lebende und unbelebte Kreatur existiert nur durch die Vermischung der fï¿½nf Ursprï¿½nge.",0,0,0);
         base.books.AddGermanBookText("Druiden machen nur Profit im friedlichen und harmonischen Miteinander mit ihren Nachbarn.",0,0,0);
-        base.books.AddGermanBookText("Ein Druide ist immer freundlich, was sich in seiner liebenswürdigen Art ausdrückt.",0,0,0);
-        base.books.AddGermanBookText("Einen Druiden zu bedrohen, kann große Gefahr auslösen. Gewöhnlich friedfertig, wissen Druiden nicht nur zu heilen, sondern kennen auch die Kunst der Zerstörung.",0,0,0);
-        base.books.AddGermanBookText("Sich in einem immerwährenden Fluss befindend, versammelt, verschmilzt und zerfliesst die Welt ständig.",0,0,0);
-        base.books.AddGermanBookText("In der Anfangszeit des Druidenzirkels der Wälder musste er die Ignoranten zügeln, die sich weigerten an ein friedfertiges Leben zu glauben.",0,0,0);
+        base.books.AddGermanBookText("Ein Druide ist immer freundlich, was sich in seiner liebenswï¿½rdigen Art ausdrï¿½ckt.",0,0,0);
+        base.books.AddGermanBookText("Einen Druiden zu bedrohen, kann groï¿½e Gefahr auslï¿½sen. Gewï¿½hnlich friedfertig, wissen Druiden nicht nur zu heilen, sondern kennen auch die Kunst der Zerstï¿½rung.",0,0,0);
+        base.books.AddGermanBookText("Sich in einem immerwï¿½hrenden Fluss befindend, versammelt, verschmilzt und zerfliesst die Welt stï¿½ndig.",0,0,0);
+        base.books.AddGermanBookText("In der Anfangszeit des Druidenzirkels der Wï¿½lder musste er die Ignoranten zï¿½geln, die sich weigerten an ein friedfertiges Leben zu glauben.",0,0,0);
         base.books.AddGermanBookText("Druiden sind oft auch Alchemisten!",0,0,0);
-        base.books.AddGermanBookText("Um Tinte zu machen, braucht man eine mineralische Komponente, eine verdünnende und eine botanische Komponente.",0,0,0);
-        base.books.AddGermanBookText("Tinte ist eine Mischung die in einem Mörser hergestellt wird.",0,0,0);
-        base.books.AddGermanBookText("Um Tinte zu bekommen, müssen alle Komponeten in einem großen Zuber vermischt werden.",0,0,0);
-        base.books.AddGermanBookText("Tinte wird in Flaschen abgefüllt.",0,0,0);
+        base.books.AddGermanBookText("Um Tinte zu machen, braucht man eine mineralische Komponente, eine verdï¿½nnende und eine botanische Komponente.",0,0,0);
+        base.books.AddGermanBookText("Tinte ist eine Mischung die in einem Mï¿½rser hergestellt wird.",0,0,0);
+        base.books.AddGermanBookText("Um Tinte zu bekommen, mï¿½ssen alle Komponeten in einem groï¿½en Zuber vermischt werden.",0,0,0);
+        base.books.AddGermanBookText("Tinte wird in Flaschen abgefï¿½llt.",0,0,0);
         
-        base.books.AddGermanBookText("Lernt etwas über die Pflanzen, die Ihr für Tränke braucht.",0,0,0); 
+        base.books.AddGermanBookText("Lernt etwas ï¿½ber die Pflanzen, die Ihr fï¿½r Trï¿½nke braucht.",0,0,0); 
         base.books.AddGermanBookText("Kein Analphabet folgte jemals dem Pfad des Druidentums.",0,0,0); 
         base.books.AddGermanBookText("Lesen und Schreiben ist das Geheimnis des Lernens.",0,0,0); 
         base.books.AddGermanBookText("Tragt all das Wissen zusammen und Ihr werdet Erfolg haben.",0,0,0); 
-        base.books.AddGermanBookText("Die Tage der einfältigen Druiden sind gezählt.",0,0,0); 
+        base.books.AddGermanBookText("Die Tage der einfï¿½ltigen Druiden sind gezï¿½hlt.",0,0,0); 
         base.books.AddGermanBookText("Nicht jede Pflanze ist magisch.",0,0,0); 
-        base.books.AddGermanBookText("Tränke brauen ist nicht das einzige, das ein Druide lernen kann.",0,0,0); 
-        base.books.AddGermanBookText("Man findet die Wüstenhimmelkapsel im Wüstensand. Sie wird genutzt, um das Element des Windes freizusetzen.",0,0,0); 
+        base.books.AddGermanBookText("Trï¿½nke brauen ist nicht das einzige, das ein Druide lernen kann.",0,0,0); 
+        base.books.AddGermanBookText("Man findet die Wï¿½stenhimmelkapsel im Wï¿½stensand. Sie wird genutzt, um das Element des Windes freizusetzen.",0,0,0); 
         base.books.AddGermanBookText("Das Donfblatt ist eine Pflanze, die im Wald zu finden ist. Es wird genutzt, um etwas an etwas anderes zu leimen.",0,0,0); 
-        base.books.AddGermanBookText("Die Sandbeere verstärkt den Effekt eines Trankes. Man soll sie in der Wüste finden.",0,0,0); 
-        base.books.AddGermanBookText("Das Rotköpfchen ist ein wohlschmeckender Pilz, der im Wald vorzufinden ist.",0,0,0); 
-        base.books.AddGermanBookText("Den Fliegenpilz kann man in der Nähe von Tannenbäumen finden.",0,0,0); 
-        base.books.AddGermanBookText("Firnisblüten kommen sehr häufig auf Wiesen in der Nähe eines Bächleins vor.",0,0,0); 
-        base.books.AddGermanBookText("Manche nehmen sie nur für Kuchen: Die Erdbeere verbirgt einige ihrer Geheimnisse.",0,0,0); 
+        base.books.AddGermanBookText("Die Sandbeere verstï¿½rkt den Effekt eines Trankes. Man soll sie in der Wï¿½ste finden.",0,0,0); 
+        base.books.AddGermanBookText("Das Rotkï¿½pfchen ist ein wohlschmeckender Pilz, der im Wald vorzufinden ist.",0,0,0); 
+        base.books.AddGermanBookText("Den Fliegenpilz kann man in der Nï¿½he von Tannenbï¿½umen finden.",0,0,0); 
+        base.books.AddGermanBookText("Firnisblï¿½ten kommen sehr hï¿½ufig auf Wiesen in der Nï¿½he eines Bï¿½chleins vor.",0,0,0); 
+        base.books.AddGermanBookText("Manche nehmen sie nur fï¿½r Kuchen: Die Erdbeere verbirgt einige ihrer Geheimnisse.",0,0,0); 
         base.books.AddGermanBookText("Knollenschwammpilze sind nicht so nutzlos, wie viele Leute glauben.",0,0,0); 
         base.books.AddGermanBookText("Es gibt mehr Geheimnise als dieses Buch preisgeben kann.",0,0,0); 
         base.books.AddGermanBookText("Nicht jede Blume verbirgt ein Geheimnis.",0,0,0); 
         base.books.AddGermanBookText("Esst keine Fliegenpilze, sie schaden Eurer Gesundheit.",0,0,0); 
-        base.books.AddGermanBookText("Wenn Ihr keine Tränke herstellen könnt, backt einen Erdbeerkuchen.",0,0,0);
+        base.books.AddGermanBookText("Wenn Ihr keine Trï¿½nke herstellen kï¿½nnt, backt einen Erdbeerkuchen.",0,0,0);
         
-        base.books.AddGermanBookText("\nEine Einführung in die Alchemie",0,0,0);
-        base.books.AddGermanBookText("Für den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, könnte man sagen.",0,0,0);
-        base.books.AddGermanBookText("Um sich in der Alchemie zu bewähren, benötigt man zunächst einmal ein fundiertes Wissen zu den einzelneen Kräutern und Substanzen, die für die Verarbeitung zu Tränken, Pulvern und Essenzen benötigt werden.",0,0,0);
-        base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,0);
-        base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,0);
+        base.books.AddGermanBookText("\nEine Einfï¿½hrung in die Alchemie",0,0,0);
+        base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, kï¿½nnte man sagen.",0,0,0);
+        base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Krï¿½utern und Substanzen, die fï¿½r die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,0);
+        base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen wï¿½rde.",0,0,0);
+        base.books.AddGermanBookText("Dann braucht man natï¿½rlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,0);
         base.books.AddGermanBookText("Und schlussendlich braucht man, wen wundert's, einen reichen Vorrat an Pflanzen.",0,0,0);
-        base.books.AddGermanBookText("Wer nicht selbst hinausgeht und sich die Hände schmutzig macht, der sollte beim Kauf auf Qualität achten. Aus schlechten Pflanzen wird selten ein guter Trank.",0,0,0);
-        base.books.AddGermanBookText("Hat man seine sieben Sachen beieinander, kanns endlich losgehen. Jetzt heißt es, Geduld bewahren.",0,0,0);
-        base.books.AddGermanBookText("Mit der leeren Flasche in der einen und einem benötigten Kräutlein in der anderen Hand, sollte einem bei Benutzung des Kupferkessels bald ein erster Erfolg beschieden sein.",0,0,0);
-        base.books.AddGermanBookText("Auch wenn man vielleicht anfangs nicht viel sieht, die erste Flasche mit Essenzen sollte auch noch eine Zeitlang mit Pflanzensäften gefüllt werden, bald schon wird sich das erwartete Ereignis einstellen.",0,0,0);
-        base.books.AddGermanBookText("Wer Geduld hat und fleißig sein Fläschlein füllt, den wird der Geist der Druiden bald umgeben, schau in dein Runenverzeichnis, jetzt bist du ein Mitglied im druidischen Zirkel.",0,0,0);
-        base.books.AddGermanBookText("Wer dort jedoch sieht, dass ihm die Götter bereits Runen des Magiers, des Barden oder gar des Priesters geschenkt haben, dem bleiben die Pforten der Druiden verschlossen, vielleicht auf ewig.",0,0,0);
+        base.books.AddGermanBookText("Wer nicht selbst hinausgeht und sich die Hï¿½nde schmutzig macht, der sollte beim Kauf auf Qualitï¿½t achten. Aus schlechten Pflanzen wird selten ein guter Trank.",0,0,0);
+        base.books.AddGermanBookText("Hat man seine sieben Sachen beieinander, kanns endlich losgehen. Jetzt heiï¿½t es, Geduld bewahren.",0,0,0);
+        base.books.AddGermanBookText("Mit der leeren Flasche in der einen und einem benï¿½tigten Krï¿½utlein in der anderen Hand, sollte einem bei Benutzung des Kupferkessels bald ein erster Erfolg beschieden sein.",0,0,0);
+        base.books.AddGermanBookText("Auch wenn man vielleicht anfangs nicht viel sieht, die erste Flasche mit Essenzen sollte auch noch eine Zeitlang mit Pflanzensï¿½ften gefï¿½llt werden, bald schon wird sich das erwartete Ereignis einstellen.",0,0,0);
+        base.books.AddGermanBookText("Wer Geduld hat und fleiï¿½ig sein Flï¿½schlein fï¿½llt, den wird der Geist der Druiden bald umgeben, schau in dein Runenverzeichnis, jetzt bist du ein Mitglied im druidischen Zirkel.",0,0,0);
+        base.books.AddGermanBookText("Wer dort jedoch sieht, dass ihm die Gï¿½tter bereits Runen des Magiers, des Barden oder gar des Priesters geschenkt haben, dem bleiben die Pforten der Druiden verschlossen, vielleicht auf ewig.",0,0,0);
         base.books.AddGermanBookText("\nDie erste Rune",0,0,0);
-        base.books.AddGermanBookText("Was kann man nun aber mit der ersten druidischen Rune anstellen? Nun, mit ihr lassen sich Pflanzen nach ihren Inhaltsstoffen bestimmen. Nichts Spektakuläres, wie etwa ein Unsichtbarkeitstrank, aber für die weitere Laufbahn als Druide sehr sehr nützlich.",0,0,0);
-        base.books.AddGermanBookText("Und so geht es nun weiter, nach einer Weile kann man die zweite Rune erlangen, mit ihr lässt sich immerhin schon eine Essenz bestimmen. Oder jedenfalls fast.",0,0,0);
-        base.books.AddGermanBookText("Spätestens mit der dritten Rune sollte man sich bei der Herstellung von Pflanzenextrakten einigermaßen sicher fühlen und in der Lage sein, einen Trank herzustellen, der genau die gewünschten Inhaltsstoffe aufweist.",0,0,0);
-        base.books.AddGermanBookText("Damit endet dann auch diese kleine Einführung in die Alchemie.",0,0,0);
+        base.books.AddGermanBookText("Was kann man nun aber mit der ersten druidischen Rune anstellen? Nun, mit ihr lassen sich Pflanzen nach ihren Inhaltsstoffen bestimmen. Nichts Spektakulï¿½res, wie etwa ein Unsichtbarkeitstrank, aber fï¿½r die weitere Laufbahn als Druide sehr sehr nï¿½tzlich.",0,0,0);
+        base.books.AddGermanBookText("Und so geht es nun weiter, nach einer Weile kann man die zweite Rune erlangen, mit ihr lï¿½sst sich immerhin schon eine Essenz bestimmen. Oder jedenfalls fast.",0,0,0);
+        base.books.AddGermanBookText("Spï¿½testens mit der dritten Rune sollte man sich bei der Herstellung von Pflanzenextrakten einigermaï¿½en sicher fï¿½hlen und in der Lage sein, einen Trank herzustellen, der genau die gewï¿½nschten Inhaltsstoffe aufweist.",0,0,0);
+        base.books.AddGermanBookText("Damit endet dann auch diese kleine Einfï¿½hrung in die Alchemie.",0,0,0);
          
         -----------
         
@@ -135,8 +135,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 		base.books.AddLanguage("ancient language",666);
 
 		base.books.AddGermanBookText("\n~Die erste Weisheit~",0,20,666);
-		base.books.AddGermanBookText("In deiner Händen, Suchender, hälst du die erste Weisheit.",0,20,666);
-		base.books.AddGermanBookText("Damit endet dann auch diese kleine Einführung in die Alchemie.",0,20,666);
+		base.books.AddGermanBookText("In deiner Hï¿½nden, Suchender, hï¿½lst du die erste Weisheit.",0,20,666);
+		base.books.AddGermanBookText("Damit endet dann auch diese kleine Einfï¿½hrung in die Alchemie.",0,20,666);
 
 		base.books.AddEnglishBookText("Therewith our little introduction of alchemy comes to its end.",0,20,666);		
      

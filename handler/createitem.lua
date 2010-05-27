@@ -1,6 +1,6 @@
 require("base.class")
 
-module("handler.createitem", package.seeall())
+module("handler.createitem", package.seeall)
 
 createItem = base.class.class(function(creitem, posi, ID, qual, dta, amnt)
     creitem.pos=posi;

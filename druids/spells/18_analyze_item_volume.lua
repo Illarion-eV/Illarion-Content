@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.18_analyze_item_volume", package.seeall())
+module("druids.spells.18_analyze_item_volume", package.seeall)
 
 -- INSERT INTO spells VALUES (2^17,3,'druids.spells.18_analyze_item_volume');
 
@@ -27,7 +27,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
   --
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand hat ein Volumen von "..myItem.Volume.." druidischen Volumeneinheiten", 
---"This item has a volume of "..myItem.Volume.." druid volume-units"); -- das kann man schöner formulieren
+--"This item has a volume of "..myItem.Volume.." druid volume-units"); -- das kann man schï¿½ner formulieren
   
   textDE="Dieser Gegenstand hat ein Volumen von "..myItem.Volume.." druidischen Volumeneinheiten"
   textEN="This item has a volume of "..myItem.Volume.." druid volume-units"

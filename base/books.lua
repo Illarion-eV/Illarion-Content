@@ -1,6 +1,6 @@
 require("base.common")
 
-module("base.books", package.seeall())
+module("base.books", package.seeall)
 
 function InitBook()
     if (gBookText==nil) then

@@ -3,7 +3,7 @@
 require("base.common")
 require("druids.base.alchemy")
 
-module("gm.items.100_trowel", package.seeall())
+module("gm.items.100_trowel", package.seeall)
 
 -- UPDATE common SET com_script='gm.items.100_trowel' WHERE com_itemid = 100;
 

@@ -2,7 +2,7 @@
 
 require("gm.base.log")
 
-module("gm.spells.30_heal", package.seeall())
+module("gm.spells.30_heal", package.seeall)
 
 --[[
 INSERT INTO spells VALUES (2^29,0,'gm.spells.30_heal');

@@ -1,4 +1,4 @@
-module("base.log", package.seeall())
+module("base.log", package.seeall)
 
 function logToFile(theString)
     retVal=false;

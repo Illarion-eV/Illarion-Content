@@ -10,7 +10,7 @@
 require("items.general.metal")
 require("items.base.crafts")
 
-module("items.737_chisel", package.seeall(), package.seeall(items.general.metal))
+module("items.737_chisel", package.seeall, package.seeall(items.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate )
@@ -31,9 +31,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
+    if base.common.Encumbrence(User) then -- Durch Steife Rï¿½stung behindert
         base.common.InformNLS( User,
-        "Deine Rüstung behindert Dich beim behauen der Steine",
+        "Deine Rï¿½stung behindert Dich beim behauen der Steine",
         "Your armor disturbes you while working the stones" );
         return
     end
@@ -52,11 +52,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if not base.common.FitForWork( User ) then -- Nicht erschöpft
+    if not base.common.FitForWork( User ) then -- Nicht erschï¿½pft
         return
     end
     
-    if (User:countItemAt("belt",735)==0) and (User:countItemAt("belt",733)==0) then -- Getreidebündel im Gürtel
+    if (User:countItemAt("belt",735)==0) and (User:countItemAt("belt",733)==0) then -- Getreidebï¿½ndel im Gï¿½rtel
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
             "Wenn du keine Steine hast, kannst du auch keine behauen.", 
@@ -78,12 +78,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
     if base.common.IsInterrupted( User ) then
         base.common.InformNLS(User,
-        "Du schlägst daneben und triffst mit dem Hammer deine Finger.",
+        "Du schlï¿½gst daneben und triffst mit dem Hammer deine Finger.",
         "You miss the chisel and hit your fingers.");
         return
     end
     
-    if base.common.ToolBreaks( User, SourceItem ) then -- Dreschflegen beschädigen
+    if base.common.ToolBreaks( User, SourceItem ) then -- Dreschflegen beschï¿½digen
         base.common.InformNLS(User,
         "Der Meisel zerbricht.",
         "The chisel breaks.");

@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.09_analyze_char_poison", package.seeall())
+module("druids.spells.09_analyze_char_poison", package.seeall)
 
 -- INSERT INTO spells VALUES (2^8,3,'druids.spells.09_analyze_char_poison');
 
@@ -15,7 +15,7 @@ end
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 --Caster:inform("debug #09.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
-		--TargetChar auf "PoisonValue" abprüfen
+		--TargetChar auf "PoisonValue" abprï¿½fen
 	  if TargetCharacter:getPoisonValue() ~= 0 then
 	  	
 	--  Caster:inform("#b|0|0|Der Patient hat eine Vergiftung, wovon auch immer")  
@@ -42,7 +42,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
     Caster:learn(6,"sanitas",3,100)
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );	
 	end	    

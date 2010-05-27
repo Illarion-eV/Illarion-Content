@@ -1,6 +1,6 @@
 require("base.common")
 
-module("scheduled.gaia", package.seeall())
+module("scheduled.gaia", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
@@ -19,19 +19,19 @@ function Init()
     seas = {};
     dataval= {};
     AddPlant(133,{1,1,1,1,4},1,{8,10,2,0},0);  -- Sonnenkraut
-    AddPlant(134,{4},1,{6,1,5,10},0);          -- Vierblättrige Einbeere
+    AddPlant(134,{4},1,{6,1,5,10},0);          -- Vierblï¿½ttrige Einbeere
     AddPlant(135,{1},1,{10,6,3,0},0);          -- Gelbkraut
     AddPlant(136,{5},1,{4,3,10,7},0);          -- Wutbeere
-    AddPlant(137,{3},1,{3,1,4,10},0);          -- Flammkelchblüte
-    AddPlant(138,{2,7},1,{2,2,9,5},0);         -- Nachtengelsblüte
+    AddPlant(137,{3},1,{3,1,4,10},0);          -- Flammkelchblï¿½te
+    AddPlant(138,{2,7},1,{2,2,9,5},0);         -- Nachtengelsblï¿½te
     AddPlant(140,{2},1,{10,2,7,3},0);          -- Donfblatt
     AddPlant(141,{4},1,{3,10,5,0},0);          -- Schwarze Distel
     AddPlant(142,{3},1,{2,3,10,6},0);          -- Sandbeere
     AddPlant(143,{4},1,{0,5,10,5},0);          -- Roter Holunder
     AddPlant(144,{5},1,{5,0,2,10},0);          -- Jungfernkraut
-    AddPlant(145,{4},1,{10,6,3,0},0);          -- Heideblüte
-    AddPlant(146,{3},1,{6,5,10,5},0);          -- Wüstenhimmelkapsel
-    AddPlant(148,{5},1,{2,10,3,0},0);          -- Firnisblüte
+    AddPlant(145,{4},1,{10,6,3,0},0);          -- Heideblï¿½te
+    AddPlant(146,{3},1,{6,5,10,5},0);          -- Wï¿½stenhimmelkapsel
+    AddPlant(148,{5},1,{2,10,3,0},0);          -- Firnisblï¿½te
     AddPlant(152,{2,3,5,6},1,{4,4,4,4},0);     -- Lebenswurz
     AddPlant(153,{5},1,{10,4,1,0},0);          -- Fussblatt
     AddPlant(155,{7},1,{4,10,5,1},0);          -- Sibanac Blatt
@@ -39,20 +39,20 @@ function Init()
 	AddPlant(2696,{2,4,5},1,{6,4,8,1},80);	   -- Federn
 	
 	-- Pflanzen des DS-Systems mit SonderID in data
-    AddPlant(133,{4},1,{8,10,6,0},9001); -- "Einblättrige Vierbeere" / "oneleaved fourberry" 
+    AddPlant(133,{4},1,{8,10,6,0},9001); -- "Einblï¿½ttrige Vierbeere" / "oneleaved fourberry" 
 	AddPlant(134,{4},1,{6,0,6,10},9002); -- "Blaue Vogelbeere" / "blue birdsberry"
     AddPlant(135,{5},1,{10,6,0,8},9003); -- "Schwefelkraut" / "sulfur weed"
     AddPlant(136,{5},1,{0,6,10,7},9004); -- "Frommbeere" / "pious berry"
-    AddPlant(137,{4},1,{6,0,6,10},9005); -- "Wasserblüte" / "water blossom"
+    AddPlant(137,{4},1,{6,0,6,10},9005); -- "Wasserblï¿½te" / "water blossom"
     AddPlant(138,{2},1,{0,6,10,6},9006); -- "Tagteufel" / "daydevil"
     AddPlant(140,{2},1,{10,6,0,6},9007); -- "Rauchblatt" / "reek leave"
     AddPlant(141,{5},1,{6,10,6,0},9008); -- "Graue Distel" / "grey thistle"
-    AddPlant(142,{3},1,{0,6,10,6},9009); -- "Wüstenbeere" / "desert berry"
+    AddPlant(142,{3},1,{0,6,10,6},9009); -- "Wï¿½stenbeere" / "desert berry"
     AddPlant(152,{4},1,{4,4, 4,4},9013); -- "Feuerwurz" / "fire root"
     AddPlant(144,{2},1,{6,0,6,10},9010); -- "Altweiberkraut" / "gossamer weed"
     AddPlant(145,{4},1,{10,6,0,6},9011); -- "Regenkraut" / "rain weed"
     AddPlant(146,{3},1,{6,10,6,0},9012); -- "Gottesblume" / "godsflower"
-    AddPlant(148,{2},1,{6,10,6,0},9014); -- "Trugblüte" / "con blossom" 
+    AddPlant(148,{2},1,{6,10,6,0},9014); -- "Trugblï¿½te" / "con blossom" 
     AddPlant(156,{2},1,{0,6,10,6},9015); -- "Wolfsfarn" / "wolverine fern"
     AddPlant(153,{4},1,{6,10,6,0},9016); -- "Wiesen-Rhabarber" / "meadow rhabarb"
        	
@@ -70,7 +70,7 @@ function plantdrop()
     local season=math.ceil( world:getTime("month") / 4 );
     season = base.common.Limit( season, 1, 4 );
     local spawn_amm = 15;
-    if (season == 1) then --Frühling
+    if (season == 1) then --Frï¿½hling
         spawn_amm = 40;
     elseif (season == 2) then --Sommer
         spawn_amm = 40;
@@ -100,11 +100,11 @@ function plantdrop()
             if ((bodenart == check) or (check == 0)) then
 
               -- --------------------------------------------------------------------------------------------------------
-              -- 1. Qualifizierung : werte nach zufall anpassen, wertstellung auf alchemie-bedürfnisse anpassen
+              -- 1. Qualifizierung : werte nach zufall anpassen, wertstellung auf alchemie-bedï¿½rfnisse anpassen
               qualitaet = math.random(111,999)
               -- 2. Qualifizierung : wertstellung an Jahreszeiten und Boden anpassen
   
-              -- 3. Qualifizierung: wertstellung unter Berücksichtigung von Umgebungskomponenten,. Wetter, Region etc.
+              -- 3. Qualifizierung: wertstellung unter Berï¿½cksichtigung von Umgebungskomponenten,. Wetter, Region etc.
   
               -- --------------------------------------------------------------------------------------------------------
                 world:createItemFromId(plnt[auswahl],1,newpos,false,qualitaet,pflwert);

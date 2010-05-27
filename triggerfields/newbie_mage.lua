@@ -2,7 +2,7 @@
 --   *  Teleporter for newbies who want to become mages  *
 --   *****************************************************
 
-module("triggerfields.newbie_mage", package.seeall())
+module("triggerfields.newbie_mage", package.seeall)
 
 function MoveToField(Newbie)
     Newbie:createItem(3076,250,333,0); --copper

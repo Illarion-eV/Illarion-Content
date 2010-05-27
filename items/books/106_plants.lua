@@ -1,6 +1,6 @@
 require("base.books")
 
-module("items.books.106_plants", package.seeall())
+module("items.books.106_plants", package.seeall)
 
 -- UPDATE common SET com_script='items.books.106_plants' WHERE com_itemid = 106;
 
@@ -12,36 +12,36 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
        base.books.AddLanguage("common language",0);  
            
        base.books.AddGermanBookText("Dies ist das Buch der Pflanzen.",0,0,0);
-       base.books.AddGermanBookText("Die Wüstenhimmelskapsel wird in Wüsten gefunden. Sie wird dazu gebraucht, das Element Wind zu verwenden.",0,0,0);
-       base.books.AddGermanBookText("Das Donfblatt wächst im Wald. Es wird angeblich benutzt, um irgend etwas zusammenzukleben.",0,0,0);
-       base.books.AddGermanBookText("Sandbeeren verstärken den Effekt von Zaubertränken. Man sagt, sie seien in der Wüste zu finden.",0,0,0);
-       base.books.AddGermanBookText("Wutbeeren können in Hecken tief im Wald gefunden werden.",0,0,0);
+       base.books.AddGermanBookText("Die Wï¿½stenhimmelskapsel wird in Wï¿½sten gefunden. Sie wird dazu gebraucht, das Element Wind zu verwenden.",0,0,0);
+       base.books.AddGermanBookText("Das Donfblatt wï¿½chst im Wald. Es wird angeblich benutzt, um irgend etwas zusammenzukleben.",0,0,0);
+       base.books.AddGermanBookText("Sandbeeren verstï¿½rken den Effekt von Zaubertrï¿½nken. Man sagt, sie seien in der Wï¿½ste zu finden.",0,0,0);
+       base.books.AddGermanBookText("Wutbeeren kï¿½nnen in Hecken tief im Wald gefunden werden.",0,0,0);
        base.books.AddGermanBookText("Wenn man eine Tanne pflanzen will, braucht man zuerst einen Tannensetzling.",0,0,0);
-       base.books.AddGermanBookText("Tannensetzlinge können von Tannen abgeschnitten werden.",0,0,0);
-       base.books.AddGermanBookText("Äpfel verrotten nach eienr Weile. Wenn man sie gut wässert, wächst daraus erneut ein Setzling.",0,0,0);
-       base.books.AddGermanBookText("Beeren wachsen an Büschen im Wald.",0,0,0);
+       base.books.AddGermanBookText("Tannensetzlinge kï¿½nnen von Tannen abgeschnitten werden.",0,0,0);
+       base.books.AddGermanBookText("ï¿½pfel verrotten nach eienr Weile. Wenn man sie gut wï¿½ssert, wï¿½chst daraus erneut ein Setzling.",0,0,0);
+       base.books.AddGermanBookText("Beeren wachsen an Bï¿½schen im Wald.",0,0,0);
        base.books.AddGermanBookText("Zwiebeln gedeihen auf Ackerboden.",0,0,0);
-       base.books.AddGermanBookText("Tomaten wachsen an Büschen, wenn man vorher die Erde beackert.",0,0,0);
-       base.books.AddGermanBookText("Kirschen verrotten nach einiger Zeit. Wässert man sie stattdessen gut, können daraus Setzlinge wachsen.",0,0,0);
-       base.books.AddGermanBookText("Wenn man die Wurzeln einer Tanne ausgräbt, kann man dort eine geheime Pflanze finden.",0,0,0);
+       base.books.AddGermanBookText("Tomaten wachsen an Bï¿½schen, wenn man vorher die Erde beackert.",0,0,0);
+       base.books.AddGermanBookText("Kirschen verrotten nach einiger Zeit. Wï¿½ssert man sie stattdessen gut, kï¿½nnen daraus Setzlinge wachsen.",0,0,0);
+       base.books.AddGermanBookText("Wenn man die Wurzeln einer Tanne ausgrï¿½bt, kann man dort eine geheime Pflanze finden.",0,0,0);
        base.books.AddGermanBookText("Gutes Getreide braucht gute Samen und eine fruchtbare Erde.",0,0,0);
-       base.books.AddGermanBookText("Der Blätterpilz findet sich in der Nähe von Tannen.",0,0,0);
-       base.books.AddGermanBookText("Die Firnisblüte gedeiht auf Wiesen nahe an Bachläufen besonders gut.",0,0,0);
-       base.books.AddGermanBookText("Der gut schmechende Rotkopfpilz kann in Wäldern gefundenwerden.",0,0,0);
-       base.books.AddGermanBookText("Ein Kirschbaum wird mit seinen Wurzeln gefällt.",0,0,0);
-       base.books.AddGermanBookText("Eine Palme wird mit ihren Wurzeln gefällt.",0,0,0);
-       base.books.AddGermanBookText("Man sollte nie versuchen, Bäume zu fällen, wenn man Schilde trägt.",0,0,0);
-       base.books.AddGermanBookText("In Schilfgürteln nahe an saftigen Wiesen kann die Vierblättrige Einbeere von wachsamen Augen gefunden werden.",0,0,0);
+       base.books.AddGermanBookText("Der Blï¿½tterpilz findet sich in der Nï¿½he von Tannen.",0,0,0);
+       base.books.AddGermanBookText("Die Firnisblï¿½te gedeiht auf Wiesen nahe an Bachlï¿½ufen besonders gut.",0,0,0);
+       base.books.AddGermanBookText("Der gut schmechende Rotkopfpilz kann in Wï¿½ldern gefundenwerden.",0,0,0);
+       base.books.AddGermanBookText("Ein Kirschbaum wird mit seinen Wurzeln gefï¿½llt.",0,0,0);
+       base.books.AddGermanBookText("Eine Palme wird mit ihren Wurzeln gefï¿½llt.",0,0,0);
+       base.books.AddGermanBookText("Man sollte nie versuchen, Bï¿½ume zu fï¿½llen, wenn man Schilde trï¿½gt.",0,0,0);
+       base.books.AddGermanBookText("In Schilfgï¿½rteln nahe an saftigen Wiesen kann die Vierblï¿½ttrige Einbeere von wachsamen Augen gefunden werden.",0,0,0);
        base.books.AddGermanBookText("Das Gelbe Kraut ist eine wiederkehrende Pflanze in Wiesen.",0,0,0);
-       base.books.AddGermanBookText("In den tiefsten Wäldern wartet die Flammenkelchblüte darauf gepflückt zu werden.",0,0,0);
-       base.books.AddGermanBookText("Wenn Engel weinen, lassen ihre Tränen Nachtengelsblüten im Dreck wachsen.",0,0,0);
-       base.books.AddGermanBookText("Das Heidekraut braucht nie Regen. Wenige Tropfen des morgendlichen Taus auf einem sandigen Hügel sind genug für diese genügsame Pflanze.",0,0,0);
-       base.books.AddGermanBookText("Das Fußblatt ist der einzige Farn, der keinen sandigen Untergrund im Sinn hat.",0,0,0);
-       base.books.AddGermanBookText("Grabe mit deiner Hand im Dreck und finde einige Sibanac Blätter im Schilf.",0,0,0);
-       base.books.AddGermanBookText("Wo Kulturland in Steppe übergeht, findet sich ein von den meisten Leuten übersehener Farn.",0,0,0);
-       base.books.AddGermanBookText("Einige ältere Palmen verbergen verrottete Rinde an ihren Baumwurzeln.",0,0,0);
-       base.books.AddGermanBookText("Der Hirtenpilz lebt in Symbiose mit Fruchtbäumen und liebt schattige Plätze in der Nähe des Waldes.",0,0,0);
-       base.books.AddGermanBookText("Der Geburtspilz kann an Nadelwaldrändern gefunden werden.",0,0,0);
+       base.books.AddGermanBookText("In den tiefsten Wï¿½ldern wartet die Flammenkelchblï¿½te darauf gepflï¿½ckt zu werden.",0,0,0);
+       base.books.AddGermanBookText("Wenn Engel weinen, lassen ihre Trï¿½nen Nachtengelsblï¿½ten im Dreck wachsen.",0,0,0);
+       base.books.AddGermanBookText("Das Heidekraut braucht nie Regen. Wenige Tropfen des morgendlichen Taus auf einem sandigen Hï¿½gel sind genug fï¿½r diese genï¿½gsame Pflanze.",0,0,0);
+       base.books.AddGermanBookText("Das Fuï¿½blatt ist der einzige Farn, der keinen sandigen Untergrund im Sinn hat.",0,0,0);
+       base.books.AddGermanBookText("Grabe mit deiner Hand im Dreck und finde einige Sibanac Blï¿½tter im Schilf.",0,0,0);
+       base.books.AddGermanBookText("Wo Kulturland in Steppe ï¿½bergeht, findet sich ein von den meisten Leuten ï¿½bersehener Farn.",0,0,0);
+       base.books.AddGermanBookText("Einige ï¿½ltere Palmen verbergen verrottete Rinde an ihren Baumwurzeln.",0,0,0);
+       base.books.AddGermanBookText("Der Hirtenpilz lebt in Symbiose mit Fruchtbï¿½umen und liebt schattige Plï¿½tze in der Nï¿½he des Waldes.",0,0,0);
+       base.books.AddGermanBookText("Der Geburtspilz kann an Nadelwaldrï¿½ndern gefunden werden.",0,0,0);
 
        base.books.AddEnglishBookText("This is a book about plants.",0,0,0);       
        base.books.AddEnglishBookText("The desert sky capsule can be found in the desert sand. It is used to release the element of wind.",0,0,0);

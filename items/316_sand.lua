@@ -1,4 +1,4 @@
-module("items.316_sand", package.seeall())
+module("items.316_sand", package.seeall)
 
 -- UPDATE common SET com_script='items.316_sand' WHERE com_itemid = 316;
 

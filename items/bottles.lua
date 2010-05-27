@@ -5,7 +5,7 @@
 -- uses items of the new client - don't put this on the RS yet!
 require("base.common")
 
-module("items.bottles", package.seeall())
+module("items.bottles", package.seeall)
 
 function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
     if ( drinkList == nil) then
@@ -70,7 +70,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		User:setQuestProgress( 1, progress );
         else
 		base.common.InformNLS( User,
-		"Plötzlich kommen dir aus unerklärlichen Gründen Bedenken die Flasche zu auszutrinken.",
+		"Plï¿½tzlich kommen dir aus unerklï¿½rlichen Grï¿½nden Bedenken die Flasche zu auszutrinken.",
 		"Suddenly you begin to doubt whether it would be wise to quaff this potion");
         end;
     else
@@ -116,7 +116,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
                         else
                             base.common.InformNLS( User,
-                            "Das Gefäß ist nicht in Griffweite.",
+                            "Das Gefï¿½ï¿½ ist nicht in Griffweite.",
                             "The vessel is out of reach.");
                         end
 
@@ -191,7 +191,7 @@ function LookAtItem(User,Item)
 end
 
 --Please don't remove!!!
-------------------------AB HIER,SKRIPT FÜR DIE PRIESTER SILBERBRANDS(Heilung)-------------------
+------------------------AB HIER,SKRIPT Fï¿½R DIE PRIESTER SILBERBRANDS(Heilung)-------------------
 function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
   InitDrinks();
   if (SourceItem.id==2501) then
@@ -209,7 +209,7 @@ function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
         		User:increaseAttrib("hitpoints",-500); --500HP damage for the Irmorom priest
 			end
 
-			base.common.InformNLS( TargetChar, "Du fühlst wie eine heilende Wärme deinen Körper durchströmt und dir neue Kraft schenkt.",
+			base.common.InformNLS( TargetChar, "Du fï¿½hlst wie eine heilende Wï¿½rme deinen Kï¿½rper durchstrï¿½mt und dir neue Kraft schenkt.",
 					         "You feel how a healing warmth runs through your body and spends you new strength.");
 
 

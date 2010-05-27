@@ -3,7 +3,7 @@ require("base.treasure")
 
 -- UPDATE common SET com_script='items.505_treasuremap' WHERE com_itemid IN (505);
 
-module("items.505_treasuremap", package.seeall())
+module("items.505_treasuremap", package.seeall)
 
 function LookAtItem(User, Item)
 
@@ -13,7 +13,7 @@ function LookAtItem(User, Item)
 
     if not dir then
         world:itemInform( User, Item, base.common.GetNLS( User,
-            "Du siehst eine Karte mit einer Markierung auf einer Position irgendwo in deiner unmittelbaren Nähe. Du vermutest, dass es sich um "..TreasureName.." handelt.",
+            "Du siehst eine Karte mit einer Markierung auf einer Position irgendwo in deiner unmittelbaren Nï¿½he. Du vermutest, dass es sich um "..TreasureName.." handelt.",
             "You see a map that shows a position somewhere really close to your current position. You think it could be "..TreasureName.."." ) );
     else
         world:itemInform( User, Item, base.common.GetNLS( User,

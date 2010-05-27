@@ -1,6 +1,6 @@
 require("base.common")
 
-module("items.3077_silvercoins", package.seeall())
+module("items.3077_silvercoins", package.seeall)
 
 -- UPDATE common SET com_script='items.3077_silvercoins' WHERE com_itemid IN (3077);
 
@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
 		else gValue = "Zahl"; eValue = "tail"; end    
 		
-		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
+		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Mï¿½nze in die Luft und fï¿½ngt sie wieder auf. Sie zeigt "..gValue..".");
 		User:talkLanguage(CCharacter.say, CPlayer.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
       	TimeList[User.id] = world:getTime("second");
 	end
@@ -35,7 +35,7 @@ end
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
 	ZielItem=world:getItemOnField( TargetItem.pos );
 	if ( (ZielItem.id==2207) and (ZielItem.data==666) ) then
-		User:talkLanguage(CCharacter.say,CPlayer.german ,"#me wirft eine handvoll Silberstücke in den Brunnen.");
+		User:talkLanguage(CCharacter.say,CPlayer.german ,"#me wirft eine handvoll Silberstï¿½cke in den Brunnen.");
 	        User:talkLanguage(CCharacter.say,CPlayer.english,"#me tosses a fistful silver coins into the well.");
 
 		EffektTyp=math.random(10);
@@ -43,129 +43,129 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 		if (TargetItem.number<5) then
 		    User:inform("moep->Morgenstund hat Gold im Mund");
 		elseif ( (TargetItem.number>= 5) and (TargetItem.number<10) ) then
-		    User:inform("moep->Wunschattribut +1 für 1 Stunde");
+		    User:inform("moep->Wunschattribut +1 fï¿½r 1 Stunde");
 		elseif ( (TargetItem.number>=10) and (TargetItem.number<20) ) then
 		    if ( EffektTyp<=5 ) then
-  			User:inform("moep->Wunschattribut +2 für 1 Stunde");
+  			User:inform("moep->Wunschattribut +2 fï¿½r 1 Stunde");
 		    else
-			User:inform("moep->Wunschattribut +1 für 1 Stunden");
-            		User:inform("moep->Randomattribut +1 für 1 Stunden");
+			User:inform("moep->Wunschattribut +1 fï¿½r 1 Stunden");
+            		User:inform("moep->Randomattribut +1 fï¿½r 1 Stunden");
             	    end
 		elseif ( (TargetItem.number>=20) and (TargetItem.number<30) ) then
 		    if ( EffektTyp<=5 ) then
-			User:inform("moep->Wunschattribut +2 für 2 Stunden");
+			User:inform("moep->Wunschattribut +2 fï¿½r 2 Stunden");
 		    else
-			User:inform("moep->Wunschattribut +2 für 1 Stunde");
-			User:inform("moep->Randomattribut +2 für 1 Stunden");
+			User:inform("moep->Wunschattribut +2 fï¿½r 1 Stunde");
+			User:inform("moep->Randomattribut +2 fï¿½r 1 Stunden");
 		    end
 		elseif ( (TargetItem.number>=30) and (TargetItem.number<40) ) then
 		    if (EffektTyp<=3) then
-			User:inform("moep->Wunschattribut +3 für 1 Stunde");
+			User:inform("moep->Wunschattribut +3 fï¿½r 1 Stunde");
 		    elseif ( (EffektTyp>3) and (EffektTyp<=6) ) then
-			User:inform("moep->Wunschattribut +2 für 3 Stunden");
+			User:inform("moep->Wunschattribut +2 fï¿½r 3 Stunden");
 		    else
-		        User:inform("moep->Wunschattribut +2 für 2 Stunden");
-                	User:inform("moep->Randomattribut +2 für 1 Stunde");
+		        User:inform("moep->Wunschattribut +2 fï¿½r 2 Stunden");
+                	User:inform("moep->Randomattribut +2 fï¿½r 1 Stunde");
 		    end
 		elseif ( (TargetItem.number>=40) and (TargetItem.number<50) ) then
 		    if ( EffektTyp<=3 ) then
-		        User:inform("moep->Wunschattribut +3 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 2 Stunden");
 		    elseif ( (EffektTyp>3) and (EffektTyp<=6) ) then
-			User:inform("moep->Wunschattribut +2 für 4 Stunden");
+			User:inform("moep->Wunschattribut +2 fï¿½r 4 Stunden");
 	 	    elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-			User:inform("moep->Wunschattribut +3 für 1 Stunde");
-			User:inform("moep->Randomattribut +2 für 1 Stunden");
+			User:inform("moep->Wunschattribut +3 fï¿½r 1 Stunde");
+			User:inform("moep->Randomattribut +2 fï¿½r 1 Stunden");
 		    else
-			User:inform("moep->Wunschattribut +2 für 2 Stunden");
-		        User:inform("moep->Randomattribut +2 für 2 Stunden");
+			User:inform("moep->Wunschattribut +2 fï¿½r 2 Stunden");
+		        User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 		    end
  		elseif ( (TargetItem.number>=50) and (TargetItem.number<60) ) then
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +3 für 3 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 3 Stunden");
 		    elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-                	User:inform("moep->Wunschattribut +2 für 5 Stunden");
+                	User:inform("moep->Wunschattribut +2 fï¿½r 5 Stunden");
 		    elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-		        User:inform("moep->Wunschattribut +3 für 1 Stunde");
-		        User:inform("moep->Randomattribut +2 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 1 Stunde");
+		        User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 		    else
-		        User:inform("moep->Wunschattribut +3 für 2 Stunden");
-		        User:inform("moep->Randomattribut +2 für 1 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 2 Stunden");
+		        User:inform("moep->Randomattribut +2 fï¿½r 1 Stunden");
 		    end
 		elseif ( (TargetItem.number>=60) and (TargetItem.number<70) ) then
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +4 für 1 Stunde");
+		        User:inform("moep->Wunschattribut +4 fï¿½r 1 Stunde");
 		    elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-		        User:inform("moep->Wunschattribut +3 für 4 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 4 Stunden");
 		    elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-		        User:inform("moep->Wunschattribut +2 für 6 Stunden");
+		        User:inform("moep->Wunschattribut +2 fï¿½r 6 Stunden");
 		    elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-		        User:inform("moep->Wunschattribut +3 für 1 Stunde");
-		        User:inform("moep->Randomattribut +3 für 1 Stunde");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 1 Stunde");
+		        User:inform("moep->Randomattribut +3 fï¿½r 1 Stunde");
 		    else
-		        User:inform("moep->Wunschattribut +3 für 2 Stunden");
-		        User:inform("moep->Randomattribut +2 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 2 Stunden");
+		        User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 		    end
 		elseif ( (TargetItem.number>=70) and (TargetItem.number<80) ) then
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +4 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +4 fï¿½r 2 Stunden");
 		    elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-		        User:inform("moep->Wunschattribut +3 für 5 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 5 Stunden");
 		    elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-		        User:inform("moep->Wunschattribut +2 für 7 Stunden");
+		        User:inform("moep->Wunschattribut +2 fï¿½r 7 Stunden");
 		    elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-                	User:inform("moep->Wunschattribut +3 für 2 Stunden");
-		        User:inform("moep->Randomattribut +3 für 1 Stunde");
+                	User:inform("moep->Wunschattribut +3 fï¿½r 2 Stunden");
+		        User:inform("moep->Randomattribut +3 fï¿½r 1 Stunde");
 		    else
-		        User:inform("moep->Wunschattribut +3 für 3 Stunden");
-		        User:inform("moep->Randomattribut +2 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 3 Stunden");
+		        User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 		    end
 		elseif ( (TargetItem.number>=80) and (TargetItem.number<90) ) then
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +4 für 3 Stunden");
+		        User:inform("moep->Wunschattribut +4 fï¿½r 3 Stunden");
 		    elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-		        User:inform("moep->Wunschattribut +3 für 6 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 6 Stunden");
 		    elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-		        User:inform("moep->Wunschattribut +2 für 8 Stunden");
+		        User:inform("moep->Wunschattribut +2 fï¿½r 8 Stunden");
 		    elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-		        User:inform("moep->Wunschattribut +3 für 2 Stunde");
-		        User:inform("moep->Randomattribut +3 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +3 fï¿½r 2 Stunde");
+		        User:inform("moep->Randomattribut +3 fï¿½r 2 Stunden");
 		    else
-		        User:inform("moep->Wunschattribut +4 für 1 Stunden");
-		        User:inform("moep->Randomattribut +2 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +4 fï¿½r 1 Stunden");
+		        User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 		    end
 		elseif ( (TargetItem.number>=90) and (TargetItem.number<100) ) then
 		    EffektTyp=math.random(12);
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +5 für 1 Stunde");
+		        User:inform("moep->Wunschattribut +5 fï¿½r 1 Stunde");
 			elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-			    User:inform("moep->Wunschattribut +4 für 4 Stunden");
+			    User:inform("moep->Wunschattribut +4 fï¿½r 4 Stunden");
 			elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-			    User:inform("moep->Wunschattribut +3 für 7 Stunden");
+			    User:inform("moep->Wunschattribut +3 fï¿½r 7 Stunden");
 			elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-			    User:inform("moep->Wunschattribut +2 für 9 Stunden");
+			    User:inform("moep->Wunschattribut +2 fï¿½r 9 Stunden");
 			elseif ( (EffektTyp>8) and (EffektTyp<=10) ) then
-			    User:inform("moep->Wunschattribut +3 für 3 Stunden");
-			    User:inform("moep->Randomattribut +3 für 2 Stunden");
+			    User:inform("moep->Wunschattribut +3 fï¿½r 3 Stunden");
+			    User:inform("moep->Randomattribut +3 fï¿½r 2 Stunden");
 			else
-			    User:inform("moep->Wunschattribut +4 für 2 Stunden");
-			    User:inform("moep->Randomattribut +2 für 2 Stunden");
+			    User:inform("moep->Wunschattribut +4 fï¿½r 2 Stunden");
+			    User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 			end
 		else
 		    EffektTyp=math.random(12);
 		    if ( EffektTyp<=2 ) then
-		        User:inform("moep->Wunschattribut +5 für 2 Stunden");
+		        User:inform("moep->Wunschattribut +5 fï¿½r 2 Stunden");
 			elseif ( (EffektTyp>2) and (EffektTyp<=4) ) then
-			    User:inform("moep->Wunschattribut +4 für 5 Stunden");
+			    User:inform("moep->Wunschattribut +4 fï¿½r 5 Stunden");
 			elseif ( (EffektTyp>4) and (EffektTyp<=6) ) then
-			    User:inform("moep->Wunschattribut +3 für 8 Stunden");
+			    User:inform("moep->Wunschattribut +3 fï¿½r 8 Stunden");
 			elseif ( (EffektTyp>6) and (EffektTyp<=8) ) then
-			    User:inform("moep->Wunschattribut +2 für 10 Stunden");
+			    User:inform("moep->Wunschattribut +2 fï¿½r 10 Stunden");
 			elseif ( (EffektTyp>8) and (EffektTyp<=10) ) then
-			    User:inform("moep->Wunschattribut +4 für 1 Stunde");
-			    User:inform("moep->Randomattribut +3 für 2 Stunden");
+			    User:inform("moep->Wunschattribut +4 fï¿½r 1 Stunde");
+			    User:inform("moep->Randomattribut +3 fï¿½r 2 Stunden");
 			else
-			    User:inform("moep->Wunschattribut +4 für 3 Stunden");
-			    User:inform("moep->Randomattribut +2 für 2 Stunden");
+			    User:inform("moep->Wunschattribut +4 fï¿½r 3 Stunden");
+			    User:inform("moep->Randomattribut +2 fï¿½r 2 Stunden");
 			end
 		end
 	end
@@ -192,10 +192,10 @@ function findText ()
 	    deutsch="Lass es sein.";
 	    englisch="Let it be.";
 	elseif (number==6) then
-	    deutsch="Denk noch einmal darüber nach";
+	    deutsch="Denk noch einmal darï¿½ber nach";
 	    englisch="Think about.";
 	elseif (number==7) then
-	    deutsch="Triff deine Entscheidung bald, sonst wird sie für dich getroffen.";
+	    deutsch="Triff deine Entscheidung bald, sonst wird sie fï¿½r dich getroffen.";
 	    englisch="";
 	else
 	    deutsch="Wer wagt gewinnt!";

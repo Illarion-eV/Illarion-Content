@@ -5,7 +5,7 @@
 require("items.general.wood")
 require("items.base.crafts")
 
-module("items.227_cookingspoon", package.seeall(), package.seeall(items.general.wood))
+module("items.227_cookingspoon", package.seeall, package.seeall(items.general.wood))
 
 -- Kochen und Brauen Initieren Initieren
 function InitCraftingTool( )
@@ -33,39 +33,39 @@ function InitCraftingTool( )
         brewing:AddTool( 339 ); -- Weinfass
         
         cooking:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         cooking:AddInterruptMessage(
-        "Du hältst einen Moment inne und überlegst eine zusätzliche Zutat in das Rezept einbringen sollst, entscheidest dich aber dagegen.",
+        "Du hï¿½ltst einen Moment inne und ï¿½berlegst eine zusï¿½tzliche Zutat in das Rezept einbringen sollst, entscheidest dich aber dagegen.",
         "You hesitate and consider to add additional ingredients to the recipe. Finally, you revise your decision.");
         
         cooking:AddInterruptMessage(
-        "Du probierst die Speise und überlegst ob du noch etwas nachwürzen solltest.",
+        "Du probierst die Speise und ï¿½berlegst ob du noch etwas nachwï¿½rzen solltest.",
         "You taste the dish and consider adding some additional spices.");
         
         cooking:AddInterruptMessage(
-        "Du wäscht kurz das benutzte Geschirr ab bevor du weiter machst.",
+        "Du wï¿½scht kurz das benutzte Geschirr ab bevor du weiter machst.",
         "You wash some dishes before continuing.");
         
         brewing:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         brewing:AddInterruptMessage(
-        "Du hältst einen Moment inne und überlegst eine zusätzliche Zutat in das Rezept einbringen sollst, entscheidest dich aber dagegen.",
+        "Du hï¿½ltst einen Moment inne und ï¿½berlegst eine zusï¿½tzliche Zutat in das Rezept einbringen sollst, entscheidest dich aber dagegen.",
         "You consider adding a secret ingredient to your brew, but can't remember it.");
         
         brewing:AddInterruptMessage(
-        "Du rüttelst ein wenig am Gärbehälter um den Gärprozess im Gang zu halten.",
+        "Du rï¿½ttelst ein wenig am Gï¿½rbehï¿½lter um den Gï¿½rprozess im Gang zu halten.",
         "You shake slightly at the fermentation vessel.");
         
         brewing:AddInterruptMessage(
-        "Du spülst die Flaschen mit heißem Wasser aus damit keine ungewollten 'Zutaten' in das Getränk gelangen.",
+        "Du spï¿½lst die Flaschen mit heiï¿½em Wasser aus damit keine ungewollten 'Zutaten' in das Getrï¿½nk gelangen.",
         "You scald some bottles in hot water to avoid spoiling the taste.");
         
         --------------------------------------------------------------------------------------------
-        local CurrentCatID = cooking:AddCategory( 2935 ) -- Suppenschüssel ( Suppen )
+        local CurrentCatID = cooking:AddCategory( 2935 ) -- Suppenschï¿½ssel ( Suppen )
         
         ---------------- MUSHROOM SOUP - 2456 ----------------------
         product = cooking:AddProduct( CurrentCatID, 2456, {7, 27 }, 1, { 14, 28 } );
@@ -260,9 +260,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     cookstatus,cookmessage = Cooking:LocationFine( User, ltstate, true );
     if (cookstatus == 0) then
-        if ( SourceItem:getType() ~= 4 ) then -- Kochlöffel in der Hand
+        if ( SourceItem:getType() ~= 4 ) then -- Kochlï¿½ffel in der Hand
             base.common.InformNLS( User, 
-            "Du mußt den Kochlöffel in die Hand nehmen um damit zu arbeiten.", 
+            "Du muï¿½t den Kochlï¿½ffel in die Hand nehmen um damit zu arbeiten.", 
             "You have to take the cooking spoon in your hand to work with it." )
             return
         end
@@ -272,9 +272,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
             return
         end
         
-        if base.common.Encumbrence(User) then -- Sehr steife Rüstung?
+        if base.common.Encumbrence(User) then -- Sehr steife Rï¿½stung?
             base.common.InformNLS( User,
-            "Deine Rüstung behindert beim kochen.",
+            "Deine Rï¿½stung behindert beim kochen.",
             "Your armor disturbs you while cooking." );
             Cooking:SwapToInactiveItem( User );
             return
@@ -307,9 +307,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     brewstatus,brewmessage = Brewing:LocationFine( User, ltstate, true );      
     if (brewstatus == 0) then
-        if ( SourceItem:getType() ~= 4 ) then -- Kochlöffel in der Hand
+        if ( SourceItem:getType() ~= 4 ) then -- Kochlï¿½ffel in der Hand
             base.common.InformNLS( User, 
-            "Du mußt den Kochlöffel in die Hand nehmen um damit zu arbeiten.", 
+            "Du muï¿½t den Kochlï¿½ffel in die Hand nehmen um damit zu arbeiten.", 
             "You have to take the cooking spoon in your hand to work with it." )
             return
         end
@@ -319,9 +319,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
             return
         end
         
-        if base.common.Encumbrence(User) then -- Sehr steife Rüstung?
+        if base.common.Encumbrence(User) then -- Sehr steife Rï¿½stung?
             base.common.InformNLS( User,
-            "Deine Rüstung behindert beim brauen.",
+            "Deine Rï¿½stung behindert beim brauen.",
             "Your armor disturbs you while brewing." );
             Brewing:SwapToInactiveItem( User );
             return

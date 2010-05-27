@@ -1,6 +1,6 @@
 require("base.common")
 
-module("triggerfields.instadie", package.seeall())
+module("triggerfields.instadie", package.seeall)
 
 function MoveToField(User)
 

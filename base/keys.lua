@@ -1,6 +1,6 @@
 require("base.doors")
 
-module("base.keys", package.seeall())
+module("base.keys", package.seeall)
 
 --[[
     LockDoor

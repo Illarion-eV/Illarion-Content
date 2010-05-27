@@ -7,7 +7,7 @@ require("base.doors")
 require("content.signpost")
 require("content.gods")
 
-module("server.reload_defs", package.seeall(), package.seeall(content.gods))
+module("server.reload_defs", package.seeall, package.seeall(content.gods))
 
 function onReload()
     -- logToFile("start onReload");

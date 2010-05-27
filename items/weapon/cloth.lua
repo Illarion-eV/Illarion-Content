@@ -1,6 +1,6 @@
 require("base.lookat")
 
-module("items.weapon.cloth", package.seeall())
+module("items.weapon.cloth", package.seeall)
 
 -- UPDATE common SET com_script='items.weapon.cloth' WHERE com_itemid IN (89);
 

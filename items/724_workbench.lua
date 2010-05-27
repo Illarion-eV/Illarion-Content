@@ -1,15 +1,15 @@
 -- Werkbank
 
--- Holzstücke zu Brettern
+-- Holzstï¿½cke zu Brettern
 
 -- Arbeitscyclus: 2s - 5s
--- Zusätzliches Werkzeug: Säge ( 9 )
+-- Zusï¿½tzliches Werkzeug: Sï¿½ge ( 9 )
 
 -- UPDATE common SET com_script='items.724_workbench' WHERE com_itemid IN (724,725);
 
 require("base.common")
 
-module("items.724_workbench", package.seeall())
+module("items.724_workbench", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
@@ -21,9 +21,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Woodlist[2560]=2716; --Apfelholz
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Holz sägen.",
+        "Deine Rï¿½stung behindert beim Holz sï¿½gen.",
         "Your armor disturbes while sawing wood." );
         return
     end
@@ -33,12 +33,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
     end
     
-    if (User:countItemAt("body",9)==0) then -- Säge
+    if (User:countItemAt("body",9)==0) then -- Sï¿½ge
         base.common.InformNLS( User,
-        "Du benötigst eine Säge um das Holz zu zersägen.",
+        "Du benï¿½tigst eine Sï¿½ge um das Holz zu zersï¿½gen.",
         "You need a saw to saw the wood." );
         return
     end
@@ -48,9 +48,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool, true ) then -- Zange beschädigen
+    if base.common.ToolBreaks( User, Tool, true ) then -- Zange beschï¿½digen
         base.common.InformNLS( User, 
-        "Die Säge wird stumpf.", 
+        "Die Sï¿½ge wird stumpf.", 
         "The saw wents blunt" );
         return
     end
@@ -77,7 +77,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
                 --User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
                 User:startAction( GenWorkTime(User), 0, 0, 11, 25 );
-                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Bretter zu sägen.");
+                User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Bretter zu sï¿½gen.");
                 User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to saw logs into boards.");
                 return                
             end
@@ -86,23 +86,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 local selectMessage = math.random(1,5);
                 if ( selectMessage == 1 ) then
                     base.common.InformNLS(User,
-                    "Du wischst dir den Schweiß von der Stirn.",
+                    "Du wischst dir den Schweiï¿½ von der Stirn.",
                     "You wipe sweat off your forehead.");
                 elseif ( selectMessage == 2 ) then
                     base.common.InformNLS(User,
-                    "Du bekommst einige Späne in den Mund und mußt husten.",
+                    "Du bekommst einige Spï¿½ne in den Mund und muï¿½t husten.",
                     "A cloud of fine splints makes you cough.");
                 elseif ( selectMessage == 3 ) then
                     base.common.InformNLS(User,
-                    "Du überprüfst kurz die Maße des Brettes.",
+                    "Du ï¿½berprï¿½fst kurz die Maï¿½e des Brettes.",
                     "You briefly check the measurements of the board.");
                 elseif ( selectMessage == 4 ) then
                     base.common.InformNLS(User,
-                    "Du bekommst einen Holzsplitter in den Finger und mußt Pause machen, um ihn zu entfernen.",
+                    "Du bekommst einen Holzsplitter in den Finger und muï¿½t Pause machen, um ihn zu entfernen.",
                     "A splinter pierces your finger. You have to take a break to remove it.");
                 else
                     base.common.InformNLS(User,
-                    "Du bekommst einige Sägespäne ins Auge und reibst dir kurz die Augen.",
+                    "Du bekommst einige Sï¿½gespï¿½ne ins Auge und reibst dir kurz die Augen.",
                     "Fine splints make you rub your eyes.");
                 end
                 return
@@ -110,7 +110,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             
             User:eraseItem(i,1); -- Holz Scheite entfernen
             notCreated = User:createItem(Wood,1,333,0); -- Holzbretter erstellen
-            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
                 world:createItemFromId( Wood, notCreated, User.pos, true, 333 ,0);
                 base.common.InformNLS(User,
                 "Du kannst nichts mehr halten.",
@@ -125,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User, 
-        "Du hast kein Holz das du zersägen könntest.", 
+        "Du hast kein Holz das du zersï¿½gen kï¿½nntest.", 
         "You don't have any wood you could saw." );
     end
 end

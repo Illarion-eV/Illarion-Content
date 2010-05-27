@@ -12,7 +12,7 @@
 -- @release 1.1
 -- @author http://lua-users.org/
 
-module("base.class", package.seeall())
+module("base.class", package.seeall)
 
 --- Create a new class.
 -- This function creates and returns a new class. It allows the usage of a

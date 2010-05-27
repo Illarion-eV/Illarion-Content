@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("items.372_poisonfield", package.seeall())
+module("items.372_poisonfield", package.seeall)
 
 function IniFireField()
     --hum,dwa,hal,elf,orc,liz,gno,fry,gob,tro,mum,skl,beh,cld,hlr,buy,sel,ins,shp,spd,dsk,rot,dem,scp,pig,inv,sku,wsp,ftr,shd,stn,mgo,gno,dra,drw,drw,lde
@@ -41,7 +41,7 @@ function CharacterOnField(User)
             RaceStrenght=100;
             PoisStrength=100;
         end
-        resist=SpellResistence(User);      -- Magie Resistenz prüfen
+        resist=SpellResistence(User);      -- Magie Resistenz prï¿½fen
         if (resist<FieldItem.quality) then
             damageDealt=math.random((7/1000)*math.floor((FieldItem.quality-resist)*RaceStrenght),(9/1000)*math.floor((FieldItem.quality-resist)*RaceStrenght));--AffectedStren[i]
             poisonDealt=math.random((2/100)*math.floor((FieldItem.quality-resist)*(PoisStrength/20)),(5/100)*math.floor((FieldItem.quality-resist)*(PoisStrength/20)));

@@ -5,7 +5,7 @@
 require("items.general.wood")
 require("items.base.crafts")
 
-module("items.2715_plane", package.seeall(), package.seeall(items.general.wood))
+module("items.2715_plane", package.seeall, package.seeall(items.general.wood))
 
 -- Holzarbeiten mit dem Hobel
 function InitCraftingTool( )
@@ -24,11 +24,11 @@ function InitCraftingTool( )
         carpentry:AddTool( 725 ); -- Werkbank
         
         carpentry:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
+        "Du wischst dir den Schweiï¿½ von der Stirn.",
         "You wipe sweat off your forehead.");
         
         carpentry:AddInterruptMessage(
-        "Du pustest kurz die Sägespäne von deiner Kleidung.",
+        "Du pustest kurz die Sï¿½gespï¿½ne von deiner Kleidung.",
         "You blow some sawdust off your clothes.");
         
         carpentry:AddInterruptMessage(
@@ -40,7 +40,7 @@ function InitCraftingTool( )
         "You throw away some rubbish to get more working space.");
         
         carpentry:AddInterruptMessage(
-        "Du bekommst einige Späne in den Mund und musst husten.",
+        "Du bekommst einige Spï¿½ne in den Mund und musst husten.",
         "Sawdust finds its way into your mouth, causing you to cough loudly.");
         
         carpentry:AddInterruptMessage(
@@ -48,7 +48,7 @@ function InitCraftingTool( )
         "You get a splinter of wood in your finger and have to take a break to pull it out.");
         
         carpentry:AddInterruptMessage(
-        "Du überprüfst kurz die Maße des Werkstücks.",
+        "Du ï¿½berprï¿½fst kurz die Maï¿½e des Werkstï¿½cks.",
         "You check the fine details of your work.");
 
         --------------------------------------------------------------------------------------------
@@ -316,9 +316,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Hobeln.",
+        "Deine Rï¿½stung behindert beim Hobeln.",
         "Your armor disturbs you while slicing." );
         carpenter:SwapToInactiveItem( User );
         return

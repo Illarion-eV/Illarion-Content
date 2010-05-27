@@ -4,14 +4,14 @@
 
 require("base.common")
 
-module("items.92_oillamp", package.seeall())
+module("items.92_oillamp", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     x=math.random(99);
     if x < 6 then
-        base.common.InformNLS(User,"Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");
+        base.common.InformNLS(User,"Du bist nicht sicher, aber es scheint als wï¿½rde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");
     elseif x < 16 then
-        base.common.InformNLS(User,"Du glaubst zu fühlen, dass die Lampe wärmer wird","You think the lamp gets warmer!");
+        base.common.InformNLS(User,"Du glaubst zu fï¿½hlen, dass die Lampe wï¿½rmer wird","You think the lamp gets warmer!");
     elseif x < 30 then
         base.common.InformNLS(User,"Your strength was " .. User:increaseAttrib("strength",0),"Your strength was " .. User:increaseAttrib("strength",0))
         User:tempChangeAttrib("strength",5,60)

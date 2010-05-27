@@ -6,7 +6,7 @@ require("items.general.metal")
 require("base.common")
 require("scheduled.newgaia")
 
-module("items.126_sickle", package.seeall(), package.seeall(items.general.metal))
+module("items.126_sickle", package.seeall, package.seeall(items.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
@@ -32,16 +32,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( ltstate == Action.success ) then
         if base.common.IsInterrupted( User ) then
             base.common.InformNLS( User,
-            "Während du nach Kräutern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
+            "Wï¿½hrend du nach Krï¿½utern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
             "While searching for herbs your sickle gets stuck and it nearly slides out of your hand.");
             return
         end
     end
     
-     -- Sehr streife Rüstung?
+     -- Sehr streife Rï¿½stung?
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
-        "Deine Rüstung behindert dabei Kräuter zu sammeln.",
+        "Deine Rï¿½stung behindert dabei Krï¿½uter zu sammeln.",
         "Your armor disturbes you collecting herbs." );
         return
     end
@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
     -- Pruefen, ob man hier ueberhaupt was finden kann
 	if not checkRegion(TargetItem) then
-		User:inform("Hier kann man keine brauchbaren Kräuter finden");
+		User:inform("Hier kann man keine brauchbaren Krï¿½uter finden");
 		return;		
 	end    
 	

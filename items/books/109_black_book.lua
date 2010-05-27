@@ -1,7 +1,7 @@
 require("base.books")
 require("druids.content.druids")
 
-module("items.books.109_black_book", package.seeall())
+module("items.books.109_black_book", package.seeall)
 
 -- UPDATE common SET com_script='items.books.109_black_book' WHERE com_itemid = 109;
 

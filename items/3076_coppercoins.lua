@@ -1,7 +1,7 @@
 --UPDATE common SET com_script='items.3076_coppercoins' WHERE com_itemid=3076;
 require("base.common")
 
-module("items.3076_coppercoins", package.seeall())
+module("items.3076_coppercoins", package.seeall)
 
 if not InitTime then
 	InitTime=true;
@@ -21,7 +21,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if math.random(2) == 1 then	gValue = "Kopf"; eValue = "head";
 		else gValue = "Zahl"; eValue = "tail"; end    
 		
-		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Münze in die Luft und fängt sie wieder auf. Sie zeigt "..gValue..".");
+		User:talkLanguage(CCharacter.say, CPlayer.german, "#me wirft eine Mï¿½nze in die Luft und fï¿½ngt sie wieder auf. Sie zeigt "..gValue..".");
 		User:talkLanguage(CCharacter.say, CPlayer.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
       	TimeList[User.id] = world:getTime("second");
 	end

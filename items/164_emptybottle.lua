@@ -5,7 +5,7 @@
 
 require("base.common")
 
-module("items.164_emptybottle", package.seeall())
+module("items.164_emptybottle", package.seeall)
 
 function UseItemWithCharacter(User,SourceItem,Character,Counter,Param)
     --User:inform("char selected");
@@ -71,7 +71,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if User:getQuestProgress(23) <10 then
 				User:setQuestProgress(23, 1 + User:getQuestProgress(23));
 				base.common.TempInformNLS(User,
-				"Du füllst die Flasche mit einer weißen Flüssigkeit.",
+				"Du fï¿½llst die Flasche mit einer weiï¿½en Flï¿½ssigkeit.",
 				"You fill the bottle with a white liquid.");
 				SourceItem.id = 330;
 				SourceItem.quality = 888;
@@ -86,7 +86,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				world:changeItem(SourceItem);
 			else
 				base.common.TempInformNLS(User,
-				"Anscheinend ist keine Flüssigkeit mehr für dich übrig.",
+				"Anscheinend ist keine Flï¿½ssigkeit mehr fï¿½r dich ï¿½brig.",
 				"Obviously there is no liquid left for you.");
 			end
 		end

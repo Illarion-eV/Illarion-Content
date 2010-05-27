@@ -1,4 +1,4 @@
-module("content.jewelbonus", package.seeall())
+module("content.jewelbonus", package.seeall)
 
 function getBonus(Item)                 -- returns gem#, strength of this gem (inserted)
     itData=Item.data;

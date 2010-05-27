@@ -1,4 +1,4 @@
-module("scheduled.newgaia", package.seeall())
+module("scheduled.newgaia", package.seeall)
 
 -- INSERT INTO scheduledscripts VALUES('scheduled.newgaia', 10, 30, 'plantdrop');
 

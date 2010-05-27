@@ -1,6 +1,6 @@
 require("base.class")
 
-module("handler.createsound", package.seeall())
+module("handler.createsound", package.seeall)
 
 createSound = base.class.class(function(crsnd, posi, sndid)
     crsnd.pos=posi;

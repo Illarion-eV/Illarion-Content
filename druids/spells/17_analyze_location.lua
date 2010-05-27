@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.17_analyze_location", package.seeall())
+module("druids.spells.17_analyze_location", package.seeall)
 
 -- INSERT INTO spells VALUES (2^16,3,'druids.spells.17_analyze_location');
 
@@ -22,22 +22,22 @@ function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
 --Weltkoordinaten: 
 --Linke obere Ecke    =  -500 / -500
 --Rechte untere Ecke  =  456 / 274
---1° Grad = 60' Minuten
+--1ï¿½ Grad = 60' Minuten
 
    
 --Positionsangaben
 if Targetpos.x < 0 then 
-  text1DE = " westlicher Länge "
+  text1DE = " westlicher Lï¿½nge "
   text1EN = " western longitude"
 elseif Targetpos.x > 0 then
-  text1DE = " östlicher Länge " 
+  text1DE = " ï¿½stlicher Lï¿½nge " 
   text1EN = " eastern longitude"   
 end  
 if Targetpos.y < 0 then 
-  text2DE = " nördlicher Breite "
+  text2DE = " nï¿½rdlicher Breite "
   text2EN = " northern latitude"   
 elseif Targetpos.y > 0 then
-  text2DE = " südlicher Breite "  
+  text2DE = " sï¿½dlicher Breite "  
   text2EN = " southern latitude" 
 end 
 
@@ -50,9 +50,9 @@ latiGrad = math.floor(latitude/60)
 latiMin = latitude - latiGrad*60
 
   if Caster:getPlayerLanguage() == 0 then
-    Caster:inform("#b|0|0|"..longGrad.."°, "..longMin.."\' "..text1DE.."\n"..latiGrad.."°, "..latiMin.."\' "..text2DE)
+    Caster:inform("#b|0|0|"..longGrad.."ï¿½, "..longMin.."\' "..text1DE.."\n"..latiGrad.."ï¿½, "..latiMin.."\' "..text2DE)
   else
-    Caster:inform("#b|0|0|"..longGrad.."°, "..longMin.."\' "..text1EN.."\n"..latiGrad.."°, "..latiMin.."\' "..text2EN)
+    Caster:inform("#b|0|0|"..longGrad.."ï¿½, "..longMin.."\' "..text1EN.."\n"..latiGrad.."ï¿½, "..latiMin.."\' "..text2EN)
   end
 end
 
@@ -63,7 +63,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand hat ein Gewicht von "..myItem.Weight.." druidischen Gewichtseinheiten", 
---"This item weights "..myItem.Weight.." druid weight-units"); -- das kann man schöner formulieren
+--"This item weights "..myItem.Weight.." druid weight-units"); -- das kann man schï¿½ner formulieren
 	textDE="Dieser Gegenstand hat ein Gewicht von "..myItem.Weight.." druidischen Gewichtseinheiten"
 	textEN="This item weights "..myItem.Weight.." druid weight-units"
 	if Caster:getPlayerLanguage() == 0 then

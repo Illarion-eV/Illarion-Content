@@ -3,13 +3,13 @@
 -- Rohe Edelsteine  --> geschliffene Edelsteine
 
 -- Arbeitscyclus: 1s - 5s
--- Zusätzliches Werkzeug: Zange ( 2140 )
+-- Zusï¿½tzliches Werkzeug: Zange ( 2140 )
 
 -- UPDATE common SET com_script='items.270_grindstone' WHERE com_itemid IN (270);
 
 require("base.common");
 
-module("items.270_grindstone", package.seeall())
+module("items.270_grindstone", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate )
@@ -24,9 +24,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         GemList[257]={45,198}; --Topas
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert dabei Edelsteine zu schleifen.",
+        "Deine Rï¿½stung behindert dabei Edelsteine zu schleifen.",
         "Your armor disturbes you grinding gems." );
         return
     end
@@ -36,12 +36,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
     end
     
     if (User:countItemAt("body",2140)==0) then -- kleine Zange
         base.common.InformNLS( User,
-        "Du benötigst eine kleine Zange um den Edelstein zu halten.",
+        "Du benï¿½tigst eine kleine Zange um den Edelstein zu halten.",
         "You need small tongs to cut the gems." );
         return
     end
@@ -51,7 +51,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
+    if base.common.ToolBreaks( User, Tool ) then -- Zange beschï¿½digen
         base.common.InformNLS( User, 
         "Die Zange bricht am Schleifstein ab.", 
         "The tongs break at the gem grinder." );
@@ -85,14 +85,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
             if base.common.IsInterrupted( User ) then
                 base.common.InformNLS(User,
-                "Der "..world:getItemName(Gem[2],0).." rutscht dir aus der Hand und fällt zu Boden. Du musst kurz suchen ehe du den Stein wieder findest.",
+                "Der "..world:getItemName(Gem[2],0).." rutscht dir aus der Hand und fï¿½llt zu Boden. Du musst kurz suchen ehe du den Stein wieder findest.",
                 "The "..world:getItemName(Gem[2],1).." slips out of your hand and falls down to the ground. You have to search for a moment to find it again.");
                 return
             end
             User:eraseItem(i,1); -- Rohen Edelstein entfernen
-            if CheckSuccess(User,Gem[1]) then -- Erfolgsprüfung
+            if CheckSuccess(User,Gem[1]) then -- Erfolgsprï¿½fung
                 local notCreated = User:createItem(Gem[2],1,333,0); -- geschliffenen Edelstein erstellen
-                if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+                if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
                     world:createItemFromId( Gem[2], notCreated, User.pos, true, 333 ,0);
                     base.common.InformNLS(User,
                     "Du kannst nichts mehr halten.",
@@ -102,7 +102,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 end
             else -- kein Erfolg
                 base.common.InformNLS(User,
-                "Der "..world:getItemName(Gem[2],0).." zerbröckelt in deinen Händen",
+                "Der "..world:getItemName(Gem[2],0).." zerbrï¿½ckelt in deinen Hï¿½nden",
                 "The "..world:getItemName(Gem[2],1).." breaks in your hands.");
                 User:startAction( GenWorkTime(User,Gem[1]), 0, 0, 0, 0 );
             end
@@ -113,13 +113,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User, 
-        "Du hast keinen Rohen Edelstein den du schleifen könntest.", 
+        "Du hast keinen Rohen Edelstein den du schleifen kï¿½nntest.", 
         "You don't have a raw gemstone you could cut." );
     end
 end
 
--- Erfolgsprüfung
-function CheckSuccess(User,Difficulty) -- Erfolgsprüfung
+-- Erfolgsprï¿½fung
+function CheckSuccess(User,Difficulty) -- Erfolgsprï¿½fung
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
     local Skill  = User:getSkill("gemcutting");     -- Edelstein schleifen: 0 - 100
     

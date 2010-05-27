@@ -1,6 +1,6 @@
 require("base.lookat")
 
-module("items.weapon.metal", package.seeall())
+module("items.weapon.metal", package.seeall)
 
 -- UPDATE common SET com_script='items.weapon.metal' WHERE com_itemid IN (25,27,77,78,88,91,188,189,190,204,205,206,226,230,231,283,2626,2627,2629,2635,2636,2642,2645,2654,2655,2656,2658,2660,2662,2668,2671,2672,2675,2689,2693,2694,2701,2704,2705,2723,2725,2731,2737,2740,2742,2757,2775,2777,2778,2788);
 
@@ -27,7 +27,7 @@ function LookAtItem(User,Item)
         end
     elseif ((Item.id==27) and (Item.data == 10000)) then
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst einen auffälligen Dolch");            
+            world:itemInform(User,Item,"Du siehst einen auffï¿½lligen Dolch");            
         else
             world:itemInform(User,Item,"You see a peculiar dagger");
         end
@@ -41,7 +41,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltState)
         if (User:getSkill("dwarf language") > 70) then
             if (User:getPlayerLanguage() == 0) then
                 User:inform("Du bist in der Lage die Runen als eine Art Zwergenrunen zu identifizieren.");
-                User:inform("Auf dem Schwert steht soviel wie: \"Ich bin das Schwert des Kriegers der in der Gunst der Vorväter der Norodaj steht.\"");
+                User:inform("Auf dem Schwert steht soviel wie: \"Ich bin das Schwert des Kriegers der in der Gunst der Vorvï¿½ter der Norodaj steht.\"");
             else
                 User:inform("You are able to identify the runes as a kind of dwarven runes.");
                 User:inform("On the sword is something written like: \"I'm the sword of the warrior who has the grace of the ancestors of the Norodaj.\"");

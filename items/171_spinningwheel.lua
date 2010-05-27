@@ -4,14 +4,14 @@
 -- Sibanac --> Garn
 
 -- Arbeitscyclus: 1s - 4s
--- Zusätzliches Werkzeug: Schere ( 6 )
+-- Zusï¿½tzliches Werkzeug: Schere ( 6 )
 
 -- UPDATE common SET com_script='items.171_spinningwheel' WHERE com_itemid IN (171);
 
 require("base.common")
 require("content.gathering")
 
-module("items.171_spinningwheel", package.seeall())
+module("items.171_spinningwheel", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	content.gathering.InitGathering();
@@ -35,9 +35,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim spinnen.",
+        "Deine Rï¿½stung behindert beim spinnen.",
         "Your armor disturbes you while spinning." );
         return
     end
@@ -48,7 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",6)==0) then -- Schere
         base.common.InformNLS( User,
-        "Du benötigst eine Schere um die Wolle oder Sibanac zu spinnen.",
+        "Du benï¿½tigst eine Schere um die Wolle oder Sibanac zu spinnen.",
         "You need scissors to spin the wool or sibanac." );
         return
     end
@@ -58,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool, true) then -- Schere beschädigen
+    if base.common.ToolBreaks( User, Tool, true) then -- Schere beschï¿½digen
         base.common.InformNLS( User, 
         "Die Schere wird stumpf.", 
         "The scissors went blunt." );
@@ -68,7 +68,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ((User:countItemAt("belt",170) < 1) and (User:countItemAt("belt",155) < 3)) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du benötigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
+            "Du benï¿½tigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
             "You need some wool or sibanac to work at the spinning wheel." );
         end
         return

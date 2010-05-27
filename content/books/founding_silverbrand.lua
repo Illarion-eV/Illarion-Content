@@ -1,6 +1,6 @@
 require("base.books")
 
-module("content.books.founding_silverbrand", package.seeall())
+module("content.books.founding_silverbrand", package.seeall)
 
 -- This file contains the book data for the book "The founding of Silverbrand"
 
@@ -31,30 +31,30 @@ function loadBook(toData)
     base.books.AddEnglishBookText( "Who doesn't want to respect the founder dwarves should decide to find a new home, before he takes the oath. ", 0, 0,toData); 
     base.books.AddEnglishBookText( "Tialdin, King of Silverbrand ", 0, 0,toData);
     
-    base.books.AddGermanBookText( "Im Folgenden befindet sich eine Mitschrift einer Rede unseres großen Königs und Gründers von Silberbrand zur Gründung von Silberbrand:", 0, 0,toData);   
-    base.books.AddGermanBookText( "Wehrte Untertanen, Verbündete und Freunde Silberbrands, ", 0, 0,toData);
-    base.books.AddGermanBookText( "Silberbrand wurde uns nicht von den Göttern geschenkt, es ist das Ergebnis harter Arbeit der Gründerzwerge, ", 0, 0,toData);      
-    base.books.AddGermanBookText( "die mit ihren eigenen Händen die Tunnel in den Fels trieben, jeden Stein, jeden Amboss und jede Esse mit ihrem Gold bezahlten. In dieser Stadt steckt nach damals gültigen Preisen der Gegenwert von ", 0, 0,toData);   
-    base.books.AddGermanBookText( "weit über 10.000 Silberbarren die die Gründerzwerge aufbrachten. Von diesen Mengen an Silber haben weniger als zehn Zwerge drei viertel alleine aufgebracht, ich selbst habe den Gegenwert von ", 0, 0,toData);
-    base.books.AddGermanBookText( "über 5.000 Barren aufgebracht. Rugosch, Bombor, Caranthir und Gandela jeweils alleine weit über 1.000 durch Silber oder Arbeit. Alle Gründerzwerge haben entschieden, das sie jeden Zwerg dieses ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Königreich Heimat nennen lassen, der bereit ist den Treueeid abzulegen. Diese Zwerge deren Bauten ihr so selbstverständlich hinnehmt und nutzt haben mich zum König erklärt. Bombor schmiedete meine ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Krone mit seinen eigenen Händen, Rugosch als höchster Vertreter Irmoroms in diesen Landen setzte sie mir in einer feierlichen Zeremonie auf. Alle Zwerge die sich am Bau beteiligt hatten leisteten ", 0, 0,toData);
-    base.books.AddGermanBookText( "mir ihren Treueeid und erklärten mich damit auf Lebenszeit zum Verwalter ihres Vermögens, zum Herrn und Hüter über ihrer Hände Arbeit. Irmoroms Stimme selbst erschallte am Tage der Krönung im ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Tempel und segnete unser Königreich unserer Hände Arbeit. ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Ich erwarte Respekt von jenen die die Gaben der Gründerzwerge nutzen von jenen die in Silberbrand leben. Einzig die Elfen haben es uns gleichgetan und ein ähnlich eindrucksvolles Reich auf ihrer ", 0, 0,toData);
+    base.books.AddGermanBookText( "Im Folgenden befindet sich eine Mitschrift einer Rede unseres groï¿½en Kï¿½nigs und Grï¿½nders von Silberbrand zur Grï¿½ndung von Silberbrand:", 0, 0,toData);   
+    base.books.AddGermanBookText( "Wehrte Untertanen, Verbï¿½ndete und Freunde Silberbrands, ", 0, 0,toData);
+    base.books.AddGermanBookText( "Silberbrand wurde uns nicht von den Gï¿½ttern geschenkt, es ist das Ergebnis harter Arbeit der Grï¿½nderzwerge, ", 0, 0,toData);      
+    base.books.AddGermanBookText( "die mit ihren eigenen Hï¿½nden die Tunnel in den Fels trieben, jeden Stein, jeden Amboss und jede Esse mit ihrem Gold bezahlten. In dieser Stadt steckt nach damals gï¿½ltigen Preisen der Gegenwert von ", 0, 0,toData);   
+    base.books.AddGermanBookText( "weit ï¿½ber 10.000 Silberbarren die die Grï¿½nderzwerge aufbrachten. Von diesen Mengen an Silber haben weniger als zehn Zwerge drei viertel alleine aufgebracht, ich selbst habe den Gegenwert von ", 0, 0,toData);
+    base.books.AddGermanBookText( "ï¿½ber 5.000 Barren aufgebracht. Rugosch, Bombor, Caranthir und Gandela jeweils alleine weit ï¿½ber 1.000 durch Silber oder Arbeit. Alle Grï¿½nderzwerge haben entschieden, das sie jeden Zwerg dieses ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Kï¿½nigreich Heimat nennen lassen, der bereit ist den Treueeid abzulegen. Diese Zwerge deren Bauten ihr so selbstverstï¿½ndlich hinnehmt und nutzt haben mich zum Kï¿½nig erklï¿½rt. Bombor schmiedete meine ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Krone mit seinen eigenen Hï¿½nden, Rugosch als hï¿½chster Vertreter Irmoroms in diesen Landen setzte sie mir in einer feierlichen Zeremonie auf. Alle Zwerge die sich am Bau beteiligt hatten leisteten ", 0, 0,toData);
+    base.books.AddGermanBookText( "mir ihren Treueeid und erklï¿½rten mich damit auf Lebenszeit zum Verwalter ihres Vermï¿½gens, zum Herrn und Hï¿½ter ï¿½ber ihrer Hï¿½nde Arbeit. Irmoroms Stimme selbst erschallte am Tage der Krï¿½nung im ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Tempel und segnete unser Kï¿½nigreich unserer Hï¿½nde Arbeit. ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Ich erwarte Respekt von jenen die die Gaben der Grï¿½nderzwerge nutzen von jenen die in Silberbrand leben. Einzig die Elfen haben es uns gleichgetan und ein ï¿½hnlich eindrucksvolles Reich auf ihrer ", 0, 0,toData);
     base.books.AddGermanBookText( "Insel geschaffen. Dennoch waren wir Zwerge es die als erste ein eigenes Reich hatten und das darf niemals vergessen werden. ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Um dem Vergessen Einhalt zu gebieten höret meine Stimme und lest meine Worte. ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Niemals darf vergessen werden das es drei Zwerge waren die am Lagerfeuer saßen und entschieden. WIR BAUEN UNS ZWERGEN EINE STADT, NUR FÜR UNS ZWERGE. Diese drei deren Idee die Herzen der ", 0, 0,toData);
+    base.books.AddGermanBookText( "Um dem Vergessen Einhalt zu gebieten hï¿½ret meine Stimme und lest meine Worte. ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Niemals darf vergessen werden das es drei Zwerge waren die am Lagerfeuer saï¿½en und entschieden. WIR BAUEN UNS ZWERGEN EINE STADT, NUR Fï¿½R UNS ZWERGE. Diese drei deren Idee die Herzen der ", 0, 0,toData);
     base.books.AddGermanBookText( "Zwerge entflammten waren Bombor, Rugosch und Tialdin und es schlossen sich schnell weitere an: Caranthir, Gandela, Torekin, Galim, Belegi, Josef, Ingrain, Grimbart, Whisler, Rackere, Mishrak, ", 0, 0,toData);   
     base.books.AddGermanBookText( "Croktin und etliche mehr doch die ersten waren es die auch am meisten gaben um die Stadt zu bauen. ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Nunmehr höre ich die Frage warum ein Treueeid gefordert wird, warum es in Silberbrand einen König gibt der über absolute Macht verfügt. Auf diese Frage antworte ich: Die Gründerväter wollten es so. ", 0, 0,toData);
-    base.books.AddGermanBookText( "Jeder Zwerg der Silberbrand betritt ist Gast der Gründerväter, die mich zum König und zu ihrem Verwalter machten. Jeder Zwerg der den Treueeid ablegt, so haben es die Gründerväter entschieden, ", 0, 0,toData);      
-    base.books.AddGermanBookText( "darf Silberbrand seine Heimat nennen. Die einzigen Forderungen die sie haben ist Respekt gegenüber ihrer Arbeit und Schaffenskraft. Respekt und Gehorsam gegenüber dem König.", 0, 0,toData);   
-    base.books.AddGermanBookText( "Wer den Gründervätern diesen Respekt nicht entgegenbringen will, sollte sich noch bevor er seinen Eid ablegt entscheiden und sich eine andere Heimat suchen.", 0, 0,toData);
-    base.books.AddGermanBookText( "Tialdin, König von Silberbrand", 0, 0,toData);  
+    base.books.AddGermanBookText( "Nunmehr hï¿½re ich die Frage warum ein Treueeid gefordert wird, warum es in Silberbrand einen Kï¿½nig gibt der ï¿½ber absolute Macht verfï¿½gt. Auf diese Frage antworte ich: Die Grï¿½ndervï¿½ter wollten es so. ", 0, 0,toData);
+    base.books.AddGermanBookText( "Jeder Zwerg der Silberbrand betritt ist Gast der Grï¿½ndervï¿½ter, die mich zum Kï¿½nig und zu ihrem Verwalter machten. Jeder Zwerg der den Treueeid ablegt, so haben es die Grï¿½ndervï¿½ter entschieden, ", 0, 0,toData);      
+    base.books.AddGermanBookText( "darf Silberbrand seine Heimat nennen. Die einzigen Forderungen die sie haben ist Respekt gegenï¿½ber ihrer Arbeit und Schaffenskraft. Respekt und Gehorsam gegenï¿½ber dem Kï¿½nig.", 0, 0,toData);   
+    base.books.AddGermanBookText( "Wer den Grï¿½ndervï¿½tern diesen Respekt nicht entgegenbringen will, sollte sich noch bevor er seinen Eid ablegt entscheiden und sich eine andere Heimat suchen.", 0, 0,toData);
+    base.books.AddGermanBookText( "Tialdin, Kï¿½nig von Silberbrand", 0, 0,toData);  
 end;
 
 function loadTitle(toData)
-    base.books.AddGermanBookTitle("Buch mit dem Titel \"Von der Gründung Silverbrands\"",toData);
+    base.books.AddGermanBookTitle("Buch mit dem Titel \"Von der Grï¿½ndung Silverbrands\"",toData);
     base.books.AddEnglishBookTitle("Book with the title \"The founding of Silverbrand\"",toData);
 end;

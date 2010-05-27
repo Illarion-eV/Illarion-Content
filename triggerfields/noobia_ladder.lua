@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("triggerfields.noobia_ladder", package.seeall())
+module("triggerfields.noobia_ladder", package.seeall)
 
 function MoveToField(Character)
     if Character:getQuestProgress(2) == 48 then

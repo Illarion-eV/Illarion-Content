@@ -6,7 +6,7 @@
 require("base.common")
 require("base.factions")
 
-module("items.10_teleportgate", package.seeall(), package.seeall(base.factions))
+module("items.10_teleportgate", package.seeall, package.seeall(base.factions))
 
 function InitializeGate(  )
 

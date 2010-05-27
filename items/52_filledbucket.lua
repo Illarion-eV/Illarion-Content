@@ -5,7 +5,7 @@
 require("base.common")
 require("base.keys")
 
-module("items.52_filledbucket", package.seeall())
+module("items.52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
@@ -20,10 +20,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
         OpenDoor( door );
     end;
 
-    -- Wasserflasche auffüllen
+    -- Wasserflasche auffï¿½llen
     if( TargetItem.id == 2498 ) then
 		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "Du kannst nur eine Flasche befüllen!", "You can only fill one bottle.");
+			base.common.InformNLS(User, "Du kannst nur eine Flasche befï¿½llen!", "You can only fill one bottle.");
 			return;
 		end
         world:makeSound( 10, User.pos )
@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     else
         if TargetItem.id ~= 0 then
 			if ((TargetItem.id==12 or TargetItem.id == 359) and (User.pos.z==100 or User.pos.z==101)) then --Prevents extinguishing campfires on n00bia(needed for the cook-npc)
-				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
+				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du kï¿½nntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
 				base.common.InformNLS(User,"platsch!","splash!");
@@ -79,7 +79,7 @@ function UseItemWithCharacter (Character, SourceItem, TargetCharacter, Counter, 
                  OpenDoor( door );
              end;
 	     
-	         base.common.InformNLS(TargetCharacter, "Du fühlt dich gleich viel sauberer.", "You feel much cleaner.");
+	         base.common.InformNLS(TargetCharacter, "Du fï¿½hlt dich gleich viel sauberer.", "You feel much cleaner.");
 	    end
     end
 end
@@ -107,10 +107,10 @@ function MakeSprout( User, SourceItem, TargetItem )
 
         --User:inform( "skill "..skillwert.." chance "..chance );
         if BlockCheck(TargetItem.pos) then
-	    -- Auf dem Trainingsfeld der Akademie wächst nichts
+	    -- Auf dem Trainingsfeld der Akademie wï¿½chst nichts
 	    if ((( TargetItem.pos.x > 54 ) and ( TargetItem.pos.x < 64 ) and ( TargetItem.pos.y > 35 ) and ( TargetItem.pos.y < 49 )) and ( TargetItem.pos.z == 50)) then
 	        base.common.InformNLS( User,
-                    "Die Erde hier ist völlig ausgebrannt...hier kann nichts wachsen.",
+                    "Die Erde hier ist vï¿½llig ausgebrannt...hier kann nichts wachsen.",
                     "The ground here is totaly burned...here can't grow anything." );
         else
             if CheckSucceed(User) then

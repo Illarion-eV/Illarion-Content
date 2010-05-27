@@ -3,13 +3,13 @@
 -- Rohleder und Felle zu Leder
 
 -- Arbeitscyclus: 2s - 5s
--- Zusätzliches Werkzeug: Rasiermesser ( 2746 )
+-- Zusï¿½tzliches Werkzeug: Rasiermesser ( 2746 )
 
 -- UPDATE common SET com_script='items.2052_stretcher' WHERE com_itemid = 2052;
 
 require("base.common")
 
-module("items.2052_stretcher", package.seeall())
+module("items.2052_stretcher", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
@@ -19,9 +19,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Leatherlist[2586]=2547; --Fell in Leder
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert am Leder gerben.",
+        "Deine Rï¿½stung behindert am Leder gerben.",
         "Your armor disturbes while tanning leather." );
         return
     end
@@ -31,12 +31,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 
     if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
     end
 
     if (User:countItemAt("body",2746)==0) then -- Rasiermesser
         base.common.InformNLS( User,
-        "Du benötigst ein Rasiermesser um das Leder zu gerben.",
+        "Du benï¿½tigst ein Rasiermesser um das Leder zu gerben.",
         "You need a razor blade to tan the leather." );
         return
     end
@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
 
-    if base.common.ToolBreaks( User, Tool, true ) then -- Rasiermesser beschädigen
+    if base.common.ToolBreaks( User, Tool, true ) then -- Rasiermesser beschï¿½digen
         base.common.InformNLS( User,
         "Das Rasiermesser wird stumpf.",
         "The razor blade wents blunt" );
@@ -84,19 +84,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 local selectMessage = math.random(1,5);
                 if ( selectMessage == 1 ) then
                     base.common.InformNLS(User,
-                    "Du wischst dir den Schweiß von der Stirn.",
+                    "Du wischst dir den Schweiï¿½ von der Stirn.",
                     "You wipe sweat off your forehead.");
                 elseif ( selectMessage == 2 ) then
                     base.common.InformNLS(User,
-                    "Du bekommst ein paar feine Haare in den Mund und mußt husten.",
+                    "Du bekommst ein paar feine Haare in den Mund und muï¿½t husten.",
                     "A cloud of fine hairs makes you cough.");
                 elseif ( selectMessage == 3 ) then
                     base.common.InformNLS(User,
-                    "Du überprüfst kurz die bereits gegerbte Stelle auf Unebenheiten",
+                    "Du ï¿½berprï¿½fst kurz die bereits gegerbte Stelle auf Unebenheiten",
                     "You briefly check the quality of the leather.");
                 elseif ( selectMessage == 4 ) then
                     base.common.InformNLS(User,
-                    "Du hälst kurz inne um das Messer ein wenig nachzuschleifen.",
+                    "Du hï¿½lst kurz inne um das Messer ein wenig nachzuschleifen.",
                     "You breaks to sharp your tool a bit.");
                 else
                     base.common.InformNLS(User,
@@ -108,7 +108,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
             User:eraseItem(i,1); -- Rohleder oder Felle entfernen
             notCreated = User:createItem(Leather,1,333,0); -- Leder erstellen
-            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
+            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
                 world:createItemFromId( Leather, notCreated, User.pos, true, 333 ,0);
                 base.common.InformNLS(User,
                 "Du kannst nichts mehr halten.",
@@ -124,7 +124,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User,
-        "Du hast kein Rohleder und keine Felle die du gerben könntest.",
+        "Du hast kein Rohleder und keine Felle die du gerben kï¿½nntest.",
         "You don't have any rawleather or furs you could tan." );
     end
 end
@@ -133,7 +133,7 @@ end
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
 	local Skill = 1;
-    --local Skill  = User:getSkill("dying and tanning");     -- Färben und Gerben: 0 - 100
+    --local Skill  = User:getSkill("dying and tanning");     -- Fï¿½rben und Gerben: 0 - 100
 
     return math.floor(-0.3 * (Attrib + Skill) + 100);
 end

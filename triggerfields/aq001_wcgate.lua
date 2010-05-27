@@ -1,7 +1,7 @@
 -- Location: 28 190 -12
 -- Purpose: invisible wall for secret passage to well, testing for
 
-module("triggerfields.aq001_wcgate", package.seeall())
+module("triggerfields.aq001_wcgate", package.seeall)
 
 function MoveToField( user )
     if world:isItemOnField( position( 28, 190, -12) ) then
@@ -19,7 +19,7 @@ function MoveToField( user )
                 world:changeItem(left);
             else
                 if user:getPlayerLanguage()==0 then
-                    user:inform("Eine unsichtbare Wand hält dich zurück.");
+                    user:inform("Eine unsichtbare Wand hï¿½lt dich zurï¿½ck.");
                 else
                     user:inform("An invisible wall holds you back.");
                 end;

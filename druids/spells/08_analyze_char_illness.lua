@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("druids.spells.08_analyze_char_illness", package.seeall())
+module("druids.spells.08_analyze_char_illness", package.seeall)
 
 -- INSERT INTO spells VALUES (2^7,3,'druids.spells.08_analyze_char_illness');
 
@@ -44,7 +44,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	    
 	else
     base.common.InformNLS( Caster,
-        "Deine Fähigkeiten reichen noch nicht aus.",
+        "Deine Fï¿½higkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end			  	 

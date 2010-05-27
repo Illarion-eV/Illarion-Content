@@ -1,6 +1,6 @@
 require("base.common")
 
-module("items.272_statue", package.seeall())
+module("items.272_statue", package.seeall)
 
 -- UPDATE common SET com_script='items.272_statue' WHERE com_itemid=272;
 
@@ -9,14 +9,14 @@ function UseItem( User, Item, TargetItem, counter, param )
     if equapos(Item.pos,position(-28, 192, -9)) then
         if ( not base.common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
             if lang==0 then
-                User:inform("Während du vorsichtig die Statue abtastest öffnet sich plötzlich eine Luke in der Decke und eine hölzerne Leiter fährt herab.");
+                User:inform("Wï¿½hrend du vorsichtig die Statue abtastest ï¿½ffnet sich plï¿½tzlich eine Luke in der Decke und eine hï¿½lzerne Leiter fï¿½hrt herab.");
             else
                 User:inform("While you carefully feel the statue, suddenly a hatch in the ceiling opens and a wooden ladder slides down.");
             end
             world:createItemFromId( 35, 1, position(-29, 195, -9), true, 999,0 );
         else
             if lang==0 then
-                User:inform("Nachdem du den verborgenen Schalter erneut betätigst gleitet die Leiter zurück in die Decke und die Luke schließt sich wieder.");
+                User:inform("Nachdem du den verborgenen Schalter erneut betï¿½tigst gleitet die Leiter zurï¿½ck in die Decke und die Luke schlieï¿½t sich wieder.");
             else
                 User:inform("After touching the hidden switch again the ladder slides back into the ceiling and the batch closes again.");
             end
@@ -26,7 +26,7 @@ function UseItem( User, Item, TargetItem, counter, param )
         if ((User:increaseAttrib("essence",0)+User:increaseAttrib("willpower",0)+User:increaseAttrib("intelligence",0))>29) then
             User:warp(position(102,56,52));
             if lang==0 then
-                User:inform("Als du die Statue berührst verschwimmt die Welt um dich und dir wird schwummrig. Als du wieder klar siehst, bist du an einem völlig anderen Ort");
+                User:inform("Als du die Statue berï¿½hrst verschwimmt die Welt um dich und dir wird schwummrig. Als du wieder klar siehst, bist du an einem vï¿½llig anderen Ort");
             else
                 User:inform("You touch the statue and the world around you become blurred and you feel a little strange. A moment after you can see clearly again and you are on a completly other place");
             end
@@ -34,7 +34,7 @@ function UseItem( User, Item, TargetItem, counter, param )
     elseif equapos(Item.pos,position(102,55,52)) then
         User:warp(position(-389,-217,2));
         if lang==0 then
-            User:inform("Als du die Statue berührst verschwimmt die Welt um dich und dir wird schwummrig. Als du wieder klar siehst, bist du an einem völlig anderen Ort");
+            User:inform("Als du die Statue berï¿½hrst verschwimmt die Welt um dich und dir wird schwummrig. Als du wieder klar siehst, bist du an einem vï¿½llig anderen Ort");
         else
             User:inform("You touch the statue and the world around you become blurred and you feel a little strange. A moment after you can see clearly again and you are on a completly other place");
         end

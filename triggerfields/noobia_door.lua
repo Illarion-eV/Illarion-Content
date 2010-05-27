@@ -5,12 +5,12 @@
 
 require("base.common")
 
-module("triggerfields.noobia_door", package.seeall())
+module("triggerfields.noobia_door", package.seeall)
 
 function MoveToField(Character)
     if Character:getQuestProgress(2) == 49 then
 		base.common.InformNLS(Character,
-		"Um eine Türe zu öffnen oder zu schließen, benutze einfach die Türe.",
+		"Um eine Tï¿½re zu ï¿½ffnen oder zu schlieï¿½en, benutze einfach die Tï¿½re.",
 		"To open or close a door, just use the door.")
 		Character:setQuestProgress(2,50);
 	end

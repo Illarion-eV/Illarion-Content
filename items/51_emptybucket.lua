@@ -4,7 +4,7 @@
 
 require("base.common")
 
-module("items.51_emptybucket", package.seeall())
+module("items.51_emptybucket", package.seeall)
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     local Field = world:getField(TargetPos);
@@ -25,7 +25,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
 	else
-		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
+		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schï¿½pfen.", "You need to stand in front of the well to scoop water.");
 	end
 end
 
@@ -35,7 +35,7 @@ function FillBucket( User, SourceItem )
     cntBuckets = User:countItemAt( "body", 51 );
     if ( cntBuckets > 1 ) then
         base.common.InformNLS( User, 
-        "Du kannst immer nur einen Eimer befüllen.",
+        "Du kannst immer nur einen Eimer befï¿½llen.",
         "You can only fill one bucket at once.");
     elseif ( cntBuckets == 1 ) and (SourceItem.number == 1) then
         if base.common.FitForWork( User ) then

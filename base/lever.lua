@@ -1,6 +1,6 @@
 require("base.class")
 
-module("base.lever", package.seeall())
+module("base.lever", package.seeall)
 
 Lever = base.class.class(function(lev, posi, twoState)    -- defines a class
     lev.pos = posi;                             -- this is the constructor!!!!

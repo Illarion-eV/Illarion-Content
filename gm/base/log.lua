@@ -1,5 +1,5 @@
 -- Log System von GM Actionen
-module("gm.base.log", package.seeall())
+module("gm.base.log", package.seeall)
 
 function Write(User, Text)
     if (Text~=nil and Text~="") then

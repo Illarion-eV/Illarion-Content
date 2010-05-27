@@ -1,6 +1,6 @@
 require("base.common")
 
-module("base.doors", package.seeall())
+module("base.doors", package.seeall)
 
 OpenDoors = {};
 ClosedDoors = {};

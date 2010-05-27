@@ -1,6 +1,6 @@
 require("base.books")
 
-module("content.books.dwarfpoems", package.seeall())
+module("content.books.dwarfpoems", package.seeall)
 
 -- This file contains the book data for the book "Dwarven Poems"
 
@@ -52,46 +52,46 @@ function loadBook(toData)
     
     base.books.AddGermanBookText( " Brendill's Lied ", 0, 0,toData);
     base.books.AddGermanBookText( " Ein Zwerg ist er, wie euch gewahrt, \nmit mancher lust'gen Eigenart. \nWer mit ihm um die Wette trinkt, \nmeist vor ihm unter'm Tisch versinkt. \n ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Er liebt den Trank, den Spaß, die Freiheit, \ndoch ist er nicht von höchster Weisheit! ", 0, 0,toData);
-    base.books.AddGermanBookText( " Die Axt schwingt er mit Leidenschaft, \ngeschickt ist er, und hat auch Kraft. \nOhne Zaudern, dafür mit Schneid, \ndurchschlug er vielen schon den Leib.", 0, 0,toData);   
-    base.books.AddGermanBookText( " Stolz er stets seine Äxte schwingt, \nund er auch aus jedem Winkel stinkt! ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Er hebt das Fass ganz ohne Müh'n, \ndoch kann er selbst kaum drüber seh'n. \nUnd da's dem Zwerg an Göße fehlt, \nhat er lieber Kraft und Wissen g'wählt. ", 0, 0,toData);
-    base.books.AddGermanBookText( " Die Kraft braucht er zum Humpen heben, \ndas Wissen für den Inhalt eben. ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Er liebt den Trank, den Spaï¿½, die Freiheit, \ndoch ist er nicht von hï¿½chster Weisheit! ", 0, 0,toData);
+    base.books.AddGermanBookText( " Die Axt schwingt er mit Leidenschaft, \ngeschickt ist er, und hat auch Kraft. \nOhne Zaudern, dafï¿½r mit Schneid, \ndurchschlug er vielen schon den Leib.", 0, 0,toData);   
+    base.books.AddGermanBookText( " Stolz er stets seine ï¿½xte schwingt, \nund er auch aus jedem Winkel stinkt! ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Er hebt das Fass ganz ohne Mï¿½h'n, \ndoch kann er selbst kaum drï¿½ber seh'n. \nUnd da's dem Zwerg an Gï¿½ï¿½e fehlt, \nhat er lieber Kraft und Wissen g'wï¿½hlt. ", 0, 0,toData);
+    base.books.AddGermanBookText( " Die Kraft braucht er zum Humpen heben, \ndas Wissen fï¿½r den Inhalt eben. ", 0, 0,toData);   
     base.books.AddGermanBookText( " Das allerbeste Bier er macht, \ndas 'reinhaut, dass die Schwarte kracht! \nWem's in die Kehle runterrieselt', \nhat meist danach sich vollgepieselt. ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Und Brendill darüber herzlichst lacht, \nobwohl ihm's passiert vor jeder Schlacht! ", 0, 0,toData);
-    base.books.AddGermanBookText( " Viel Spaß wir mit ihm schon gehabt, \ner ist uns treuer Kamerad. \nMit ihm geht Frohsinn stets einher, \nund ich muss gesteh'n: Ich mag ihn sehr! ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Und Brendill darï¿½ber herzlichst lacht, \nobwohl ihm's passiert vor jeder Schlacht! ", 0, 0,toData);
+    base.books.AddGermanBookText( " Viel Spaï¿½ wir mit ihm schon gehabt, \ner ist uns treuer Kamerad. \nMit ihm geht Frohsinn stets einher, \nund ich muss gesteh'n: Ich mag ihn sehr! ", 0, 0,toData);     
     base.books.AddGermanBookText( " Obwohl man's von ihm lang' schon kennt, \ndass er gern nackend umherrennt! \nGryphius Messerzunge", 0, 0,toData);     
     base.books.AddGermanBookText( " Das Lied der Erde aus der Thiron Saga ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Da lebt tief unter der Erde, \nein Volk das nennt sich Zwerge, \nwir sind nich groß dafür aber breit, \nund nie zu nem Kampf nich bereit, ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Da lebt tief unter der Erde, \nein Volk das nennt sich Zwerge, \nwir sind nich groï¿½ dafï¿½r aber breit, \nund nie zu nem Kampf nich bereit, ", 0, 0,toData);     
     base.books.AddGermanBookText( " Wer nem Zwergen klaut das Bier, \nden siehst du niewieder hier. ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Doch vor langer Zeit einmal, \ngabs einen der uns alles stahl, \nden Wind, die Bäume und die Sonne, \ndas war wahrlich keine Wonne, ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Doch vor langer Zeit einmal, \ngabs einen der uns alles stahl, \nden Wind, die Bï¿½ume und die Sonne, \ndas war wahrlich keine Wonne, ", 0, 0,toData);     
     base.books.AddGermanBookText( " doch er nahm uns auch das Gold, \nnun war uns wirklich nichts mehr hold. ", 0, 0,toData);     
     base.books.AddGermanBookText( " Thiron unser Retter er fing den Wind, \nThiron unser Retter er befreite die Sonne, \nThiron unser Retter er half dem wilden Tier, \nThiron unser Retter er pflazte erneut den ersten Baum, ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Und nun wacht er still über uns un' unsern Glaubm'. ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Später ward alles wieder Gut, \nverflogen war des Schöpfers Wut, \nThiron lehrte die seinen die Ehre, \nThiron lehrte die seinen den Mut, ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Und nun wacht er still ï¿½ber uns un' unsern Glaubm'. ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Spï¿½ter ward alles wieder Gut, \nverflogen war des Schï¿½pfers Wut, \nThiron lehrte die seinen die Ehre, \nThiron lehrte die seinen den Mut, ", 0, 0,toData);     
     base.books.AddGermanBookText( " und so schuf er Irmoroms Waffenknechte \nman war das gut! ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Später herschte wieder Frieden bei jedem Zwerg, \nUnd Thiron lehrte sie ... tief drinnen im Berg, \nUnd Thiron lehrte sie die Worte Irmoroms, \nUnd Thiron lehrte sie die Weisheit, ", 0, 0,toData);     
-    base.books.AddGermanBookText( " und so schuf er die Jünger Irmoroms, \nMan war das gescheit! ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Spï¿½ter herschte wieder Frieden bei jedem Zwerg, \nUnd Thiron lehrte sie ... tief drinnen im Berg, \nUnd Thiron lehrte sie die Worte Irmoroms, \nUnd Thiron lehrte sie die Weisheit, ", 0, 0,toData);     
+    base.books.AddGermanBookText( " und so schuf er die Jï¿½nger Irmoroms, \nMan war das gescheit! ", 0, 0,toData);     
     base.books.AddGermanBookText( " Thiron unser Retter er fing den Wind, \nThiron unser Retter er befreite die Sonne, \nThiron unser Retter er half dem wilden Tier, \nThiron unser Retter er pflazte erneut den ersten Baum, ", 0, 0,toData);    
-    base.books.AddGermanBookText( " Und nun wacht er still über uns un' unsern Glaubm'. ", 0, 0,toData);     
-    base.books.AddGermanBookText( " Tja die Tage sin' nu lang vergangen, \ndoch kein Zwerg muss bangen, \ndenn noch Heute wachen die Schüler Thirons über unsch, \ndenn so war es des Vaters einz'ger Wunsch, ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Und nun wacht er still ï¿½ber uns un' unsern Glaubm'. ", 0, 0,toData);     
+    base.books.AddGermanBookText( " Tja die Tage sin' nu lang vergangen, \ndoch kein Zwerg muss bangen, \ndenn noch Heute wachen die Schï¿½ler Thirons ï¿½ber unsch, \ndenn so war es des Vaters einz'ger Wunsch, ", 0, 0,toData);     
     base.books.AddGermanBookText( " so last uns ihnen danken, \nsie weisen das Unheil in seine Schranken, \nalso den Metkrug in die Hand dir nimm, \nund schrei ganz laut: \"Prost Thorgrimm!\"", 0, 0,toData);     
-    base.books.AddGermanBookText( " Zwerge mit Bärten ", 0, 0,toData);    
+    base.books.AddGermanBookText( " Zwerge mit Bï¿½rten ", 0, 0,toData);    
     base.books.AddGermanBookText( " Hohoho, hohoo, ho, \nhohoho, hohoo, ho! ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Alle, die mit uns die große Axt schwingen, \nmüssen Zwerge mit Bärten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bärte, die haben Bärte, ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bärte, die schwingen mit! ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Alle, die mit uns die groï¿½e Axt schwingen, \nmï¿½ssen Zwerge mit Bï¿½rten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die haben Bï¿½rte, ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die schwingen mit! ", 0, 0,toData);   
     base.books.AddGermanBookText( " Hohoho, hohoo, ho, \nhohoho, hohoo, ho! ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Alle, die mit uns im Berge graben, \nmüssen Zwerge mit Bärten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bärte, die haben Bärte, ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bärte, die graben mit! ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Alle, die mit uns im Berge graben, \nmï¿½ssen Zwerge mit Bï¿½rten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die haben Bï¿½rte, ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die graben mit! ", 0, 0,toData);   
     base.books.AddGermanBookText( " Hohoho, hohoo, ho, \nhohoho, hohoo, ho!", 0, 0,toData);   
-    base.books.AddGermanBookText( " Alle, die mit uns Kristalle schürfen, \nmüssen Zwerge mit Bärten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bärte, die haben Bärte, ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bärte, die schürfen mit! ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Alle, die mit uns Kristalle schï¿½rfen, \nmï¿½ssen Zwerge mit Bï¿½rten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die haben Bï¿½rte, ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die schï¿½rfen mit! ", 0, 0,toData);   
     base.books.AddGermanBookText( " Hohoho, hohoo, ho, \nhohoho, hohoo, ho! ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Alle, die mit uns den Bierhumpen heben, \nmüssen Zwerge mit Bärten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bärte, die haben Bärte, ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bärte, die heben mit! ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Alle, die mit uns den Bierhumpen heben, \nmï¿½ssen Zwerge mit Bï¿½rten sein. \nOin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die haben Bï¿½rte, ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Oin, Gloin, im Zwergentritt, \ndie haben Bï¿½rte, die heben mit! ", 0, 0,toData);   
     base.books.AddGermanBookText( " Hohoho, hohoo, ho, \nhohoho, hohoo, ho! ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Will eine Frau sich zu uns gesellen, \nmuss sie 'ne Zwergin mit Bärtchen sein. \nMoira, Aldrun und die Grut, \ndie haben Bärtchen, die haben Bärtchen, ", 0, 0,toData);   
-    base.books.AddGermanBookText( " Moira, Aldrun und die Grut, \ndie haben Bärtchen, die steh'n uns gut.", 0, 0,toData);
+    base.books.AddGermanBookText( " Will eine Frau sich zu uns gesellen, \nmuss sie 'ne Zwergin mit Bï¿½rtchen sein. \nMoira, Aldrun und die Grut, \ndie haben Bï¿½rtchen, die haben Bï¿½rtchen, ", 0, 0,toData);   
+    base.books.AddGermanBookText( " Moira, Aldrun und die Grut, \ndie haben Bï¿½rtchen, die steh'n uns gut.", 0, 0,toData);
 end;
 
 function loadTitle(toData)

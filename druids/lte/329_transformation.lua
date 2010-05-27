@@ -1,9 +1,9 @@
--- LTE für das Druidensystem
+-- LTE fï¿½r das Druidensystem
 -- by Falk
--- Zeitverlauf und Rückwandlung bei Verwandlungen
+-- Zeitverlauf und Rï¿½ckwandlung bei Verwandlungen
 require("base.common")
 
-module("druids.lte.329_transformation", package.seeall())
+module("druids.lte.329_transformation", package.seeall)
 
 -- INSERT INTO longtimeeffects VALUES (329, 'druids_transformation', 'druids.lte.329_transformation');
 
@@ -15,9 +15,9 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 	--Character:inform("debug func addEffect")
 end
 
-function callEffect(Effect,Character)                  -- Effect wird ausgeführt
+function callEffect(Effect,Character)                  -- Effect wird ausgefï¿½hrt
 --Character:inform("debug func callEffect")
---Erst einmal kommt der Rundenzähler  
+--Erst einmal kommt der Rundenzï¿½hler  
 	find,zaehler = Effect:findValue("zaehler")
 	if find then
 		zaehler = zaehler -1
@@ -26,7 +26,7 @@ function callEffect(Effect,Character)                  -- Effect wird ausgeführt
 		end
 		Effect:addValue("zaehler", zaehler)
 		--Character:inform("Runde "..zaehler) 
-		Effect.nextCalled = 10  -- nächster Aufruf in 1 Sekunde 
+		Effect.nextCalled = 10  -- nï¿½chster Aufruf in 1 Sekunde 
 		--Hier jetzt die Aktionen, die pro Runde passieren sollen
 		getAction(Character,Effect,zaehler)
 
@@ -44,7 +44,7 @@ function removeEffect(Effect,Character)
 	--Character:inform("debug func removeEffect") 
 	find,old_race = Effect:findValue("old_race")
 	if find then
-		--Rückverwandlung in die alte Rasse
+		--Rï¿½ckverwandlung in die alte Rasse
 		Character:setAttrib("racetyp",old_race)      
 	else
 		Character:inform("LTE-Error 1: please call dev")     

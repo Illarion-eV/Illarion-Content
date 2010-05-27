@@ -3,7 +3,7 @@
 
 require("base.common")
 
-module("base.treasure", package.seeall())
+module("base.treasure", package.seeall)
 
     function GetTreasureName( level, lang, details )
         if details then
@@ -12,7 +12,7 @@ module("base.treasure", package.seeall())
             elseif ( level == 2 ) then
                 return ( lang == 0 and "vergrabenes Diebesgut" or "buried stolen goods" );
             elseif ( level == 3 ) then
-                return ( lang == 0 and "vergrabene Beute von Straßenräubern" or "buried loot of bandits" );
+                return ( lang == 0 and "vergrabene Beute von Straï¿½enrï¿½ubern" or "buried loot of bandits" );
             elseif ( level == 4 ) then
                 return ( lang == 0 and "ein Schmugglerversteck" or "a hiding place of smugglers loot" );
             elseif ( level == 5 ) then
@@ -34,9 +34,9 @@ module("base.treasure", package.seeall())
             elseif ( level <= 2 ) then
                 return ( lang == 0 and "einen kleinen Schatz" or "a small treasure" );
             elseif ( level <= 4 ) then
-                return ( lang == 0 and "einen mittelgroßen Schatz" or "an average sized treasure" );
+                return ( lang == 0 and "einen mittelgroï¿½en Schatz" or "an average sized treasure" );
             elseif ( level <= 7 ) then
-                return ( lang == 0 and "einen großen Schatz" or "a big treasure" );
+                return ( lang == 0 and "einen groï¿½en Schatz" or "a big treasure" );
             else
                 return ( lang == 0 and "einen riesigen Schatz" or "a giant treasure" );
             end
@@ -195,7 +195,7 @@ module("base.treasure", package.seeall())
         elseif ( metricDistance < 500 ) then
             return base.common.GetNLS( User, "sehr fern", "very far" );
         else 
-            return base.common.GetNLS( User, "äußerst fern", "extremely far" );
+            return base.common.GetNLS( User, "ï¿½uï¿½erst fern", "extremely far" );
         end
     end
 
@@ -215,11 +215,11 @@ module("base.treasure", package.seeall())
         elseif ( dir == 2 ) then
             return base.common.GetNLS( User, "Osten", "east" );
         elseif ( dir == 3 ) then
-            return base.common.GetNLS( User, "Südosten", "southeast" );
+            return base.common.GetNLS( User, "Sï¿½dosten", "southeast" );
         elseif ( dir == 4 ) then
-            return base.common.GetNLS( User, "Süden", "south" );
+            return base.common.GetNLS( User, "Sï¿½den", "south" );
         elseif ( dir == 5 ) then
-            return base.common.GetNLS( User, "Südwesten", "southwest" );
+            return base.common.GetNLS( User, "Sï¿½dwesten", "southwest" );
         elseif ( dir == 6 ) then
             return base.common.GetNLS( User, "Westen", "west" );
         elseif ( dir == 7 ) then
@@ -313,7 +313,7 @@ module("base.treasure", package.seeall())
             User:inform( foundMessage );
         else
             base.common.TempInformNLS( User,
-            "Du gräbst den Schatz aus dem Boden aus und musst dabei leider feststellen, dass der Schatz einige Wächter hat.",
+            "Du grï¿½bst den Schatz aus dem Boden aus und musst dabei leider feststellen, dass der Schatz einige Wï¿½chter hat.",
             "You dig the treasure out of the ground and realize that the treasure sadly has some guards." );
         end
 
@@ -328,7 +328,7 @@ module("base.treasure", package.seeall())
             User.effects:addEffect(treasureEff);
         else
             InformNLS(User,
-                "Du hast schon einen Schatz ausgegraben und die Wächter noch nicht besiegt.",
+                "Du hast schon einen Schatz ausgegraben und die Wï¿½chter noch nicht besiegt.",
                 "You already dug out a treasure and didn't overcome the guardians." );
             treasureEff.nextCalled =20;
         end

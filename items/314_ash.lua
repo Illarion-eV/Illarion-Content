@@ -1,6 +1,6 @@
 require("base.common")
 
-module("items.314_ash", package.seeall())
+module("items.314_ash", package.seeall)
 
 -- UPDATE common SET com_script='items.314_ash' WHERE com_itemid = 314;
 
@@ -14,19 +14,19 @@ function LookAtItem(User,Item)
 
     if ( Item.quality == 101) then -- Mummie
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst grünliche Asche");
+            world:itemInform(User,Item,"Du siehst grï¿½nliche Asche");
         else
             world:itemInform(User,Item,"You see greenish ash");
         end
     elseif ( Item.quality == 111 ) then -- Skeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst rein weiße Asche");
+            world:itemInform(User,Item,"Du siehst rein weiï¿½e Asche");
         else
             world:itemInform(User,Item,"You see pure white ash");
         end
     elseif ( Item.quality == 171 ) then -- Demonskeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst rötliche Asche");
+            world:itemInform(User,Item,"Du siehst rï¿½tliche Asche");
         else
             world:itemInform(User,Item,"You see reddish ash");
         end
@@ -38,7 +38,7 @@ function LookAtItem(User,Item)
         end
     elseif ( Item.quality == 231 ) then --Ghostskeleton
         if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Du siehst bläuliche Asche");
+            world:itemInform(User,Item,"Du siehst blï¿½uliche Asche");
         else
             world:itemInform(User,Item,"You see blueish ash");
         end
