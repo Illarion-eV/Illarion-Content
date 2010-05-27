@@ -1,5 +1,5 @@
 require("base.common")
-require("base_factions");
+require("base.factions");
 module("npcs.base.orders")
 
 --Welches Item ist ein Auftrag (Schriftrolle)

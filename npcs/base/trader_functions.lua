@@ -2,7 +2,7 @@
 -- Nitram
 
 require("content.genus")
-require("base_factions")
+require("base.factions")
 
 module("npcs.base.trader_functions")
 

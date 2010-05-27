@@ -2,7 +2,7 @@
 
 require("npcs.base.patrol");
 require("base.common")
-require("base_factions");
+require("base.factions");
 module("npcs.base.guards")
 
 BG_Faction = 0;						-- faction of the guard

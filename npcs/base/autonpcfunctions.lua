@@ -3,7 +3,7 @@
 --
 -- By martin and nitram
 ---------------------------------------------------------------------------
-require("base_factions")
+require("base.factions")
 module("npcs.base.autonpcfunctions")
 
 --[[
