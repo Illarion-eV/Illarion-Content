@@ -9,7 +9,7 @@
 ]]
 
 -- including the main script for teleport spells
-dofile("m_teleportspell.lua");
+require("magic.base.teleportspell");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_09_15_tp-self.lua";

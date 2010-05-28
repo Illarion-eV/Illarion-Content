@@ -9,7 +9,7 @@
 ]]
 
 -- including the main script for get-item spells
-dofile("m_itemmovespell.lua");
+require("magic.base.itemmovespell");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_15_21_23_get-heavy-items.lua";

@@ -4,7 +4,7 @@
 -- Spruchrollen Zauber
 -- Beschwörungs Zauber
 
-dofile("m_basics.lua");
+require("magic.base.basics");
 
 function InitSpell() -- Spell Grundeinstellungen
     Difficult=75;

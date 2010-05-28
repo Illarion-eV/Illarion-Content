@@ -9,7 +9,7 @@
 ]]
 
 -- including the main script for item spells
-dofile("m_itemspell.lua");
+require("magic.base.itemspell");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_11_14_16_23_poisoncloud.lua";

@@ -9,7 +9,7 @@
 ]]
 
 -- including the main script for gfx spells
-dofile("m_creaturspell.lua");
+require("magic.base.creaturspell");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_09_11_summ_harml-creature.lua";

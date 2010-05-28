@@ -8,7 +8,7 @@
     SQL:    INSERT INTO spells VALUES (2^0+2^14+2^20+2^22,0,'m_01_15_21_23_open-tp-gate.lua');
 ]]
 
-dofile( "m_basics.lua" );
+require("magic.base.basics");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_15_21_23_open-tp-gate.lua";

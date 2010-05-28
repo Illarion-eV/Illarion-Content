@@ -8,7 +8,7 @@
     SQL:    INSERT INTO spells VALUES (2^17+2^25,0,'m_18_26_teach-sih.lua');
 ]]
 
-dofile("m_teachspell.lua");
+require("magic.base.teachspell");
 
 -- Informations about the rune
 Rune = {

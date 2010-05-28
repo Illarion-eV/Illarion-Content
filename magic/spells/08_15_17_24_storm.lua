@@ -15,7 +15,7 @@
 ]]
 
 -- including the main script for gfx spells
-dofile("m_gfxspell.lua");
+require("magic.base.gfxspell");
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_08_15_17_24_storm.lua";
