@@ -6,7 +6,7 @@ require("base.messages");
 function ini(Monster)
 
 init=true;
-iniQuests();
+monster.base.quest.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
@@ -31,7 +31,7 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     local MonID=Monster:get_mon_type();
     if (MonID==126) then
@@ -46,13 +46,13 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     local MonID=Monster:get_mon_type();
     if (MonID==126) then
         world:gfx(9,Monster.pos);
     end
-    if DefaultSlowdown( Monster ) then
+    if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     else
         return false
@@ -87,17 +87,17 @@ function onDeath(Monster)
     
         if murderer then --Checking for quests
 
-            checkQuest(murderer,Monster);
+            monster.base.quest.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
         end
     end
 
-    ClearDropping();
+    monster.base.drop.Clearmonster.base.drop.Dropping();
     local MonID=Monster:get_mon_type();
 
-    AddDropItem(2529,1,100,333,0,1); --honeycombs
+    monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs
 
     if (MonID==126) then -- wasp of Fire!!!
 
@@ -109,7 +109,7 @@ function onDeath(Monster)
         HitChar(SourceItem.pos,3000,Monster.pos);
 
     end
-    Dropping(Monster);
+    monster.base.drop.Dropping(Monster);
 end
 
 function CreateCircle(gfxid,Damage,CenterPos,Radius,setFlames)

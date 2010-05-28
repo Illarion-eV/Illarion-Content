@@ -6,7 +6,7 @@ require("base.messages");
 function ini(Monster)
 
 init=true;
-iniQuests();
+monster.base.quest.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
@@ -76,7 +76,7 @@ function FireBreath(Monster,Enemy)
                 end
             end
         else
-            CastMonMagic(Monster,Enemy,1,{2500,2500},{{9,5}},{},0,1)
+            monster.base.drop.CastMonMagic(Monster,Enemy,1,{2500,2500},{{9,5}},{},0,1)
         end
     end
     growltry=math.random(1,8);
@@ -100,7 +100,7 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     return ( FireBreath(Monster,Enemy) == true );
 end
@@ -112,9 +112,9 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    if DefaultSlowdown( Monster ) then
+    if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     else
         return ( FireBreath(Monster,Enemy) == true );
@@ -147,163 +147,163 @@ function onDeath(Monster)
     
         if murderer then --Checking for quests
 
-            checkQuest(murderer,Monster);
+            monster.base.quest.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
         end
     end
 
-    ClearDropping();
+    monster.base.drop.Clearmonster.base.drop.Dropping();
     local MonID=Monster:get_mon_type();
     if (MonID==261) then --Fire Dragon, Level: 8, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor
 
-        local done=AddDropItem(447,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --ruby powder
-        if not done then done=AddDropItem(449,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --blackstone powder
-        if not done then done=AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
-        if not done then done=AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
-        if not done then done=AddDropItem(450,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --amethyst powder
+        local done=monster.base.drop.AddDropItem(447,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --ruby powder
+        if not done then done=monster.base.drop.AddDropItem(449,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --blackstone powder
+        if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(450,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --amethyst powder
 
         --Category 2: Special loot
 
-        local done=AddDropItem(45,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --emerald
-        if not done then done=AddDropItem(285,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --diamond
-        if not done then done=AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
-        if not done then done=AddDropItem(198,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --topaz
-        if not done then done=AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic amethyst
+        local done=monster.base.drop.AddDropItem(45,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --emerald
+        if not done then done=monster.base.drop.AddDropItem(285,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --diamond
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic amethyst
 
         --Category 3: Weapon
 
-        local done=AddDropItem(281,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --emerald ring
-        if not done then done=AddDropItem(280,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --diamond ring
-        if not done then done=AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --ruby ring
-        if not done then done=AddDropItem(282,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
-        if not done then done=AddDropItem(277,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --amethyst ring
+        local done=monster.base.drop.AddDropItem(281,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --emerald ring
+        if not done then done=monster.base.drop.AddDropItem(280,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --ruby ring
+        if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
+        if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --amethyst ring
 
         --Category 4: Perma Loot
-        AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
 
     elseif (MonID==262) then --Fire Dragon Cub, Level: 7, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor
 
-        local done=AddDropItem(450,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --amethyst powder
-        if not done then done=AddDropItem(446,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --bluestone powder
-        if not done then done=AddDropItem(236,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --gold ingot
-        if not done then done=AddDropItem(2745,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --parchment
-        if not done then done=AddDropItem(447,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --ruby powder
+        local done=monster.base.drop.AddDropItem(450,1,20,(100*math.random(6,7)+math.random(66,77)),0,1); --amethyst powder
+        if not done then done=monster.base.drop.AddDropItem(446,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --bluestone powder
+        if not done then done=monster.base.drop.AddDropItem(236,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --gold ingot
+        if not done then done=monster.base.drop.AddDropItem(2745,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --parchment
+        if not done then done=monster.base.drop.AddDropItem(447,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --ruby powder
 
         --Category 2: Special loot
 
-        local done=AddDropItem(284,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --bluestone
-        if not done then done=AddDropItem(45,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --emerald
-        if not done then done=AddDropItem(197,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --amethyst
-        if not done then done=AddDropItem(285,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --diamond
-        if not done then done=AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone
+        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --bluestone
+        if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --emerald
+        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --amethyst
+        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --diamond
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --blackstone
 
         --Category 3: Weapon
 
-        local done=AddDropItem(279,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --bluestone ring
-        if not done then done=AddDropItem(281,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --emerald ring
-        if not done then done=AddDropItem(277,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --amethyst ring
-        if not done then done=AddDropItem(280,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --diamond ring
-        if not done then done=AddDropItem(278,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --blackstone ring
+        local done=monster.base.drop.AddDropItem(279,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(281,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --emerald ring
+        if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --amethyst ring
+        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --blackstone ring
 
         --Category 4: Perma Loot
-        AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
 
 
     elseif (MonID==263) then --Big Red Dragon, Level: 8, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor
 
-        local done=AddDropItem(451,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --topaz powder
-        if not done then done=AddDropItem(448,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --emerald powder
-        if not done then done=AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
-        if not done then done=AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
-        if not done then done=AddDropItem(446,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --bluestone powder
+        local done=monster.base.drop.AddDropItem(451,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --topaz powder
+        if not done then done=monster.base.drop.AddDropItem(448,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --emerald powder
+        if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --bluestone powder
 
         --Category 2: Special loot
 
-        local done=AddDropItem(198,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --topaz
-        if not done then done=AddDropItem(284,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone
-        if not done then done=AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --blackstone
-        if not done then done=AddDropItem(45,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --emerald
-        if not done then done=AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic ruby
+        local done=monster.base.drop.AddDropItem(198,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --topaz
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --emerald
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic ruby
 
         --Category 3: Weapon
 
-        local done=AddDropItem(282,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --topaz ring
-        if not done then done=AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --bluestone ring
-        if not done then done=AddDropItem(278,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --blackstone ring
-        if not done then done=AddDropItem(281,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --emerald ring
-        if not done then done=AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --ruby ring
+        local done=monster.base.drop.AddDropItem(282,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --topaz ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(281,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --emerald ring
+        if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
 
     elseif (MonID==264) then --Ancient Fire Dragon, Level: 8, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor
 
-        local done=AddDropItem(452,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --diamond powder
-        if not done then done=AddDropItem(225,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --crown
-        if not done then done=AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
-        if not done then done=AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
-        if not done then done=AddDropItem(449,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --blackstone powder
+        local done=monster.base.drop.AddDropItem(452,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --diamond powder
+        if not done then done=monster.base.drop.AddDropItem(225,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --crown
+        if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg
+        if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(449,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --blackstone powder
 
         --Category 2: Special loot
 
-        local done=AddDropItem(285,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --diamond
-        if not done then done=AddDropItem(198,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --topaz
-        if not done then done=AddDropItem(284,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone
-        if not done then done=AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --amethyst
-        if not done then done=AddDropItem(45,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic emerald
+        local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --diamond
+        if not done then done=monster.base.drop.AddDropItem(198,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --topaz
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --amethyst
+        if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic emerald
 
         --Category 3: Weapon
 
-        local done=AddDropItem(280,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --diamond ring
-        if not done then done=AddDropItem(282,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
-        if not done then done=AddDropItem(279,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --bluestone ring
-        if not done then done=AddDropItem(277,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --amethyst ring
-        if not done then done=AddDropItem(281,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --emerald ring
+        local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(7,8)+math.random(77,88)),0,3); --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(282,1,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --topaz ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --amethyst ring
+        if not done then done=monster.base.drop.AddDropItem(281,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --emerald ring
 
         --Category 4: Perma Loot
-        AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
 
 
     elseif (MonID==265) then --Son of Bragon, Level: 9, Armourtype: -, Weapontype: wrestling
 
         --Category 1: Armor
 
-        local done=AddDropItem(738,1,20,(100*math.random(8,9)+math.random(88,99)),0,1); --dragon egg
-        if not done then done=AddDropItem(505,1,10,(100*math.random(8,9)+math.random(88,99)),nil,1); end --treasure map
-        if not done then done=AddDropItem(448,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --emerald powder
-        if not done then done=AddDropItem(451,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --topaz powder
-        if not done then done=AddDropItem(452,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --diamond powder
+        local done=monster.base.drop.AddDropItem(738,1,20,(100*math.random(8,9)+math.random(88,99)),0,1); --dragon egg
+        if not done then done=monster.base.drop.AddDropItem(505,1,10,(100*math.random(8,9)+math.random(88,99)),nil,1); end --treasure map
+        if not done then done=monster.base.drop.AddDropItem(448,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --emerald powder
+        if not done then done=monster.base.drop.AddDropItem(451,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --topaz powder
+        if not done then done=monster.base.drop.AddDropItem(452,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --diamond powder
 
         --Category 2: Special loot
 
-        local done=AddDropItem(46,1,20,(100*math.random(8,9)+math.random(88,99)),0,2); --ruby
-        if not done then done=AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
-        if not done then done=AddDropItem(285,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic diamond
-        if not done then done=AddDropItem(198,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic topaz
-        if not done then done=AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic bluestone
+        local done=monster.base.drop.AddDropItem(46,1,20,(100*math.random(8,9)+math.random(88,99)),0,2); --ruby
+        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic diamond
+        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic topaz
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic bluestone
 
         --Category 3: Weapon
 
-        local done=AddDropItem(68,1,20,(100*math.random(8,9)+math.random(88,99)),0,3); --ruby ring
-        if not done then done=AddDropItem(278,1,10,(100*math.random(8,9)+math.random(88,99)),0,3); end --blackstone ring
-        if not done then done=AddDropItem(280,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --diamond ring
-        if not done then done=AddDropItem(282,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --topaz ring
-        if not done then done=AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --bluestone ring
+        local done=monster.base.drop.AddDropItem(68,1,20,(100*math.random(8,9)+math.random(88,99)),0,3); --ruby ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(8,9)+math.random(88,99)),0,3); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --diamond ring
+        if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --topaz ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --bluestone ring
 
         --Category 4: Perma Loot
-        AddDropItem(3077,math.random(9,27),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(9,27),100,333,0,4); --silver coins
 
     elseif (MonID==266) then
         -- Drops
@@ -316,5 +316,5 @@ function onDeath(Monster)
     else
         --Drops
     end
-    Dropping(Monster);
+    monster.base.drop.Dropping(Monster);
 end

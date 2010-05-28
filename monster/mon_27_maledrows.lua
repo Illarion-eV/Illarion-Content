@@ -6,7 +6,7 @@ require("base.messages");
 function ini(Monster)
 
 init=true;
-iniQuests();
+monster.base.quest.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
@@ -37,13 +37,13 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     local MonID=Monster:get_mon_type();
     if (MonID==273) then
-        return ( CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
     elseif (MonID==274) then
-        return ( CastMonster(Monster,Enemy,8,{101,111},40) == true );
+        return ( monster.base.drop.CastMonster(Monster,Enemy,8,{101,111},40) == true );
     else
         return false;
     end
@@ -56,14 +56,14 @@ function enemyOnSight(Monster,Enemy)
         ini(Monster);
     end
 
-    MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    if DefaultSlowdown( Monster ) then
+    if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==273) then
-        return ( CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,3,{2000,3000},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1) == true );
     elseif (MonID==274) then
-        return ( CastMonster(Monster,Enemy,8,{101,111},40) == true );
+        return ( monster.base.drop.CastMonster(Monster,Enemy,8,{101,111},40) == true );
     else
         return false;
     end
@@ -95,163 +95,163 @@ function onDeath(Monster)
     
         if murderer then --Checking for quests
 
-            checkQuest(murderer,Monster);
+            monster.base.quest.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
         end
     end
     
-    ClearDropping();
+    monster.base.drop.Clearmonster.base.drop.Dropping();
     local MonID=Monster:get_mon_type();
     if (MonID==271) then --Drow, Level: 6, Armourtype: light, Weapontype: slashing
 
         --Category 1: Armor
 
-        local done=AddDropItem(2284,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --shield of the sky
-        if not done then done=AddDropItem(526,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --studded leather gloves
-        if not done then done=AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
-        if not done then done=AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
-        if not done then done=AddDropItem(2399,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --light elven armor
+        local done=monster.base.drop.AddDropItem(2284,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --shield of the sky
+        if not done then done=monster.base.drop.AddDropItem(526,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --studded leather gloves
+        if not done then done=monster.base.drop.AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
+        if not done then done=monster.base.drop.AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
+        if not done then done=monster.base.drop.AddDropItem(2399,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --light elven armor
 
         --Category 2: Special loot
 
-        local done=AddDropItem(104,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --silver ingot
-        if not done then done=AddDropItem(1858,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --silver goblet
-        if not done then done=AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
-        if not done then done=AddDropItem(175,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --black cloth
-        if not done then done=AddDropItem(176,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --grey cloth
+        local done=monster.base.drop.AddDropItem(104,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --silver ingot
+        if not done then done=monster.base.drop.AddDropItem(1858,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --silver goblet
+        if not done then done=monster.base.drop.AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
+        if not done then done=monster.base.drop.AddDropItem(175,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --black cloth
+        if not done then done=monster.base.drop.AddDropItem(176,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --grey cloth
 
         --Category 3: Weapon
 
-        local done=AddDropItem(2778,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven sword
-        if not done then done=AddDropItem(2701,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --longsword
-        if not done then done=AddDropItem(2777,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow blade
-        if not done then done=AddDropItem(2788,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --snake sword
-        if not done then done=AddDropItem(2775,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven rainbowsword
+        local done=monster.base.drop.AddDropItem(2778,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven sword
+        if not done then done=monster.base.drop.AddDropItem(2701,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --longsword
+        if not done then done=monster.base.drop.AddDropItem(2777,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow blade
+        if not done then done=monster.base.drop.AddDropItem(2788,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --snake sword
+        if not done then done=monster.base.drop.AddDropItem(2775,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven rainbowsword
 
         --Category 4: Perma Loot
-        AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
     elseif (MonID==272) then --Drow Warrior, Level: 6, Armourtype: medium, Weapontype: slashing
 
         --Category 1: Armor
 
-        local done=AddDropItem(95,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --heraldic shield
-        if not done then done=AddDropItem(2286,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --flame helmet
-        if not done then done=AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
-        if not done then done=AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
-        if not done then done=AddDropItem(2403,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --elven silversteel armor
+        local done=monster.base.drop.AddDropItem(95,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --heraldic shield
+        if not done then done=monster.base.drop.AddDropItem(2286,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --flame helmet
+        if not done then done=monster.base.drop.AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
+        if not done then done=monster.base.drop.AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
+        if not done then done=monster.base.drop.AddDropItem(2403,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --elven silversteel armor
 
         --Category 2: Special loot
 
-        local done=AddDropItem(222,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --amulet
-        if not done then done=AddDropItem(224,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --golden goblet
-        if not done then done=AddDropItem(177,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --yellow cloth
-        if not done then done=AddDropItem(178,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --white cloth
-        if not done then done=AddDropItem(179,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blue cloth
+        local done=monster.base.drop.AddDropItem(222,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --amulet
+        if not done then done=monster.base.drop.AddDropItem(224,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --golden goblet
+        if not done then done=monster.base.drop.AddDropItem(177,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --yellow cloth
+        if not done then done=monster.base.drop.AddDropItem(178,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --white cloth
+        if not done then done=monster.base.drop.AddDropItem(179,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blue cloth
 
         --Category 3: Weapon
 
-        local done=AddDropItem(2775,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven rainbowsword
-        if not done then done=AddDropItem(98,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --silvered longsword
-        if not done then done=AddDropItem(2777,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow blade
-        if not done then done=AddDropItem(85,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --coppered longsword
-        if not done then done=AddDropItem(2778,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven sword
+        local done=monster.base.drop.AddDropItem(2775,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven rainbowsword
+        if not done then done=monster.base.drop.AddDropItem(98,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --silvered longsword
+        if not done then done=monster.base.drop.AddDropItem(2777,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow blade
+        if not done then done=monster.base.drop.AddDropItem(85,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --coppered longsword
+        if not done then done=monster.base.drop.AddDropItem(2778,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven sword
 
         --Category 4: Perma Loot
-        AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
     elseif (MonID==273) then --Drow Mage, Level: 6, Armourtype: cloth, Weapontype: concussion
 
         --Category 1: Armor
 
-        local done=AddDropItem(2377,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --red priest robe
-        if not done then done=AddDropItem(2420,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --black priest robe
-        if not done then done=AddDropItem(2380,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --blue coat
-        if not done then done=AddDropItem(183,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --green trousers
-        if not done then done=AddDropItem(457,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --green shirt
+        local done=monster.base.drop.AddDropItem(2377,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --red priest robe
+        if not done then done=monster.base.drop.AddDropItem(2420,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --black priest robe
+        if not done then done=monster.base.drop.AddDropItem(2380,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --blue coat
+        if not done then done=monster.base.drop.AddDropItem(183,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --green trousers
+        if not done then done=monster.base.drop.AddDropItem(457,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --green shirt
 
         --Category 2: Special loot
 
-        local done=AddDropItem(1317,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --empty bottle
-        if not done then done=AddDropItem(164,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --big empty bottle
-        if not done then done=AddDropItem(54,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --green cloth
-        if not done then done=AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
-        if not done then done=AddDropItem(175,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --black cloth
+        local done=monster.base.drop.AddDropItem(1317,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --empty bottle
+        if not done then done=monster.base.drop.AddDropItem(164,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --big empty bottle
+        if not done then done=monster.base.drop.AddDropItem(54,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --green cloth
+        if not done then done=monster.base.drop.AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
+        if not done then done=monster.base.drop.AddDropItem(175,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --black cloth
 
         --Category 3: Weapon
 
-        local done=AddDropItem(209,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven mage's staff
-        if not done then done=AddDropItem(57,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --simple mage's staff
-        if not done then done=AddDropItem(76,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mage's staff
-        if not done then done=AddDropItem(208,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
-        if not done then done=AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
+        local done=monster.base.drop.AddDropItem(209,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --elven mage's staff
+        if not done then done=monster.base.drop.AddDropItem(57,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --simple mage's staff
+        if not done then done=monster.base.drop.AddDropItem(76,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mage's staff
+        if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ornate mage's staff
+        if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
     elseif (MonID==274) then --Drow Priest, Level: 6, Armourtype: cloth, Weapontype: concussion
 
         --Category 1: Armor
 
-        local done=AddDropItem(2419,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --red priest robe
-        if not done then done=AddDropItem(2420,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --black priest robe
-        if not done then done=AddDropItem(832,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red hat with feather
-        if not done then done=AddDropItem(459,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red trousers
-        if not done then done=AddDropItem(180,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red shirt
+        local done=monster.base.drop.AddDropItem(2419,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --red priest robe
+        if not done then done=monster.base.drop.AddDropItem(2420,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --black priest robe
+        if not done then done=monster.base.drop.AddDropItem(832,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red hat with feather
+        if not done then done=monster.base.drop.AddDropItem(459,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red trousers
+        if not done then done=monster.base.drop.AddDropItem(180,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --red shirt
 
         --Category 2: Special loot
 
-        local done=AddDropItem(63,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --entrails
-        if not done then done=AddDropItem(173,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --sheep corpse
-        if not done then done=AddDropItem(176,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --grey cloth
-        if not done then done=AddDropItem(177,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --yellow cloth
-        if not done then done=AddDropItem(178,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --white cloth
+        local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --entrails
+        if not done then done=monster.base.drop.AddDropItem(173,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --sheep corpse
+        if not done then done=monster.base.drop.AddDropItem(176,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --grey cloth
+        if not done then done=monster.base.drop.AddDropItem(177,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --yellow cloth
+        if not done then done=monster.base.drop.AddDropItem(178,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --white cloth
 
         --Category 3: Weapon
 
-        local done=AddDropItem(40,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --cleric's staff
-        if not done then done=AddDropItem(39,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
-        if not done then done=AddDropItem(207,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
-        if not done then done=AddDropItem(2664,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --club
-        if not done then done=AddDropItem(230,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mace
+        local done=monster.base.drop.AddDropItem(40,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --cleric's staff
+        if not done then done=monster.base.drop.AddDropItem(39,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
+        if not done then done=monster.base.drop.AddDropItem(207,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --battle staff
+        if not done then done=monster.base.drop.AddDropItem(2664,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --club
+        if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mace
 
         --Category 4: Perma Loot
-        AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
 
     elseif (MonID==275) then --Drow Patriarch, Level: 6, Armourtype: heavy, Weapontype: slashing
 
         --Category 1: Armor
 
-        local done=AddDropItem(2111,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --blue steel greaves
-        if not done then done=AddDropItem(184,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --visor helmet
-        if not done then done=AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
-        if not done then done=AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
-        if not done then done=AddDropItem(2172,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --steel greaves
+        local done=monster.base.drop.AddDropItem(2111,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --blue steel greaves
+        if not done then done=monster.base.drop.AddDropItem(184,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --visor helmet
+        if not done then done=monster.base.drop.AddDropItem(2402,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow armor
+        if not done then done=monster.base.drop.AddDropItem(2303,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --drow helmet
+        if not done then done=monster.base.drop.AddDropItem(2172,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --steel greaves
 
         --Category 2: Special loot
 
-        local done=AddDropItem(2746,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --razor blade
-        if not done then done=AddDropItem(2659,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --nail board
-        if not done then done=AddDropItem(179,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blue cloth
-        if not done then done=AddDropItem(54,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --green cloth
-        if not done then done=AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
+        local done=monster.base.drop.AddDropItem(2746,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --razor blade
+        if not done then done=monster.base.drop.AddDropItem(2659,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --nail board
+        if not done then done=monster.base.drop.AddDropItem(179,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blue cloth
+        if not done then done=monster.base.drop.AddDropItem(54,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --green cloth
+        if not done then done=monster.base.drop.AddDropItem(174,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --red cloth
 
         --Category 3: Weapon
 
-        local done=AddDropItem(2731,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --two handed sword
-        if not done then done=AddDropItem(204,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --bastard sword
-        if not done then done=AddDropItem(3035,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow sword
-        if not done then done=AddDropItem(2636,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --poisoned double axe
-        if not done then done=AddDropItem(188,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --large waraxe
+        local done=monster.base.drop.AddDropItem(2731,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --two handed sword
+        if not done then done=monster.base.drop.AddDropItem(204,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --bastard sword
+        if not done then done=monster.base.drop.AddDropItem(3035,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --drow sword
+        if not done then done=monster.base.drop.AddDropItem(2636,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --poisoned double axe
+        if not done then done=monster.base.drop.AddDropItem(188,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --large waraxe
 
         --Category 4: Perma Loot
-        AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
 
     elseif (MonID==276) then
         -- Drops
@@ -264,5 +264,5 @@ function onDeath(Monster)
     else
         --Drops
     end
-    Dropping(Monster);
+    monster.base.drop.Dropping(Monster);
 end
