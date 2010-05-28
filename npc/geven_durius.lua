@@ -5,7 +5,7 @@
 
 require("npc.base.orders");
 require("npc.base.autonpcfunctions");
-module("npc.geven_durius", package.seeall("npc.base.orders"));
+module("npc.geven_durius", package.seeall(npc.base.orders));
 
 
 function init()
