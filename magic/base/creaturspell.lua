@@ -1,7 +1,8 @@
 if M_CREATURSPELL ~= true then
 M_CREATURSPELL = true;
 
-dofile("m_basics.lua");
+require("magic.base.basics");
+module("magic.base.creaturspell")
 
 function DoCreaturSpell(Caster, TargetPos, ltstate)
     if ( ltstate == Action.abort ) then

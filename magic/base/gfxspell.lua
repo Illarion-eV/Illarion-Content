@@ -1,7 +1,8 @@
 if M_GFXSPELL ~= true then
 M_GFXSPELL = true;
 
-dofile("m_basics.lua");
+require("magic.base.basics");
+module("magic.base.gfxspell")
 
 function DoGFXSpell(Caster, TargetPos, ltstate)
     if not ltstate then

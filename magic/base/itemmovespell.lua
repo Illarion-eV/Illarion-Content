@@ -1,7 +1,8 @@
 if M_ITEMMOVESPELL ~= true then
 M_ITEMMOVESPELL = true;
 
-dofile("m_basics.lua");
+require("magic.base.basics");
+module("magic.base.itemmovespell")
 
 function DoItemMoveSpell(Caster, TargetPos, ltstate)
     if ( ltstate == Action.abort ) then

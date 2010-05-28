@@ -2,7 +2,8 @@ if M_BASICS ~= true then
 M_BASICS = true;
 
 require("base.common")
-dofile("base_lookat_unique.lua");
+require("content.lookat.unique");
+module("magic.base.basics")
 
 function initRaceBoni()
     -- Default Values for racial boni related magic
@@ -60,7 +61,7 @@ function initRaceBoni()
     RaceBonis[53] = { 1.80, 5.00 }; --Icedragon
 end
 initRaceBoni();
-itemList();
+content.lookat.unique.itemList();
 
 function SetRaceBoni( Race, offValue, defValue)
     RaceBonis[Race]={offValue, defValue};

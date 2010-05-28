@@ -1,7 +1,8 @@
 if M_ITEMSPELL ~= true then
 M_ITEMSPELL = true;
 
-dofile("m_basics.lua");
+require("magic.base.basics");
+module("magic.base.itemspell")
 
 function DoItemSpell(Caster, TargetPos, ltstate)
     Hitted_already = {};

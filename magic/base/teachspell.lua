@@ -1,4 +1,5 @@
 require("base.common")
+module("magic.base.teachspell")
 
 Students = {};
 

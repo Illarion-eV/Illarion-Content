@@ -1,7 +1,8 @@
 if M_TELEPORTSPELL ~= true then
 M_TELEPORTSPELL = true;
 
-dofile("m_basics.lua");
+require("magic.base.basics");
+module("magic.base.teleportspell")
 
 function DoTeleSpell(Caster, TargetPos, ltstate)
     if ( ltstate == Action.abort ) then
