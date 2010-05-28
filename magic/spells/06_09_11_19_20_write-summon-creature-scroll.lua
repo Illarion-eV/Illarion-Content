@@ -37,43 +37,43 @@ function InitSpell() -- Spell Grundeinstellungen
     maxStrength=90;
 
     -- RaceID,CasterBoni
-    SetRaceBoni(0,1.00); --human
-    SetRaceBoni(1,0.70); --dwarf
-    SetRaceBoni(2,0.75); --halfling
-    SetRaceBoni(3,1.25); --elf
-    SetRaceBoni(4,0.60); --orc
-    SetRaceBoni(5,0.65); --lizardman
-    SetRaceBoni(6,1.10); --gnome
-    SetRaceBoni(7,1.45); --fairy
-    SetRaceBoni(8,1.15); --goblin
-    SetRaceBoni(9,0.20); --troll
-    SetRaceBoni(10,1.00);--mumie
-    SetRaceBoni(11,1.05);--skeleton
-    SetRaceBoni(12,1.15);--beholder
-    SetRaceBoni(13,1.00);--cloud
-    SetRaceBoni(14,1.00);--healer
-    SetRaceBoni(15,1.00);--buyer
-    SetRaceBoni(16,1.00);--seller
-    SetRaceBoni(17,0.20);--insects
-    SetRaceBoni(18,0.20);--sheep
-    SetRaceBoni(19,0.20);--spider
-    SetRaceBoni(20,1.50);--demonskeleton
-    SetRaceBoni(21,0.20);--rotworm
-    SetRaceBoni(22,2.00);--bigdemon
-    SetRaceBoni(23,0.20);--scorpion
-    SetRaceBoni(24,0.20);--pig
-    SetRaceBoni(25,1.00);--invisible
-    SetRaceBoni(26,1.20);--skull
-    SetRaceBoni(27,0.20);--wasp
-    SetRaceBoni(28,0.50);--foresttroll
-    SetRaceBoni(29,1.80);--shadowskeleton
-    SetRaceBoni(30,0.20);--stonegolem
-    SetRaceBoni(31,1.00);--mgoblin
-    SetRaceBoni(32,0.30);--gnoll
-    SetRaceBoni(33,0.85);--dragon
-    SetRaceBoni(34,1.00);--mdrow
-    SetRaceBoni(35,1.00);--fdrow
-    SetRaceBoni(36,1.80);--lesserdemon
+    magic.base.basics.SetRaceBoni(0,1.00); --human
+    magic.base.basics.SetRaceBoni(1,0.70); --dwarf
+    magic.base.basics.SetRaceBoni(2,0.75); --halfling
+    magic.base.basics.SetRaceBoni(3,1.25); --elf
+    magic.base.basics.SetRaceBoni(4,0.60); --orc
+    magic.base.basics.SetRaceBoni(5,0.65); --lizardman
+    magic.base.basics.SetRaceBoni(6,1.10); --gnome
+    magic.base.basics.SetRaceBoni(7,1.45); --fairy
+    magic.base.basics.SetRaceBoni(8,1.15); --goblin
+    magic.base.basics.SetRaceBoni(9,0.20); --troll
+    magic.base.basics.SetRaceBoni(10,1.00);--mumie
+    magic.base.basics.SetRaceBoni(11,1.05);--skeleton
+    magic.base.basics.SetRaceBoni(12,1.15);--beholder
+    magic.base.basics.SetRaceBoni(13,1.00);--cloud
+    magic.base.basics.SetRaceBoni(14,1.00);--healer
+    magic.base.basics.SetRaceBoni(15,1.00);--buyer
+    magic.base.basics.SetRaceBoni(16,1.00);--seller
+    magic.base.basics.SetRaceBoni(17,0.20);--insects
+    magic.base.basics.SetRaceBoni(18,0.20);--sheep
+    magic.base.basics.SetRaceBoni(19,0.20);--spider
+    magic.base.basics.SetRaceBoni(20,1.50);--demonskeleton
+    magic.base.basics.SetRaceBoni(21,0.20);--rotworm
+    magic.base.basics.SetRaceBoni(22,2.00);--bigdemon
+    magic.base.basics.SetRaceBoni(23,0.20);--scorpion
+    magic.base.basics.SetRaceBoni(24,0.20);--pig
+    magic.base.basics.SetRaceBoni(25,1.00);--invisible
+    magic.base.basics.SetRaceBoni(26,1.20);--skull
+    magic.base.basics.SetRaceBoni(27,0.20);--wasp
+    magic.base.basics.SetRaceBoni(28,0.50);--foresttroll
+    magic.base.basics.SetRaceBoni(29,1.80);--shadowskeleton
+    magic.base.basics.SetRaceBoni(30,0.20);--stonegolem
+    magic.base.basics.SetRaceBoni(31,1.00);--mgoblin
+    magic.base.basics.SetRaceBoni(32,0.30);--gnoll
+    magic.base.basics.SetRaceBoni(33,0.85);--dragon
+    magic.base.basics.SetRaceBoni(34,1.00);--mdrow
+    magic.base.basics.SetRaceBoni(35,1.00);--fdrow
+    magic.base.basics.SetRaceBoni(36,1.80);--lesserdemon
 end
 
 function CastMagic(Caster,counter,param, ltstate)
@@ -94,9 +94,9 @@ end
 
 function WriteTeleSpell(Caster, ltstate )
     InitSpell();
-    InitializeHelpList();
+    magic.base.basics.InitializeHelpList();
     if ( ltstate == nil or ltstate == Action.success or timeToCast == 0 ) then
-        local CasterVal=CasterValue(Caster);
+        local CasterVal=magic.base.basics.CasterValue(Caster);
         --Caster:inform("CasterVal: "..CasterVal);
         local HPChange=CalcAttribChange(minHPNeeded,maxHPNeeded,CasterVal);
         local FPChange=CalcAttribChange(minFPNeeded,maxFPNeeded,CasterVal);
@@ -113,7 +113,7 @@ function WriteTeleSpell(Caster, ltstate )
                     if (PPCaused~=0) then Caster:increasePoisonValue(PPCaused) end;
                     if (APChange~=0) then Caster.movepoints=Caster.movepoints-APChange end;
                     if (CasterVal>0) then
-                        -- SayRunes(Caster);
+                        -- magic.base.basics.SayRunes(Caster);
                         if (LuaAnd(Caster:getQuestProgress(24),1) == 0 ) then
                             Caster:learn(3,NeededSkill,3,math.max(0,math.min(100,CasterVal+30)));
                         end
@@ -223,7 +223,7 @@ function WriteTeleSpell(Caster, ltstate )
             InformNLS(Caster,"Du würdest es nicht überleben, jetzt diesen Spruch zu sprechen.","You die if you cast this spell now.");
         end
     elseif ( ltstate == Action.none ) then
-        local CasterVal=CasterValue(Caster);
+        local CasterVal=magic.base.basics.CasterValue(Caster);
         --Caster:inform("CasterVal: "..CasterVal);
         local HPChange=CalcAttribChange(minHPNeeded,maxHPNeeded,CasterVal);
         local FPChange=CalcAttribChange(minFPNeeded,maxFPNeeded,CasterVal);

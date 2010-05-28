@@ -1,22 +1,22 @@
-if M_ITEMMOVESPELL ~= true then
-M_ITEMMOVESPELL = true;
+if M_CREATURSPELL ~= true then
+M_CREATURSPELL = true;
 
 dofile("m_basics.lua");
 
-function DoItemMoveSpell(Caster, TargetPos, ltstate)
+function DoCreaturSpell(Caster, TargetPos, ltstate)
     if ( ltstate == Action.abort ) then
         Caster:talkLanguage(CCharacter.say, CPlayer.german, "#me stoppt apprupt mit dem Zaubern.");
         Caster:talkLanguage(CCharacter.say, CPlayer.english,"#me abruptly stops casting.");
         return;
     end
 
-    loadCorrectDefScript();
+    magic.base.basics.loadCorrectDefScript();
 
     -- Generate the needed
-    gemBonis( Caster );
+    magic.base.basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = GenderMessage( Caster );
+    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = magic.base.basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -32,10 +32,10 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
         base.common.TurnTo( Caster, TargetPos );
     end
 
-    if not world:isItemOnField( TargetPos ) then
+    if world:isCharacterOnField( TargetPos ) then
         base.common.TempInformNLS( Caster,
-        "Du musst diesen Zauber auf ein Item sprechen um Erfolg zu haben.",
-        "You have to cast this spell on a item to success.");
+        "Du musst auf eine freie Stelle zaubern wenn du Erfolg haben willst.",
+        "You have to cast on a free area if you want to success.");
         return;
     end
 
@@ -48,11 +48,11 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    SayRunes( Caster );
+    magic.base.basics.SayRunes( Caster );
 
-    local CasterVal=CasterValue( Caster );
+    local CasterVal=magic.base.basics.CasterValue( Caster );
 
-    if not CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -63,23 +63,10 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
         return;
     end
 
+    world:createMonster(Monsters[math.random(1,table.getn(Monsters))],TargetPos,10);
 
-    local theItem = world:getItemOnField( TargetPos );
-    local comItem = world:getItemStats( theItem );
-
-    local maxWeight = base.common.Scale( Weight.minSkill, Weight.maxSkill, CasterVal );
-    if (comItem.Weight <= maxWeight) then
-        world:createItemFromItem( theItem, base.common.GetFrontPosition( Caster ), true );
-        world:erase( theItem, theItem.number );
-    else
-        base.common.TempInformNLS( Caster,
-        "Der Gegenschand ist zu schwer. Du schaffst es nicht ihn mit dem Zauber zu bewegen.",
-        "The item is too heavy. You fail to move it with this spell." );
-        return false;
-    end
-
-    performGFX( SpellEffects.gfx, TargetPos );
-    performSFX( SpellEffects.sfx, TargetPos );
+    magic.base.basics.performGFX( SpellEffects.gfx, TargetPos );
+    magic.base.basics.performSFX( SpellEffects.sfx, TargetPos );
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then
         return;
@@ -89,23 +76,23 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
 end
 
 function CastMagic(Caster,counter,param,ltstate)
-    DoItemMoveSpell(Caster,base.common.GetFrontPosition(Caster),ltstate);
+    DoCreaturSpell(Caster,base.common.GetFrontPosition(Caster),ltstate);
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
     if TargetCharacter then
-        DoItemMoveSpell(Caster, TargetCharacter.pos, ltstate);
+        DoCreaturSpell(Caster, TargetCharacter.pos, ltstate);
     else
         CastMagic(Caster,counter,param,ltstate);
     end
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
-    DoItemMoveSpell(Caster,Targetpos,ltstate);
+    DoCreaturSpell(Caster,Targetpos,ltstate);
 end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
-    DoItemMoveSpell(Caster,TargetItem.pos,ltstate);
+    DoCreaturSpell(Caster,TargetItem.pos,ltstate);
 end
 
 end;

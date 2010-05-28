@@ -83,7 +83,7 @@ Portal = {
 
 
 -- Racial bonis
-initRaceBoni(); -- Init or reset all preset racial boni values
+magic.base.basics.initRaceBoni(); -- Init or reset all preset racial boni values
 
 -- make sure that we remember that this is the original script loaded on this spell
 if (orgScript == nil) then
@@ -119,13 +119,13 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         return;
     end
 
-    loadCorrectDefScript();
+    magic.base.basics.loadCorrectDefScript();
 
     -- Generate the needed
-    gemBonis( Caster );
+    magic.base.basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = GenderMessage( Caster );
+    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = magic.base.basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -150,11 +150,11 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         return;
     end
 
-    SayRunes( Caster );
+    magic.base.basics.SayRunes( Caster );
 
-    local CasterVal=CasterValue( Caster );
+    local CasterVal=magic.base.basics.CasterValue( Caster );
 
-    if not CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -171,8 +171,8 @@ function DoTeleportSpell(Caster,TargetPos, ltstate)
         "Der Spruch gelingt doch das Portal schliest sich sogleich wieder.",
         "The spell succeeds but the portal closes again instandly.");
     else
-        performGFX( SpellEffects.gfx, TargetPos );
-        performSFX( SpellEffects.sfx, TargetPos );
+        magic.base.basics.performGFX( SpellEffects.gfx, TargetPos );
+        magic.base.basics.performSFX( SpellEffects.sfx, TargetPos );
     end
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then

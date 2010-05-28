@@ -10,13 +10,13 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    loadCorrectDefScript();
+    magic.base.basics.loadCorrectDefScript();
 
     -- Generate the needed
-    gemBonis( Caster );
+    magic.base.basics.gemBonis( Caster );
 
     genderMsg = {};
-    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = GenderMessage( Caster );
+    genderMsg[CPlayer.german], genderMsg[CPlayer.english] = magic.base.basics.GenderMessage( Caster );
 
     if ( Caster:distanceMetricToPosition(TargetPos) > Settings.Range + GemBonis.Range) then
         base.common.InformNLS( Caster,
@@ -41,11 +41,11 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    SayRunes( Caster );
+    magic.base.basics.SayRunes( Caster );
 
-    local CasterVal=CasterValue( Caster );
+    local CasterVal=magic.base.basics.CasterValue( Caster );
 
-    if not CheckAndReduceRequirements( Caster, CasterVal ) then
+    if not magic.base.basics.CheckAndReduceRequirements( Caster, CasterVal ) then
         return;
     end
 
@@ -64,8 +64,8 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
         TargetPos = position( math.floor(TargetPos.x+drift*math.sin( phi * math.pi )), math.floor(TargetPos.y+drift*math.cos( phi * math.pi )), TargetPos.z );
     end
 
-    performGFX(  Teleport.StartLocation.gfx, Caster.pos );
-    performSFX(  Teleport.StartLocation.sfx, Caster.pos );
+    magic.base.basics.performGFX(  Teleport.StartLocation.gfx, Caster.pos );
+    magic.base.basics.performSFX(  Teleport.StartLocation.sfx, Caster.pos );
 
     local oldPos = base.common.CopyPosition( Caster.pos );
     Caster:warp( TargetPos );
@@ -74,8 +74,8 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
     end
 
     if not equapos( oldPos, Caster.pos ) then
-        performGFX( Teleport.TargetLocation.gfx, Caster.pos );
-        performSFX( Teleport.TargetLocation.sfx, Caster.pos );
+        magic.base.basics.performGFX( Teleport.TargetLocation.gfx, Caster.pos );
+        magic.base.basics.performSFX( Teleport.TargetLocation.sfx, Caster.pos );
     end
 
     if (LuaAnd(Caster:getQuestProgress(24),1) ~= 0 ) then
