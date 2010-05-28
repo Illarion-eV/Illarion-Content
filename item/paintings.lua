@@ -1,8 +1,8 @@
 require("base.common")
 
-module("item.id_paintings", package.seeall)
+module("item.paintings", package.seeall)
 
--- UPDATE common SET com_script='item.id_paintings' WHERE com_itemid IN (264, 265, 748, 749, 750, 751, 1914, 1915);
+-- UPDATE common SET com_script='item.paintings' WHERE com_itemid IN (264, 265, 748, 749, 750, 751, 1914, 1915);
 
 PaintingListGerman = 
 {

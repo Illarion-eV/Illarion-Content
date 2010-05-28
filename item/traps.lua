@@ -2,11 +2,11 @@
 --Last Update: 01/04/2006
 --Update by:   Nitram
 
--- UPDATE common SET com_script='item.id_traps' WHERE com_itemid IN (377,378,379,380,381);
+-- UPDATE common SET com_script='item.traps' WHERE com_itemid IN (377,378,379,380,381);
 
 require("base.common")
 
-module("item.id_traps", package.seeall)
+module("item.traps", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if ((User:increaseAttrib("dexterity",0) + 0.5*User:increaseAttrib("perception",0) + math.random(1,30)) >= 30) then

@@ -1,8 +1,8 @@
--- UPDATE common SET com_script='item.id_altars' WHERE com_itemid IN (361,1879,1880,2801,2857,2872);
+-- UPDATE common SET com_script='item.altars' WHERE com_itemid IN (361,1879,1880,2801,2857,2872);
 require("base.common")
 require("content.gods")
 
-module("item.id_altars", package.seeall, package.seeall(content.gods))
+module("item.altars", package.seeall, package.seeall(content.gods))
 
 function LookAtItem( User, Item )
      filepoint,errmsg=io.open("testserver","r");

@@ -6,9 +6,9 @@
 -- special data for on items: 2 => do not give anything back (e.g. a night watchman has put it on)
 require("base.common")
 
-module("item.id_lights", package.seeall)
+module("item.lights", package.seeall)
 
--- UPDATE common SET com_script='item.id_lights' WHERE com_itemid IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
+-- UPDATE common SET com_script='item.lights' WHERE com_itemid IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
 
 PORTABLE_WEAR = 5; -- default wear value for portable items, when put off
 DEFAULT_WEAR = 5; -- default wear value for light sources, when put on

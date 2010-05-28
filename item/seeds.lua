@@ -3,9 +3,9 @@
 -- Nop & Nitram
 require("base.common")
 
-module("item.id_seeds", package.seeall)
+module("item.seeds", package.seeall)
 
--- UPDATE common SET com_script='item.id_seeds' WHERE com_itemid IN (259,291,534,2494,2917,728);
+-- UPDATE common SET com_script='item.seeds' WHERE com_itemid IN (259,291,534,2494,2917,728);
 
 -- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 247 WHERE com_itemid = 246;
 -- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 248 WHERE com_itemid = 247;

@@ -3,9 +3,9 @@
 
 -- Removed the freeze function, because it was just annoying. ~Blay09
 
--- UPDATE common SET com_script='item.id_spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
+-- UPDATE common SET com_script='item.spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
 
-module("item.id_spidernet", package.seeall)
+module("item.spidernet", package.seeall)
 
 function CharacterOnField(User)
     --User:inform("Los");

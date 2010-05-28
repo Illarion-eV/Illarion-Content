@@ -1,9 +1,9 @@
 require("base.keys")
 require("base.common")
 
-module("item.id_keys", package.seeall)
+module("item.keys", package.seeall)
 
--- UPDATE common SET com_script='item.id_keys' WHERE com_itemid IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
+-- UPDATE common SET com_script='item.keys' WHERE com_itemid IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
     local WALLPOS = position(-470,241,0);

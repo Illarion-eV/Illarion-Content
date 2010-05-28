@@ -1,9 +1,9 @@
--- UPDATE common SET com_script = 'item.id_rings' WHERE com_itemid IN (68, 277, 278, 279, 280, 281, 282);
+-- UPDATE common SET com_script = 'item.rings' WHERE com_itemid IN (68, 277, 278, 279, 280, 281, 282);
 
-require("item.id_general.jewel")
+require("item.general.jewel")
 require("content.jewelbonus")
 
-require("item.id_rings", package.seeall, package.seeall(item.id_general.jewel))
+require("item.rings", package.seeall, package.seeall(item.general.jewel))
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --User:inform("in move");

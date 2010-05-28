@@ -3,9 +3,9 @@
 require("base.common")
 require("content.signpost")
 
-module("item.id_signpost", package.seeall)
+module("item.signpost", package.seeall)
 
--- UPDATE common SET com_script='item.id_signpost' WHERE com_itemid IN (1817,1809,1808,1807,308,1804,586,3084,3081,3082,3083,519,520,521,337,1914,1915,2046,2069,512,2924,2925,2926,2927);
+-- UPDATE common SET com_script='item.signpost' WHERE com_itemid IN (1817,1809,1808,1807,308,1804,586,3084,3081,3082,3083,519,520,521,337,1914,1915,2046,2069,512,2924,2925,2926,2927);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";

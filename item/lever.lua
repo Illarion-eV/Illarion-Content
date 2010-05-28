@@ -14,9 +14,9 @@ require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
 
-module("item.id_lever", package.seeall)
+module("item.lever", package.seeall)
 
--- UPDATE common SET com_script='item.id_lever' WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
+-- UPDATE common SET com_script='item.lever' WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
 
 function init()
     leverList={};

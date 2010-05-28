@@ -3,9 +3,9 @@
 require("base.common")
 require("content.gathering")
 
-module("item.id_harvest", package.seeall)
+module("item.harvest", package.seeall)
 
--- UPDATE common SET com_script='item.id_harvest' WHERE com_itemid IN (14,300,387);
+-- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387);
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();

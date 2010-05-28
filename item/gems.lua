@@ -1,9 +1,9 @@
 require("content.lookat.unique")
 require("base.common")
 
--- UPDATE common SET com_script='item.id_gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
+-- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
-module("item.id_gems", package.seeall, package.seeall(content.lookat.unique))
+module("item.gems", package.seeall, package.seeall(content.lookat.unique))
 
 function initStones()
     stoneNumber={};

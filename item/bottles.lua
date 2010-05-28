@@ -1,11 +1,11 @@
 -- empty container with drink
 
--- UPDATE common SET com_script='item.id_bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
+-- UPDATE common SET com_script='item.bottles' WHERE com_itemid IN (2500, 2496, 2497, 2501, 2499);
 
 -- uses items of the new client - don't put this on the RS yet!
 require("base.common")
 
-module("item.id_bottles", package.seeall)
+module("item.bottles", package.seeall)
 
 function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
     if ( drinkList == nil) then
