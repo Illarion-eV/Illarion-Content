@@ -1,8 +1,8 @@
 require("base.lookat")
 
-module("items.priest.metal", package.seeall)
+module("item.priest.metal", package.seeall)
 
--- UPDATE common SET com_script='items.priest.metal' WHERE com_itemid IN ();
+-- UPDATE common SET com_script='item.priest.metal' WHERE com_itemid IN ();
 
 function LookAtItem(User,Item)
     world:itemInform(User,Item,base.lookat.GetItemDescription(User,Item,1,false,true ));

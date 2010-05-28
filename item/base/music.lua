@@ -3,7 +3,7 @@
 
 require("base.common")
 
-module("items.base.music", package.seeall)
+module("item.base.music", package.seeall)
 
 TalkTexts={};
 
