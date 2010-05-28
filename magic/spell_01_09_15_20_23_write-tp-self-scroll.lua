@@ -5,7 +5,7 @@
 -- Teleport Zauber
 
 require("magic.base.basics");
-
+module("magic.")
 function InitSpell() -- Spell Grundeinstellungen
     Difficult=20;
     NeededSkill="transformo";

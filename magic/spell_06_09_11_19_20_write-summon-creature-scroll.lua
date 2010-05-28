@@ -5,7 +5,7 @@
 -- Beschwörungs Zauber
 
 require("magic.base.basics");
-
+module("magic.")
 function InitSpell() -- Spell Grundeinstellungen
     Difficult=75;
     NeededSkill="desicio";
