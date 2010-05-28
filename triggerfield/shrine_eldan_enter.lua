@@ -1,3 +1,5 @@
+module("triggerfield.shrine_eldan_enter", package.seeall)
+
 -- Eldan Shrine entrance
 function CharacterOnField(Character)
     if( string.find( Character.lastSpokenText, "[Oo]pfer" ) ~= nil ) then
