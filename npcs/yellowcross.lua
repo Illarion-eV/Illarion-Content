@@ -1,5 +1,7 @@
 -- Basiscript für die Kreuze
 
+require("base.common")
+
 module("npcs.yellowcross")
 
 function nextCycle()
@@ -55,8 +57,6 @@ function nextCycle()
     end
     -- Spieler fertig
 end
-
-require("base.common")
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
 
