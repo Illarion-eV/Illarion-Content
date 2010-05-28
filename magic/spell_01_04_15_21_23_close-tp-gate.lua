@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.")
+module("magic.spell_01_04_15_21_23_close-tp-gate.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_04_15_21_23_close-tp-gate.lua";
 

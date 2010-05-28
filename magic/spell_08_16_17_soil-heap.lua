@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.")
+module("magic.spell_08_16_17_soil-heap.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_08_16_17_soil-heap.lua";
 

@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.")
+module("magic.spell_13_16_17_23_24_stone-circle.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_13_16_17_23_24_stone-circle.lua";
 

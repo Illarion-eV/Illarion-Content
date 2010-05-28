@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.")
+module("magic.spell_03_23_28_iceflame-illusion.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_03_23_28_iceflame-illusion.lua";
 

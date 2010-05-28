@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_14_26_teach-yeg.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "YEG",   -- name of the rune

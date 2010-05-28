@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_09_26_teach-taur.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "TAUR",   -- name of the rune

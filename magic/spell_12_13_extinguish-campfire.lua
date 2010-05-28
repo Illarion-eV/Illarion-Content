@@ -16,7 +16,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.")
+module("magic.spell_12_13_extinguish-campfire.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_12_13_extinguish-campfire.lua";
 

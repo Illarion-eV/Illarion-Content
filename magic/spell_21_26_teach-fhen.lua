@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_21_26_teach-fhen.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "FHEN",   -- name of the rune

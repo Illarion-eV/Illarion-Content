@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_08_26_teach-orl.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "ORL",   -- name of the rune

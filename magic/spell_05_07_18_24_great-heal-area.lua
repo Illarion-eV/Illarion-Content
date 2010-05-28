@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.")
+module("magic.spell_05_07_18_24_great-heal-area.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_05_07_18_24_great-heal-area.lua";
 

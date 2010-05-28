@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_20_26_teach-lev.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "LEV",   -- name of the rune

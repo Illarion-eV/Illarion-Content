@@ -10,7 +10,7 @@
 
 -- including the main script for get-item spells
 require("magic.base.itemmovespell");
-module("magic.")
+module("magic.spell_15_21_23_get-heavy-items.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_15_21_23_get-heavy-items.lua";
 

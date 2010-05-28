@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.creaturspell");
-module("magic.")
+module("magic.spell_06_09_11_summ-aggr-creature.lua")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_06_09_11_summ-aggr-creature.lua";
 

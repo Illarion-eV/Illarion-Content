@@ -3,7 +3,7 @@
 -- INSERT INTO spells VALUES (1,0,'m_01_testspell.lua');
 -- Flächen Zauber
 -- Effekt Zauber
-module("magic.")
+module("magic.spell_02_testspell.lua")
 
 function CastMagic(Caster,counter,param,ltstate)
 	Caster:inform("moep");

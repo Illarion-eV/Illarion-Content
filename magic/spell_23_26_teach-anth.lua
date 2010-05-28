@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.")
+module("magic.spell_23_26_teach-anth.lua")
 -- Informations about the rune
 Rune = {
     ["name"] = "ANTH",   -- name of the rune
