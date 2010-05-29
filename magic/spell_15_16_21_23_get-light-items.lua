@@ -77,7 +77,7 @@ Weight = {
 }
 
 -- Racial bonis
-initRaceBoni(); -- Init or reset all preset racial boni values
+magic.base.basics.initRaceBoni(); -- Init or reset all preset racial boni values
 
 -- make sure that we remember that this is the original script loaded on this spell
 if (orgScript == nil) then

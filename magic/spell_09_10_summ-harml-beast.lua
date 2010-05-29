@@ -74,7 +74,7 @@ CasterEffects = {
 Monsters = { 291,292,293,294,295 };  -- IDs of monsters that could be created
 
 -- Racial bonis
-initRaceBoni(); -- Init or reset all preset racial boni values
+magic.base.basics.initRaceBoni(); -- Init or reset all preset racial boni values
 
 -- make sure that we remember that this is the original script loaded on this spell
 if (orgScript == nil) then
