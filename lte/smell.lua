@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.smell", package.seeall)
 
 ---------------------------
 ---- Character begins to smell --

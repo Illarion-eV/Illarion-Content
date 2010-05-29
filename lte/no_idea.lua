@@ -1,3 +1,4 @@
+module("lte.no_idea", package.seeall)
 --lte_06.lua
 
 function addEffect(addPerc, User)           -- Wird nur beim Start des Effektes aufgerufen (-> Perc+1)

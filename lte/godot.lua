@@ -1,3 +1,4 @@
+module("lte.godot", package.seeall)
 -- LTE Warten auf Godot
 -- by Falk
 

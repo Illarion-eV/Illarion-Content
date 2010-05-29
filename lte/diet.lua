@@ -1,3 +1,4 @@
+module("lte.diet", package.seeall)
 -- Long Time Effect Script: Diet System
 -- Effect ID: 12
 

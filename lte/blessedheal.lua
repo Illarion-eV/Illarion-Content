@@ -1,4 +1,4 @@
-dofile( "base_lookat.lua" );
+module("lte.blessedheal", package.seeall)
 
 function addEffect( myEffect, Character )
     world:gfx( 16, Character.pos );   

@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.stoned", package.seeall)
 
 ---------------------------
 ------ Character starts to smoke

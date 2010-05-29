@@ -1,5 +1,6 @@
 require("base.common")
 require("base.treasure")
+module("lte.treasure", package.seeall)
 
 function addEffect(trsEff, trsHunter)
     fnd, cat=trsEff:findValue("category");

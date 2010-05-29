@@ -1,3 +1,4 @@
+module("lte.lasttier", package.seeall)
 -- Langzeit Effekt für Lasttier
 
 -- Aufgabe: Speichern und Übergeben des Lasttierbesitzers

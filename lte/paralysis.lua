@@ -1,3 +1,4 @@
+module("lte.paralysis", package.seeall)
 -- Long time effect script for paralysing
 -- effect ID: 23
 

@@ -7,6 +7,7 @@
 
 
 require("base.common")
+module("lte.gembonus", package.seeall)
 dofile("base_jewel_bonus.lua");
 
 

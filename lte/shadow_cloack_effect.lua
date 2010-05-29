@@ -1,3 +1,4 @@
+module("lte.shadow_cloack_effect", package.seeall)
 function addEffect( theEffect, User )
     User:inform("effect start");
     User.isinvisible = true;

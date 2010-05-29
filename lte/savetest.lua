@@ -1,3 +1,4 @@
+module("lte.savetest", package.seeall)
 function addEffect( theEffect, User )
     User:inform("Testeffekt added");
 	theEffect:addValue("testvalue2",20);

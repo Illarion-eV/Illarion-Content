@@ -1,8 +1,9 @@
 -- Include common methods
 require("base.common")
+module("lte.cold", package.seeall)
 
 -- Include functions for handling odds arrays (such as illnessMessages)
-dofile( "base_odds.lua" );
+-- dofile( "base_odds.lua" ); "DOES NOT EXIST", says vilarion
 
 
 -- Initialize different important values for the levels of the illness.

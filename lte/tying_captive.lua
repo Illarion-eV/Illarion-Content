@@ -1,3 +1,4 @@
+module("lte.tying_captive", package.seeall)
 --[[ LTE 24
      tying up: captive
     @value Capturer - id of the char that the captive follows

@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.spookey", package.seeall)
 
 ---------------------------
 ---- Spook starts --

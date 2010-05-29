@@ -1,3 +1,4 @@
+module("lte.bleeding", package.seeall)
 -- Bleeding Mainscript
 
 lowerAttribs = {"agility","stength","constitution","perception","dexterity"};

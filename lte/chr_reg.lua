@@ -2,8 +2,9 @@
 -- by Nitram
 
 require("base.common")
+require("base.factions")
+module("lte.chr_reg", package.seeall)
 dofile( "p_basics.lua" );
-dofile( "base_factions.lua" )
 
 crossPosition={};
 

@@ -1,3 +1,4 @@
+module("lte.segen", package.seeall)
 function initBlessings()
     Blessings = {};
     Blessings[1001] = {};

@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.resurrected", package.seeall)
 
 attribs={"strength","dexterity","constitution","agility","intelligence","perception","willpower","essence"};
 

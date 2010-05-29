@@ -1,3 +1,4 @@
+module("lte.blessing", package.seeall)
 -- Long time Script "Blessing" (25) effectid
 -- Triggered by donating money to an altar, and increases attributes temporarily
 -- Written by Hadrian (The weird llama person)

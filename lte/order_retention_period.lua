@@ -1,3 +1,4 @@
+module("lte.order_retention_period", package.seeall)
 dofile("base_orders.lua");
 
 --[[

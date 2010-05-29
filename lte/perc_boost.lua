@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.perc_boost", package.seeall)
 
 
 -- Character bekommt einen Perception-boost, der erst ansteigt und dann sinkt --

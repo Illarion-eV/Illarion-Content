@@ -1,3 +1,4 @@
+module("lte.fighting", package.seeall)
 -- Fighting LTE
 
 function addEffect( Effect, Character)

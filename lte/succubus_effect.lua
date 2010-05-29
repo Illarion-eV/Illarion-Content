@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.succubus_effect", package.seeall)
 
 function createAmulett( Target )
     oldItem = Target:getItemAt(2);

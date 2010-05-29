@@ -1,3 +1,4 @@
+module("lte.irmorom_bless", package.seeall)
 -- Long time Script "Irmorom Bless" (25) effectid
 -- Triggered by donating money to an altar, and increases perc by 2 and dex by one
 -- Written by Hadrian (The weird llama person)

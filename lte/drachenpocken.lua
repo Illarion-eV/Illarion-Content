@@ -2,6 +2,7 @@
 
 
 require("base.common")
+module("lte.drachenpocken", package.seeall)
 
 
 ------------------------------

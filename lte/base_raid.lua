@@ -1,3 +1,4 @@
+module("lte.base_raid", package.seeall)
 --[[ 
     Basis RAID effekt der die Konsequenzen durch den tod 
     ausschlaltet/einschaltet und dem spieler nach beendigung wieder

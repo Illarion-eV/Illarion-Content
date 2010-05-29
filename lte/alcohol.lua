@@ -1,3 +1,4 @@
+module("lte.alcohol", package.seeall)
 -- Long Time Effect Script - Alcohol
 
 -- Abhandlung aller Effekte auf den Character durch Alkohol

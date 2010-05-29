@@ -2,6 +2,7 @@
 -- Effects for parish of Nargun
 
 require("base.common")
+module("lte.parish_nargun", package.seeall)
 
 cycleCounter = {};
 PN_FriendlyRaces = {18,24,37,38};

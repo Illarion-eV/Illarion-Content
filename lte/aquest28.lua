@@ -1,3 +1,4 @@
+module("lte.aquest28", package.seeall)
 -- Long Time Effect Script: Long time effect for Quest #28
 -- Effect ID: 32
 

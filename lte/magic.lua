@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.magic", package.seeall)
 
 ---------------------------
 ---- Long time effect for each magic char

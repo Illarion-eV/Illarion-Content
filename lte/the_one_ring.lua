@@ -1,3 +1,4 @@
+module("lte.the_one_ring", package.seeall)
 function addEffect( theEffect, User )
     User.isinvisible = true;
 end

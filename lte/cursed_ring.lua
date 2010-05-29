@@ -1,3 +1,4 @@
+module("lte.cursed_ring", package.seeall)
 -- In work! By Avalyon
 -- Boni or curse for the cursed ring
 

@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.teachmagic", package.seeall)
 
 ---------------------------
 -------- Character lernt eine Rune

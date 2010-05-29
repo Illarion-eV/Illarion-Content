@@ -1,4 +1,5 @@
 require("base.common")
+module("lte.attrib_boost", package.seeall)
 
 
 -- Character bekommt einen Attributs-Boost, der erst ansteigt und dann sinkt --

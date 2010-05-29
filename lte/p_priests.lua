@@ -1,3 +1,4 @@
+module("lte.p_priests", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (17,'priests','lte_p_priests.lua');
 
 dofile("p_basics.lua");

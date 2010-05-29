@@ -3,6 +3,7 @@
 -- Values: newbiePosX, newbiePosY, newbiePosZ, itemid_1, itemnumber_1, itemdata_1, itemquality_1 (1-18)
 
 require("base.common")
+module("lte.newbieisland", package.seeall)
 
 function addEffect(newbieEffect, Character)
 
