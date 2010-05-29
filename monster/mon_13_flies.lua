@@ -2,7 +2,9 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-dofile("quest_aquest28.lua");    --the quest file for the Farmer ques
+require("quest_aquest28");    --the quest file for the Farmer ques
+module("monster.")
+
 
 function ini(Monster)
 

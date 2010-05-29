@@ -1,4 +1,5 @@
 -- monster lookat
+module("monster.base.lookat")
 
 -- mode is always 0
 function lookAtMonster( player, monster, mode )

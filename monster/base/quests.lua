@@ -1,5 +1,7 @@
 --Generic 'Kill X monsters'-Quests by Estralis Seborian
 
+module("monster.base.quests")
+
 --TEMPLATE TO ADD A QUEST TO function iniQuests()
 
 --local id=NUMBER; --ID of the quest

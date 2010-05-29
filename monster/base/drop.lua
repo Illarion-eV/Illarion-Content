@@ -1,4 +1,5 @@
 require("base.common")
+module("monster.base.drop")
 
 function ClearDropping()
     SelItemValue={};
