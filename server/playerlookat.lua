@@ -13,7 +13,10 @@ require("base.factions")
 require("content.lookat.custom")
 require("content.uniquechardescription")
 
-module("server.playerlookat", package.seeall, package.seeall(base.factions), package.seeall(content.lookat.custom), package.seeall(content.uniquechardescription))
+module("server.playerlookat", package.seeall,
+                              package.seeall(base.factions), 
+                              package.seeall(content.lookat.custom), 
+                              package.seeall(content.uniquechardescription))
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	InitPlayerDesc();
