@@ -1,10 +1,11 @@
+require("base.orders")
+
 module("lte.order_retention_period", package.seeall)
-dofile("base_orders.lua");
 
 --[[
-    Sperrfristeffekt: Falls ein Char zu viele offene Aufträge hat ohne diese zu erfüllen
+    Sperrfristeffekt: Falls ein Char zu viele offene Auftrï¿½ge hat ohne diese zu erfï¿½llen
     wird eine Sperrfrist angelegt. Innerhalb dieser Zeit kann der Char
-    keine neuen Aufträge annehmen
+    keine neuen Auftrï¿½ge annehmen
     ]]--
 
 
@@ -19,8 +20,10 @@ function addEffect (eff, User)
 end
 
 function removeEffect (eff,User)
-    --beim entfernen die Vertrauenswürdigkeit erhöhen aber wert für gute Aufträge senken
-    setThrustWorthyness(User,ThrustworthynessChangeAfterRetentionPeriod,GoodOrderChangeAfterRetentionPeriod);
+    --beim entfernen die Vertrauenswï¿½rdigkeit erhï¿½hen aber wert fï¿½r gute Auftrï¿½ge senken
+    base.orders.setThrustWorthyness(User,
+        base.orders.ThrustworthynessChangeAfterRetentionPeriod,
+        base.orders.GoodOrderChangeAfterRetentionPeriod);
 end
 
 function loadEffect (eff, User)

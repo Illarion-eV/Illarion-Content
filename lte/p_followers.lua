@@ -1,7 +1,7 @@
 module("lte.p_followers", package.seeall)
 -- INSERT INTO longtimeeffects VALUES (6,'followers','lte_p_followers.lua');
 
-dofile("p_basics.lua");
+--dofile("p_basics.lua");
 
 function addEffect(Effect,Char)
 	Char:inform("Follower effect added");

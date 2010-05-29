@@ -4,7 +4,7 @@
 require("base.common")
 require("base.factions")
 module("lte.chr_reg", package.seeall)
-dofile( "p_basics.lua" );
+--dofile( "p_basics.lua" );
 
 crossPosition={};
 
@@ -21,7 +21,7 @@ function addEffect( Effect, Character)
     Effect:addValue("10",0);
 end;
 
-function callEffect( Effect, Char ) -- Effect wird ausgeführt
+function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
     -----------------------EINLESEN ANFANG------------------------------------
     local Hitpoints   = Char:increaseAttrib("hitpoints",0);   -- Hitpoints einlesen    ( 0 - 10000 )
     local Manapoints  = Char:increaseAttrib("mana",0);        -- Manapoints einlesen   ( 0 - 10000 )
@@ -94,7 +94,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english, "#me clenches and falls to the ground.");
                 base.common.InformNLS(Char,
-                    "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
+                    "Dein Magen verkrampft sich und du merkst nur noch wie dein Kï¿½rper auf dem Boden aufschlï¿½gt, bevor alles um dich dunkel wird.",
                     "Your stomach clenches and the last thing you feel is that your body hits the ground, before everything around you becomes dark.");
                 -------------- Meldungen fertig --------------------
             end
@@ -102,20 +102,20 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     if ( Poisonvalue > 0 ) then -- Vergiftet
         --Char:inform("poison: "..Poisonvalue);
-        Poisonvalue = math.max( 0,Poisonvalue - 15 * 5 ); -- Giftwert fällt in 2 Stunden, 46 Minuten von 10000 auf 0
+        Poisonvalue = math.max( 0,Poisonvalue - 15 * 5 ); -- Giftwert fï¿½llt in 2 Stunden, 46 Minuten von 10000 auf 0
         if ( Poisonvalue == 0 ) then -- Gift besiegt
             -------------- Meldungen ausgeben ------------------
             base.common.InformNLS(Char,
-                "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
+                "Du fï¿½hlst wie das Gift in deinem Kï¿½rper seine Wirkung verliert",
                 "You feel how the poison in your body looses its effect.");
             -------------- Meldungen fertig --------------------
         else
             Hitpoints = math.max( 0,Hitpoints - ( ( Poisonvalue * 0.07 ) * ( ( 30 - Const ) / 20 ) * 5 ) );
-            if ( Hitpoints > 0 ) then -- Geschwächt durch Gift aber kein Tod
+            if ( Hitpoints > 0 ) then -- Geschwï¿½cht durch Gift aber kein Tod
                 if ( math.random(1,40) == 2 or not Effect:findValue("poison") ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 40 Sekunden )
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
-                        "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
+                        "Du fï¿½hlst wie dein Kï¿½rper von innen heraus geschwï¿½cht wird.",
                         "You feel how your body becomes weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
@@ -125,7 +125,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me drips some saliva out of the mouth and falls to the ground.");
                 base.common.InformNLS(Char,
-                    "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
+                    "Du fï¿½hlst ein Brennen in deinem Kï¿½rper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
                     "You feel a cauterization in your body and that the saliva concentrates in your mouth. Then the world around you becomes dark.");
             end
         end
@@ -237,7 +237,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 if ( ( Foodvalue < 15000 ) and ( Foodvalue > 6000 ) ) then -- Noch 4 Stunden und 10 Minuten bis zum verhungern
                     if ( math.random(1,360) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 30 Minuten )
                         base.common.InformNLS(Char,
-                        "Du fühlst ein leichtes Grummeln in deinem Magen.",
+                        "Du fï¿½hlst ein leichtes Grummeln in deinem Magen.",
                         "You feel a slight mumble in your stomach.");
                     end
                 elseif ( ( Foodvalue < 6000 ) and ( Foodvalue > 3000 ) ) then -- Noch 1 Stunde und 40 Minuten bis zum verhungern
@@ -253,7 +253,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     end
                 elseif ( ( Foodvalue < 1000 ) and ( Foodvalue > 100 ) ) then -- Noch 16 Minuten bis zum verhungern
                     if ( math.random(1,36) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 3 Minuten )
-                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein gut hörbares Magenknurren ist zu vernehmen.");
+                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein gut hï¿½rbares Magenknurren ist zu vernehmen.");
                         Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles quite audibly.");
                     end
                 elseif ( Foodvalue < 100 ) then -- Noch 1 Minute 16 Sekunden bis zum verhungern
@@ -278,7 +278,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     Foodvalue   = base.common.Limit( Foodvalue,   0, maxFoodvalue  ); -- Nahrungspunkte
     -----------------------OVERLOAD SCHUTZ FERTIG-----------------------------
 
-    --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN ANFANG--------------------
+    --------------ï¿½NDERUNGEN PRï¿½FEN UND DURCHFï¿½HREN ANFANG--------------------
     if ( getWounds( Char, Effect ) == 0 ) then
         ChangeAttrib( Char, "hitpoints", Hitpoints );
     end
@@ -288,7 +288,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     ChangeAttrib( Char, "foodlevel", Foodvalue );
 
-    --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN FERTIG--------------------
+    --------------ï¿½NDERUNGEN PRï¿½FEN UND DURCHFï¿½HREN FERTIG--------------------
 
     return leaveSavely( Effect );
 end
@@ -348,12 +348,12 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
+        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Gï¿½ttern in Chergas Reich der Toten gegenï¿½berzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
 
-        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
+        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorï¿½ber. Die Gï¿½tter gewï¿½hren dir eine weitere Chance auf die Ebene der Lebenden zurï¿½ckzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         factionValues=BF_get_Faction(Char); --reading the faction values
