@@ -98,7 +98,7 @@ function InitCustomLookAt()
 	addDescription(2400,	3,	"mit der Gravur 'A.Y.R.' auf der Brust", "with the gravure 'A.Y.R.' on the chest", false, false, false );
 	addDescription(2400,	4,	"graviert mit dem Zeichen der Erzherzogin von Troll's Bane", "marked with the insignia of the Archduchess of Troll's Bane", false, false, false );
 	addDescription(2416,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
-	addDescription(2418,	16,	"grauer Mantel mit einem gelbem, aufgeb�umten Pferd", "grey mantle with yellow rampant horse", false, true, 0 );
+	addDescription(2418,	16,	"grauer Mantel mit einem gelbem, aufgebäumten Pferd", "grey mantle with yellow rampant horse", false, true, 0 );
 	addDescription(2419,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
 	addDescription(2420,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
 	addDescription(2421,	1,	"wei�e Robe mit der Stickerei der Druiden des Waldes", "white robe with the embroidery of the Druids of the Forest", false, true, false );
