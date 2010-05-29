@@ -1,6 +1,6 @@
-dofile("mon_drop.lua");
-dofile("mon_lookat.lua");
-dofile("mon_quests.lua");
+require("monster.base.drop")
+require("monster.base.lookat")
+require("monster.base.quests")
 require("base.messages");
 dofile("quest_aquest28.lua");    --the quest file for the Farmer ques
 
@@ -98,10 +98,10 @@ function onDeath(Monster)
         if (player_list[1]~=nil) then
             User = getCharForId(player_list[1].id);  --create a save copy of the char struct
 			User:inform("blub, monster dead");
-			local cow, task, counter = split_questdata(User);
+			local cow, task, counter = quest_aquest28.split_questdata(User);
 			counter = counter - 1;
 			task = 0; --reset task
-			glue_questdata(User, cow,task,counter); --put the quest data with changes together
+			quest_aquest28.glue_questdata(User, cow,task,counter); --put the quest data with changes together
 
 			aquest28Effect = CLongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2

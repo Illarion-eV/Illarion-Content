@@ -1,7 +1,7 @@
 require("base.common")
-dofile("mon_drop.lua");
-dofile("mon_lookat.lua");
-dofile("mon_quests.lua");
+require("monster.base.drop")
+require("monster.base.lookat")
+require("monster.base.quests")
 require("base.messages");
 
 function ini(Monster)
