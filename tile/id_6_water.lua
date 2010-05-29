@@ -1,9 +1,10 @@
--- Fishing Script für Echsen
+-- Fishing Script fÃ¼r Echsen
 
--- UPDATE tiles SET til_script='t_06_water.lua' WHERE til_id=6;
--- ! buggy ! is invoked on every tile
+-- UPDATE tiles SET til_script='tile.id_6_water' WHERE til_id = 6;
 
 require("base.common")
+
+module("tile.id_6_water", package.seeall)
 
 Interrupt_Messages = { 	add = function (self,gText,eText)
 							table.insert(self, {["german"] = gText, ["english"] = eText});
@@ -14,9 +15,9 @@ Interrupt_Messages = { 	add = function (self,gText,eText)
 						end
 };
 
-Interrupt_Messages:add(	"Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurück.",
+Interrupt_Messages:add(	"Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurÃ¼ck.",
 						"You notice a large black dot in the water, you decide not to disturb it.");
-Interrupt_Messages:add(	"Dein Blick verliert sich für kurze Zeit in deinem Spiegelbild und du bist abgelenkt.",
+Interrupt_Messages:add(	"Dein Blick verliert sich fï¿½r kurze Zeit in deinem Spiegelbild und du bist abgelenkt.",
 						"You take a while to admire that good-looking person staring at you from your reflection.");
 Interrupt_Messages:add(	"Der Boden unter dir rutscht leicht weg, sodass du gerade noch das Gleichgewicht halten kannst.",
 						"Some stones slip away from the bank, disturbing all the fish.");
@@ -28,9 +29,6 @@ function GenWorkTime(User) -- generate work time
 end
 
 function useTile(User,Position,counter,param,ltstate)
-	if (world:getField(Position):tile()~=6) then
-		return
-	end
 	if (User:get_race()~=5) then
 	    return
 	end
@@ -49,15 +47,15 @@ function useTile(User,Position,counter,param,ltstate)
         return
     end
 
-    -- Angeln unterirdisch nicht möglich
+    -- Angeln unterirdisch nicht mï¿½glich
     if (Position.z < 0) then
-    	base.common.InformNLS(User,"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.","Fishing in underground waterholes wouldn't be successful.");
+    	base.common.InformNLS(User,"In unterirdischen WasserlÃ¶chern wird das Angeln kaum erfolgreich sein.","Fishing in underground waterholes wouldn't be successful.");
 	    return
     end
 
-    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
+    if base.common.Encumbrence(User) then -- Durch Steife Rï¿½stung behindert
         base.common.InformNLS( User,
-        "Deine Rüstung behindert dich beim Fischen.",
+        "Deine Rï¿½stung behindert dich beim Fischen.",
         "Your armor disturbes you while fishing." );
         return
     end
@@ -83,7 +81,7 @@ function useTile(User,Position,counter,param,ltstate)
 
      if ( (rand==2) or (rand==3) ) then
          base.common.InformNLS(User,
-         "Auf einmal hast du das Gefühl eine Hand würde nach deiner Klaue greifen. Noch während du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.",
+         "Auf einmal hast du das Gefï¿½hl eine Hand wï¿½rde nach deiner Klaue greifen. Noch wï¿½hrend du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.",
          "Suddenly you have the feeling a hand should grap your claw. While you are wondering what it could be, the water in front of you ripples and a slimy mummy climbs out of the water.");
 
          world:createMonster(101,TargetPos,20);
@@ -114,11 +112,11 @@ function useTile(User,Position,counter,param,ltstate)
         -- Stiefel
         elseif (FTry>=920 and FTry<940) then
             User:createItem(53,1,100,0)
-            base.common.InformNLS(User,"Ein alter, durchlöcherter Lederstiefel findet sich in deiner Klaue.","An old, perforated leather boot is in your claw.");
-        -- Öllampe
+            base.common.InformNLS(User,"Ein alter, durchlÃ¶cherter Lederstiefel findet sich in deiner Klaue.","An old, perforated leather boot is in your claw.");
+        -- Ã–lampe
         elseif (FTry>=940 and FTry<990) then
             User:createItem(92,1,333,0);
-            base.common.InformNLS(User,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?");
+            base.common.InformNLS(User,"Du ziehst eine glitzernde Ã–lampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?");
         -- Eimer
         elseif (FTry>=990 and FTry<=1000) then
             User:createItem(51,1,333,0)
