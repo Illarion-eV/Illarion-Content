@@ -8,7 +8,7 @@ module("gm.spells.30_heal", package.seeall)
 INSERT INTO spells VALUES (2^29,0,'gm.spells.30_heal');
 INSERT INTO spells VALUES (2^29,1,'gm.spells.30_heal');
 INSERT INTO spells VALUES (2^29,2,'gm.spells.30_heal');
-INSERT INTO spells VALUES (2^29,3,'gm.spells.30_heall');
+INSERT INTO spells VALUES (2^29,3,'gm.spells.30_heal');
 ]]
 function CastMagicOnCharacter(Caster,TargetCharacter,Counter,Param)
     while (TargetCharacter:increaseAttrib("hitpoints", 0) < 10000) do
