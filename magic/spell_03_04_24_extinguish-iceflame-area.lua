@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.spell_03_04_24_extinguish-iceflame-area.lua")
+module("magic.spell_03_04_24_extinguish-iceflame-area")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_03_04_24_extinguish-iceflame-area.lua";
 

@@ -10,7 +10,7 @@
 
 -- including the main script for teleport spells
 require("magic.base.teleportspell");
-module("magic.spell_01_09_15_tp-self.lua")
+module("magic.spell_01_09_15_tp-self")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_09_15_tp-self.lua";
 

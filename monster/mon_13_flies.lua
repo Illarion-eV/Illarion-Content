@@ -3,7 +3,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("quest_aquest28");    --the quest file for the Farmer ques
-module("monster.")
+module("monster.mon_13_flies")
 
 
 function ini(Monster)

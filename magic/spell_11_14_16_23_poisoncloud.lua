@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.spell_11_14_16_23_poisoncloud.lua")
+module("magic.spell_11_14_16_23_poisoncloud")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_11_14_16_23_poisoncloud.lua";
 

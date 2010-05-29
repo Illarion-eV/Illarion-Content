@@ -16,7 +16,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.spell_08_15_17_24_storm.lua")
+module("magic.spell_08_15_17_24_storm")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_08_15_17_24_storm.lua";
 

@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_16_26_teach-qwan.lua")
+module("magic.spell_16_26_teach-qwan")
 -- Informations about the rune
 Rune = {
     ["name"] = "QWAN",   -- name of the rune

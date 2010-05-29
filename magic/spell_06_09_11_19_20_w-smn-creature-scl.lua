@@ -5,7 +5,7 @@
 -- Beschwörungs Zauber
 
 require("magic.base.basics");
-module("magic.spell_06_09_11_19_20_write-summon-creature-scroll.lua")
+module("magic.spell_06_09_11_19_20_write-summon-creature-scroll")
 function InitSpell() -- Spell Grundeinstellungen
     Difficult=75;
     NeededSkill="desicio";

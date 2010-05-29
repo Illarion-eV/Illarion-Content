@@ -3,7 +3,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.")
+module("monster.mon_31_gnomes")
 
 
 function ini(Monster)

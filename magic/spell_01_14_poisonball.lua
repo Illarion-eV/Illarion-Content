@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.spell_01_14_poisonball.lua")
+module("magic.spell_01_14_poisonball")
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_14_poisonball.lua";

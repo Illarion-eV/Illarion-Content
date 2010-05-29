@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_02_26_teach-ra.lua")
+module("magic.spell_02_26_teach-ra")
 
 -- Informations about the rune
 Rune = {

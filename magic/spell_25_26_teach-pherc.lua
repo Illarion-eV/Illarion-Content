@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_25_26_teach-pherc.lua")
+module("magic.spell_25_26_teach-pherc")
 -- Informations about the rune
 Rune = {
     ["name"] = "PHERC",   -- name of the rune

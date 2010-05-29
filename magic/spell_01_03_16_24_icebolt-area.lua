@@ -6,7 +6,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.spell_01_03_16_24_icebolt-area.lua")
+module("magic.spell_01_03_16_24_icebolt-area")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_03_16_24_icebolt-area.lua";
 

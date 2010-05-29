@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_24_26_teach-dun.lua")
+module("magic.spell_24_26_teach-dun")
 -- Informations about the rune
 Rune = {
     ["name"] = "DUN",   -- name of the rune

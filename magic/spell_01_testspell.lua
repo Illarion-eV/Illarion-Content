@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.spell_01_testspell.lua")
+module("magic.spell_01_testspell")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_testspell.lua";
 

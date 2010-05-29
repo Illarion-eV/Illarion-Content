@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_07_26_teach-mes.lua")
+module("magic.spell_07_26_teach-mes")
 -- Informations about the rune
 Rune = {
     ["name"] = "MES",   -- name of the rune

@@ -10,7 +10,7 @@
 
 -- including the main script for get-item spells
 require("magic.base.itemmovespell");
-module("magic.spell_15_16_21_23_get-light-items.lua")
+module("magic.spell_15_16_21_23_get-light-items")
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_15_16_21_23_get-light-items.lua";
 
