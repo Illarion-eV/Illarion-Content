@@ -1,5 +1,5 @@
 require("base.books")
-require("druids.content.emerald")
+require("druid.content.emerald")
 
 module("item.book.id_115_green_book", package.seeall)
 
@@ -10,7 +10,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         world:erase(SourceItem,1);
     else
         if base.books.InitBook() then
-            druids.content.emerald.loadBook(1);
+            druid.content.emerald.loadBook(1);
         end
     end
     base.books.SendBookPage(User,SourceItem.data,Counter);
@@ -19,7 +19,7 @@ end  -- function
 
 function LookAtItem( User, Item )
     if base.books.InitTitle() then
-        druids.content.emerald.loadTitle(1);
+        druid.content.emerald.loadTitle(1);
     end
     base.books.GetBookItemInform(User,Item);
 end

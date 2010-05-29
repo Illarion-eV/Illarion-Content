@@ -1,5 +1,5 @@
 require("base.books")
-require("druids.content.amethyst")
+require("druid.content.amethyst")
 
 module("item.book.id_108_red_book", package.seeall)
 
@@ -10,7 +10,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         world:erase(SourceItem,1);
     else
         if base.books.InitBook() then
-            druids.content.amethyst.loadBook(1);
+            druid.content.amethyst.loadBook(1);
         end
     end
     base.books.SendBookPage(User,SourceItem.data,Counter);
@@ -19,7 +19,7 @@ end  -- function
 
 function LookAtItem( User, Item )
     if base.books.InitTitle() then
-        druids.content.amethyst.loadTitle(1);
+        druid.content.amethyst.loadTitle(1);
     end
     base.books.GetBookItemInform(User,Item);
 end

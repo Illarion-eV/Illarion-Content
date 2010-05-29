@@ -1,5 +1,5 @@
 require("base.books")
-require("druids.content.druids")
+require("druid.content.druids")
 
 module("item.book.id_109_black_book", package.seeall)
 
@@ -10,7 +10,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         world:erase(SourceItem,1);
     else
         if base.books.InitBook() then
-            druids.content.druids.loadBook(0);
+            druid.content.druid.loadBook(0);
         end
     end
     base.books.SendBookPage(User,SourceItem.data,Counter);
@@ -19,7 +19,7 @@ end  -- function
 
 function LookAtItem( User, Item )
     if base.books.InitTitle() then
-        druids.content.druids.loadTitle(0);
+        druid.content.druid.loadTitle(0);
     end
     base.books.GetBookItemInform(User,Item);
 end

@@ -1,7 +1,7 @@
 -- I_100.lua GM-Kelle
 
 require("base.common")
-require("druids.base.alchemy")
+require("druid.base.alchemy")
 
 module("gm.items.100_trowel", package.seeall)
 
@@ -29,9 +29,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     local itemQual = 333;
     local itemData = 0;
     
-    if (druids.base.alchemy.plantDataListById ~= nil and druids.base.alchemy.plantDataListById[itemId] ~= nil) then
+    if (druid.base.alchemy.plantDataListById ~= nil and druid.base.alchemy.plantDataListById[itemId] ~= nil) then
         itemQual = base.common.NormalRnd(111, 999);
-        itemData = druids.base.alchemy.plantDataListById[itemId];
+        itemData = druid.base.alchemy.plantDataListById[itemId];
     end;
     
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
