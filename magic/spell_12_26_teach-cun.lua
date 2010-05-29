@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_12_26_teach-cun")
+module("magic.spell_12_26_teach-cun", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "CUN",   -- name of the rune

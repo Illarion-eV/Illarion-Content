@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.spell_03_13_16_23_24_icecircle")
+module("magic.spell_03_13_16_23_24_icecircle", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_03_13_16_23_24_icecircle.lua";
 

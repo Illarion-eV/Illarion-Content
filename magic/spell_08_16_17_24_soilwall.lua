@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.spell_08_16_17_24_soilwall")
+module("magic.spell_08_16_17_24_soilwall", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_08_16_17_24_soilwall.lua";
 

@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_26_28_teach-lhor")
+module("magic.spell_26_28_teach-lhor", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "LHOR",   -- name of the rune

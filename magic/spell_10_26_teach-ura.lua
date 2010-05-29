@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_10_26_teach-ura")
+module("magic.spell_10_26_teach-ura", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "URA",   -- name of the rune

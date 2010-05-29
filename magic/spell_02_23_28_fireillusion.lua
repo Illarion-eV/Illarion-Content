@@ -10,7 +10,7 @@
 
 -- including the main script for item spells
 require("magic.base.itemspell");
-module("magic.spell_02_23_28_fireillusion")
+module("magic.spell_02_23_28_fireillusion", package.seeall)
 
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_02_23_28_fireillusion.lua";

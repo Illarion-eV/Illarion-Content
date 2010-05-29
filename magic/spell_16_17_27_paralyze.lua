@@ -10,7 +10,7 @@
 
 -- including the main script for gfx spells
 require("magic.base.gfxspell");
-module("magic.spell_16_17_27_paralyze")
+module("magic.spell_16_17_27_paralyze", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_16_17_27_paralyze.lua";
 

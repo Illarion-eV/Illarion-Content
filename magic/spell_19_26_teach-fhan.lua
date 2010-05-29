@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_19_26_teach-fhan")
+module("magic.spell_19_26_teach-fhan", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "FHAN",   -- name of the rune

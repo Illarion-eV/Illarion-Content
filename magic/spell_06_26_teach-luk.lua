@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_06_26_teach-luk")
+module("magic.spell_06_26_teach-luk", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "LUK",   -- name of the rune

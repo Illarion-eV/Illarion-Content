@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_26_teach-bhona")
+module("magic.spell_26_teach-bhona", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "BHONA", -- name of the rune

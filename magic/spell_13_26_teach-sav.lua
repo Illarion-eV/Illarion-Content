@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_13_26_teach-sav")
+module("magic.spell_13_26_teach-sav", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "SAV",   -- name of the rune

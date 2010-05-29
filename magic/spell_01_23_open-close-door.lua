@@ -6,7 +6,7 @@
 
 require("base.doors")
 require("base.common")
-module("magic.spell_01_23_open-close-door")
+module("magic.spell_01_23_open-close-door", package.seeall)
 function OpenCloseTarget(Caster,Item)
     if not base.common.IsLookingAt(Caster,Item.pos) then
 		base.common.TurnTo(Caster, Item.pos);

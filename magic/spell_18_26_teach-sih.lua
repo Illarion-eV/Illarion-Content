@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_18_26_teach-sih")
+module("magic.spell_18_26_teach-sih", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "SIH",   -- name of the rune

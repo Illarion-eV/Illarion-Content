@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_22_26_teach-kah")
+module("magic.spell_22_26_teach-kah", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "KAH",   -- name of the rune

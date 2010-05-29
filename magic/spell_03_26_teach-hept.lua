@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_03_26_teach-hept")
+module("magic.spell_03_26_teach-hept", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "HEPT",   -- name of the rune

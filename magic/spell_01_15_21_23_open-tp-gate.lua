@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.basics");
-module("magic.spell_01_15_21_23_open-tp-gate")
+module("magic.spell_01_15_21_23_open-tp-gate", package.seeall)
 -- setting the filename of the current script. This is needed to exchange them later if needed while runtime
 Script = "m_01_15_21_23_open-tp-gate.lua";
 

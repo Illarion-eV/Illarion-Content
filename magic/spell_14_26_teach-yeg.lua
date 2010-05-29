@@ -9,7 +9,7 @@
 ]]
 
 require("magic.base.teachspell");
-module("magic.spell_14_26_teach-yeg")
+module("magic.spell_14_26_teach-yeg", package.seeall)
 -- Informations about the rune
 Rune = {
     ["name"] = "YEG",   -- name of the rune
