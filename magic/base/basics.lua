@@ -3,7 +3,7 @@ M_BASICS = true;
 
 require("base.common")
 require("content.lookat.unique");
-module("magic.base.basics")
+module("magic.base.basics", package.seeall)
 
 function initRaceBoni()
     -- Default Values for racial boni related magic
