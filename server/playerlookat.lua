@@ -13,9 +13,9 @@ require("base.factions")
 require("content.lookat.custom")
 require("content.uniquechardescription")
 
-module("server.playerlookat", package.seeall(base.factions), 
-                              package.seeall(content.lookat.custom), 
-                              package.seeall(content.uniquechardescription))
+module("server.playerlookat", package.seeall,
+                              package.seeall(base.factions), 
+                              package.seeall(content.lookat.custom))
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	content.uniquechardescription.InitPlayerDesc();
@@ -146,9 +146,9 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
             end
         end
     end
-	if(PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
-		for i,v in pairs(PlayerDescriptionsDE[TargetCharacter.id]) do
-			base.common.InformNLS(SourceCharacter, PlayerDescriptionsDE[TargetCharacter.id][i], PlayerDescriptionsEN[TargetCharacter.id][i]);
+	if(content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id] ~= nil) then
+		for i,v in pairs(content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id]) do
+			base.common.InformNLS(SourceCharacter, content.uniquechardescription.PlayerDescriptionsDE[TargetCharacter.id][i], content.uniquechardescription.PlayerDescriptionsEN[TargetCharacter.id][i]);
 		end
 	end
 end
@@ -351,7 +351,6 @@ function getClothesQualText(qual, lang)
 end
 
 
--- sch�big, abgetragen, fadenscheinig, hochwertig, teuer, erlesen, exquisit, l�chrig, dreckig
 -- 
 
 
