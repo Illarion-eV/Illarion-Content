@@ -89,7 +89,7 @@ Circle = {
 
 -- Racial bonis
 magic.base.basics.initRaceBoni(); -- Init or reset all preset racial boni values
-SetRaceBoni( 33, 2.00, 10.00 ); -- dragon ( RaceID 33 - Offensive Boni: *2 - Defensive Value (against this spell): *10
+magic.base.basics.SetRaceBoni( 33, 2.00, 10.00 ); -- dragon ( RaceID 33 - Offensive Boni: *2 - Defensive Value (against this spell): *10
 
 -- make sure that we remember that this is the original script loaded on this spell
 if (orgScript == nil) then
