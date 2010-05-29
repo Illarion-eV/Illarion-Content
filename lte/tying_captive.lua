@@ -1,3 +1,4 @@
+require("base.common")
 module("lte.tying_captive", package.seeall)
 --[[ LTE 24
      tying up: captive
@@ -254,19 +255,6 @@ function MoveCharacter( Character, Effect, XOff, YOff, range )
 	else
 		Effect:removeValue("blocked");
 	end
-end
-
---[[
-    base.common.GetNLS
-    Select the proper text upon the language flag of the character
-    @param CharacterStruct - The character whos language flag matters
-    @param Text - german text
-    @param Text - english text
-    
-    @return Text - german or english text version
-]]
-function base.common.GetNLS( User, textInDe, textInEn )
-    return ( User:getPlayerLanguage(  ) == 0 and textInDe or textInEn );
 end
 
 function InformW( User, textInDe, textInEn )

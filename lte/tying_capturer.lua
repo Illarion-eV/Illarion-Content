@@ -1,3 +1,4 @@
+require("base.common")
 module("lte.tying_capturer", package.seeall)
 --[[ LTE 26
      tying up: capturer
@@ -202,19 +203,6 @@ function GetBestAttribOffset( Char1, Char2, AttribList )
 		addVal = addVal + currentOffset;
 	end
 	return math.max(bestOffset,addVal);
-end
-
---[[
-    base.common.GetNLS
-    Select the proper text upon the language flag of the character
-    @param CharacterStruct - The character whos language flag matters
-    @param Text - german text
-    @param Text - english text
-    
-    @return Text - german or english text version
-]]
-function base.common.GetNLS( User, textInDe, textInEn )
-    return ( User:getPlayerLanguage(  ) == 0 and textInDe or textInEn );
 end
 
 function InformW( User, textInDe, textInEn )
