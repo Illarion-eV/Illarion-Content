@@ -1,10 +1,10 @@
---require("base.keys")
---require("base.common")
+require("base.keys")
+require("base.common")
 
 module("server.logout", package.seeall)
 
 function onLogout( theChar )
---[[	  if false then
+	  if false then
 	  	  return true;
 	  end
 
@@ -85,5 +85,5 @@ function onLogout( theChar )
 		end
 	end
 	-- end tying
---]]
+
 end
