@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_2140_tong' WHERE com_itemid=2140;
 
 require("item.general.metal")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 module("item.id_2140_tong", package.seeall, package.seeall(item.general.metal))
 
@@ -11,7 +11,7 @@ function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        gemcutting = item.id_base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        gemcutting = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                                   LeadSkill = "gemcutting",
                                   LeadSkillGroup = 2,
                                   DefaultFoodConsumption = 200,

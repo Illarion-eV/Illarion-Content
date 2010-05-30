@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_6_scissors' WHERE com_itemid IN (6);
 
 require("item.general.metal")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 module("item.id_6_scissors", package.seeall, package.seeall(item.general.metal))
 

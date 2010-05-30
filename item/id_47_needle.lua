@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_47_needle' WHERE com_itemid IN (47);
 
 require("item.general.wood")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 module("item.id_47_needle", package.seeall, package.seeall(item.general.wood))
 
@@ -12,7 +12,7 @@ function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
         
-        tailoring = item.id_base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        tailoring = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "tailoring",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 300,

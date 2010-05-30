@@ -1,9 +1,9 @@
 -- UPDATE common SET com_script='item.id_194_blackcloak' WHERE com_itemid IN (194);
 
-require("item.id_priest.cloth")
+require("item.priest.cloth")
 require("base.common")
 
-module("item.id_194_blackcloak", package.seeall, package.seeall(item.id_priest.cloth))
+module("item.id_194_blackcloak", package.seeall, package.seeall(item.priest.cloth))
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --anlegen des schattenmantels

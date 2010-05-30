@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_58_mortar' WHERE com_itemid=58;
 
 require("item.general.jewel")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 require("item.id_58_mortar", package.seeall, package.seeall(item.general.jewel))
 
@@ -11,7 +11,7 @@ function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        mortar = item.id_base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        mortar = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                             LeadSkill = "tailoring",
                             LeadSkillGroup = 2,
                             DefaultFoodConsumption = 300,

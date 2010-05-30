@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_311_glassblowpipe' WHERE com_itemid=311;
 
 require("base.general.metal")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 module("item.id_311_glassblowpipe", package.seeall, package.seeall(base.general.metal))
 
@@ -11,7 +11,7 @@ function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        glassblowing = item.id_base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        glassblowing = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                                   LeadSkill = "glass blowing",
                                   LeadSkillGroup = 2,
                                   DefaultFoodConsumption = 300,

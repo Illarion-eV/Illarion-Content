@@ -2,7 +2,7 @@
 
 -- UPDATE common SET com_script='item.id_90_flute' WHERE com_itemid=90;
 
-require("item.id_base.music")
+require("item.base.music")
 require("item.general.wood")
 
 module("item.id_90_flute", package.seeall, package.seeall(item.general.wood))

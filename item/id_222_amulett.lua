@@ -1,9 +1,9 @@
 -- UPDATE common SET com_script='item.id_222_amulett' WHERE com_itemid IN (222);
 
-require("item.id_priest.jewel")
+require("item.priest.jewel")
 require("base.common")
 
-module("item.id_222_amulett", package.seeall, package.seeall(item.id_priest.jewel))
+module("item.id_222_amulett", package.seeall, package.seeall(item.priest.jewel))
 
 function MoveItemBeforeMove( who, sourceItem, targetItem )
     fnd, eff = who.effects:find(9)

@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_23_smithinghammer' WHERE com_itemid IN (23);
 
 require("item.general.metal")
-require("item.id_base.crafts")
+require("item.base.crafts")
 
 module("item.id_23_smithinghammer", package.seeall, package.seeall(item.general.metal))
 
@@ -11,7 +11,7 @@ module("item.id_23_smithinghammer", package.seeall, package.seeall(item.general.
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
-        smithing = item.id_base.crafts.Craft:new{ LeadAttrib = "dexterity",
+        smithing = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
                               LeadSkill = "smithing",
                               LeadSkillGroup = 2,
                               DefaultFoodConsumption = 300,
