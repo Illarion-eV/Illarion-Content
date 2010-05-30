@@ -2,7 +2,7 @@ require("base.class")
 
 module("handler.deletebridge", package.seeall);
 
-deleteBridge = class(function(delbrg, posi)
+deleteBridge = base.class.class(function(delbrg, posi)
     delbrg.pos=posi;
 end);
 
