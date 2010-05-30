@@ -5,7 +5,7 @@
 require("item.general.jewel")
 require("item.base.crafts")
 
-modul("item.id_58_mortar", package.seeall, package.seeall(item.general.jewel))
+module("item.id_58_mortar", package.seeall, package.seeall(item.general.jewel))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
