@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_311_glassblowpipe' WHERE com_itemid=311;
 
-require("base.general.metal")
+require("item.general.metal")
 require("item.base.crafts")
 
-module("item.id_311_glassblowpipe", package.seeall, package.seeall(base.general.metal))
+module("item.id_311_glassblowpipe", package.seeall, package.seeall(item.general.metal))
 
 function InitCraftingTool( )
     if not InitStartedOnce then
