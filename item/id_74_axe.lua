@@ -8,7 +8,7 @@ require("base.common")
 require("item.general.metal")
 require("content.gathering")
 
-module("item.id_74_axe", package.seeall, package.seeall(item.general.wood))
+module("item.id_74_axe", package.seeall, package.seeall(item.general.metal))
 
 function initLists(  )
     -- Initialisierung der Listen
