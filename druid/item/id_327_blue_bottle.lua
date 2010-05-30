@@ -7,7 +7,7 @@ require("base.common")
 require("druid.base.alchemy")
 require("druid.base.missile")
 
-module("druid.item.id_327_blue_bottle", package.seeall(druid.base.alchemy), package.seeall(druid.base.missile))
+module("druid.item.id_327_blue_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_327_blue_bottle' WHERE com_itemid = 327;
 

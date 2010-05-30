@@ -126,8 +126,8 @@ function UseItemWithCharacter(User,SourceItem,Character,Counter,Param)
     CharLang=Character:getPlayerLanguage();
     if (User.id~=Character.id) then
         if (SourceItem:getType()==4) then
-            if base.common.IsLookingAt(User,Character.pos) then
-                if not base.common.IsLookingAt(Character,User.pos) then
+            if IsLookingAt(User,Character.pos) then
+                if not IsLookingAt(Character,User.pos) then
                     SkillName="poisoning";
                     SkillVal=User:getSkill(SkillName);
                     AttribVal=math.floor((User:increaseAttrib("dexterity",0)*2+User:increaseAttrib("agility",0))/3)*(math.random(7,13)/10);
@@ -209,7 +209,7 @@ function LookAtItem(User,Item)
 
 end
 
-function base.common.IsLookingAt( User, Location )
+function IsLookingAt( User, Location )
     if( Location == nil ) then
         return false;
     end
