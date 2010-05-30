@@ -3,9 +3,9 @@
 -- UPDATE common SET com_script='item.id_553_drum' WHERE com_itemid=553;
 
 require("item.id_base.music")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_553_drum", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_553_drum", package.seeall, package.seeall(item.general.wood))
 
 item.id_base.music.addTalkText("#me hits the drum chaoticly, making a lot of noise.", "#me schl�gt planlos auf die Trommel ein und macht eine Menge L�rm." );
 item.id_base.music.addTalkText("#me makes chattering uncoordinated noises on the drum.", "#me macht klappernde, unkoordinierte Ger�usche auf der Trommel.");

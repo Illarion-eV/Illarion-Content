@@ -5,10 +5,10 @@
 -- UPDATE common SET com_script='item.id_271_scythe' WHERE com_itemid IN (271);
 
 require("base.common")
-require("item.id_general.metal")
+require("item.general.metal")
 require("content.gathering")
 
-module("item.id_271_scythe", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_271_scythe", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )   
 	content.gathering.InitGathering();

@@ -3,9 +3,9 @@
 -- UPDATE common SET com_script='item.id_333_horn' WHERE com_itemid=333;
 
 require("item.id_base.music")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_333_horn", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_333_horn", package.seeall, package.seeall(item.general.wood))
 
 item.id_base.music.addTalkText("#me 's cheeks turn red while blowing in a horn but no sound is audible","#me's Wangen werden beim Blasen in das Horn rot, aber kein Ton ist zu h�ren.");
 item.id_base.music.addTalkText("#me blows in a horn producing a buzzing sound","#me bl�st in das Horn und erzeugt ein summendes Ger�usch");

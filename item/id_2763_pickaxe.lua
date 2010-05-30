@@ -23,11 +23,11 @@
 -- UPDATE common SET com_agingspeed = 255, com_objectafterrot = 1250 WHERE com_itemid = 1250;
 -- UPDATE common SET com_agingspeed =  10, com_objectafterrot = 1250 WHERE com_itemid = 1251;
 
-require("item.id_general.metal")
+require("item.general.metal")
 require("base.common")
 require("base.treasure")
 
-module("item.id_2763_pickaxe", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
 
 function Init()
     if InitDone then

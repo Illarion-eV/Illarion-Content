@@ -5,10 +5,10 @@
 -- UPDATE common SET com_script='item.id_74_axe' WHERE com_itemid IN (74,2946);
 
 require("base.common")
-require("item.id_general.metal")
+require("item.general.metal")
 require("content.gathering")
 
-module("item.id_74_axe", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_74_axe", package.seeall, package.seeall(item.general.wood))
 
 function initLists(  )
     -- Initialisierung der Listen

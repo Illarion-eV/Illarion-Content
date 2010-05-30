@@ -3,9 +3,9 @@
 -- UPDATE common SET com_script='item.id_332_harp' WHERE com_itemid=332;
 
 require("item.id_base.music")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_332_harp", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_332_harp", package.seeall, package.seeall(item.general.wood))
 
 item.id_base.music.addTalkText("#me plays the harp with a horrible crash","#me macht ein furchtbares Ger�usch mit der Harfe");
 item.id_base.music.addTalkText("#me plays a stilted tune on the harp","#me spielt eine gezierte Melodie auf der Harfe");

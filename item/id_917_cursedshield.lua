@@ -1,9 +1,9 @@
 -- UPDATE common SET com_script = 'item.id_917_cursedshield' WHERE com_itemid = 917;
 
 require("base.common")
-require("item.id_general.metal")
+require("item.general.metal")
 
-module("item.id_917_cursedshield", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_917_cursedshield", package.seeall, package.seeall(item.general.metal))
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
     -- if shield was purified, then no possibility of curse

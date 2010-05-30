@@ -1,9 +1,9 @@
 -- I_2744_pfeife.lua
 --
 require("base.common")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_2744_pipe", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 

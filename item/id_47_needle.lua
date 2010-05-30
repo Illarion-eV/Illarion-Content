@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_47_needle' WHERE com_itemid IN (47);
 
-require("item.id_general.wood")
+require("item.general.wood")
 require("item.id_base.crafts")
 
-module("item.id_47_needle", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_47_needle", package.seeall, package.seeall(item.general.wood))
 
 -- Schneiderprodukte Initieren
 function InitCraftingTool( )

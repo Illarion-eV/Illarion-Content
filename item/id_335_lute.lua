@@ -3,9 +3,9 @@
 -- UPDATE common SET com_script='item.id_335_lute' WHERE com_itemid=335;
 
 require("item.id_base.music")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_335_lute", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_335_lute", package.seeall, package.seeall(item.general.wood))
 
 item.id_base.music.addTalkText("#me makes a terrible noise on the lute","#me macht ein furchtbares Ger�usch mit der Laute");
 item.id_base.music.addTalkText("#me plays some halting tunes","#me spielt einige unsichere T�ne auf der Laute");

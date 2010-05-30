@@ -1,6 +1,6 @@
 -- UPDATE common SET com_script='item.id_2502_gynkfire' WHERE com_itemid IN (2502);
 
-module("item.id_2502_gynkfire", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_2502_gynkfire", package.seeall, package.seeall(item.general.wood))
 
 function LookAtItem(User,Item)
     if (User:getPlayerLanguage() == 0) then

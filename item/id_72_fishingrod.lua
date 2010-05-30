@@ -3,11 +3,11 @@
 
 -- UPDATE common SET com_script='item.id_72_fishingrod' WHERE com_itemid=72;
 
-require("item.id_general.wood")
+require("item.general.wood")
 require("base.common")
 require("content.gathering")
 
-module("item.id_72_fishingrod", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood))
 
 
 function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)

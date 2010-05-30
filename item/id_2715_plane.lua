@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_2715_plane' WHERE com_itemid IN (2715);
 
-require("item.id_general.wood")
+require("item.general.wood")
 require("item.id_base.crafts")
 
-module("item.id_2715_plane", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_2715_plane", package.seeall, package.seeall(item.general.wood))
 
 -- Holzarbeiten mit dem Hobel
 function InitCraftingTool( )

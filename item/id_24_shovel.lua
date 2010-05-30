@@ -5,10 +5,10 @@
 -- UPDATE common SET com_script='item.id_24_shovel' WHERE com_itemid=24;
 
 require("base.common")
-require("item.id_general.metal")
+require("item.general.metal")
 require("base.treasure")
 
-module("item.id_24_shovel", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate );

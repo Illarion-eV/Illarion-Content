@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_2140_tong' WHERE com_itemid=2140;
 
-require("item.id_general.metal")
+require("item.general.metal")
 require("item.id_base.crafts")
 
-module("item.id_2140_tong", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_2140_tong", package.seeall, package.seeall(item.general.metal))
 
 function InitCraftingTool( )
     if not InitStartedOnce then

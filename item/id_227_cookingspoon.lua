@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_227_cookingspoon' WHERE com_itemid IN (227);
 
-require("item.id_general.wood")
+require("item.general.wood")
 require("item.id_base.crafts")
 
-module("item.id_227_cookingspoon", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_227_cookingspoon", package.seeall, package.seeall(item.general.wood))
 
 -- Kochen und Brauen Initieren Initieren
 function InitCraftingTool( )

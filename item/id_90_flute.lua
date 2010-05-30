@@ -3,9 +3,9 @@
 -- UPDATE common SET com_script='item.id_90_flute' WHERE com_itemid=90;
 
 require("item.id_base.music")
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_90_flute", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_90_flute", package.seeall, package.seeall(item.general.wood))
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if InitInstruments() then

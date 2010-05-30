@@ -2,11 +2,11 @@
 
 -- UPDATE common SET com_script='item.id_126_sickle' WHERE com_itemid=126;
 
-require("item.id_general.metal")
+require("item.general.metal")
 require("base.common")
 require("scheduled.newgaia")
 
-module("item.id_126_sickle", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	

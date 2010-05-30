@@ -6,9 +6,9 @@
 
 -- UPDATE common SET com_script='item.id_258_flail' WHERE com_itemid IN (258);
 
-require("item.id_general.wood")
+require("item.general.wood")
 
-module("item.id_258_flail", package.seeall, package.seeall(item.id_general.wood))
+module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     base.common.ResetInterruption( User, ltstate );

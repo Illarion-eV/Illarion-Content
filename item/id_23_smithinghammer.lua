@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_23_smithinghammer' WHERE com_itemid IN (23);
 
-require("item.id_general.metal")
+require("item.general.metal")
 require("item.id_base.crafts")
 
-module("item.id_23_smithinghammer", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_23_smithinghammer", package.seeall, package.seeall(item.general.metal))
 
 -- Schmiedeprodukte Initieren
 function InitCraftingTool( )

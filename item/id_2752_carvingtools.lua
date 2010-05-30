@@ -2,10 +2,10 @@
 
 -- UPDATE common SET com_script='item.id_2752_carvingtools' WHERE com_itemid IN (2752);
 
-require("item.id_general.metal")
+require("item.general.metal")
 require("item.id_base.crafts")
 
-module("item.id_2752_carvingtools", package.seeall, package.seeall(item.id_general.metal))
+module("item.id_2752_carvingtools", package.seeall, package.seeall(item.general.metal))
 
 -- Holzarbeiten mit dem Schnitzmesser
 function InitCraftingTool( )
