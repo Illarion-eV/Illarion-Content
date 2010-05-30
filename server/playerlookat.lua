@@ -13,10 +13,7 @@ require("base.factions")
 require("content.lookat.custom")
 require("content.uniquechardescription")
 
-module("server.playerlookat", package.seeall,
-                              package.seeall(base.factions),
-                              package.seeall,
-                              package.seeall(content.lookat.custom))
+module("server.playerlookat", package.seeall)
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	content.uniquechardescription.InitPlayerDesc();
@@ -37,7 +34,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     end
     
 	if not CustomLookAt then
-		InitCustomLookAt();
+		content.lookat.custom.InitCustomLookAt();
 	end
 	
     local lang = SourceCharacter:getPlayerLanguage();
