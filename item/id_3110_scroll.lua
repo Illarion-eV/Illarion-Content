@@ -2,7 +2,7 @@ require("base.common")
 require("base.orders")
 require("base.factions")
 
-module("item.id_3110_scroll", package.seeall, package.seeall(base.orders), package.seeall(base.factions))
+module("item.id_3110_scroll", package.seeall)
 
 -- UPDATE common SET com_script = 'item.id_3110_scroll' WHERE com_itemid = 3110;
 
