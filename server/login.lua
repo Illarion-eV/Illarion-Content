@@ -1,11 +1,11 @@
 -- called after every player login
-require("base.common")
-require("content.dailymessage")
+--require("base.common")
+--require("content.dailymessage")
 
 module("server.login", package.seeall);
 
 function onLogin( player )
-    player:increaseAttrib("foodlevel",-1);
+--[[    player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
 	local cowStatus = player:getQuestProgress(8);
 	if (player:getQuestProgress(8) ~= 0) then
@@ -100,7 +100,7 @@ function onLogin( player )
     end
 
     --player:inform("moep->Fertig!");
-
+]]
 --[[
 	-- Langzeiteffekt f�r magie
 	--
@@ -116,6 +116,7 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
+--[[
 	-- �berpr�fung auf Newbie-Status
 	NewbieState = player:getQuestProgress(2);
 	if NewbieState == 2 then
@@ -126,13 +127,13 @@ function onLogin( player )
 		-- first login
 		local atNewbieSpawn = true;
 		-- commented out, useless?
-		--[[ for x=31,32 do
-			for y=19,24 do
-				if player.pos.x == x and player.pos.y == y then
-					atNewbieSpawn = true;
-				end
-			end
-		end ]]
+		-- for x=31,32 do
+		--	for y=19,24 do
+		--		if player.pos.x == x and player.pos.y == y then
+		--			atNewbieSpawn = true;
+		--		end
+		--	end
+		-- end
 		if atNewbieSpawn then
 			player:setQuestProgress(2,1); -- player seems to be a newbie, so start "Quest"
 			outText=base.common.GetNLS(player,"Endlich wieder festen Boden unter den F��en.","Finally standing again on firm ground.");
@@ -162,7 +163,7 @@ function onLogin( player )
 		end
 	end
 	-- �berpr�fung von Newbie-Status fertig
-
+]]
 	return true;
 end
 
