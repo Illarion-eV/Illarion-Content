@@ -2,26 +2,26 @@
 -- note that !rd is a !fr without npc and spawn reloading
 -- note further that reload_tables will be called after this if and only if the !rd was successful and the !rd was issued by a !fr
 
-require("base.common")
-require("base.doors")
-require("content.signpost")
-require("content.gods")
+--require("base.common")
+--require("base.doors")
+--require("content.signpost")
+--require("content.gods")
 
-module("server.reload_defs", package.seeall, package.seeall(content.gods))
+module("server.reload_defs", package.seeall) --, package.seeall(content.gods))
 
 function onReload()
     -- logToFile("start onReload");
-    initDoors();
-    initDepots();
+--    initDoors();
+--    initDepots();
     --initExplorerStones();
-    initAltars();
-    InitWegweiser();
-	initNoobia();
-	initTreasureChests();
+--    initAltars();
+--    InitWegweiser();
+--	initNoobia();
+--	initTreasureChests();
     -- logToFile("end onReload");
     return true;
 end
-
+--[[
 function initDoors()
     --Zipcode for different regions and settlements
 
@@ -462,12 +462,13 @@ end
 function initTreasureChests()
 	AddTreasureChest(8,1,-73,-100,0);
 end
-
+]]
 --[[
 ChestId:
 	open chests: 1361 (South), 1362 (West)
 	closed chests: 1360 (South), 8 (West)
 ]]
+--[[
 function AddTreasureChest(ChestId, ChestData, ChestX, ChestY, ChestZ)
 	local pos = position(ChestX,ChestY,ChestZ);
 	local item = world:getItemOnField(pos);
@@ -478,3 +479,4 @@ function AddTreasureChest(ChestId, ChestData, ChestX, ChestY, ChestZ)
 		world:createItemFromId(ChestId,1,pos,false,333,ChestData);
 	end
 end
+]]
