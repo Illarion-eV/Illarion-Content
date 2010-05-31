@@ -3,7 +3,7 @@
 require("gm.base.log")
 require("base.factions")
 
-module("gm.items.382_ceilingtrowel", package.seeall, package.seeall(gm.base.log), package.seeall(base.factions))
+module("gm.items.382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 	if SourceItem.data==2 then --faction system trowel  
