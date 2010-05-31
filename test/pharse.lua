@@ -5,7 +5,7 @@
 -- UPDATE common SET com_script = 'test.pharse' WHERE com_itemid = 2786;
 
 require("base.common")
-dofile ("base_patrol.lua");
+require("npc.base.patrol");
 require("base.doors")
 
 module("test.pharse", package.seeall)
