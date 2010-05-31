@@ -11,9 +11,9 @@
 
 require("base.common")
 require("druid.base.alchemy")
-require("items.general.metal")
+require("item.general.metal")
 
-module("druid.item.id_1008_cauldron", package.seeall(druid.base.alchemy), package.seeall(items.general.metal))
+module("druid.item.id_1008_cauldron", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_1008_cauldron' WHERE com_itemid = 1008;
 

@@ -9,7 +9,7 @@ require("base.common")
 require("druid.base.alchemy")
 require("druid.base.plants")
 
-module("druid.item.id_2952_plate", package.seeall(druid.base.alchemy), package.seeall(druid.base.plants))
+module("druid.item.id_2952_plate", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_2952_plate' WHERE com_itemid = 2952;
 
