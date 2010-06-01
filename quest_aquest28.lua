@@ -1,4 +1,5 @@
 require("base.common")
+module("quest_aquest28", package.seeall)
 function split_questdata(originator)
 	local qpg = {};
 	local questid = originator:getQuestProgress(29);
