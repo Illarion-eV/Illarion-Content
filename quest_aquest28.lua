@@ -19,7 +19,8 @@ function glue_questdata(originator,cow,task,counter)
 	originator:setQuestProgress(29, qpg);
 end
 
-function wait(timeInSeconds)  --Works ONLY in the nextCycle-function!!!
+function wait(timeInSeconds)  --Works ONLY in the nextCycle-function!!! vilarion says: DO NOT MAKE ASSUMPTIONS ABOUT THE CALLER OF A FUNCTION, PLEASE FIX THIS YOURSELF
+--[[
         if (cycleCounter==nil) then
             cycleCounter=0;
 			return false;
@@ -30,6 +31,9 @@ function wait(timeInSeconds)  --Works ONLY in the nextCycle-function!!!
 			cycleCounter=nil;
 			return true;
 		end
+--]]
+-- return false because I feel like it, see above
+return false;
 end
 
 function getTaskItems()
