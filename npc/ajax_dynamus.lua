@@ -5,7 +5,7 @@
 
 require("npc.base.orders");
 require("npc.base.autonpcfunctions");
-module("npc.ajax_dynamus", package.seeall(npc.base.orders));
+module("npc.ajax_dynamus", package.seeall, package.seeall(npc.base.orders));
 
 
 function init()

@@ -5,7 +5,7 @@
 
 require("npc.base.orders");
 require("npc.base.autonpcfunctions");
-module("npc.rilonna", package.seeall(npc.base.orders));
+module("npc.rilonna", package.seeall, package.seeall(npc.base.orders));
 
 
 function init()

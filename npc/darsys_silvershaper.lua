@@ -5,7 +5,7 @@
 
 require("npc.base.orders");
 require("npc.base.autonpcfunctions");
-module("npc.darsys_silvershaper", package.seeall(npc.base.orders));
+module("npc.darsys_silvershaper", package.seeall, package.seeall(npc.base.orders));
 
 
 function init()

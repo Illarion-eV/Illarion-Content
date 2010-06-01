@@ -4,7 +4,7 @@
 
 require("npc.base.ships");
 require("npc.base.functions");
-module("npc.blackbeard", package.seeall(npc.base.ships));
+module("npc.blackbeard", package.seeall, package.seeall(npc.base.ships));
 
 -- Insert Statements für Nötige NPCs
 -- INSERT INTO npc VALUES (1000,2,-401,-489,0,0,'f','Ship NPC',NULL,0);
