@@ -1,9 +1,9 @@
--- UPDATE common SET com_script='gm.items.382_ceilingtrowel' WHERE com_itemid IN (382);
+-- UPDATE common SET com_script='gm.items.id_382_ceilingtrowel' WHERE com_itemid IN (382);
 
 require("gm.base.log")
 require("base.factions")
 
-module("gm.items.382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
+module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 	if SourceItem.data==2 then --faction system trowel  

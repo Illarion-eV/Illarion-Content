@@ -3,9 +3,9 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("gm.items.100_trowel", package.seeall)
+module("gm.items.id_100_trowel", package.seeall)
 
--- UPDATE common SET com_script='gm.items.100_trowel' WHERE com_itemid = 100;
+-- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if (TargetItem ~= nil and TargetItem.id > 0) then

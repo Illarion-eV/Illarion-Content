@@ -1,11 +1,11 @@
 --  I_99 Dietrich - Items loeschen, teleportation fuer GMs, tueren initialisieren
 
--- UPDATE common SET com_script='gm.items.99_lockpicks' WHERE com_itemid=99;
+-- UPDATE common SET com_script='gm.items.id_99_lockpicks' WHERE com_itemid=99;
 
 require("gm.base.log")
 require("base.common")
 
-module("gm.items.99_lockpicks", package.seeall)
+module("gm.items.id_99_lockpicks", package.seeall)
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)

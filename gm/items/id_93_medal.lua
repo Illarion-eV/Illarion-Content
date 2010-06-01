@@ -1,7 +1,7 @@
 
--- UPDATE common SET com_script='gm.items.93_medal' WHERE com_itemid=93;
+-- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
 
-module("gm.items.93_medal", package.seeall)
+module("gm.items.id_93_medal", package.seeall)
 
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     if (SourceItem.data==0) then
@@ -25,6 +25,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if ((SourceItem.data==8) and ( (User.id==833275147) or User.id==666) ) then
         UndeadEvent(User.pos);
     else
+        if (gm.items.id_99_lockpicks.firsttime == nil) then
+            User:inform("firsttime of lockpicks is set to NIL");
+        else
+            User:inform("firsttime of lockpicks is set to " .. gm.items.id_99_lockpicks.firsttime);
+        end
         UseItemWithField(User,SourceItem,position(User.pos.x,User.pos.y+1,User.pos.z),Counter,Param);
     end
 end
