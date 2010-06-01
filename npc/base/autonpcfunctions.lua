@@ -4,7 +4,7 @@
 -- By martin and nitram
 ---------------------------------------------------------------------------
 require("base.factions")
-module("npc.base.autonpcfunctions")
+module("npc.base.autonpcfunctions", package.seeall)
 
 --[[
 - GetNLS
