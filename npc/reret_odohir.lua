@@ -124,7 +124,7 @@ function initializeNpc()
 	if not InitDone then
     	choiceIndex={}; --value which stands for the decree/key the user wants
 
-		townID = BF_setLocation(thisNPC); --look up where the npc is standing!
+		townID = base.factions.BF_setLocation(thisNPC); --look up where the npc is standing!
 		InitDone = true;
 
 	end

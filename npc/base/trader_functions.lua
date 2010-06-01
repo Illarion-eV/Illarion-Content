@@ -761,7 +761,7 @@ function CheckItemTrigger(message,ItemPoint)
 end
 
 function PayTheTax(amount)
-  	local location = BF_setLocation(thisNPC);
+  	local location = base.factions.BF_setLocation(thisNPC);
 
 	if location ==     1 then --cadomyr
         TaxVar = "cadomyr";

@@ -439,7 +439,7 @@ function OrderNPC:payBoni(user,order)
     end
    -- give some rankpoints as reward
    if NpcLocation[thisNPC.id] == nil then
-   		BF_setLocation(thisNPC);
+   		base.factions.BF_setLocation(thisNPC);
    end
    local Factionvalues = BF_get(user);
    

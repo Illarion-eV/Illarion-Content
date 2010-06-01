@@ -128,7 +128,7 @@ function initializeNpc()
         --thisNPC:setAttrib("faceto",4);
         --thisNPC:setAttrib("racetyp",30);
 
-		townID = BF_setLocation(thisNPC); --look up where the npc is standing!
+		townID = base.factions.BF_setLocation(thisNPC); --look up where the npc is standing!
 		InitDone = true;
 		
 	end
