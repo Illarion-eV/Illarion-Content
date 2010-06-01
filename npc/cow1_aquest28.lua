@@ -33,9 +33,11 @@ function receiveText(texttype, message, originator)
 end                
 
 function nextCycle()
-    InitNPC();
+-- disabled, does not work
+
+--    InitNPC();
     
-    quest_aquest28.Cow_NextCycle(User);
+--    quest_aquest28.Cow_NextCycle(User);
 end
 
 
