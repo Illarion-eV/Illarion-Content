@@ -1,6 +1,6 @@
 -- Basic functions for walking of characters
 
-module("npc.base.walking")
+module("npc.base.walking", package.seeall)
 
 blocked = {};
 last_dir = {};

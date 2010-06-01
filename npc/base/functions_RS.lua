@@ -1,4 +1,4 @@
-module("npc.base.functions_RS")
+module("npc.base.functions_RS", package.seeall)
 
 function GetNLS( User, textInDe, textInEn )
     local textNLS = "";

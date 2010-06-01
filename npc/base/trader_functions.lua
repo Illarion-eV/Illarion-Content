@@ -4,7 +4,7 @@
 require("content.genus")
 require("base.factions")
 
-module("npc.base.trader_functions")
+module("npc.base.trader_functions", package.seeall)
 
 -- Auffüllen der Itembestände
 function refillItems(itNumb)

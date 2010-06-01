@@ -1,6 +1,6 @@
 -- Basisfunktion für Passagierschiffe aller Art
 
-module("npc.base.ships")
+module("npc.base.ships", package.seeall)
 
 function InitShips()
     if (ShipMask == nil) then

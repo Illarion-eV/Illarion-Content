@@ -1,6 +1,6 @@
 -- base script for waypoints
 
-module("npc.base.waypoints")
+module("npc.base.waypoints", package.seeall)
 
 -------------------------
 -- *** DEFINITIONS *** --

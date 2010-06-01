@@ -1,5 +1,5 @@
 require("base.common")
-module("npc.base.escortingquests")
+module("npc.base.escortingquests", package.seeall)
 
 function initEscorting()
 	spawnlist    = {}; --holds a list with the MonsterAmount that shall be created with Monsterid as key for the list

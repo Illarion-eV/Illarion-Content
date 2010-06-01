@@ -1,7 +1,7 @@
 -- base script for patrolling npcs or monsters
 require("npc.base.waypoints");
 require("base.doors")
-module("npc.base.patrol")
+module("npc.base.patrol", package.seeall)
 
 -- ** defaults **
 PatrolPointer = 0;				--
