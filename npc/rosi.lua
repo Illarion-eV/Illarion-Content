@@ -10,7 +10,7 @@
 -- INSERT INTO npc VALUES (73, 2, -372, 85,0,6,'f','Rosi Baggins','npc_rosi.lua',1);
 
 require("npc.base.functions")
-module("npc.rosi")
+module("npc.rosi", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

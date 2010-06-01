@@ -1,6 +1,6 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,1,1,0,4,false,'Uluhad','npc_uluhad.lua',0);
 require("npc.base.autonpcfunctions")
-module("npc.uluhad")
+module("npc.uluhad", package.seeall)
 
 function buyIn( amount )
     User:setQuestProgress(playerBuyInID, User:getQuestProgress(playerBuyInID)+amount);

@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,897,794,1,4,false,'William Daloire','npc_william_daloire.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.william_daloire")
+module("npc.william_daloire", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

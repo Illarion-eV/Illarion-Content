@@ -8,7 +8,7 @@
 --Update by:   Markous
 
 require("npc.base.trader_functions")
-module("npc.grushub")
+module("npc.grushub", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

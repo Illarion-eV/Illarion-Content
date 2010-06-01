@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,900,768,0,4,false,'Zaida the Apprentice','npc_zaida_the_apprentice.lua',1);
 
 require("npc.base.autonpcfunctions")
-module("npc.zaida_the_apprentice")
+module("npc.zaida_the_apprentice", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

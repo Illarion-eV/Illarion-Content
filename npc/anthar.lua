@@ -1,4 +1,4 @@
-module("npc.anthar")
+module("npc.anthar", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

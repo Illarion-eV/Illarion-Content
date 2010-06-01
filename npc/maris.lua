@@ -9,7 +9,7 @@
 
 require("npc.base.trader_functions")
 require("npc.base.functions")
-module("npc.maris")
+module("npc.maris", package.seeall)
 
 function useNPC(user,counter,param)
     -- logToFile("start useNPC (maris)");

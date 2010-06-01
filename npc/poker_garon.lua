@@ -1,5 +1,5 @@
 require("game_poker")
-module("npc.poker_garon")
+module("npc.poker_garon", package.seeall)
 
 function npcInit(npcDealer)
     if not isInit then

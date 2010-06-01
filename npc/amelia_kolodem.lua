@@ -5,7 +5,7 @@
 
 require("npc.base.autonpcfunctions")
 require("base.common")
-module("npc.amelia_kolodem")
+module("npc.amelia_kolodem", package.seeall)
 
 
 function useNPC(user,counter,param)

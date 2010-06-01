@@ -10,7 +10,7 @@
 require("npc.base.functions")
 require("npc.base.autonpcfunctions")
 require("magic.base.basics");
-module("npc.norbert")
+module("npc.norbert", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

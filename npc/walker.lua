@@ -1,5 +1,5 @@
 require( "npc.base.walking" );
-module("npc.walker")
+module("npc.walker", package.seeall)
 
 function nextCycle()
     if not slowdown then

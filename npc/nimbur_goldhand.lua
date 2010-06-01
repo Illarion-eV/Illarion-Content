@@ -9,7 +9,7 @@
 
 
 require("npc.base.autonpcfunctions")
-module("npc.nimbur_goldhand")
+module("npc.nimbur_goldhand", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

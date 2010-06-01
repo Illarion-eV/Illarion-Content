@@ -9,7 +9,7 @@
 
 
 require("npc.base.autonpcfunctions")
-module("npc.arax_ironheart")
+module("npc.arax_ironheart", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

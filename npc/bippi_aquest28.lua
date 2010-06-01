@@ -2,7 +2,7 @@
 
 require("npc.base.autonpcfunctions")
 require("quest_aquest28");    --the quest file
-module("npc.bippi_aquest28")
+module("npc.bippi_aquest28", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

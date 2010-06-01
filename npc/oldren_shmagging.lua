@@ -4,7 +4,7 @@
 
 require("npc.base.autonpcfunctions")
 -- dofile("/usr/share/servers/illarionserver/scripts/npc_autonpcfunctions.lua");
-module("npc.oldren_shmagging")
+module("npc.oldren_shmagging", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

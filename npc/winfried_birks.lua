@@ -9,7 +9,7 @@
 
 require("npc.base.autonpcfunctions")
 require("base.common")
-module("npc.winfried_birks")
+module("npc.winfried_birks", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

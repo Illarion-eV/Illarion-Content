@@ -9,7 +9,7 @@
 
 
 require("npc.base.functions")
-module("npc.stalljunge_tv")
+module("npc.stalljunge_tv", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

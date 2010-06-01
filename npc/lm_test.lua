@@ -1,5 +1,5 @@
 require("npc.lightmaster");
-module("npc.lm_test")
+module("npc.lm_test", package.seeall)
 
 WaypointList[1] = {}; -- Troll's Bane
 WaitingList[1] = {}; -- Troll's Bane

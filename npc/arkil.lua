@@ -4,7 +4,7 @@
 --Function:    Miniquestgiver 1
 
 require("npc.base.functions")
-module("npc.arkil")
+module("npc.arkil", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

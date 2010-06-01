@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("npc.yellowcross")
+module("npc.yellowcross", package.seeall)
 
 function nextCycle()
 

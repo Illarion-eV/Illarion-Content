@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,123,549,0,4,false,'Imios Poleaos','npc_imios_poleaos.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.imios_poleaos")
+module("npc.imios_poleaos", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

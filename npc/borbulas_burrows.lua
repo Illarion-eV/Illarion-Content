@@ -1,5 +1,5 @@
 require("npc.base.autonpcfunctions")
-module("npc.borbulas_burrows")
+module("npc.borbulas_burrows", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

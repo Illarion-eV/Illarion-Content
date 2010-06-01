@@ -1,4 +1,4 @@
-module("npc.mathilda")
+module("npc.mathilda", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -1,6 +1,6 @@
 --Script zum testen der Bestellungen für npc
 --[[
-module("npc.joachim_orderer", package.seeall("npc.base.orders"))
+module("npc.joachim_orderer", package.seeall("npc.base.orders", package.seeall))
 
 function init()
     joachim_init = true;

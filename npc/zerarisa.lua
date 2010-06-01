@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),5,-130,-400,0,4,false,'Zerarisa','npc_zerarisa.lua',1);
 
 require("npc.base.autonpcfunctions")
-module("npc.zerarisa")
+module("npc.zerarisa", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

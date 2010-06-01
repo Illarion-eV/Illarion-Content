@@ -12,7 +12,7 @@
 
 require("npc.base.autonpcfunctions")
 require("base.common")
-module("npc.asgrimur")
+module("npc.asgrimur", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

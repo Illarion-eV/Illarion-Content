@@ -2,7 +2,7 @@
 
 require("npc.base.autonpcfunctions")
 -- require("npc.base.autonpcfunctions")
-module("npc.hauptmann_arkos_seldaran")
+module("npc.hauptmann_arkos_seldaran", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

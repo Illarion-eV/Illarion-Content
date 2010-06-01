@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,20,1,0,4,false,'Eugene Burton','npc_eugene_burton.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.eugene_burton")
+module("npc.eugene_burton", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

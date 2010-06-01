@@ -13,7 +13,7 @@
 -- INSERT INTO npc VALUES (66,25,-433,  40,0,0,'f','GB Teleporter','npc_static_teleport.lua',0);
 -- INSERT INTO npc VALUES (67,25, 262,-264,0,0,'f','V Teleporter' ,'npc_static_teleport.lua',0);
 
-module("npc.static_teleport")
+module("npc.static_teleport", package.seeall)
 
 function initializeNpc()
 		Teleportation=TeleportationFunction(thisNPC); --initialize the teleportation

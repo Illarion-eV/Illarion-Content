@@ -10,7 +10,7 @@
 require("npc.base.functions")
 require("npc.base.autonpcfunctions")
 require("magic.base.basics");
-module("npc.rian_delarn")
+module("npc.rian_delarn", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

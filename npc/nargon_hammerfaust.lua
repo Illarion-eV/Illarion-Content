@@ -15,7 +15,7 @@
 
 require("npc.base.autonpcfunctions")
 require("base.common")
-module("npc.nargon_hammerfaust")
+module("npc.nargon_hammerfaust", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

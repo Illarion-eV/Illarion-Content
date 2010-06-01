@@ -3,7 +3,7 @@
 -- game "mucky luck"
 
 require("base.common")
-module("npc.mucky_luck_sheep")
+module("npc.mucky_luck_sheep", package.seeall)
 
 function InitNPC()
 	

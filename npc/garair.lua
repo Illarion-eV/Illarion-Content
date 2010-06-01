@@ -10,7 +10,7 @@
 -- INSERT INTO npc VALUES (76, 3, 363,214,-3,4,'f','Garair','npc_garair.lua',0);
 
 require("npc.base.functions")
-module("npc.garair")
+module("npc.garair", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

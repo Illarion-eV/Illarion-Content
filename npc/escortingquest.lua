@@ -1,6 +1,6 @@
 require("npc.base.autonpcfunctions")
 require("npc.base.escortingquests");
-module("npc.escortingquest")
+module("npc.escortingquest", package.seeall)
 
 --[[
 function init()

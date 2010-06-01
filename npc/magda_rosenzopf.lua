@@ -11,7 +11,7 @@ last updated: 20/03/2008
 require("base.common")
 require("npc.base.autonpcfunctions")
 require("base.keys")
-module("npc.magda_rosenzopf")
+module("npc.magda_rosenzopf", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

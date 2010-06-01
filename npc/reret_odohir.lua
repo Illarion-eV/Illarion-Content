@@ -6,7 +6,7 @@
 
 require("npc.base.autonpcfunctions")
 require("npc.base.trader_functions");
-module("npc.reret_odohir")
+module("npc.reret_odohir", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -2,7 +2,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-40,-95,0,0,false,'Aeron Ranthir','npc_aeron_ranthir.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.aeron_ranthir")
+module("npc.aeron_ranthir", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

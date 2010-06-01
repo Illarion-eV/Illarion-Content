@@ -9,7 +9,7 @@
 
 require("npc.base.trader_functions")
 require("npc.base.functions")
-module("npc.todd_baggins")
+module("npc.todd_baggins", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

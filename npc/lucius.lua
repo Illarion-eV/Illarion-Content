@@ -10,7 +10,7 @@
 -- INSERT INTO npc VALUES (75, 0, 267,-303,0,6,'f','Lucius van Sareth','npc_lucius.lua',0);
 
 require("npc.base.functions")
-module("npc.lucius")
+module("npc.lucius", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

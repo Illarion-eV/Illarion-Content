@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,358,235,0,4,false,'Don Valerio Guilianni','npc_don_valerio_guilianni.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.don_valerio_guilianni")
+module("npc.don_valerio_guilianni", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

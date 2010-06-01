@@ -2,7 +2,7 @@
 
 require("npc.base.autonpcfunctions")
 require("quest_mineth"); --addition for the Tailor Quest
-module("npc.jonathan_cyrus")
+module("npc.jonathan_cyrus", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

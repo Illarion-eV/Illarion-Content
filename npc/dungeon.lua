@@ -1,5 +1,5 @@
 -- NPC for Dungeon Monster Control
-module("npc.dungeon")
+module("npc.dungeon", package.seeall)
 
 function Settings()
     Location={};

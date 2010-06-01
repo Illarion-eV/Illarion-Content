@@ -9,7 +9,7 @@
 
 
 require("npc.base.autonpcfunctions")
-module("npc.farrel_schleifer")
+module("npc.farrel_schleifer", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

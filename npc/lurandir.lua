@@ -7,7 +7,7 @@
 --Last Update: 05/16/2006
 --Update by:   vilarion
 
-module("npc.lurandir")
+module("npc.lurandir", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

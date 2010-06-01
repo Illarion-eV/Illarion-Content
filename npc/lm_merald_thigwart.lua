@@ -1,5 +1,5 @@
 require("npc.lightmaster");
-module("npc.lm_merald_thigwart")
+module("npc.lm_merald_thigwart", package.seeall)
 
 WaypointList[1] = {}; -- Troll's Bane
 WaitingList[1] = {}; -- Troll's Bane

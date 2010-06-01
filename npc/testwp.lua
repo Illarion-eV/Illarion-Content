@@ -1,4 +1,4 @@
-module("npc.testwp")
+module("npc.testwp", package.seeall)
 
 function initializeNpc()
     TraderFirst = false;

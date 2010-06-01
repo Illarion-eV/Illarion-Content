@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,403,282,200,4,false,'Borold Blabbermouth','npc_borold_blabbermouth.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.borold_blabbermouth")
+module("npc.borold_blabbermouth", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

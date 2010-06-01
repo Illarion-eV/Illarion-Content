@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),halfing,10,10,0,2,false,'ABC','npc/abc.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.abc")
+module("npc.abc", package.seeall)
 -- dofile("/usr/share/servers/illarionserver/scripts/npc_autonpcfunctions.lua");
 
 function useNPC(user,counter,param)

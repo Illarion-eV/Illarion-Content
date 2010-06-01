@@ -13,7 +13,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-155,-88,0,6,false,'Viktor Arkon','npc_tbguard.lua',0);
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-155,-84,0,6,false,'Toran Lobas','npc_tbguard.lua',0);
 require("npc.base.autonpcfunctions")
-module("npc.tbguard")
+module("npc.tbguard", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

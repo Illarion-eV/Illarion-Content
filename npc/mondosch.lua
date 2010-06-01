@@ -10,7 +10,7 @@
 -- INSERT INTO npc VALUES (74, 1, 137,-212,-3,4,'f','Mondosch','npc_mondosch.lua',0);
 
 require("npc.base.functions")
-module("npc.mondosch")
+module("npc.mondosch", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

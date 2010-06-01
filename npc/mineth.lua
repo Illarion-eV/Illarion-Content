@@ -2,7 +2,7 @@
 
 require("npc.base.autonpcfunctions")
 require("quest_mineth");
-module("npc.mineth")
+module("npc.mineth", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

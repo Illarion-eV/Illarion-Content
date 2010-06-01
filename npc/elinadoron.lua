@@ -8,7 +8,7 @@
 --Update by:   Nitram
 
 require("npc.base.functions")
-module("npc.elinadoron")
+module("npc.elinadoron", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

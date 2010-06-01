@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),1,-5,-137,0,4,false,'Saren Eisenfaust','npc_saren_eisenfaust.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.saren_eisenfaust")
+module("npc.saren_eisenfaust", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

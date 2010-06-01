@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,-120,-400,0,4,false,'Nana Winterbutter','npc_nana_winterbutter.lua',1);
 
 require("npc.base.autonpcfunctions")
-module("npc.nana_winterbutter")
+module("npc.nana_winterbutter", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

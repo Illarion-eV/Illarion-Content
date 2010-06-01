@@ -3,7 +3,7 @@
 --Cheeseball
 require("npc.base.autonpcfunctions")
 require("quest_aquest28");    --the quest file
-module("npc.cow3_aquest28")
+module("npc.cow3_aquest28", package.seeall)
 
 function InitNPC()
     if not InitDone then

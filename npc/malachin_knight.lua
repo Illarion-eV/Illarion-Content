@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),25, 30, -37, -6,4,false,'Ethereal Presence','npc_malachin_knight.lua',0);
 -- INSERT INTO npc VALUES (116,25, 30, -37, -6,4,false,'Ethereal Presence','npc_malachin_knight.lua',0);
 
-module("npc.malachin_knight")
+module("npc.malachin_knight", package.seeall)
 
 function receiveText( texttype, message, originator )  
     thicCounter = 0;

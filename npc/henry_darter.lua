@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-115,-400,0,4,false,'Henry Darter','npc_henry_darter.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.henry_darter")
+module("npc.henry_darter", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

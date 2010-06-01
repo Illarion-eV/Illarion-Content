@@ -1,4 +1,4 @@
-module("npc.shiptest")
+module("npc.shiptest", package.seeall)
 
 function useNPC(user,Counter,Param)
        -- user:talk(CCharacter.say, "test");

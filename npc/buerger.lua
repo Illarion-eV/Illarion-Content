@@ -1,4 +1,4 @@
-module("npc.buerger")
+module("npc.buerger", package.seeall)
 
 function InitWalkNPC()
     thisNPC:increaseSkill(1,"common language",100);

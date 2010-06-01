@@ -9,7 +9,7 @@
 
 require("npc.base.trader_functions")
 require("npc.base.functions")
-module("npc.graubart")
+module("npc.graubart", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

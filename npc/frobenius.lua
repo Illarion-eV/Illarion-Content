@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,119,594,0,2,false,'Frobenius','npc_frobenius.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.frobenius")
+module("npc.frobenius", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

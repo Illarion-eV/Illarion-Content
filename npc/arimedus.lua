@@ -9,7 +9,7 @@
 --Update by:   Kadiya
 
 require("npc.base.autonpcfunctions")
-module("npc.arimedus")
+module("npc.arimedus", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

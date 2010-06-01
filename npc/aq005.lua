@@ -8,7 +8,7 @@
 --Update by:   vilarion
 
 require("npc.base.functions")
-module("npc.aq005")
+module("npc.aq005", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

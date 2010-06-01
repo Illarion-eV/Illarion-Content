@@ -1,6 +1,6 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),0,-81,-151,0,6,false,'Augham','npc_augham.lua',0);
 require("npc.base.autonpcfunctions")
-module("npc.augham")
+module("npc.augham", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

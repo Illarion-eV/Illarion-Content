@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),8,156,-448,0,4,false,'Meegog','npc_meegog.lua',0);
 
 require("npc.base.autonpcfunctions")
-module("npc.meegog")
+module("npc.meegog", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

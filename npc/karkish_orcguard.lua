@@ -12,7 +12,7 @@ by: juniper onyx
 require("base.common")
 require("npc.base.autonpcfunctions")
 require("base.keys")
-module("npc.karkish_orcguard")
+module("npc.karkish_orcguard", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

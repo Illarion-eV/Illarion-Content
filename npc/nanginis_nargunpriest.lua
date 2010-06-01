@@ -2,7 +2,7 @@
 
 require("npc.base.autonpcfunctions")
 require("base.common")
-module("npc.nanginis_nargunpriest")
+module("npc.nanginis_nargunpriest", package.seeall)
 
 function RandomStart(thisNPC)
 						              --cadomyr,                                                 (runewick),                     galmair and so on

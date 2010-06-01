@@ -1,6 +1,6 @@
 require("npc.base.functions")
 require("npc.base.guards");
-module("npc.lightmaster")
+module("npc.lightmaster", package.seeall)
 
 Waypoint:new(position(122,604,0),1);
 Waypoint:new(position(130,604,0),1);

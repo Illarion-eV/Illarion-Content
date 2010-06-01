@@ -7,7 +7,7 @@
 --Last Update: 05/26/2007
 --Update by:   Nitram
 
-module("npc.lasttier_ma")
+module("npc.lasttier_ma", package.seeall)
 
 function useNPC(User,Counter,Param)
     if lost[thisNPC.id] then -- Kuh wurde zurück gelassen

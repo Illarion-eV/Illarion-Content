@@ -7,7 +7,7 @@
 
 require("npc.base.autonpcfunctions")
 require("npc.base.trader_functions");
-module("npc.frederik_silvereye")
+module("npc.frederik_silvereye", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

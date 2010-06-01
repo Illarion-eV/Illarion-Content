@@ -1,7 +1,7 @@
 -- INSERT INTO npc VALUES (nextval('npc_seq'),2,-100,-420,0,4,false,'Lilith Needlehand','npc_lilith_needlehand.lua',1);
 
 require("npc.base.autonpcfunctions")
-module("npc.lilith_needlehand")
+module("npc.lilith_needlehand", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

@@ -8,7 +8,7 @@
 -- last updated by Ardian on 25.11.2009
 
 require("npc.base.autonpcfunctions")
-module("npc.otto_sauerteig")
+module("npc.otto_sauerteig", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

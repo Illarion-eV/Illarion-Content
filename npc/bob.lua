@@ -1,5 +1,5 @@
 require("npc.base.autonpcfunctions")
-module("npc.bob")
+module("npc.bob", package.seeall)
 
 function useNPC(user,counter,param)
     thisNPC:increaseSkill(1,"common language",100);

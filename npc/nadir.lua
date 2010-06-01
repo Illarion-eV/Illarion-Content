@@ -9,7 +9,7 @@
 
 require("npc.base.trader_functions")
 require("npc.base.functions")
-module("npc.nadir")
+module("npc.nadir", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

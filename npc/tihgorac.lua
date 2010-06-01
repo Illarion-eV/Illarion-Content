@@ -8,7 +8,7 @@
 --Update by:   Nitram
 
 require("npc.base.functions")
-module("npc.tihgorac")
+module("npc.tihgorac", package.seeall)
 
 function useNPC(user,counter,param)
     local lang=user:getPlayerLanguage();

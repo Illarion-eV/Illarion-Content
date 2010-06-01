@@ -1,4 +1,4 @@
-module("npc.tayaneth")
+module("npc.tayaneth", package.seeall)
 
 function useNPC(user,counter,param)
     --user:talk(CCharacter.say, "test");
