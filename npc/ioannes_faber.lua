@@ -14,7 +14,7 @@ function init()
     thisNPC.activeLanguage = 0;
     initializeNpc(); --initialize talk list
     allok = false;
-    myOrderNPC = OrderNPC:new();
+    myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=3}; --every 1-10 minutes a new order gets created
     --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)

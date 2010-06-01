@@ -7,7 +7,7 @@ function init()
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC.activeLanguage = 0;
     allok = false;
-    myOrderNPC = OrderNPC:new();
+    myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=1};
     --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
@@ -58,7 +58,7 @@ function init()
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC.activeLanguage = 0;
     allok = false;
-    myOrderNPC = OrderNPC:new();
+    myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=2}; --every 3 minutes a new order list
     --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
