@@ -688,6 +688,7 @@ end
 
 -- Next Cycle Funktion für Händler
 function TraderCycle()
+--[[ Whoever wrote this crap can fix this himself. Hint: You might want to google what a 'parameter' is
     if (cycCount==nil or nextDelivery==nil) then
         cycCount=1;
         nextDelivery=math.random(RefreshTime[1],RefreshTime[2]);
@@ -704,6 +705,7 @@ function TraderCycle()
             refillMoney();
         end
     end
+--]]
 end
 
 -- Zusätzlichen ItemTrigger Anfügen
