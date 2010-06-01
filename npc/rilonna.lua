@@ -17,7 +17,7 @@ function init()
     myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=3}; --every 1-10 minutes a new order gets created
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
 
    --Pool 1(Baking easy items):
     AddItemToPool(1,myOrderNPC, 191,1,15, 5,25);--bread roll
@@ -804,7 +804,7 @@ end
 end
 
 function AddItemToPool(pool,myOrderNPC,nid,ntime,nchance,nmincount,nmaxcount)
-   --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-	myOrderNPC.orderPool:addItemToPool(pool,OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
+   --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+	myOrderNPC.orderPool:addItemToPool(pool,npc.base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
 	return;
 end

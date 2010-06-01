@@ -10,17 +10,17 @@ function init()
     myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=1};
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount)
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(1,1,150,2,10,1,5,40,30));
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(2,20,10,1,15,1,10,3,1));
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(3,10,100,2,10,1,3,30,12));
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount)
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(1,1,150,2,10,1,5,40,30));
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(2,20,10,1,15,1,10,3,1));
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(3,10,100,2,10,1,3,30,12));
     --Qualität für Pool 1 ist immer 0
     myOrderNPC.orderPool:setQualityChancesForPool(1,{100,0,0,0,0,0,0,0,0,0});
     --gegenstände im pool 2
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(1,1,150,2,10,1,5,40,30));
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(2,20,10,1,15,1,10,3,1));
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(3,10,100,2,10,1,3,30,12));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(1,1,150,2,10,1,5,40,30));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(2,20,10,1,15,1,10,3,1));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(3,10,100,2,10,1,3,30,12));
     myOrderNPC.orderPool.poolchances = {90,10};
     --chances für qualitäten des pools 2
     myOrderNPC.orderPool:setQualityChancesForPool(2,{5,20,15,15,10,10,10,5,5,5});
@@ -61,17 +61,17 @@ function init()
     myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=2}; --every 3 minutes a new order list
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount)
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(1,1,150,2,10,1,5,40,30));
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(2,20,10,1,15,1,10,3,1));
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(3,10,100,2,10,1,3,30,12));
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount)
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(1,1,150,2,10,1,5,40,30));
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(2,20,10,1,15,1,10,3,1));
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(3,10,100,2,10,1,3,30,12));
     --Qualität für Pool 1 ist immer 0
     myOrderNPC.orderPool:setQualityChancesForPool(1,{100,0,0,0,0,0,0,0,0,0});
     --gegenstände im pool 2
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(1,1,150,2,10,1,5,40,30));
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(2,20,10,1,15,1,10,3,1));
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(3,10,100,2,10,1,3,30,12));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(1,1,150,2,10,1,5,40,30));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(2,20,10,1,15,1,10,3,1));
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(3,10,100,2,10,1,3,30,12));
     myOrderNPC.orderPool.poolchances = {90,10};
     --chances für qualitäten des pools 2
     myOrderNPC.orderPool:setQualityChancesForPool(2,{5,20,15,15,10,10,10,5,5,5});

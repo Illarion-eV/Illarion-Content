@@ -17,7 +17,7 @@ function init()
     myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=3}; --every 1-10 minutes a new order gets created
-    --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
   
    
    --Pool 1(Glassblowing easy items): --Small Empty Bottle, Empty Bottle, Large Empty Bottle
@@ -791,8 +791,8 @@ end
 end
 
 function AddItemToPool(pool,myOrderNPC,nid,ntime,nchance,nmincount,nmaxcount)
-   --OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-	myOrderNPC.orderPool:addItemToPool(pool,OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
+   --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
+	myOrderNPC.orderPool:addItemToPool(pool,npc.base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
 	return;   
 end
 
@@ -828,30 +828,30 @@ end
 
    --Pool 1(Glassblowing ressources): quartz sand, Ash and glass ingot without any quality
  
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(316, 1,0.25*Price(316),1,15,10,50,0.05*Price(316)));--quarz sand
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(314, 1,0.25*Price(314),1,15,20,50,0.05*Price(314)));--pott ash
-    myOrderNPC.orderPool:addItemToPool(1,OrderPoolItem(41 , 1,0.25*Price(41) ,1,15,20,50,0.05*Price(41))); --glass ingot
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(316, 1,0.25*Price(316),1,15,10,50,0.05*Price(316)));--quarz sand
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(314, 1,0.25*Price(314),1,15,20,50,0.05*Price(314)));--pott ash
+    myOrderNPC.orderPool:addItemToPool(1,npc.base.orders.OrderPoolItem(41 , 1,0.25*Price(41) ,1,15,20,50,0.05*Price(41))); --glass ingot
 	--item quality for pool 1 is always zero and holds in general only raw materials
     myOrderNPC.orderPool:setQualityChancesForPool(1,{100,0,0,0,0,0,0,0,0,0});
    
    --Pool 2(finesmithing ressources): gold ingot, amethyst, ruby, blackstone, bluestone, emerald, topaz, diamond 
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(236, 1,0.25*Price(236), 1,5,1,5, 0.05*Price(236))); --gold ingot
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(197, 1,0.25*Price(197),1,15,1,20,0.05*Price(197))); --amethyst
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem( 46, 1,0.25*Price(46),1,15,1,20, 0.05*Price(46)));  --ruby
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(283, 1,0.25*Price(283),1,15,1,20,0.05*Price(283))); --blackstone
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(284, 1,0.25*Price(284),1,15,1,20,0.05*Price(284))); --bluestone
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(45,  1,0.25*Price(45),1,15,1,20, 0.05*Price(45)));  --emerald
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(108, 1,0.25*Price(108),1,15,1,20,0.05*Price(108))); --topaz
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(285, 1,0.25*Price(285),1,15,1,20,0.05*Price(285))); --diamond
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(236, 1,0.25*Price(236), 1,5,1,5, 0.05*Price(236))); --gold ingot
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(197, 1,0.25*Price(197),1,15,1,20,0.05*Price(197))); --amethyst
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem( 46, 1,0.25*Price(46),1,15,1,20, 0.05*Price(46)));  --ruby
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(283, 1,0.25*Price(283),1,15,1,20,0.05*Price(283))); --blackstone
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(284, 1,0.25*Price(284),1,15,1,20,0.05*Price(284))); --bluestone
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(45,  1,0.25*Price(45),1,15,1,20, 0.05*Price(45)));  --emerald
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(108, 1,0.25*Price(108),1,15,1,20,0.05*Price(108))); --topaz
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(285, 1,0.25*Price(285),1,15,1,20,0.05*Price(285))); --diamond
  
 	myOrderNPC.orderPool:setQualityChancesForPool(2,{100,0,0,0,0,0,0,0,0,0}); 
    
  ]]--   
  --[[  
    --Pool 2(Carpentry ressources): boughs, conifer wooden boards, Apple Wooden Boards
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(56,  1,0.25*Price(56),  1,15,10,50,0.05*Price(56)));   --bough
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(2543,1,0.25*Price(2543),1,15,20,50,0.05*Price(2543))); --conifer wooden boards
-    myOrderNPC.orderPool:addItemToPool(2,OrderPoolItem(2716,1,0.25*Price(2716),1,15,20,50,0.05*Price(2716)));--apple wooden boards
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(56,  1,0.25*Price(56),  1,15,10,50,0.05*Price(56)));   --bough
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(2543,1,0.25*Price(2543),1,15,20,50,0.05*Price(2543))); --conifer wooden boards
+    myOrderNPC.orderPool:addItemToPool(2,npc.base.orders.OrderPoolItem(2716,1,0.25*Price(2716),1,15,20,50,0.05*Price(2716)));--apple wooden boards
     
 	myOrderNPC.orderPool:setQualityChancesForPool(2,{100,0,0,0,0,0,0,0,0,0});  
 	]]--
@@ -859,68 +859,68 @@ end
 --[[	
 
    --Pool 3(Glassblowing easy items): --Small Empty Bottle, Empty Bottle, Large Empty Bottle
-    myOrderNPC.orderPool:addItemToPool(3,OrderPoolItem(1317,  1,0.25*Price(1317),1,20,5,30,0.05*Price(1317))); --Small Empty Bottle
-    myOrderNPC.orderPool:addItemToPool(3,OrderPoolItem(164,   1,0.25*Price(164), 1,15,5,30,0.05*Price(164))); --Empty Bottle
-    myOrderNPC.orderPool:addItemToPool(3,OrderPoolItem(2498,  1,0.25*Price(2498),1,10,1,15,0.05*Price(2498))); --Large Empty Bottle
+    myOrderNPC.orderPool:addItemToPool(3,npc.base.orders.OrderPoolItem(1317,  1,0.25*Price(1317),1,20,5,30,0.05*Price(1317))); --Small Empty Bottle
+    myOrderNPC.orderPool:addItemToPool(3,npc.base.orders.OrderPoolItem(164,   1,0.25*Price(164), 1,15,5,30,0.05*Price(164))); --Empty Bottle
+    myOrderNPC.orderPool:addItemToPool(3,npc.base.orders.OrderPoolItem(2498,  1,0.25*Price(2498),1,10,1,15,0.05*Price(2498))); --Large Empty Bottle
 	--chances for qualities of pool 3 
     myOrderNPC.orderPool:setQualityChancesForPool(3,{100,0,0,0,0,0,0,0,0,0}); 
 	
    --Pool 4(Glassblowing middle hard items): Large Empty Bottle, Glass, Glass Mug
-    myOrderNPC.orderPool:addItemToPool(4,OrderPoolItem(2498,  1,0.25*Price(2498),1,20,5,30,0.05*Price(2498))); --Large Empty Bottle	
-	myOrderNPC.orderPool:addItemToPool(4,OrderPoolItem(2055,  1,0.25*Price(2055),1,15,5,30,0.05*Price(2055))); --Glass
-    myOrderNPC.orderPool:addItemToPool(4,OrderPoolItem(1908,  1,0.25*Price(1908),1,10,1,15,0.05*Price(1908))); --Glass Mug
+    myOrderNPC.orderPool:addItemToPool(4,npc.base.orders.OrderPoolItem(2498,  1,0.25*Price(2498),1,20,5,30,0.05*Price(2498))); --Large Empty Bottle	
+	myOrderNPC.orderPool:addItemToPool(4,npc.base.orders.OrderPoolItem(2055,  1,0.25*Price(2055),1,15,5,30,0.05*Price(2055))); --Glass
+    myOrderNPC.orderPool:addItemToPool(4,npc.base.orders.OrderPoolItem(1908,  1,0.25*Price(1908),1,10,1,15,0.05*Price(1908))); --Glass Mug
 	--chances for qualities of pool 4 
     myOrderNPC.orderPool:setQualityChancesForPool(4,{100,0,0,0,0,0,0,0,0,0}); 
 	--myOrderNPC.orderPool:setQualityChancesForPool(4,{5,20,15,15,10,10,10,5,5,5});
 
    --Pool 5(Glassblowing difficult items): Glass, Glass Muge,Vase 
-	myOrderNPC.orderPool:addItemToPool(5,OrderPoolItem(2055,  1,0.25*Price(2055),1,15,5,20,0.05*Price(2055))); --Glass
-    myOrderNPC.orderPool:addItemToPool(5,OrderPoolItem(1908,  1,0.25*Price(1908),1,10,1,15,0.05*Price(1908))); --Glass Mug
-    myOrderNPC.orderPool:addItemToPool(5,OrderPoolItem(315,   1,0.25*Price(315), 2,10,1,15,0.05*Price(315))); --Vase
+	myOrderNPC.orderPool:addItemToPool(5,npc.base.orders.OrderPoolItem(2055,  1,0.25*Price(2055),1,15,5,20,0.05*Price(2055))); --Glass
+    myOrderNPC.orderPool:addItemToPool(5,npc.base.orders.OrderPoolItem(1908,  1,0.25*Price(1908),1,10,1,15,0.05*Price(1908))); --Glass Mug
+    myOrderNPC.orderPool:addItemToPool(5,npc.base.orders.OrderPoolItem(315,   1,0.25*Price(315), 2,10,1,15,0.05*Price(315))); --Vase
 	--chances for qualities of pool 5 
     myOrderNPC.orderPool:setQualityChancesForPool(5,{100,0,0,0,0,0,0,0,0,0});
 	
    --Pool 6(Finesmithing easy items): 
-	myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(1858,  1,0.25*Price(1858),2,15,5,50,0.05*Price(1858))); --goblet
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(92,    1,0.25*Price(92),1,10,1,30,  0.05*Price(92))); --oil lamp
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(399,   1,0.25*Price(399),1,15,1,20,  0.05*Price(399))); --Candlestick
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(393,   1,0.25*Price(393),  1,10,1,15,0.05*Price(393))); --lantern
+	myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(1858,  1,0.25*Price(1858),2,15,5,50,0.05*Price(1858))); --goblet
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(92,    1,0.25*Price(92),1,10,1,30,  0.05*Price(92))); --oil lamp
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(399,   1,0.25*Price(399),1,15,1,20,  0.05*Price(399))); --Candlestick
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(393,   1,0.25*Price(393),  1,10,1,15,0.05*Price(393))); --lantern
     
-	myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(1001,  1,0.25*Price(1001),2,15,5,50,0.05*Price(1001))); --plate
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(222,    1,0.25*Price(222),1,10,1,30,  0.05*Price(222)));--amulet
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(79,   1,0.25*Price(79),1,15,1,10,  0.05*Price(79))); --amethyst amulet
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(235,   1,0.25*Price(235),  1,10,1,15,0.05*Price(235))); --Golden Ring
+	myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(1001,  1,0.25*Price(1001),2,15,5,50,0.05*Price(1001))); --plate
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(222,    1,0.25*Price(222),1,10,1,30,  0.05*Price(222)));--amulet
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(79,   1,0.25*Price(79),1,15,1,10,  0.05*Price(79))); --amethyst amulet
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(235,   1,0.25*Price(235),  1,10,1,15,0.05*Price(235))); --Golden Ring
 	--chances for qualities of pool 6 
     myOrderNPC.orderPool:setQualityChancesForPool(6,{100,0,0,0,0,0,0,0,0,0});
     ]]--
     
 	--[[
    --Pool 6(Carpentry easy items):Pins and Cotters, Pipe, Dyeing Rod,Fishing rod
-	myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(2717,  1,0.25*Price(2717),2,15,5,50,0.05*Price(2717))); --Pins and Cotters
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(2744,  1,0.25*Price(2744),1,10,1,30,0.05*Price(2744))); --Pipe
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(2781,  1,0.25*Price(2781),1,15,1,15,0.05*Price(2781))); --Dyeing Rod
-    myOrderNPC.orderPool:addItemToPool(6,OrderPoolItem(  72,  1,0.25*Price(72),  1,15,1,15,0.05*Price(72))); --Fishing rod
+	myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(2717,  1,0.25*Price(2717),2,15,5,50,0.05*Price(2717))); --Pins and Cotters
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(2744,  1,0.25*Price(2744),1,10,1,30,0.05*Price(2744))); --Pipe
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(2781,  1,0.25*Price(2781),1,15,1,15,0.05*Price(2781))); --Dyeing Rod
+    myOrderNPC.orderPool:addItemToPool(6,npc.base.orders.OrderPoolItem(  72,  1,0.25*Price(72),  1,15,1,15,0.05*Price(72))); --Fishing rod
 	
 	--chances for qualities of pool 6 
     myOrderNPC.orderPool:setQualityChancesForPool(6,{100,0,0,0,0,0,0,0,0,0});
     
 
    --Pool 7(Carpentry easy items):Plate, Bowl, Wooden Cup, Comb 
-	myOrderNPC.orderPool:addItemToPool(7,OrderPoolItem(2952,  1,0.25*Price(2952),1,15,1,50,0.05*Price(2952))); --Plate 
-    myOrderNPC.orderPool:addItemToPool(7,OrderPoolItem(2935,  1,0.25*Price(2935),1,10,1,50,0.05*Price(2935))); --Bowl
-    myOrderNPC.orderPool:addItemToPool(7,OrderPoolItem(2185,  1,0.25*Price(2185),1,15,1,50,0.05*Price(2185))); --Wooden Cup
-    myOrderNPC.orderPool:addItemToPool(7,OrderPoolItem(  72,  1,0.25*Price(72),  1,15,1,15,0.05*Price(72)));   --Comb
+	myOrderNPC.orderPool:addItemToPool(7,npc.base.orders.OrderPoolItem(2952,  1,0.25*Price(2952),1,15,1,50,0.05*Price(2952))); --Plate 
+    myOrderNPC.orderPool:addItemToPool(7,npc.base.orders.OrderPoolItem(2935,  1,0.25*Price(2935),1,10,1,50,0.05*Price(2935))); --Bowl
+    myOrderNPC.orderPool:addItemToPool(7,npc.base.orders.OrderPoolItem(2185,  1,0.25*Price(2185),1,15,1,50,0.05*Price(2185))); --Wooden Cup
+    myOrderNPC.orderPool:addItemToPool(7,npc.base.orders.OrderPoolItem(  72,  1,0.25*Price(72),  1,15,1,15,0.05*Price(72)));   --Comb
     
 	--chances for qualities of pool 7 
     myOrderNPC.orderPool:setQualityChancesForPool(7,{100,0,0,0,0,0,0,0,0,0});
 
    --Pool 8(Carpentry easy items):Slicer, Cooking Spoon, Wooden Shovel, Candle Mold, Bucket, Peel
-	myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(2715,  1,0.25*Price(2715),1,15,1,15,0.05*Price(2715))); --Slicer
-    myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(227,   1,0.25*Price(227),1,10,1,30, 0.05*Price(227)));  --Cooking Spoon
-    myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(312,   1,0.25*Price(312),1,15,1,15, 0.05*Price(312)));  --Wooden Shovel
-    myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(429,   1,0.25*Price(429),1,15,1,15, 0.05*Price(429)));  --Candle Mold
-    myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(51,    1,0.25*Price(51),1,15,1,15, 0.05*Price(51)));    --Bucket
-    myOrderNPC.orderPool:addItemToPool(8,OrderPoolItem(121,   1,0.25*Price(121),1,15,1,15, 0.05*Price(121)));  --Peel
+	myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(2715,  1,0.25*Price(2715),1,15,1,15,0.05*Price(2715))); --Slicer
+    myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(227,   1,0.25*Price(227),1,10,1,30, 0.05*Price(227)));  --Cooking Spoon
+    myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(312,   1,0.25*Price(312),1,15,1,15, 0.05*Price(312)));  --Wooden Shovel
+    myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(429,   1,0.25*Price(429),1,15,1,15, 0.05*Price(429)));  --Candle Mold
+    myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(51,    1,0.25*Price(51),1,15,1,15, 0.05*Price(51)));    --Bucket
+    myOrderNPC.orderPool:addItemToPool(8,npc.base.orders.OrderPoolItem(121,   1,0.25*Price(121),1,15,1,15, 0.05*Price(121)));  --Peel
 	--chances for qualities of pool 8 
     myOrderNPC.orderPool:setQualityChancesForPool(8,{100,0,0,0,0,0,0,0,0,0});
 	--]]
