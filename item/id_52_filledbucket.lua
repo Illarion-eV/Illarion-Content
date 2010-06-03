@@ -105,19 +105,13 @@ function MakeSprout( User, SourceItem, TargetItem )
     if( boden == seed[2] ) then
         --User:inform( "on field" );
 
-        --User:inform( "skill "..skillwert.." chance "..chance );
         if BlockCheck(TargetItem.pos) then
-	    -- Auf dem Trainingsfeld der Akademie w�chst nichts
-	    if ((( TargetItem.pos.x > 54 ) and ( TargetItem.pos.x < 64 ) and ( TargetItem.pos.y > 35 ) and ( TargetItem.pos.y < 49 )) and ( TargetItem.pos.z == 50)) then
-	        base.common.InformNLS( User,
-                    "Die Erde hier ist v�llig ausgebrannt...hier kann nichts wachsen.",
-                    "The ground here is totaly burned...here can't grow anything." );
-        else
+
             if CheckSucceed(User) then
                 --User:inform( "deleting fruit "..TargetItem.id );
                 world:swap(TargetItem,seed[1],333)
             end
-	    end	
+
         else
         base.common.InformNLS( User, 
             "An dieser Stelle war nicht genug Sonnenlicht. Der Setzling geht ein.", 
@@ -128,10 +122,10 @@ function MakeSprout( User, SourceItem, TargetItem )
 end
 
 function CheckSucceed(User)
-    Dex=User:increaseAttrib("dexterity",0);
+    Con=User:increaseAttrib("constitution",0);
     Pea=User:getSkill("peasantry");
-    TryValue=100*(Pea/100)*(Dex/20);
-    if (math.random(0,90)<TryValue) then
+    TryValue=40+60*(Pea/100)*(Con/20);
+    if (math.random(0,100)<TryValue) then
         return true
     else
         return false
