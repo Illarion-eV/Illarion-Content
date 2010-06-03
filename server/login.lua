@@ -24,7 +24,7 @@ function onLogin( player )
 		    end
 		end
 		if not newPos then
-			player:inform("Fehler beim erstellen des Lasttieres");
+			player:inform("Fehler beim Erstellen des Lasttieres.");
 		else
 			Transporter = world:getCharacterOnField(newPos);
 			transport_effect = CLongTimeEffect( 10, 500000 );
@@ -34,13 +34,13 @@ function onLogin( player )
 	end
 	-- Abhandlung von Transporttieren fertig
 
-	-- ï¿½berprï¿½fung fï¿½r Korrekt Initiertes Regenerationsscript
+	-- Überprüfung für korrekt initiertes Regenerationsskript
 	find, reg_effect = player.effects:find(2);
 	if not find then
 		player.effects:addEffect( CLongTimeEffect(2,10) );
 	end
 
-	-- Geruchs Effekt setzen
+	-- Geruchs-Effekt setzen
 	find, stinkEffekt = player.effects:find(18);
 	if not find then
 		player.effects:addEffect( CLongTimeEffect(18,10) );
@@ -50,7 +50,7 @@ function onLogin( player )
 		HowAreYouToday( player );
 	end
 
-	-- Langzeitefekt fï¿½r Runenlehren
+	-- Langzeitefekt für Runenlehren
     year=world:getTime("year");
     year=(year-1)*31536000;						-- (year-1)*((15*24) + 5)*24*60*60;
     month=world:getTime("month");
@@ -102,7 +102,7 @@ function onLogin( player )
     --player:inform("moep->Fertig!");
 
 --[[
-	-- Langzeiteffekt fï¿½r magie
+	-- Langzeiteffekt für magie
 	--
 	if ( ( player:getMagicType( ) == 0 ) and ( player:getMagicFlags( 0 ) > 0 ) ) then -- Charakter ist Magier
 		player:inform("Magie start");
@@ -116,7 +116,7 @@ function onLogin( player )
 	    player:inform("Effekt gefunden.");
 	end
 ]]
-	-- ï¿½berprï¿½fung auf Newbie-Status
+	-- Überprüfung auf Newbie-Status
 	NewbieState = player:getQuestProgress(2);
 	if NewbieState == 2 then
 		-- player logged out before moving the first time, let's offer another chance
@@ -135,8 +135,11 @@ function onLogin( player )
 		end ]]
 		if atNewbieSpawn then
 			player:setQuestProgress(2,1); -- player seems to be a newbie, so start "Quest"
-			outText=base.common.GetNLS(player,"Endlich wieder festen Boden unter den Fï¿½ï¿½en.","Finally standing again on firm ground.");
-			player:talk(CCharacter.say,outText);
+			outText=base.common.GetNLS(player,"#w Du verläßt das Schiff, welches dich in das geheimnisvolle Land Illarion gebracht hat. Endlich wieder festen Boden unter den Füßen!","#w You leave the ship that brought you to the mysterious land Illarion. Finally standing again on firm ground again!");
+			player:inform(outText);
+			outText2=base.common.GetNLS(player,"#w Hilfe erhältst du jederzeit im Illarion-Chat oder auf dem Illarion-Forum, welche auf der Homepage verlinkt sind.","#w You can get help of any kind in the Illarion chat or the Illarion forum. You can find a link to both on the homepage.");
+			player:inform(outText2);
+
 			foundEffect,newbieEffect = player.effects:find(13);
 			if not foundEffect then
 				newbieEffect=CLongTimeEffect(13,1);
@@ -151,17 +154,17 @@ function onLogin( player )
 		if (world:isCharacterOnField(position(41,50,100))==true) then
 			if (world:isCharacterOnField(position(43,50,100))==true) then
 				player:warp(position(41,48,100));
-				player:talk(CCharacter.say, "Arghh");
+				player:talk(CCharacter.say, "Arghh!");
 			else
 				player:warp(position(43,50,100));
-				player:talk(CCharacter.say, "Arghh");
+				player:talk(CCharacter.say, "Arghh!");
 			end
 		else
 			player:warp(position(41,50,100));
-			player:talk(CCharacter.say, "Arghh"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
+			player:talk(CCharacter.say, "Arghh!"); --needed phrase for the Npc(npc_nargon_hammerfaust.lua) to react
 		end
 	end
-	-- ï¿½berprï¿½fung von Newbie-Status fertig
+	-- Überprüfung von Newbie-Status fertig
 
 	return true;
 end
