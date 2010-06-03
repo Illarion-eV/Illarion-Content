@@ -68,9 +68,10 @@ end
 function MakeSprout( User, SourceItem, TargetItem )
     if seedList == nil then
         seedList = {  };
-        seedList[ 15 ] = {139,4};              -- Apfelsetzling
-        seedList[ 302 ] = {132,4};             -- Kirschsetzling
-        seedList[ 149 ] = {150,2};             -- Tannensetzling
+        seedList[ 15 ] = {139,4};              -- Apple tree seedling
+        seedList[ 302 ] = {132,4};             -- Cherry tree seedling
+        seedList[ 149 ] = {150,2};             -- Fir tree seedling
+		--seedList[] = {,}; --Eldan oak
     end
     local seed = seedList[ TargetItem.id ];
     if( seed == nil ) then
