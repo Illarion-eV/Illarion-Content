@@ -124,7 +124,7 @@ end
 function CheckSucceed(User)
     Con=User:increaseAttrib("constitution",0);
     Pea=User:getSkill("peasantry");
-    TryValue=40+60*(Pea/100)*(Con/20);
+    TryValue=30+50*(Pea/100)+20*(Con/20);
     if (math.random(0,100)<TryValue) then
         return true
     else
