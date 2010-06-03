@@ -9,21 +9,10 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
-    -- Loo Bucket for hands
-    if equapos( SourceItem.pos, position( -72, -69, 0 ) ) then
-        local bucket = world:getItemOnField( position( -72, -69, 0 ) );
-        bucket.wear = 255;
-        world:changeItem( bucket );
-        door = world:getItemOnField( position( -74, -68, 0 ) );
-        base.keys.UnlockDoor( door );
-        door = world:getItemOnField( position( -74, -68, 0 ) );
-        OpenDoor( door );
-    end;
-
     -- Wasserflasche auff�llen
     if( TargetItem.id == 2498 ) then
 		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "Du kannst nur eine Flasche bef�llen!", "You can only fill one bottle.");
+			base.common.InformNLS(User, "Du kannst nur eine Flasche befüllen!", "You can only fill one bottle.");
 			return;
 		end
         world:makeSound( 10, User.pos )
@@ -58,30 +47,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 end  -- function
 
 function UseItemWithCharacter (Character, SourceItem, TargetCharacter, Counter, Param )
-    find, stinkEffekt =  TargetCharacter.effects:find(18);
-    if find then 
-	    found, stinkIndex = stinkEffekt:findValue("stinkIndex");
-	    if found then
-	         stinkEffekt:addValue("stinkIndex",1);
-               world:makeSound( 9, Character.pos );
-               SourceItem.id = 51;
-               SourceItem.data = 0;
-               world:changeItem(SourceItem);
-	     
-    	     -- Loo Bucket for hands
-             if equapos( SourceItem.pos, position( -72, -69, 0 ) ) then
-                 local bucket = world:getItemOnField( position( -72, -69, 0 ) );
-                 bucket.wear = 255;
-                 world:changeItem( bucket );
-                 door = world:getItemOnField( position( -74, -68, 0 ) );
-                 base.keys.UnlockDoor( door );
-                 door = world:getItemOnField( position( -74, -68, 0 ) );
-                 OpenDoor( door );
-             end;
-	     
-	         base.common.InformNLS(TargetCharacter, "Du f�hlt dich gleich viel sauberer.", "You feel much cleaner.");
-	    end
-    end
+
+    world:makeSound( 9, Character.pos );
+    SourceItem.id = 51;
+    SourceItem.data = 0;
+    world:changeItem(SourceItem);
+	base.common.InformNLS(TargetCharacter, "#w Du fühlst dich gleich viel sauberer.", "#w You feel much cleaner.");
+
 end
 
 function MakeSprout( User, SourceItem, TargetItem )
