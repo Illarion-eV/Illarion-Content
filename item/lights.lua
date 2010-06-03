@@ -200,3 +200,35 @@ function putOff(Item, this)
 	Item.id = this.off;
 	world:changeItem(Item);
 end
+
+function LookAtItem(User, Item)
+	local ItemName = world:getItemName(Item, User:GetPlayerLanguage());
+	local TimeLeftI;
+	if(LightsOn[Item.id]) then
+		TimeLeftI = Item.wear;
+	elseif (LightsOff[Item.id]) then
+		if (Item.data >= 1000) then
+			TimeLeftI = Item.data - 1000;
+		else
+			TimeLeftI = PORTABLE_WEAR;
+		end
+	end
+	
+	if(TimeLeftI == 255) then
+		TimeLeft = base.common.GetNLS(User, "nie", "never");
+	elseif (TimeLeftI == 0) then
+		TimeLeft = base.common.GetNLS(User, "sofort", "immediatly");
+	elseif (TimeLeftI == 1) then
+		TimeLeft = base.common.GetNLS(User, "demnächst", "anytime soon");
+	elseif (TimeLeftI == 2) then
+		TimeLeft = base.common.GetNLS(User, "bald", "soon");	
+	elseif (TimeLeftI <= 4) then
+		TimeLeft = base.common.GetNLS(User, "nach einer Weile", "in a while");
+	elseif (TimeLeftI <= PORTABLE_WEAR) then
+		TimeLeft = base.common.GetNLS(User, "nicht allzu bald", "not anytime soon");
+	elseif (TimeLeftI >= PORTABLE_WEAR) then
+		TimeLeft = base.common.GetNLS(User, "nach langer Zeit", "in a long time");
+	end	
+	
+	world:itemInform(User, Item, base.common.GetNLS(User, "Du siehst:  "..ItemName..". Sie wird "..TimeLeft.." ausbrennen.", "You see: "..ItemName..". It will burn down "..TimeLeft.."."));
+end
