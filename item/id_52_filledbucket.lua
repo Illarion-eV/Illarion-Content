@@ -9,12 +9,21 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
+if ( TargetItem == nil ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
+    theFrontItem=GetFrontItem(User);
+    if theFrontItem then
+	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
+	else
+		UseItemWithCharacter(User, SourceItem, User, Counter, Param);
+	end
+end
+	
     -- Wasserflasche auff�llen
-    if( TargetItem.id == 2498 ) then
-		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
-			return;
-		end
+if( TargetItem.id == 2498 ) then
+    if(TargetItem.number > 1) then
+		base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
+		return;
+	end
         world:makeSound( 10, User.pos )
         world:swap(TargetItem,2496,933);
     else
