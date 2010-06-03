@@ -12,7 +12,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     -- Wasserflasche auff�llen
     if( TargetItem.id == 2498 ) then
 		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "Du kannst nur eine Flasche befüllen!", "You can only fill one bottle.");
+			base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
 			return;
 		end
         world:makeSound( 10, User.pos )
@@ -20,10 +20,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     else
         if TargetItem.id ~= 0 then
 			if ((TargetItem.id==12 or TargetItem.id == 359) and (User.pos.z==100 or User.pos.z==101)) then --Prevents extinguishing campfires on n00bia(needed for the cook-npc)
-				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du k�nntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
+				base.common.InformNLS(User,"#w Du solltest das Feuer besser nicht ausmachen, du k�nntest es noch gebrauchen.","#w You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
-				base.common.InformNLS(User,"platsch!","splash!");
+				base.common.InformNLS(User,"#w Platsch!","#w Splash!");
 				world:makeSound( 9, User.pos );
 	            -- Lagerfeuer ausmachen
 	            if (TargetItem.id == 12 or TargetItem.id == 359) then
@@ -86,8 +86,8 @@ function MakeSprout( User, SourceItem, TargetItem )
 
         else
         base.common.InformNLS( User, 
-            "An dieser Stelle war nicht genug Sonnenlicht. Der Setzling geht ein.", 
-            "There was not enough sunlight in this place. The seedling whithers." ); 
+            "#w An dieser Stelle war nicht genug Sonnenlicht. Der Setzling geht ein.", 
+            "#w There was not enough sunlight in this place. The seedling whithers." ); 
         end    
         User:learn( 2, "peasantry", 1, 100 )
     end
