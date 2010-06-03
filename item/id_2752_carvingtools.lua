@@ -60,7 +60,7 @@ product:AddProductionSteps( { 2535, 1, "all" }, 1 ); -- Iron Ingot: 1x1
 product:AddProductionSteps( { 2570, 1, "all" }, 1 ); -- Sickle Handle: 1x1
 
 --Pins and Cotters
-product = carpentery:AddProduct( CurrentCatID, 2717, { 0, 20}, 10, { 10, 20 } );
+product = carpentery:AddProduct( CurrentCatID, 2717, { 0, 20}, 5, { 10, 20 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
 product:AddProductionSteps( { 2738, 5, "all" }, 1 ); -- Pins: 1x5
 
