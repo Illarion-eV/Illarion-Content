@@ -8,6 +8,7 @@ require("item.base.crafts")
 module("item.id_6_scissors", package.seeall, package.seeall(item.general.metal))
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+User:inform("globtest: "..globtest2);
     base.common.ResetInterruption( User, ltstate );
     math.randomseed( os.time() );
     
