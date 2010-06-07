@@ -1,0 +1,15 @@
+require("base.class")
+require("npc.base.condition.condition")
+
+module("npc.base.condition.race", package.seeall)
+
+race = class(npc.base.condition.condition.condition,
+function(self, value)
+    npc.base.condition.condition.condition:init(self);
+    self["value"] = value + 1 - 1;
+    self["check"] = _race_helper_equal;
+end);
+
+function _race_helper_equal(self, player)
+    return (player:get_race() == self.value);
+end;
