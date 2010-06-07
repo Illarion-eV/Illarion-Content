@@ -101,7 +101,7 @@ function MakeSprout( User, SourceItem, TargetItem )
                 --User:inform( "deleting fruit "..TargetItem.id );
                 world:swap(TargetItem,seed[1],333)
 			else
-				base.common.InformNLS(TargetCharacter, "#w Der Setzling braucht noch mehr Wasser um anzuwachsen.", "#w The seedling needs more water to grow.");
+				base.common.InformNLS(User, "#w Der Setzling braucht noch mehr Wasser um anzuwachsen.", "#w The seedling needs more water to grow.");
             end
 
         else
