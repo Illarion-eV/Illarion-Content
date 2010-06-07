@@ -9,15 +9,9 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
-		base.common.InformNLS(User, "Your TargetItem: "..TargetItem.id..".",  "Your TargetItem: "..TargetItem.id..".");
-
 if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
 
-		base.common.InformNLS(User, "No target!",  "No target!");
-
     theFrontItem=base.common.GetFrontItem(User);
-	
-			base.common.InformNLS(User, "Your FrontItem: "..theFrontItem.id..".",  "Your FrontItem: "..theFrontItem.id..".");
 	
     if theFrontItem.id ~= 0 then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
@@ -106,6 +100,8 @@ function MakeSprout( User, SourceItem, TargetItem )
             if CheckSucceed(User) then
                 --User:inform( "deleting fruit "..TargetItem.id );
                 world:swap(TargetItem,seed[1],333)
+			else
+				base.common.InformNLS(TargetCharacter, "#w Der Setzling braucht noch mehr Wasser um anzuwachsen.", "#w The seedling needs more water to grow.");
             end
 
         else
