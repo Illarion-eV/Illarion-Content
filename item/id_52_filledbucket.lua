@@ -106,8 +106,8 @@ function MakeSprout( User, SourceItem, TargetItem )
 
         else
         base.common.InformNLS( User, 
-            "#w An dieser Stelle war nicht genug Sonnenlicht. Der Setzling geht ein.", 
-            "#w There was not enough sunlight in this place. The seedling whithers." ); 
+            "#w Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.", 
+            "#w The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
         end    
         User:learn( 2, "peasantry", 1, 100 )
     end
@@ -146,7 +146,7 @@ function BlockCheck(Posi)
 	if(Field:countItems() > 1) then
 		return false
 	end
-    if (block<5) then
+    if (block<3) then
         return true
     else
         return false
