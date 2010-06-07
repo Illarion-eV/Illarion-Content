@@ -9,8 +9,16 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
+		base.common.InformNLS(User, "Your TargetItem: "..TargetItem.id..".",  "Your TargetItem: "..TargetItem.id..".");
+
 if ( not TargetItem ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
+
+		base.common.InformNLS(User, "No target!",  "No target!");
+
     theFrontItem=base.common.GetFrontItem(User);
+	
+			base.common.InformNLS(User, "Your FrontItem: "..theFrontItem.id..".",  "Your FrontItem: "..theFrontItem.id..".");
+	
     if theFrontItem then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
 	else
