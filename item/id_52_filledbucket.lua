@@ -19,7 +19,7 @@ if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is u
 	
 			base.common.InformNLS(User, "Your FrontItem: "..theFrontItem.id..".",  "Your FrontItem: "..theFrontItem.id..".");
 	
-    if theFrontItem then
+    if theFrontItem.id ~= 0 then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
 		return;
 	else
