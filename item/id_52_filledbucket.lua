@@ -21,8 +21,10 @@ if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is u
 	
     if theFrontItem then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
+		return;
 	else
 		UseItemWithCharacter(User, SourceItem, User, Counter, Param);
+		return;
 	end
 end
 	
