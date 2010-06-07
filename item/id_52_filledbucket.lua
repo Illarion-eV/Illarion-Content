@@ -148,7 +148,7 @@ function BlockCheck(Posi)
         testLoc = position( Posi.x + dir[ 1 ], Posi.y + dir[ 2 ], Posi.z );
         if world:isItemOnField( testLoc ) then
 		    theItem=world:getItemOnField(testLoc);
-		    if not allowed[theItem.id] then
+		    if allowed[theItem.id] == nil then
             --User:inform( "block found at "..i );
             block = block + dir[ 3 ];
 			end
