@@ -13,7 +13,7 @@ if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is u
 
     theFrontItem=base.common.GetFrontItem(User);
 	
-    if theFrontItem.id ~= 0 then
+    if theFrontItem ~= nil then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
 		return;
 	else
