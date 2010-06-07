@@ -36,8 +36,7 @@ if( TargetItem.id == 2498 ) then
 				base.common.InformNLS(User,"#w Du solltest das Feuer besser nicht ausmachen, du k�nntest es noch gebrauchen.","#w You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
-				base.common.InformNLS(User,"#w Platsch!","#w Splash!");
-				world:makeSound( 9, User.pos );
+			world:makeSound( 9, User.pos );
 	            -- Lagerfeuer ausmachen
 	            if (TargetItem.id == 12 or TargetItem.id == 359) then
 	                world:erase(TargetItem,1);
