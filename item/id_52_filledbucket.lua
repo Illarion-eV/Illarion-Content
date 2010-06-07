@@ -9,7 +9,7 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
-if ( TargetItem == nil ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
+if ( not TargetItem ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
     theFrontItem=GetFrontItem(User);
     if theFrontItem then
 	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
