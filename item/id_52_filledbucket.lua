@@ -133,13 +133,25 @@ function BlockCheck(Posi)
         { 1, 0, 3 }, { 1, 1, 2 }, { 0, 1, 3 }, { -1, 1, 2 },
         { -1, 0, 3 }, { -1, -1, 2 }, { 0, -1, 3 }, { 1, -1, 2 }
         };
+	end
+    if allowed == nil then
+	    allowed={};
+		allowed[273]=true;
+		allowed[274]=true;
+		allowed[338]=true;
+		allowed[1782]=true;
+		allowed[1783]=true;
+		allowed[1790]=true;
     end
     for i, dir in pairs(Directions) do
         --User:inform( "checking field "..i );
         testLoc = position( Posi.x + dir[ 1 ], Posi.y + dir[ 2 ], Posi.z );
         if world:isItemOnField( testLoc ) then
+		    theItem=world:getItemOnField(testLoc);
+		    if not allowed[theItem.id] then
             --User:inform( "block found at "..i );
             block = block + dir[ 3 ];
+			end
         end
     end
 	local Field = world:getField(Posi);
