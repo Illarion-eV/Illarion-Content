@@ -11,7 +11,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
 		base.common.InformNLS(User, "Your TargetItem: "..TargetItem.id..".",  "Your TargetItem: "..TargetItem.id..".");
 
-if ( not TargetItem ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
+if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
 
 		base.common.InformNLS(User, "No target!",  "No target!");
 
