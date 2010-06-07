@@ -146,7 +146,7 @@ function BlockCheck(Posi)
 	if(Field:countItems() > 1) then
 		return false
 	end
-    if (block<3) then
+    if (block<2) then
         return true
     else
         return false
