@@ -206,15 +206,101 @@ function LTELockRune( Char )
 end
 
 function GetAttributeSum( Char )
-    local Int = Char:increaseAttrib("intelligence",0);
-    local Ess = Char:increaseAttrib("essence",0);
-    local Wil = Char:increaseAttrib("willpower",0);
+
+	local intbonus, essbonus, willbonus;
+	intbonus, essbonus, willbonus = GetAttributeBonus(Char);
+
+    local Int = Char:increaseAttrib("intelligence",0) + intbonus;
+    local Ess = Char:increaseAttrib("essence",0) + essbonus;
+    local Wil = Char:increaseAttrib("willpower",0) + willbonus;
 
     if ( Int < 10 ) or ( Ess < 10 ) or ( Wil < 10 ) then
         return -1;
     end
 
     return Int+Ess+Wil;
+end
+
+function GetAttributeBonus(Char)
+	local Breast = Char:getItemAt(CCharacter.breast);
+	local RTool = Char:getItemAt(CCharacter.right_tool);
+	local LTool = Char:getItemAt(CCharacter.left_tool);
+	local RRing = Char:getItemAt(CCharacter.finger_right_hand);
+	local LRing = Char:getItemAt(CCharacter.finger_left_hand);
+	local idx,str,idx2,str2;
+	local Int = 0;
+	local Ess = 0;
+	local Wil = 0;
+	
+	idx,str,idx2,str2 = base.common.GetBonusFromTool(Breast);
+	if(idx == 1) then
+		Int = Int + str;
+	elseif (idx == 7) then
+		Ess = Ess + str;
+		Wil = Wil + str;
+	end
+	if(idx2 == 1) then
+		Int = Int + str2;
+	elseif (idx2 == 7) then
+		Ess = Ess + str2;
+		Wil = Wil + str2;
+	end
+	
+	idx,str,idx2,str2 = base.common.GetBonusFromTool(RTool);
+	if(idx == 1) then
+		Int = Int + str;
+	elseif (idx == 7) then
+		Ess = Ess + str;
+		Wil = Wil + str;
+	end
+	if(idx2 == 1) then
+		Int = Int + str2;
+	elseif (idx2 == 7) then
+		Ess = Ess + str2;
+		Wil = Wil + str2;
+	end
+	idx,str,idx2,str2 = base.common.GetBonusFromTool(LTool);
+	if(idx == 1) then
+		Int = Int + str;
+	elseif (idx == 7) then
+		Ess = Ess + str;
+		Wil = Wil + str;
+	end
+	if(idx2 == 1) then
+		Int = Int + str2;
+	elseif (idx2 == 7) then
+		Ess = Ess + str2;
+		Wil = Wil + str2;
+	end
+	
+	idx,str,idx2,str2 = base.common.GetBonusFromTool(RRing);
+	if(idx == 1) then
+		Int = Int + str;
+	elseif (idx == 7) then
+		Ess = Ess + str;
+		Wil = Wil + str;
+	end
+	if(idx2 == 1) then
+		Int = Int + str2;
+	elseif (idx2 == 7) then
+		Ess = Ess + str2;
+		Wil = Wil + str2;
+	end
+	idx,str,idx2,str2 = base.common.GetBonusFromTool(LRing);
+	if(idx == 1) then
+		Int = Int + str;
+	elseif (idx == 7) then
+		Ess = Ess + str;
+		Wil = Wil + str;
+	end
+	if(idx2 == 1) then
+		Int = Int + str2;
+	elseif (idx2 == 7) then
+		Ess = Ess + str2;
+		Wil = Wil + str2;
+	end
+	
+	return Int, Ess, Wil;
 end
 
 function GetSkillValue( Char, Skill )
