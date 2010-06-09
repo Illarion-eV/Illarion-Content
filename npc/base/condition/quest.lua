@@ -26,43 +26,43 @@ function(self, comp, value)
 end);
 
 function _quest_helper_equal(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) == self.value;
+    return player:getQuestProgress(self.npc._quest) == self.value;
 end;
 
 function _quest_helper_notequal(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) ~= self.value;
+    return player:getQuestProgress(self.npc._quest) ~= self.value;
 end;
 
 function _quest_helper_lesserequal(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) <= self.value;
+    return player:getQuestProgress(self.npc._quest) <= self.value;
 end;
 
 function _quest_helper_greaterequal(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) >= self.value;
+    return player:getQuestProgress(self.npc._quest) >= self.value;
 end;
 
 function _quest_helper_lesser(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) < self.value;
+    return player:getQuestProgress(self.npc._quest) < self.value;
 end;
 
 function _quest_helper_greater(self, player)
-    if (self.npc.quest <= 0) then
+    if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc.quest) > self.value;
+    return player:getQuestProgress(self.npc._quest) > self.value;
 end;
