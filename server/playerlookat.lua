@@ -105,10 +105,10 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 		--faction additions
 	Faction = BF_get(TargetCharacter);
 	if Faction.rankTown == 0 then
-		factiontext = ( lang ==0 and "("..TownRankList[Faction.rankTown].gRank..")" or "("..TownRankList[Faction.rankTown].eRank..")" );
+		factiontext = ( lang ==0 and " ("..TownRankList[Faction.rankTown].gRank..")" or " ("..TownRankList[Faction.rankTown].eRank..")" );
 	else
-		factiontext = ( (lang ==0 and "("..TownRankList[Faction.rankTown].gRank.." "..TownNameGList[Faction.tid][1].."s)" ) 
-				or 	"("..TownRankList[Faction.rankTown].eRank.." of "..TownNameEList[Faction.tid][1]..")" );
+		factiontext = ( (lang ==0 and " ("..TownRankList[Faction.rankTown].gRank.." "..TownNameGList[Faction.tid][1].."s)" ) 
+				or 	" ("..TownRankList[Faction.rankTown].eRank.." of "..TownNameEList[Faction.tid][1]..")" );
 	end
 	output = output .. factiontext;
 	
@@ -128,9 +128,9 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
             TargetCharacter:inform( "#w Du fühlst dich beobachtet." );
             if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
-                    TargetCharacter:sendCharDescription( SourceCharacter.id , "Er scheint dich anzustarren" );
+                    TargetCharacter:sendCharDescription( SourceCharacter.id , "Er scheint dich anzustarren." );
                 else
-                    TargetCharacter:sendCharDescription( SourceCharacter.id , "Sie scheint dich anzustarren" );
+                    TargetCharacter:sendCharDescription( SourceCharacter.id , "Sie scheint dich anzustarren." );
                 end
             end
         else
