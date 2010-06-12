@@ -52,13 +52,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     if ( ltstate == Action.none ) then
-        User:startAction(potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+        User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt Asche herzustellen.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to produce potash.");
         return
     end
     
-    if not potashproducing:FindRandomItem(User) then
+    if not content.gathering.potashproducing:FindRandomItem(User) then
 		return
 	end
     
@@ -71,7 +71,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "Du kannst nichts mehr halten.",
             "You can't carry any more.");
         else
-            User:startAction(potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
         end
     elseif (User:countItemAt("all",543)>0) then
         User:eraseItem(543,1);
@@ -82,7 +82,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "Du kannst nichts mehr halten.",
             "You can't carry any more.");
         else
-            User:startAction(potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
         end
     elseif (User:countItemAt("all",544)>0) then
         User:eraseItem(544,1);
@@ -93,7 +93,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "Du kannst nichts mehr halten.",
             "You can't carry any more.");
         else
-            User:startAction(potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
         end
     elseif (User:countItemAt("all",3)>0) then
         User:eraseItem(3,1);
@@ -104,7 +104,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "Du kannst nichts mehr halten.",
             "You can't carry any more.");
         else
-            User:startAction(potashproducing:GenWorkTime(User), 0, 0, 7, 15);
+            User:startAction(content.gathering.potashproducing:GenWorkTime(User), 0, 0, 7, 15);
         end
     end
     base.common.GetHungry( User, 200 );
