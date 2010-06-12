@@ -20,9 +20,9 @@ module("druid.item.id_1008_cauldron", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   --User:inform("debug ds_pflanzensud.lua") 
   -- pr�fe ob der User eine Planze in der Hand hat
-    local plantInHand = CheckIfPlantInHand(User);  
+    local plantInHand = druid.base.alchemy.CheckIfPlantInHand(User);  
     -- pr�fe ob eine Flasche in der Hand ist
-    local bottleInHand = CheckIfBottleInHand(User);  
+    local bottleInHand = druid.base.alchemy.CheckIfBottleInHand(User);  
 		-- check auf mehrere Flaschen(Stapelbug)
 		if User:countItemAt("body",164)>1 or User:countItemAt("body",331)>1 then
 			return
@@ -53,14 +53,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local bottleQual = ( bottleInHand.id == 164 and 999 or bottleInHand.quality );
         
         -- Und wir generieren eine Liste die jeden Eintrag des Datawertes einzeln enth�lt
-        local dataZList = SplitBottleData(User,bottleData);
+        local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
         -- Abh�ngig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
         dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
         dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
         
         -- Aus den modifizierten Daten erstellen wir den neuen Datawert.
-        bottleData = PasteBottleData(User,dataZList);
+        bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
         
         -- die Pflanze l�schen
         User:increaseAtPos(plantInHand.itempos,-1);
@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     -- Der User hatte keine Planze. Vielleicht hat er ja Mineralstaub
-    local gemInHand = CheckIfGemInHand(User);
+    local gemInHand = druid.base.alchemy.CheckIfGemInHand(User);
 
     if gemInHand then     
         -- Er hat einen, aber hat er auch eine Flasche?
@@ -127,7 +127,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     -- Keine Planze und keinen Mineralstaub. Vielleicht ja Kohle
-    local coalInHand = ds_CheckIfCoalInHand(User);
+    local coalInHand = druid.base.alchemy.ds_CheckIfCoalInHand(User);
     if coalInHand then
         -- Und das Opfer hat wirklich Kohle
         if not bottleInHand then
@@ -159,7 +159,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     -- Letzter Versuch. Vielleicht ist es ja Faulbaumrinde
-    local rtbInHand = CheckIfRtbInHand(User);
+    local rtbInHand = druid.base.alchemy.CheckIfRtbInHand(User);
     if rtbInHand then
         -- Faulbaumrinde ist da
         if not bottleInHand then
@@ -197,7 +197,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         end
         
         -- neuen Datawert generieren
-        bottleInHand.data = PasteBottleData(User,dataZList);
+        bottleInHand.data = druid.base.alchemy.PasteBottleData(User,dataZList);
         
         -- und das Item speichern
         world:changeItem(bottleInHand);
