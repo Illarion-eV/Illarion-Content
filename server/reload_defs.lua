@@ -15,7 +15,7 @@ function onReload()
     initDepots();
     --initExplorerStones();
     initAltars();
-    InitWegweiser();
+    content.signpost.InitWegweiser();
 	initNoobia();
 	initTreasureChests();
     -- logToFile("end onReload");
