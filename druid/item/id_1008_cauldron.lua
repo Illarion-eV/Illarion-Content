@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         else
         	dummy =plantInHand.id
         end
-        local plusWertPos,minusWertPos = SplitPlantData(dummy);
+        local plusWertPos,minusWertPos = druid.base.alchemy.SplitPlantData(dummy);
                         
         -- Wenn es eine leere Flasche ist werden default Werte verwendet.
         local bottleData = ( bottleInHand.id == 164 and 55555555 or bottleInHand.data );
