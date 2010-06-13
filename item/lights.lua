@@ -202,7 +202,7 @@ function putOff(Item, this)
 end
 
 function LookAtItem(User, Item)
-	local ItemName = world:getItemName(Item, User:getPlayerLanguage());
+	local ItemName = world:getItemName(Item.id, User:getPlayerLanguage());
 	local TimeLeftI;
 	if(LightsOn[Item.id]) then
 		TimeLeftI = Item.wear;
