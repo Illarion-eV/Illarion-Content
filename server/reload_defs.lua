@@ -317,17 +317,17 @@ function initExplorerStones()
 end
 
 function initAltars()
-    AddAltar( -477, -488,    0, content.gods.GOD_THEDEVS);
-    AddAltar( -434, -482,    0, content.gods.GOD_THEDEVS);
-    AddAltar( -200, -271,    0, content.gods.GOD_USHARA);
-    AddAltar( -414, -149,    0, content.gods.GOD_ELDAN);
-    AddAltar(  429, -120,    0, content.gods.GOD_TANORA);
-    AddAltar(  -84, -116,    0, content.gods.GOD_ELARA);
-    AddAltar(  363,  217,    0, content.gods.GOD_THEFIVE);
-    AddAltar(  -54,  185,   -9, content.gods.GOD_TANORA);
-    AddAltar(  -25, -213,   -3, content.gods.GOD_MALACHIN);
-    AddAltar(   76,   16,   -6, content.gods.GOD_CHERGA);
-    AddAltar(  369,  217,    1, content.gods.GOD_THEFIVE);
+    AddAltar( -477, -488,    0, GOD_THEDEVS);
+    AddAltar( -434, -482,    0, GOD_THEDEVS);
+    AddAltar( -200, -271,    0, GOD_USHARA);
+    AddAltar( -414, -149,    0, GOD_ELDAN);
+    AddAltar(  429, -120,    0, GOD_TANORA);
+    AddAltar(  -84, -116,    0, GOD_ELARA);
+    AddAltar(  363,  217,    0, GOD_THEFIVE);
+    AddAltar(  -54,  185,   -9, GOD_TANORA);
+    AddAltar(  -25, -213,   -3, GOD_MALACHIN);
+    AddAltar(   76,   16,   -6, GOD_CHERGA);
+    AddAltar(  369,  217,    1, GOD_THEFIVE);
 end
 
 function AddDoor(DoorX,DoorY,DoorZ,DoorData,Open)
