@@ -50,6 +50,14 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
         User:warp(position(-131,-123,-3));
+	elseif equapos(TargetItem.pos,position(787,801,0)) then
+        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:warp(position(797,791,-3));
+	elseif equapos(TargetItem.pos,position(528, 555, 0)) then
+        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
+        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+        User:warp(position(518,559, -3));
     elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then --FARMER WELL POSITION TO PUT HERE
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
