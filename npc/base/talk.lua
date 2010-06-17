@@ -22,6 +22,7 @@ talkNPC = class(function(self, rootNPC)
     
     self["_state"] = 0;
     self["_quest"] = 0;
+    self["_saidNumber"] = nil;
 end);
 
 function talkNPC:addCycleText(germanText, englishText)
@@ -81,6 +82,7 @@ function talkNPCEntry:addTrigger(text)
     if (text == nil or type(text) ~= "string") then
         return;
     end;
+    text = string.gsub(text, "%%NUMBER", "(%d+)");
     table.insert(self._trigger, text);
 end;
 
@@ -106,7 +108,8 @@ end;
 
 function talkNPCEntry:checkEntry(player, text)
     for _, pattern in pairs(self._trigger) do
-        local a = string.find(text, pattern);
+        local a, _, number = string.find(text, pattern);
+        self._saidNumber = number;
         if a then
             local conditionsResult = true;
             for _, condition in pairs(self._conditions) do
