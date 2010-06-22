@@ -6,7 +6,7 @@ module("npc.base.condition.quest", package.seeall)
 quest = class(npc.base.condition.condition.condition,
 function(self, comp, value)
     npc.base.condition.condition.condition:init(self);
-    self["value"] = value + 1 - 1;
+    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
     
     if (comp == "=") then
         self["check"] = _quest_helper_equal;
@@ -29,40 +29,46 @@ function _quest_helper_equal(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) == self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) == value;
 end;
 
 function _quest_helper_notequal(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) ~= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) ~= value;
 end;
 
 function _quest_helper_lesserequal(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) <= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) <= value;
 end;
 
 function _quest_helper_greaterequal(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) >= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) >= value;
 end;
 
 function _quest_helper_lesser(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) < self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) < value;
 end;
 
 function _quest_helper_greater(self, player)
     if (self.npc._quest <= 0) then
         return false;
     end;
-    return player:getQuestProgress(self.npc._quest) > self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:getQuestProgress(self.npc._quest) > value;
 end;

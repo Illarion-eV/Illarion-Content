@@ -7,7 +7,7 @@ module("npc.base.condition.money", package.seeall)
 money = class(npc.base.condition.condition.condition,
 function(self, comp, value)
     npc.base.condition.condition.condition:init(self);
-    self["value"] = value + 1 - 1;
+    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
     if (comp == ">=" or comp == "=>") then
         self["check"] = _money_helper_greaterequal;
     elseif (comp == ">") then
@@ -20,13 +20,16 @@ function(self, comp, value)
 end);
 
 function _money_helper_greaterequal(self, player)
-    return base.money.CharHasMoney(player, self.value);
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return base.money.CharHasMoney(player, value);
 end;
 
 function _money_helper_greater(self, player)
-    return base.money.CharHasMoney(player, self.value + 1);
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return base.money.CharHasMoney(player, value + 1);
 end;
 
 function _money_helper_lesser(self, player)
-    return not base.money.CharHasMoney(player, self.value);
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return not base.money.CharHasMoney(player, value);
 end;

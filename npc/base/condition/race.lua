@@ -6,7 +6,7 @@ module("npc.base.condition.race", package.seeall)
 race = class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
-    self["value"] = value + 1 - 1;
+    self["value"] = tonumber(value);
     self["check"] = _race_helper_equal;
 end);
 

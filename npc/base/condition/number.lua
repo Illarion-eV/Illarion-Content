@@ -6,7 +6,7 @@ module("npc.base.condition.number", package.seeall)
 number = class(npc.base.condition.condition.condition,
 function(self, comp, value)
     npc.base.condition.condition.condition:init(self);
-    self["value"] = value + 1 - 1;
+    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
     if (comp == "=") then
         self["check"] = _number_helper_equal;
     elseif (comp == "<>" or comp == "!=" or comp == "~=") then
@@ -25,25 +25,31 @@ function(self, comp, value)
 end);
 
 function _number_helper_equal(self, _)
-    return (self.npc._saidNumber ~= nil and self.value == self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value == self.npc._saidNumber)
 end;
 
 function _number_helper_notequal(self, _)
-    return (self.npc._saidNumber ~= nil and self.value ~= self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value ~= self.npc._saidNumber)
 end;
 
 function _number_helper_lesserequal(self, _)
-    return (self.npc._saidNumber ~= nil and self.value <= self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value <= self.npc._saidNumber)
 end;
 
 function _number_helper_greaterequal(self, _)
-    return (self.npc._saidNumber ~= nil and self.value >= self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value >= self.npc._saidNumber)
 end;
 
 function _number_helper_lesser(self, _)
-    return (self.npc._saidNumber ~= nil and self.value < self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value < self.npc._saidNumber)
 end;
 
 function _number_helper_greater(self, _)
-    return (self.npc._saidNumber ~= nil and self.value > self.npc._saidNumber)
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return (self.npc._saidNumber ~= nil and value > self.npc._saidNumber)
 end;

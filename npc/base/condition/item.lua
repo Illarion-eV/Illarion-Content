@@ -13,7 +13,7 @@ function(self, itemId, itemLoc, comp, value)
     else
         self["location"] = "all";
     end;
-    self["value"] = value + 1 - 1;
+    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
     
     if (comp == "=") then
         self["check"] = _item_helper_equal;
@@ -33,25 +33,31 @@ function(self, itemId, itemLoc, comp, value)
 end);
 
 function _item_helper_equal(self, player)
-    return player:countItemAt(self.location, self.item) == self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) == value;
 end;
 
 function _item_helper_notequal(self, player)
-    return player:countItemAt(self.location, self.item) ~= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) ~= value;
 end;
 
 function _item_helper_lesserequal(self, player)
-    return player:countItemAt(self.location, self.item) <= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) <= value;
 end;
 
 function _item_helper_greaterequal(self, player)
-    return player:countItemAt(self.location, self.item) >= self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) >= value;
 end;
 
 function _item_helper_lesser(self, player)
-    return player:countItemAt(self.location, self.item) < self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) < value;
 end;
 
 function _item_helper_greater(self, player)
-    return player:countItemAt(self.location, self.item) > self.value;
+    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    return player:countItemAt(self.location, self.item) > value;
 end;
