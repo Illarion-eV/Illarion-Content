@@ -49,7 +49,7 @@ end;
 function talkNPC:receiveText(player, text)
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(player, text) then
-            -- execute consequences
+            entry:execute(player);
             return true;
         end;
     end;
@@ -75,6 +75,7 @@ talkNPCEntry = class(function(self)
     self["_conditions"] = {};
     
     self["_responses"] = {};
+    self["_responsesCount"] = 0;
     self["_consequences"] = {};
 end);
 
@@ -87,7 +88,7 @@ function talkNPCEntry:addTrigger(text)
 end;
 
 function talkNPCEntry:addCondition(condition)
-    if (condition == nil or not condition:is_a(base.conditions.condition)) then
+    if (condition == nil or not condition:is_a(npc.base.conditions.condition.condition)) then
         return;
     end;
     
@@ -100,9 +101,15 @@ function talkNPCEntry:addResponse(text)
         return;
     end;
     table.insert(self._responses, text);
+    _responsesCount = _responsesCount + 1;
 end;
 
 function talkNPCEntry:addConsequences(consequence)
+    if (consequence == nil or not consequence:is_a(npc.base.consequence.consequence.consequence)) then
+        return;
+    end;
+    
+    consequence:setNPC(self)
     table.insert(self._consequences, consequence);
 end;
 
@@ -113,7 +120,7 @@ function talkNPCEntry:checkEntry(player, text)
         if a then
             local conditionsResult = true;
             for _, condition in pairs(self._conditions) do
-                if not condition.check(player) then
+                if not condition:check(player) then
                     conditionResult = false;
                     break;
                 end;
@@ -123,6 +130,17 @@ function talkNPCEntry:checkEntry(player, text)
                 return true;
             end;
         end;
+    end;
+end;
+
+function talkNPCEntry:execute(player)
+    if (self._responsesCount > 0) then
+        local selectedResponse = math.random(1, self._responsesCount);
+        thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
+    end;
+    
+    for _, consequence in pairs(self._consequences) do
+        consequence:perform(player);
     end;
 end;
 
