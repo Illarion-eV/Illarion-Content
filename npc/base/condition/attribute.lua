@@ -6,7 +6,7 @@ module("npc.base.condition.attribute", package.seeall)
 attribute = class(npc.base.condition.condition.condition,
 function(self, name, comp, value)
     npc.base.condition.condition.condition:init(self);
-    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
     self["attrib"] = name;
     if (comp == "=") then
         self["check"] = _attrib_helper_equal;
@@ -26,31 +26,31 @@ function(self, name, comp, value)
 end);
 
 function _attrib_helper_equal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value == player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_notequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value ~= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_lesserequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value <= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_greaterequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value >= player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_lesser(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value < player:increaseAttrib(self.attrib, 0))
 end;
 
 function _attrib_helper_greater(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value > player:increaseAttrib(self.attrib, 0))
 end;

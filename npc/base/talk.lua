@@ -125,3 +125,25 @@ function talkNPCEntry:checkEntry(player, text)
         end;
     end;
 end;
+
+function _set_value(value)
+    if (type(value) == "function") then
+        return value, 2;
+    elseif (value == "%NUMBER") then
+        return nil, 1;
+    else
+        return tonumber(value), 0;
+    end;
+end;
+
+function _get_value(npc, value, type)
+    if (type == 2) then
+        return value(npc._saidNumber);
+    elseif (type == 1) then
+        return npc._saidNumber;
+    elseif (type == 0) then
+        return value;
+    else
+        return 0;
+    end;
+end;

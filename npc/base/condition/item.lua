@@ -13,7 +13,7 @@ function(self, itemId, itemLoc, comp, value)
     else
         self["location"] = "all";
     end;
-    self["value"], self["valuetype"] = npc.base.condition.condition._set_value(value);
+    self["value"], self["valuetype"] = npc.base.talk._set_value(value);
     
     if (comp == "=") then
         self["check"] = _item_helper_equal;
@@ -33,31 +33,31 @@ function(self, itemId, itemLoc, comp, value)
 end);
 
 function _item_helper_equal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) == value;
 end;
 
 function _item_helper_notequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) ~= value;
 end;
 
 function _item_helper_lesserequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) <= value;
 end;
 
 function _item_helper_greaterequal(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) >= value;
 end;
 
 function _item_helper_lesser(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) < value;
 end;
 
 function _item_helper_greater(self, player)
-    local value = npc.base.condition.condition._get_value(self.npc, self.value, self.valuetype);
+    local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:countItemAt(self.location, self.item) > value;
 end;
