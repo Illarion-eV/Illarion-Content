@@ -42,7 +42,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     qual,dura=getClothesFactor(TargetCharacter);
     output = "";
     if ( LookingAt > 40 ) then
-        -- Er ist |alt, |sehr krï¿½ftig |und |trï¿½gt |noble |Kleidung, |ein Serinjah-Schwert| und |ein Schild.
+        -- Er ist |alt, |sehr kräftig |und |trägt |noble |Kleidung, |ein Serinjah-Schwert| und |ein Schild.
         if ( TargetCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
             output = ( lang == 0 and "Er ist " or "He is " );
         else
@@ -81,7 +81,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     else
         output = output .. ( lang == 0 and "Sie " or "She " );
     end
-    -- Er/Sie | trï¿½gt | [ einen | grï¿½nen Mantel | ] 
+    -- Er/Sie | trägt | [ einen | gränen Mantel | ] 
     output = output .. getText( "intro_items", lang );
     -- Lets check for a coat
     if checkCoat( TargetCharacter, lang, SourceCharacter ) then
@@ -115,13 +115,13 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     checkCustomInventory(TargetCharacter, SourceCharacter);
 	  
     SourceCharacter:sendCharDescription( TargetCharacter.id , output );
-    SourceCharacter:inform("now checking diseaseeeee:");
-    found,diseaseEffect = TargetCharacter.effects:find(28);
-    if found then
-        SourceCharacter:talk(CCharacter.say,"found!");
-        fndStr,disStr=diseaseEffect:findValue("diseaseStr");
-        SourceCharacter:talk(CCharacter.say,"Char infiziert. Str="..disStr);
-    end
+    --SourceCharacter:inform("now checking diseaseeeee:");
+    --found,diseaseEffect = TargetCharacter.effects:find(28);
+    --if found then
+        --SourceCharacter:talk(CCharacter.say,"found!");
+        --fndStr,disStr=diseaseEffect:findValue("diseaseStr");
+        --SourceCharacter:talk(CCharacter.say,"Char infiziert. Str="..disStr);
+    --end
 
     if (mode == 1) then
         if (TargetCharacter:getPlayerLanguage() == 0) then
@@ -313,7 +313,7 @@ end
 function getClothesText(qual, dura, lang, sex,char)
     if initClText==nil then
         ClQualText={};
-        ClQualText[0]={"adelige",     "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schï¿½bige","lumpige"};
+        ClQualText[0]={"adelige",     "noble", "sehr feine", "feine", "sehr gute", "gute", "normale", "billige","schäbige","lumpige"};
         ClQualText[1]={"aristocratic","noble", "very fine",  "fine",  "very good", "good", "normal",  "cheap",  "shabby",  "measly"};
         ClDuraText={};
         ClDuraText[0]={"nagelneu" ,"neu", "leicht abgenutzt","gebraucht","abgenutzt","sehr abgenutzt","alt","dreckig", "kaputt", "zerschlissen"  };
@@ -323,7 +323,7 @@ function getClothesText(qual, dura, lang, sex,char)
         sexText[0]={}
         sexText[1]={}
         sexText[0][0]="Seine " --Kleidung wirkt ";
-        sexText[0][1]="Ihre " --trï¿½gt ";
+        sexText[0][1]="Ihre " --trägt ";
         sexText[1][0]="His ";
         sexText[1][1]="Her ";
         clText={};
@@ -338,7 +338,7 @@ end
 function getClothesQualText(qual, lang)
     if initClQText==nil then
         ClQQualText={};
-        ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schï¿½big","lumpig"};
+        ClQQualText[0]={"adelig",     "nobel", "sehr fein", "fein", "sehr gut", "gut", "normal", "billig","schäbig","lumpig"};
         ClQQualText[1]={"aristocraticly","nobly", "very fine",  "fine",  "very well", "well", "normaly",  "cheaply",  "shabbyly",  "measly"};
         clQText={};
         clQText[0]=" gekleidet"
@@ -359,14 +359,14 @@ function getAge(race,age, language)
         ageName[0] = { };
         ageName[1] = { };
         --                                                                                 human,dwarf,halfling, elf,orc,lizard,gnome,fairy,goblin,default
-        ageName[0][1] = "sehr jung";          ageName[1][1] = "very young";   ageList[1] = {    14,   30,      20, nil, 14,    20,   30,   14,    20,     10 };
-        ageName[0][2] = "jung";               ageName[1][2] = "young";        ageList[2] = {    18,   50,      25, 100, 20,    60,   50,   40,    23,     20 };
-        ageName[0][3] = "";                   ageName[1][3] = "";             ageList[3] = {   nil,  nil,     nil, 180,nil,   nil,  nil,  nil,   nil,     30 };
-        ageName[0][4] = "erwachsen";          ageName[1][4] = "grown up";     ageList[4] = {    25,   80,      40, nil, 30,   130,   80,   80,    28,     40 };
-        ageName[0][5] = "im mittleren Alter"; ageName[1][5] = "in midlife";   ageList[5] = {    35,  125,      60, nil, 45,   250,  125,  150,    38,     50 };
-        ageName[0][6] = "etwas Ã¤lter";        ageName[1][6] = "elderly";      ageList[6] = {    45,  175,      80, nil, 65,   375,  175,  220,    47,     60 };
-        ageName[0][7] = "alt";                ageName[1][7] = "old";          ageList[7] = {    55,  220,     100, nil, 85,   500,  220,  280,    56,     70 };
-        ageName[0][8] = "sehr alt";           ageName[1][8] = "very old";     ageList[8] = {    70,  260,     115, nil,105,   600,  260,  340,    63,     80 };
+        ageName[0][1] = "sehr jung";          ageName[1][1] = "very young";   ageList[1] = {    14,   30,      20, 100, 14,    20,   30,   14,    20,     10 };
+        ageName[0][2] = "jung";               ageName[1][2] = "young";        ageList[2] = {    18,   50,      25, 300, 20,    60,   50,   40,    23,     20 };
+        ageName[0][3] = "";                   ageName[1][3] = "";             ageList[3] = {   nil,  nil,     nil, nil, nil,   nil,  nil,  nil,   nil,    30 };
+        ageName[0][4] = "erwachsen";          ageName[1][4] = "grown up";     ageList[4] = {    25,   80,      40, 500, 30,   130,   80,   80,    28,     40 };
+        ageName[0][5] = "im mittleren Alter"; ageName[1][5] = "in midlife";   ageList[5] = {    35,  125,      60, 1000, 45,   250,  125,  150,    38,     50 };
+        ageName[0][6] = "etwas älter";        ageName[1][6] = "elderly";      ageList[6] = {    45,  175,      80, 2000, 65,   375,  175,  220,    47,     60 };
+        ageName[0][7] = "alt";                ageName[1][7] = "old";          ageList[7] = {    55,  220,     100, 3000, 85,   500,  220,  280,    56,     70 };
+        ageName[0][8] = "sehr alt";           ageName[1][8] = "very old";     ageList[8] = {    70,  260,     115, 4500,105,   600,  260,  340,    63,     80 };
     end
     if ((race==34) or (race==35)) then
         race=3;
@@ -397,34 +397,34 @@ function getFigure(height, mass, str, lang)
         highStr={};
         lowStr[0]={"sehr mager ", "sehr zierlich ", "zierlich ", " ", "mollig ", "dick ", "fett "};
         lowStr[1]={"skinny ", "very petite ", "petite ", " ", "chubby ", "plump ", "fat "};
-        normalStr[0]={"schmï¿½chtig ", "dÃ¼nn ", "schlank ", " ", "mollig ", "dick ", "fett "};
+        normalStr[0]={"schmächtig ", "dünn ", "schlank ", " ", "mollig ", "dick ", "fett "};
         normalStr[1]={"lank ", "thin ", "slim ", " ", "chubby", "plump", "fat"};
-        highStr[0]={"drahtig ", "sehr drahtig ", " ", "athletisch ", "muskulÃ¶s ", "krÃ¤ftig ", "stimmig "} 
+        highStr[0]={"drahtig ", "sehr drahtig ", " ", "athletisch ", "muskulös ", "kräftig ", "stämmig "} 
         highStr[1]={"wiry ", "very wiry ", " ", "athletic ", "muscular ", "robust ", "sturdy " };
         iniFig=1;
     end
     height=height*2.54/100
     mass=mass/100
     BMI=mass/(height*height); -- 18.5, 24.9, 29.9, 
-    -- str= 12 average
+    -- str= 10 average
     if mass==0 then
         BMI=22;
     end
-    Idx=math.ceil((BMI-15)/3)+1
+    Idx=math.ceil((BMI-16)/3)+1
     Idx=math.max(Idx,1);
     Idx=math.min(Idx,7);
 
-    -- sehr mager, dï¿½nn, schlank, (normal), mollig, dick, fett
-    -- athletisch, drahtig, zierlich, krï¿½ftig
-    if str<12 then
+    -- sehr mager, dünn, schlank, (normal), mollig, dick, fett
+    -- athletisch, drahtig, zierlich, kräftig
+    if str<7 then
         return lowStr[lang][Idx];
-    elseif str<17 then
+    elseif str<14 then
         return normalStr[lang][Idx];
     else
         return highStr[lang][Idx];
     end
 end
--- in seinen Hï¿½nden hat er ein Serinjahschwert[ und ein Schild].
+-- in seinen Händen hat er ein Serinjahschwert[ und ein Schild].
 function getWeaponText( Char, lang, SourceChar )
     local message = "";
     local leftItem = Char:getItemAt( CCharacter.left_tool );
@@ -443,9 +443,9 @@ function getWeaponText( Char, lang, SourceChar )
         return "";
     end
     if ( Char:increaseAttrib( "sex", 0 ) == 0 ) then
-        message = message .. ( lang == 0 and " In seinen HÃ¤nden hat er " or " In his hands he has " );
+        message = message .. ( lang == 0 and " In seinen Händen hat er " or " In his hands he has " );
     else
-        message = message .. ( lang == 0 and " In ihren HÃ¤nden hat sie " or " In her hands she has " );
+        message = message .. ( lang == 0 and " In ihren Händen hat sie " or " In her hands she has " );
     end
     if ( leftItem ~= 0 ) then
         message = message .. getText( "genus_"..content.genus.GenusData( leftItem ), lang );
@@ -496,7 +496,7 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 			local customText;
 			if TargetChar:increaseAttrib("sex",0) == 0 then
 				if Item:getType() == 5 then
-					customText = ( lang == 0 and "Am GÃ¼rtel hat er " or "At the belt he has " )
+					customText = ( lang == 0 and "Am Gürtel hat er " or "At the belt he has " )
 				else
 					if Item.itempos == 5 or Item.itempos == 6 then
 						customText = ( lang == 0 and "In den HÃ¤nden hat er " or "In his hands he has " );
@@ -506,12 +506,12 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 				end
 			else
 				if Item:getType() == 5 then
-					customText = ( lang == 0 and "Am Gï¿½rtel hat sie " or "At the belt she has " )
+					customText = ( lang == 0 and "Am Gürtel hat sie " or "At the belt she has " )
 				else
 					if Item.itempos == 5 or Item.itempos == 6 then
-						customText = ( lang == 0 and "In den HÃ¤nden hat sie " or "In her hands she has " );
+						customText = ( lang == 0 and "In den Händen hat sie " or "In her hands she has " );
 					else
-						customText = ( lang == 0 and "Sie trÃ¤gt " or "She wears " );
+						customText = ( lang == 0 and "Sie trägt " or "She wears " );
 					end
 				end
 			end
