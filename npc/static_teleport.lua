@@ -1,24 +1,17 @@
 --Name:        TeleporterNPC
 --Race:        invisble
---Town:        Troll's Bane, Silverbrand, Tol Vanima, Greenbriar, Varshikar
+--Town:        Cadomyr, Runewick, Galmair, Hemp Necktie Inn
 --Function:    Teleporter
---Position:    -37 -108 0   ,79 -185 0   ,341 221 0  ,-433 40 0  ,262 -264 0
---Facing:      North
---Last Update: 02/04/2007
---Update by:   Nitram
-
--- INSERT INTO npc VALUES (63,25, -73, -79,0,0,'f','TB Teleporter','npc_static_teleport.lua',0);
--- INSERT INTO npc VALUES (64,25,  79,-185,0,0,'f','SB Teleporter','npc_static_teleport.lua',0);
--- INSERT INTO npc VALUES (65,25, 341, 221,0,0,'f','TV Teleporter','npc_static_teleport.lua',0);
--- INSERT INTO npc VALUES (66,25,-433,  40,0,0,'f','GB Teleporter','npc_static_teleport.lua',0);
--- INSERT INTO npc VALUES (67,25, 262,-264,0,0,'f','V Teleporter' ,'npc_static_teleport.lua',0);
+--Position:    Cadomyr: 141, 631, 0 ,Runewick: 789, 825, 0, Galmair: 425, 246, 0, Wilderland (Hemp Necktie Inn): 730, 226, 0
+--Facing:      North, doesn't matter, they are pretty much... invisble, you know.
+--Last Update: 06/25/2010
+--Update by:   Estralis Seborian
 
 module("npc.static_teleport", package.seeall)
 
 function initializeNpc()
 		Teleportation=TeleportationFunction(thisNPC); --initialize the teleportation
 		Teleportation.initializeNpc(thisNPC);
-		thisNPC:talk(CCharacter.say, "debugmsg");
 end
 
 function nextCycle()  -- ~10 times per second
@@ -36,7 +29,7 @@ end
 
 function receiveText(texttype, message, originator)
 	Teleportation.receiveText(texttype,message,originator);
-end --function
+end
 
 function ShowAnimationFrame( frame, posi )
     if ( frame <= 6) then
@@ -140,37 +133,28 @@ function TeleportationFunction(thisNPC)
 	    
 	    block  			   = { },
 		count 			   = { },
-        travelFee		   =  30;        --price for all journeys   
+        travelFee		   =  50;        --price for all journeys   
 		
     };
 
 
 	local initializeNpc = function(thisNPC)
 
-	        self.targetPosition[1] = position(-37,-108,0);
-	        self.townName[1] = "Troll's Bane";
-	        self.trigger[1] = "[Tt]roll.+[Bb]ane";
-	        self.filename[1] = "trollsbane.dat";
+	        self.targetPosition[1] = position(141,631,0);
+	        self.townName[1] = "Cadomyr";
+	        self.trigger[1] = "[Cc]adomyr";
 
-	        self.targetPosition[2] = position(79,-185,0);
-	        self.townName[2] = "Silverbrand";
-	        self.trigger[2] = "[Ss]il[bv]erbrand";
-	        self.filename[2] = "silverbrand.dat";
+	        self.targetPosition[2] = position(789,825,0);
+	        self.townName[2] = "Runewick";
+	        self.trigger[2] = "[Rr]unewick";
 
-	        self.targetPosition[3] = position(341,221,0);
-	        self.townName[3] = "Tol Vanima";
-	        self.trigger[3] = "[Vv]anima";
-	        self.filename[3] = "vanima.dat";
+	        self.targetPosition[3] = position(425,246,0);
+	        self.townName[3] = "Galmair";
+	        self.trigger[3] = "[Gg]almair";
 
-	        self.targetPosition[4] = position(-433,41,0);
-	        self.townName[4] = "Greenbriar";
-	        self.trigger[4] = "[Gg]reenbriar";
-	        self.filename[4] = "greenbriar.dat";
-
-	        self.targetPosition[5] = position(262,-264,0);
-	        self.townName[5] = "Varshikar";
-	        self.trigger[5] = "[Vv]arshikar";
-	        self.filename[5] = "varshikar.dat";
+	        self.targetPosition[4] = position(730,226,0);
+	        self.townName[4] = "Wilderland";
+	        self.trigger[4] = "[Ww]ilderland";
 
 	    for i, possHomes in pairs(self.targetPosition) do
 	        if thisNPC:isInRangeToPosition(possHomes,5) then
@@ -209,21 +193,21 @@ function TeleportationFunction(thisNPC)
 	    end
 	    if (self.desiredDestination[thisNPC.id]==self.HomePosition[thisNPC.id]) then --already there
 	        InformNLS(originator,
-	        "Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
-	        "You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
+	        "#w Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
+	        "#w You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
 	        return
 	    end
 	    if ((self.desiredDestination[thisNPC.id]==0) or (self.desiredDestination[thisNPC.id]==nil)) then
 	        InformNLS(originator,
-	        "Sagt den Namen der Stadt, in die ihr reisen möchtet.",
-	        "Say the name of the town you want to travel to.");
-	        --Char stands on teleporter but says no valid trigger. Names of towns not told intentionally to motivate n00bz to ask around
+	        "#w Sagt den Namen der Gegend, in die ihr reisen möchtet: Cadomyr, Runewick, Galmair, Wilderland.",
+	        "#w Say the name of the realm you want to travel to: Cadomyr, Runewick, Galmair, Wilderland.");
+	        --Char stands on teleporter but says no valid trigger.
 	        return
 	    end
 	    if (originator:countItem(3076)<self.travelFee) and (originator:countItem(3077)==0) and (originator:countItem(61)==0) then --Char has not enough money
 	        InformNLS(originator,
-	        "Ihr habt nicht genug Geld für diese Reise. Die Reise kostet "..self.travelFee.." Kupferstücke.",
-	        "You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
+	        "#w Ihr habt nicht genug Geld für diese Reise. Die Reise kostet "..self.travelFee.." Kupferstücke.",
+	        "#w You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
 	        return
 	    end
 
@@ -238,17 +222,10 @@ function TeleportationFunction(thisNPC)
 			originator:createItem(3076,100-self.travelFee,333,0);
 	    end
 	    coins = self.travelFee;
-	    filepoint,errmsg=io.open("/home/nitram/money/"..self.filename[self.HomePosition[thisNPC.id]],"r+");
-	    if (filepoint~=nil) then
-	        filepoint:seek("set");
-	        coins = coins + filepoint:read("*n");
-	        filepoint:seek("set");
-	        filepoint:write(""..coins);
-	        filepoint:close();
-	    end
+
 	    InformNLS(originator,
-	    "Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." öffnen, zu einem Preis von "..self.travelFee.." Kupferstücken.",
-	    "You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
+	    "#w Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." zu einem Preis von "..self.travelFee.." Kupferstücken öffnen.",
+	    "#w You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
 	    self.TeleportInProgress[thisNPC.id] = true;
 	    self.TeleportCharacter[thisNPC.id] = originator;
 	end
