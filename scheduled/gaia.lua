@@ -99,15 +99,7 @@ function plantdrop()
             local bodenart = base.common.GetGroundType( world:getField(newpos):tile() );
             if ((bodenart == check) or (check == 0)) then
 
-              -- --------------------------------------------------------------------------------------------------------
-              -- 1. Qualifizierung : werte nach zufall anpassen, wertstellung auf alchemie-bed�rfnisse anpassen
-              qualitaet = math.random(111,999)
-              -- 2. Qualifizierung : wertstellung an Jahreszeiten und Boden anpassen
-  
-              -- 3. Qualifizierung: wertstellung unter Ber�cksichtigung von Umgebungskomponenten,. Wetter, Region etc.
-  
-              -- --------------------------------------------------------------------------------------------------------
-                world:createItemFromId(plnt[auswahl],1,newpos,false,qualitaet,pflwert);
+                world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
             end
         end
     end
