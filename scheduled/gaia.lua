@@ -91,8 +91,8 @@ function plantdrop()
         end
 
         if success then
-            check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))]
-            pflwert = dataval[auswahl]
+            check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
+            pflwert = dataval[auswahl];
             ---- Standortbestimmung
             newpos = position( math.random(0,1000), math.random(0,1000), 0 );
             ---- bodentile feststellen
