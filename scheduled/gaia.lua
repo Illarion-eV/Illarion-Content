@@ -96,7 +96,8 @@ function plantdrop()
             ---- Standortbestimmung
             newpos = position( math.random(0,1000), math.random(0,1000), 0 );
             ---- bodentile feststellen
-            local bodenart = base.common.GetGroundType( world:getField(newpos):tile() );
+			theTile=world:getField(newpos);
+            local bodenart = base.common.GetGroundType( theTile.tile );
             if ((bodenart == check) or (check == 0)) then
 
                 world:createItemFromId(plnt[auswahl],1,newpos,false,333,pflwert);
