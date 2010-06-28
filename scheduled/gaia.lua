@@ -84,11 +84,11 @@ function plantdrop()
         ---- Pflanze aussuchen
         auswahl = math.random( anz_pflanzen );
 
-        --[[if( seas[ auswahl ][ season ] >= math.random(10) ) then
+        if( seas[ auswahl ][ season ] >= math.random(10) ) then
             success = true;
         else
             success = false;
-        end]]
+        end
 
         if success then
             check = grnd[auswahl][math.random(1,table.getn(grnd[auswahl]))];
