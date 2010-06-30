@@ -56,7 +56,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
     end
 	
 	if (ltstate == Action.none) then -- Unt�tig: Starte Angeln!
-        User:startAction(fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+        User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt zu fischen.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts fishing.");
         return
