@@ -62,7 +62,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
         return
     end
 	
-	if not fishing:FindRandomItem(User) then
+	if not content.gathering.fishing:FindRandomItem(User) then
 		return
 	end
 	
