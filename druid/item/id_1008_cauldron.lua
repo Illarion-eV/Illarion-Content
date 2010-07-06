@@ -67,8 +67,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         
         -- Das Flascheitem wird entsprechend aller Daten modifiziert
         bottleInHand.id = 331;
-        -- Die Qualit�t des Sudes richtet sich nach der niedrigsten Qualit�t der benutzten Pflanzen
-        bottleInHand.quality = math.min(bottleQual,plantInHand.quality);
+        -- Die Qualit�t des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
+		local quali = (User:getSkill("alchemy") + 10) * 10;
+		if(quali > 999) then
+			quali = 999;
+		end
+		bottleInHand.quality = quali;
+        
         bottleInHand.data = bottleData;
         -- Hier noch einen Text einbauen, dass man gerade eine Pflanze verarbeitet...
         world:changeItem(bottleInHand);
@@ -123,38 +128,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "You need to be a druid to do such things."
             );
         end		
-        return;
-    end
-    
-    -- Keine Planze und keinen Mineralstaub. Vielleicht ja Kohle
-    local coalInHand = druid.base.alchemy.ds_CheckIfCoalInHand(User);
-    if coalInHand then
-        -- Und das Opfer hat wirklich Kohle
-        if not bottleInHand then
-            -- aber keine Flasche.
-            base.common.InformNLS( User,
-                "Du brauchst eine Flasche wenn du einen Trank mischen willst.",
-                "You need a bottle if you want to brew a potion."
-            );
-            return;
-        end
-        
-        -- Kohle und Flasche sind da. Schauen wir uns die Flasche mal n�her an.
-        if( bottleInHand.id == 164 )then
-            -- Die Flasche ist leer und die Kohle damit sinnlos
-            base.common.InformNLS( User,
-                "Du musst schon erst einen Trank mischen wenn du ihn mit Kohle neutralisieren willst.",
-                "You need to mix a potion before you neutralize it with coal."
-            );
-            return;
-        end
-        
-        -- Alles in Ordnung. Kohle wird gel�scht.
-        User:increaseAtPos(coalInHand.itempos,-1);
-        
-        -- Flaschen Datawert wird auf default zur�ck gesetzt. Die Kohle hat alle Effekte neutralisiert
-        bottleInHand.data = 55555555;
-        world:changeItem(bottleInHand);
         return;
     end
     
