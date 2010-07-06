@@ -31,7 +31,7 @@ for i,plant in pairs(plantList) do
 end
 
 --Qualit�tsbezeichnungen
-qListDe={"f�rchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","gro�artige","hervorragende"};
+qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
 bottleList = { 164,331 }
@@ -62,8 +62,8 @@ wirkstoff[6] = "Fenolin";
 wirkstoff[7] = "Caprazin";
 wirkstoff[8] = "Dracolin";
 
-wirkung_de[1] = "ges�ttigte Anreicherung von";
-wirkung_de[2] = "eine sehr ausgepr�gte Menge";
+wirkung_de[1] = "gesättigte Anreicherung von";
+wirkung_de[2] = "eine sehr ausgeprägte Menge";
 wirkung_de[3] = "merklich";
 wirkung_de[4] = "schwache Konzentration an";
 wirkung_de[5] = "kein";
@@ -133,22 +133,7 @@ attr_r2[6] ="willpower";
 attr_r2[7] ="constitution";
 attr_r2[8] ="agility";
 
--- --------------------------------------------------------------------
-function ds_CheckIfCoalInHand(User)    -- Kohle in der Hand ?
-	local checkId = 21;
-	local retVal = nil;
-	local theItem = nil;
-	theItem = User:getItemAt(5);
-	if theItem.id == checkId then
-		retVal = theItem;
-	else
-		theItem = User:getItemAt(6);
-		if theItem.id == checkId then
-			retVal = theItem;
-		end
-	end
-	return retVal;
-end
+
 -- --------------------------------------------------------------------
 function CheckIfRtbInHand(User)     -- Faulbaumrinde in der Hand ? (rotten tree bark)
 	local checkId = 157;
@@ -421,33 +406,8 @@ function generateTasteMessage(lang,dataZList)
 end
 
 function ds_skillgain(User)
-  --Alchemieskill erh�hen
+  --Alchemieskill erhöhen
   User:learn(6,"alchemy",3,100)
-  --Auf Runengewinn pr�fen
-  --Nur Druiden bekommen Runen
-  if ( (User:getMagicType() == 3) ) then
-      factor_1 = 4
-      factor_2 = 2
-    if User:getSkill("alchemy") < 24 then
-      factor_1 = 3
-      factor_2 = 0
-    elseif User:getSkill("alchemy") >51 then
-      factor_1 = 5
-      factor_2 = 4
-    elseif User:getSkill("alchemy") >89 then
-      factor_1 = 100
-      factor_2 = 1
-    end
-    -- Runenaufteilung:
-    -- Runen des Lehrlings: Runen 01 - 07 (alchemySkill  0 - 23)
-    -- Runen des Gesellen:  Runen 08 - 14 (alchemySkill 24 - 50)
-    -- Runen des Meister:   Runen 15 - 21 (alchemySkill 51 - 89)
-    -- R. des Gro�meisters: Runen 22 - 28 (alchemySkill 90 - 99) nur durch Questvergabe
-    -- GM-Runen             Runen 29 - 32
-
-    umlauf = math.floor(User:getSkill("alchemy")/factor_1) +factor_2
-    for i=1,umlauf do
-      User:teachMagic(3,i-1)
-    end
-  end
+  --Auf Runengewinn prüfen
+	-- TODO
 end
