@@ -1,7 +1,7 @@
 name="Graznok"
 sex=male --male/female
 race=orc --human, halfling, elf, dwarf, lizard, orc,...
-position=10, 5, 0 --Location
+position=642, 456, 0 --Wilderland
 direction=South --North/South/West/East
 QuestID=3
 
