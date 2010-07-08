@@ -1,7 +1,7 @@
 name="Lilith Needlehand"
 sex=female
 race=halfling
-position=-100, -420, 0 --Runewick
+position=892, 761, 0 --Runewick
 direction=South --North/South/West/East
 QuestID=73 --A developer will assign an ID
 
