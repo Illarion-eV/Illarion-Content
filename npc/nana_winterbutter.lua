@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),2,-120,-400,0,4,false,'Nana Winterbutter','npc_nana_winterbutter.lua',1);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),2,791,798,0,4,false,'Nana Winterbutter','npc_nana_winterbutter.lua',1);
 
 require("npc.base.autonpcfunctions")
 module("npc.nana_winterbutter", package.seeall)
