@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,20,1,0,4,false,'Eugene Burton','npc_eugene_burton.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,707,484,0,4,false,'Eugene Burton','npc_eugene_burton.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.eugene_burton", package.seeall)
@@ -18,7 +18,7 @@ function initializeNpc()
 
     -- ********* START DYNAMIC PART ********
 
-    npc.base.autonpcfunctions.SetRadius(1);
+    npc.base.autonpcfunctions.SetRadius(10);
     QuestID = 4;
     -- NPC by Estralis Seborian
     -- Queststatus Overview
