@@ -1,7 +1,7 @@
 name="Miggs"
 sex=male
 race=dwarf
-position=10, 1, 0 --Galmair
+position=374, 216, 0 --Galmair
 direction=South --North/South/West/East
 QuestID=77 --A developer will assign an ID
 
