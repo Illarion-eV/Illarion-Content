@@ -1,7 +1,7 @@
 name="Nana Winterbutter"
 sex=female
 race=halfling
-position=-120, -400, 0 --Runewick, Yewdale
+position=791, 798, 0 --Runewick, Yewdale
 direction=South
 QuestID=70 --A developer will assign an ID
 
