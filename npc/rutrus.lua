@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,-110,-400,0,4,false,'Rutrus','npc_rutrus.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,359,692,0,4,false,'Rutrus','npc_rutrus.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.rutrus", package.seeall)

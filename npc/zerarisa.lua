@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),5,-130,-400,0,4,false,'Zerarisa','npc_zerarisa.lua',1);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),5,46,686,0,4,false,'Zerarisa','npc_zerarisa.lua',1);
 
 require("npc.base.autonpcfunctions")
 module("npc.zerarisa", package.seeall)

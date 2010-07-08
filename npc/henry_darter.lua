@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,-115,-400,0,4,false,'Henry Darter','npc_henry_darter.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,920,659,0,4,false,'Henry Darter','npc_henry_darter.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.henry_darter", package.seeall)

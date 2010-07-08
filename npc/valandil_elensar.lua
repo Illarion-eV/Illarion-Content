@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),3,-125,-400,0,4,false,'Valandil Elensar','npc_valandil_elensar.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),3,783,462,0,4,false,'Valandil Elensar','npc_valandil_elensar.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.valandil_elensar", package.seeall)
@@ -18,7 +18,7 @@ function initializeNpc()
 
     -- ********* START DYNAMIC PART ********
 
-    npc.base.autonpcfunctions.SetRadius(1);
+    npc.base.autonpcfunctions.SetRadius(40);
     QuestID = 69;
     -- NPC by Zak and Estralis Seborian
     -- Queststatus Overview

@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,-105,-400,0,6,false,'Raban','npc_raban.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,832,107,0,6,false,'Raban','npc_raban.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.raban", package.seeall)
@@ -18,7 +18,7 @@ function initializeNpc()
 
     -- ********* START DYNAMIC PART ********
 
-    npc.base.autonpcfunctions.SetRadius(1);
+    npc.base.autonpcfunctions.SetRadius(10);
     QuestID = 66;
     -- NPC by Estralis Seborian, thanks to PO Falkner for permission and inspiration!
     -- Queststatus Overview

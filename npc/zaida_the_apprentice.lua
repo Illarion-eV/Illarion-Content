@@ -202,11 +202,11 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
     npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
     npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","My name is Zaina. One day, I'll be a honourable magician, right now, I am just thirsty.");
+    npc.base.autonpcfunctions.AddTraderTrigger("dein name","My name is Zaida. One day, I'll be a honourable magician, right now, I am just thirsty.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
     npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
     npc.base.autonpcfunctions.AddAdditionalTrigger("wie heiﬂt");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","Mein Name ist Zaina. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig.");
+    npc.base.autonpcfunctions.AddTraderTrigger("your name","Mein Name ist Zaida. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig.");
     npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
     npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
     -- bringing the wine

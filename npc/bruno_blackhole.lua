@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,-100,-400,0,4,false,'Bruno Blackhole','npc_bruno_blackhole.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),1,439,359,0,4,false,'Bruno Blackhole','npc_bruno_blackhole.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.bruno_blackhole", package.seeall)
