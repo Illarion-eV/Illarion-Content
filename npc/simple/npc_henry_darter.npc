@@ -1,7 +1,7 @@
 name="Henry Darter"
 sex=male
 race=human
-position=-115, -400, 0 --Dewy Swamps, Runewick
+position=920, 659, 0 --Dewy Swamps, Runewick
 direction=South --North/South/West/East
 QuestID=64 --A developer will assign an ID
 

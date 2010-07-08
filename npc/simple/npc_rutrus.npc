@@ -1,7 +1,7 @@
 name="Rutrus"
 sex=male
 race=human
-position=-110, -400, 0 --Oasis of Stars, Cadomyr
+position=359, 692, 0 --Oasis of Stars, Cadomyr
 direction=South --North/South/West/East
 QuestID=67 --A developer will assign an ID
 

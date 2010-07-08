@@ -1,8 +1,8 @@
 name="Valandil Elensar"
 sex=male
 race=elf
-position=-125, -400, 0 --Elstree forest, wilderness
-radius=1 --to be changed to ~20
+position=783, -400, 0 --Elstree forest, wilderness
+radius=40 
 direction=south --North/South/West/East 
 QuestID=69 --A developer will assign an ID
 

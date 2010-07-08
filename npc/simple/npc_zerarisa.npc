@@ -1,7 +1,7 @@
 name="Zerarisa"
 sex=female
 race=lizard
-position=-130, -400, 0 --Cadomyr, Cape Farewell
+position=46, 686, 0 --Cadomyr, Cape Farewell
 direction=South
 QuestID=71 --A developer will assign an ID
 

@@ -1,8 +1,8 @@
 name="Raban" 
 sex=male --male/female
 race=human --human, elf, dwarf, lizard, orc,...
-position=-105, -400, 0 --Raban's Grove, wilderness
-radius=1 --to be changed to ~10
+position=832, 107, 0 --Raban's Grove, wilderness
+radius=10 
 direction=west --North/South/West/East 
 QuestID=66 --A developer will assign an ID
 

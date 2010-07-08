@@ -1,7 +1,7 @@
 name="Bruno Blackhole"
 sex=male --male/female
 race=dwarf --human, elf, dwarf, lizard, orc,...
-position=-100, -400, 0 --Malachite Mine near Galmair
+position=439, 359, 0 --Malachite Mine near Galmair
 direction=South --North/South/West/East
 QuestID=65 --A developer will assign an ID
 
