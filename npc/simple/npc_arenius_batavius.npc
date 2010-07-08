@@ -1,7 +1,7 @@
 name="Arenius Batavius"
 sex=male --male/female
 race=human --human, halfling, elf, dwarf, lizard, orc,...
-position=10, 15, 0 --Cadomyr homeland
+position=130, 624, 0 --Cadomyr homeland
 direction=South --North/South/West/East
 QuestID=104
 
