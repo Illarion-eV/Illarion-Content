@@ -1,8 +1,8 @@
 name="Ehrom Goldhammer"
 sex=male
 race=dwarf
-position=-110, -420, 0 --Wilderness
-radius=1 --to be changed to ~100
+position=720, 175, 0 --Wilderness
+radius=100
 direction=South --Walks around, anyway
 QuestID=72 --A developer will assign an ID
 
