@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,10,1,0,4,false,'Miggs','npc_miggs.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),1,374,216,0,4,false,'Miggs','npc_miggs.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.miggs", package.seeall)
