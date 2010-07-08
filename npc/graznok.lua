@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),4,10,5,0,4,false,'Graznok','npc_graznok.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),4,642,456,0,4,false,'Graznok','npc_graznok.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.graznok", package.seeall)
