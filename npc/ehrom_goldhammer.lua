@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,-110,-420,0,4,false,'Ehrom Goldhammer','npc_ehrom_goldhammer.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),1,720,175,0,4,false,'Ehrom Goldhammer','npc_ehrom_goldhammer.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.ehrom_goldhammer", package.seeall)
@@ -18,7 +18,7 @@ function initializeNpc()
 
     -- ********* START DYNAMIC PART ********
 
-    npc.base.autonpcfunctions.SetRadius(1);
+    npc.base.autonpcfunctions.SetRadius(100);
     QuestID = 72;
     -- NPC by Estralis Seborian, using dialogues provided my PO Magdha Tiefenerz
     -- Queststatus Overview
