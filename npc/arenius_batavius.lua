@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,10,15,0,4,false,'Arenius Batavius','npc_arenius_batavius.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,130,624,0,4,false,'Arenius Batavius','npc_arenius_batavius.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.arenius_batavius", package.seeall)
