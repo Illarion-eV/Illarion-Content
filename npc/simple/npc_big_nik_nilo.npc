@@ -89,7 +89,7 @@ QuestID=0
 "Valerio","Guilianni","Don"->"Aye, ist in Ordnung solange du ihm nicht im Weg bist, er führt den Laden hier.","Manche sagen er hat seinen Vater umgebracht um hier zu herrschen. Ich halte das für möglich.","Er ist hart aber gerecht solang man ihm nicht dumm kommt. Er lässt die Sachen locker angehen *Nik lacht* Ich mag das, ist gut für's Geschäft." 
 "Galmair",english->"#me takes in a deep breath. 'Smell that, no place smells like that. I love this town its all for the free man.'","It can be a little rough around here some nights, but every man and some of the women need to let off a little steam.","If you live around here you're a free man to do as you want just don't upset anyone bigger than you." 
 "Galmair"->"#me saugt tief die Luft ein. 'Riech das, nirgendwo sonst riecht's so. Ich liebe diese Stadt. Riecht nach Freiheit.","Kann schon gefährlich sein Nachts, aber jeder von uns muss mal ein wenig Dampf ablassen.","Wenn du hier lebst kannste tun und lassen was du willst, solange du niemanden ärgerst der stärker ist als du." 
-"rosaline","königin","queen","edwards",english->"Don't know much about her, ain't she a Queen at Cadomyr, name's Rosaline Edwards, no?","I hear she is a right bitch, that Queen of Cadomyr.","From what I hear she is quite the woman, bit of a bitch though but some men like that, *he laughs gruffly.*" 
+"rosaline","königin","queen","edwards",english->"Don't know much about her, ain't she a Queen at Cadomyr, name's Rosaline Edwards, no?","I hear she is a right bitch, that Queen of Cadomyr.","From what I hear she is quite the woman, bit of a bitch though but some men like that." 
 "rosaline","königin","queen","edwards"->"Über die weiß ich nicht viel. Ist doch die Königin von Cadomyr und heißt Rosaline Edwards, oder?.","Hab gehört sie soll eine ziemliche Zicke sein, die Königin Cadomyrs.","#me lacht schroff 'Soll eine richtige Frau sein, ein bisschen schnippisch aber manche Männer mögen das ja.'" 
 "Cadomyr",english->"It's a nice place, but too many laws for me, I'm a free man not a slave to laws and Royals.","#me points to the ground 'Here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter you die there.'","Good place if you've money and don't get into trouble, else you will end up dead or in jail."
 "Cadomyr"->"Ein netter Ort, aber viel zu viele Regeln für mich. Ich bin ein freier Mann, kein Sklave von Gesetzen und Adeligen","#me zeigt auf den Boden 'Hier kann ein Mann sein was er will, In Cadomyr hat er seinen Platz sein ganzes Leben lang. Du lebst in der Gosse, du stirbst in der Gosse.","Guter Ort wenn du Geld hast und nicht in Schwierigkeiten gerätst, sonst endest du tot oder im Gefängnis."
@@ -120,7 +120,7 @@ QuestID=0
 "Yes"->"Aye, now come and buy my wares!"
 "Ja"->"Richtig, und jetzt kauf meine Waren!"
 "Nein"->"Na dann nicht. Kaufste trotzdem meine Waren?"
-"No"->"Well whatever. Want to buy my wares anyway?
+"No"->"Well whatever. Want to buy my wares anyway?"
 
 --Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
 
