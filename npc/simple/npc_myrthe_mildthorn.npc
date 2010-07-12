@@ -1,0 +1,203 @@
+name="Myrthe Mildthorn"
+sex=female
+race=halfling
+position=784, 772, 0 --Runewick homeland
+direction=South --North/South/West/East
+QuestID=79 --A developer will assign an ID
+
+--NPC by Estralis Seborian
+--Myrthe Mildthorn, a washer-woman
+--Quest: A cave in the Woods (79)
+
+--Queststatus Overview
+
+--0: No Quest taken
+--1: Quest 1 taken - kill 10 wolves, player receives torch
+--2-11: Killing 10 wolves
+--12: Quest 1 solved, reward: 100cp, +5 rankpoints
+--13: Quest 2 taken - kill 5 panthers
+--14-18: Killing 5 panthers
+--19: Quest 2 solved, reward: 100cp, ITEM, +10 rankpoints
+--20: Quest 3 taken - kill 1 spider
+--21: Killing 1 spider
+--22: Quest 3 solved, reward: ITEM2, +20 rankpoints
+
+--Help
+
+"Help"->inform ( [Game Help] This NPC is Myrthe Mildthorn, a washer-woman. Keyphrases: Hello, laundry, cave, quest. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist das Waschweib Myrthe Mildthorn. Schlüsselwörter: Hallo, Wäsche, Höhle, Quest. )
+
+--General speech
+ 
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"Farewell","Good bye","Bye","Fare thee well"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ciao","Adieu","Au revoir",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ciao","Adieu","Au revoir",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"How are you","How feel","How do you do"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"GERMAN1.","GERMAN2.","GERMAN3."
+"your name","who are you","who art thou"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"dein name","wer bist du","wer seid ihr","wie heißt"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Catching typical NPC phrases
+
+"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"was verkauf","was kauf","warenliste","preis von"->"GERMAN1.","GERMAN2.","GERMAN3."
+"tell something"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"erzähl was","erzähl etwas"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"wash","laundry"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Wasch","Wäsche"->"GERMAN1.","GERMAN2.","GERMAN3."
+"profession"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"beruf"->"GERMAN1.","GERMAN2.","GERMAN3."
+"job",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"job"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--More small talk; add at least five triggers
+
+"YOURTRIGGER1"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER2"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER3"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER4"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER5"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+
+"DEINTRIGGER1"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER2"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER3"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER4"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER5"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Faction stuff
+
+"Elvaine","Morgan","archmage","Erzmagier",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Elvaine","Morgan","archmage","Erzmagier"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Runewick",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Runewick"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Valerio","Guilianni","Don",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Valerio","Guilianni","Don"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Galmair",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Galmair"->"GERMAN1.","GERMAN2.","GERMAN3."
+"rosaline","königin","queen","edwards",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"rosaline","königin","queen","edwards"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cadomyr",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Cadomyr"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Main land factions
+
+"albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"albar"->"GERMAN1.","GERMAN2.","GERMAN3."
+"gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"gync","gynk"->"GERMAN1.","GERMAN2.","GERMAN3."
+"salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"salkama"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Gods; each NPC should react on AT LEAST one god, being a follower of said god
+
+"GOD",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"GOTT"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--1st quest: Kill 10 MONSTER1, player receives torch.
+
+--Give out quest 1 and a torch
+
+"quest","mission",queststatus=0,english->"ENGLISH.",queststatus=1,item(391,1,399,0),inform ( [New quest] A Cave in the Woods I )
+"quest","mission",queststatus=0->"GERMAN.",queststatus=1,item(391,1,399,0),inform ( [Neues Quest] Eine Höhle im Wald I )
+"task","adventure",queststatus=0->"ENGLISH.",queststatus=1,item(391,1,399,0),inform ( [New quest] A Cave in the Woods I )
+"Auftrag","Aufgabe","Abenteuer",queststatus=0->"GERMAN.",queststatus=1,item(391,1,399,0),inform ( [Neues Quest] Eine Höhle im Wald I )
+
+--Quest 1 taken but not solved, repeat the instructions
+
+"quest","mission",queststatus>0,queststatus<11,english->"ENGLISH."
+"quest","mission",queststatus>0,queststatus<11->"GERMAN."
+"task","adventure",queststatus>0,queststatus<11->"ENGLISH."
+"Auftrag","Aufgabe","Abenteuer",queststatus>0,queststatus<11->"GERMAN."
+
+--Quest 1 solved, reward: 100cp, +5 rankpoints
+
+".+",queststatus=11,english,town=runewick->"ENGLISH.",queststatus=12,rankpoints(runewick)+5,money+100,inform ( [Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour. )
+".+",queststatus=11,english->"ENGLISH.",queststatus=12,money+100,inform ( [Quest solved] You are awarded 100 copper coins. )
+".+",queststatus=11,town=runewick->"GERMAN.",queststatus=12,rankpoints(runewick)+5,money+100,inform ( [Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt. )
+".+",queststatus=11->"GERMAN.",queststatus=12,money+100,inform ( [Quest gelöst] Du erhältst 100 Kupferstücke. )
+
+--2nd quest: Kill 5 MONSTER2
+
+--Give out quest 2
+
+"quest","mission",queststatus=12,english->"ENGLISH.",queststatus=13,inform ( [New quest] A Cave in the Woods II )
+"quest","mission",queststatus=12->"GERMAN.",queststatus=13,inform ( [Neues Quest] Eine Höhle im Wald II )
+"task","adventure",queststatus=12->"ENGLISH.",queststatus=13,inform ( [New quest] A Cave in the Woods II )
+"Auftrag","Aufgabe","Abenteuer",queststatus=12->"GERMAN.",queststatus=13,inform ( [Neues Quest] Eine Höhle im Wald II )
+
+--Quest 2 taken but not solved, repeat the instructions
+
+"quest","mission",queststatus>12,queststatus<18,english->"ENGLISH."
+"quest","mission",queststatus>12,queststatus<18->"GERMAN."
+"task","adventure",queststatus>12,queststatus<18->"ENGLISH."
+"Auftrag","Aufgabe","Abenteuer",queststatus>12,queststatus<18->"GERMAN."
+
+--Quest 2 solved, reward: 100cp, ITEM, +10 rankpoints
+
+".+",queststatus=18,english,town=runewick->"ENGLISH.",queststatus=19,rankpoints(runewick)+10,money+100,item(1337,1,599,0),inform ( [Quest solved] You are awarded 100 copper coins and A ITEM. You advance in Archmage Elvaine Morgan's favour. )
+".+",queststatus=18,english->"ENGLISH.",queststatus=19,money+100,item(1337,1,599,0),inform ( [Quest solved] You are awarded 100 copper coins and A ITEM. )
+".+",queststatus=18,town=runewick->"GERMAN.",queststatus=19,rankpoints(runewick)+10,money+100,item(1337,1,599,0),inform ( [Quest gelöst] Du erhältst 100 Kupferstücke und EIN ITEM. Dein Ansehen bei Erzmagier Elvaine Morgan steigt. )
+".+",queststatus=18->"GERMAN.",queststatus=19,money+100,item(1337,1,599,0),inform ( [Quest gelöst] Du erhältst 100 Kupferstücke und EIN ITEM. )
+
+--3rd quest: Kill 1 MICROBOSS
+
+--Give out quest 3
+
+"quest","mission",queststatus=19,english->"ENGLISH.",queststatus=20,inform ( [New quest] A Cave in the Woods III )
+"quest","mission",queststatus=19->"GERMAN.",queststatus=20,inform ( [Neues Quest] Eine Höhle im Wald III )
+"task","adventure",queststatus=19->"ENGLISH.",queststatus=20,inform ( [New quest] A Cave in the Woods III )
+"Auftrag","Aufgabe","Abenteuer",queststatus=19->"GERMAN.",queststatus=20,inform ( [Neues Quest] Eine Höhle im Wald III )
+
+--Quest 3 taken but not solved, repeat the instructions
+
+"quest","mission",queststatus>19,queststatus<21,english->"ENGLISH."
+"quest","mission",queststatus>19,queststatus<21->"GERMAN."
+"task","adventure",queststatus>19,queststatus<21->"ENGLISH."
+"Auftrag","Aufgabe","Abenteuer",queststatus>19,queststatus<21->"GERMAN."
+
+--Quest 3 solved, reward: VERY NICE ITEM, +20 rankpoints
+
+".+",queststatus=21,english,town=runewick->"ENGLISH.",queststatus=22,rankpoints(runewick)+20,item(1337,1,799,0),inform ( [Quest solved] You are awarded A VERY NICE ITEM. You advance in Archmage Elvaine Morgan's favour. )
+".+",queststatus=21,english->"ENGLISH.",queststatus=22,item(1337,1,799,0),inform ( [Quest solved] You are awarded A VERY NICE ITEM. )
+".+",queststatus=21,town=runewick->"GERMAN.",queststatus=22,item(1337,1,799,0),rankpoints(runewick)+20,inform ( [Quest gelöst] Du erhältst EIN VERY NICE ITEM. Dein Ansehen bei Erzmagier Elvaine Morgan steigt. )
+".+",queststatus=21->"GERMAN.",queststatus=22,item(1337,1,799,0),inform ( [Quest gelöst] Du erhältst EIN VERY NICE ITEM. )
+
+--No more quests, just nice words of gratitude
+
+"quest","mission",queststatus=22,english->"ENGLISH."
+"quest","mission",queststatus=22->"GERMAN."
+"task","adventure",queststatus=22->"ENGLISH."
+"Auftrag","Aufgabe","Abenteuer",queststatus=22->"GERMAN."
+
+--Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+
+"YOURTRIGGER"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"DEINTRIGGER"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here.
+
+"Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ja"->"GERMAN1.","GERMAN2.","GERMAN3."
+"No"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nein"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Cycletext: Add as many random messages as possible
+
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
+cycletext "GERMAN1.","ENGLISH1."
