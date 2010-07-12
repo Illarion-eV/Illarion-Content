@@ -1,1 +1,252 @@
-name="Eugene Burton"sex=male --male/femalerace=human --human, halfling, elf, dwarf, lizard, orc,...position=707, 484, 0 --near Elstree forest, wildernessradius=10direction=South --North/South/West/EastQuestID=4 --A developer will assign an ID --NPC by Estralis Seborian--Queststatus Overview--0: No Quest taken--1: Quest 1 taken - kill 6 bunnies, provide 6 rabbit meat--2-7: Killing 6 bunnies--8: Quest 1 solved, reward: 250 arrows--9: Quest 2 taken - kill 12 deers, provide 12 deer meat--10-21: Killing 12 deers--22: Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp--23: Quest 3 taken - kill 6 wolves--24-29: Killing 6 wolves--30: Quest 3 solved, reward: Long bow, 100 poisoned arrows--31: Quest 4 taken - kill 1 elven hunter--32: Killing 1 elven hunter--33: Quest 4 solved, reward: Magical ruby ring--Debugging"set 0"->inform ( [Debugging] Quest status set to 0 ),queststatus=0".+",queststatus>33->inform ( [Error] Something went wrong, please inform a developer. )--Help"Help"->inform ( [Game Help] This is NPC is the PROFESSION NAME. Keyphrases: Hello, quest, YOURTRIGGER1, YOURTRIGGER2. )"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der BERUF NAME. Schl�sselw�rter: Hallo, Quest, DEINTRIGGER1, DEINTRIGGER2. )--General speech "Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Gr��e","Gru�","Seid gegr��t","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"GERMAN1.","GERMAN2.","GERMAN3.""Hiho","Hallo","Hey","Greebas","Greebs",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Hiho","Hallo","Hey","Greebas","Greebs",german->"GERMAN1.","GERMAN2.","GERMAN3.""Farewell","Good bye","Bye","Fare thy well"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Tsch��","Tsch�ss","Wiedersehen","Gehabt euch wohl"->"GERMAN1.","GERMAN2.","GERMAN3.""Ciao","Adieu","Au revoir",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Ciao","Adieu","Au revoir",german->"GERMAN1.","GERMAN2.","GERMAN3.""How are you","How feel","How do you do"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Wie geht","Wie f�hlst","Wie ist es ergangen"->"GERMAN1.","GERMAN2.","GERMAN3.""your name","who are you","who art thou"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""dein name","wer bist du","wer seid ihr","wie hei�t"->"GERMAN1.","GERMAN2.","GERMAN3."--Catching typical NPC phrases"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""was verkauf","was kauf","warenliste","preis von"->"GERMAN1.","GERMAN2.","GERMAN3.""tell something"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""erz�hl was","erz�hl etwas"->"GERMAN1.","GERMAN2.","GERMAN3."--Small talk: The talk here should focus on possible questions. Feel free to add more!"poacher","hunter"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""wilderer","j�ger"->"GERMAN1.","GERMAN2.","GERMAN3.""profession"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""beruf"->"GERMAN1.","GERMAN2.","GERMAN3.""job",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""job"->"GERMAN1.","GERMAN2.","GERMAN3."--More small talk; add at least five triggers"valandil","elensar",english->"ANSWER.""valandil","elensar"->"GERMAN.""YOURTRIGGER1"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""YOURTRIGGER2"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""YOURTRIGGER3"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""YOURTRIGGER4"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""YOURTRIGGER5"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""DEINTRIGGER1"->"GERMAN1.","GERMAN2.","GERMAN3.""DEINTRIGGER2"->"GERMAN1.","GERMAN2.","GERMAN3.""DEINTRIGGER3"->"GERMAN1.","GERMAN2.","GERMAN3.""DEINTRIGGER4"->"GERMAN1.","GERMAN2.","GERMAN3.""DEINTRIGGER5"->"GERMAN1.","GERMAN2.","GERMAN3."--Faction stuff"Elvaine","Morgan","archmage","Erzmagier",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Elvaine","Morgan","archmage","Erzmagier"->"GERMAN1.","GERMAN2.","GERMAN3.""Runewick",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Runewick"->"GERMAN1.","GERMAN2.","GERMAN3.""Valerio","Guilianni","Don",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Valerio","Guilianni","Don"->"GERMAN1.","GERMAN2.","GERMAN3.""Galmair",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Galmair"->"GERMAN1.","GERMAN2.","GERMAN3.""rosaline","k�nigin","queen","edwards",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""rosaline","k�nigin","queen","edwards"->"GERMAN1.","GERMAN2.","GERMAN3.""Cadomyr",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Cadomyr"->"GERMAN1.","GERMAN2.","GERMAN3."--Main land factions"albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""albar"->"GERMAN1.","GERMAN2.","GERMAN3.""gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""gync","gynk"->"GERMAN1.","GERMAN2.","GERMAN3.""salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""salkama"->"GERMAN1.","GERMAN2.","GERMAN3."--Gods; each NPC should react on AT LEAST one god, being a follower of said god"Malachin",english->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Malachin"->"GERMAN1.","GERMAN2.","GERMAN3."--1st quest: Kill 6 bunnies, provide 6 rabbit meat--Give out quest 1"quest","mission",queststatus=0,english->"ENGLISH.",queststatus=1,inform ( [New quest] The Poacher I )"quest","mission",queststatus=0->"GERMAN.",queststatus=1,inform ( [Neues Quest] Der Wilderer I )"task","adventure",queststatus=0->"ENGLISH.",queststatus=1,inform ( [New quest] The Poacher I )"Auftrag","Aufgabe","Abenteuer",queststatus=0->"GERMAN.",queststatus=1,inform ( [Neues Quest] Der Wilderer I )--Quest 1 taken but not solved, repeat the instructions--Too few monsters slain"quest","mission",queststatus>0,queststatus<7,english->"ENGLISH.""quest","mission",queststatus>0,queststatus<7->"GERMAN.""task","adventure",queststatus>0,queststatus<7->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus>0,queststatus<7->"GERMAN."--Too few items"quest","mission",queststatus=7,item(553,all)<6,english->"ENGLISH.""quest","mission",queststatus=7,item(553,all)<6->"GERMAN.""task","adventure",queststatus=7,item(553,all)<6->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus=7,item(553,all)<6->"GERMAN."--Quest 1 solved, reward: 250 arrows".+",queststatus=7,item(553,all)>5,english->"ENGLISH.",queststatus=8,deleteitem(553,6),item(64,250,333,0),inform ( [Quest solved] You are awarded 250 arrows. )".+",queststatus=7,item(553,all)>5->"GERMAN.",queststatus=8,deleteitem(553,6),item(64,250,333,0),inform ( [Quest gel�st] Du erh�ltst 250 Pfeile. )--2nd quest: Kill 12 deers, provide 12 deer meat--Give out quest 2"quest","mission",queststatus=8,english->"ENGLISH.",queststatus=9,inform ( [New quest] The Poacher II )"quest","mission",queststatus=8->"GERMAN.",queststatus=9,inform ( [Neues Quest] Der Wilderer II )"task","adventure",queststatus=8->"ENGLISH.",queststatus=9,inform ( [New quest] The Poacher II )"Auftrag","Aufgabe","Abenteuer",queststatus=8->"GERMAN.",queststatus=9,inform ( [Neues Quest] Der Wilderer II )--Quest 2 taken but not solved, repeat the instructions--Too few monsters slain"quest","mission",queststatus>8,queststatus<21,english->"ENGLISH.""quest","mission",queststatus>8,queststatus<21->"GERMAN.""task","adventure",queststatus>8,queststatus<21->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus>8,queststatus<21->"GERMAN."--Too few items"quest","mission",queststatus=21,item(552,all)<12,english->"ENGLISH.""quest","mission",queststatus=21,item(552,all)<12->"GERMAN.""task","adventure",queststatus=21,item(552,all)<12->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus=21,item(552,all)<12->"GERMAN."--Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp".+",queststatus=21,item(552,all)>11,english->"ENGLISH.",queststatus=22,money+200,deleteitem(552,12),item(235,1,666,0),item(1840,1,666,0),item(62,1,666,0),inform ( [Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 200 copper coins. )".+",queststatus=21,item(552,all)>11->"GERMAN.",queststatus=22,money+200,deleteitem(552,12),item(235,1,666,0),item(1840,1,666,0),item(62,1,666,0),inform ( [Quest gel�st] Du erh�ltst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 200 Kupferst�cke. )--3rd quest: Kill 6 wolves--Give out quest 3"quest","mission",queststatus=22,english->"ENGLISH.",queststatus=23,inform ( [New quest] The Poacher III )"quest","mission",queststatus=22->"GERMAN.",queststatus=23,inform ( [Neues Quest] Der Wilderer III )"task","adventure",queststatus=22->"ENGLISH.",queststatus=23,inform ( [New quest] The Poacher III )"Auftrag","Aufgabe","Abenteuer",queststatus=22->"GERMAN.",queststatus=23,inform ( [Neues Quest] Der Wilderer III )--Quest 3 taken but not solved, repeat the instructions"quest","mission",queststatus>22,queststatus<29,english->"ENGLISH.""quest","mission",queststatus>22,queststatus<29->"GERMAN.""task","adventure",queststatus>22,queststatus<29->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus>22,queststatus<29->"GERMAN."--Quest 3 solved, reward: Longbow, 100 poisoned arrows".+",queststatus=29,english->"ENGLISH.",queststatus=30,item(2708,1,777,0),item(549,100,333,0),inform ( [Quest solved] You are awarded a long bow and 100 poisoned arrows. )".+",queststatus=29->"GERMAN.",queststatus=30,item(2708,1,777,0),item(549,100,333,0),inform ( [Quest gel�st] Du erh�ltst einen Langbogen und 100 vergiftete Pfeile. )--4th quest: Kill 1 elven hunter--Give out quest 4"quest","mission",queststatus=30,english->"ENGLISH.",queststatus=31,inform ( [New quest] The Poacher IV )"quest","mission",queststatus=30->"GERMAN.",queststatus=31,inform ( [Neues Quest] Der Wilderer IV )"task","adventure",queststatus=30->"ENGLISH.",queststatus=31,inform ( [New quest] The Poacher IV )"Auftrag","Aufgabe","Abenteuer",queststatus=30->"GERMAN.",queststatus=31,inform ( [Neues Quest] Der Wilderer IV )--Quest 3 taken but not solved, repeat the instructions"quest","mission",queststatus>30,queststatus<32,english->"ENGLISH.""quest","mission",queststatus>30,queststatus<32->"GERMAN.""task","adventure",queststatus>30,queststatus<32->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus>30,queststatus<32->"GERMAN."--Quest 4 solved, reward: ".+",queststatus=32,english->"ENGLISH.",queststatus=33,item(68,1,888,21),inform ( [Quest solved] You are awarded magical ruby ring. )".+",queststatus=32->"GERMAN.",queststatus=33,item(68,1,888,21),inform ( [Quest gel�st] Du erh�ltst einen magischen Rubinring. )--No more quests, just nice words of gratitude"quest","mission",queststatus=33,english->"ENGLISH.""quest","mission",queststatus=33->"GERMAN.""task","adventure",queststatus=33->"ENGLISH.""Auftrag","Aufgabe","Abenteuer",queststatus=33->"GERMAN."--Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer"YOURTRIGGER"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""DEINTRIGGER"->"GERMAN1.","GERMAN2.","GERMAN3."--Last catch: Think about keyphrases the player might say and that are not caught until here."Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Ja"->"GERMAN1.","GERMAN2.","GERMAN3.""No"->"ENGLISH1.","ENGLISH2.","ENGLISH3.""Nein"->"GERMAN1.","GERMAN2.","GERMAN3."--Cycletext: Add as many random messages as possiblecycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."cycletext "GERMAN1.","ENGLISH1."
+name="Eugene Burton"
+sex=male --male/female
+race=human --human, halfling, elf, dwarf, lizard, orc,...
+position=20, 1, 0 --near Elstree forest, wilderness
+radius=1 --to be changed to ~10
+direction=South --North/South/West/East
+QuestID=4 --A developer will assign an ID
+
+
+--NPC by Estralis Seborian
+
+--Queststatus Overview
+
+--0: No Quest taken
+--1: Quest 1 taken - kill 6 bunnies, provide 6 rabbit meat
+--2-7: Killing 6 bunnies
+--8: Quest 1 solved, reward: 250 arrows
+--9: Quest 2 taken - kill 12 deers, provide 12 deer meat
+--10-21: Killing 12 deers
+--22: Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
+--23: Quest 3 taken - kill 6 wolves
+--24-29: Killing 6 wolves
+--30: Quest 3 solved, reward: Long bow, 100 poisoned arrows
+--31: Quest 4 taken - kill 1 elven hunter
+--32: Killing 1 elven hunter
+--33: Quest 4 solved, reward: Magical ruby ring
+
+--Debugging
+
+"set 0"->inform ( [Debugging] Quest status set to 0 ),queststatus=0
+".+",queststatus>33->inform ( [Error] Something went wrong, please inform a developer. )
+
+--Help
+
+"Help"->inform ( [Game Help] This is NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Wilderer Eugene Burton. Schlüsselwörter: Hallo, Quest, Wilderer, Tiere. )
+
+--General speech
+ 
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"Shh! Not so loud! You'll scare away my game!"
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Shh! Not so loud! You'll scare away my game!"
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
+"Farewell","Good bye","Bye","Fare thy well"->"Go forth with Malachin's blessing. May you never starve."
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
+"Ciao","Adieu","Au revoir",english->"Go forth with Malachin's blessing. May you never starve"
+"Ciao","Adieu","Au revoir",german->"Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
+"How are you","How feel","How do you do"->"I'd feel much better if you could help me a bit, hunting."
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"Ich würde mich weit besser fühlen, wenn ihr mir bei der Jagd helfen könntet."
+"your name","who are you","who art thou"->"I am Eugene Burton; father to four hungry mouths. Feeding those mouths has become so difficult these days..."
+"dein name","wer bist du","wer seid ihr","wie heißt"->"Ich bin Eugene Burton, Vater von vier hungrigen Mäulern. Diese zu stopfen ist dieser Tage wirklich schwierig geworden."
+
+--Catching typical NPC phrases
+
+"what sell","what buy","list wares","price of"->"If I had something for trading, I'd sell everything to feed my family, I swear."
+"was verkauf","was kauf","warenliste","preis von"->"Hätte ich etwas zum handeln, so würde ich alles veräußern, um meine Familie zu ernähren. Das schwöre ich."
+"tell something"->"I don't have the time to chat with you; my family is starving. Perhaps you can help me with a task?"
+"erzähl was","erzähl etwas"->"Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"poacher","hunter"->"People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"wilderer","jäger"->"Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"profession"->"People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"beruf"->"Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"job",english->"People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"job"->"Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+
+--More small talk; add at least five triggers
+
+"valandil","elensar","elf","elfen","elves",english->"Wicked elves! They think that the life of an animal is worth much more than the life of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!"
+"valandil","elensar","elf","elfen","elves"->"Vermaledeite Elfen! Sie schätzen das Leben eines Tieres mehr als das Leben meiner vier Kinder. Valandial Elensar, der selbsternannte Hüter des Elsbaumwaldes, ist der schlimmste von allen."
+"law"->"Legal, illegal... I give a damn!"
+"Gesetz"->"Legal, illegal... Scheißegal!"
+"animal","game"->"There are countless animals in the Elstree forest, waiting for me and my bow: rabbits, deers and, sadly, even wolves."
+"Tier","Beute"->"Es gibt im Elsbaumwald unzählige Tiere, die nur auf mich und meinen Bogen warten: Hasen, Rehe und leider auch Wölfe."
+"forest","woods","Elstree"->"The Elstree forest is a good place to hunt; unfortunately wolves know that too. I still wonder what an Elstree is, actually."
+"Wald","Elsbaum"->"Der Elsbaumwald ist ein gutes Jagdgebiet. Leider haben das auch schon die Wölfe begriffen. Ich frag mich allerdings schon länger, was eigentlich genau ein Elsbaum sein soll."
+"rabbit","bunny"->"Catching those rabbits is more difficult than you might think. They are damn fast!"
+"Hase","Häßchen","Kaninchen"->"Hasen zu fangen ist schwerer, als man denkt; sie sind verdammt schnell!"
+"Reh","Hirsch","Wild"->"Es gibt immer weniger Dammhirsche im Elsbaumwald. Ich frage mich nur, warum..."
+"Stag","Deer"->"Fewer and fewer deer can be found in the Elstree forest. I wonder why..."
+"Wolf",english->"Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
+"Wolf"->"Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
+"Wolves"->"Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
+"Wölfe","Woelfe"->"Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
+"Father","children","family"->"My family starves, and all I can do is to hunt. However, these insane elves prefer to see humans die, rather than animals."
+"Vater","Kinder","Familie"->"Meine Familie ist am verhungern und alles, was ich tun kann, ist zu Jagen. Aber diese vermaledeiten Elfen haben es lieber wenn Menschen statt Tiere sterben."
+"fur"->"Hush! I do not hunt to get fur... but if I end the life of an animal to feed my family, do you expect me to leave behind what yields good coin?"
+"fell"->"Pah! Ich jage nicht der Felle wegen... nunja, wenn ich schon das Leben eines Tieres beenden muss, um meine Famlilie zu ernähren, sollte ich das zurücklassen, womit man ordentlich abkassieren kann?"
+
+--Faction stuff
+
+"Elvaine","Morgan","archmage","Erzmagier",english->"The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people."
+"Elvaine","Morgan","archmage","Erzmagier"->"Immer schon haben die Magier in Runewick den Ton angegeben. Ich fürchte, dies wird sich nie ändern; die Bedürfnisse der einfachen Leute sind denen egal."
+"Runewick",english->"Runewick, ha! The self proclaimed protectors of everything. They'd better protect themselves from my arrows!"
+"Runewick"->"Runewick, ha! Die selbsternannten Hüter von allem möglichen. Die sollten sich besser vor meinen Pfeilen hüten!"
+"Valerio","Guilianni","Don",english->"The Don of Galmair scares me. I prefer to stay out of his sight."
+"Valerio","Guilianni","Don"->"Der Don von Galmair macht mir Angst. Ich gehe im lieber aus dem Weg."
+"Galmair",english->"Oh, Galmair, a good place to sell fur for a good coin. Uhm, to buy food... of course."
+"Galmair"->"Oh, Galmair, das ist ein guter Ort, um ordentlich für Felle abzukassieren. Äh, um Essen zu kaufen... meine ich."
+"rosaline","königin","queen","edwards",english->"She is... hot. I swear, I love my wife, but I can't fight my dreams."
+"rosaline","königin","queen","edwards"->"Sie ist... heiß. Ich schwöre, dass ich meine Frau liebe, aber für seine Träume kann man nichts."
+"Cadomyr",english->"Cadomyr is a bad place for hunters. Not much to hunt there, except sand and scorpions."
+"Cadomyr"->"Cadomyr ist kein guter Ort für die Jagd. Man kann dort nicht viel jagen, außer nach Sand und Skorpionen."
+
+--Main land factions
+
+"albar",english->"I heard a lot about Albar and I wait eagerly for the day I can travel there. But I doubt this day will ever come; too poor I am."
+"albar"->"Ich habe schon eine Menge über Albar gehört und ich warte sehnsüchtig auf den Tag, an dem ich dort hinreisen kann. Aber ich glaube nicht, dass dieser Tage jemals kommt, so arm bin ich."
+"gynk","gync",english->"Gynk is a pool of sins. But aren't we all sinnners one day?"
+"gync","gynk"->"Gynk ist ein Sündenpfuhl. Aber sündigen wir nicht alle einmal?"
+"salkama",english->"Noble folk are living there; but also poor people. And nobody really cares about them!"
+"salkama"->"Hochwohlgeborenes Volk lebt dort; aber auch arme Leute wie ich. Und niemanden schert es, wie es denen ergeht!"
+
+--Gods; each NPC should react on AT LEAST one god, being a follower of said god
+
+"Malachin",english->"Praise Malachin, the god of all hunters. May he guide my bow."
+"Malachin"->"Lobet Malachin, den Gott der Jagd. Möge er meinen Bogen führen."
+
+--1st quest: Kill 6 bunnies, provide 6 rabbit meat
+
+--Give out quest 1
+
+"quest","mission",queststatus=0,english->"My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen rabbits and bring me their meat?",queststatus=1,inform ( [New quest] The Poacher I )
+"quest","mission",queststatus=0->"Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Hasen jagen und mir ihr Fleische bringen?",queststatus=1,inform ( [Neues Quest] Der Wilderer I )
+"task","adventure",queststatus=0->"My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen rabbits and bring me their meat?",queststatus=1,inform ( [New quest] The Poacher I )
+"Auftrag","Aufgabe","Abenteuer",queststatus=0->"Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Hasen jagen und mir ihr Fleisch bringen?",queststatus=1,inform ( [Neues Quest] Der Wilderer I )
+
+--Quest 1 taken but not solved, repeat the instructions
+
+--Too few monsters slain
+
+"quest","mission",queststatus>0,queststatus<7,english->"Oh, please, will you hunt half a dozen rabbits in the Elstree forest? My children beg for food, every day, and I have to disappoint them over and over again."
+"quest","mission",queststatus>0,queststatus<7->"Oh, würdet ihr bitte ein halbes Dutzend Hasen im Elsbaumwald jagen gehen? Meine Kinder flehen um etwas zu essen und jeden Tag muss ich sie aufs Neue enttäuschen."
+"task","adventure",queststatus>0,queststatus<7->"Oh, please, will you hunt half a dozen rabbits in the Elstree forest? My children beg for food, every day, and I have to disappoint them over and over again."
+"Auftrag","Aufgabe","Abenteuer",queststatus>0,queststatus<7->"Oh, würdet ihr bitte ein halbes Dutzend Hasen im Elsbaumwald jagen gehen? Meine Kinder flehen um etwas zu essen und jeden Tag muss ich sie aufs Neue enttäuschen."
+
+--Too few items
+
+"quest","mission",queststatus=7,item(553,all)<6,english->"Did you perhaps forget the rabbit meat in the forest? Please, quick, fetch it. My children will thank you."
+"quest","mission",queststatus=7,item(553,all)<6->"Habt ihr etwa das Fleisch der Hasen im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
+"task","adventure",queststatus=7,item(553,all)<6->"Did you perhaps forget the rabbit meat in the forest? Please, quick, fetch it. My children will thank you."
+"Auftrag","Aufgabe","Abenteuer",queststatus=7,item(553,all)<6->"Habt ihr etwa das Fleisch der Hasen im Wald vergessen? Bitte, lauft, und holt es! Meine Kinder werden es euch danken."
+
+--Quest 1 solved, reward: 250 arrows
+
+".+",queststatus=7,item(553,all)>5,english->"Thank you very, very much for the food. Rabbit meat will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you hunting.",queststatus=8,deleteitem(553,6),item(64,250,333,0),inform ( [Quest solved] You are awarded 250 arrows. )
+".+",queststatus=7,item(553,all)>5->"Vielen, vielen Dank. Dieses Hasenfleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen.",queststatus=8,deleteitem(553,6),item(64,250,333,0),inform ( [Quest gelöst] Du erhältst 250 Pfeile. )
+
+--2nd quest: Kill 12 deers, provide 12 deer meat
+
+--Give out quest 2
+
+"quest","mission",queststatus=8,english->"Well, to survive the winter, it takes more than a slice of meat. I assume the meat of a dozen fallow deer from Elstree forest will make my children survive. Will you save their lives?",queststatus=9,inform ( [New quest] The Poacher II )
+"quest","mission",queststatus=8->"Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Dammhirschen aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?",queststatus=9,inform ( [Neues Quest] Der Wilderer II )
+"task","adventure",queststatus=8->"Well, to survive the winter, it takes more than a slice of meat. I assume the meat of a dozen fallow deer from Elstree forest will make my children survive. Will you save their lives?",queststatus=9,inform ( [New quest] The Poacher II )
+"Auftrag","Aufgabe","Abenteuer",queststatus=8->"Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Dammhirschen aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?",queststatus=9,inform ( [Neues Quest] Der Wilderer II )
+
+--Quest 2 taken but not solved, repeat the instructions
+
+--Too few monsters slain
+
+"quest","mission",queststatus>8,queststatus<21,english->"You can find fallow deer in Elstree forest. Please, save my family from starvation."
+"quest","mission",queststatus>8,queststatus<21->"Ihr könnt Dammhirsche im Elsbaumwald finden. Bitte, rettet meine Familie vor dem Verhungern."
+"task","adventure",queststatus>8,queststatus<21->"You can find fallow deer in Elstree forest. Please, save my family from starvation."
+"Auftrag","Aufgabe","Abenteuer",queststatus>8,queststatus<21->"Ihr könnt Dammhirsche im Elsbaumwald finden. Bitte, rettet meine Familie vor dem Verhungern."
+
+--Too few items
+
+"quest","mission",queststatus=21,item(552,all)<12,english->"Slaying animals and leaving the meat for the carrion crows? How you dare! I beg you, on behalf of my children, every piece of meat can save a human's life."
+"quest","mission",queststatus=21,item(552,all)<12->"Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
+"task","adventure",queststatus=21,item(552,all)<12->"Slaying animals and leaving the meat for the carrion crows? How you dare! I beg you, on behalf of my children, every piece of meat can save a human's life."
+"Auftrag","Aufgabe","Abenteuer",queststatus=21,item(552,all)<12->"Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
+
+--Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
+
+".+",queststatus=21,item(552,all)>11,english->"How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as reward.",queststatus=22,money+200,deleteitem(552,12),item(235,1,666,0),item(1840,1,666,0),item(62,1,666,0),inform ( [Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 200 copper coins. )
+".+",queststatus=21,item(552,all)>11->"Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.",queststatus=22,money+200,deleteitem(552,12),item(235,1,666,0),item(1840,1,666,0),item(62,1,666,0),inform ( [Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 200 Kupferstücke. )
+
+--3rd quest: Kill 6 wolves
+
+--Give out quest 3
+
+"quest","mission",queststatus=22,english->"Recently, a pack of wolves entered Elstree forest. They hunt all the fallow deer I need to feed my children. Will you stop the pack? There are at least half a dozen of them.",queststatus=23,inform ( [New quest] The Poacher III )
+"quest","mission",queststatus=22->"Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Dammhirsche, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.",queststatus=23,inform ( [Neues Quest] Der Wilderer III )
+"task","adventure",queststatus=22->"Recently, a pack of wolves entered Elstree forest. They hunt all the fallow deer I need to feed my children. Will you stop the pack? There are at least half a dozen of them.",queststatus=23,inform ( [New quest] The Poacher III )
+"Auftrag","Aufgabe","Abenteuer",queststatus=22->"Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Dammhirsche, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.",queststatus=23,inform ( [Neues Quest] Der Wilderer III )
+
+--Quest 3 taken but not solved, repeat the instructions
+
+"quest","mission",queststatus>22,queststatus<29,english->"The wolf pack still roams the Elstree forest. Please, slay them all to save my childrens' futures."
+"quest","mission",queststatus>22,queststatus<29->"Das Wolfsrudel treibt noch immer sein Unwesen im Elsbaumwald. Bitte streckt sie alle nieder um die Zukunft meiner Kinder zu sichern."
+"task","adventure",queststatus>22,queststatus<29->"The wolf pack still roams the Elstree forest. Please, slay them all to save my children's futures."
+"Auftrag","Aufgabe","Abenteuer",queststatus>22,queststatus<29->"Das Wolfsrudel treibt noch immer sein Unwesen im Elsbaumwald. Bitte streckt sie alle nieder um die Zukunft meiner Kinder zu sichern."
+
+--Quest 3 solved, reward: Longbow, 100 poisoned arrows
+
+".+",queststatus=29,english->"Words cannot express how grateful I am. Take my very own bow, now that the wolves are gone, I can rely on my spear again.",queststatus=30,item(2708,1,777,0),item(549,100,333,0),inform ( [Quest solved] You are awarded a long bow and 100 poisoned arrows. )
+".+",queststatus=29->"Worte können nicht beschreiben, wie dankbar ich bin. Nehmt meine Bogen, nun, da die Wölfe fort sind, kann ich mich wieder auf meinen Speer verlassen.",queststatus=30,item(2708,1,777,0),item(549,100,333,0),inform ( [Quest gelöst] Du erhältst einen Langbogen und 100 vergiftete Pfeile. )
+
+--4th quest: Kill 1 elven hunter
+
+--Give out quest 4
+
+"quest","mission",queststatus=30,english->"You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.",queststatus=31,inform ( [New quest] The Poacher IV )
+"quest","mission",queststatus=30->"Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.",queststatus=31,inform ( [Neues Quest] Der Wilderer IV )
+"task","adventure",queststatus=30->"You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.",queststatus=31,inform ( [New quest] The Poacher IV )
+"Auftrag","Aufgabe","Abenteuer",queststatus=30->"Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.",queststatus=31,inform ( [Neues Quest] Der Wilderer IV )
+
+--Quest 3 taken but not solved, repeat the instructions
+
+"quest","mission",queststatus>30,queststatus<32,english->"There are still a pair of keen eyes in the Elstree forest that won't let me hunt what I need. Please, could you... shut those eyes?"
+"quest","mission",queststatus>30,queststatus<32->"Es gibt immernoch ein Paar aufmerksamer Augen im Elsbaumwald, welches mich nicht das jagen lässt, was ich brauche. Könntet ihr bitte diese Augen... für immer schließen?"
+"task","adventure",queststatus>30,queststatus<32->"There are still a pair of keen eyes in the Elstree forest that won't let me hunt what I need. Please, could you... shut those eyes?"
+"Auftrag","Aufgabe","Abenteuer",queststatus>30,queststatus<32->"Es gibt immernoch ein Paar aufmerksamer Augen im Elsbaumwald, welches mich nicht das jagen lässt, was ich brauche. Könntet ihr bitte diese Augen... für immer schließen?"
+
+--Quest 4 solved, reward:
+
+".+",queststatus=32,english->"Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, it helped me evading those wicked elves long enough.",queststatus=33,item(68,1,888,21),inform ( [Quest solved] You are awarded magical ruby ring. )
+".+",queststatus=32->"Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug geholfen, mich diesen verdammten Elfen zu entziehen.",queststatus=33,item(68,1,888,21),inform ( [Quest gelöst] Du erhältst einen magischen Rubinring. )
+
+--No more quests, just nice words of gratitude
+
+"quest","mission",queststatus=33,english->"My friend, you helped me and my family more than enough. Thank you and may Malachin bless you."
+"quest","mission",queststatus=33->"Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachin euch segnen."
+"task","adventure",queststatus=33->"My friend, you helped me and my family more than enough. Thank you and may Malachin bless you."
+"Auftrag","Aufgabe","Abenteuer",queststatus=33->"Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachin euch segnen."
+
+--Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+
+"easter","egg"->"I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs."
+"osterei"->"Einst habe ich ein merkwürdiges Ei im Elsbaumwald gefunden. Es war riesig! Aber ich habe es zurückgelassen, wo es war, wer weiß, was aus solchen Eiern alles schlüpfen kann."
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here.
+
+"Yes"->"Indeed?","So, what?","#me shakes his head slightly: 'Sorry, can you rephrase that?'"
+"Ja"->"Ist dem so?","Gut, und nun?","#me schüttelt seinen Kopf: 'Entschuldigt, könnt ihr das anders ausdrücken?'"
+"No"->"I don't quite understand, sorry.","Pardon me?","What?!"
+"Nein"->"Ich verstehe nicht recht...","Entschuldigt?","Was?!"
+
+--Cycletext: Add as many random messages as possible
+
+cycletext "#me schärft sein Messer.","#me sharpens his knife."
+cycletext "#me murmelt: 'Verdammte Wölfe!'","#me mumbles: 'Damned wolves!'"
+cycletext "#me hustet.","#me coughs."
+cycletext "#me nießt.","#me sneezes."
+cycletext "#me sortiert einige Felle, offensichtlich bedacht, dies nicht allzu auffällig zu tun.","#me sorts some fur, obviously trying to hide them."
+cycletext "#me zählt die Pfeile in einem fein bestickten Köcher.","#me counts arrows in a decorated quiver."
+cycletext "#me spitzt einen langen Stock mit einem Messer an.","#me carves a long stick with a knife."
+cycletext "Psst, wollt ihr bestes Fell... oh! Ich habe nichts gesagt.","Shh, want to have best fur... uh, nevermind!"
+cycletext "#me steckt grinsend einen Stock in eine sofort zuschnappende Falle.","#me sticks a stick into a snapping trap, grinning." 
