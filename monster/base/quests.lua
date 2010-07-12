@@ -39,6 +39,16 @@ function iniQuests()
     questLocation={};
     radius={};
 
+    questList[71]={}; --panthers
+    questList[72]={}; --panthers
+    questList[73]={}; --panthers
+    questList[74]={}; --panthers
+    questList[75]={}; --panthers
+    questList[81]={}; --wolves
+    questList[82]={}; --wolves
+    questList[83]={}; --wolves
+    questList[84]={}; --wolves
+    questList[85]={}; --wolves
     questList[101]={}; --mummies
     questList[102]={}; --mummies
     questList[103]={}; --mummies
@@ -51,13 +61,13 @@ function iniQuests()
     questList[113]={}; --skeletons
     questList[114]={}; --skeletons
     questList[115]={}; --skeletons
+    questList[151]={}; --spiders
+    questList[152]={}; --spiders
+    questList[153]={}; --spiders
+    questList[154]={}; --spiders
+    questList[155]={}; --spiders
     questList[295]={}; --rabbits
     questList[294]={}; --deers
-    questList[81]={}; --wolves
-    questList[82]={}; --wolves
-    questList[83]={}; --wolves
-    questList[84]={}; --wolves
-    questList[85]={}; --wolves
     questList[35]={}; --elven hunter
     questList[4]={}; --human necromancer
     questList[173]={}; --demon skeleton warrior
@@ -85,12 +95,12 @@ function iniQuests()
     table.insert(questList[135],id); 
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=11; 
-    questLocation[id]=position(0,0,0); 
+    questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
     --Quest 2: Reserved for Galmair Sewers II (77)
 
-    local id=1;
+    local id=2;
     germanTitle[id]="Die Kanalisation von Galmair II"; 
     englishTitle[id]="Galmair Sewers II";
     NPCName[id]="Miggs"; 
@@ -106,12 +116,12 @@ function iniQuests()
     table.insert(questList[107],id); 
     minimumQueststatus[id]=13; 
     maximumQueststatus[id]=18; 
-    questLocation[id]=position(0,0,0); 
+    questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
     --Quest 3: Reserved for Galmair Sewers III (77)
 
-    local id=1;
+    local id=3;
     germanTitle[id]="Die Kanalisation von Galmair III"; 
     englishTitle[id]="Galmair Sewers III";
     NPCName[id]="Miggs"; 
@@ -121,16 +131,69 @@ function iniQuests()
     table.insert(questList[23],id); 
     minimumQueststatus[id]=20; 
     maximumQueststatus[id]=21; 
-    questLocation[id]=position(0,0,0); 
+    questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
     --Quest 4: Reserved for Sir Reginald's Tomb I (78)
     --Quest 5: Reserved for Sir Reginald's Tomb II (78)
     --Quest 6: Reserved for Sir Reginald's Tomb III (78)
 
-    --Quest 7: Reserved for A cave in the Woods I (79)
-    --Quest 8: Reserved for A cave in the Woods II (79)
-    --Quest 9: Reserved for A cave in the Woods III (79)
+    --Quest 7: A cave in the Woods I (79)
+
+    local id=7;
+    germanTitle[id]="Eine Höhle im Wald I"; 
+    englishTitle[id]="A cave in the Woods I";
+    NPCName[id]="Myrthe Mildthorn"; 
+    statusId[id]=79;
+    germanRace[id]="Wölfe"; 
+    englishRace[id]="wolves";
+    table.insert(questList[81],id); 
+    table.insert(questList[82],id); 
+    table.insert(questList[83],id); 
+    table.insert(questList[84],id); 
+    table.insert(questList[85],id); 
+    minimumQueststatus[id]=1; 
+    maximumQueststatus[id]=11; 
+    questLocation[id]=position(774,711,0); 
+    radius[id]=40; 
+
+    --Quest 8: A cave in the Woods II (79)
+
+    local id=8;
+    germanTitle[id]="Eine Höhle im Wald II"; 
+    englishTitle[id]="A cave in the Woods II";
+    NPCName[id]="Myrthe Mildthorn"; 
+    statusId[id]=79;
+    germanRace[id]="Panther"; 
+    englishRace[id]="panthers";
+    table.insert(questList[71],id); 
+    table.insert(questList[72],id); 
+    table.insert(questList[73],id); 
+    table.insert(questList[74],id); 
+    table.insert(questList[75],id); 
+    minimumQueststatus[id]=13; 
+    maximumQueststatus[id]=18; 
+    questLocation[id]=position(774,711,0); 
+    radius[id]=40; 
+
+    --Quest 9: A cave in the Woods III (79)
+
+    local id=9;
+    germanTitle[id]="Eine Höhle im Wald III"; 
+    englishTitle[id]="A cave in the Woods III";
+    NPCName[id]="Myrthe Mildthorn"; 
+    statusId[id]=79;
+    germanRace[id]="Spinnen"; 
+    englishRace[id]="spiders";
+    table.insert(questList[151],id); 
+    table.insert(questList[152],id); 
+    table.insert(questList[153],id); 
+    table.insert(questList[154],id); 
+    table.insert(questList[155],id); 
+    minimumQueststatus[id]=20; 
+    maximumQueststatus[id]=21; 
+    questLocation[id]=position(774,711,0); 
+    radius[id]=40;
 
     --Quest 10: The Poacher I (4)
 
