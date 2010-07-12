@@ -79,7 +79,7 @@ function iniQuests()
     questList[135]={}; --flies
     questList[23]={}; --halfling thief
 
-    --Quest 1: Slay 10 mummies (101); Reserved for Galmair Sewers I (77)
+    --Quest 1: Galmair Sewers I (77)
     
     local id=1;
     germanTitle[id]="Die Kanalisation von Galmair I"; 
@@ -98,7 +98,7 @@ function iniQuests()
     questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
-    --Quest 2: Reserved for Galmair Sewers II (77)
+    --Quest 2: Galmair Sewers II (77)
 
     local id=2;
     germanTitle[id]="Die Kanalisation von Galmair II"; 
@@ -119,7 +119,7 @@ function iniQuests()
     questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
-    --Quest 3: Reserved for Galmair Sewers III (77)
+    --Quest 3: Galmair Sewers III (77)
 
     local id=3;
     germanTitle[id]="Die Kanalisation von Galmair III"; 
