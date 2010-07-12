@@ -1,7 +1,7 @@
 name="Arenius Batavius"
 sex=male --male/female
 race=human --human, halfling, elf, dwarf, lizard, orc,...
-position=130, 624, 0 --Cadomyr homeland
+position=10, 15, 0 --Cadomyr homeland
 direction=South --North/South/West/East
 QuestID=104
 
@@ -17,7 +17,7 @@ QuestID=104
 --4-9: Killing 6 mummies
 --10: Quest 2 solved, reward: mace (230), 60cp, 10 rankpoints if Cadomyr
 --11: Quest 3 taken - kill 12 skeletons (111-115)
---12-24: Killing 12 skeletons
+--12-23: Killing 12 skeletons
 --25: Quest 3 solved, reward: silvered longsword (98), 120cp, 10 rankpoints if Cadomyr
 --26: Quest 4 taken - kill 2 human necromancer (4)
 --27-28: Killing 2 human necromancer (4)
@@ -124,6 +124,8 @@ QuestID=104
 "Zhambra"->"Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin."
 "Cherga",english->"Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!"
 "Cherga"->"Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!"
+"Bragon","Brágon",english->"Did you know that Brágon is the father of all dragons? No? I thought so."
+"Bragon","Brágon"->"Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
 
 --1st quest: Provide six panels of white cloth.
 
@@ -189,17 +191,17 @@ QuestID=104
 
 --Quest 3 taken but not solved, repeat the instructions
 
-"quest","mission",queststatus>10,queststatus<24,english->"Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
-"quest","mission",queststatus>10,queststatus<24->"Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
-"task","adventure",queststatus>10,queststatus<24->"Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
-"Auftrag","Aufgabe","Abenteuer",queststatus>10,queststatus<24->"Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
+"quest","mission",queststatus>10,queststatus<23,english->"Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"quest","mission",queststatus>10,queststatus<23->"Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
+"task","adventure",queststatus>10,queststatus<23->"Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"Auftrag","Aufgabe","Abenteuer",queststatus>10,queststatus<23->"Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
 
 --Quest 3 solved, reward: silvered longsword (98), 120cp, 10 rankpoints if Cadomyr
 
-".+",queststatus=24,town=cadomyr,english->"I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.",item(98,1,688,0),inform( [Quest solved] You are awarded 120 copper coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour. ),rankpoints(cadomyr)+10,money+120,queststatus=25
-".+",queststatus=24,town=cadomyr->"Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.",item(98,1,688,0),inform( [Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. Dein Ansehen bei Königin Rosaline Edwards steigt. ),rankpoints(cadomyr)+10,money+120,queststatus=25
-".+",queststatus=24,english->"I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.",item(98,1,688,0),inform( [Quest solved] You are awarded 120 copper coins and silvered longsword. ),money+120,queststatus=25
-".+",queststatus=24->"Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.",item(98,1,688,0),inform( [Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. ),money+120,queststatus=25
+".+",queststatus=23,town=cadomyr,english->"I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.",item(98,1,688,0),inform( [Quest solved] You are awarded 120 copper coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour. ),rankpoints(cadomyr)+10,money+120,queststatus=25
+".+",queststatus=23,town=cadomyr->"Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.",item(98,1,688,0),inform( [Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. Dein Ansehen bei Königin Rosaline Edwards steigt. ),rankpoints(cadomyr)+10,money+120,queststatus=25
+".+",queststatus=23,english->"I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.",item(98,1,688,0),inform( [Quest solved] You are awarded 120 copper coins and silvered longsword. ),money+120,queststatus=25
+".+",queststatus=23->"Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.",item(98,1,688,0),inform( [Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. ),money+120,queststatus=25
 
 --4th quest: Kill 2 human necromancer
 
@@ -286,14 +288,19 @@ QuestID=104
 
 --Cycletext: Add as many random messages as possible
 
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-cycletext "GERMAN.","ENGLISH."
-
+cycletext "#me stöhnt vor Schmerz.","#me moans in pain."
+cycletext "Verdammte Blutmagie! Ich werde dem ein Ende setzen.","Blasted blood magic! I will end this, once and for all."
+cycletext "#mes prunkvolle Rüstung zeigt das Wappen eines sich aufbäumenden Silberdrachen.","#me's shining armour shows the coat of arms of a rearing silver dragon."
+cycletext "Nur durch einen gemeinen Hinterhalt konnte ich besiegt werden - denn auf den Schlachtfeldern der Ehre bin ich ungeschlagen.","Only a sneaky ambush could defeat me - for I am unmatched on the battlefield of honour."
+cycletext "#me hebt vorsichtig einen Verband an seinem Arm mit schmerzverzerrtem Gesicht an.","#me carefully lifts a bandage on his arm, grimacing with pain."
+cycletext "Nieder mit den Salavesh!","Down with Salavesh!"
+cycletext "#me streicht sich verzweifelt durch das blutverkrustete Haar.","#me combs desperately his blood stained hair,."
+cycletext "Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.","I fight for the honour of the Order of the Silver Dragon and the old customs."
+cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten.","It is not the time for speeches, but for deeds."
+cycletext "#me streicht über sein verletztes Bein.","#me strokes his bruised leg."
+cycletext "Fremder, hättet ihr einen Augenblick Zeit...","Stranger, please, a moment of your time..."
+cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.","#me holds his ornate sword firmly with one hand, swinging it idly into the air."
+cycletext "#me schreibt einige Worte ein in Leder einbebundenes Buch und versteckt es hinterher sorgfältig unter seiner Robe.","#me writes some words into a leather covered book, carefully tucking it under his robe afterwards."
+cycletext "Wir leben in merkwürdigen Zeiten...","Strange times we live in..."
+cycletext "Verdammte Kultisten! Wenn ich nur...","Blasted cultists... only if I weren't..."
+cycletext "Bei Brágons heiligem Blut!","By the holy blood of Brágon!"
