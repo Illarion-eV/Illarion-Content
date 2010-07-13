@@ -15,7 +15,7 @@ QuestId=22
 
 "Help", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1
 
-"How", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1"
+"How", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1
 
 "Bye", queststatus<>3 -> "Umm, goodbye *wipes eyes*"
 
@@ -70,4 +70,5 @@ QuestId=22
 
 "Wares", queststatus=3 -> "Sorry, I'm no vendor"
 
-"Resetquestplease" -> queststatus=0 --For testing remove
+ --For testing remove
+"Resetquestplease" -> queststatus=0
