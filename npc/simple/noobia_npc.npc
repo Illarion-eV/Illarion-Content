@@ -2,7 +2,7 @@
 name = "..."
 position = 43,40,100
 sex = male
-race = gnome
+race = dwarf
 direction = west
 
 "greet", "hello" -> "Be greeted, stranger. I am %NPCNAME. I can show you how to turn around, if you want."
@@ -26,4 +26,4 @@ direction = west
 "island" -> "I have told you already something about this island and I'm about to tell you even more! Shall I continue?"
 "insel" -> "Ich habe dir schon etwas über diese Insel erzählt und ich bin gerade dabei, dir sogar noch mehr zu erzählen! Soll ich weitermachen?"
 
-"yes", state=1 -> "
+"yes", state=1 -> "..."
