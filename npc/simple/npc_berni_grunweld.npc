@@ -50,7 +50,7 @@ cycletext "#me schaut sich suchend um.","ENGLISH"
 --Catching typical NPC phrases
 
 "what sell","what buy","list wares","price of"->"I'm cook, not a trader","I prefer exchanging my wares, I don't like selling them","I have nothing here, I could sell you","I don't have any prices, because I don't sell anything."
-"was verkauf","was kauf","warenliste","preis von"->"Ich bin kein Händler, nur Koch.","Ich tausche lieber als zu verkaufen","Ich hab leider nichts da zum verkaufen","Eine Preisliste habe ich nicht da, weil ich eigentlich nichts verkaufe".
+"was verkauf","was kauf","warenliste","preis von"->"Ich bin kein Händler, nur Koch.","Ich tausche lieber als zu verkaufen","Ich hab leider nichts da zum verkaufen","Eine Preisliste habe ich nicht da, weil ich eigentlich nichts verkaufe."
 
 --Small talk
 
@@ -145,7 +145,7 @@ cycletext "#me schaut sich suchend um.","ENGLISH"
 --4th quest
 
 "quest",skill(baking)>60,skill(baking)=<80,english->"I have one recipe for you left but I want to try some of you selfmade dished. I would like to try 15 sausage dishes, one box with 10 cookies, as well as 10 meat dishes and 5 strawberry cakes.",queststatus=7
-"quest",skill(baking)>60s,skill(baking)=<80,german->"Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.",queststatus=7
+"quest",skill(baking)>60,skill(baking)=<80,german->"Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.",queststatus=7
 "task","adventure",skill(baking)>60,skill(baking)=<80->"I have one recipe for you left but I want to try some of you selfmade dished. I would like to try 15 sausage dishes, one box with 10 cookies, as well as 10 meat dishes and 5 strawberry cakes.",queststatus=7
 "Auftrag","Aufgabe","Abenteuer",skill(baking)>60,skill(baking)=<80->"Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.",queststatus=7
 
