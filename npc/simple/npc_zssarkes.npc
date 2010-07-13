@@ -77,7 +77,7 @@ cycletext "#me schaut sich leise zischelnd in dem Raum um","#me quietly hisses a
 
 "hiebwaffen lernen",queststatus=2,skill(slashing weapons)=<20->"#me erklärt viel über Schwerter und Kriegsäxte und wie man diese benutzt.",queststatus=3,skill(fighting,slashing weapons)+5,inform(Du hast das Gefühl als hättest du heute viel gelernt.)
 
-"learn concussion",queststatus=2,skill(concussion weapons)=<20->"#me rattles on about maces and warhammer and how to use them.",queststatus=3,skill(fighting,cucussion weapons)+5,inform(You have the feeling that you've learnt a lot today.)
+"learn concussion",queststatus=2,skill(concussion weapons)=<20->"#me rattles on about maces and warhammer and how to use them.",queststatus=3,skill(fighting,concussion weapons)+5,inform(You have the feeling that you've learnt a lot today.)
 
 "schlagwaffen lernen",queststatus=2,skill(concussion weapons)=<20->"#me erklärt viel über Streitkolben und Kriegshämmer und wie man diese benutzt. ",queststatus=3,skill(fighting,concussion weapons)+5,inform(Du hast das Gefühl als hättest du heute viel gelernt.)
 
