@@ -1,0 +1,116 @@
+NPC 1:Corporal Piero In work by Rincewind 
+Place: ruin 
+Map: http://img189.imageshack.us/f/ruin.jpg/ 
+Coordinates: 39, 649,0 
+Quest: The player is asked by the guard who once has been by the ruin to search for his friend in the pirate bay The guard's friend is there as a spy and the char has to bring him news from the queen. Furthermore, the guard wants to know if his friend has any new information concerning the pirates. 
+Reward: The char's reputation in the faction increases and he gets some silver coins (other ideas?) 
+
+NPC 2: Tobis Vunu In work by Rincewind 
+Place: pirate bay 
+Map: http://img295.imageshack.us/f/piratebaycove.jpg/ 
+Coordinates: 42,517,0 
+Quest: Destroy without being noticed the tobacco plantation in the pirate bay 
+Quest 2: Bring the news to his friend (NPC 1). 
+Reward: stolen treasure map of the pirates, reputation in the faction increases 
+
+
+name="Corporal Piero"
+position=39, 649,0 --Ruine
+sex=male
+race=human
+direction=south
+QuestID=xxx
+
+--Piero ist Corporal in dieser Wüstenstadt. Er bittet mutige abenteurer darum ihm einen Bootengang zu erledingen. Quest: Spionage bei den Piraten, Position Ruine
+
+--Queststatus Overview "spionage bei den Piraten"
+--1: Quest started. 'spy the pirates'
+--2: Player is sended into Pirate Bay. To search Tobis vunu.
+--3: x
+--4: x
+--5: x
+
+
+--language: human, common
+
+
+
+
+
+"verdienen","aufgabe","abenteuer",queststatus=1->"Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück.",queststatus=2 inform( 'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!' )
+"info","quest","job","problem",german,queststatus=1->"",queststatus=2
+"info","quest","job","problem",english,queststatus=1->"",queststatus=2
+"task","adventure","mission","money","earn",queststatus=1->"",queststatus=2
+
+
+"verdienen","aufgabe","abenteuer"->"In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.",queststatus=1, inform( 'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...' )
+"quest","job","problem",german->"",queststatus=1
+"quest","job","problem",english->"",queststatus=1
+"task","adventure","mission","money","earn"->"",queststatus=1
+--generall
+"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"Hallo.","Seid gegrüßt.","Zhambra zum Gruße.","Lang lebe Königin Rosaline Edwards." 
+"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Hello.","Zhambras greets.","Be greeted.","Zhambra may bless the queen."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Hello.","Zhambras greets.","Be greeted.","Zhambra may bless the queen."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","Seid gegrüßt.","Zhambra zum Gruße.","Lang lebe Königin Rosaline Edwards." 
+"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME. Diener der Königin von Cadomyr"
+"your name","who are you","who art thou"->"I am %NPCNAME. Servant of the queen in Cadomyr."
+"Farewel","Good bye","Bye","Fare thy well"->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Gehabt Euch wohl.","Einen Schönen Tag noch.","Zhambra sei mit Euch."
+"Ciao","Fareba","Adieu","Au revoir",english->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
+"Ciao","Fareba","Adieu","Au revoir",german->"Gehabt Euch wohl.","Einen Schönen Tag noch.","Zhambra sei mit Euch."
+"How are you","How feel","How do you do"->"I'm mostly fine. The pirates be quiet. Shall I take this for good or bad? I don't know.","As long as queen Rosaline rules our land, everything is going well.","Hail Zhambra, hail queen Rosaline! I'm good."
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlchtes? Ich weiß es nicht.","So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.","Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
+"I am","I'm"->"I feel honored to meet you."
+"Ich bin"->"Ich fühle mich geehrt Euch zu treffen."
+
+--Help 
+
+
+"hilfe"->"Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.",state=0
+"helfen"->"Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.",state=0
+"help"->"Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'.",state=0
+
+--quest done
+"hilfe"->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
+"helfen"->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
+"help"->"I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.",state=0
+
+--smalltalk
+"murgo",english->"Murgo. Sure I heared about him. He's quite fameous on this lands."
+"murgo",german->"Murgo. Sicher hab ich von ihm gehört. Er is richtig berühmt in diesen Landen."
+
+"what sell","what buy","list wares","price of"->"I'm a guard. Not a merchant. For sure you are able to trade inside of the town." 
+"was verkauf","was kauf","warenliste","preis von"->"Ich bin Wächter. Kein Händler. Sicherlich könnt Ihr hinter den Toren der Stadt handeln." 
+"tell something"->"Nowhere the codes of honour are followed like here in Cadomyr. For the colours of our town! Zhambra may bless it." 
+"erzähl was","erzähl etwas"->"Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
+"profession"->"I'm a guard. I guard people. Long live the queen." 
+"beruf"->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin." 
+"job",german->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin." 
+"job",english->"I'm a guard. I guard people. Long live the queen." 
+"Gobaith",english->"Never heard of that. Is it far away?" 
+"Gobaith",german->"davon hab ich nie gehört. Ist das weit weg?"
+"Elvaine","Morgan","archmage","Erzmagier",english->"Archmage Elvaine Morgan is the ruler of Runewick. They say nobody dares to disagree with him, not because one is afraid of him, but nobody knows it better than him." 
+"Elvaine","Morgan","archmage","Erzmagier",german->"Erzmagier Elvaine Morgan ist der Herrscher über Runewick. es heißt niemand wagt es ihm zu wiedersprechen. Aber nicht aus Angst, sondern weil es nimeanden gibt der es besser wüsste." 
+"Runewick",english->"Urgh. Runewick. Sounds to me like a place I nver want to go. It's filled with arrogant bookworms who claim to know it all." 
+"Runewick",german->"urgh. Runewick. Klingt für mich nach einem Ort wo ich nie hin gehen werde. Es ist voll mit arroganten Bücherwürmern, die glauben sie wüssten alles." 
+"Valerio","Guilianni","Don",english->"Don Valerio Guilianni is the richest man in whole Galmair. So I will say... he holds the politic in hands there like no otherone." 
+"Valerio","Guilianni","Don",german->"Don Valerio Guilianni ist der reichste Mann in ganz Galmair. Also würde ich sagen, er hält die Politik der Stadt in Händen wie kein anderer." 
+"Galmair",english->"A chaotic moloch. Filled with scum. There's wealth the only thing to count. Most people there havn't a sense for honour." 
+"Galmair",german->"Ein kaotischs Moloch." 
+"rosaline","königin","queen","edwards",english->"God bless queen Rosaline Edwards. She is the absolute ruler of our awesome land. The kings blood is strong and clean in her veins." 
+"rosaline","königin","queen","edwards",german->"Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrschering unseres großartigen Landes. Das Blut der Könige fließt strak und rein in ihren Adern." 
+"Reginald","king",english->"The king is dead. Long live the queen. When King Reginald Edwards died, queen Rosaline was able to inherit the crown. Aginst the plans of some nobles." 
+"Reginald","king",german->"Der König ist tot. Lang lebe die Königin. Als König Reginald Edwards verstab, war es Königin Rosaline möglich den Tron zu besteigen. Wider den Plänen von so manchen Adeligen." 
+"Cadomyr",english->"Heil our crest. Heil our flags! Long live Cadomyr and the code of honour. I'm proud to call myself a servant of queen Rosaline." 
+"Cadomyr",german->"Heil unserem Wappen. Heil unserer Fahne! Lang lebe Cadomyr und der Codex der Ehre. Ich bin stolz mich einen Diener, Königin Rosalines zu nennen." 
+
+
+cycletext "Lang lebe Königin Rosaline Edwards.","Long live queen Rosaline Edwards."
+cycletext "#me kratzt sich am Nasenrücken.","#me has a scratch at the back of his nose."
+cycletext "#me hohlt ein Stück Brot aus der Tasche und steckt es sich in den Mund.","#me takes a pice bread out of his bag and eat it."
+cycletext "#me nimmt einen kräftigen Schluck aus seinen Trinkschlauch.","#me takes a nip out of his water bottle."
+cycletext "#me blickt zur Seite. "Halt! Wer da?...Hm. War wohl doch nur der Wind.", "#me turns to side. "Stop! Someone there?...Hm. Seems the wind tricked me again."
+cycletext "#me kratzt sich unaufällig am Hinterteil.", "#me has a inconspicuous short scratch at his butt."
+cycletext "#me blickt leicht verträumt in den Himmel.", "#me glances the sky in a moony way."
+cycletext "#me kaut nachdenklich an den Fingernägeln.", "#me noshes his fingernails, a thoughtful gaze in his face."
+cycletext "#me fasst sich mit der hand an die Seite: 'Ghn! Meine alte Verletzung schmerzt...'", "#me grabs his side and moans: 'Ghn! My old lesion hurts again...'"
