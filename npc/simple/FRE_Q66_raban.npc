@@ -1,0 +1,203 @@
+name="Raban" 
+sex=male --male/female
+race=human --human, elf, dwarf, lizard, orc,...
+position=832, 107, 0 --Raban's Grove, wilderness
+radius=10 
+direction=west --North/South/West/East 
+QuestID=66 --A developer will assign an ID
+
+--NPC by Estralis Seborian, thanks to PO Falkner for permission and inspiration!
+
+--Queststatus Overview
+
+--0: No Quest taken
+--1: Quest 1 taken - gather 10 raw materials for 50cp
+--2: Quest 1 solved
+--3: Quest 2 taken - gather 20 raw materials for 100cp
+--4: Quest 2 solved
+--5: Quest 3 taken - gather 5 rare raw materials for 100cp
+--6: Quest 3 solved
+--7: Quest 4 taken - gather 10 distant raw materials for 200cp
+--8: Quest 4 solved
+
+--Debugging
+
+"set 0"->"Quest status set to 0",queststatus=0
+"set 1"->"Quest status set to 1",queststatus=1
+"set 2"->"Quest status set to 2",queststatus=2
+"set 3"->"Quest status set to 3",queststatus=3
+"set 4"->"Quest status set to 4",queststatus=4
+"set 5"->"Quest status set to 5",queststatus=5
+"set 6"->"Quest status set to 6",queststatus=6
+"set 7"->"Quest status set to 7",queststatus=7
+"set 8"->"Quest status set to 8",queststatus=8
+
+--Help 
+
+"Help"->inform ( [Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter. )
+
+--General speech
+ 
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"Ah, yes, an unsettled soul. Welcome to my grove.","Who is there! Pardon me, I am not used to visitors.","So, after all those summers, somebody comes here. I hope your intentions are good."
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.","Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.","Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Ah, yes, an unsettled soul. Welcome to my grove.","Who is there! Pardon me, I am not used to visitors.","So, after all those summers, somebody comes here. I hope your intentions are good."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.","Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.","Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Farewell","Good bye","Bye","Fare thy well"->"Ushara may guide your way.","Farewell.","While leaving, do not stomp on any seedling, will you?"
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Möge Ushara deinen Weg begleiten.","Gehabt euch wohl.","Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"Ciao","Adieu","Au revoir",english->"Ushara may guide your way.","Farewell.","While leaving, do not stomp on any seedling, will you?"
+"Ciao","Adieu","Au revoir",german->"Möge Ushara deinen Weg begleiten.","Gehabt euch wohl.","Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"How are you","How feel","How do you do"->"I always feel pacified when surrounded by plants and trees.","I'd feel much better if everyone honors the woods. Aren't those trees lovely?","I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday."
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"Umgeben von Pflanzen und Bäumen fühle ich mich immer beruhigt.","Es würde mir weit besser gehen, wenn ein Jeder die Wälder achten würde. Sind diese Bäume nicht wunderbar?","Ich kann mich nicht beklagen. Meine Bäume wachsen wunderbar und der kleine dort ist gerade zehn geworden. Ich erinnere mich, wie ich ihn gepflanzt habe, als wenn es gestern wäre."
+"your name","who are you","who art thou"->"They used to call me Raban when people still came here.","Raban.","I am an old man without an use for a name. The trees and plants have their own word for me. You may call me Raban."
+"dein name","wer bist du","wer seid ihr","wie heißt"->"Sie haben mich Raban genannt, damals, als noch von Zeit zu Zeit Leute hierher kamen.","Raban.","Ich bin ein alter Mann, ohne Bedarf für einen Namen. Die Bäume und Pflanzen haben ihre eigene Bezeichnung für mich. Du kannst mich hingegen Raban nennen."
+
+--Catching typical NPC phrases 
+
+"what sell","what buy","list wares","price of"->"Is money all that matters for you? I abstain from it since decades and never missed it a single day.","I have no use for money. So I do not trade.","I am not a trader. Maybe you want to help me in a quest?"
+"was verkauf","was kauf","warenliste","preis von"->"Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.","Ich brauche kein Gold, also handele ich auch nicht.","Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
+"tell something"->"Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.","I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.","Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
+"erzähl was","erzähl etwas"->"Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.","Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.","Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"hermit","forester","ranger","gardener","hippie"->"Nature can offer much more joy to me than any place, made of cold stone.","I plant trees and watch them grow. Can you imagine anything more... relaxing?","I enjoy the silence here. A branch in the wind can sing wonderful songs."
+"Einsiedler","Förster","Waldhüter","Wildhüter","Gärtner","hippie"->"Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.","Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?","Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
+"shrine","grove"->"Isn't this a lovely place? Most trees, I planted myself.","Honor Ushara for this site is her gift.","Welcome to the place where nature embraces you."
+"Schrein","Hain"->"Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.","Ehret Ushara, denn all dies ist ihr Geschenk.","Willkommen an dem Ort, wo die Natur dich umarmt."
+"Dürre"->"Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung."
+"drought"->"Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation."
+"oasis"->"At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?"
+"oase"->"Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
+"Rutrus",english->"At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?"
+"Rutrus",german->"Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
+"Ushara",german->"Ehret die Göttin!"
+"Ushara",english->"Honor the goddess!"
+"Oldra",german->"Oldra... I am sure I saw her one day, dancing during dawn on the grass.","Oldra now takes care of all the wonders Ushara has left on the land."
+"Oldra",english->"Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.","Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
+"Bruno",german->"Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
+"Bruno",english->"That name sounds familiar, but living in solitude, I forgot about names with time."
+"Gobaith",german->"Ich war einst auf Gobaith, aber das ist schon lange her.","Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
+"Gobaith",english->"I've been to Gobaith, but that is long ago.","I do not want to talk about this with you, I hope you respect that."
+
+--Factions
+
+"Runewick",german->"Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor."
+"Runewick",english->"The only place where you can find peace is Runewick. But I still prefer the forest."
+"Galmair",german->"Galmair? Ein Sündenpfuhl ist das!"
+"Galmair",english->"Galmair? A pool of sins, it is!"
+"Cadomyr",german->"Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält."
+"Cadomyr",english->"Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place."
+
+--Tool hints
+
+"sickle",queststatus=0->"With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task."
+"Sichel",queststatus=0->"Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
+"sickle"->"In case you need a new sickle, ask for Wilhelminus in Runewick. If he is still alive after all those years we didn't meet."
+"Sichel"->"Wenn du einen neue Sichel benötigst, fragt nach Wilhelminus in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
+
+--1st quest: Take a tool and gather 10 raw materials for 40cp.
+
+"quest","mission",queststatus=0,english->"So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.",item(126,1,399,0),queststatus=1,inform ( [New quest] Raban's Grove I )
+"quest","mission",queststatus=0,german->"So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.",item(126,1,399,0),queststatus=1,inform ( [Neues Quest] Rabans Hain I )
+"task","adventure",queststatus=0->"So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.",item(126,1,399,0),queststatus=1,inform ( [New quest] Raban's Grove I )
+"Aufgabe","Auftrag","Abenteuer",queststatus=0->"So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains.",item(126,1,399,0),queststatus=1,inform ( [Neues Quest] Rabans Hain I )
+
+"quest","mission",queststatus=1,english->"So, how is progress in finding ten fir tree seedlings?"
+"quest","mission",queststatus=1,german->"Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
+"task","adventure",queststatus=1->"So, how is progress in finding ten fir tree seedlings?"
+"Aufgabe","Auftrag","Abenteuer",queststatus=1->"Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
+
+".+",queststatus=1,item(149,all)>9,german->"Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.",deleteitem(149,10),inform( [Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt. ),money+50,skill(crafting,herb lore)+1,queststatus=2 
+".+",queststatus=1,item(149,all)>9,english->"Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.",deleteitem(149,10),inform( [Quest solved] You are awarded 50 copper coins and your herb lore skill increases. ),money+50,skill(crafting,herb lore)+1,queststatus=2 
+".+",queststatus=1,item(149,all)<10,german->"Bringt mir doch bitte die zehn Fichtensetzlinge, um die ich gebeten habe." 
+".+",queststatus=1,item(149,all)<10,english->"Please bring me the ten fir tree seedlings I asked for." 
+
+--2nd quest: Gather 20 different raw materials for 80cp. 
+
+"quest","mission",queststatus=2,english->"How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?",queststatus=3,inform ( [New quest] Raban's Grove II )
+"quest","mission",queststatus=2,german->"Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?",queststatus=3,inform ( [Neues Quest] Rabans Hain II )
+"task","adventure",queststatus=2->"How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?",queststatus=3,inform ( [New quest] Raban's Grove II )
+"Aufgabe","Auftrag","Abenteuer",queststatus=2->"Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?",queststatus=3,inform ( [Neues Quest] Rabans Hain II )
+
+"quest","mission",queststatus=3,english->"You can find the twenty black berries I ask for in the hedge over there."
+"quest","mission",queststatus=3,german->"Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
+"task","adventure",queststatus=3->"You can find the twenty black berries I ask for in the hedge over there."
+"Aufgabe","Auftrag","Abenteuer",queststatus=3->"Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
+
+".+",queststatus=3,item(147,all)>19,german->"I am grateful for the twenty black berries you brought me. Have this small reward.",deleteitem(147,20),inform( [Quest solved] You are awarded 100 copper coins and your herb lore skill increases. ),money+100,skill(crafting,herb lore)+1,queststatus=4 
+".+",queststatus=3,item(147,all)>19,english->"Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.",deleteitem(147,20),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt. ),money+100,skill(crafting,herb lore)+1,queststatus=4 
+".+",queststatus=3,item(147,all)<20,german->"I see you don't have twenty black berries yet. I'd love to taste them, could you hurry?" 
+".+",queststatus=3,item(147,all)<20,english->"Wie ich sehe, habt ihr noch keine zwanzig Brombeeren. Ich würde sie gerne kosten, könntet ihr eilen?" 
+
+--3rd quest: Gather 5 rare raw materials for 100cp.
+
+"quest","mission",queststatus=4,english->"It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.",queststatus=5,inform ( [New quest] Raban's Grove III )
+"quest","mission",queststatus=4,german->"Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.",queststatus=5,inform ( [Neues Quest] Rabans Hain III )
+"task","adventure",queststatus=4->"It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.",queststatus=5,inform ( [New quest] Raban's Grove III )
+"Aufgabe","Auftrag","Abenteuer",queststatus=4->"Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.",queststatus=5,inform ( [Neues Quest] Rabans Hain III )
+
+"quest","mission",queststatus=5,english->"Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
+"quest","mission",queststatus=5,german->"Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
+"task","adventure",queststatus=5->"Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
+"Aufgabe","Auftrag","Abenteuer",queststatus=5->"Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
+
+".+",queststatus=5,item(162,all)>4,german->"Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.",deleteitem(162,5),inform( [Quest solved] You are awarded 100 copper coins and your herb lore skill increases. ),money+100,skill(crafting,herb lore)+1,queststatus=6 
+".+",queststatus=5,item(162,all)>4,english->"Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.",deleteitem(162,5),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt. ),money+100,skill(crafting,herb lore)+1,queststatus=6 
+".+",queststatus=5,item(162,all)<5,german->"Schade, dass ihr die fünf Geburtspilze noch nicht bei den Pilzkreisen pflücken konntet."
+".+",queststatus=5,item(162,all)<5,english->"What a pity you didn't find the time yet to pick five birth mushrooms from the mushroom circles."
+
+--4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
+
+"quest","mission",queststatus=6,english->"Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?",queststatus=7,inform ( [New quest] Raban's Grove IV )
+"quest","mission",queststatus=6,german->"Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.",queststatus=7,inform ( [Neues Quest] Rabans Hain IV )
+"task","adventure",queststatus=6->"Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?",queststatus=7,inform ( [New quest] Raban's Grove IV )
+"Aufgabe","Auftrag","Abenteuer",queststatus=6->"Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.",queststatus=7,inform ( [Neues Quest] Rabans Hain IV )
+
+"quest","mission",queststatus=7,english->"Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea."
+"quest","mission",queststatus=7,german->"Geht zur Sternenoase um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
+"task","adventure",queststatus=7->"Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea."
+"Aufgabe","Auftrag","Abenteuer",queststatus=7->"Geht zur Oase der Offnung um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
+
+".+",queststatus=7,item(726,all)>9,german->"I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.",deleteitem(726,10),inform( [Quest solved] You are awarded 200 copper coins and your herb lore skill increases. ),money+200,skill(crafting,herb lore)+1,queststatus=8 
+".+",queststatus=7,item(726,all)>9,english->"Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.",deleteitem(726,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt. ),money+200,skill(crafting,herb lore)+1,queststatus=8 
+".+",queststatus=7,item(726,all)<10,german->"I still need ten shovels of coarse sand. I will reward you, that's for sure."
+".+",queststatus=7,item(726,all)<10,english->"Ich brauche weiterhin zehn Schaufeln voll groben Sand. Ich werde euch entlohnen, soviel ist sicher."
+
+--Final dialogue: No more quests, just nice hints
+
+"quest","mission",queststatus=8,english->"There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?" 
+"quest","mission",queststatus=8,german->"Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
+"task","adventure",queststatus=8->"There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
+"Aufgabe","Auftrag","Abenteuer",queststatus=8->"Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
+
+--Information about herb lore
+
+"herbs"->"You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury."
+"Kräuter"->"Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert."
+
+--Easteregg
+
+"Darlok",english->"Could you please not mention that name in front of me?"
+"Darlok",german->"Mögt ihr diesen Namen bitte nicht in meiner Gegenwart erwähnen?"
+"Falkner",english->"What did you say?","That's not my name... anymore."
+"Falkner",german->"Wie bitte?","So heiße ich nicht... mehr."
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here
+
+"Yes"->"Yes?","Probably.","I thought so.","Are you sure?","Maybe."What makes you so sure about this?","Definatly.","Whatever..." 
+"Ja"->"Ja?","Wahrscheinlich.","Hab ich mir gedacht.","Seid ihr sicher?","Vielleicht.","Was macht euch so sicher?","Sicherlich.","Wie auch immer..."
+"No"->"No?","But on the other hand...","Well...","Maybe you reconsider about this?","Is that all you have to say about this?","I disagree."
+"Nein"->"Nein?","Aber andererseits...","Nun...","Vielleicht ändert ihr eure Meinung noch einmal?","Ist das alles, was ihr dazu sagen wollt?","Ich muss widersprechen."
+
+--Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too. 
+
+cycletext "#me klopft die Erde um einen frisch gepflanzten Setzling glatt.","#me smoothes the soil around a newly planted seedling." 
+cycletext "Wachst und gedeiht, meine Kinder.","Grow and prosper, my children." 
+cycletext "#me streicht sachte über die Blätter eines Strauches und seufzt.","#me strokes gently the leaves of a bush and sighs." 
+cycletext "#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Äste des Baumes würden antwortend im Wind rauschen.","#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response." 
+cycletext "Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.","When we weren't even born, you already beheld all. When we are long gone, the land will be yours again."
+cycletext "Ich habe etwas gehört.","I heard something."
+cycletext "Shh! Wenn ihr ganz still seid, könnt ihr dem Klang der Stille lauschen.","Shh! If you're quiet, you can listen to the sound of silence."
+
+

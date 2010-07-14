@@ -1,0 +1,130 @@
+-- comes from trader with qs=2
+-- qs=3: can you proove?
+-- qs=4: want that children starve?
+-- qs=5: half of ham
+-- qs=10: finished talking ham, gave something to him
+-- qs=11: finished talking, didn't give anything to him, lack of proof.
+-- qs=12: finished talking, angry
+name="Siloli"
+sex=male
+direction=west
+race=human
+position=-413, -145, 0
+QuestID=557;
+
+".+", german, chance(20), queststatus=12 -> "Geh mir aus den Augen!"
+".+", german, chance(25), queststatus=12 -> "Verschwinde, ich will dich nicht mehr sehn!"
+".+", german, chance(33), queststatus=12 -> "Mörder meiner Kinder, weg mit dir!"
+".+", german, chance(50), queststatus=12 -> "Geh weg!"
+".+", german, queststatus=12 -> "Was machst du noch hier?"
+
+".+", english, chance(20), queststatus=12 -> "Get out of my sight!"
+".+", english, chance(25), queststatus=12 -> "Get lost, I don't want to see you anymore!"
+".+", english, chance(33), queststatus=12 -> "murderer of my children, go away!"
+".+", english, chance(50), queststatus=12 -> "Go away!"
+".+", english, queststatus=12 -> "Why are you still here?"
+
+
+"one[ ]*arm" -> "I have two arms, of course!"
+"ein[ ]*arm" -> "Ich habe natürlich zwei Arme!"
+"steal", queststatus=2 -> "What should I have stolen?", state=3
+"stehlen", queststatus=2 -> "Was soll ich gestohlen haben?", state=3
+"thief", queststatus=2 -> "What should I have stolen?", state=3
+"dieb", queststatus=2 -> "What should I have stolen?", state=3
+"ham", queststatus=2, state=3 -> "You accuse me of stealing ham? That's a bad accusation, can you prove that?", queststatus=3, state=0
+"schinken", queststatus=2, state=3 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3, state=0
+"ham", queststatus=2, state=2 -> "I should have delivered ham? That would mean that I stole it? That's a bad accusation, can you prove that?", queststatus=3, state=0
+"schinken", queststatus=2, state=2 -> "Ich sollte Schinken liefern? Das würde ja heißen, dass ich ihn gestohlen habe! Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3, state=0
+"wo schinken", queststatus=2 -> "Welcher Schinken denn? Wo soll der denn sein?"
+"gib schinken", queststatus=2 -> "Ich soll dir meinen Schinken geben? Wieso?", state=1
+"give ham", queststatus=2 -> "I should give you my ham? Why?", state=1
+"where ham", queststatus=2 -> "Which ham? Where should that ham be?"
+"schinken gestohlen", queststatus=2 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3
+"schinken genommen", queststatus=2 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3
+"gestohlen", state=1, queststatus=2 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3
+"schinken geklaut", queststatus=2 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3
+"geklaut", state=1, queststatus=2 -> "Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?", queststatus=3
+"stole ham", queststatus=2 -> "You accuse me of stealing ham? That's a bad accusation, can you prove that?", queststatus=3
+"took ham", queststatus=2 -> "You accuse me of stealing ham? That's a bad accusation, can you prove that?", queststatus=3
+"take ham", queststatus=2 -> "You accuse me of stealing ham? That's a bad accusation, can you prove that?", queststatus=3
+"ham stole", queststatus=2 -> "You accuse me of stealing ham? That's a bad accusation, can you prove that?", queststatus=3
+"wo schinken", queststatus=11 -> "Ich habe keinen Schinken, wie oft denn noch?"
+"where ham", queststatus=11 -> "I don't have any ham, how often should I repeat that?"
+"stole ham", queststatus=11 -> "I didn't steal any ham!"
+"ham stole", queststatus=11 -> "I didn't steal any ham!"
+"du schinken gestohlen", queststatus=11 -> "Ich habe keinen Schinken gestohlen!"
+"ja", queststatus=3 -> "Oh... nun, ich habe den Schinken, der mir angeboten wurde, genommen, aber kann man das 'Stehlen' nennen? Ich brauche ihn doch für meine Familie! Willst du wirklich, dass meine Kinder hungern?", queststatus=4
+"nein", queststatus=3 -> "Na eben. Wenn du's nicht beweisen kannst, dann äußere solche Anschuldigungen besser nicht.", queststatus=11
+"ja", queststatus=4 -> "Hast du keine Kinder? Du bist herzlos! Also gut, ich schlage dir ein Geschäft vor: Ich gebe dir die Hälfte des Schinkens, einverstanden?", queststatus=5
+"nein", queststatus=4 -> "Na eben, du bist ja doch nicht so herzlos wie ich dachte. Aber ich denke, ich kann dir zwei Stück Schinken abgeben.", item(306,2,333,0), queststatus=10
+"ja", queststatus=5 -> "Gut, ich glaube, das ist fair, immerhin hast du ja Beweise. Und bis Übermorgen habe ich sicher im Wald einige Pilze für meine Kinder gesammelt. Hier, der Schinken.", item(306,2,333,0), queststatus=10
+"nein", queststatus=5, male -> "Du willst wirklich meine Kinder sterben sehen! Hast du denn gar keine Vaterinstinkte?", queststatus=6
+"nein", queststatus=5, female -> "Du willst wirklich meine Kinder sterben sehen! Hast du denn gar keine Mutterinstinkte?", queststatus=6
+"doch", queststatus=6 -> "Na eben. Ich gebe dir sechs Stück Schinken, dann bekommt jedes meiner Kinder noch ein halbes Stück.", item(306,6,333,0), queststatus=10
+"ja", queststatus=6 -> "Na eben. Ich gebe dir sechs Stück Schinken, dann bekommt jedes meiner Kinder noch ein halbes Stück.", item(306,6,333,0), queststatus=10
+"nein", queststatus=6 -> "Nun gut, du erbarmungsloses Etwas. Ich werde dir eine Einladung zur Beerdigung meiner Kinder schicken... Hier, dein verdammter Schinken! Und jetzt geh mir aus den Augen!", item(306,10,333,0), queststatus=12
+
+"yes", queststatus=3 -> "Oh... well, I took that ham that someone wanted to give to me, but can you consider that 'stealing'? I need it for my family! Or do you want to see my children starving?", queststatus=4
+"no", queststatus=3 -> "See? If you can't prove it, you shouldn't speak our such bad accusations.", queststatus=11
+"yes", queststatus=4 -> "Don't you have children? You are so heartless! Well, I propose a deal: I'll give you half of my ham, can you accept that?", queststatus=5
+"no", queststatus=4 -> "Ah, you're not so heartless than I thought. I think I can give you two pieces of my ham.", item(306,2,333,0), queststatus=10
+"yes", queststatus=5 -> "Good, I think that's fair enough, I mean, you have a proof. I will surely find some mushrooms within the next days to feed my children. Here you are.", item(306,2,333,0), queststatus=10
+"no", queststatus=5, male -> "You really want to see my children starve! Don't you have paternal instinkts?", queststatus=6
+"no", queststatus=5, female -> "You really want to see my children starve! Don't you have maternal instinkts?", queststatus=6
+"yes", queststatus=6 -> "Very good. I will give you six pieces of my ham, that way my children get half a piece each.", item(306,6,333,0), queststatus=10
+"no", queststatus=6 -> "Well, you merciless something! I'll send you invitations for the burial of my children... Here, your damn ham! And now, get lost!", item(306,10,333,0), queststatus=12
+
+"schinken" -> "Ein wundervoller Genuß, so ein paar Stücke Schinken können eine ganze Familie einige Tage lang ernähren!"
+"ham" -> "Mmmh, ham, I love it! A few pieces of ham can feed a whole family for some days!"
+
+
+"Hafen", queststatus=11 -> "Der Hafen? Da war ich als Kind einmal, ich weiß gar nicht genau, wo der ist."
+"Hafen", queststatus=10 -> "Am Hafen war ich erst unlängst, schöne Gegend!"
+"Hafen" -> "Jaja, der Hafen. Da gibt es Schiffe und Wasser, nicht?"
+"Harbo[u]+r", queststatus=11 -> "The harbor? I once was there, as a child. I can't even remember where it was."
+"Harbo[u]+r", queststatus=10 -> "I visited the harbor recently, nice spot there!"
+"Harbo[u]+r" -> "Yes, the harbor. There are ships and water, isn't it?"
+"I am" -> "Greetings, %CHARNAME, nice to meet you."
+"I'm" -> "Greetings, %CHARNAME, nice to meet you."
+"Ich bin" -> "Seid gegrüßt, %CHARNAME, schön euch zu treffen."
+"auf bald" -> "Gehabt euch wohl!"
+"beruf" -> "Ich bin ein einfacher Bauer, nur ein Bauer."
+"buy" -> "I don't buy anything."
+"bye" -> "Farewell!"
+"dein name" -> "Ich heiße %NPCNAME."
+"deine aufgabe" -> "Ich bin nur ein Bauer." 
+"eure aufgabe" -> "Ich bin nur ein Bauer." 
+"farewell" -> "Farewell, thanks for visiting me!"
+"good day" -> "Hello."
+"gr[üue]+[sß]+e" -> "Seid gegrüßt!"
+"greetings" -> "Be greeted."
+"greets" -> "Be greeted."
+"guten tag" -> "Seid gegrüßt!"
+"hail" -> "Be greeted."
+"hallo", german -> "Seid gegrüßt!"
+"hallo", english -> "Be greeted."
+"helfen" -> "Wenn du Hilfe brauchst, geh nach Troll's Bane."
+"hello" -> "Be greeted."
+"help" -> "If you need help, visit Troll's Bane." 
+"hilfe" -> "Wenn du Hilfe brauchst, geh nach Troll's Bane."
+"how are you" -> "I am fine, thanks. How are you?"
+"job" -> "I am just a simple farmer."
+"kaufen" -> "Ich kaufe nichts."
+"mein name" -> "Sehr angenehm."
+"my name" -> "Nice to meet you."
+"sell" -> "I don't sell anything"
+"verkaufen" -> "Ich handle nicht."
+"was kaufst" -> "Ich handle nicht."
+"was tust du" -> "Was ein Bauer eben so tut."
+"was tut ihr" -> "Was ein Bauer eben so tut."
+"was verkauf[s]*t" -> "Ich handle nicht."
+"wer seid" -> "Ich bin %NPCNAME."
+"what buy" -> "I don't trade"
+"what sell" -> "I don't trade"
+"what you do" -> "I just do what a farmer does."
+"who" -> "I am %NPCNAME."
+"wie geht es" -> "Danke, mir geht es gut."
+"wie hei[sß]+t du" -> "Ich heiße %NPCNAME."
+"you name" -> "My name is %NPCNAME."
+"carrier", queststatus=2 -> "What carrier? What should I have delivered?", state=2
+"bote", queststatus=2 -> "Was für ein Bote? Was soll ich denn überbracht haben?", state=2 
