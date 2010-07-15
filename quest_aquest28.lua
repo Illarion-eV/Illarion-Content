@@ -149,13 +149,13 @@ function Cow_NextCycle(User)
                	if task == 1 then
 	            	User:eraseItem( itemlist[task],1);
 				    base.common.TempInformNLS( User,
-	                "Durch zu starkes bürsten zerbricht plötzlich der Kamm.",
-	                "The comb breaks due to your to heavy brushing.");
+	                "Durch zu starkes Bürsten zerbricht plötzlich der Kamm.",
+	                "The comb breaks due to your heavy brushing.");
 	            elseif task == 2 then
 	            	User:eraseItem( itemlist[task],1);
 				    base.common.TempInformNLS( User,
 	                "Der Eimer fällt dir versehentlich zu Boden und zerbricht.",
-	                "The bucket falls you by mistake on the ground and breakes.");
+	                "The bucket falls on the ground and breakes.");
 	            end
             end
             if task == 6 then --milk the cow
