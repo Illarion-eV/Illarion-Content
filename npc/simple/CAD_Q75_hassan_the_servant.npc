@@ -100,7 +100,7 @@ cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren k
 "hono[u]+r",queststatus=2->"We value honour above all in Cadomyr. If you have no honour, then you have nothing at all! Then you are nothing at all!"
 "like[s]",queststatus=2->"The Queen likes the shine of gold and the sparkle of precious gemstones."
 "gift",queststatus=2->"Gifts? Of course our Queen likes gifts! Expensive jewelry and shiny gemstones, especially diamonds, is what she fancies."
-"baron","hastings",queststatus=2,english->"Baron Hastings? He was not all too happy about Queen Rosaline finding a clause that enabled her to succeed his father on the throne, but now he has gone missing..."
+"baron","hastings",queststatus=2,english->"Baron Hastings? He was not all too happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing..."
 "wine",queststatus=2->"#me sips from the glass, smiling 'The wine is very good, thank you..'."
 "neighbo",queststatus=2->"#me grumbles: 'Oh! Galmair and Runewick! Pox on them! The ancient histories make it clear that the people of Cadomyr are the rightful lords of the land!"
 "Cadomyr",queststatus=2,english->"#me sighs: 'Cadomyr, oh Cadomyr! We are the most honourful and magnificent nation around, held back only by the treachery of our cursed neighbours.'"
