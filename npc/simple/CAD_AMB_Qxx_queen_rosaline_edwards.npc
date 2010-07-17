@@ -1,13 +1,15 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Queen Rosaline Edwards
--- NPC Race: human
--- NPC Sex:  female
---
--- Authors:  Estralis Seborian
---           Nitram
---
--- Last parsing: July 17, 2010
+-- NPC Name: Queen Rosaline Edwards                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  122, 520, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Authors:  Estralis Seborian                                                --
+--           Nitram                                                           --
+--                                                                            --
+-- Last parsing: July 17, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
+
 name = "Queen Rosaline Edwards"
 race = human
 sex = female
