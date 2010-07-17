@@ -1,5 +1,6 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Queen Rosaline Edwards                                           --
+-- NPC Name: Queen Rosaline Edwards                                   Cadomyr --
+-- NPC Job:  Regent                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  122, 520, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -15,8 +16,12 @@ race = human
 sex = female
 position = 122, 520, 0
 direction = south
+affiliation = "Cadomyr"
+job = "Regent"
+
 author = "Estralis Seborian"
 author = "Nitram"
+
 questid = 0
 
 -- Help
