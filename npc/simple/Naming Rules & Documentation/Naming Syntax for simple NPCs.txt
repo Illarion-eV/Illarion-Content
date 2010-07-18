@@ -1,0 +1,39 @@
+Hello,
+
+In an attempt to tidy up the /testserver/npc/simple folder on the script repository, I have changed the file names of the content there and removed some double entries.
+
+The syntax of a file was basically changed to convey information about which faction the NPC belongs to and which quest ID(s) he is using.
+
+Factionname_QuestID_FurtherQuestIDs_NPCname.npc
+
+To explain:
+
+First Part Factionname:
+
+CAD=NPC related to Cadomyr
+GAL= Galmair
+RUN=Runewick
+NOB=Noobia
+NON=No relation yet
+FRE="free" Npc, no faction affilation
+
+Second&Further Parts QuestID:
+
+Qxx=No Quest ID assigned yet
+Q<number>=NPC uses this QuestID
+TRA = Trader
+AMB = Ambience NPC = No questID (hardly any)
+
+Last Part NPC Name:
+
+Self explenatory
+
+What I expect from this change is a better overview about which NPCs are related to which quest or town, and making it easier to see which Npcs aren't included anywhere at all until now.
+
+You can now use your windows explorer search function to search for i.e. all Npcs from Galmair, all NPCs related to the QuestID xy, and search as already possible before, by NPC name.
+
+Hope it helps, should for any reason this idea not be a good thing, a backup of the previous state is still in the repository.
+
+Cheers,
+
+Faladron
