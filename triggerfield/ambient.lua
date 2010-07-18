@@ -75,7 +75,6 @@ AmbientList = {	add = function ( self, pos, dir, german, english, hours, months 
 						end
 						local this = self[pos.x][pos.y][pos.z][dir];
 						table.insert(this, {
-						    dir = dir or  {0,1,2,3,4,5,6,7};
 							german = german or "";
 							english = english or "";
 							hours = hours or {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
@@ -83,7 +82,8 @@ AmbientList = {	add = function ( self, pos, dir, german, english, hours, months 
 							} );
 				end
 }
-AmbientList:add(position(135, 640, 0),{0,1,2,3,4,5,6,7 },"This Tile should respond no matter which direction you step on it from!","This Tile should respond no matter which direction you step on it from!",nil ,nil);
+AmbientList:add(position(135,640,0),nil,"This Tile should respond no matter which direction you step on it from!","This Tile should respond no matter which direction you step on it from!",nil ,nil);
+
 
 function MoveToField(Char)
 	local this = getAmbient(Char);
@@ -95,7 +95,7 @@ end
 function getAmbient(Char)
 	local pos = Char.pos;
 	local dir = Char:get_face_to();
-	if AmbientList[pos.x] and AmbientList[pos.x][pos.y] and AmbientList[pos.x][pos.y][pos.z] and AmbientList[pos.x][pos.y][pos.z][dir] then
+	if AmbientList[pos.x] and AmbientList[pos.x][pos.y] and AmbientList[pos.x][pos.y][pos.z] and {AmbientList[pos.x][pos.y][pos.z][dir] or AmbientList[pos.x][pos.y][pos.z][dir]==nil} then
 		local this = AmbientList[pos.x][pos.y][pos.z][dir];
 		local list = {};
 		for _,ambient in pairs(this) do
