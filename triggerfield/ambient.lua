@@ -95,7 +95,7 @@ end
 function getAmbient(Char)
 	local pos = Char.pos;
 	local dir = Char:get_face_to();
-	if AmbientList[pos.x] and AmbientList[pos.x][pos.y] and AmbientList[pos.x][pos.y][pos.z] and {AmbientList[pos.x][pos.y][pos.z][dir] or AmbientList[pos.x][pos.y][pos.z][dir]==nil} then
+	if AmbientList[pos.x] and AmbientList[pos.x][pos.y] and AmbientList[pos.x][pos.y][pos.z] and (AmbientList[pos.x][pos.y][pos.z][dir] or AmbientList[pos.x][pos.y][pos.z][dir]==nil) then
 		local this = AmbientList[pos.x][pos.y][pos.z][dir];
 		local list = {};
 		for _,ambient in pairs(this) do
