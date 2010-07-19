@@ -1,0 +1,183 @@
+--Note: ALWAYS add commentaries in an extra line!
+--This Template is used for NPCs that should move around (travellers, citizens, etc.)
+name="Morthis Nebulum"
+-- Replace to own liking
+sex=male
+--male/female
+race=human
+--human, elf, dwarf, lizardman, orc,halfling...
+position=898, 799, 0
+--Name the location
+direction=South
+--north, northeast, east, southeast, south, southwest, west, northwest
+radius=0
+--If radius >0 the Npc will walk around his position randomly
+-- i.e. radius=1
+--XXX
+--XoX   o=starting position
+--XXX   x=tiles the NPC may walk upon
+QuestID=0
+--Please assign an ID if you use queststatus. Do not use an ID twice unless intended.
+
+--NPC by Flux
+
+--Help
+
+"Help"->inform ( [Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: TRIGGERS. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist <Name hier> der <Beruf/Funktion>. Schlüsselwörter: TRIGGERS. )
+
+--General speech
+ 
+--First player starts talking to NPC
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening",idle->"Hello. And goodbye if you know what's good for you.","Ah, my new practice target, greetings.","Hurry up. Spit it out.",begin
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir",idle->"GERMAN1.","GERMAN2.","GERMAN3.",begin
+"Hiho","Hallo","Hey","Greebas","Greebs",english,idle->"Hello. And goodbye if you know what's good for you.","Ah, my new practice target, greetings.","Hurry up. Spit it out.",begin
+"Hiho","Hallo","Hey","Greebas","Greebs",german,idle->"GERMAN1.","GERMAN2.","GERMAN3.",begin
+
+--Second player tries to talk to NPC
+--NPC tells him to wait
+
+".*",english,busy->"Can't you see I'm in the middle of a conversation here?","Didn't your parents teach you manners?","I have enough problems with this one without someone else bothering me."
+".*",german,busy->"GERMAN1.","GERMAN2.","GERMAN3."
+
+
+--First player ends talk
+
+"Farewell","Good bye","Bye","Fare thee well"->"About time.","Don't bother returning.","Yes, yes, whatever.",end
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"GERMAN1.","GERMAN2.","GERMAN3.",end
+"Ciao","Adieu","Au revoir","Farebba","See you",english->"About time.","Don't bother returning.","Yes, yes, whatever.",end
+"Ciao","Adieu","Au revoir","Farebba","See you"->"GERMAN1.","GERMAN2.","GERMAN3.",end
+"How are you","How feel","How do you do"->"I'd be better if you weren't here.","I'm busy here doing.. things you wouldn't understand. Scram.","I'd be better if you'd leave me alone.",end
+"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"GERMAN1.","GERMAN2.","GERMAN3.",end
+"your name","who are you","who art thou"->"My name is Morthis Nebulum. Mage extraodinaire.","I am Morthis Nebulum, finest mage in Runewick.","They call me Morthis Nebulum, and my time is much more important than yours.",end
+"dein name","wer bist du","wer seid ihr","wie heißt"->"GERMAN1.","GERMAN2.","GERMAN3.",end
+
+--Catching typical NPC phrases
+
+"what sell","what buy","list wares","price of"->"You think this is the right place to look for a Salesman?","Do I look like a trader to yoU? Here's a hint. No I don't.","The only thing I'm interested in buying with you around is poison."
+"was verkauf","was kauf","warenliste","preis von"->"GERMAN1.","GERMAN2.","GERMAN3."
+"tell something"->"I hear Elvaine Morgan is immune to sword wounds. Maybe you should check.","Elvaine Morgan always carries round 50 gold coins on his person. Not very good at defending himself either.","I hear Elvaine Morgan enjoys the taste of venom. He gives big rewards to people who make him a good tasting meal.",inform(Something tells you you shouldn't trust that information too much)
+"erzähl was","erzähl etwas"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"profession"->"I am a protector of the pure schools of magic.","I am a mage in the.. darker fields, you might say.","I am a practitioner of the true forms of magic."
+"beruf"->"GERMAN1.","GERMAN2.","GERMAN3."
+"job",english->"I am a protector of the pure schools of magic.","I am a mage in the.. darker fields, you might say.","I am a practitioner of the true forms of magic."
+"job"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Gobaith","Gobiath",english->"Ah.. Gobaith. The loss must be hard to cope with.","The loss of that island may have been sad for the citizens but.. the prince of Salkamar was murdered there. That place would always have trouble.","I wish I had time to visit Gobaith before it sank. Field researchers said it lay along a mana fault."
+"Gobaith","Gobiath"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+"I am","my name"->"Don't think just because you tell me your name I'll be bothered to write you a grave.","As interesting as that is, I'm not interested.","Ah great, nice to meet you, I don't give a damn."
+"Ich bin","mein Name"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--More small talk; add at least five triggers
+
+"Magic"->"Some of the arts, like blood magic and necromancy are frowned upon.","True mages are accepting of all branches of magic.","Magic is my life. I am certainly the most talented mage on this isle."
+"Angur"->"Believe you me, as soon as I've done my research, I'm going straight there.","All the interesting new experimentation is done there.","From what I hear, it's the finest place in all the world."
+"Necromancy"->"The fine art of raising undead. It's very useful for research.","Don't worry, I'm not going to raise your parents or anything.","You shouldn't talk about things like that around here or they might make up reasons to arrest you."
+"archmage","Erzmagier",->"I am much more qualified to be the Archmage than that moron.","They would not appoint a necromancer as archmage.","The archmage is supposed to be infallible. I can give a list of problems about Elvaine."
+"Blood"->"Blood magic is a noble art, where one must sacrifice for reward","Blood mages aren't necessarily evil. It can be used for good too.","I wouldn't talk about that around here if I were you. They might chuck you out."
+
+"DEINTRIGGER1"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER2"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER3"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER4"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER5"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Faction stuff
+
+"Elvaine","Morgan",english->"I can't believe that incompetent fool became the Archmage.","I couldn't have any less respect for that man.","Even his name sounds effeminate."
+"Elvaine","Morgan",->"GERMAN1.","GERMAN2.","GERMAN3."
+"Runewick",english->"The city of so called mages.","You would have thought that they, of everyone, would appreciate all forms of magic.","When you're down here you see the true nature of Runewick.","Why do some mages like towers so much anyway?"
+"Runewick"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Valerio","Guilianni","Don",english->"He's an.. interesting man. Gets things done, I suppose.","I haven't had much time to think about him.","Better ruler than Elvaine at any rate."
+"Valerio","Guilianni","Don"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Galmair",english->"The 'G' stands for 'Greed'.","They like to think they stock everything there. They haven't got me!","You're better off in the slime pits of Runewick.."
+"Galmair"->"GERMAN1.","GERMAN2.","GERMAN3."
+"rosaline","königin","queen","edwards",english->"I don't have time for women.","Monarchies are a stupid concept. Authority should be based on ability.","She got lucky, born into the right family."
+"rosaline","königin","queen","edwards"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cadomyr",english->"At least the name sounds good.","I think I might be banned from there. I lost track.","The people there don't like it when you practice necromancy in public."
+"Cadomyr"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Main land factions
+
+"albar",english->"I stay away from such primitive cultures.","Don't ask me about such vile places."
+"albar",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"gynk","gync",english->"It's like they took everything bad about Galmair and threw it into one giant city.","The only good thing that came out of Gynk was Gynk fire."
+"gync","gynk",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"salkama",english->"I never had any interest in nobility.","They're so arrogant in their way of life."
+"salkama",german->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Gods - use the triggers of the god the NPC worships or fights
+
+"god"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Gott","Götter"->GERMAN1.","GERMAN2.","GERMAN3."
+
+"Adron",english->"God of drunkards. I don't drink.","God of celebration. I don't have anything to celebrate."
+"Adron"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Bragon","Brágon",english->"I sometimes envy Brágon for his passion. And his raging infernos, of course."
+"Bragon","Brágon"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cherga",english->"Cherga is so underappreciated. I bet she's spared you before and you haven't even given thanks.","It is with Cherga's grace that we can practice necromancy."
+"Cherga"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Elara",english->"I worshipped Elara until I discovered that too much arcane knowledge is a curse.","The pursuit of random general knowledge is rather unimportant."
+"Elara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Eldan",english->"I think Eldan and I are quite alike. I never liked crowds."
+"Eldan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Findari",english->"As far as women go, she's one of the better ones."
+"Findari"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Irmorom",english->"Go to Galmair if you want to hear about Irmorom. I couldn't care less."
+"Irmorom"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Malachin","Malachín",english->"The patron of warriors, the most pathetic of all people."
+"Malachin","Malachín"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Moshran",english->"Through his might we can practice Blood Magic.","Moshran followers are generally outcasts of society. Maybe I should worship him."
+"Moshran"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Nargun","Nargún",english->"I've had enough chaos for one lifetime."
+"Nargun","Nargún"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Oldra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Oldra"->"Oldra is like the useless sister of Cherga."
+"Ronagan",english->"Ronagon followers are usually mere petty thieves, not true masterminds."
+"Ronagan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Sirani",english->"What has she ever done for me?"
+"Sirani"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Tanora","Zelphia",english->"It's thanks to her that we have mud and damp."
+"Tanora","Zelphia"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ushara",english->"Ushara brings the rot that spoils corpses. Necromancy would be easier without her."
+"Ushara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Zhambra",english->"God of friendship and loyalty. I don't need friends. Or loyalty."
+"Zhambra"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Catching quest triggers
+
+"quest",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"quest",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"task","adventure"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Auftrag","Aufgabe","Abenteuer"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here
+
+"Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ja"->"GERMAN1.","GERMAN2.","GERMAN3."
+"No"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nein"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Absolutely last catch: Everything a player says and is not caught earlier
+--This response should give the player a hint about what to ask the NPC
+--Optional Trigger /  Response is only given 1/5 of the time
+
+--".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+--".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+cycletext "GERMAN.","#me leafs through a thick black tome."
+cycletext "GERMAN.","If you don't have anything useful to say, go away."
+cycletext "GERMAN.","'Oh wow, Elvaine is so great!', I'll show them.."
+cycletext "GERMAN.","Should be me up there.."
+cycletext "GERMAN.","#me mumbles something unintelligible."
+cycletext "GERMAN.","Why is everyone around here so incompetent?"
+cycletext "GERMAN.","#me narrows his eyes, scanning quickly over the room before returning to his book."
+cycletext "GERMAN.","Who'd want to live in a dump like this?"
+cycletext "GERMAN.","I wouldn't want to be Archmage with citizens this moronic anyway."
+cycletext "GERMAN.","Thinks he's so great just because of his title."
