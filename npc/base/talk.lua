@@ -28,6 +28,7 @@ end);
 function talkNPC:addCycleText(germanText, englishText)
     if (self._cycleText == nil) then
         self._cycleText = base.messages.Messages();
+        self._parent:addCycle(self);
     end;
     
     self._cycleText:addMessage(germanText, englishText);
@@ -55,6 +56,10 @@ function talkNPC:receiveText(player, text)
     end;
     
     return false;
+end;
+
+function talkNPC:nextCycle()
+    -- TODO
 end;
 
 function talkNPC:setQuestID(newID)
