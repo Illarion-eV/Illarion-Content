@@ -39,6 +39,9 @@ function iniQuests()
     questLocation={};
     radius={};
 
+    questList[4]={}; --human necromancer
+    questList[23]={}; --halfling thief
+    questList[35]={}; --elven hunter
     questList[71]={}; --panthers
     questList[72]={}; --panthers
     questList[73]={}; --panthers
@@ -68,8 +71,6 @@ function iniQuests()
     questList[155]={}; --spiders
     questList[295]={}; --rabbits
     questList[294]={}; --deers
-    questList[35]={}; --elven hunter
-    questList[4]={}; --human necromancer
     questList[173]={}; --demon skeleton warrior
     questList[264]={}; --ancient fire dragon
     questList[131]={}; --flies
@@ -77,7 +78,16 @@ function iniQuests()
     questList[133]={}; --flies
     questList[134]={}; --flies
     questList[135]={}; --flies
-    questList[23]={}; --halfling thief
+    questList[211]={}; --skulls
+    questList[212]={}; --skulls
+    questList[213]={}; --skulls
+    questList[214]={}; --skulls
+    questList[215]={}; --skulls
+    questList[231]={}; --wraith
+    questList[232]={}; --wraith
+    questList[233]={}; --wraith
+    questList[234]={}; --wraith
+    questList[235]={}; --wraith
 
     --Quest 1: Galmair Sewers I (77)
     
@@ -134,9 +144,64 @@ function iniQuests()
     questLocation[id]=position(383,286,-3); 
     radius[id]=50; 
 
-    --Quest 4: Reserved for Sir Reginald's Tomb I (78)
-    --Quest 5: Reserved for Sir Reginald's Tomb II (78)
-    --Quest 6: Reserved for Sir Reginald's Tomb III (78)
+    --Quest 4: Sir Reginald's Tomb I (78)
+
+    local id=4;
+    germanTitle[id]="Sir Reginalds Gruft I"; 
+    englishTitle[id]="Sir Reginald's Tomb I";
+    NPCName[id]="Grakamesh"; 
+    statusId[id]=78;
+    germanRace[id]="Mumien"; 
+    englishRace[id]="mummies";
+    table.insert(questList[101],id); 
+    table.insert(questList[102],id); 
+    table.insert(questList[103],id); 
+    table.insert(questList[104],id); 
+    table.insert(questList[105],id); 
+    table.insert(questList[106],id);    
+    table.insert(questList[107],id); 
+    minimumQueststatus[id]=1; 
+    maximumQueststatus[id]=11;
+    questLocation[id]=position(135,655,-4); 
+    radius[id]=50; 
+
+    --Quest 5: Sir Reginald's Tomb II (78)
+
+    local id=5;
+    germanTitle[id]="Sir Reginalds Gruft II"; 
+    englishTitle[id]="Sir Reginald's Tomb II";
+    NPCName[id]="Grakamesh"; 
+    statusId[id]=78;
+    germanRace[id]="Schädel"; 
+    englishRace[id]="skulls";
+    table.insert(questList[211],id); 
+    table.insert(questList[212],id); 
+    table.insert(questList[213],id); 
+    table.insert(questList[214],id); 
+    table.insert(questList[215],id); 
+    minimumQueststatus[id]=13; 
+    maximumQueststatus[id]=18;
+    questLocation[id]=position(135,655,-4); 
+    radius[id]=50; 
+
+    --Quest 6: Sir Reginald's Tomb III (78)
+
+    local id=6;
+    germanTitle[id]="Sir Reginalds Gruft III"; 
+    englishTitle[id]="Sir Reginald's Tomb III";
+    NPCName[id]="Grakamesh"; 
+    statusId[id]=78;
+    germanRace[id]="Geister"; 
+    englishRace[id]="ghosts";
+    table.insert(questList[231],id); 
+    table.insert(questList[232],id); 
+    table.insert(questList[233],id); 
+    table.insert(questList[234],id); 
+    table.insert(questList[235],id); 
+    minimumQueststatus[id]=20; 
+    maximumQueststatus[id]=21;
+    questLocation[id]=position(135,655,-4); 
+    radius[id]=50; 
 
     --Quest 7: A cave in the Woods I (79)
 
