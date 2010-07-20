@@ -157,7 +157,7 @@ QuestID=65 --A developer will assign an ID
  "task","adventure",queststatus=7->"Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
  "Auftrag","Aufgabe","Abenteuer",queststatus=7->"Hast du die zehn Jungfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten."
 
- ".+",queststatus=7,item(144,all)>9,town=galmair,german->"Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.",deleteitem(144,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+20),money+200,skill(crafting,mining)+1,queststatus=8 
+ ".+",queststatus=7,item(144,all)>9,town=galmair,german->"Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.",deleteitem(144,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+20,money+200,skill(crafting,mining)+1,queststatus=8 
  ".+",queststatus=7,item(144,all)>9,town=galmair,english->"Thank you, mah wife will be very pleased. Here ya have some compensation money.",deleteitem(144,10),inform( [Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+20,money+200,skill(crafting,mining)+1,queststatus=8 
 
  ".+",queststatus=7,item(144,all)>9,german->"Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.",deleteitem(144,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+200,skill(crafting,mining)+1,queststatus=8 

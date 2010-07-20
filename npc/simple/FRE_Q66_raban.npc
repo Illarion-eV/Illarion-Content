@@ -185,7 +185,7 @@ QuestID=66 --A developer will assign an ID
 
 --Last catch: Think about keyphrases the player might say and that are not caught until here
 
-"Yes"->"Yes?","Probably.","I thought so.","Are you sure?","Maybe."What makes you so sure about this?","Definatly.","Whatever..." 
+"Yes"->"Yes?","Probably.","I thought so.","Are you sure?","Maybe.","What makes you so sure about this?","Definitely.","Whatever..." 
 "Ja"->"Ja?","Wahrscheinlich.","Hab ich mir gedacht.","Seid ihr sicher?","Vielleicht.","Was macht euch so sicher?","Sicherlich.","Wie auch immer..."
 "No"->"No?","But on the other hand...","Well...","Maybe you reconsider about this?","Is that all you have to say about this?","I disagree."
 "Nein"->"Nein?","Aber andererseits...","Nun...","Vielleicht ändert ihr eure Meinung noch einmal?","Ist das alles, was ihr dazu sagen wollt?","Ich muss widersprechen."

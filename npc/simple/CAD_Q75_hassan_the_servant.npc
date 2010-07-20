@@ -37,9 +37,9 @@ cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren k
 --First part, the gossiper is thirsty--
 
 "Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening",queststatus=0->"#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine, I will gladly answer your questions.'",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
-"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening",queststatus=2->"Ah, hello again. Now that you quenched my thirst, ask whatever you like".
+"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening",queststatus=2->"Ah, hello again. Now that you quenched my thirst, ask whatever you like."
 
-"Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=0->"#me frowns "What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
+"Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=0->"#me frowns: 'What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )
 "Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=2->"Hah! My friend, come, let us talk about important things, we're important persons, aren't we?"
 
 "How are you","How feel","How do you do",queststatus=0->"I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!",queststatus=1,inform ( [New Quest] Cadomyr's Gossiper )

@@ -108,7 +108,7 @@ QuestID=0 --A developer will assign an ID
 --Last catch: Think about keyphrases the player might say and that are not caught until here
 
 "Yes"->"Aye, aye, and a flounder in addition.","Well, maybe a herring?","That's good."
-"Ja"->""Aye, aye, und eine Flunder dazu.","Vielleicht einen Hering?","Das ist gut auch so."
+"Ja"->"Aye, aye, und eine Flunder dazu.","Vielleicht einen Hering?","Das ist gut auch so."
 "No"->"Do you prefer salmon perhaps?","Will bloaters make you content?"
 "Nein"->"Mögt ihr lieber Lachs?","Würde euch ein Bückling zufriedenstellen?"
 "stinkt"->"Das stimmt nicht.","Mein Fisch ist lecker!"

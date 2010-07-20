@@ -127,7 +127,7 @@ QuestID=73 --A developer will assign an ID
 "task","adventure",queststatus=4->"I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?",queststatus=5,inform ( [New quest] The Lazy Tailoress III )
 "Auftrag","Aufgabe","Abenteuer",queststatus=4->"Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte",queststatus=5,inform ( [Neues Quest] Das faule Schneiderlein III )
 
-"quest","mission"queststatus=5,english->"I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?"
+"quest","mission",queststatus=5,english->"I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?"
 "quest","mission",queststatus=5,german->"Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte."
 "task","adventure",queststatus=5->"I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?"
 "Auftrag","Aufgabe","Abenteuer",queststatus=5->"Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte."

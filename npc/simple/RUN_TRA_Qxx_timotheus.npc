@@ -33,8 +33,8 @@ direction=South
  
 "Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"Welcome wise one.","Why greetings to you!","Greetings elevated one."
 "Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Willkommen, mein weiser Freund.","Wie jetzt, seid gegrüßt!","Grüße, mein Großer."
-"Hiho","Hallo","Hey","Greebas","Greebs",english"->"Not so informal!","Well... Greetings.","Is that the way they talk on the street nowadays?"
-"Hiho","Hallo","Hey","Greebas","Greebs",german"->"Na, nicht so schnodderig.","Nun... seid gegrüßt.","Redet man heutzutage so auf der Straße?"
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Not so informal!","Well... Greetings.","Is that the way they talk on the street nowadays?"
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Na, nicht so schnodderig.","Nun... seid gegrüßt.","Redet man heutzutage so auf der Straße?"
 "Farewell","Good bye","Bye","Fare thy well"->"May Elara protect your knowledge!","Insightful journey to you!","Farewell now!"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Möge Elara eure Weisheit bewahren.","Eine aufschlussreiche Reise wünsche ich.","Gehabt euch wohl."
 "Ciao","Adieu","Au revoir",english->"Charming me huh? Farewell then!","The courtesies certainly haven't left you."

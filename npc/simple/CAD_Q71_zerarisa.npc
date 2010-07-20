@@ -1,6 +1,6 @@
 name="Zerarisa"
 sex=female
-race=lizard
+race=lizardman
 position=46, 686, 0 --Cadomyr, Cape Farewell
 direction=South
 QuestID=71 --A developer will assign an ID
@@ -161,7 +161,7 @@ QuestID=71 --A developer will assign an ID
 "Auftrag","Aufgabe","Abenteuer",queststatus=7->"Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute."
 
 ".+",queststatus=7,item(2547,all)>9,town=cadomyr,german->"Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.",deleteitem(2547,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt. ),rankpoints(cadomyr)+20,money+200,skill(crafting,fishing)+1,queststatus=8 
-".+",queststatus=7,item(2547,all)>9,town=cadomyr,english->"Zerarisa thanksss you, here'ss money for your troubless.",deleteitem(2547,10),inform( [Quest solved] You are awarded 200 copper coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour. ),rankpoints(cadomyr)+20),money+200,skill(crafting,fishing)+1,queststatus=8 
+".+",queststatus=7,item(2547,all)>9,town=cadomyr,english->"Zerarisa thanksss you, here'ss money for your troubless.",deleteitem(2547,10),inform( [Quest solved] You are awarded 200 copper coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour. ),rankpoints(cadomyr)+20,money+200,skill(crafting,fishing)+1,queststatus=8 
 
 ".+",queststatus=7,item(2547,all)>9,german->"Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.",deleteitem(2547,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Fischereifertigkeit steigt. ),money+200,skill(crafting,fishing)+1,queststatus=8 
 ".+",queststatus=7,item(2547,all)>9,english->"Zerarisa thanksss you, here'ss money for your troubless.",deleteitem(2547,10),inform( [Quest solved] You are awarded 200 copper coins and your fishing skill increases. ),money+200,skill(crafting,fishing)+1,queststatus=8 

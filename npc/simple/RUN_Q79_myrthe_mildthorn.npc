@@ -191,8 +191,8 @@ QuestID=79
 
 "moan"->"I do not moan! I just... notice things."
 "maulen"->"Ich maule nicht... Ich mache nur Anmerkungen."
-"Ariel","Sunil","Persil",Tandil",english->"I prefer soap."
-"Ariel","Sunil","Persil",Tandil"->"Ich nehme lieber Seife."
+"Ariel","Sunil","Persil","Tandil",english->"I prefer soap."
+"Ariel","Sunil","Persil","Tandil"->"Ich nehme lieber Seife."
 
 --Last catch: Think about keyphrases the player might say and that are not caught until here.
 
