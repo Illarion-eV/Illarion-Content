@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: July 17, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 20, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Queen Rosaline Edwards"
@@ -19,9 +19,19 @@ direction = south
 affiliation = "Cadomyr"
 job = "Regent"
 
+language = common
+language = human
+defaultLanguage = common
+
 author = "Estralis Seborian"
 author = "Nitram"
 
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 questid = 0
 
 -- Help
