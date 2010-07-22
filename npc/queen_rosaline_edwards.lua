@@ -1137,10 +1137,19 @@ mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
+function receiveText(texttype, message, speaker)
+    speaker:inform("In recv message");
+    mainNPC:receiveText(speaker, message);
+end;
+function nextCycle() 
+    if (initNpc ~= nil) then
+        initNpc();
+        initNpc = nil;
+    end;
+    mainNPC:nextCycle();
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
-initNpc();
-initNpc = nil;
+--initNpc();
+--initNpc = nil;
 -- END
