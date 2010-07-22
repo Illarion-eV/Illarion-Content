@@ -91,7 +91,7 @@ Old stuff:
 ]]
 
 
-AmbientList = {	add = function ( self, pos, dir, german, english, hours, months, chance )
+AmbientList = {	add = function ( self, pos, direction, german, english, hours, months, chance )
 						if not self[pos.x] then
 							self[pos.x] = {};
 						end
