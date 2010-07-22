@@ -23,30 +23,30 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		for i,char in pairs(charList) do
 			if char.pos.z == WALLPOS.z then
 				char:inform(char:getPlayerLanguage()==0 and
-					"#w Du hï¿½rst das Gerï¿½usch von sich verschiebendem Gestein." or
+					"#w Du hörst das Geräusch von sich verschiebendem Gestein." or
 					"#w You hear the sound of moving stone.");
 			end
 		end
 	elseif base.keys.CheckKey(SourceItem,DoorItem) then
         if base.keys.LockDoor(DoorItem) then
-            base.common.InformNLS(User,"Du sperrst die Tï¿½r ab.","You lock the door.");
+            base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
         elseif base.keys.UnlockDoor(DoorItem,User) then             -- User eingefuegt
-            base.common.InformNLS(User,"Du sperrst die Tï¿½r auf.","You unlock the door.");
+            base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else
-        base.common.InformNLS(User,"Der Schlï¿½ssel passt hier nicht.","The key doesn't fit here.");
+        base.common.InformNLS(User,"Der Schlüssel passt hier nicht.","The key doesn't fit here.");
     end
 end
 
 function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
 	if prisonPosition == nil then
 		prisonPosition = {};
-		prisonPosition[1] = position(109,552,200); -- cadomyr prison
-		prisonPosition[2] = position(0,0,200); --runewick prison
-		prisonPosition[3] = position(370,217,200); --galmair prison
+		prisonPosition[1] = position(122, 520, 0); -- cadomyr (queen rosaline)
+		prisonPosition[2] = position(898, 775, 2); --runewick (      archmage elvaine)
+		prisonPosition[3] = position(337, 215, 0); --galmair (      don valerio)
 	end  
 	
-	if SourceItem.data>0 and SourceItem.data<=3 and User:isInRangeToPosition(prisonPosition[SourceItem.data],3) then 
+	if SourceItem.data>0 and SourceItem.data<=3 and User:isInRangeToPosition(prisonPosition[SourceItem.data],5) then
           User:talkLanguage(CCharacter.say,CPlayer.german,"#me verurteilt "..TargetChar.name.." zu "..(Counter*10).." Ressourcen."); 
           User:talkLanguage(CCharacter.say,CPlayer.english,"#me sentences "..TargetChar.name.." to "..(Counter*10).." resources."); 
           TargetChar:setQuestProgress(25,(Counter*10)); 
@@ -57,10 +57,10 @@ function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
           filepoint:close();  ]]--
           world:gfx(41,TargetChar.pos); 
           world:makeSound(1,TargetChar.pos); 
-          TargetChar:warp( position(-492,-484,-40) ); 
+          TargetChar:warp( position(-492,-484,-40) );    --position of the forced labour camp
           world:gfx(41,TargetChar.pos); 
      else 
-          base.common.InformNLS( User, "Du scheiterst dabei, den Gauner zu verurteilen. Dies ist nur mit gefesselten Strolchen im ï¿½rtlichen Gericht mï¿½glich.", "You failed to sentence the thug. This works only with tied up rogues at the local court."); 
+          base.common.InformNLS( User, "Du scheiterst dabei, den Gauner zu verurteilen. Dies ist nur mit gefesselten Strolchen im Beisein des Anführers möglich.", "You failed to sentence the thug. This works only with tied up rogues in presence of the leader.");
      end
      
 end
@@ -93,17 +93,17 @@ function LookAtItem(User,Item)
         specialnames[4031]={"Schlï¿½ssel zur Arena","Key to the Arena"};
         specialnames[4050]={"Schlï¿½ssel zum Seahorse","Key to the Sea Horse"};
         specialnames[4051]={"Schlï¿½ssel zum Seahorse #1","Key to the Sea Horse #1"};
-        specialnames[4052]={"Schlï¿½ssel zum Seahorse #2","Key to the Sea Horse #2"};
-        specialnames[4053]={"Schlï¿½ssel zum Badezimmer","Key to the Bathroom"};
-        specialnames[4054]={"Schlï¿½ssel zum Seahorse #3","Key to the Sea Horse #3"};
+        specialnames[4052]={"Schlüssel zum Seahorse #2","Key to the Sea Horse #2"};
+        specialnames[4053]={"Schlüssel zum Badezimmer","Key to the Bathroom"};
+        specialnames[4054]={"Schlüssel zum Seahorse #3","Key to the Sea Horse #3"};
 		specialnames[666]={"Schlï¿½ssel der Erde","Key of earth"};
-		specialnames[667]={"Schlï¿½ssel des Feuers","Key of fire"};
-		specialnames[668]={"Schlï¿½ssel des Windes","Key of air"};
-		specialnames[669]={"Schlï¿½ssel des Wassers","Key of water"};
+		specialnames[667]={"Schlüssel des Feuers","Key of fire"};
+		specialnames[668]={"Schlüssel des Windes","Key of air"};
+		specialnames[669]={"Schlüssel des Wassers","Key of water"};
 		
-		specialnames[1]={"Gefï¿½ngnisschlï¿½ssel von Cadomyr","Prison key of Cadomyr"};
-		specialnames[2]={"Gefï¿½ngnisschlï¿½ssel von Runewick","Prison key of Runewick"};
-		specialnames[3]={"Gefï¿½ngnisschlï¿½ssel von Galmair","Prison key of Galmair"};
+		specialnames[1]={"Gefängnisschlüssel von Cadomyr","Prison key of Cadomyr"};
+		specialnames[2]={"Gefängnisschlüssel von Runewick","Prison key of Runewick"};
+		specialnames[3]={"Gefängnisschlüssel von Galmair","Prison key of Galmair"};
     end
     local lang=User:getPlayerLanguage();
     if (specialnames[DataVal]~=nil) then
@@ -136,7 +136,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 
     if (TargetItem:getType()~=3) then
         base.common.InformNLS(User,
-        "Der Schlï¿½ssel rutscht dir seltsamer Weise aus der Hand.",
+        "Der Schlüssel rutscht dir seltsamer Weise aus der Hand.",
         "The key slips out of your hand for a strange reason.");
         return false;
     end

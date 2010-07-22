@@ -387,11 +387,11 @@ function QuestTrigger(message,originator)
 		TheItemID = 21;
 		gText="Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!";
 		eText="This coal is as filthy as you. And as black as your soul. Bring me more!";
-	elseif string.find(message,"[Rr]eset")~=nil then   	   ---TO REMOVE ON REALSERVER!!!!
+	--[[elseif string.find(message,"[Rr]eset")~=nil then   	   ---TO REMOVE ON REALSERVER!!!!
 		npc.base.autonpcfunctions.NPCTalking(thisNPC,"Reset done");
         originator:setQuestProgress(25,15); 
         originator:setQuestProgress(26, 2); --sets the town the char got arrested from as imprisoner id
-        return false;
+        return false;  ]]--
 	else return false; end
 
 	local ItemAmount = originator:countItem(TheItemID);
@@ -437,5 +437,5 @@ function PayToTaxes(originator,amount)
 		ScriptVars:set( TaxVar, coins);
 	end
 	found, sum = ScriptVars:find( TaxVar );
-	originator:inform("Npc pays "..coins.." copper coins to town treasury. The treasury of "..TaxVar.." has now "..sum.." copper coins.");
+	--originator:inform("Npc pays "..coins.." copper coins to town treasury. The treasury of "..TaxVar.." has now "..sum.." copper coins.");
 end

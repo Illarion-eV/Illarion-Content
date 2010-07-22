@@ -328,11 +328,13 @@ function CharacterOnField( User )
 						amount = User:countItem(ItemListe[i]);
 	            		User:eraseItem( ItemListe[i], amount);
 					end --items deleted;
-					local Imprisoner = User:getQuestProgress(26); --looks up which town brought him in prison
-					if Imprisoner == 1 then dest = position(-500,-484,-40); --cadomyr
-					elseif Imprisoner == 2 then dest = position(-496,-488,-40); --runewick
-					elseif Imprisoner == 3 then dest = position(-490,-484,-40); --galmair
-					else dest = position(-495, -484, -40); end --no town member teleport him somewhere outside
+
+					local Faction = BF_get(User); -- lookup to which faction the Character belongs to
+					
+					if     Faction.tid == 1 then dest = position(140,630,0); --cadomyr
+					elseif Faction.tid == 2 then dest = position(788,826,0); --runewick
+					elseif Faction.tid == 3 then dest = position(424,245,0); --galmair
+					else dest = position(730, 226, 0); end --no town member teleport him to the Wilderland
 					SourceItem.wear = 255;
 					world:changeItem(SourceItem);
 				else
