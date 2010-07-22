@@ -144,6 +144,7 @@ function getAmbient(Char)
 			end
 			for _,that in pairs(ambient.direction) do
 				if that==dir then
+						base.common.TempInformNLS(Char,"Dir: "..dir.."! That: "..that.."!","Dir: "..dir.."! That: "..that.."!");
 					dirOk = true;
 					break;
 				end
