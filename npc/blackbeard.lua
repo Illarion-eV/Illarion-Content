@@ -6,7 +6,7 @@ require("npc.base.ships");
 require("npc.base.functions");
 module("npc.blackbeard", package.seeall, package.seeall(npc.base.ships));
 
--- Insert Statements für Nötige NPCs
+-- Insert Statements fï¿½r Nï¿½tige NPCs
 -- INSERT INTO npc VALUES (1000,2,-401,-489,0,0,'f','Ship NPC',NULL,0);
 -- INSERT INTO npc VALUES (1001,2,-401,-488,0,0,'f','Ship NPC',NULL,0);
 -- INSERT INTO npc VALUES (1002,2,-401,-487,0,0,'f','Ship NPC',NULL,0);
@@ -29,11 +29,15 @@ function useNPC( User , Counter , Param )
 end
 
 function nextCycle()
+    return;
+end;
+
+function dummy()
     if InitShips() then
         anchor = position(-290,53,0);
-        route = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4, -- 49x Süden
+        route = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4, -- 49x Sï¿½den
                  6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6, -- 52x Westen
-                 4,4,4,4,4,4,4,4,4,4,4,4,4, -- 13x Süden
+                 4,4,4,4,4,4,4,4,4,4,4,4,4, -- 13x Sï¿½den
                  6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6, -- 51x Westen
                  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 -- 19x Norden
                 }
@@ -78,7 +82,7 @@ function nextCycle()
         
         thisNPC:increaseSkill(1,"common language",100);
         --npc.base.functions.InitTalkLists()
-        --npc.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Aye. Was willst' Landratte?");  
+        --npc.base.functions.AddTraderTrigger("[Gg]rï¿½[ï¿½s]+e","Aye. Was willst' Landratte?");  
         
         TradSpeakLang={0,1};
         TradStdLang=0;
@@ -133,19 +137,19 @@ function AddPassanger(originator,message)
     if (string.find(message,"[Ss]chiff") ~= nil) then
         if not CheckForPassanger(originator.id) then
             if (GetPassanger(1) == nil) then
-                thisNPC:talk(CCharacter.say,"Aye. Du fährst mit und würdest zahlen. Noch wer?");
+                thisNPC:talk(CCharacter.say,"Aye. Du fï¿½hrst mit und wï¿½rdest zahlen. Noch wer?");
             else
-                thisNPC:talk(CCharacter.say,"Aye. Du fährst mit. Noch wer?");
+                thisNPC:talk(CCharacter.say,"Aye. Du fï¿½hrst mit. Noch wer?");
             end
             TryAddPassanger(originator);            
         else
-            thisNPC:talk(CCharacter.say,"Du fährst doch schon mit! Arr. Verscheisser mich nich!");
+            thisNPC:talk(CCharacter.say,"Du fï¿½hrst doch schon mit! Arr. Verscheisser mich nich!");
         end
     elseif (string.find(message,"[Ii]ch") ~= nil) then
         if not CheckForPassanger(originator.id) then
             if (GetPassanger(1) ~= nil) then
                 if TryAddPassanger(originator) then
-                    thisNPC:talk(CCharacter.say,"Aye. Du fährst mit. Noch wer?");
+                    thisNPC:talk(CCharacter.say,"Aye. Du fï¿½hrst mit. Noch wer?");
                 else
                     thisNPC:talk(CCharacter.say,"Das schiff is' voll.");
                 end
@@ -153,7 +157,7 @@ function AddPassanger(originator,message)
                 thisNPC:talk(CCharacter.say,"Was \""..User.lastSpokenText.."\"?");
             end
         else
-            thisNPC:talk(CCharacter.say,"Du fährst doch schon mit! Arr. Verscheisser mich nich!");
+            thisNPC:talk(CCharacter.say,"Du fï¿½hrst doch schon mit! Arr. Verscheisser mich nich!");
         end
     end
 end
