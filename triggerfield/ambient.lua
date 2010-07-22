@@ -113,7 +113,7 @@ AmbientList = {	add = function ( self, pos, dir, german, english, hours, months,
 				end
 }
 
-AmbientList:add( position(7,7,0), nil, "german", "english", nil, nil, 100 );
+AmbientList:add( position(7,7,0), {3,4,5}, "South, 30%", "South, 30%", nil, nil, 30 );
 
 function MoveToField(Char)
 	local this = getAmbient(Char);
