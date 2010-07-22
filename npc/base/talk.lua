@@ -23,6 +23,8 @@ talkNPC = class(function(self, rootNPC)
     self["_state"] = 0;
     self["_quest"] = 0;
     self["_saidNumber"] = nil;
+    
+    self["_nextCycleText"] = nil;
 end);
 
 function talkNPC:addCycleText(germanText, englishText)
@@ -58,8 +60,17 @@ function talkNPC:receiveText(player, text)
     return false;
 end;
 
-function talkNPC:nextCycle()
-    -- TODO
+function talkNPC:nextCycle(counter)
+    if (counter >= self._nextCycleText) then
+        self._nextCycleText = math.random(900, 3000);
+        local german, english = self._cycleText:getRandomMessage();
+        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, german);
+        thisNPC:talkLanguage(CCharacter.say, CPlayer.english, english);
+    else
+        self._nextCycleText = self._nextCycleText - counter;
+    end;
+    
+    return self._nextCycleText;
 end;
 
 function talkNPC:setQuestID(newID)

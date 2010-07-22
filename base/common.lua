@@ -1,26 +1,19 @@
 -- Generic Routine Collection
 module("base.common", package.seeall)
 
---[[
-    GetNLS
-    Select the proper text upon the language flag of the character
-    @param CharacterStruct - The character whos language flag matters
-    @param Text - german text
-    @param Text - english text
-
-    @return Text - german or english text version
-]]
+--- Select the proper text upon the language flag of the character
+-- @param User The character who's language flag matters
+-- @param textInDe german text
+-- @param textInEn english text
+-- @return Text german or english text version
 function GetNLS(User, textInDe, textInEn)
     return (User:getPlayerLanguage() == CPlayer.german and textInDe or textInEn);
 end;
 
---[[
-    InformNLS
-    Send a inform to the player in the language the player speaks
-    @param CharacterStruct - The character who receives the message
-    @param Text - german text
-    @param Text - english text
-]]
+--- Send a inform to the player in the language the player speaks
+-- @param User The character who receives the message
+-- @param textInDe german text
+-- @param textInEn english text
 function InformNLS(User, textInDe, textInEn)
     User:inform(GetNLS(User, textInDe, textInEn));
 end;

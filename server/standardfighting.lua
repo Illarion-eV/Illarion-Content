@@ -2,7 +2,6 @@
 -- All fights are handled with this script
 -- Written by Nitram and Xandrina
 
-
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
@@ -45,13 +44,13 @@ function onAttack_debug( Attacker, Defender, AttackPos )
 --]]
 
     -- Set up the attacker table that will contain all informations related to the attacker
-    Attacker = { ["Char"]=Attacker };
+    local Attacker = { ["Char"]=Attacker };
 ---[[DEBUG (Debug part, comment is out for productive version)
     AddDebugText( "Attacker Table loaded", 3, Attacker.Char );
 --]]
 
     -- Set up the defender table that will contain all informations related to the defender
-    Defender = { ["Char"]=Defender };
+    local Defender = { ["Char"]=Defender };
 ---[[DEBUG
     AddDebugText( "Defender Table loaded", 3, Attacker.Char );
 --]]
