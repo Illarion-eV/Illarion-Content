@@ -17,7 +17,30 @@ require("npc.base.consequence.inform")
 require("npc.base.talk")
 module("npc.queen_rosaline_edwards", package.seeall)
 
+scriptfound = true;
+
+initstarted = false;
+initdone = false;
+
+calledNextCycle = false;
+thisNPCNextCycle = false;
+finishedNextCycle = false;
+
+calledUseNPC = false;
+thisNPCUseNPC = false;
+finishedUseNPC = false;
+
+calledReceiveText = false;
+thisNPCReceiveText = false;
+finishedReceivedText = false;
+
+calledLookAt = false;
+thisNPCLookAt = false;
+finishedLookAt = false;
+
+
 function initNpc()
+initstarted = false;
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
@@ -1135,21 +1158,42 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+initdone = true;
 end;
 
 function receiveText(texttype, message, speaker)
+    calledReceiveText = true;
+    if (thisNPC ~= nil) then
+        thisNPCReceiveText = true;
+    end;
     speaker:inform("In recv message");
     mainNPC:receiveText(speaker, message);
+    finishedReceivedText = true;
 end;
-function nextCycle() 
-    if (initNpc ~= nil) then
-        initNpc();
-        initNpc = nil;
+function nextCycle()
+    calledNextCycle = true;
+    if (thisNPC ~= nil) then
+        thisNPCNextCycle = true;
     end;
     mainNPC:nextCycle();
+    finishedNextCycle = true;
 end;
-function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
---initNpc();
---initNpc = nil;
+function lookAtNpc(char, mode)
+    calledLookAt = true;
+    if (thisNPC ~= nil) then
+        thisNPCLookAt = true;
+    end;
+    mainNPC:lookAt(char, mode);
+    finishedLookAt = true;
+end;
+function useNPC(char, counter, param)
+    calledUseNPC = true;
+    if (thisNPC ~= nil) then
+        thisNPCUseNPC = true;
+    end;
+    mainNPC:use(char);
+    finishedUseNPC = true;
+end;
+initNpc();
+initNpc = nil;
 -- END
