@@ -50,6 +50,7 @@ function talkNPC:addTalkingEntry(newEntry)
 end;
 
 function talkNPC:receiveText(player, text)
+    player:inform("Recv Text");
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(player, text) then
             entry:execute(player);
@@ -130,12 +131,14 @@ function talkNPCEntry:addConsequence(consequence)
 end;
 
 function talkNPCEntry:checkEntry(player, text)
-    for _, pattern in pairs(self._trigger) do
-        local a, _, number = string.find(text, pattern);
+    for _1, pattern in pairs(self._trigger) do
+        player:inform("Checking pattern: " .. pattern);
+        local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
         if a then
+            player:inform("Pattern ok");
             local conditionsResult = true;
-            for _, condition in pairs(self._conditions) do
+            for _3, condition in pairs(self._conditions) do
                 if not condition:check(player) then
                     conditionResult = false;
                     break;
