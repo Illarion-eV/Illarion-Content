@@ -3,7 +3,7 @@
 
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
 
-require("npc.queen_rosaline_edwards");
+--require("npc.queen_rosaline_edwards");
 
 module("item.id_2_flour", package.seeall)
 
