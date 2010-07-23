@@ -11,10 +11,10 @@
 -- Last parsing: July 22, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
-require("npc.base.basic")
-require("npc.base.condition.language")
-require("npc.base.consequence.inform")
-require("npc.base.talk")
+--require("npc.base.basic")
+--require("npc.base.condition.language")
+--require("npc.base.consequence.inform")
+--require("npc.base.talk")
 module("npc.queen_rosaline_edwards", package.seeall)
 
 scriptfound = true;
