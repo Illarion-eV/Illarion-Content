@@ -104,7 +104,7 @@ function talkNPCEntry:addTrigger(text)
 end;
 
 function talkNPCEntry:addCondition(condition)
-    if (condition == nil or not condition:is_a(npc.base.conditions.condition.condition)) then
+    if (condition == nil or not condition:is_a(npc.base.condition.condition.condition)) then
         return;
     end;
     
