@@ -8,13 +8,13 @@ module("item.id_2_flour", package.seeall)
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     User:inform("Checking the Queen NPC");
     
-    if (npc == null) then
+    if (npc == nil) then
         User:inform("[npc] table not load.");
         return;
     end;
     User:inform("[npc] table is okay.");
     
-    if (npc.queen_rosaline_edwards == null) then
+    if (npc.queen_rosaline_edwards == nil) then
         User:inform("[npc.queen_rosaline_edwards] table not load.");
         return;
     end;
@@ -22,7 +22,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     User:inform("Fetching status flags:");
     
-    if (npc.queen_rosaline_edwards.scriptfound == null) then
+    if (npc.queen_rosaline_edwards.scriptfound == nil) then
         User:inform("[scriptfound] variable not load. Script not initializied");
         return;
     end;
