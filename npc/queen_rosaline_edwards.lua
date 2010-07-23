@@ -1164,6 +1164,10 @@ initdone = true;
 end;
 
 function receiveText(texttype, message, speaker)
+if (initNpc ~= nil) then
+initNpc();
+initNpc = nil;
+end;
     calledReceiveText = true;
     if (thisNPC ~= nil) then
         thisNPCReceiveText = true;
@@ -1173,6 +1177,10 @@ function receiveText(texttype, message, speaker)
     finishedReceivedText = true;
 end;
 function nextCycle()
+if (initNpc ~= nil) then
+initNpc();
+initNpc = nil;
+end;
     calledNextCycle = true;
     if (thisNPC ~= nil) then
         thisNPCNextCycle = true;
@@ -1181,6 +1189,10 @@ function nextCycle()
     finishedNextCycle = true;
 end;
 function lookAtNpc(char, mode)
+if (initNpc ~= nil) then
+initNpc();
+initNpc = nil;
+end;
     calledLookAt = true;
     if (thisNPC ~= nil) then
         thisNPCLookAt = true;
@@ -1189,6 +1201,10 @@ function lookAtNpc(char, mode)
     finishedLookAt = true;
 end;
 function useNPC(char, counter, param)
+    if (initNpc ~= nil) then
+        initNpc();
+        initNpc = nil;
+    end;
     calledUseNPC = true;
     if (thisNPC ~= nil) then
         thisNPCUseNPC = true;
@@ -1196,6 +1212,4 @@ function useNPC(char, counter, param)
     mainNPC:use(char);
     finishedUseNPC = true;
 end;
-initNpc();
-initNpc = nil;
 -- END
