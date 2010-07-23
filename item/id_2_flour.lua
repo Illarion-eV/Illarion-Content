@@ -14,42 +14,44 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     User:inform("[npc] table is okay.");
     
-    if (npc.atest1 == nil) then
-        User:inform("[npc.atest1] table not load.");
+    if (npc.queen_rosaline_edwards == nil) then
+        User:inform("[npc.queen_rosaline_edwards] table not load.");
         return;
     end;
-    User:inform("[npc.atest1] table is okay.");
+    User:inform("[npc.queen_rosaline_edwards] table is okay.");
     
     User:inform("Fetching status flags:");
     
-    if (npc.atest1.scriptfound == nil) then
+    if (npc.queen_rosaline_edwards.scriptfound == nil) then
         User:inform("[scriptfound] variable not load. Script not initializied");
         return;
     end;
-    if (not npc.atest1.scriptfound) then
+    if (not npc.queen_rosaline_edwards.scriptfound) then
         User:inform("[scriptfound] variable set to impossible value! WTF?!");
         return;
     end;
     User:inform("[scriptfound] variable OK");
     
-    statusText(User, "initstarted", npc.atest1.initstarted);
-    statusText(User, "initdone", npc.atest1.initdone);
+    statusText(User, "initstarted", npc.queen_rosaline_edwards.initstarted);
+    statusText(User, "initdone", npc.queen_rosaline_edwards.initdone);
     
-    statusText(User, "calledNextCycle", npc.atest1.calledNextCycle);
-    statusText(User, "thisNPCNextCycle", npc.atest1.thisNPCNextCycle);
-    statusText(User, "finishedNextCycle", npc.atest1.finishedNextCycle);
+    statusText(User, "calledNextCycle", npc.queen_rosaline_edwards.calledNextCycle);
+    statusText(User, "thisNPCNextCycle", npc.queen_rosaline_edwards.thisNPCNextCycle);
+    statusText(User, "finishedNextCycle", npc.queen_rosaline_edwards.finishedNextCycle);
     
-    statusText(User, "calledUseNPC", npc.atest1.calledUseNPC);
-    statusText(User, "thisNPCUseNPC", npc.atest1.thisNPCUseNPC);
-    statusText(User, "finishedUseNPC", npc.atest1.finishedUseNPC);
+    statusText(User, "calledUseNPC", npc.queen_rosaline_edwards.calledUseNPC);
+    statusText(User, "thisNPCUseNPC", npc.queen_rosaline_edwards.thisNPCUseNPC);
+    statusText(User, "finishedUseNPC", npc.queen_rosaline_edwards.finishedUseNPC);
     
-    statusText(User, "calledReceiveText", npc.atest1.calledReceiveText);
-    statusText(User, "thisNPCReceiveText", npc.atest1.thisNPCReceiveText);
-    statusText(User, "finishedReceivedText", npc.atest1.finishedReceivedText);
+    statusText(User, "calledReceiveText", npc.queen_rosaline_edwards.calledReceiveText);
+    statusText(User, "thisNPCReceiveText", npc.queen_rosaline_edwards.thisNPCReceiveText);
+    statusText(User, "finishedReceivedText", npc.queen_rosaline_edwards.finishedReceivedText);
     
-    statusText(User, "calledLookAt", npc.atest1.calledLookAt);
-    statusText(User, "thisNPCLookAt", npc.atest1.thisNPCLookAt);
-    statusText(User, "finishedLookAt", npc.atest1.finishedLookAt);
+    statusText(User, "calledLookAt", npc.queen_rosaline_edwards.calledLookAt);
+    statusText(User, "thisNPCLookAt", npc.queen_rosaline_edwards.thisNPCLookAt);
+    statusText(User, "finishedLookAt", npc.queen_rosaline_edwards.finishedLookAt);
+    
+    --- ä
 end
 
 function statusText(User, varname, var)
