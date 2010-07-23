@@ -15,7 +15,7 @@ require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-module("npc.queen_rosaline_edwards", package.seeall)
+module("npc.atest1", package.seeall)
 
 scriptfound = true;
 
