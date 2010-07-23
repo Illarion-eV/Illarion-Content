@@ -11,7 +11,7 @@
 -- Last parsing: July 22, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
---require("npc.base.basic")
+require("npc.base.basic")
 --require("npc.base.condition.language")
 --require("npc.base.consequence.inform")
 --require("npc.base.talk")
