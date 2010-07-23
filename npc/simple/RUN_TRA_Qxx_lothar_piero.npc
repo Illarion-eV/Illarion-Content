@@ -22,23 +22,24 @@ QuestID=0 --A developer will assign an ID
 --10% Instruments: 90, 332, 333, 335
 --10% Wands: 323, 2782, 2783, 2784, 2785
 
---Help 
+--Help
 
-"Help"->inform ( [Game Help] This is NPC is the carpenter Lothar Piero. Keyphrases: Hello, carpenter, YOURTRIGGER1, YOURTRIGGER2. )
-"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Schreiner Lothar Piero. Schlüsselwörter: Hallo, Schreiner, DEINTRIGGER1, DEINTRIGGER2. )
+"Help"->inform ( [Game Help] This NPC is <Insert Name> the <insert profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist <Name hier> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5. )
 
 --General speech
- 
-"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir"->"GERMAN1.","GERMAN2.","GERMAN3."
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"GERMAN1.","GERMAN2.","GERMAN3."
-"Farewell","Good bye","Bye","Fare thy well"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+
+"Farewell","Good bye","Bye","Fare thee well"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Ciao","Adieu","Au revoir",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Ciao","Adieu","Au revoir",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ciao","Adieu","Au revoir","Farebba","See you",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ciao","Adieu","Au revoir","Farebba","See you"->"GERMAN1.","GERMAN2.","GERMAN3."
 "How are you","How feel","How do you do"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"GERMAN1.","GERMAN2.","GERMAN3."
 "your name","who are you","who art thou"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
 "dein name","wer bist du","wer seid ihr","wie heißt"->"GERMAN1.","GERMAN2.","GERMAN3."
 
@@ -63,6 +64,9 @@ QuestID=0 --A developer will assign an ID
 "händler","kollege","höker","markt"->"OTHER NPCs1","OTHER NPCs2","OTHER NPCs3"
 "Gobaith",english->"ANSWER1","ANSWER2","ANSWER3"
 "Gobaith",german->"ANSWER1","ANSWER2","ANSWER3"
+
+"I am","my name"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ich bin","mein Name"->"GERMAN1.","GERMAN2.","GERMAN3."
 
 --More small talk; add at least five triggers
 
@@ -96,40 +100,80 @@ QuestID=0 --A developer will assign an ID
 --Main land factions
 
 "albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"albar"->"GERMAN1.","GERMAN2.","GERMAN3."
+"albar",german->"GERMAN1.","GERMAN2.","GERMAN3."
 "gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"gync","gynk"->"GERMAN1.","GERMAN2.","GERMAN3."
+"gync","gynk",german->"GERMAN1.","GERMAN2.","GERMAN3."
 "salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"salkama"->"GERMAN1.","GERMAN2.","GERMAN3."
+"salkama",german->"GERMAN1.","GERMAN2.","GERMAN3."
 
---Gods; each NPC should react on AT LEAST one god, being a follower of said god
+--Gods - use the triggers of the god the NPC worships or fights
 
-"GOD",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"GOTT"->"GERMAN1.","GERMAN2.","GERMAN3."
+"god"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Gott","Götter"->GERMAN1.","GERMAN2.","GERMAN3."
+
+"Adron",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Adron"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Bragon","Brágon",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Bragon","Brágon"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cherga",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Cherga"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Elara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Elara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Eldan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Eldan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Findari",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Findari"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Irmorom",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Irmorom"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Malachin","Malachín",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Malachin","Malachín"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Moshran",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Moshran"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Nargun","Nargún","Nargùn",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nargun","Nargún","Nargùn"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Oldra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Oldra"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ronagan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ronagan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Sirani",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Sirani"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Tanora","Zelphia",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Tanora","Zelphia"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ushara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ushara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Zhambra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Zhambra"->"GERMAN1.","GERMAN2.","GERMAN3."
 
 --Catching quest triggers
 
-"quest",english->"NO QUEST" 
-"quest",german->"NO QUEST"
-"task","adventure"->"NO QUEST"
-"Auftrag","Aufgabe","Abenteuer"->"NO QUEST"
+"quest",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"quest",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"task","adventure"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Auftrag","Aufgabe","Abenteuer"->"GERMAN1.","GERMAN2.","GERMAN3."
 
 --Last catch: Think about keyphrases the player might say and that are not caught until here
 
-"Yes"->"ANSWER1","ANSWER2" 
-"Ja"->"ANSWER1","ANSWER2" 
-"No"->"ANSWER1","ANSWER2"
-"Nein"->"ANSWER1","ANSWER2"
+"Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ja"->"GERMAN1.","GERMAN2.","GERMAN3."
+"No"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nein"->"GERMAN1.","GERMAN2.","GERMAN3."
 
---Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
+--Absolutely last catch: Everything a player says and is not caught earlier
+--This response should give the player a hint about what to ask the NPC
+--Optional Trigger /  Response is only given 1/5 of the time
 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH"
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH"
+--".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+--".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
