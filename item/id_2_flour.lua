@@ -3,10 +3,12 @@
 
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
 
+require("npc.queen_rosaline_edwards");
+
 module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    User:inform("Checking the Queen NPC");
+    User:inform("Checking the Queen NPC (ä)");
     
     if (npc == nil) then
         User:inform("[npc] table not load.");
@@ -16,7 +18,6 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     if (npc.queen_rosaline_edwards == nil) then
         User:inform("[npc.queen_rosaline_edwards] table not load.");
-        require("npc.queen_rosaline_edwards");
         return;
     end;
     User:inform("[npc.queen_rosaline_edwards] table is okay.");
@@ -51,8 +52,6 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     statusText(User, "calledLookAt", npc.queen_rosaline_edwards.calledLookAt);
     statusText(User, "thisNPCLookAt", npc.queen_rosaline_edwards.thisNPCLookAt);
     statusText(User, "finishedLookAt", npc.queen_rosaline_edwards.finishedLookAt);
-    
-    --- ä
 end
 
 function statusText(User, varname, var)
