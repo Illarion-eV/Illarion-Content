@@ -16,6 +16,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     if (npc.queen_rosaline_edwards == nil) then
         User:inform("[npc.queen_rosaline_edwards] table not load.");
+        require("npc.queen_rosaline_edwards");
         return;
     end;
     User:inform("[npc.queen_rosaline_edwards] table is okay.");
