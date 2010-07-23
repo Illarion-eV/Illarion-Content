@@ -7,13 +7,14 @@
 -- Author: Martin Karing
 
 require("base.common")
+require("base.class")
 
 module("npc.base.basic", package.seeall)
 
 --- Constructor for the baseNPC. This does not take any paramters.
 --
 -- The sole purpose is to prepare all required values in the NPC script.
-baseNPC = class(function(self)
+baseNPC = base.class.class(function(self)
     -- The state of the NPC. This value can be used to have the special parts
     -- of the NPC communicating with each other.
     self["state"] = baseNPC.stateNormal;
