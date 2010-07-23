@@ -120,7 +120,7 @@ function talkNPCEntry:addResponse(text)
     _responsesCount = _responsesCount + 1;
 end;
 
-function talkNPCEntry:addConsequences(consequence)
+function talkNPCEntry:addConsequence(consequence)
     if (consequence == nil or not consequence:is_a(npc.base.consequence.consequence.consequence)) then
         return;
     end;
