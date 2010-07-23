@@ -34,6 +34,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     User:inform("[scriptfound] variable OK");
     
+    statusText(User, "trueTest", npc.queen_rosaline_edwards.trueTest);
+    statusText(User, "falseTest", npc.queen_rosaline_edwards.falseTest);
+    
     statusText(User, "initstarted", npc.queen_rosaline_edwards.initstarted);
     statusText(User, "initdone", npc.queen_rosaline_edwards.initdone);
     

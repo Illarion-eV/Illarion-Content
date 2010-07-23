@@ -19,6 +19,9 @@ module("npc.queen_rosaline_edwards", package.seeall)
 
 scriptfound = true;
 
+trueTest = true;
+falseTest = false;
+
 initstarted = false;
 initdone = false;
 
@@ -39,7 +42,7 @@ thisNPCLookAt = false;
 finishedLookAt = false;
 
 function initNpc()
-initstarted = false;
+initstarted = true;
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
