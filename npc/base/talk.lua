@@ -145,7 +145,7 @@ function talkNPCEntry:checkEntry(player, text)
                 end;
             end;
             
-            if conditionResult then
+            if conditionsResult then
                 return true;
             end;
         end;
