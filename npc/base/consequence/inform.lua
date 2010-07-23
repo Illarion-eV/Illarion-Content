@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.inform", package.seeall)
 
-inform = class(npc.base.consequence.consequence.consequence,
+inform = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, text)
     npc.base.consequence.consequence.consequence:init(self);
     

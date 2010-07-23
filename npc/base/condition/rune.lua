@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.rune", package.seeall)
 
-rune = class(npc.base.condition.condition.condition,
+rune = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     

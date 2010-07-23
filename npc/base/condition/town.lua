@@ -4,7 +4,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.town", package.seeall)
 
-town = class(npc.base.condition.condition.condition,
+town = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     self["value"] = tonumber(value);

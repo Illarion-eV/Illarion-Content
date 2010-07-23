@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.basestate", package.seeall)
 
-basestate = class(npc.base.condition.condition.condition,
+basestate = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     if (value == "busy") then

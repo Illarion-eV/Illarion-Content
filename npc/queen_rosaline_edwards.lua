@@ -12,9 +12,9 @@
 --------------------------------------------------------------------------------
 
 require("npc.base.basic")
---require("npc.base.condition.language")
---require("npc.base.consequence.inform")
---require("npc.base.talk")
+require("npc.base.condition.language")
+require("npc.base.consequence.inform")
+require("npc.base.talk")
 module("npc.queen_rosaline_edwards", package.seeall)
 
 scriptfound = true;
@@ -38,7 +38,6 @@ calledLookAt = false;
 thisNPCLookAt = false;
 finishedLookAt = false;
 
---[[
 function initNpc()
 initstarted = false;
 mainNPC = npc.base.basic.baseNPC();
@@ -1160,7 +1159,7 @@ mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 initdone = true;
 end;
---]]
+
 function receiveText(texttype, message, speaker)
     calledReceiveText = true;
     if (thisNPC ~= nil) then
@@ -1194,6 +1193,6 @@ function useNPC(char, counter, param)
     mainNPC:use(char);
     finishedUseNPC = true;
 end;
---initNpc();
+initNpc();
 initNpc = nil;
 -- END

@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.quest", package.seeall)
 
-quest = class(npc.base.condition.condition.condition,
+quest = base.class.class(npc.base.condition.condition.condition,
 function(self, comp, value)
     npc.base.condition.condition.condition:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);

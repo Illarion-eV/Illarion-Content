@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.magictype", package.seeall)
 
-magictype = class(npc.base.condition.condition.condition,
+magictype = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     if (value == "nomagic") then

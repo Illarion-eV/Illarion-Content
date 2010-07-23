@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.rune", package.seeall)
 
-rune = class(npc.base.consequence.consequence.consequence,
+rune = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, group, id)
     npc.base.consequence.consequence.consequence:init(self);
     

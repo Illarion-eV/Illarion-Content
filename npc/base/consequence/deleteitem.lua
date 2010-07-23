@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.deleteitem", package.seeall)
 
-deleteitem = class(npc.base.consequence.consequence.consequence,
+deleteitem = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, id, count)
     npc.base.consequence.consequence.consequence:init(self);
     

@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.item", package.seeall)
 
-item = class(npc.base.condition.condition.condition,
+item = base.class.class(npc.base.condition.condition.condition,
 function(self, itemId, itemLoc, comp, value)
     npc.base.condition.condition.condition:init(self);
     self["item"] = itemId;

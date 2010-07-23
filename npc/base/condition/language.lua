@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.language", package.seeall)
 
-language = class(npc.base.condition.condition.condition,
+language = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     if (value == "german" or value == "deutsch") then

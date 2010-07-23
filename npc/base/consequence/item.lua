@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.item", package.seeall)
 
-item = class(npc.base.consequence.consequence.consequence,
+item = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, id, count, quality, data)
     npc.base.consequence.consequence.consequence:init(self);
     

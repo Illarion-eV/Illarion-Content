@@ -11,7 +11,7 @@ require("npc.base.basic")
 
 module("npc.base.talk", package.seeall)
 
-talkNPC = class(function(self, rootNPC)
+talkNPC = base.class.class(function(self, rootNPC)
     if (rootNPC == nil or not rootNPC:is_a(npc.base.basic.baseNPC)) then
         return;
     end;
@@ -86,7 +86,7 @@ function talkNPC:setQuestID(newID)
     self._quest = newID;
 end;
 
-talkNPCEntry = class(function(self)
+talkNPCEntry = base.class.class(function(self)
     self["_trigger"] = {};
     self["_conditions"] = {};
     

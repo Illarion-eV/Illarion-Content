@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.sex", package.seeall)
 
-sex = class(npc.base.condition.condition.condition,
+sex = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     if (value == "male") then

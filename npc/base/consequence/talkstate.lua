@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.talkstate", package.seeall)
 
-talkstate = class(npc.base.consequence.consequence.consequence,
+talkstate = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, mode)
     npc.base.consequence.consequence.consequence:init(self);
     

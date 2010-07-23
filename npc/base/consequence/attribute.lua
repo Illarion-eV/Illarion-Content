@@ -3,7 +3,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.attribute", package.seeall)
 
-attribute = class(npc.base.consequence.consequence.consequence,
+attribute = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, name, mode, value)
     npc.base.consequence.consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);

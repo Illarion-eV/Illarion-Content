@@ -3,7 +3,7 @@ require("npc.base.condition.condition")
 
 module("npc.base.condition.chance", package.seeall)
 
-chance = class(npc.base.condition.condition.condition,
+chance = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
     self["value"] = math.min(100, math.max(0, value + 1 - 1));

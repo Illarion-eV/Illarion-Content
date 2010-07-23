@@ -4,7 +4,7 @@ require("npc.base.consequence.consequence")
 
 module("npc.base.consequence.rankpoints", package.seeall)
 
-rankpoints = class(npc.base.consequence.consequence.consequence,
+rankpoints = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, faction, mode, value)
     npc.base.consequence.consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
