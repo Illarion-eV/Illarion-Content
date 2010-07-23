@@ -24,7 +24,7 @@ talkNPC = base.class.class(function(self, rootNPC)
     self["_quest"] = 0;
     self["_saidNumber"] = nil;
     
-    self["_nextCycleText"] = nil;
+    self["_nextCycleText"] = -1;
 end);
 
 function talkNPC:addCycleText(germanText, englishText)
