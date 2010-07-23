@@ -117,7 +117,7 @@ function talkNPCEntry:addResponse(text)
         return;
     end;
     table.insert(self._responses, text);
-    _responsesCount = _responsesCount + 1;
+    self._responsesCount = self._responsesCount + 1;
 end;
 
 function talkNPCEntry:addConsequence(consequence)
