@@ -15,5 +15,8 @@ function(self, value)
 end);
 
 function _language_helper_equal(self, player)
+    player:inform("Checking language condition");
+    player:inform("Player value: " .. player:getPlayerLanguage());
+    player:inform("Expected value: " .. self.value);
     return (player:getPlayerLanguage() == self.value);
 end;
