@@ -132,13 +132,13 @@ end;
 
 function talkNPCEntry:checkEntry(player, text)
     for _1, pattern in pairs(self._trigger) do
-        player:inform("Checking pattern: " .. pattern);
         local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
         if (a ~= nil) then
             player:inform("Pattern ok");
             local conditionsResult = true;
             for _3, condition in pairs(self._conditions) do
+                player:inform("Checking Condition");
                 if not condition:check(player) then
                     conditionResult = false;
                     break;
