@@ -50,7 +50,6 @@ function talkNPC:addTalkingEntry(newEntry)
 end;
 
 function talkNPC:receiveText(player, text)
-    player:inform("Recv Text");
     for _, entry in pairs(self._entry) do
         if entry:checkEntry(player, text) then
             entry:execute(player);
@@ -100,7 +99,6 @@ function talkNPCEntry:addTrigger(text)
     if (text == nil or type(text) ~= "string") then
         return;
     end;
-    text = string.gsub(text, "%%NUMBER", "(%d+)");
     table.insert(self._trigger, text);
 end;
 
@@ -135,12 +133,10 @@ function talkNPCEntry:checkEntry(player, text)
         local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
         if (a ~= nil) then
-            player:inform("Pattern ok");
             local conditionsResult = true;
             for _3, condition in pairs(self._conditions) do
-                player:inform("Checking Condition");
                 if not condition:check(player) then
-                    conditionResult = false;
+                    conditionsResult = false;
                     break;
                 end;
             end;
