@@ -74,6 +74,10 @@ baseNPC = base.class.class(function(self)
     -- This variable stores the last Unix timestamp when a confusion message
     -- was displayed. This is needed to avoid spamming with this messages.
     self["_lastConfusionTimestamp"] = 0;
+    
+    -- This variable stores if the NPC is supposed to to introduce automatically
+    -- to the player.
+    self["_autointroduce"] = true;
 end);
 
 --- Constant for the state value of the NPC.
@@ -191,6 +195,22 @@ function baseNPC:receiveText(speaker, text)
         return false;
     end;
     
+    if not thisNPC:isInRange(speaker, 2) then
+        return false;
+    end;
+
+    if (speaker.id == thisNPC.id) then
+        return false;
+    end;
+
+    if (speaker:get_type() ~= 0) then
+        return false;
+    end;
+
+    if self._autointroduce then
+        speaker:introduce(thisNPC);
+    end;
+    
     if not self:checkLanguageOK(speaker) then
         self:_displayLanguageConfusion();
         return false;
@@ -293,7 +313,11 @@ end;
 --  @param char the character who is looking at the NPC
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:lookAt(char, mode)
-    base.common.InformNLS(char, self._lookAtMsgDE, self._lookAtMsgUS);
+    char:sendCharDescription(thisNPC.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
+    
+    if self._autointroduce then
+        char:introduce(thisNPC);
+    end;
 end;
 
 --- This method handles all use methods that are done to the NPC. When ever a
@@ -305,6 +329,10 @@ function baseNPC:use(char)
     thisNPC.activeLanguage = self._defaultLanguage;
     thisNPC:talkLanguage(CCharacter.say, CPlayer.german, self._useMsgDE);
     thisNPC:talkLanguage(CCharacter.say, CPlayer.english, self._useMsgUS);
+    
+    if self._autointroduce then
+        char:introduce(thisNPC);
+    end;
 end;
 
 --- This is a cleanup function that should be called once the initialization of
@@ -319,6 +347,14 @@ function baseNPC:initDone()
     self["setUseMessage"] = nil;
     self["setConfusedMessage"] = nil;
     self["initDone"] = nil;
+end;
+
+--- This function set the autointroduce mode of this script. In case its set to
+--- true the NPC will introduce automatically to the player talking to him.
+--
+--  @param autointroduce the new state for the autointroduce state
+function baseNPC:setAutoIntroduceMode(autointroduce)
+    self["_autointroduce"] = autointroduce;
 end;
 
 --- This function learns the NPC the languages skills needed to work properly.

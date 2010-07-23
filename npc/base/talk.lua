@@ -21,7 +21,6 @@ talkNPC = base.class.class(function(self, rootNPC)
     self["_cycleText"] = nil;
     
     self["_state"] = 0;
-    self["_quest"] = 0;
     self["_saidNumber"] = nil;
     
     self["_nextCycleText"] = -1;
@@ -71,19 +70,6 @@ function talkNPC:nextCycle(counter)
     end;
     
     return self._nextCycleText;
-end;
-
-function talkNPC:setQuestID(newID)
-    if (newID == nil) then
-        return
-    end;
-    newID = newID + 1 - 1;
-    
-    if (newID <= 0) then
-        return;
-    end;
-    
-    self._quest = newID;
 end;
 
 talkNPCEntry = base.class.class(function(self)
