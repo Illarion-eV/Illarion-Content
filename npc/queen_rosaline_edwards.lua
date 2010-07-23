@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: July 22, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 require("npc.base.basic")
@@ -17,32 +17,7 @@ require("npc.base.consequence.inform")
 require("npc.base.talk")
 module("npc.queen_rosaline_edwards", package.seeall)
 
-scriptfound = true;
-
-trueTest = true;
-falseTest = false;
-
-initstarted = false;
-initdone = false;
-
-calledNextCycle = false;
-thisNPCNextCycle = false;
-finishedNextCycle = false;
-
-calledUseNPC = false;
-thisNPCUseNPC = false;
-finishedUseNPC = false;
-
-calledReceiveText = false;
-thisNPCReceiveText = false;
-finishedReceivedText = false;
-
-calledLookAt = false;
-thisNPCLookAt = false;
-finishedLookAt = false;
-
 function initNpc()
-initstarted = true;
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
@@ -73,9 +48,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("GrüßŸe");
-talkEntry:addTrigger("GrußŸ");
-talkEntry:addTrigger("Seid gegrüßŸt");
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -126,7 +101,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("TschüßŸ");
+talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehabt euch wohl");
@@ -195,9 +170,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
-talkEntry:addTrigger("wie heißŸt");
-talkEntry:addResponse("Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißŸt, wer ich bin? Aus meinen Augen!");
-talkEntry:addResponse("Wenn ihr wirklich nicht wißŸt, wer ich bin, dann fragt einen meiner Diener.");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißt, wer ich bin? Aus meinen Augen!");
+talkEntry:addResponse("Wenn ihr wirklich nicht wißt, wer ich bin, dann fragt einen meiner Diener.");
 talkEntry:addResponse("Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -271,7 +246,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ihr kommt doch nicht etwa zu mir, um über einen Schmutzfleck im Ozean zu heulen. Betrachtet stattdessen den Glanz Cadomyrs.");
-talkEntry:addResponse("Gobaith war dem Untergang geweiht. Woher ich das weißŸ? Ich bin die Königin, schon vergessen?");
+talkEntry:addResponse("Gobaith war dem Untergang geweiht. Woher ich das weiß? Ich bin die Königin, schon vergessen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,13 +479,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gruft");
-talkEntry:addResponse("Das Grab meines Vaters kann in einer beeindruckenden Gruft außŸerhalb der Stadt gefunden werden. Ich weise euch an, das Gedenken meines Vaters zu ehren. Jetzt!");
+talkEntry:addResponse("Das Grab meines Vaters kann in einer beeindruckenden Gruft außerhalb der Stadt gefunden werden. Ich weise euch an, das Gedenken meines Vaters zu ehren. Jetzt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Feind");
-talkEntry:addResponse("Cadomyr hat keine Feinde, außŸer diesem Bastard Baron Hastings, der den Thron für sich beansprucht. Aber ich bin mir sicher, er wird es nicht überleben, wenn er wirklich nach ihm greift.");
+talkEntry:addResponse("Cadomyr hat keine Feinde, außer diesem Bastard Baron Hastings, der den Thron für sich beansprucht. Aber ich bin mir sicher, er wird es nicht überleben, wenn er wirklich nach ihm greift.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,13 +505,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Baumeister");
-talkEntry:addResponse("Robertus ist mein Baumeister. Oh ja, er wird mir das großŸartigste Grab bauen, was je ein Mensch gesehen hat. Mein Andenken wird die Zeitalter überdauern.");
+talkEntry:addResponse("Robertus ist mein Baumeister. Oh ja, er wird mir das großartigste Grab bauen, was je ein Mensch gesehen hat. Mein Andenken wird die Zeitalter überdauern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Robertus");
-talkEntry:addResponse("Robertus ist mein Baumeister. Oh ja, er wird mir das großŸartigste Grab bauen, was je ein Mensch gesehen hat. Mein Andenken wird die Zeitalter überdauern.");
+talkEntry:addResponse("Robertus ist mein Baumeister. Oh ja, er wird mir das großartigste Grab bauen, was je ein Mensch gesehen hat. Mein Andenken wird die Zeitalter überdauern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,7 +529,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Palast");
-talkEntry:addResponse("Mein Palast wurde von fleißŸigen Sklaven und Handwerkern gebaut. Aber er wurde nicht für mich alleine errichtet; sondern auch für den Ruhm Cadomyrs.");
+talkEntry:addResponse("Mein Palast wurde von fleißigen Sklaven und Handwerkern gebaut. Aber er wurde nicht für mich alleine errichtet; sondern auch für den Ruhm Cadomyrs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,7 +625,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ein abtrünniger Magier der zugegebenerweise weißŸ, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großŸzügiger Anführer zu sein.");
+talkEntry:addResponse("Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.");
 talkEntry:addResponse("Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -665,7 +640,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich habe keine Probleme mit Runewick, solange sie ihren FüßŸe nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig.");
+talkEntry:addResponse("Ich habe keine Probleme mit Runewick, solange sie ihren Füße nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -835,7 +810,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Elara, hah, eine meist überschätzte Göttin. Manche denken, sie weißŸ alles; aber wie kann eine einzelne Gottheit mehr wissen als Generationen von Albariern?");
+talkEntry:addResponse("Elara, hah, eine meist überschätzte Göttin. Manche denken, sie weiß alles; aber wie kann eine einzelne Gottheit mehr wissen als Generationen von Albariern?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,7 +836,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Findaris Geschenk ist der Wind. Er treibt unsere Segelboote an und bringt die Regenwolken. Aber der Wind bläßŸt auch immer wieder diesen Sand in meinen Palast! Nun, die Fünf sind niemals ein Freund, aber auch nicht ein Feind.");
+talkEntry:addResponse("Findaris Geschenk ist der Wind. Er treibt unsere Segelboote an und bringt die Regenwolken. Aber der Wind bläßt auch immer wieder diesen Sand in meinen Palast! Nun, die Fünf sind niemals ein Freund, aber auch nicht ein Feind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,7 +855,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachán");
+talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You must be speaking about the god of battles. He is our saviour and saint, so pray to him every day and every night. That was an order!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -888,8 +863,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachán");
-talkEntry:addResponse("Ihr müßŸt über den Gott der Schlachten reden. Er ist unser Erlöser und Schutzpatron, also betet zu ihm an jedem Tag und in jeder Nacht. Das war ein Befehl!");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Ihr müßt über den Gott der Schlachten reden. Er ist unser Erlöser und Schutzpatron, also betet zu ihm an jedem Tag und in jeder Nacht. Das war ein Befehl!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,7 +905,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Hah! Ich werde Cadomyr in blühende Landschaften verwandeln, auch ohne die Hilfe der verwunschenen Oldra. Bewässerung läßŸt Pflanzen gedeihen, nicht ein Gebet zu dieser unbedeutenden Göttin.");
+talkEntry:addResponse("Hah! Ich werde Cadomyr in blühende Landschaften verwandeln, auch ohne die Hilfe der verwunschenen Oldra. Bewässerung läßt Pflanzen gedeihen, nicht ein Gebet zu dieser unbedeutenden Göttin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -984,7 +959,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Ich weißŸ immernoch nicht so recht, wen ich für all den Sand der Welt verantwortlich machen soll; Ushara oder Brágon? Ich ehre sie beiden trotzdem, mehr aber auch nicht.");
+talkEntry:addResponse("Ich weiß immernoch nicht so recht, wen ich für all den Sand der Welt verantwortlich machen soll; Ushara oder Brágon? Ich ehre sie beiden trotzdem, mehr aber auch nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +972,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Seid loyal gegenüber eurer Königin und Zhambra wird es gutheißŸen. Seid ungehorsam und ihr werdet schon sehen, was Zhambra für euch bereit hält, wenn ihr ins Jenseits übergeht...");
+talkEntry:addResponse("Seid loyal gegenüber eurer Königin und Zhambra wird es gutheißen. Seid ungehorsam und ihr werdet schon sehen, was Zhambra für euch bereit hält, wenn ihr ins Jenseits übergeht...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1146,12 +1121,12 @@ end;
 talkingNPC:addCycleText("#me kämmt sich die Haare und flucht vor sich hin.", "#me combs her hair, cursing to herself.");
 talkingNPC:addCycleText("Auf die Knie! Sofort!", "Kneel down! Now!");
 talkingNPC:addCycleText("Vernünftige Diener zu finden wird auch immer schwieriger.", "Finding proper servants becomes harder and harder.");
-talkingNPC:addCycleText("Wo ist Hassan schon wieder! Schickt nach meinem Fächelwedler, mir ist heißŸ!", "Where is Hassan again? Send word to my fan waver, it is hot!");
-talkingNPC:addCycleText("#me starrt auf ihre in fein gefertigte Sandalen gekleideten FüßŸe und murmelt: 'Blau könnte meinen Zehennägeln auch mal gut stehen.'", "#me stares at her feet, clad in fine sandals, murmuring: 'I should consider painting my toenails blue.'");
+talkingNPC:addCycleText("Wo ist Hassan schon wieder! Schickt nach meinem Fächelwedler, mir ist heiß!", "Where is Hassan again? Send word to my fan waver, it is hot!");
+talkingNPC:addCycleText("#me starrt auf ihre in fein gefertigte Sandalen gekleideten Füße und murmelt: 'Blau könnte meinen Zehennägeln auch mal gut stehen.'", "#me stares at her feet, clad in fine sandals, murmuring: 'I should consider painting my toenails blue.'");
 talkingNPC:addCycleText("Diplomatie, Urteile, regieren, Krieg führen - eine Königin hat es nicht leicht. Alles für Cadomyr!", "Diplomacy, sentencing, ruling, warfare - a queen has a hard day. All for Cadomyr!");
 talkingNPC:addCycleText("Gehorcht!", "Obey!");
 talkingNPC:addCycleText("Bringt mir Eselsmilch und bereitet mein Bad vor.", "Bring forth the donkey milk and prepare my bath.");
-talkingNPC:addCycleText("Befehle, Befehle, Befehle. Warum muss ich immer jedem sagen, was er zu tun hat? Denkt denn hier niemand außŸer mir?", "Orders, orders, orders. Why do I have to tell everyone what do so? Am I the only one who thinks?");
+talkingNPC:addCycleText("Befehle, Befehle, Befehle. Warum muss ich immer jedem sagen, was er zu tun hat? Denkt denn hier niemand außer mir?", "Orders, orders, orders. Why do I have to tell everyone what do so? Am I the only one who thinks?");
 talkingNPC:addCycleText("Cadomyr wurde nicht auf Sand gebaut; Cadomyr wurde auf Traditionen gebaut, die älter sind als so manches Sandkorn.", "Cadomyr was not founded on sand; it was founded on traditions, even older than most sand grains.");
 talkingNPC:addCycleText("Wer hat da ein Licht auf Fenstersims entzündet? Was geht nur wieder in diesem Palast vor sich.", "Who left light on the porch and for who? What goes on in this palace!");
 mainNPC:addLanguage(0);
@@ -1160,56 +1135,12 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-initdone = true;
 end;
 
-function receiveText(texttype, message, speaker)
-if (initNpc ~= nil) then
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
 initNpc = nil;
-end;
-    calledReceiveText = true;
-    if (thisNPC ~= nil) then
-        thisNPCReceiveText = true;
-    end;
-    speaker:inform("In recv message");
-    mainNPC:receiveText(speaker, message);
-    finishedReceivedText = true;
-end;
-function nextCycle()
-if (initNpc ~= nil) then
-initNpc();
-initNpc = nil;
-end;
-    calledNextCycle = true;
-    if (thisNPC ~= nil) then
-        thisNPCNextCycle = true;
-    end;
-    mainNPC:nextCycle();
-    finishedNextCycle = true;
-end;
-function lookAtNpc(char, mode)
-if (initNpc ~= nil) then
-initNpc();
-initNpc = nil;
-end;
-    calledLookAt = true;
-    if (thisNPC ~= nil) then
-        thisNPCLookAt = true;
-    end;
-    mainNPC:lookAt(char, mode);
-    finishedLookAt = true;
-end;
-function useNPC(char, counter, param)
-    if (initNpc ~= nil) then
-        initNpc();
-        initNpc = nil;
-    end;
-    calledUseNPC = true;
-    if (thisNPC ~= nil) then
-        thisNPCUseNPC = true;
-    end;
-    mainNPC:use(char);
-    finishedUseNPC = true;
-end;
 -- END
