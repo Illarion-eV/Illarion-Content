@@ -14,35 +14,35 @@ QuestID=304
 --Queststatus=4 the staff/pegleg is stolen
 --Queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 )
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
-"quest","job","problem",german,queststatus=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
-"quest","job","problem",english,queststatus=4,item(208,belt)->"xxx",queststatus=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
-"peg leg","task","adventure","mission","money","earn",queststatus=4,item(208,belt)->"xxx",queststatus=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
+"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
+"quest","job","problem",german,queststatus(304)=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
+"quest","job","problem",english,queststatus(304)=4,item(208,belt)->"xxx",queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
+"peg leg","task","adventure","mission","money","earn",queststatus(304)=4,item(208,belt)->"xxx",queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
-"quest","job","problem",german,queststatus=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
-"quest","job","problem",english,queststatus=4->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus=4->"xxx"
+"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
+"quest","job","problem",german,queststatus(304)=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
+"quest","job","problem",english,queststatus(304)=4->"xxx"
+"peg leg","task","adventure","mission","money","earn",queststatus(304)=4->"xxx"
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
-"quest","job","problem",german,queststatus=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'Es ist nicht wichtig ob man gewinnt oder verliert, so lange das was man tut wirklich cool aussieht.'"
-"quest","job","problem",english,queststatus=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
-"peg leg","task","adventure","mission","money","earn",queststatus=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"quest","job","problem",german,queststatus(304)=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'Es ist nicht wichtig ob man gewinnt oder verliert, so lange das was man tut wirklich cool aussieht.'"
+"quest","job","problem",english,queststatus(304)=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"peg leg","task","adventure","mission","money","earn",queststatus(304)=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
-"quest","job","problem",german,queststatus>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
-"quest","job","problem",english,queststatus>=2,item(208,belt)->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus>=2,item(208,belt)->"xxx"
+"Holz","verdienen","aufgabe","abenteuer",queststatus(304)>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
+"quest","job","problem",german,queststatus(304)>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
+"quest","job","problem",english,queststatus(304)>=2,item(208,belt)->"xxx"
+"peg leg","task","adventure","mission","money","earn",queststatus(304)>=2,item(208,belt)->"xxx"
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
-"quest","job","problem",german,queststatus>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
-"quest","job","problem",english,queststatus>=1->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus>=1->"xxx"
+"Holz","verdienen","aufgabe","abenteuer",queststatus(304)>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
+"quest","job","problem",german,queststatus(304)>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
+"quest","job","problem",english,queststatus(304)>=1->"xxx"
+"peg leg","task","adventure","mission","money","earn",queststatus(304)>=1->"xxx"
 
-"Holz","verdienen","aufgabe","abenteuer"->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus=1
-"quest","job","problem",german->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus=1
-"quest","job","problem",english->"xxx",queststatus=1
-"peg leg","task","adventure","mission","money","earn"->"xxx",queststatus=1
+"Holz","verdienen","aufgabe","abenteuer"->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus(304)=1
+"quest","job","problem",german->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus(304)=1
+"quest","job","problem",english->"xxx",queststatus(304)=1
+"peg leg","task","adventure","mission","money","earn"->"xxx",queststatus(304)=1
 
 
 --generall
