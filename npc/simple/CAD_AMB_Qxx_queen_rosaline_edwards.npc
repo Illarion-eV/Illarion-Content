@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: July 22, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 24, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Queen Rosaline Edwards"
@@ -22,6 +22,7 @@ job = "Regent"
 language = common
 language = human
 defaultLanguage = common
+autointroduce = on
 
 author = "Estralis Seborian"
 author = "Nitram"
@@ -32,7 +33,6 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-questid = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Queen Rosaline Edwards of Cadomyr. Keyphrases: Hail my queen, Cadomyr, enemies, Sir Reginald, tomb, grave.")
