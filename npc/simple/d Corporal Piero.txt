@@ -5,6 +5,8 @@ race=human
 direction=south
 QuestID=305
 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 --NPC by Rincewind
 
 --Piero ist Corporal in Cadomyr. Er bittet mutige abenteurer darum ihm einen Bootengang zu erledingen. Quest: Spionage bei den Piraten, Position Ruine
