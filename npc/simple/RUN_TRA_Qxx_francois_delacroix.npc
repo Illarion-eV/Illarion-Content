@@ -1,132 +1,153 @@
-name="Francois Delacroix" 
-sex=male --male/female
-race=human --human, elf, dwarf, lizard, orc,...
-position=911, 798, 1 --Runewick, market place
-direction=North --North/South/West/East 
-QuestID=0 --A developer will assign an ID
+------------------------------------------------------------------------------AC
+-- NPC Name: Francois Delacroix                                          None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  911, 798, 1            --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Estralis Seborian
+name = "Francois Delacroix"
+race = human
+sex = male
+position = 911, 798, 1
+direction = north
+affiliation = "None"
+job = "none"
 
---This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
+language = common
+language = human
+defaultLanguage = common
 
---10% Tools (Farmer): 51, 126, 258, 271
---5% Tools (Fisher): 72
---10% Animal skins: 69, 2547, 2586
---10% Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
---5% Fish: 73, 355, 455
---10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
---10% Milk: 330
---10% Raw meat: 307, 552, 553, 2934
---10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+author = "not set"
 
---Help 
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+questid = 0
 
-"Help"->inform ( [Game Help] This is NPC is the peasant Francois Delacroix. Keyphrases: Hello, peasant, YOURTRIGGER1, YOURTRIGGER2. )
-"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Bauer Francois Delacroix. Schlüsselwörter: Hallo, Bauer, DEINTRIGGER1, DEINTRIGGER2. )
+-- NPC by Estralis Seborian
 
---General speech
- 
-"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"GERMAN1.","GERMAN2.","GERMAN3."
-"Farewell","Good bye","Bye","Fare thy well"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Ciao","Adieu","Au revoir",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Ciao","Adieu","Au revoir",german->"GERMAN1.","GERMAN2.","GERMAN3."
-"How are you","How feel","How do you do"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"GERMAN1.","GERMAN2.","GERMAN3."
-"your name","who are you","who art thou"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"dein name","wer bist du","wer seid ihr","wie heißt"->"GERMAN1.","GERMAN2.","GERMAN3."
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
 
---Catching typical NPC phrases
+-- 10% Tools (Farmer): 51, 126, 258, 271
+-- 5% Tools (Fisher): 72
+-- 10% Animal skins: 69, 2547, 2586
+-- 10% Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
+-- 5% Fish: 73, 355, 455
+-- 10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
+-- 10% Milk: 330
+-- 10% Raw meat: 307, 552, 553, 2934
+-- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388
 
-"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"was verkauf","was kauf","warenliste","preis von"->"GERMAN1.","GERMAN2.","GERMAN3."
-"tell something"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"erzähl was","erzähl etwas"->"GERMAN1.","GERMAN2.","GERMAN3."
+-- Help
+"Help" -> inform("[Game Help] This is NPC is the peasant Francois Delacroix. Keyphrases: Hello, peasant, YOURTRIGGER1, YOURTRIGGER2.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bauer Francois Delacroix. SchlÃ¼sselwÃ¶rter: Hallo, Bauer, DEINTRIGGER1, DEINTRIGGER2.")
 
---Small talk: The talk here should focus on possible questions. Feel free to add more!
+-- General speech
+"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Good bye", "Bye", "Fare thy well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
-"profession"->"ANSWER1","ANSWER2","ANSWER3"
-"beruf"->"ANSWER1","ANSWER2","ANSWER3"
-"job",german->"ANSWER1","ANSWER2","ANSWER3"
-"job",english->"ANSWER1","ANSWER2","ANSWER3"
-"PROFESSION"->"ANSWER1","ANSWER2","ANSWER3"
-"BERUF"->"ANSWER1","ANSWER2","ANSWER3"
-"LOCATION"->"ANSWER1","ANSWER2","ANSWER3"
-"ORT"->"ANSWER1","ANSWER2","ANSWER3"
-"trader","merchant","collegue","vendor","market"->"OTHER NPCs1","OTHER NPCs2","OTHER NPCs3"
-"händler","kollege","höker","markt"->"OTHER NPCs1","OTHER NPCs2","OTHER NPCs3"
-"Gobaith",english->"ANSWER1","ANSWER2","ANSWER3"
-"Gobaith",german->"ANSWER1","ANSWER2","ANSWER3"
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzÃ¤hl was", "erzÃ¤hl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
---More small talk; add at least five triggers
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"beruf" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"job", german -> "ANSWER1", "ANSWER2", "ANSWER3"
+"job", english -> "ANSWER1", "ANSWER2", "ANSWER3"
+"PROFESSION" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"BERUF" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"LOCATION" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"ORT" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"trader", "merchant", "collegue", "vendor", "market" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
+"hÃ¤ndler", "kollege", "hÃ¶ker", "markt" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
+"Gobaith", english -> "ANSWER1", "ANSWER2", "ANSWER3"
+"Gobaith", german -> "ANSWER1", "ANSWER2", "ANSWER3"
 
-"YOURTRIGGER1"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"YOURTRIGGER2"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"YOURTRIGGER3"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"YOURTRIGGER4"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"YOURTRIGGER5"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+-- More small talk; add at least five triggers
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
-"DEINTRIGGER1"->"GERMAN1.","GERMAN2.","GERMAN3."
-"DEINTRIGGER2"->"GERMAN1.","GERMAN2.","GERMAN3."
-"DEINTRIGGER3"->"GERMAN1.","GERMAN2.","GERMAN3."
-"DEINTRIGGER4"->"GERMAN1.","GERMAN2.","GERMAN3."
-"DEINTRIGGER5"->"GERMAN1.","GERMAN2.","GERMAN3."
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "kÃ¶nigin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "kÃ¶nigin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
---Faction stuff
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
-"Elvaine","Morgan","archmage","Erzmagier",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Elvaine","Morgan","archmage","Erzmagier"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Runewick",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Runewick"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Valerio","Guilianni","Don",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Valerio","Guilianni","Don"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Galmair",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Galmair"->"GERMAN1.","GERMAN2.","GERMAN3."
-"rosaline","königin","queen","edwards",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"rosaline","königin","queen","edwards"->"GERMAN1.","GERMAN2.","GERMAN3."
-"Cadomyr",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Cadomyr"->"GERMAN1.","GERMAN2.","GERMAN3."
+-- Gods; each NPC should react on AT LEAST one god, being a follower of said god
+"GOD", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"GOTT" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
---Main land factions
+-- Catching quest triggers
+"quest", english -> "NO QUEST"
+"quest", german -> "NO QUEST"
+"task", "adventure" -> "NO QUEST"
+"Auftrag", "Aufgabe", "Abenteuer" -> "NO QUEST"
 
-"albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"albar"->"GERMAN1.","GERMAN2.","GERMAN3."
-"gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"gync","gynk"->"GERMAN1.","GERMAN2.","GERMAN3."
-"salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"salkama"->"GERMAN1.","GERMAN2.","GERMAN3."
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "ANSWER1", "ANSWER2"
+"Ja" -> "ANSWER1", "ANSWER2"
+"No" -> "ANSWER1", "ANSWER2"
+"Nein" -> "ANSWER1", "ANSWER2"
 
---Gods; each NPC should react on AT LEAST one god, being a follower of said god
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
-"GOD",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"GOTT"->"GERMAN1.","GERMAN2.","GERMAN3."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
---Catching quest triggers
-
-"quest",english->"NO QUEST" 
-"quest",german->"NO QUEST"
-"task","adventure"->"NO QUEST"
-"Auftrag","Aufgabe","Abenteuer"->"NO QUEST"
-
---Last catch: Think about keyphrases the player might say and that are not caught until here
-
-"Yes"->"ANSWER1","ANSWER2" 
-"Ja"->"ANSWER1","ANSWER2" 
-"No"->"ANSWER1","ANSWER2"
-"Nein"->"ANSWER1","ANSWER2"
-
---Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH"
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH" 
-cycletext "GERMAN","ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN", "ENGLISH"
