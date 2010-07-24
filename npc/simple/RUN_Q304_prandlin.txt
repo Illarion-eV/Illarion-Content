@@ -3,7 +3,7 @@ position=418,349,0 -- next at a ++chimney++ at Galmair!
 sex=male
 race=halfling
 direction=northeast
-QuestID=0
+QuestID=304
 
 --NPC by Rincewind.
 --Prandlin is asleep. So I don't used the usual template. Altough it's a cool NPC. He's with the quest "Jack's Peg leg."
@@ -16,17 +16,17 @@ QuestID=0
 --Queststatus=5 quest end. Jack got his leg. 
 
 
-".+",queststatus=1,german->"#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", inform( 'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne das der alte Halbling aufwacht?' ),queststaus=2
-".+",queststatus=1,english->"xxx", inform ( 'xxx' ),queststaus=2
+".+",queststatus(304)=1,german->"#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", inform( 'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne das der alte Halbling aufwacht?' ),queststaus=2
+".+",queststatus(304)=1,english->"xxx", inform ( 'xxx' ),queststaus=2
 
-".+",queststatus=2,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
-".+",queststatus=2,english->"xxx", inform ( 'xxx' ),queststaus=3
+".+",queststatus(304)=2,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus(304)=2,english->"xxx", inform ( 'xxx' ),queststaus=3
 
-"#me (.+) stab","#me (.+) bein",queststatus=3,item(208,belt)>=1->"#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft seelig weiter.", infrom( Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen. ), queststatus=4,deleteitem(208,1),item(208,1,933,0)
-"#me (.+) staff","#me (.+) leg",queststatus=3,item(208,belt)>=1->"#me xxx", infrom( xxx ), queststatus=4,deleteitem(208,1),item(208,1,933,0)
+"#me (.+) stab","#me (.+) bein",queststatus(304)=3,item(208,belt)>=1->"#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft seelig weiter.", infrom( Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen. ), queststatus(304)=4,deleteitem(208,1),item(208,1,933,0)
+"#me (.+) staff","#me (.+) leg",queststatus(304)=3,item(208,belt)>=1->"#me xxx", infrom( xxx ), queststatus(304)=4,deleteitem(208,1),item(208,1,933,0)
 
-".+",queststatus=3,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
-".+",queststatus=3,english->"xxx", inform ( 'xxx' )
+".+",queststatus(304)=3,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus(304)=3,english->"xxx", inform ( 'xxx' )
 
 
 "hilfe"->"#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab." 
