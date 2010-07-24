@@ -4,6 +4,7 @@ sex=male
 race=human
 direction=north
 QuestID=0
+--questID not necessery, but this NPC is a important part of quest 305.
 
 --warptile: 5,557,0 -> 5,553,0
 --warpsprung auf 5,558,0
@@ -54,7 +55,7 @@ QuestID=0
 "zutritt","pasire","weg","[oeö]fne","Tabak","verdienen","aufgabe","abenteuer"->"Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.", inform( Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht.  ),state+1
 "quest","job","problem",german->"Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.", inform( Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht.  ),state+1
 "quest","job","problem",english=2->"No entrance for people like you. Get rid or I will play drum with your face.", inform( Such a rude person. Be carefull! ),state+1
-"open","way","entrance","pas","tobaco","task","adventure","mission","money","earn",queststatus=2->"No entrance for people like you. Get rid or I will play drum with your face.", inform( Such a rude person. Be carefull! ),state+1
+"open","way","entrance","pas","tobaco","task","adventure","mission","money","earn"->"No entrance for people like you. Get rid or I will play drum with your face.", inform( Such a rude person. Be carefull! ),state+1
 
 --generall
 "hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"Hej Landratte!","Aye.","Mast- und Schotbruch, Matrose!","Arr! Was gibt's?","Ahoi!"
