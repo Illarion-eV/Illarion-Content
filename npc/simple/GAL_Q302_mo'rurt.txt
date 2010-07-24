@@ -17,27 +17,27 @@ QuestID=302
 
 --language: orc
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",state<2,queststatus=1->"Gnahr! Stout bekomme neu Sehn wenn alte gerissen hat. Gute Sehn nix verschwenden. Yubb, yubb. Odar du geben Münz für neu Sehn?",queststatus=2,state=3
-"quest","job","problem",german,state<2,queststatus=1->"Gnahr! Stout bekomme neu Sehn wenn alte gerissen hat. Gute Sehn nix verschwenden. Yubb, yubb. Odar du geben Münz für neu Sehn?",queststatus=2,state=3
-"quest","job","problem",english,state<2,queststatus=1->"Gnahr! Stout get new Bowstrong ib old one burst. Nub waste good stuff. Yubb Yubb. Or youbb give coin for new one?",queststatus=2,state=3
-"task","adventure","mission","money","earn","bow",state<2,queststatus=1->"Gnahr! Stout get new Bowstrong ib old one burst. Nub waste good stuff. Yubb Yubb. Or youbb give coin for new one?",queststatus=2,state=3
+"verdienen","aufgabe","abenteuer","armbrust","sehne",state<2,queststatus(302)=1->"Gnahr! Stout bekomme neu Sehn wenn alte gerissen hat. Gute Sehn nix verschwenden. Yubb, yubb. Odar du geben Münz für neu Sehn?",queststatus(302)=2,state=3
+"quest","job","problem",german,state<2,queststatus(302)=1->"Gnahr! Stout bekomme neu Sehn wenn alte gerissen hat. Gute Sehn nix verschwenden. Yubb, yubb. Odar du geben Münz für neu Sehn?",queststatus(302)=2,state=3
+"quest","job","problem",english,state<2,queststatus(302)=1->"Gnahr! Stout get new Bowstrong ib old one burst. Nub waste good stuff. Yubb Yubb. Or youbb give coin for new one?",queststatus(302)=2,state=3
+"task","adventure","mission","money","earn","bow",state<2,queststatus(302)=1->"Gnahr! Stout get new Bowstrong ib old one burst. Nub waste good stuff. Yubb Yubb. Or youbb give coin for new one?",queststatus(302)=2,state=3
 
-"ja",state=3,queststatus=2->"Hurr? Du mirr geben 50 Münz aus grüne Erz. Dann mir machen dem Stout neue Sehn auf Armbrust. Du gibst %NPCNAME Münz so viel?",state=4
-"yes",state=3,queststatus=2->"Hurr? Youb gib me 50 coin maked of green ore. The %NPCNAME make new bowstring for tha Stout. Youbba give mes such many coin?",state=4
-"nein",state=3,queststatus=2->"Hurr. Du klugg. Es besser nix zu verschwenden gutte Zeug.",state=1
-"no",state=3,queststatus=2->"Hurr. Youb clever. It good, nub waste good stuff.",state=1
+"ja",state=3,queststatus(302)=2->"Hurr? Du mirr geben 50 Münz aus grüne Erz. Dann mir machen dem Stout neue Sehn auf Armbrust. Du gibst %NPCNAME Münz so viel?",state=4
+"yes",state=3,queststatus(302)=2->"Hurr? Youb gib me 50 coin maked of green ore. The %NPCNAME make new bowstring for tha Stout. Youbba give mes such many coin?",state=4
+"nein",state=3,queststatus(302)=2->"Hurr. Du klugg. Es besser nix zu verschwenden gutte Zeug.",state=1
+"no",state=3,queststatus(302)=2->"Hurr. Youb clever. It good, nub waste good stuff.",state=1
 
-"ja",state=4,queststatus=2,money>=50->"Har. Du viele Münz hast. Uh? Gutts. Mir machen neu Sehn für den Stout.",state=1,money-50,queststatus=3
-"yes",state=4,queststatus=2,money>=50->"Har. Youb hab lot of coin. Uh? Allrighty mes make Bowstring for Stout.",state=1,money-50,queststatus=3
-"ja",state=4,queststatus=2->"Pfff! Du nix hast so viele Münz. Dar Stout bessa wartn bis Sehn zerissen hat.",state=1
-"yes",state=4,queststatus=2->"Pfff! Youb nub hab such much coin. The Stout hab to wait until tha bowstring burst.",state=1
-"nein",state=4,queststatus=2->"Hurr. Du klugg. Es besser nix zu verschwenden gutte Zeug.",state=1
-"no",state=4,queststatus=2->"Hurr. Youb clever. It good, nub waste good stuff.",state=1
+"ja",state=4,queststatus(302)=2,money>=50->"Har. Du viele Münz hast. Uh? Gutts. Mir machen neu Sehn für den Stout.",state=1,money-50,queststatus(302)=3
+"yes",state=4,queststatus(302)=2,money>=50->"Har. Youb hab lot of coin. Uh? Allrighty mes make Bowstring for Stout.",state=1,money-50,queststatus(302)=3
+"ja",state=4,queststatus(302)=2->"Pfff! Du nix hast so viele Münz. Dar Stout bessa wartn bis Sehn zerissen hat.",state=1
+"yes",state=4,queststatus(302)=2->"Pfff! Youb nub hab such much coin. The Stout hab to wait until tha bowstring burst.",state=1
+"nein",state=4,queststatus(302)=2->"Hurr. Du klugg. Es besser nix zu verschwenden gutte Zeug.",state=1
+"no",state=4,queststatus(302)=2->"Hurr. Youb clever. It good, nub waste good stuff.",state=1
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",state<2,queststatus>=3->"Hurr, hurr. Dar Stout bekommen neu Sehn. Yubba."
-"quest","job","problem",german,state<2,queststatus>=3->"Hurr, hurr. Dar Stout bekommen neu Sehn. Yubba."
-"quest","job","problem",english,state<2,queststatus>=3->"Hurr, hurr. Stout get new bowstring. Allrigthy!"
-"task","adventure","mission","money","earn","bow",state<2,queststatus>=3->Hurr, hurr. Stout get new bowstring. Allrigthy!
+"verdienen","aufgabe","abenteuer","armbrust","sehne",state<2,queststatus(302)>=3->"Hurr, hurr. Dar Stout bekommen neu Sehn. Yubba."
+"quest","job","problem",german,state<2,queststatus(302)>=3->"Hurr, hurr. Dar Stout bekommen neu Sehn. Yubba."
+"quest","job","problem",english,state<2,queststatus(302)>=3->"Hurr, hurr. Stout get new bowstring. Allrigthy!"
+"task","adventure","mission","money","earn","bow",state<2,queststatus(302)>=3->Hurr, hurr. Stout get new bowstring. Allrigthy!
 
 
 --Trader------------------------------------------------------------
