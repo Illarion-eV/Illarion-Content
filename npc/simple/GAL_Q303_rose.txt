@@ -26,17 +26,17 @@ QuestID=303
 --fence options
 
 --einfacher Dolch
-"was koste einfache dolch","preis einfache dolch",queststatus>7->"#w Für dich, jeweils 180 Kupferstücke."
-"what cost simple dagger","price simple dagger",queststatus>7->"#w For you each 180 copperpieces each."
-"kauf %NUMBER einfache dolch",money>=expr(%NUMBER*180),queststatus>7->"Ich mag es mit dir Geschäfte zu machen.",item(27,%NUMBER,599,0),money-expr(%NUMBER*180),inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Als ihr euch daraufhin die Hand schüttelt übergibst du ihr einige Münzen. )
-"kauf einfache dolch",money>=180,queststatus>7->"Es ist mir ein vergnügen.",item(27,1,599,0),money-180,inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Als ihr euch daraufhin die Hand schüttelt übergibst du ihr 180 Münzen. )
-"kauf einfache dolch",male,queststatus>7->"Du hast nicht genug Münzen dafür, Lieber."
-"kauf einfache dolch",female,queststatus>7->"Du hast nicht genug Münzen dafür, Liebes."
-"buy %NUMBER simple dagger",money>=expr(%NUMBER*180),queststatus>7->"Pleasure doing buisiness with you.",item(27,%NUMBER,599,0),money-expr(%NUMBER*180),inform( She places a bundle of cloth in your hands. Afterward you shake her offered hand, delivering some coins. )
-"buy simple dagger",money>=180,queststatus>7->"It's my pleasure.",item(27,1,599,0),money-180,inform( She places a bundle of cloth in your hands. Afterward you shake her offered hand, delivering 180 coins. )
-"buy simple dagger",queststatus>7->"Sorry dearest, you havn't enough coins."
-"tell something simple dagger","tell about simple dagger",queststatus>7->"#w It's just a simple dagger. Nothing special about it, altough it could be very usefull."
-"erzähl was einfache dolch","erzähl etwas einfache dolch","erzähl über einfache dolch",queststatus>7->"#w Es ist lediglich ein ordinärer Dolch. Er hat wirklich nichts besonders an sich, kann aber sehr nützlich sein."
+"was koste einfache dolch","preis einfache dolch",queststatus(303)>7->"#w Für dich, jeweils 180 Kupferstücke."
+"what cost simple dagger","price simple dagger",queststatus(303)>7->"#w For you each 180 copperpieces each."
+"kauf %NUMBER einfache dolch",money>=expr(%NUMBER*180),queststatus(303)>7->"Ich mag es mit dir Geschäfte zu machen.",item(27,%NUMBER,599,0),money-expr(%NUMBER*180),inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Als ihr euch daraufhin die Hand schüttelt übergibst du ihr einige Münzen. )
+"kauf einfache dolch",money>=180,queststatus(303)>7->"Es ist mir ein vergnügen.",item(27,1,599,0),money-180,inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Als ihr euch daraufhin die Hand schüttelt übergibst du ihr 180 Münzen. )
+"kauf einfache dolch",male,queststatus(303)>7->"Du hast nicht genug Münzen dafür, Lieber."
+"kauf einfache dolch",female,queststatus(303)>7->"Du hast nicht genug Münzen dafür, Liebes."
+"buy %NUMBER simple dagger",money>=expr(%NUMBER*180),queststatus(303)>7->"Pleasure doing buisiness with you.",item(27,%NUMBER,599,0),money-expr(%NUMBER*180),inform( She places a bundle of cloth in your hands. Afterward you shake her offered hand, delivering some coins. )
+"buy simple dagger",money>=180,queststatus(303)>7->"It's my pleasure.",item(27,1,599,0),money-180,inform( She places a bundle of cloth in your hands. Afterward you shake her offered hand, delivering 180 coins. )
+"buy simple dagger",queststatus(303)>7->"Sorry dearest, you havn't enough coins."
+"tell something simple dagger","tell about simple dagger",queststatus(303)>7->"#w It's just a simple dagger. Nothing special about it, altough it could be very usefull."
+"erzähl was einfache dolch","erzähl etwas einfache dolch","erzähl über einfache dolch",queststatus(303)>7->"#w Es ist lediglich ein ordinärer Dolch. Er hat wirklich nichts besonders an sich, kann aber sehr nützlich sein."
 
 --schwarzes Hemd
 "was koste schwarze hemd","preis schwarze hemd",queststatus>7->"#w Für dich, jeweils 500 Kupferstücke."
@@ -131,11 +131,11 @@ QuestID=303
 "what sell","list wares"->"I sell my company, sweety!"
 
 
-"frühstück",male,queststatus>7->"Klar, hab ich ein Frühstück für dich Süßer. Was solls denn sein?" -- Befehl zum Auswahlbildschrim
-"frühstück",female,queststatus>7->"Klar, hab ich ein Frühstück für dich Schätzchen. Was solls denn sein?" -- Befehl zum Auswahlbildschrim
-"breakfast",queststatus>7->"Sure, I'll prepare a good breakfast for you, my dear. What do you want?"-- Befehl zum Auswahlbildschrim
-"was verkauf","warenliste",queststatus>7->"Ich verkaufe Frühstück und alles was du sonst noch brauchen könntest." -- Befehl zum auswahlbildschrim
-"what sell","list wares",queststatus>7->"I sell breakfast, and some other things." -- Befehl zum auswahlbildschrim
+"frühstück",male,queststatus(303)>7->"Klar, hab ich ein Frühstück für dich Süßer. Was solls denn sein?" -- Befehl zum Auswahlbildschrim
+"frühstück",female,queststatus(303)>7->"Klar, hab ich ein Frühstück für dich Schätzchen. Was solls denn sein?" -- Befehl zum Auswahlbildschrim
+"breakfast",queststatus(303)>7->"Sure, I'll prepare a good breakfast for you, my dear. What do you want?"-- Befehl zum Auswahlbildschrim
+"was verkauf","warenliste",queststatus(303)>7->"Ich verkaufe Frühstück und alles was du sonst noch brauchen könntest." -- Befehl zum auswahlbildschrim
+"what sell","list wares",queststatus(303)>7->"I sell breakfast, and some other things." -- Befehl zum auswahlbildschrim
 
 
 
@@ -150,8 +150,8 @@ QuestID=303
 "ja",state=4->"Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!",state=1
 "yes",state=4->"Sorry sweetheart, you havn't enough coins. Go fetch them, I'll wait for you!",state=1
 
-"ja",state=3,queststatus>7->"Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?",state=5
-"yes",state=3,queststatus>7->"Great, its just 200 coppercoins. A special price for my honey!",state=5
+"ja",state=3,queststatus(303)>7->"Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?",state=5
+"yes",state=3,queststatus(303)>7->"Great, its just 200 coppercoins. A special price for my honey!",state=5
 "ja", money>=200,state=5->"Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.",state=1,money-200 -- +teleport des Char nach (0,0,0), +add Flitzläuse
 "yes", money>=200,state=5->"Awesome, lets go somewhere more quiet.",state=1,money-200 -- +teleport des Char nach (0,0,0), +add Flitzläuse
 "ja",state=5->"Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!",state=1
@@ -161,66 +161,66 @@ QuestID=303
 
 
 --quest necklet thief
-"verkauf","was kauft","was kaufst",state<2,queststatus>=8->"#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden."
-"sell","what buy",state<2,queststatus>=8->"#w you have to find a professional 'trader' to sell your 'goods'."
+"verkauf","was kauft","was kaufst",state<2,queststatus(303)>=8->"#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden."
+"sell","what buy",state<2,queststatus(303)>=8->"#w you have to find a professional 'trader' to sell your 'goods'."
 
-"yes",state=6,queststatus=1->"#w Do you think, you have the ability to 'find' an item which is already in someone else's possession?",state=7
-"ja",state=6,queststatus=1->"#w Denkst du, du kannst nach einem Gegenstand suchen der im Momment einer anderen Person gehört?",state=7
-"no",state=6,queststatus=1->"Don't worry, I'll find someone else",state=1
-"nein",state=6,queststatus=1->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
-"yes",state=7,queststatus=1->"#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you.",queststatus=2
-"ja",state=7,queststatus=1->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich.",queststatus=2
-"no",state=7,queststatus=1->"I'll ask someone else",state=1
-"nein",state=7,queststatus=1->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
-"info","quest","job","detail",english,queststatus=2->"#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
-"task","adventure","mission",queststatus=2->"#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
-"aufgabe","abenteuer",queststatus=2->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
-"info","quest","job","detail",german,queststatus=2->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
+"yes",state=6,queststatus(303)=1->"#w Do you think, you have the ability to 'find' an item which is already in someone else's possession?",state=7
+"ja",state=6,queststatus(303)=1->"#w Denkst du, du kannst nach einem Gegenstand suchen der im Momment einer anderen Person gehört?",state=7
+"no",state=6,queststatus(303)=1->"Don't worry, I'll find someone else",state=1
+"nein",state=6,queststatus(303)=1->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
+"yes",state=7,queststatus(303)=1->"#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you.",queststatus(303)=2
+"ja",state=7,queststatus(303)=1->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich.",queststatus(303)=2
+"no",state=7,queststatus(303)=1->"I'll ask someone else",state=1
+"nein",state=7,queststatus(303)=1->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
+"info","quest","job","detail",english,queststatus(303)=2->"#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
+"task","adventure","mission",queststatus(303)=2->"#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
+"aufgabe","abenteuer",queststatus(303)=2->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
+"info","quest","job","detail",german,queststatus(303)=2->"#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
 
-"job","quest",english,queststatus=3,item(79,belt)>=1->"Oh, that's amazing! You really found it! This to compensate you for your effort.",deleteitem(79,1), money+100,queststatus=4,inform( She pays you 100 coppercoins. It feels good, doesn't it? )
-"job","quest",german,queststatus=3,item(79,belt)>=1->"Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.",deleteitem(79,1), money+100,queststatus=4,inform( Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder? )
-"job","quest",english,queststatus=3->"Yes? You found it? Amazing... but hey where is it? You havn't the necklace with you."
-"job","quest",german,queststatus=3->"Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
-"necklet","necklace","task","adventure","mission",queststatus=3,item(79,belt)=1->"Oh, that's amazing! You really found it! This to compensate you for your effort.",deleteitem(79,1), money+100,queststatus=4,inform( She pays you 100 coppercoins. It feels good, right? )
-"kollier","amulett","aufgabe","abenteuer",queststatus=3,item(79,belt)=1->"Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.",deleteitem(79,1), money+100,queststatus=4,inform( Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder? )
-"necklet","necklace","task","adventure","mission",queststatus=3->"Yes? You found it? Amazing... but hey where is it? Bring it with you next time"
-"kollier","amulett","aufgabe","abenteuer",queststatus=3->"Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
-"job","quest",english,queststatus=3,item(79,all)>=1->inform ( Put the necklet into your belt, when you are willing to give it Rose. )
-"job","quest",german,queststatus=3,item(79,all)>=1->inform ( Lege das Amuelett in deinen Gürtel, um es Rose zu geben. )
-"necklet","necklace","task","adventure","mission",queststatus=3,item(79,all)=1->inform ( Put the necklet into your belt, when you are willing to give it Rose. )
-"kollier","amulett","aufgabe","abenteuer",queststatus=3,item(79,all)=1->inform ( Lege das Amuelett in deinen Gürtel, um es Rose zu geben. )
+"job","quest",english,queststatus(303)=3,item(79,belt)>=1->"Oh, that's amazing! You really found it! This to compensate you for your effort.",deleteitem(79,1), money+100,queststatus(303)=4,inform( She pays you 100 coppercoins. It feels good, doesn't it? )
+"job","quest",german,queststatus(303)=3,item(79,belt)>=1->"Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.",deleteitem(79,1), money+100,queststatus(303)=4,inform( Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder? )
+"job","quest",english,queststatus(303)=3->"Yes? You found it? Amazing... but hey where is it? You havn't the necklace with you."
+"job","quest",german,queststatus(303)=3->"Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
+"necklet","necklace","task","adventure","mission",queststatus(303)=3,item(79,belt)=1->"Oh, that's amazing! You really found it! This to compensate you for your effort.",deleteitem(79,1), money+100,queststatus(303)=4,inform( She pays you 100 coppercoins. It feels good, right? )
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)=3,item(79,belt)=1->"Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.",deleteitem(79,1), money+100,queststatus(303)=4,inform( Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder? )
+"necklet","necklace","task","adventure","mission",queststatus(303)=3->"Yes? You found it? Amazing... but hey where is it? Bring it with you next time"
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)=3->"Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
+"job","quest",english,queststatus(303)=3,item(79,all)>=1->inform ( Put the necklet into your belt, when you are willing to give it Rose. )
+"job","quest",german,queststatus(303)=3,item(79,all)>=1->inform ( Lege das Amuelett in deinen Gürtel, um es Rose zu geben. )
+"necklet","necklace","task","adventure","mission",queststatus(303)=3,item(79,all)=1->inform ( Put the necklet into your belt, when you are willing to give it Rose. )
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)=3,item(79,all)=1->inform ( Lege das Amuelett in deinen Gürtel, um es Rose zu geben. )
 
 --Quest 2 place the fake
-"kollier","amulett","aufgabe","abenteuer",queststatus=4->"#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?",state=9
-"job","quest",german,queststatus=4->"#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?",state=9
-"necklet","necklace","task","adventure","mission",queststatus=4->"#w Hmm, now we have to take care, that Gilbert doesn't get false ideas. Could you place this fake into his bag without getting caught?",state=9
-"job","quest",english,queststatus=4->"#w Hmm, now we have to care, taht Gilbert don't get false ideas. Could you place this fake into his bag without getting caught?",state=9
-"Ja",state=9,queststatus=4->"#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.",queststatus=5,item(222,1,333,0),inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier. )
-"Nein",state=9,queststatus=4->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
-"Yes",state=9,queststatus=4->"#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.",queststatus=5,item(222,1,333,0),inform( She places a bundle of cloth in your hands. Inside you are able to feel a necklace. )
-"No",state=9,queststatus=4->"Allrigth, so I have to ask another one.",state=1
-"info","quest","job","detail",english,queststatus=5->"#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened"
-"task","adventure","mission",queststatus=5->"#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened."
-"aufgabe","abenteuer",queststatus=5->"#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
-"info","quest","job","detail",german,queststatus=5->"#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)=4->"#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?",state=9
+"job","quest",german,queststatus(303)=4->"#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?",state=9
+"necklet","necklace","task","adventure","mission",queststatus(303)=4->"#w Hmm, now we have to take care, that Gilbert doesn't get false ideas. Could you place this fake into his bag without getting caught?",state=9
+"job","quest",english,queststatus(303)=4->"#w Hmm, now we have to care, taht Gilbert don't get false ideas. Could you place this fake into his bag without getting caught?",state=9
+"Ja",state=9,queststatus(303)=4->"#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.",queststatus(303)=5,item(222,1,333,0),inform( Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier. )
+"Nein",state=9,queststatus(303)=4->"In Ordnung, dann muss ich mir jemand anderen dafür suchen.",state=1
+"Yes",state=9,queststatus(303)=4->"#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.",queststatus(303)=5,item(222,1,333,0),inform( She places a bundle of cloth in your hands. Inside you are able to feel a necklace. )
+"No",state=9,queststatus(303)=4->"Allrigth, so I have to ask another one.",state=1
+"info","quest","job","detail",english,queststatus(303)=5->"#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened"
+"task","adventure","mission",queststatus(303)=5->"#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened."
+"aufgabe","abenteuer",queststatus(303)=5->"#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
+"info","quest","job","detail",german,queststatus(303)=5->"#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
 
-"job","quest",english,queststatus=7->"Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!",money+100,queststatus=8,inform( She pays you again 100 coppercoins. It feels also feels good, right? )
-"necklet","necklace","task","adventure","mission",queststatus=7->"Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!",money+100,queststatus=8,inform( She pays you again 100 coppercoins. It feels also feels good, right? )
-"job","quest",german,queststatus=7->"Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.",money+100,queststatus=8,inform( She pays you again 100 coppercoins. It feels again good, agree? )
-"kollier","amulett","aufgabe","abenteuer",queststatus=7->"Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.",money+100,queststatus=8,inform( Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder? )
+"job","quest",english,queststatus(303)=7->"Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!",money+100,queststatus(303)=8,inform( She pays you again 100 coppercoins. It feels also feels good, right? )
+"necklet","necklace","task","adventure","mission",queststatus(303)=7->"Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!",money+100,queststatus(303)=8,inform( She pays you again 100 coppercoins. It feels also feels good, right? )
+"job","quest",german,queststatus(303)=7->"Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.",money+100,queststatus(303)=8,inform( She pays you again 100 coppercoins. It feels again good, agree? )
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)=7->"Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.",money+100,queststatus(303)=8,inform( Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder? )
 
-"job","quest","info",english,queststatus>=8->"I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?",inform( Gibberson, you should remember this name. Maybe you'll meet him someday. )
-"necklet","necklace","task","adventure","mission",queststatus>=8->"I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?",inform( Gibberson, you should remember this name. Maybe you'll meet him someday. )
-"job","quest","info",german,queststatus>=8->"Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?",inform( Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages. )
-"kollier","amulett","aufgabe","abenteuer",queststatus>=8->"Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?",inform( Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages. )
+"job","quest","info",english,queststatus(303)>=8->"I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?",inform( Gibberson, you should remember this name. Maybe you'll meet him someday. )
+"necklet","necklace","task","adventure","mission",queststatus(303)>=8->"I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?",inform( Gibberson, you should remember this name. Maybe you'll meet him someday. )
+"job","quest","info",german,queststatus(303)>=8->"Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?",inform( Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages. )
+"kollier","amulett","aufgabe","abenteuer",queststatus(303)>=8->"Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?",inform( Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages. )
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"sell","what buy",state<2,queststatus<=1->"#w you have to find a professional 'trader' to sell your 'goods'. But I could offer you a quest if you are in need of money?",inform( Maybe you should ask more 'Rose' more about the quest. )
-"verkauf","was kauft","was kaufst",state<2,queststatus<=1->"#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden, aber ich hätte eine Aufgabe für dich wenn du dir etwas verdienen möchtest?",inform( Vielleicht solltest du 'Rose' über die Aufgabe befragen. )
+"sell","what buy",state<2,queststatus(303)<=1->"#w you have to find a professional 'trader' to sell your 'goods'. But I could offer you a quest if you are in need of money?",inform( Maybe you should ask more 'Rose' more about the quest. )
+"verkauf","was kauft","was kaufst",state<2,queststatus(303)<=1->"#w Für deine 'Wahre' musst du einen professionellen 'Händler' finden, aber ich hätte eine Aufgabe für dich wenn du dir etwas verdienen möchtest?",inform( Vielleicht solltest du 'Rose' über die Aufgabe befragen. )
 
-"quest","job",german,state<2,queststatus<=1->"#w Möchtest du etwas Geld verdienen?",queststatus=1,state=6
-"verdienen","aufgabe","abenteuer",state<2,queststatus<=1->"#w Möchtest du etwas Geld verdienen?",queststatus=1,state=6
-"quest","job",english,state<2,queststatus<=1->"#w Do you want to earn some money?",queststatus=1,state=6
-"task","adventure","mission","money","earn",state<2,queststatus<=1->"#w Do you want to earn some money?",queststatus=1,state=6
+"quest","job",german,state<2,queststatus(303)<=1->"#w Möchtest du etwas Geld verdienen?",queststatus(303)=1,state=6
+"verdienen","aufgabe","abenteuer",state<2,queststatus(303)<=1->"#w Möchtest du etwas Geld verdienen?",queststatus(303)=1,state=6
+"quest","job",english,state<2,queststatus(303)<=1->"#w Do you want to earn some money?",queststatus(303)=1,state=6
+"task","adventure","mission","money","earn",state<2,queststatus(303)<=1->"#w Do you want to earn some money?",queststatus(303)=1,state=6
 
 
 --general~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
