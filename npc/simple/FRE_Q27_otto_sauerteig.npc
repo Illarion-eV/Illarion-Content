@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Otto Sauerteig                                              None --
 -- NPC Job:  none                                                             --
 --                                                                            --
@@ -45,7 +45,7 @@ questid = 27
 -- DATAWERT FÜR SCHLÜSSEL AN DIE TÜR NOCH ANPASSEN(20?)
 -- BELOHNUNG NOCH EINFÜGEN
 -- Englische übersetzung. Achte auf Triggerhints! zB.: "XXXtriggercatch-'thing',"celler'. Verwende also bei der übersetzung unbedingt die wörter thing und celler.
--- ÜBERSETZEN---
+-- ÜBERSETZEN --NPC by Rincewind---
 "geschichte" -> inform("Otto hat ein Problem! Vielleicht solltest du ihn danach fragen."), "Ich bin Otto Sauerteig. Ich und mein Bruder Martin haben diesen kleinen Hof hier. Es ist so wunderbar! Bis auf dieses kleine Problem."
 "story", "tale" -> inform("Otto seems to have a problem! Maybe you should ask him about that."), "I am Otto Sauerteig. Me and my brother Martin own this small farmyard. It's marvellous, except for one small problem."
 "verkauf", "was kauft", "was kaufst", state < 2, queststatus =< 1 -> inform("Otto hat ein Problem! Vielleicht solltest du ihn dannach fragen."), "Ich verkaufe leider nichts, allerdings hätte ich da ein Problem, bei dem du mir helfen könntest."
