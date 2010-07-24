@@ -1,0 +1,67 @@
+name="Prandlin"
+position=418,349,0 -- next at a ++chimney++ at Galmair!
+sex=male
+race=halfling
+direction=northeast
+QuestID=0
+
+--NPC by Rincewind.
+--Prandlin is asleep. So I don't used the usual template. Altough it's a cool NPC. He's with the quest "Jack's Peg leg."
+
+--Queststatus Overview 
+--Queststatus=1 Player got told that 'old Prandlin' stolen the pegleg. 
+--Queststatus=2 Prandlin and peg leg dedected
+--Queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
+--Queststatus=4 the staff/pegleg is stolen
+--Queststatus=5 quest end. Jack got his leg. 
+
+
+".+",queststatus=1,german->"#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", inform( 'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne das der alte Halbling aufwacht?' ),queststaus=2
+".+",queststatus=1,english->"xxx", inform ( 'xxx' ),queststaus=2
+
+".+",queststatus=2,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus=2,english->"xxx", inform ( 'xxx' ),queststaus=3
+
+"#me (.+) stab","#me (.+) bein",queststatus=3,item(208,belt)>=1->"#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft seelig weiter.", infrom( Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen. ), queststatus=4,deleteitem(208,1),item(208,1,933,0)
+"#me (.+) staff","#me (.+) leg",queststatus=3,item(208,belt)>=1->"#me xxx", infrom( xxx ), queststatus=4,deleteitem(208,1),item(208,1,933,0)
+
+".+",queststatus=3,german->"#me brabbelt zufreiden lächelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus=3,english->"xxx", inform ( 'xxx' )
+
+
+"hilfe"->"#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab." 
+"helfen"->"#me ist ein alter, runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab."
+"help"->"XX"
+
+".",german->"#me murmelt im Schlaf: 'Eh-n.Gnh.'","#me murmelt im Schlaf: 'Piraten werd... gehängt.'","#me murmelt im Schlaf: 'Piraten werd... gehängt.'","#me murmelt im Schlaf: 'Wie sie mein-n...'","#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen übrig...'"
+"?",german->"#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'","#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'","#me murmelt im Schlaf: 'Ja-ja.. ich kümmere mich darum. Gleich morgen...'","#me murmelt im Schlaf: 'Uh, schon Mittag...?'",
+"!",german->"#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'","#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'","#me murmelt im Schlaf: 'Galmair soll sich bloß nicht für voll nehmn...'","#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln müssen..'"
+".",english->"xxx"
+"?",english->"xxx"
+"!",english->"xxx"
+
+
+cycletext "#me brabbelt leise in Schlaf.","#me xxx"
+cycletext "#me dreht sich im Schlaf herum.","#me xxx"
+cycletext "#me zieht die Wolldecke um seine Beine, etwas höher.","#me xxx"
+cycletext "#me schmazt ein wenig.","#me xxx"
+cycletext "#me schnarcht laut und melodiös.","#me xxx"
+cycletext "#me gibt einen grunzenden Laut von sich.","#me xxx"
+cycletext "#me sabbert in seine Wolldecke.","#me xxx"
+cycletext "#me kuschelt sich an den verzierten Magierstab, in seinen Händen.","#me xxx ornate mage's staff"
+cycletext "#me atmet beinahe unmerklich, kaum eine Bewegung ist auszumachen.","#me xxx"
+cycletext "#me sitzt regungsloß vor dem knisternden Kamin, der wohlige wärme im Raum verbreitet.","#me xxx"
+cycletext "#me schläft seelig ruhig im besten Sessel des Raumes. Da wundert es nicht, dass er ein Glückliches Gesicht macht.","#me xxx"
+cycletext "#me kratzt sich im Schlaf die haarige krumme Nase.","#me xxx"
+cycletext "#me beginnt leise und gackernd zu lachen, trozdem scheint er weiter zu schlafen.","#me xxx"
+cycletext "#me murmelt im Schlaf: 'Ich muss den Erzmagier sprech...'","#me xxx"
+
+
+
+
+
+
+
+
+
+
