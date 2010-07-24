@@ -27,42 +27,42 @@ QuestID=302
 --Verkauft/kauft: Seil (2760)
 --Verkauft/kauft: Hobel (2715)
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus<=1->"Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus=1
-"quest","job","problem",german,queststatus<=1->"Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus=1
-"quest","job","problem",english,queststatus<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus=1
-"task","adventure","mission","money","earn","bow",queststatus<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus=1
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)<=1->"Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus(302)=1
+"quest","job","problem",german,queststatus(302)<=1->"Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus(302)=1
+"quest","job","problem",english,queststatus(302)<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus(302)=1
+"task","adventure","mission","money","earn","bow",queststatus(302)<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus(302)=1
 
 --go to NPC Mo'rurt and überzeuge ihn für Jack eine neue Bogensähne zu machen. 
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus=4
-"quest","job","problem",german,queststatus=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus=4
-"quest","job","problem",english,,queststatus=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus=4
-"task","adventure","mission","money","earn","bow",queststatus=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus=4
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus(302)=4
+"quest","job","problem",german,queststatus(302)=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus(302)=4
+"quest","job","problem",english,,queststatus(302)=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus(302)=4
+"task","adventure","mission","money","earn","bow",queststatus(302)=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus(302)=4
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus=5,skill(crafts, carpentry)+10
-"quest","job","problem",german,queststatus=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus=5,skill(crafts, carpentry)+10
-"quest","job","problem",english,queststatus=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus=5,skill(crafts, carpentry)+10
-"task","adventure","mission","money","earn","bow",queststatus=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus=5,skill(crafts, carpentry)+10
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+10
+"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+10
+"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+10
+"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+10
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus=5,skill(crafts, carpentry)+5
-"quest","job","problem",german,queststatus=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus=5,skill(crafts, carpentry)+5
-"quest","job","problem",english,queststatus=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus=5,skill(crafts, carpentry)+5
-"task","adventure","mission","money","earn","bow",queststatus=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus=5,skill(crafts, carpentry)+5
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+5
+"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+5
+"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+5
+"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+5
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus=5,skill(crafts, carpentry)+2
-"quest","job","problem",german,queststatus=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus=5,skill(crafts, carpentry)+2
-"quest","job","problem",english,queststatus=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus=5,skill(crafts, carpentry)+2
-"task","adventure","mission","money","earn","bow",queststatus=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus=5,skill(crafts, carpentry)+2
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus(302)=5,skill(crafts, carpentry)+2
+"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so hältst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus(302)=5,skill(crafts, carpentry)+2
+"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus(302)=5,skill(crafts, carpentry)+2
+"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus(302)=5,skill(crafts, carpentry)+2
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus=5,item(322,25,333,0)
-"quest","job","problem",german,queststatus=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus=5,item(322,25,333,0)
-"quest","job","problem",english,queststatus=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus=5,item(322,25,333,0)
-"task","adventure","mission","money","earn","bow",queststatus=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus=5,item(322,25,333,0)
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus(302)=5,item(322,25,333,0)
+"quest","job","problem",german,queststatus(302)=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus(302)=5,item(322,25,333,0)
+"quest","job","problem",english,queststatus(302)=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus(302)=5,item(322,25,333,0)
+"task","adventure","mission","money","earn","bow",queststatus(302)=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus(302)=5,item(322,25,333,0)
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus=5->"Danke für deine Hilfe, mit der Sehne."
-"quest","job","problem",german,queststatus=5->"Danke für deine Hilfe, mit der Sehne."
-"quest","job","problem",english,queststatus=5->"Thanks for your help with the Bowstring."
-"task","adventure","mission","money","earn","bow",queststatus=5->"Thanks for your help with the Bowstring."
+"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=5->"Danke für deine Hilfe, mit der Sehne."
+"quest","job","problem",german,queststatus(302)=5->"Danke für deine Hilfe, mit der Sehne."
+"quest","job","problem",english,queststatus(302)=5->"Thanks for your help with the Bowstring."
+"task","adventure","mission","money","earn","bow",queststatus(302)=5->"Thanks for your help with the Bowstring."
 
 --saw logs--------------------------
 "saw %NUMBER apple",item(2560,all)>=expr(%NUMBER*1)->"#me starts to saw the wood, after a few moments he finishes the work.",item(2716,%NUMBER,333,0)
