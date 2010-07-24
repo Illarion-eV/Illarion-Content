@@ -56,7 +56,7 @@ QuestID=305
 "Ciao","Fareba","Adieu","Au revoir",english->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
 "Ciao","Fareba","Adieu","Au revoir",german->"Gehabt Euch wohl.","Einen Schönen Tag noch.","Zhambra sei mit Euch."
 "How are you","How feel","How do you do"->"I'm mostly fine. The pirates be quiet. Shall I take this for good or bad? I don't know.","As long as queen Rosaline rules our land, everything is going well.","Hail Zhambra, hail queen Rosaline! I'm good."
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlchtes? Ich weiß es nicht.","So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.","Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"Größtenteils gut. Die Piraten verhalten sich ruhig. Ist das ein gutes Zeichen oder ein Schlechtes? Ich weiß es nicht.","So lange Königin Rosaline unser Land regiert, geht alles seinen rechten Weges.","Heil Zhambra, Heil Königin Rosaline! Mir geht's gut."
 "I am","I'm"->"I feel honored to meet you."
 "Ich bin"->"Ich fühle mich geehrt Euch zu treffen."
 
