@@ -5,7 +5,6 @@ race=human
 direction=south
 QuestID=305
 
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 --NPC by Rincewind
 
