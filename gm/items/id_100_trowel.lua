@@ -194,7 +194,7 @@ end;
 
 function LookAtItem(User, Item)
     base.common.InformNLS(User, "Blablabla", "Blablablablabla");
-	
+	User:inform ("blabla hätte funktionieren müssen!");
 	if (texts == nil) then
         texts={};
         texts[1]="Shift-click the trowel first and the ground then (use trowel with ground) to display a menue for creating items. Use the counter to create different items.";
