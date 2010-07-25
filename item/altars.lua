@@ -29,6 +29,7 @@
 --16: Moshran – God of blood and bones
 
 require("base.common")
+module("item.altars", package.seeall)
 
 AAA = 0 --placeholders without a value aren't that good I think
 BBB = 0 --
