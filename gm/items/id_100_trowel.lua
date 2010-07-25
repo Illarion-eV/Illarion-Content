@@ -209,6 +209,7 @@ function LookAtItem(User, Item)
 
     if pagenumber==0 then
         User:inform("This is the wonder trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
+        InformNLS(User, "Blablabla", "Blablablablabla")
     else
         User:inform(texts[pagenumber]);
     end;
