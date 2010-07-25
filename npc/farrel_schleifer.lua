@@ -1,6 +1,6 @@
 --Name:        Farrel Schleifer
 --Race:        Mensch
---Town:        Newbie Insel
+--Town:        Newbie Island
 --Function:    Edelsteinschleifen beibringen
 --Position:    x=? y=? z=?
 --Facing:      south
