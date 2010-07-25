@@ -1,192 +1,209 @@
---Note: ALWAYS add commentaries in an extra line!
---This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.)
+------------------------------------------------------------------------------AC
+-- NPC Name: Bippi                                                       None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  514, 741, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
+
+name = "Bippi"
+race = halfling
+sex = male
+position = 514, 741, 0
+direction = south
+affiliation = "None"
+job = "none"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+
+-- Note: ALWAYS add commentaries in an extra line!
+-- This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.)
 
 -- Bippi the peasant, he wants you to take care of his cows for him
 
-name="Bippi"
-
 -- Replace to own liking
-sex=male
 
---male/female
-race=halfling
+-- male/female
 
---human, elf, dwarf, lizardman, orc, halfling...
-position=514,741, 0
+-- human, elf, dwarf, lizardman, orc, halfling...
 
---In front of his farm, near Runewick
-direction=South
+-- In front of his farm, near Runewick
 
---north, northeast, east, southeast, south, southwest, west, northwest
-radius=0
+-- north, northeast, east, southeast, south, southwest, west, northwest
 
---Keep radius=0 and the Npc won't walk around
-QuestID=28
+-- Keep radius=0 and the Npc won't walk around
 
---Please assign an ID if you use queststatus. Do not use an ID twice unless intended.
+-- Please assign an ID if you use queststatus(28). Do not use an ID twice unless intended.
 
---Quest by Ardian
---Dialogue by Faladron
+-- Quest by Ardian
+-- Dialogue by Faladron
 
---Queststatus Overview
+-- queststatus(28) Overview
+-- QuestID=28
+-- 0: No Quest taken
+-- Others: I have no effing clue, ARRRRRDIAAAAN!?
 
---0: No Quest taken
---Others: I have no effing clue, ARRRRRDIAAAAN!?
+-- Help
+"Help" -> inform("[Game Help] This NPC is Bippi the peasant. Keyphrases: milk,cow,farmhand,quest,'what is my task?'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Bippi der Bauer. SchlÃ¼sselwÃ¶rter: Milch,Kuh,Helfer,Aufgabe,'Was ist meine Aufgabe?'.")
 
---Help
+-- General Speech
 
-"Help"->inform ( [Game Help] This NPC is Bippi the peasant. Keyphrases: milk,cow,farmhand,quest,'what is my task?'. )
-"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist Bippi der Bauer. Schlüsselwörter: Milch,Kuh,Helfer,Aufgabe,'Was ist meine Aufgabe?'. )
+-- First contact
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(28) = 0 -> inform("Milk sounds like a wonderful idea, but you better ask him first what kind of milk he has."), "Oh greetings, traveler! How nice of you to drop by, can I offer you a bowl of 'milk'?", "Hello there! Oh you sure look tired. May I offer you a bowl of milk, it's replenishing.", "Hiho! So you've found your way to old Bippi here. You're here to try my famous milk, I guess?"
+"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", queststatus(28) = 0 -> inform("Milch hÃ¶rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was fÃ¼r eine Milch es sich handelt."), "Oh GrÃ¼ÃŸe, Reisender! Besuch freut mich immer, darf ich euch eine Schale 'Milch' anbieten?", "Hallo da! Oh ihr seht aber mÃ¼de aus. Darf ich euch eine Schale Milch aufwarten, als StÃ¤rkung?", "Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berÃ¼hmte Milch zu probieren."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(28) = 0, english -> inform("Milk sounds like a wonderful idea, but you better ask him first what kind of milk he has."), "Oh greetings, traveler! How nice of you to drop by, can I offer you a bowl of 'milk'?", "Hello there! Oh you sure look tired. May I offer you a bowl of milk, it's replenishing.", "Hiho! So you've found your way to old Bippi here. You're here to try my famous milk, I guess?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(28) = 0, german -> inform("Milch hÃ¶rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was fÃ¼r eine Milch es sich handelt."), "Oh GrÃ¼ÃŸe, Reisender! Besuch freut mich immer, darf ich euch eine Schale 'Milch' anbieten?", "Hallo da! Oh ihr seht aber mÃ¼de aus. Darf ich euch eine Schale Milch aufwarten, als StÃ¤rkung?", "Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berÃ¼hmte Milch zu probieren."
 
---General Speech
+-- After receiving the quest
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.", "Good to see you again! Let's check if there's something to do for you.", "Welcome, the cows have already inquired about you."
+"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Oh wie schÃ¶n, dass ihr zurÃ¼ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.", "Es ist schÃ¶n euch wiederzusehen. Lasst uns schauen ob es etwas fÃ¼r euch zu tun gibt.", "Willkommen, die KÃ¼he haben schon nach euch gefragt."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.", "Good to see you again! Let's check if there's something to do for you.", "Welcome, the cows have already inquired about you."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Oh wie schÃ¶n, dass ihr zurÃ¼ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.", "Es ist schÃ¶n euch wiederzusehen. Lasst uns schauen ob es etwas fÃ¼r euch zu tun gibt.", "Willkommen, die KÃ¼he haben schon nach euch gefragt."
 
---First contact
+-- Time to say Goodbye & Smalltalk
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Fare thee well and come back soon!", "Goodbye! Tell your friends about old Bippi and his milk.", "Oh, leaving already? A pity, good luck on your further travels!"
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "Gehabt euch wohl und kommt bald mal wieder vorbei!", "Auf bald! ErzÃ¤hlt euren Freunden vom alten Bippi und seiner Milch.", "Oh, ihr geht schon? Schade, viel Erfolg auf eurem weiteren Weg!"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Fare thee well and come back soon!", "Goodbye! Tell your friends about old Bippi and his milk.", "Oh, leaving already? A pity, good luck on your further travels!"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Gehabt euch wohl und kommt bald mal wieder vorbei!", "Auf bald! ErzÃ¤hlt euren Freunden vom alten Bippi und seiner Milch.", "Oh, ihr geht schon? Schade, viel Erfolg auf eurem weiteren Weg!"
+"How are you", "How feel", "How do you do" -> "Ach, I feel my age creeping up my bones. If only I had someone to help in the stable.", "Ah my leg grows stiffer each passing week. I worry who will take care of my cows when one day I...", "Work is hard and I'm not growing any younger. I think I need someone to take care of some of my tasks."
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befinden" -> "Ach, ich spÃ¼re das Alter in meinen Knochen. HÃ¤tte ich doch nur jemanden der im Stall aushilft.", "Ah mein Bein wird von Woche zu Woche steifer. Ich sorge mich schon wer sich um meine KÃ¼he kÃ¼mmern wird wenn ich einmal...", "Die Arbeit ist hart und ich werde nicht jÃ¼nger. Ich glaube ich brauche jemanden der mir meine Aufgaben abnimmt."
+"your name", "who are you", "who art thou" -> "I'm old Bippi and my cows have the tastiest milk for miles.", "Call me Bippi. I'm a peasant and tend my cows here on this farm.", "My name? I'm Bippi and I sell my milk everywhere, even as far away as Cadomyr!"
+"dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin der alte Bippi und meine KÃ¼he geben die beste Milch weit und breit.", "Nennt mich Bippi, ich bin Bauer und kÃ¼mmere mich hier um meine KÃ¼he.", "Mein Name? Ich bin der Bippi und ich verkaufe meine Milch nach Ã¼berall hin, sogar nach Cadomyr!"
 
-"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening",queststatus=0->"Oh greetings, traveler! How nice of you to drop by, can I offer you a bowl of 'milk'?","Hello there! Oh you sure look tired. May I offer you a bowl of milk, it's replenishing.","Hiho! So you've found your way to old Bippi here. You're here to try my famous milk, I guess?",inform(Milk sounds like a wonderful idea, but you better ask him first what kind of milk he has.) 
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir",queststatus=0->"Oh Grüße, Reisender! Besuch freut mich immer, darf ich euch eine Schale 'Milch' anbieten?","Hallo da! Oh ihr seht aber müde aus. Darf ich euch eine Schale Milch aufwarten, als Stärkung?","Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berühmte Milch zu probieren.",inform(Milch hört sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt.) 
-"Hiho","Hallo","Hey","Greebas","Greebs",english,queststatus=0->"Oh greetings, traveler! How nice of you to drop by, can I offer you a bowl of 'milk'?","Hello there! Oh you sure look tired. May I offer you a bowl of milk, it's replenishing.","Hiho! So you've found your way to old Bippi here. You're here to try my famous milk, I guess?",inform(Milk sounds like a wonderful idea, but you better ask him first what kind of milk he has.) 
-"Hiho","Hallo","Hey","Greebas","Greebs",german,queststatus=0->"Oh Grüße, Reisender! Besuch freut mich immer, darf ich euch eine Schale 'Milch' anbieten?","Hallo da! Oh ihr seht aber müde aus. Darf ich euch eine Schale Milch aufwarten, als Stärkung?","Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berühmte Milch zu probieren.",inform(Milch hört sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt.) 
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell cow milk, but I have a lot of orders, I can't sell any to you. Unless you help me of course.", "I sell my milk! It's sold quicker than I can bottle it up, I'm sorry but you can't have any of it.", "Milk milk milk! Milk is healthy and tasty, and it fills my pockets with lots of copper coins ."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe die Milch meiner KÃ¼he, aber ich habe so viele Bestellungen, euch kann ich nichts abgeben. AuÃŸer ihr macht euch nÃ¼tzlich.", "Meine Milch verkauf ich! Die geht schneller weg als ich sie abfÃ¼llen kann, ihr kÃ¶nnt leider nichts davon haben.", "Milch Milch Milch! Milch ist gesund und wohlschmeckend. Und sie fÃ¼llt meine Taschen mit Kupfer."
+"tell something" -> "Well you don't look like a cattle breeder, otherwise I would talk about my work.", "My Greatgrandfather has started to pass on his knowledge about cows, today I am the one knowing all secrets.", "Well if you ask like that. I think I need farmhands to cope with all the work, maybe you want to help me?"
+"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Nun, ihr seht nicht aus wie ein ViehzÃ¼chter, sonst wÃ¼rde ich Ã¼ber die Arbeit sprechen.", "Mein GroÃŸgroÃŸvater hat angefangen sein Wissen Ã¼ber MilchkÃ¼he weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.", "Nun, wenn ihr so bittet. Ich glaube ich brauche Helfer um die Arbeit zu bewÃ¤ltigen, wie wÃ¤re es mit euch?"
 
---After receiving the quest
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I raise cows in order to sell their milk.", "I'm a peasant and I specialized in tending dairy cows.", "I live and work here as a cattle breeder. I sell the milk I've milked."
+"beruf" -> "I raise cows in order to sell their milk.", "I'm a peasant and I specialized in tending dairy cows.", "I live and work here as a cattle breeder. I sell the milk I've milked."
+"job", english -> "I raise cows in order to sell their milk.", "I'm a peasant and I specialized in tending dairy cows.", "I live and work here as a cattle breeder. I sell the milk I've milked."
+"job" -> "Ich ziehe KÃ¼he groÃŸ um dann deren Milch zu verkaufen.", "Ich bin Bauer und habe mich auf Milchkuh Haltung spezialisiert.", "Ich lebe und arbeite hier als KuhzÃ¼chter. Die gemolkene Milch verkaufe ich."
+"Gobaith", "Gobiath", english -> "Never heard about it. Are there cows at that place?", "Gobaith sounds lush somehow. Like a meadow of the greenest grass, best thing for cows.", "Ah I heard about it. I think it looks like a latrine after being visited by someone who drank too much milk now."
+"Gobaith", "Gobiath" -> "Davon hab ich noch nie gehÃ¶rt. Gibt es dort KÃ¼he?", "Gobaith klingt irgendwie sehr saftig. Wie eine grÃ¼ne Wiese besten Grases fÃ¼r die KÃ¼he.", "Ah ich habs gehÃ¶rt. Ich glaube dort sieht es jetzt so aus wie auf dem Donnerbalken wenn man zu viel Milch getrunken hat."
+"I am", "my name" -> "Nice to meet you! Let's celebrate this with a glass of milk.", "That name is pleasant to the tongue. Like a big gulp of milk.", "Wellmet. You look like someone who'll appreciate a fine glass of milk."
+"Ich bin", "mein Name" -> "SchÃ¶n dich kennenzulernen! Lass uns darauf anstoÃŸen mit einem Glas Milch.", "Das ist aber ein hÃ¼bscher Name. Zergeht auf der Zunge wie ein krÃ¤ftiger Schluck Milch.", "Sehr erfreut. Ihr seht wie jemand aus der ein Glas bester Milch zu schÃ¤tzen weiÃŸ."
 
-"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening"->"Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.","Good to see you again! Let's check if there's something to do for you.","Welcome, the cows have already inquired about you."
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir"->"Oh wie schön, dass ihr zurück seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.","Es ist schön euch wiederzusehen. Lasst uns schauen ob es etwas für euch zu tun gibt.","Willkommen, die Kühe haben schon nach euch gefragt."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.","Good to see you again! Let's check if there's something to do for you.","Welcome, the cows have already inquired about you."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Oh wie schön, dass ihr zurück seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.","Es ist schön euch wiederzusehen. Lasst uns schauen ob es etwas für euch zu tun gibt.","Willkommen, die Kühe haben schon nach euch gefragt."
+-- More small talk; add at least five triggers
+"Milk", queststatus(28) = 0 -> inform("You want to know more about the cows."), "Why of course, help yourself! Good, isn't it? My 'cows' give an extraordinary delicious milk."
+"Cow", queststatus(28) = 0 -> "I'm proud of my cows! I earn my living with their milk. If only I had someone to help me with all the work...", "I'm getting older and the work with the cows gets harder all by myself. I could use some help in the stable, but who would care for a task like that..."
+"stable" -> "Yes, my cows are in the stable, unless they are on the meadow grazing.", "My stable is the big building to the right of us.", "Three cows fit into my stable, isn't that wonderful?"
+"work", "stablehand", queststatus(28) = 0 -> inform("Say 'I help you' if you want to help him."), "Once you tend to my cows, you may have some milk. Will you help me?", "Well I could use some sturdy helping hands. Will you help me?", "Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.", state = 1
+"Milch", queststatus(28) = 0 -> inform("Du mÃ¶chtest mehr Ã¼ber die KÃ¼he erfahren."), "Aber bitte nehmt nur und bedient euch! Schmeckts? Meine 'KÃ¼he' geben eine besonders wohlschmeckende Milch."
+"Kuh", "KÃ¼he", queststatus(28) = 0 -> "Meine KÃ¼he sind mein ganzer Stolz! AuÃŸerdem sichern sie mir meine Existenz. Wenn ich nur jemanden hÃ¤tte der mir mit all der Arbeit hilft...", "Ich werde alt und die Arbeit mit den KÃ¼hen wird fÃ¼r mich immer schwerer. Ich kÃ¶nnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an..."
+"Stall" -> "Ja, im Stall stehen meine KÃ¼he, wenn sie nicht gerade weiden.", "Mein Stall ist das groÃŸe GebÃ¤ude rechts von uns.", "Drei KÃ¼he passen in meinen Stall, toll oder?"
+"Arbeit", "helfer", queststatus(28) = 0 -> inform("Sag 'Ich helfe euch' wenn du ihm helfen mÃ¶chtest."), "Wenn ihr euch um meine KÃ¼he kÃ¼mmert, kÃ¶nnt ihr auch etwas Milch haben. Helft ihr mir?", "Nun, ich kÃ¶nnte HÃ¤nde die zupacken kÃ¶nnen gebrauchen. Wollt ihr mir helfen?", "KÃ¶nntet ihr mir helfen? Ich kann euch nicht viel dafÃ¼r geben aber es wÃ¼rde mir viel bedeuten und mir einige Sorgen abnehmen.", state = 1
 
---Time to say Goodbye & Smalltalk
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "I am proud to say that archmage Morgan never starts a day without a glass of my milk!", "They say the only vital signs of the archmage over the course of weeks are the empty milk bottles and other dishes he summons infront of his chambers."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ich bin stolz sagen zu kÃ¶nnen, dass Erzmagier Morgan keinen Tag ohne ein Glas meiner Milch beginnt!", "Es heiÃŸt die einzigen Lebenszeichen des Erzmagiers Ã¼ber Wochen hinweg wÃ¤ren die leeren Milchflaschen und anderes Geschirr das er vor die TÃ¼r seiner GemÃ¤cher zaubert."
+"Runewick", english -> "What would you call a town full of weakly mages with bad bone structure? I'm calling it paradise!", "Runewick, by far most of my customers live there!", "An impressive place. I would've moved there already but alas the cows don't take the sea breeze there well."
+"Runewick" -> "Wie wÃ¼rdet ihr eine Stadt voller krÃ¤nklicher Magier mit schwachem Knochenbau nennen? Ich nenne es Paradies!", "Runewick, da befindet sich mit Abstand mein grÃ¶ÃŸter Kundenstock.", "Ein beeindruckender Ort. Ich wÃ¼rde gerne dort leben aber die KÃ¼he vertragen die Seeluft nicht so gut."
+"Valerio", "Guilianni", "Don", english -> "The Don doesn't care about milk. Luckily Runewick is near enough not to be offered the Dons 'protection'.", "If you look at the Don closely you might assume he's drinking milk day in and day out."
+"Valerio", "Guilianni", "Don" -> "Der Don macht sich nichts aus Milch. Gut dass Runewick nahe genug ist um nicht seinen 'Schutz' angeboten zu bekommen.", "Wenn man sich den Don so ansieht mÃ¶chte man meinen er trÃ¤nke nichts anderes als Milch."
+"Galmair", english -> "Once I have been forced to yield my best cows to the city. Of course they didn't give good milk, due to the sparse grass growing there.", "Although they could use my milk there, due to the harsh conditions in the mountains, most prefer to drink alcoholic beverages."
+"Galmair" -> "Man hat mich einmal gezwungen meine besten MilchkÃ¼he der Stadt zu Ã¼berlassen. NatÃ¼rlich gaben sie bei dem kargen Gras dort keine gute Milch.", "Obwohl sie bei den harten Bedingungen dort oben in den Bergen die Kraft aus Milch gut brauchen kÃ¶nnten, sprechen sie doch lieber dem Alkohol zu."
+"rosaline", "kÃ¶nigin", "queen", "edwards", english -> "A pity the queen swears on donkey milk to use in her bath.", "If my cows were mules, all I would do is produce milk for the bath of the queen and I would be rich!"
+"rosaline", "kÃ¶nigin", "queen", "edwards" -> "Leider schwÃ¶rt die KÃ¶nigin auf Eselsmilch um ihr Bad zu nehmen.", "WÃ¤ren meine KÃ¼he Esel, ich brÃ¤uchte nur fÃ¼r das Bad der KÃ¶nigin zu arbeiten und hÃ¤tte ausgesorgt."
+"Cadomyr", english -> "Due to the hot temperature not much milk is drank there. Only a choosen few appreciate my milk there.", "Some connoisseurs spend good money on having my milk transported to Cadomyr."
+"Cadomyr" -> "Wegen der Hitze dort wird leider nicht viel Milch getrunken. Nur wenige wissen meine Milch dort zu schÃ¤tzen.", "Ein paar Kenner lassen es sich viel kosten um meine Milch nach Cadomyr geliefert zu bekommen."
 
-"Farewell","Good bye","Bye","Fare thee well"->"Fare thee well and come back soon!","Goodbye! Tell your friends about old Bippi and his milk.","Oh, leaving already? A pity, good luck on your further travels!"
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Gehabt euch wohl und kommt bald mal wieder vorbei!","Auf bald! Erzählt euren Freunden vom alten Bippi und seiner Milch.","Oh, ihr geht schon? Schade, viel Erfolg auf eurem weiteren Weg!"
-"Ciao","Adieu","Au revoir","Farebba","See you",english->"Fare thee well and come back soon!","Goodbye! Tell your friends about old Bippi and his milk.","Oh, leaving already? A pity, good luck on your further travels!"
-"Ciao","Adieu","Au revoir","Farebba","See you"->"Gehabt euch wohl und kommt bald mal wieder vorbei!","Auf bald! Erzählt euren Freunden vom alten Bippi und seiner Milch.","Oh, ihr geht schon? Schade, viel Erfolg auf eurem weiteren Weg!"
+-- Main land factions
+"albar", english -> "I've heard cows are treated better than peasants there, terrifying thought!", "Children in Albar are said to be weaned from breast milk very early. Milk is a symbol for weakness there, they say.", "A lot of milk in Albar is wasted to be processed to smelly cheese, that's aweful!"
+"albar", german -> "Ich habe gehÃ¶rt die KÃ¼he werden dort besser behandelt als die Bauern, schauerlich.", "In Albar sollen Kinder sehr frÃ¼h der Muttermilch entwÃ¶hnt werden. Milch wird mit SchwÃ¤che assoziert heiÃŸt es.", "Viel Milch in Albar wird vergeudet um sie zu stinkendem KÃ¤se zu verarbeiten. Schrecklich!"
+"gynk", "gync", english -> "If you want to order milk in Gynka, you'll only get it in a dirty glas.", "Gynk people don't care that much about milk.", "I heard many cows get sick there because of all the swamps nearby."
+"gync", "gynk", german -> "Wenn man in Gynka Milch bestellen will, bekommt man es nur in einem schmutzigen Glas.", "Die Leute aus Gynk machen sich nicht viel aus Milch.", "Ich hÃ¶rte viele KÃ¼he dort werden krank wegen den SÃ¼mpfen in der NÃ¤he."
+"salkama", english -> "Some 'scholars' of Salkamar are said to try to create milk out of plants. How could they!?", "ENGLISH2.", "Amongst some upperclass people of Salkamar it is respectable to carry a downy beard openly! I think."
+"salkama", german -> "Ein paar 'Gelehrte' in Salkamar sollen versuchen Milch aus Pflanzen zu gewinnen. Wie kann man nur!?", "Es soll Leute dort geben die mischen ihre Milch mit heiÃŸem Wasser und KrÃ¤utern. VerrÃ¼ckt, nicht?", "In manchen gehobenen Kreisen Salkamars gilt das Tragen eines Milchbarts als schicklich! Glaube ich."
 
-"How are you","How feel","How do you do"->"Ach, I feel my age creeping up my bones. If only I had someone to help in the stable.","Ah my leg grows stiffer each passing week. I worry who will take care of my cows when one day I...","Work is hard and I'm not growing any younger. I think I need someone to take care of some of my tasks."
-"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"Ach, ich spüre das Alter in meinen Knochen. Hätte ich doch nur jemanden der im Stall aushilft.","Ah mein Bein wird von Woche zu Woche steifer. Ich sorge mich schon wer sich um meine Kühe kümmern wird wenn ich einmal...","Die Arbeit ist hart und ich werde nicht jünger. Ich glaube ich brauche jemanden der mir meine Aufgaben abnimmt."
-"your name","who are you","who art thou"->"I'm old Bippi and my cows have the tastiest milk for miles.","Call me Bippi. I'm a peasant and tend my cows here on this farm.","My name? I'm Bippi and I sell my milk everywhere, even as far away as Cadomyr!"
-"dein name","wer bist du","wer seid ihr","wie heißt"->"Ich bin der alte Bippi und meine Kühe geben die beste Milch weit und breit.","Nennt mich Bippi, ich bin Bauer und kümmere mich hier um meine Kühe.","Mein Name? Ich bin der Bippi und ich verkaufe meine Milch nach überall hin, sogar nach Cadomyr!"
+-- Gods - use the triggers of the god the NPC worships or fights
+"Adron", english -> "After a long feast there's nothing better to get on track than a glass of milk, even Adron knows that!", "Adron loves beverages. Milk is a beverage. I love milk. Thus we share a love for milk.", "A long time ago I became very ill. A wanderer found me shivering with fever in the stables and nursed me back to health. I think he was that wanderer!"
+"Adron" -> "Nach einem langen Fest gibt es nichts besseres um wieder zu KrÃ¤ften zu kommen als ein Glas Milch, das weiÃŸ auch Adron.", "Adron liebt GetrÃ¤nke. Milch ist ein GetrÃ¤nk. Ich liebe Milch. Also teilen wir eine Liebe zur Milch.", "For langer Zeit wurde ich schwer krank. Ein Wanderer fand mich zitternd vor Fieber im Stall und pflegte mich gesund. Ich glaube er war das!"
+"Bragon", "BrÃ¡gon", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Bragon", "BrÃ¡gon" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Cherga", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Cherga" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Elara", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Elara" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Eldan", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Eldan" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Findari", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Findari" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Irmorom", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Irmorom" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Malachin", "MalachÃ­n", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Malachin", "MalachÃ­n" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Moshran", english -> "Oh stop talking about that one! Else the milk will turn sour.", "Next to noone has spilled as much milk as that meanie did.", "I am hospitable. But for nothing in the world would I give him a glass of milk!"
+"Moshran" -> "HÃ¶rt mir bloÃŸ auf von dem! Sonst wird noch die Milch sauer.", "Kaum jemand hat so boshaft so viel Milch verschÃ¼ttet wie er.", "Ich bin gastfreundlich. Aber um nichts in der Welt wÃ¼rde er ein Glas Milch von mir bekommen!"
+"Nargun", "NargÃºn", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Nargun", "NargÃºn" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Oldra", english -> "Thanks to her plants grow, and thanks to those plants my cows give milk!", "Oldra, yes. We have to thank her for everything, you know. Without crops grown from soil all of us would die of hunger.", "She is the highest godess of all, without her creation everything else would perish due to hunger."
+"Oldra" -> "Wegen ihr gedeihen die Pflanzen, und diese wiederum ermÃ¶glichen es dass meine KÃ¼he Milch geben!", "Oldra, ja. Ihr haben wir doch alles zu verdanken. Ohne die FrÃ¼chte der Erde wÃ¼rden wir alle verhungern.", "Sie ist die hÃ¶chste Gottheit von allen, ohne ihre SchÃ¶pfung wÃ¼rde alles andere vor Hunger umkommen."
+"Ronagan", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Ronagan" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Sirani", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Sirani" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Tanora", "Zelphia", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Tanora", "Zelphia" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Ushara", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Ushara" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
+"Zhambra", english -> "I'm sorry. I don't pray to that deity that often, so I can't say much about this.", "I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.", "Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+"Zhambra" -> "Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.", "Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.", "Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
 
---Catching typical NPC phrases
+-- Catching quest triggers
+"quest", english -> inform("Say 'I help you' if you want to help him."), "Once you tend to my cows, you may have some milk. Will you help me?", "Well I could use some sturdy helping hands. Will you help me?", "Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.", state = 1
+"quest", german -> inform("Sag 'Ich helfe euch' wenn du ihm helfen mÃ¶chtest."), "Wenn ihr euch um meine KÃ¼he kÃ¼mmert, kÃ¶nnt ihr auch etwas Milch haben. Helft ihr mir?", "Nun, ich kÃ¶nnte HÃ¤nde die zupacken kÃ¶nnen gebrauchen. Wollt ihr mir helfen?", "KÃ¶nntet ihr mir helfen? Ich kann euch nicht viel dafÃ¼r geben aber es wÃ¼rde mir viel bedeuten und mir einige Sorgen abnehmen.", state = 1
+"task", "adventure" -> inform("Say 'I help you' if you want to help him."), "Once you tend to my cows, you may have some milk. Will you help me?", "Well I could use some sturdy helping hands. Will you help me?", "Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.", state = 1
+"Auftrag", "Aufgabe", "Abenteuer" -> inform("Sag 'Ich helfe euch' wenn du ihm helfen mÃ¶chtest."), "Wenn ihr euch um meine KÃ¼he kÃ¼mmert, kÃ¶nnt ihr auch etwas Milch haben. Helft ihr mir?", "Nun, ich kÃ¶nnte HÃ¤nde die zupacken kÃ¶nnen gebrauchen. Wollt ihr mir helfen?", "KÃ¶nntet ihr mir helfen? Ich kann euch nicht viel dafÃ¼r geben aber es wÃ¼rde mir viel bedeuten und mir einige Sorgen abnehmen.", state = 1
 
-"what sell","what buy","list wares","price of"->"I sell cow milk, but I have a lot of orders, I can't sell any to you. Unless you help me of course.","I sell my milk! It's sold quicker than I can bottle it up, I'm sorry but you can't have any of it.","Milk milk milk! Milk is healthy and tasty, and it fills my pockets with lots of copper coins ."
-"was verkauf","was kauf","warenliste","preis von"->"Ich verkaufe die Milch meiner Kühe, aber ich habe so viele Bestellungen, euch kann ich nichts abgeben. Außer ihr macht euch nützlich.","Meine Milch verkauf ich! Die geht schneller weg als ich sie abfüllen kann, ihr könnt leider nichts davon haben.","Milch Milch Milch! Milch ist gesund und wohlschmeckend. Und sie füllt meine Taschen mit Kupfer."
-"tell something"->"Well you don't look like a cattle breeder, otherwise I would talk about my work.","My Greatgrandfather has started to pass on his knowledge about cows, today I am the one knowing all secrets.","Well if you ask like that. I think I need farmhands to cope with all the work, maybe you want to help me?"
-"erzähl was","erzähl etwas"->"Nun, ihr seht nicht aus wie ein Viehzüchter, sonst würde ich über die Arbeit sprechen.","Mein Großgroßvater hat angefangen sein Wissen über Milchkühe weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.","Nun, wenn ihr so bittet. Ich glaube ich brauche Helfer um die Arbeit zu bewältigen, wie wäre es mit euch?"
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "That's true! Let's have a glass of milk to celebrate.", "Absolutely! Even my cows understand.", "#me nods leisuredly: 'My grandfather used to say that all the time."
+"Ja" -> "Richtig so! Darauf trinken wir ein Glas Milch.", "Absolut! Sogar meine KÃ¼he verstehen das.", "#me nickt mÃ¼ÃŸig: 'Mein GroÃŸvater sagte das auch immer.'"
+"No" -> "Ah? Can a glass of milk change your mind?", "That's sad. Still you should try my milk.", "Don't be that negative! Drink a bit of milk and everything will turn out well!"
+"Nein" -> "Ah? Kann ein Glas Milch dich umstimmen?", "Das ist schade. Aber meine Milch solltest du trotzdem probieren.", "Sei nicht so negativ! Trink ein wenig Milch und alles wird gut!"
 
---Small talk: The talk here should focus on possible questions. Feel free to add more!
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
 
-"profession"->"I raise cows in order to sell their milk.","I'm a peasant and I specialized in tending dairy cows.","I live and work here as a cattle breeder. I sell the milk I've milked."
-"beruf"->"I raise cows in order to sell their milk.","I'm a peasant and I specialized in tending dairy cows.","I live and work here as a cattle breeder. I sell the milk I've milked."
-"job",english->"I raise cows in order to sell their milk.","I'm a peasant and I specialized in tending dairy cows.","I live and work here as a cattle breeder. I sell the milk I've milked."
-"job"->"Ich ziehe Kühe groß um dann deren Milch zu verkaufen.","Ich bin Bauer und habe mich auf Milchkuh Haltung spezialisiert.","Ich lebe und arbeite hier als Kuhzüchter. Die gemolkene Milch verkaufe ich."
-"Gobaith","Gobiath",english->"Never heard about it. Are there cows at that place?","Gobaith sounds lush somehow. Like a meadow of the greenest grass, best thing for cows.","Ah I heard about it. I think it looks like a latrine after being visited by someone who drank too much milk now."
-"Gobaith","Gobiath"->"Davon hab ich noch nie gehört. Gibt es dort Kühe?","Gobaith klingt irgendwie sehr saftig. Wie eine grüne Wiese besten Grases für die Kühe.","Ah ich habs gehört. Ich glaube dort sieht es jetzt so aus wie auf dem Donnerbalken wenn man zu viel Milch getrunken hat."
+-- ".*",english,chance(20)->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
+-- ".*",german,chance(20)->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die HÃ¤nde Adrons und Oldras, andere GÃ¶tter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darÃ¼ber sagen. Ich bete eher zu Adron und Oldra."
 
-"I am","my name"->"Nice to meet you! Let's celebrate this with a glass of milk.","That name is pleasant to the tongue. Like a big gulp of milk.","Wellmet. You look like someone who'll appreciate a fine glass of milk."
-"Ich bin","mein Name"->"Schön dich kennenzulernen! Lass uns darauf anstoßen mit einem Glas Milch.","Das ist aber ein hübscher Name. Zergeht auf der Zunge wie ein kräftiger Schluck Milch.","Sehr erfreut. Ihr seht wie jemand aus der ein Glas bester Milch zu schätzen weiß."
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
---More small talk; add at least five triggers
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
-"Milk",queststatus = 0->"Why of course, help yourself! Good, isn't it? My 'cows' give an extraordinary delicious milk.", inform(You want to know more about the cows.)
-"Cow",queststatus = 0->"I'm proud of my cows! I earn my living with their milk. If only I had someone to help me with all the work...", "I'm getting older and the work with the cows gets harder all by myself. I could use some help in the stable, but who would care for a task like that..."
-"stable"->"Yes, my cows are in the stable, unless they are on the meadow grazing.","My stable is the big building to the right of us.","Three cows fit into my stable, isn't that wonderful?"
-"work","stablehand"queststatus = 0->"Once you tend to my cows, you may have some milk. Will you help me?","Well I could use some sturdy helping hands. Will you help me?","Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.",state = 1, inform( Say 'I help you' if you want to help him.)
-
-"Milch",queststatus = 0->"Aber bitte nehmt nur und bedient euch! Schmeckts? Meine 'Kühe' geben eine besonders wohlschmeckende Milch.", inform(Du möchtest mehr über die Kühe erfahren.)
-"Kuh","Kühe",queststatus = 0->"Meine Kühe sind mein ganzer Stolz! Außerdem sichern sie mir meine Existenz. Wenn ich nur jemanden hätte der mir mit all der Arbeit hilft...", "Ich werde alt und die Arbeit mit den Kühen wird für mich immer schwerer. Ich könnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an..."
-"Stall"->"Ja, im Stall stehen meine Kühe, wenn sie nicht gerade weiden.","Mein Stall ist das große Gebäude rechts von uns.","Drei Kühe passen in meinen Stall, toll oder?"
-"Arbeit","helfer",queststatus = 0->"Wenn ihr euch um meine Kühe kümmert, könnt ihr auch etwas Milch haben. Helft ihr mir?","Nun, ich könnte Hände die zupacken können gebrauchen. Wollt ihr mir helfen?","Könntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.",state = 1, inform( Sag 'Ich helfe euch' wenn du ihm helfen möchtest. )
-
---Faction stuff
-
-"Elvaine","Morgan","archmage","Erzmagier",english->"I am proud to say that archmage Morgan never starts a day without a glass of my milk!","They say the only vital signs of the archmage over the course of weeks are the empty milk bottles and other dishes he summons infront of his chambers." 
-"Elvaine","Morgan","archmage","Erzmagier"->"Ich bin stolz sagen zu können, dass Erzmagier Morgan keinen Tag ohne ein Glas meiner Milch beginnt!","Es heißt die einzigen Lebenszeichen des Erzmagiers über Wochen hinweg wären die leeren Milchflaschen und anderes Geschirr das er vor die Tür seiner Gemächer zaubert."
-"Runewick",english->"What would you call a town full of weakly mages with bad bone structure? I'm calling it paradise!","Runewick, by far most of my customers live there!","An impressive place. I would've moved there already but alas the cows don't take the sea breeze there well."
-"Runewick"->"Wie würdet ihr eine Stadt voller kränklicher Magier mit schwachem Knochenbau nennen? Ich nenne es Paradies!","Runewick, da befindet sich mit Abstand mein größter Kundenstock.","Ein beeindruckender Ort. Ich würde gerne dort leben aber die Kühe vertragen die Seeluft nicht so gut."
-"Valerio","Guilianni","Don",english->"The Don doesn't care about milk. Luckily Runewick is near enough not to be offered the Dons 'protection'.","If you look at the Don closely you might assume he's drinking milk day in and day out."
-"Valerio","Guilianni","Don"->"Der Don macht sich nichts aus Milch. Gut dass Runewick nahe genug ist um nicht seinen 'Schutz' angeboten zu bekommen.","Wenn man sich den Don so ansieht möchte man meinen er tränke nichts anderes als Milch."
-"Galmair",english->"Once I have been forced to yield my best cows to the city. Of course they didn't give good milk, due to the sparse grass growing there.","Although they could use my milk there, due to the harsh conditions in the mountains, most prefer to drink alcoholic beverages."
-"Galmair"->"Man hat mich einmal gezwungen meine besten Milchkühe der Stadt zu überlassen. Natürlich gaben sie bei dem kargen Gras dort keine gute Milch.","Obwohl sie bei den harten Bedingungen dort oben in den Bergen die Kraft aus Milch gut brauchen könnten, sprechen sie doch lieber dem Alkohol zu."
-"rosaline","königin","queen","edwards",english->"A pity the queen swears on donkey milk to use in her bath.","If my cows were mules, all I would do is produce milk for the bath of the queen and I would be rich!"
-"rosaline","königin","queen","edwards"->"Leider schwört die Königin auf Eselsmilch um ihr Bad zu nehmen.","Wären meine Kühe Esel, ich bräuchte nur für das Bad der Königin zu arbeiten und hätte ausgesorgt."
-"Cadomyr",english->"Due to the hot temperature not much milk is drank there. Only a choosen few appreciate my milk there.","Some connoisseurs spend good money on having my milk transported to Cadomyr."
-"Cadomyr"->"Wegen der Hitze dort wird leider nicht viel Milch getrunken. Nur wenige wissen meine Milch dort zu schätzen.","Ein paar Kenner lassen es sich viel kosten um meine Milch nach Cadomyr geliefert zu bekommen."
-
---Main land factions
-
-"albar",english->"I've heard cows are treated better than peasants there, terrifying thought!","Children in Albar are said to be weaned from breast milk very early. Milk is a symbol for weakness there, they say.","A lot of milk in Albar is wasted to be processed to smelly cheese, that's aweful!"
-"albar",german->"Ich habe gehört die Kühe werden dort besser behandelt als die Bauern, schauerlich.","In Albar sollen Kinder sehr früh der Muttermilch entwöhnt werden. Milch wird mit Schwäche assoziert heißt es.","Viel Milch in Albar wird vergeudet um sie zu stinkendem Käse zu verarbeiten. Schrecklich!"
-"gynk","gync",english->"If you want to order milk in Gynka, you'll only get it in a dirty glas.","Gynk people don't care that much about milk.","I heard many cows get sick there because of all the swamps nearby."
-"gync","gynk",german->"Wenn man in Gynka Milch bestellen will, bekommt man es nur in einem schmutzigen Glas.","Die Leute aus Gynk machen sich nicht viel aus Milch.","Ich hörte viele Kühe dort werden krank wegen den Sümpfen in der Nähe."
-"salkama",english->"Some 'scholars' of Salkamar are said to try to create milk out of plants. How could they!?","ENGLISH2.","Amongst some upperclass people of Salkamar it is respectable to carry a downy beard openly! I think."
-"salkama",german->"Ein paar 'Gelehrte' in Salkamar sollen versuchen Milch aus Pflanzen zu gewinnen. Wie kann man nur!?","Es soll Leute dort geben die mischen ihre Milch mit heißem Wasser und Kräutern. Verrückt, nicht?","In manchen gehobenen Kreisen Salkamars gilt das Tragen eines Milchbarts als schicklich! Glaube ich."
-
---Gods - use the triggers of the god the NPC worships or fights
-
-"Adron",english->"After a long feast there's nothing better to get on track than a glass of milk, even Adron knows that!","Adron loves beverages. Milk is a beverage. I love milk. Thus we share a love for milk.","A long time ago I became very ill. A wanderer found me shivering with fever in the stables and nursed me back to health. I think he was that wanderer!"
-"Adron"->"Nach einem langen Fest gibt es nichts besseres um wieder zu Kräften zu kommen als ein Glas Milch, das weiß auch Adron.","Adron liebt Getränke. Milch ist ein Getränk. Ich liebe Milch. Also teilen wir eine Liebe zur Milch.","For langer Zeit wurde ich schwer krank. Ein Wanderer fand mich zitternd vor Fieber im Stall und pflegte mich gesund. Ich glaube er war das!"
-"Bragon","Brágon",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Bragon","Brágon"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Cherga",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Cherga"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Elara",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Elara"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Eldan",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Eldan"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra.""
-"Findari",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Findari"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Irmorom",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Irmorom"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Malachin","Malachín",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Malachin","Malachín"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Moshran",english->"Oh stop talking about that one! Else the milk will turn sour.","Next to noone has spilled as much milk as that meanie did.","I am hospitable. But for nothing in the world would I give him a glass of milk!"
-"Moshran"->"Hört mir bloß auf von dem! Sonst wird noch die Milch sauer.","Kaum jemand hat so boshaft so viel Milch verschüttet wie er.","Ich bin gastfreundlich. Aber um nichts in der Welt würde er ein Glas Milch von mir bekommen!"
-"Nargun","Nargún",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Nargun","Nargún"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Oldra",english->"Thanks to her plants grow, and thanks to those plants my cows give milk!","Oldra, yes. We have to thank her for everything, you know. Without crops grown from soil all of us would die of hunger.","She is the highest godess of all, without her creation everything else would perish due to hunger."
-"Oldra"->"Wegen ihr gedeihen die Pflanzen, und diese wiederum ermöglichen es dass meine Kühe Milch geben!","Oldra, ja. Ihr haben wir doch alles zu verdanken. Ohne die Früchte der Erde würden wir alle verhungern.","Sie ist die höchste Gottheit von allen, ohne ihre Schöpfung würde alles andere vor Hunger umkommen."
-"Ronagan",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Ronagan"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Sirani",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Sirani"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Tanora","Zelphia",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Tanora","Zelphia"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Ushara",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Ushara"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-"Zhambra",english->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
-"Zhambra"->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-
---Catching quest triggers
-
-"quest",english->"Once you tend to my cows, you may have some milk. Will you help me?","Well I could use some sturdy helping hands. Will you help me?","Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.",state = 1, inform( Say 'I help you' if you want to help him.)
-"quest",german->"Wenn ihr euch um meine Kühe kümmert, könnt ihr auch etwas Milch haben. Helft ihr mir?","Nun, ich könnte Hände die zupacken können gebrauchen. Wollt ihr mir helfen?","Könntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.",state = 1, inform( Sag 'Ich helfe euch' wenn du ihm helfen möchtest. )
-"task","adventure"->"Once you tend to my cows, you may have some milk. Will you help me?","Well I could use some sturdy helping hands. Will you help me?","Could you help me? I can't pay much but it'd mean a lot to me. It would also take away some of my worries.",state = 1, inform( Say 'I help you' if you want to help him.)
-"Auftrag","Aufgabe","Abenteuer"->"Wenn ihr euch um meine Kühe kümmert, könnt ihr auch etwas Milch haben. Helft ihr mir?","Nun, ich könnte Hände die zupacken können gebrauchen. Wollt ihr mir helfen?","Könntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.",state = 1, inform( Sag 'Ich helfe euch' wenn du ihm helfen möchtest. )
-
---Last catch: Think about keyphrases the player might say and that are not caught until here
-
-"Yes"->"That's true! Let's have a glass of milk to celebrate.","Absolutely! Even my cows understand.","#me nods leisuredly: 'My grandfather used to say that all the time."
-"Ja"->"Richtig so! Darauf trinken wir ein Glas Milch.","Absolut! Sogar meine Kühe verstehen das.","#me nickt müßig: 'Mein Großvater sagte das auch immer.'"
-"No"->"Ah? Can a glass of milk change your mind?","That's sad. Still you should try my milk.","Don't be that negative! Drink a bit of milk and everything will turn out well!"
-"Nein"->"Ah? Kann ein Glas Milch dich umstimmen?","Das ist schade. Aber meine Milch solltest du trotzdem probieren.","Sei nicht so negativ! Trink ein wenig Milch und alles wird gut!"
-
---Absolutely last catch: Everything a player says and is not caught earlier
---This response should give the player a hint about what to ask the NPC
---Optional Trigger /  Response is only given 1/5 of the time
-
---".*",english,chance(20)->"I'm sorry. I don't pray to that deity that often, so I can't say much about this.","I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.","Hmm. I can't say much about that one. I usually pray to Adron and Oldra."
---".*",german,chance(20)->"Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.","Ich lege meinen Hof und meinen Erfolg in die Hände Adrons und Oldras, andere Götter sind mir nicht so vertraut.","Hmm. Leider kann ich nicht viel darüber sagen. Ich bete eher zu Adron und Oldra."
-
---Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
-
-cycletext "#me plagt sich damit einen schweren Eimer Getreide zu heben.","#me labours hard on lifting a heavy bucket of grain."
-cycletext "#me sieht sich traurig um und seufzt: 'So viel zu tun...'","#me looks arround with a worried frown: 'So much to do..."
-cycletext "#me nimmt einen großen Schluck aus einer Flasche: 'Mhh... Milch.'","#me takes a big gulp from a bottle: 'Mhh... milk.'"
-cycletext "Trinkt ihr brav Milch?","Got milk?"
-cycletext "Cheeseball, Mjilka, Betsy! Es wird Zeit euch zu melken!","Cheeseball, Mjilka, Betsy! Time to milk you!"
-cycletext "Milch ist gesund! Macht die Knochen stark, nicht wund!","Milk is tasty, so always be hasty, to drink for your bones, make them turn as hard as stones!"
-cycletext "Früher sah der Hof und der Arbeitsaufwand hier viel kleiner aus...","Back in the days working on this farm wasn't that stressful to me..."
-cycletext "Wo man Milch trinkt da lass dich gern nieder.","Where there's milk drunk, one can come to rest with no worries in his heart."
-cycletext "Hallo! Ja ihr da! Wolltet ihr schon mal auf einem Hof arbeiten?","Hello! Yes you over there! Did you ever consider working on a farm?"
-cycletext "Hat man Milch getrunken kann nichts mehr in die Hose gehen! Hmm, wobei...","Once you tried milk, you never go back!"
-cycletext "Die Milch macht's!","Milk makes mighty!"
+cycletext "#me plagt sich damit einen schweren Eimer Getreide zu heben.", "#me labours hard on lifting a heavy bucket of grain."
+cycletext "#me sieht sich traurig um und seufzt: 'So viel zu tun...'", "#me looks arround with a worried frown: 'So much to do..."
+cycletext "#me nimmt einen groÃŸen Schluck aus einer Flasche: 'Mhh... Milch.'", "#me takes a big gulp from a bottle: 'Mhh... milk.'"
+cycletext "Trinkt ihr brav Milch?", "Got milk?"
+cycletext "Cheeseball, Mjilka, Betsy! Es wird Zeit euch zu melken!", "Cheeseball, Mjilka, Betsy! Time to milk you!"
+cycletext "Milch ist gesund! Macht die Knochen stark, nicht wund!", "Milk is tasty, so always be hasty, to drink for your bones, make them turn as hard as stones!"
+cycletext "FrÃ¼her sah der Hof und der Arbeitsaufwand hier viel kleiner aus...", "Back in the days working on this farm wasn't that stressful to me..."
+cycletext "Wo man Milch trinkt da lass dich gern nieder.", "Where there's milk drunk, one can come to rest with no worries in his heart."
+cycletext "Hallo! Ja ihr da! Wolltet ihr schon mal auf einem Hof arbeiten?", "Hello! Yes you over there! Did you ever consider working on a farm?"
+cycletext "Hat man Milch getrunken kann nichts mehr in die Hose gehen! Hmm, wobei...", "Once you tried milk, you never go back!"
+cycletext "Die Milch macht's!", "Milk makes mighty!"

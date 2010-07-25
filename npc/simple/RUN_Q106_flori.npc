@@ -1,21 +1,53 @@
-name="Flori"
-position=883,632,0 --On the road to Runewick
-sex=male
-race=halfling --to be changed to mule
-direction=south
-QuestID=106
+------------------------------------------------------------------------------AC
+-- NPC Name: Flori                                                       None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  883, 632, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Nanuk
---Revised by Estralis Seborian
+name = "Flori"
+race = halfling
+sex = male
+position = 883, 632, 0
+direction = south
+affiliation = "None"
+job = "none"
 
---Milo's mule
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
 
-cycletext "Iiihhhh-aahhhh!","Iiihhhh-aahhhh!"
-cycletext "#me stampft stˆrrisch auf.","#me stubbornly stamps one foot."
-cycletext "#me zerrt am Halfter.","#me tears at the headcollar."
-cycletext "#me versucht den Halbling zu beiﬂen.","#me tries to bite the halfling."
-cycletext "#me sch¸ttelt seinen Kopf.","#me tosses his head."
-cycletext "#me tritt mit den Hinterl‰ufen aus.","#me kicks with his hind legs."
-cycletext "#me b‰umt sich auf.","#me rears up."
-cycletext "#me l‰sst ein paar Esels‰pfel fallen.","#me drops some mule droppings."
-cycletext "#me schl‰gt mit dem Schwanz nach ein paar Fliegen.","#me wags his tail to get rid of some flies." 
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+
+-- NPC by Nanuk
+-- Revised by Estralis Seborian
+-- QuestID=106
+-- Milo's mule
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Iiihhhh-aahhhh!", "Iiihhhh-aahhhh!"
+cycletext "#me stampft st√∂rrisch auf.", "#me stubbornly stamps one foot."
+cycletext "#me zerrt am Halfter.", "#me tears at the headcollar."
+cycletext "#me versucht den Halbling zu bei√üen.", "#me tries to bite the halfling."
+cycletext "#me sch√ºttelt seinen Kopf.", "#me tosses his head."
+cycletext "#me tritt mit den Hinterl√§ufen aus.", "#me kicks with his hind legs."
+cycletext "#me b√§umt sich auf.", "#me rears up."
+cycletext "#me l√§sst ein paar Esels√§pfel fallen.", "#me drops some mule droppings."
+cycletext "#me schl√§gt mit dem Schwanz nach ein paar Fliegen.", "#me wags his tail to get rid of some flies."

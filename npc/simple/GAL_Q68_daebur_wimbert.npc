@@ -1,193 +1,197 @@
-name="Daerbur Wimbert" 
-sex=male --male/female
-race=dwarf 
-position=-135, -400, 0 --Dark Hole Mine, Galmair
-direction=South --North/South/West/East 
-QuestID=68 --A developer will assign an ID
+------------------------------------------------------------------------------AC
+-- NPC Name: Daerbur Wimbert                                             None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  -135, -400, 0          --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Estralis Seborian
+name = "Daerbur Wimbert"
+race = dwarf
+sex = male
+position = -135, -400, 0
+direction = south
+affiliation = "None"
+job = "none"
 
---Queststatus Overview
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
 
---0: No Quest taken
---1: Quest 1 taken - gather 10 raw materials for 50cp
---2: Quest 1 solved
---3: Quest 2 taken - gather 20 raw materials for 100cp
---4: Quest 2 solved
---5: Quest 3 taken - gather 5 rare raw materials for 100cp
---6: Quest 3 solved
---7: Quest 4 taken - gather 10 distant raw materials for 200cp
---8: Quest 4 solved
+author = "not set"
 
---Debugging
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
-"set 0"->"Quest status set to 0",queststatus=0
-"set 1"->"Quest status set to 1",queststatus=1
-"set 2"->"Quest status set to 2",queststatus=2
-"set 3"->"Quest status set to 3",queststatus=3
-"set 4"->"Quest status set to 4",queststatus=4
-"set 5"->"Quest status set to 5",queststatus=5
-"set 6"->"Quest status set to 6",queststatus=6
-"set 7"->"Quest status set to 7",queststatus=7
-"set 8"->"Quest status set to 8",queststatus=8
+-- NPC by Estralis Seborian
 
---Help 
+-- queststatus(68) Overview
+-- QuestID=68
+-- 0: No Quest taken
+-- 1: Quest 1 taken - gather 10 raw materials for 50cp
+-- 2: Quest 1 solved
+-- 3: Quest 2 taken - gather 20 raw materials for 100cp
+-- 4: Quest 2 solved
+-- 5: Quest 3 taken - gather 5 rare raw materials for 100cp
+-- 6: Quest 3 solved
+-- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
+-- 8: Quest 4 solved
 
-"Help"->inform ( [Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner. )
-"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter. )
+-- Debugging
+"set 0" -> "Quest status set to 0", queststatus(68) = 0
+"set 1" -> "Quest status set to 1", queststatus(68) = 1
+"set 2" -> "Quest status set to 2", queststatus(68) = 2
+"set 3" -> "Quest status set to 3", queststatus(68) = 3
+"set 4" -> "Quest status set to 4", queststatus(68) = 4
+"set 5" -> "Quest status set to 5", queststatus(68) = 5
+"set 6" -> "Quest status set to 6", queststatus(68) = 6
+"set 7" -> "Quest status set to 7", queststatus(68) = 7
+"set 8" -> "Quest status set to 8", queststatus(68) = 8
 
---General speech
- 
-"Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"Huh?","Hah?","Heh?","Hih?","Hoh?"
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Huh?","Hah?","Heh?","Hih?","Hoh?","Häh?","Höh?","Hüh?"
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Huh?","Hah?","Heh?","Hih?","Hoh?"
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Huh?","Hah?","Heh?","Hih?","Hoh?","Häh?","Höh?","Hüh?"
+-- Help
+"Help" -> inform("[Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. SchlÃ¼sselwÃ¶rter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
-"Farewell","Good bye","Bye","Fare thy well"->"So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!","Why did you come if you wanted to leave anyway? You like change to your life, I assume.","Bye"
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!","Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?","Tschüß!"
-"Ciao","Adieu","Au revoir",english->"So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!","Why did you come if you wanted to leave anyway? You like change to your life, I assume.","Bye."
-"Ciao","Adieu","Au revoir",german->"So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!","Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?","Tschüß!"
+-- General speech
+"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
+"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "HÃ¤h?", "HÃ¶h?", "HÃ¼h?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Huh?", "Hah?", "Heh?", "Hih?", "Hoh?", "HÃ¤h?", "HÃ¶h?", "HÃ¼h?"
+"Farewell", "Good bye", "Bye", "Fare thy well" -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye"
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!", "Wieso bist du Ã¼berhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst VerÃ¤nderungen in deinem Leben, richtig?", "TschÃ¼ÃŸ!"
+"Ciao", "Adieu", "Au revoir", english -> "So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!", "Why did you come if you wanted to leave anyway? You like change to your life, I assume.", "Bye."
+"Ciao", "Adieu", "Au revoir", german -> "So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!", "Wieso bist du Ã¼berhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst VerÃ¤nderungen in deinem Leben, richtig?", "TschÃ¼ÃŸ!"
+"How are you", "How feel", "How do you do" -> "Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.", "I feel just like you, maybe a bit more sad or lucky, who knows.", "Wie fÃ¼hlst du dich denn so? Ach, warum haben Leute kein GefÃ¼hlssinn, dann wÃ¼rde das dusselige Fragen entfallen."
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Gut und schlecht gleichzeitig, so fÃ¼hl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.", "Ich fÃ¼hl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiÃŸ das schon.", "How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary."
+"your name", "who are you", "who art thou" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me."
+"dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
 
-"How are you","How feel","How do you do"->"Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.","I feel just like you, maybe a bit more sad or lucky, who knows.","Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen."
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.","Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.","How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why trade?", "Bartering is so stupid, don't we all want to betray each other?"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behÃ¤lt, was er hat, gut, nicht?", "Du hast genug, ich hab genug, also warum handeln?", "Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen."
+"tell something" -> "Once upon a time, in land far far away... I forgot the rest. But this line thrills me!", "And they all died happily ever after... I'm not a good story teller.", "What shall I tell you, fairytales? Better ask a fairy!"
+"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.", "Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzÃ¤hlen.", "Was soll ich dir erzÃ¤hlen, MÃ¤rchen? Frage lieber eine Fee danach."
 
-"your name","who are you","who art thou"->"Daerbur Wimbert.","Daerbur.","Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me."
-"dein name","wer bist du","wer seid ihr","wie heißt"->"Daerbur Wimbert.","Daerbur.","Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"miner" -> "I dig for gems, metals, and holes.", "Once, I dug a hole and some stinky, black fluid squirted out. Bah!", "If you find any gems, well, do not pick them up or nobody else can find them anymore."
+"Bergarbeiter" -> "Ich grabe nach Edelsteinen, Metallen und LÃ¶chern.", "Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende FlÃ¼ssigkeit raus. Bah!", "Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden."
+"dark hole", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+"Dunkelloch", german -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schÃ¶ne Mine, nicht wahr? Alles meins hier unten!"
+"mine", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+"Mine", german -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schÃ¶ne Mine, nicht wahr? Alles meins hier unten!"
 
---Catching typical NPC phrases 
+-- Factions
+"Runewick", german -> "In Runewick, da sind sie dick!"
+"Runewick", english -> "Runewick, that makes me sick!"
+"Galmair", german -> "Ja, Galmair, das ist hier!"
+"Galmair", english -> "Yes, Galmair, that is here!"
+"Cadomyr", german -> "Cadomyr, das verbitt' ich mir!"
+"Cadomyr", english -> "Cadomyr, won't come here!"
 
-"what sell","what buy","list wares","price of"->"I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.","You have enough, I have enough, so why trade?","Bartering is so stupid, don't we all want to betray each other?"
-"was verkauf","was kauf","warenliste","preis von"->"Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?","Du hast genug, ich hab genug, also warum handeln?","Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen."
-"tell something"->"Once upon a time, in land far far away... I forgot the rest. But this line thrills me!","And they all died happily ever after... I'm not a good story teller.","What shall I tell you, fairytales? Better ask a fairy!"
-"erzähl was","erzähl etwas"->"Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.","Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.","Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach."
+-- Tool hints
+"pick", queststatus(68) = 0 -> "You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
+"hacke", queststatus(68) = 0 -> "Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag fÃ¼r mich ausfÃ¼hren."
+"pick" -> "Need a pick, it has a nick. In Galmair, you get a new one."
+"hacke" -> "Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
 
---Small talk: The talk here should focus on possible questions. Feel free to add more!
+-- 1st quest: Take a tool and gather 10 raw materials for 50cp.
+"quest", "mission", queststatus(68) = 0, english -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
+"quest", "mission", queststatus(68) = 0, german -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn SteinblÃ¶cke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
+"task", "adventure", queststatus(68) = 0 -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 0 -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn SteinblÃ¶cke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
+"quest", "mission", queststatus(68) = 1, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+"quest", "mission", queststatus(68) = 1, german -> "Weg mit den Steinen! Bring mir zehn BlÃ¶cke und ich belohne dich."
+"task", "adventure", queststatus(68) = 1 -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 1 -> "Weg mit den Steinen! Bring mir zehn BlÃ¶cke und ich belohne dich."
+".+", queststatus(68) = 1, item(733, all) > 9, german, town = Galmair -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 50 KupferstÃ¼cke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann kÃ¶nnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", rune(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
+".+", queststatus(68) = 1, item(733, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", rune(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
+".+", queststatus(68) = 1, item(733, all) > 9, german -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 50 KupferstÃ¼cke und deine Bergbaufertigkeit steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann kÃ¶nnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", rune(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
+".+", queststatus(68) = 1, item(733, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", rune(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
+".+", queststatus(68) = 1, item(733, all) < 10, german -> "Weg mit den Steinen! Bring mir zehn BlÃ¶cke und ich belohne dich."
+".+", queststatus(68) = 1, item(733, all) < 10, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
 
-"miner"->"I dig for gems, metals, and holes.","Once, I dug a hole and some stinky, black fluid squirted out. Bah!","If you find any gems, well, do not pick them up or nobody else can find them anymore."
-"Bergarbeiter"->"Ich grabe nach Edelsteinen, Metallen und Löchern.","Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!","Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden."
-"dark hole",english->"It is not dark down here, you just need a torch.","A nice mine, isn't it? All mine in this mine, hehe."
-"Dunkelloch",german->"Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.","Eine schöne Mine, nicht wahr? Alles meins hier unten!"
-"mine",english->"It is not dark down here, you just need a torch.","A nice mine, isn't it? All mine in this mine, hehe."
-"Mine",german->"Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.","Eine schöne Mine, nicht wahr? Alles meins hier unten!"
+-- 2nd quest: Gather 20 different raw materials for 100cp.
+"quest", "mission", queststatus(68) = 2, english -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
+"quest", "mission", queststatus(68) = 2, german -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle Ã¼ber den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
+"task", "adventure", queststatus(68) = 2 -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 2 -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle Ã¼ber den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
+"quest", "mission", queststatus(68) = 3, english -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+"quest", "mission", queststatus(68) = 3, german -> "Es liegt eindeutig zu viel Kohle Ã¼ber den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+"task", "adventure", queststatus(68) = 3 -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 3 -> "Es liegt eindeutig zu viel Kohle Ã¼ber den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+".+", queststatus(68) = 3, item(21, all) > 19, german, town = Galmair -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", rune(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
+".+", queststatus(68) = 3, item(21, all) > 19, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", rune(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
+".+", queststatus(68) = 3, item(21, all) > 19, german -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine Bergbaufertigkeit steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", rune(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
+".+", queststatus(68) = 3, item(21, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", rune(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
+".+", queststatus(68) = 3, item(21, all) < 20, german -> "Grabe weiter, es liegt immernoch so viel Kohle Ã¼ber den Edelsteinen."
+".+", queststatus(68) = 3, item(21, all) < 20, english -> "Dig some more, there is still so much coal atop the gems."
 
---Factions
+-- 3rd quest: Gather 5 rare raw materials for 100cp.
+"quest", "mission", queststatus(68) = 4, english -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
+"quest", "mission", queststatus(68) = 4, german -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt kÃ¶nnen wir nach Edelsteinen graben. Bring mir fÃ¼nf ungeschliffene Schwarzsteine und ich belohne dich groÃŸzÃ¼gig.", queststatus(68) = 5
+"task", "adventure", queststatus(68) = 4 -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 4 -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt kÃ¶nnen wir nach Edelsteinen graben. Bring mir fÃ¼nf ungeschliffene Schwarzsteine und ich belohne dich groÃŸzÃ¼gig", queststatus(68) = 5
+"quest", "mission", queststatus(68) = 5, english -> "Bring me five raw blackstones and you get money. I'm so excited!"
+"quest", "mission", queststatus(68) = 5, german -> "Bring mir fÃ¼nf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+"task", "adventure", queststatus(68) = 5 -> "Bring me five raw blackstones and you get money. I'm so excited!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 5 -> "Bring mir fÃ¼nf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+".+", queststatus(68) = 5, item(252, all) > 4, german, town = Galmair -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke fÃ¼r die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen HÃ¶hle!", rune(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
+".+", queststatus(68) = 5, item(252, all) > 4, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", rune(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
+".+", queststatus(68) = 5, item(252, all) > 4, german -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine Bergbaufertigkeit steigt."), "Danke fÃ¼r die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen HÃ¶hle!", rune(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
+".+", queststatus(68) = 5, item(252, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", rune(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
+".+", queststatus(68) = 5, item(252, all) < 5, german -> "Mehr Edelsteine, bitte. Ich brauche wenigstens fÃ¼nf ungeschliffene Schwarzsteine, ja?"
+".+", queststatus(68) = 5, item(252, all) < 5, english -> "Some more gems, please. I need five raw blackstones, not less, yes?"
 
-"Runewick",german->"In Runewick, da sind sie dick!"
-"Runewick",english->"Runewick, that makes me sick!"
-"Galmair",german->"Ja, Galmair, das ist hier!"
-"Galmair",english->"Yes, Galmair, that is here!"
-"Cadomyr",german->"Cadomyr, das verbitt' ich mir!"
-"Cadomyr",english->"Cadomyr, won't come here!"
+-- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
+"quest", "mission", queststatus(68) = 6, english -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
+"quest", "mission", queststatus(68) = 6, german -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die HÃ¶hlendecke ist einsturzgefÃ¤hrdet, lauf und bring mir zehn NadelholzstÃ¤mme um die Decke abzustÃ¼tzen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
+"task", "adventure", queststatus(68) = 6 -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 6 -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die HÃ¶hlendecke ist einsturzgefÃ¤hrdet, lauf und bring mir zehn NadelholzstÃ¤mme um die Decke abzustÃ¼tzen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
+"quest", "mission", queststatus(68) = 7, english -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+"quest", "mission", queststatus(68) = 7, german -> "Nimm dich vor dem FÃ¶rster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir NadelholzstÃ¤mme zu holen."
+"task", "adventure", queststatus(68) = 7 -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 7 -> "Nimm dich vor dem FÃ¶rster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir NadelholzstÃ¤mme zu holen."
+".+", queststatus(68) = 7, item(3, all) > 9, german, town = Galmair -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 200 KupferstÃ¼cke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Oh, gut, Holz! FÃ¤llt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", rune(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
+".+", queststatus(68) = 7, item(3, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", rune(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
+".+", queststatus(68) = 7, item(3, all) > 9, german -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 200 KupferstÃ¼cke und deine Bergbaufertigkeit steigt."), "Oh, gut, Holz! FÃ¤llt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", rune(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
+".+", queststatus(68) = 7, item(3, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", rune(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
+".+", queststatus(68) = 7, item(3, all) < 10, german -> "Du kommst ohne Nadelholz wieder? Hat Valandil dich beim HolzfÃ¤llen erwischt?"
+".+", queststatus(68) = 7, item(3, all) < 10, english -> "You come back without conifer wood? Did Valandil catch you, chopping trees?"
 
---Tool hints
+-- Final dialogue: No more quests, just nice hints
+"quest", "mission", queststatus(68) = 8, english -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
+"quest", "mission", queststatus(68) = 8, german -> "Ich danke dir, fÃ¼r alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
+"task", "adventure", queststatus(68) = 8 -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 8 -> "Ich danke dir, fÃ¼r alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
 
-"pick",queststatus=0->"You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
-"hacke",queststatus=0->"Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen."
-"pick"->"Need a pick, it has a nick. In Galmair, you get a new one."
-"hacke"->"Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "What was first, yes or no? I mean, did people first think about how to agree or how to disagree?", "Indeed.", "Yes?"
+"Ja" -> "Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst Ã¼berlegt, zuzustimmen oder abzulehnen?", "Jawohl.", "Ja?"
+"No" -> "I say yes, you say no, I say goodbye, you say hello!", "No?", "Why?"
+"Nein" -> "Ich sage ja, du sagst nein, ich sage tschÃ¼ÃŸ, du sagst hallo!", "Nein?", "Wieso?"
+"nuts", "nutty", "strange", "wierd", "loony" -> "I am what I am. And what are you, something else?", "That's all a matter of perspective.", "Points of view!"
+"komisch", "bescheuert", "dusselig" -> "Ich bin, was ich bin. Und was bist du, was anderes?", "Das ist alles Ansichtssache.", "Meinungen."
+"ROFL" -> "#me laughes out loud."
 
---1st quest: Take a tool and gather 10 raw materials for 50cp.
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
-"quest","mission",queststatus=0,english->"Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?",item(2763,1,399,0),queststatus=1,inform ( [New quest] Dark Hole Mine I )
-"quest","mission",queststatus=0,german->"Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?",item(2763,1,399,0),queststatus=1,inform ( [Neues Quest] Dunkellochmine I )
-"task","adventure",queststatus=0->"Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?",item(2763,1,399,0),queststatus=1,inform ( [New quest] Dark Hole Mine I )
-"Auftrag","Aufgabe","Abenteuer",queststatus=0->"Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?",item(2763,1,399,0),queststatus=1,inform ( [Neues Quest] Dunkellochmine I )
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
-"quest","mission",queststatus=1,english->"Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"quest","mission",queststatus=1,german->"Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
-"task","adventure",queststatus=1->"Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"Auftrag","Aufgabe","Abenteuer",queststatus=1->"Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
-
-".+",queststatus=1,item(733,all)>9,town=galmair,german->"Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.",deleteitem(733,10),inform( [Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+5,money+50,skill(crafting,mining)+1,queststatus=2 
-".+",queststatus=1,item(733,all)>9,town=galmair,english->"Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.",deleteitem(733,10),inform( [Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+5,money+50,skill(crafting,mining)+1,queststatus=2 
-
-".+",queststatus=1,item(733,all)>9,german->"Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.",deleteitem(733,10),inform( [Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+50,skill(crafting,mining)+1,queststatus=2 
-".+",queststatus=1,item(733,all)>9,english->"Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.",deleteitem(733,10),inform( [Quest solved] You are awarded 50 copper coins and your mining skill increases. ),money+50,skill(crafting,mining)+1,queststatus=2 
-".+",queststatus=1,item(733,all)<10,german->"Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich." 
-".+",queststatus=1,item(733,all)<10,english->"Away with those rocks! Bring me ten stone blocks and I'll reward you." 
-
---2nd quest: Gather 20 different raw materials for 100cp.
-
-"quest","mission",queststatus=2,english->"There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?",queststatus=3,inform ( [New quest] Dark Hole Mine II )
-"quest","mission",queststatus=2,german->"Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?",queststatus=3,inform ( [Neues Quest] Dunkellochmine II )
-"task","adventure",queststatus=2->"There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?",queststatus=3,inform ( [New quest] Dark Hole Mine II )
-"Auftrag","Aufgabe","Abenteuer",queststatus=2->"Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?",queststatus=3,inform ( [Neues Quest] Dunkellochmine II )
-
-"quest","mission",queststatus=3,english->"There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"quest","mission",queststatus=3,german->"Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
-"task","adventure",queststatus=3->"There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"Auftrag","Aufgabe","Abenteuer",queststatus=3->"Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
-
-".+",queststatus=3,item(21,all)>19,town=galmair,german->"Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.",deleteitem(21,20),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+10,money+100,skill(crafting,mining)+1,queststatus=4 
-".+",queststatus=3,item(21,all)>19,town=galmair,english->"How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.",deleteitem(21,20),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+10,money+100,skill(crafting,mining)+1,queststatus=4 
-
-".+",queststatus=3,item(21,all)>19,german->"Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.",deleteitem(21,20),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+100,skill(crafting,mining)+1,queststatus=4 
-".+",queststatus=3,item(21,all)>19,english->"How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.",deleteitem(21,20),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. ),money+100,skill(crafting,mining)+1,queststatus=4 
-".+",queststatus=3,item(21,all)<20,german->"Grabe weiter, es liegt immernoch so viel Kohle über den Edelsteinen." 
-".+",queststatus=3,item(21,all)<20,english->"Dig some more, there is still so much coal atop the gems." 
-
---3rd quest: Gather 5 rare raw materials for 100cp.
-
-"quest","mission",queststatus=4,english->"Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.",queststatus=5,inform ( [New quest] Dark Hole Mine III )
-"quest","mission",queststatus=4,german->"Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.",queststatus=5,inform ( [Neues Quest] Dunkellochmine III )
-"task","adventure",queststatus=4->"Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.",queststatus=5,inform ( [New quest] Dark Hole Mine III )
-"Auftrag","Aufgabe","Abenteuer",queststatus=4->"Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig",queststatus=5,inform ( [Neues Quest] Dunkellochmine III )
-
-"quest","mission",queststatus=5,english->"Bring me five raw blackstones and you get money. I'm so excited!"
-"quest","mission",queststatus=5,german->"Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-"task","adventure",queststatus=5->"Bring me five raw blackstones and you get money. I'm so excited!"
-"Auftrag","Aufgabe","Abenteuer",queststatus=5->"Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-
-".+",queststatus=5,item(252,all)>4,town=galmair,german->"Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!",deleteitem(252,5),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+15,money+100,skill(crafting,mining)+1,queststatus=6 
-".+",queststatus=5,item(252,all)>4,town=galmair,english->"Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!",deleteitem(252,5),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+15,money+100,skill(crafting,mining)+1,queststatus=6 
-
-".+",queststatus=5,item(252,all)>4,german->"Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!",deleteitem(252,5),inform( [Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+100,skill(crafting,mining)+1,queststatus=6 
-".+",queststatus=5,item(252,all)>4,english->"Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!",deleteitem(252,5),inform( [Quest solved] You are awarded 100 copper coins and your mining skill increases. ),money+100,skill(crafting,mining)+1,queststatus=6 
-".+",queststatus=5,item(252,all)<5,german->"Mehr Edelsteine, bitte. Ich brauche wenigstens fünf ungeschliffene Schwarzsteine, ja?"
-".+",queststatus=5,item(252,all)<5,english->"Some more gems, please. I need five raw blackstones, not less, yes?"
-
---4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-
-"quest","mission",queststatus=6,english->"Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.",queststatus=7,inform ( [New quest] Dark Hole Mine IV )
-"quest","mission",queststatus=6,german->"Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.",queststatus=7,inform ( [Neues Quest] Dunkellochmine IV )
-"task","adventure",queststatus=6->"Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.",queststatus=7,inform ( [New quest] Dark Hole Mine IV )
-"Auftrag","Aufgabe","Abenteuer",queststatus=6->"Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.",queststatus=7,inform ( [Neues Quest] Dunkellochmine IV )
-
-"quest","mission",queststatus=7,english->"Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"quest","mission",queststatus=7,german->"Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
-"task","adventure",queststatus=7->"Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"Auftrag","Aufgabe","Abenteuer",queststatus=7->"Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
-
-".+",queststatus=7,item(3,all)>9,town=galmair,german->"Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.",deleteitem(3,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt. ),rankpoints(galmair)+20,money+200,skill(crafting,mining)+1,queststatus=8 
-".+",queststatus=7,item(3,all)>9,town=galmair,english->"Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.",deleteitem(3,10),inform( [Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour. ),rankpoints(galmair)+20,money+200,skill(crafting,mining)+1,queststatus=8 
-
-".+",queststatus=7,item(3,all)>9,german->"Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.",deleteitem(3,10),inform( [Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. ),money+200,skill(crafting,mining)+1,queststatus=8 
-".+",queststatus=7,item(3,all)>9,english->"Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.",deleteitem(3,10),inform( [Quest solved] You are awarded 200 copper coins and your mining skill increases. ),money+200,skill(crafting,mining)+1,queststatus=8 
-".+",queststatus=7,item(3,all)<10,german->"Du kommst ohne Nadelholz wieder? Hat Valandil dich beim Holzfällen erwischt?"
-".+",queststatus=7,item(3,all)<10,english->"You come back without conifer wood? Did Valandil catch you, chopping trees?"
-
---Final dialogue: No more quests, just nice hints
-
-"quest","mission",queststatus=8,english->"I thank you for all you did, you made the world a better place. Or you changed nothing, but got money." 
-"quest","mission",queststatus=8,german->"Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
-"task","adventure",queststatus=8->"I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
-"Auftrag","Aufgabe","Abenteuer",queststatus=8->"Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
-
---Last catch: Think about keyphrases the player might say and that are not caught until here
-
-"Yes"->"What was first, yes or no? I mean, did people first think about how to agree or how to disagree?","Indeed.","Yes?"
-"Ja"->"Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?","Jawohl.","Ja?"
-"No"->"I say yes, you say no, I say goodbye, you say hello!","No?","Why?"
-"Nein"->"Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!","Nein?","Wieso?"
-"nuts","nutty","strange","wierd","loony"->"I am what I am. And what are you, something else?","That's all a matter of perspective.","Points of view!"
-"komisch","bescheuert","dusselig"->"Ich bin, was ich bin. Und was bist du, was anderes?","Das ist alles Ansichtssache.","Meinungen."
-"ROFL"->"#me laughes out loud."
-
---Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-
-cycletext "Ich frag mich, was wir sagen würden, wenn der Boden dauernd auf uns rumtrampeln würde. Er ist ziemlich ruhig...","I wonder what we would say if the ground would stomp on us. It is quite silent..." 
-cycletext "Ist Dunkelheit das Fehlen von Licht oder Licht das Fehlen von Dunkeltheit?","Is darkness the lack of light or light the lack of darkness?" 
-cycletext "#me hält einen funkelnden Edelstein vor seine zugekniffenen Augen und nickt langsam.","#me holds a gem in front of his eyes and nods slowly." 
-cycletext "Vorsicht vor den Steinen.","Beware of rocks."
-cycletext "Wer braucht schon den Himmel, wenn man eine gut abgestützte Höhlendecke hat.","Who needs the sky when you have a well supported ceiling."
-cycletext "Hela, heba, helloa.","Hela, heba, helloa."
+cycletext "Ich frag mich, was wir sagen wÃ¼rden, wenn der Boden dauernd auf uns rumtrampeln wÃ¼rde. Er ist ziemlich ruhig...", "I wonder what we would say if the ground would stomp on us. It is quite silent..."
+cycletext "Ist Dunkelheit das Fehlen von Licht oder Licht das Fehlen von Dunkeltheit?", "Is darkness the lack of light or light the lack of darkness?"
+cycletext "#me hÃ¤lt einen funkelnden Edelstein vor seine zugekniffenen Augen und nickt langsam.", "#me holds a gem in front of his eyes and nods slowly."
+cycletext "Vorsicht vor den Steinen.", "Beware of rocks."
+cycletext "Wer braucht schon den Himmel, wenn man eine gut abgestÃ¼tzte HÃ¶hlendecke hat.", "Who needs the sky when you have a well supported ceiling."
+cycletext "Hela, heba, helloa.", "Hela, heba, helloa."

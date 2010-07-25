@@ -5,7 +5,6 @@ position=108,585,200 --Testserver
 sex=male
 race=human
 direction=north
-questid=1
 
 cycletext "#me hebt den Blick, um missmutig durch den Raum zu schauen, ehe er leise Verwünschungen murmelt","#me looks up letting his gaze travel through the room before he says some quiet curses"
 cycletext "#me sieht gedankenverloren auf den Teich hinaus und spielt abwesend mit seinem Krug","#me 's thoughtful gaze rests on the pond while he himself absently toys with his mug"
@@ -33,11 +32,11 @@ cycletext "#me murmelt verstimmt im Halbschlaf 'Ja Ja..Litios..hab gesagt..komme
 
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Auf Nimmerwiedersehen.","Endlich..","Danke..ihr hattet angefangen zu nerven."
 
-"Ciao","Adieu","Au revoir",english->"#me waves as if to shoo a fly "Bye.."","#me tosses you a short look "Don't forget to close the door behind you."","#me looks at the pond again not greeting back"
+"Ciao","Adieu","Au revoir",english->"#me waves as if to shoo a fly 'Bye..'","#me tosses you a short look: 'Don't forget to close the door behind you.'","#me looks at the pond again not greeting back"
 
-"Ciao","Adieu","Au revoir",german->"#me winkt, wie um eine Fliege zu verscheuchen "Tschüss.."","#me wirft dir einen kurzen Blick zu "Vergesst nicht, die Tür hinter euch zuzumachen."","#me sieht grußlos wieder auf den Teich"
+"Ciao","Adieu","Au revoir",german->"#me winkt, wie um eine Fliege zu verscheuchen 'Tschüss..'","#me wirft dir einen kurzen Blick zu 'Vergesst nicht, die Tür hinter euch zuzumachen.'","#me sieht grußlos wieder auf den Teich."
 
-"How are you","How feel","How do you do"->"Miserable..but why would you care, leave me alone.","I am fine..as fine as a warrior who has to stay on guard all day long could be!"","Right now? Worse.."
+"How are you","How feel","How do you do"->"Miserable..but why would you care, leave me alone.","I am fine..as fine as a warrior who has to stay on guard all day long could be!","Right now? Worse.."
 
 "Wie geht","Wie fühlst","Wie ist es ergangen"->"Schlecht..aber was interessiert euch das, lasst mich alleine.","Mir geht es gut..so gut wie es einem Krieger gehen kann, der den ganzen Tag Wache stehen muss!","Genau jetzt? Schlechter.."
 

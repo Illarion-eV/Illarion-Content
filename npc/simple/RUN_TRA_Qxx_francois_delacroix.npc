@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -21,6 +21,7 @@ job = "none"
 language = common
 language = human
 defaultLanguage = common
+autointroduce = on
 
 author = "not set"
 
@@ -30,7 +31,6 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-questid = 0
 
 -- NPC by Estralis Seborian
 

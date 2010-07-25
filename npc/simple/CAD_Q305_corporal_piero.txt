@@ -3,14 +3,15 @@ position=39, 649,0 --Ruine
 sex=male
 race=human
 direction=south
-QuestID=305
+
 
 
 --NPC by Rincewind
 
 --Piero ist Corporal in Cadomyr. Er bittet mutige abenteurer darum ihm einen Bootengang zu erledingen. Quest: Spionage bei den Piraten, Position Ruine
 
---Queststatus Overview "spionage bei den Piraten"
+--queststatus(305) Overview "spionage bei den Piraten"
+--QuestID=305
 --1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
 --2: Player is ordered to dress like a pirate and burn the tobacco field with a toarch.
 --3: Player burned the tabaco field
@@ -21,27 +22,27 @@ QuestID=305
 
 --language: human, common
 
-"Botschaft","verdienen","aufgabe","abenteuer",queststatus(305)=6->"Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
-"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",german,queststatus(305)=6->"Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
-"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",english,queststatus(305)=6->"Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
-"Mesage","task","adventure","mission","money","earn",queststatus(305)=6->"Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
+"Botschaft","verdienen","aufgabe","abenteuer",queststatus(305)(305)=6->"Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
+"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",german,queststatus(305)(305)=6->"Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
+"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",english,queststatus(305)(305)=6->"Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
+"Mesage","task","adventure","mission","money","earn",queststatus(305)(305)=6->"Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
 
-"Botschaft","verdienen","aufgabe","abenteuer",queststatus(305)=5->"Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.",item(505,1,733,0),item(356,1,999,0),queststatus(305)=6,add reputation
-"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",german,queststatus(305)=5->"Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der PIraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.",item(505,1,733,0),item(356,1,999,0),queststatus(305)=6,add reputation
-"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",english,queststatus(305)=5->"Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.",item(505,1,733,0),item(356,1,999,0),queststatus(305)=6,add reputation
-"Mesage","task","adventure","mission","money","earn",queststatus(305)=5->"Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.",item(505,1,733,0),item(356,1,999,0),queststatus(305)=6,add reputation
-
-
-"verdienen","aufgabe","abenteuer",queststatus(305)=1->"Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück.", inform( 'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!' )
-"info","quest","job","problem",german,queststatus(305)=1->"Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück.", inform( 'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!' )
-"info","quest","job","problem",english,queststatus(305)=1->"My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.", inform( 'Awesome! Let's find a way to Pirate Bay! Arr, lubber!' )
-"task","adventure","mission","money","earn",queststatus(305)=1->"My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.", inform( 'Awesome! Let's find a way to Pirate Bay! Arr, lubber!' )
+"Botschaft","verdienen","aufgabe","abenteuer",queststatus(305)(305)=5->"Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.",item(505,1,733,0),item(356,1,999,0),queststatus(305)(305)=6,add reputation
+"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",german,queststatus(305)(305)=5->"Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der PIraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.",item(505,1,733,0),item(356,1,999,0),queststatus(305)(305)=6,add reputation
+"Tobis","Vunu","Coporal","Piero","info","quest","job","problem",english,queststatus(305)(305)=5->"Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.",item(505,1,733,0),item(356,1,999,0),queststatus(305)(305)=6,add reputation
+"Mesage","task","adventure","mission","money","earn",queststatus(305)(305)=5->"Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.",item(505,1,733,0),item(356,1,999,0),queststatus(305)(305)=6,add reputation
 
 
-"verdienen","aufgabe","abenteuer"->"In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.",queststatus(305)=1, inform( 'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...' )
-"quest","job","problem",german->"In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.",queststatus(305)=1, inform( 'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...' )
-"quest","job","problem",english->"Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.",queststatus(305)=1,inform( 'Is that a task or not? I should ask for more information... )
-"task","adventure","mission","money","earn"->"Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.",queststatus(305)=1,inform( 'Is that a task or not? I should ask for more information... )
+"verdienen","aufgabe","abenteuer",queststatus(305)(305)=1->"Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück.", inform( 'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!' )
+"info","quest","job","problem",german,queststatus(305)(305)=1->"Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück.", inform( 'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!' )
+"info","quest","job","problem",english,queststatus(305)(305)=1->"My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.", inform( 'Awesome! Let's find a way to Pirate Bay! Arr, lubber!' )
+"task","adventure","mission","money","earn",queststatus(305)(305)=1->"My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.", inform( 'Awesome! Let's find a way to Pirate Bay! Arr, lubber!' )
+
+
+"verdienen","aufgabe","abenteuer"->"In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.",queststatus(305)(305)=1, inform( 'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...' )
+"quest","job","problem",german->"In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.",queststatus(305)(305)=1, inform( 'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...' )
+"quest","job","problem",english->"Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.",queststatus(305)(305)=1,inform( 'Is that a task or not? I should ask for more information... )
+"task","adventure","mission","money","earn"->"Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.",queststatus(305)(305)=1,inform( 'Is that a task or not? I should ask for more information... )
 
 
 
@@ -69,9 +70,9 @@ QuestID=305
 "help"->"Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'.",state=0
 
 --quest done
-"hilfe",queststatus(305)=6->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
-"helfen",queststatus(305)=6->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
-"help",queststatus(305)=6->"I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.",state=0
+"hilfe",queststatus(305)(305)=6->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
+"helfen",queststatus(305)(305)=6->"Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.",state=0
+"help",queststatus(305)(305)=6->"I'm a guard. I guard people. Long live the queen. Thanks for your help with the pirates. Zhambra shall guard you.",state=0
 
 --smalltalk
 "murgo",english->"Murgo. Sure I heared about him. He's quite fameous on this lands."

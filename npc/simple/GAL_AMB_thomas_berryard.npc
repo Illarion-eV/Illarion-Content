@@ -1,145 +1,165 @@
-name="Thomas Berryard"
-position=350,255,0
-sex=male
-race=halfling
-direction=south
-QuestID=0
+------------------------------------------------------------------------------AC
+-- NPC Name: Thomas Berryard                                             None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  350, 255, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Rincewind
---Thomas Berryard zerklopft Steine und mischt Farben wenn man ihm die materialien dafür bringt.
---Queststatus Overview - no quest
+name = "Thomas Berryard"
+race = halfling
+sex = male
+position = 350, 255, 0
+direction = south
+affiliation = "None"
+job = "none"
 
---language: halfling, orc, common
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
 
---Verkauft: Eimer (51)
---Kauft: Eimer (51)
+author = "not set"
 
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
-"%NUMBER Steinquader",item(735,all)>=expr(%NUMBER*1)->"#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.",item(733,%NUMBER,333,0)
-"%NUMBER Kiesel",item(735,all)>=expr(%NUMBER/5)->"#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.",item(1266,%NUMBER,333,0)
-"%NUMBER Kiesel",item(733,all)>=expr(%NUMBER/5)->"#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.",item(1266,%NUMBER,333,0)
-"Steinquader",item(21,all)>=1->"#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.",item(733,1,333,0)
-"Kiesel"->"Kiesel mach ich nur für die, die mir ausreichend entweder Steinquader oder rohe Steine bringen."
-"Steinquader"->"Steinquader kann ich nur machen wenn mir jemand ausreichend rohe Steine bringt."
-"stein"->"Wieviele 'Steinquader' oder 'Kiesel' brauchst du?"
-"%NUMBER stone block",item(735,all)>=expr(%NUMBER*1)->"#me sighs deeply and after a while he worked the raw stones to fair blocks.",item(733,%NUMBER,333,0)
-"stone block",item(21,all)>=1->"#me sighs deeply and after a while he worked the raw stones to fair blocks.",item(733,1,333,0)
-"%NUMBER pebble",item(735,all)>=expr(%NUMBER/5)->"#me sighs deeply and after a while he worked the stones to handy pebbles.",item(1266,%NUMBER,333,0)
-"%NUMBER pebble",item(733,all)>=expr(%NUMBER/5)->"#me sighs deeply and after a while he worked the stones to handy pebbles.",item(1266,%NUMBER,333,0)
-"pebble"->"Pebbles are only possible if you bring me enough stone blocks or raw stones."
-"stone block"->"Bring enough raw stones and I will work stone blocks for you."
-"stone"->"How much "stone blocks" or 'pebbles' do you need?"
+-- NPC by Rincewind
+-- Thomas Berryard zerklopft Steine und mischt Farben wenn man ihm die materialien dafÃ¼r bringt.
+-- Queststatus Overview - no quest
 
---2678 | schwarze Farbe - benötigt Kohle(21) 1x 
---2679 | grüne Farbe - benötigt Kohl(290) 
---2680 | blaue Farbe - Blackberry (147) 3x 
---2681 | rote Farbe - benötigt Kirsche(302) 2x + Zwiebel(201) 2x 
---2682 | gelbe Farbe - benötigt Faulbaum Rinde(157) 2x 
---2683 | weiße Farbe - benötigt Hirtenpilz(161) 2x
-"%NUMBER schwarz Farbe",item(21,all)>=expr(%NUMBER*1),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2678,%NUMBER,333,0)
-"%NUMBER schwarz Farbe",item(21,all)>=expr(%NUMBER*1),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2678,%NUMBER,333,0)
-"schwarz Farbe",item(21,all)>=1,item(51,all)>=1->"Da hast du deine Farbe.",item(2678,1,333,0)
-"schwarz Farbe",item(21,all)>=1,item(52,all)>=1->"Da hast du deine Farbe.",item(2678,1,333,0)
-"schwarz Farbe"->"Ohne Material kann ich keine Fraben machen. Für schwarze Farbe brauch ich Kohle und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER black dye",item(21,all)>=expr(%NUMBER*1),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2678,%NUMBER,333,0)
-"%NUMBER black dye",item(21,all)>=expr(%NUMBER*1),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2678,%NUMBER,333,0)
-"black dye",item(21,all)>=1,item(51,all)>=1->"Here's your dye.",item(2678,1,333,0)
-"black dye",item(21,all)>=1,item(52,all)>=1->"Here's your dye.",item(2678,1,333,0)
-"black dye"->"Without material I can't mix Dye. Black dye needs coal and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- language: halfling, orc, common
 
-"%NUMBER gr[üu]n Farbe",item(290,all)>=expr(%NUMBER*1),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2679,%NUMBER,333,0)
-"%NUMBER gr[üu]n Farbe",item(290,all)>=expr(%NUMBER*1),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2679,%NUMBER,333,0)
-"gr[üu]n Farbe",item(290,all)>=1,item(51,all)>=1->"Da hast du deine Farbe.",item(2679,1,333,0)
-"gr[üu]n Farbe",item(290,all)>=1,item(52,all)>=1->"Da hast du deine Farbe.",item(2679,1,333,0)
-"gr[üu]n Farbe"->"Ohne Material kann ich keine Fraben machen. Für grüne Farbe brauch ich Kohl und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER green dye",item(290,all)>=expr(%NUMBER*1),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2679,%NUMBER,333,0)
-"%NUMBER green dye",item(290,all)>=expr(%NUMBER*1),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2679,%NUMBER,333,0)
-"green dye",item(290,all)>=1,item(51,all)>=1->"Here's your dye.",item(2679,1,333,0)
-"green dye",item(290,all)>=1,item(52,all)>=1->"Here's your dye.",item(2679,1,333,0)
-"green dye"->"Without material I can't mix Dye. Green dye needs cabbage and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- Verkauft: Eimer (51)
+-- Kauft: Eimer (51)
+"%NUMBER Steinquader", item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schÃ¶ne Quader gehauen.", item(733, %NUMBER, 333, 0)
+"%NUMBER Kiesel", item(735, all) => expr( %NUMBER/5) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0)
+"%NUMBER Kiesel", item(733, all) => expr( %NUMBER/5) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0)
+"Steinquader", item(21, all) => 1 -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schÃ¶ne Quader gehauen.", item(733, 1, 333, 0)
+"Kiesel" -> "Kiesel mach ich nur fÃ¼r die, die mir ausreichend entweder Steinquader oder rohe Steine bringen."
+"Steinquader" -> "Steinquader kann ich nur machen wenn mir jemand ausreichend rohe Steine bringt."
+"stein" -> "Wieviele 'Steinquader' oder 'Kiesel' brauchst du?"
+"%NUMBER stone block", item(735, all) => expr( %NUMBER*1) -> "#me sighs deeply and after a while he worked the raw stones to fair blocks.", item(733, %NUMBER, 333, 0)
+"stone block", item(21, all) => 1 -> "#me sighs deeply and after a while he worked the raw stones to fair blocks.", item(733, 1, 333, 0)
+"%NUMBER pebble", item(735, all) => expr( %NUMBER/5) -> "#me sighs deeply and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0)
+"%NUMBER pebble", item(733, all) => expr( %NUMBER/5) -> "#me sighs deeply and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0)
+"pebble" -> "Pebbles are only possible if you bring me enough stone blocks or raw stones."
+"stone block" -> "Bring enough raw stones and I will work stone blocks for you."
+"stone" -> "How many 'stone blocks' or 'pebbles' do you need?"
 
-"%NUMBER blau Farbe",item(147,all)>=expr(%NUMBER*3),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2680,%NUMBER,333,0)
-"%NUMBER blau Farbe",item(147,all)>=expr(%NUMBER*3),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2680,%NUMBER,333,0)
-"blau Farbe",item(147,all)>=3,item(51,all)>=1->"Da hast du deine Farbe.",item(2680,1,333,0)
-"blau Farbe",item(147,all)>=3,item(52,all)>=1->"Da hast du deine Farbe.",item(2680,1,333,0)
-"blau Farbe"->"Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 3 Brombeeren und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER blue dye",item(147,all)>=expr(%NUMBER*3),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2680,%NUMBER,333,0)
-"%NUMBER blue dye",item(147,all)>=expr(%NUMBER*3),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2680,%NUMBER,333,0)
-"blue dye",item(147,all)>=3,item(51,all)>=1->"Here's your dye.",item(2680,1,333,0)
-"blue dye",item(147,all)>=3,item(52,all)>=1->"Here's your dye.",item(2680,1,333,0)
-"blue dye"->"Without material I can't mix Dye. Blue dye needs at least 3 blackberries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- 2678 | schwarze Farbe - benÃ¶tigt Kohle(21) 1x
+-- 2679 | grÃ¼ne Farbe - benÃ¶tigt Kohl(290)
+-- 2680 | blaue Farbe - Blackberry (147) 3x
+-- 2681 | rote Farbe - benÃ¶tigt Kirsche(302) 2x + Zwiebel(201) 2x
+-- 2682 | gelbe Farbe - benÃ¶tigt Faulbaum Rinde(157) 2x
+-- 2683 | weiÃŸe Farbe - benÃ¶tigt Hirtenpilz(161) 2x
+"%NUMBER schwarz Farbe", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0)
+"%NUMBER schwarz Farbe", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0)
+"schwarz Farbe", item(21, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0)
+"schwarz Farbe", item(21, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0)
+"schwarz Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r schwarze Farbe brauch ich Kohle und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER black dye", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0)
+"%NUMBER black dye", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0)
+"black dye", item(21, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0)
+"black dye", item(21, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0)
+"black dye" -> "Without material I can't mix Dye. Black dye needs coal and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"%NUMBER gr[Ã¼u]n Farbe", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0)
+"%NUMBER gr[Ã¼u]n Farbe", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0)
+"gr[Ã¼u]n Farbe", item(290, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0)
+"gr[Ã¼u]n Farbe", item(290, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0)
+"gr[Ã¼u]n Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r grÃ¼ne Farbe brauch ich Kohl und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER green dye", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0)
+"%NUMBER green dye", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0)
+"green dye", item(290, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0)
+"green dye", item(290, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0)
+"green dye" -> "Without material I can't mix Dye. Green dye needs cabbage and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"%NUMBER blau Farbe", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0)
+"%NUMBER blau Farbe", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0)
+"blau Farbe", item(147, all) => 3, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0)
+"blau Farbe", item(147, all) => 3, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0)
+"blau Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r blaue Farbe brauch ich mindestens 3 Brombeeren und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER blue dye", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0)
+"%NUMBER blue dye", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0)
+"blue dye", item(147, all) => 3, item(51, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0)
+"blue dye", item(147, all) => 3, item(52, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0)
+"blue dye" -> "Without material I can't mix Dye. Blue dye needs at least 3 blackberries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"%NUMBER rot Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0)
+"%NUMBER rot Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0)
+"rot Farbe", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0)
+"rot Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0)
+"rot Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r blaue Farbe brauch ich mindestens 2 Zwiebeln, 2 Kirschen und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0)
+"%NUMBER red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0)
+"red dye", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0)
+"red dye", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0)
+"red dye" -> "Without material I can't mix Dye. Red dye needs at least 2 Onions, 2 Cherries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"%NUMBER gelb Farbe", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0)
+"%NUMBER gelb Farbe", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0)
+"gelb Farbe", item(157, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0)
+"gelb Farbe", item(157, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0)
+"gelb Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r gelbe Farbe brauch ich mindestens 2 Faulbaumrinden und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER yellow dye", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0)
+"%NUMBER yellow dye", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0)
+"yellow dye", item(157, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0)
+"yellow dye", item(157, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0)
+"yellow dye" -> "Without material I can't mix Dye. Yellow dye needs at least 2 rotten tree barks and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"%NUMBER wei[ÃŸs] Farbe", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0)
+"%NUMBER wei[ÃŸs] Farbe", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0)
+"wei[ÃŸs] Farbe", item(161, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0)
+"wei[ÃŸs] Farbe", item(161, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0)
+"wei[ÃŸs] Farbe" -> "Ohne Material kann ich keine Fraben machen. FÃ¼r weiÃŸe Farbe brauch ich mindestens 2 Hirtnepilze und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
+"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0)
+"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0)
+"white dye", item(161, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0)
+"white dye", item(161, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0)
+"white dye" -> "Without material I can't mix Dye. White dye needs at least 2 herders mushroom and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+"dye" -> "I mix 'white dye', 'yellow dye', 'red dye', 'blue dye', 'green dye'and 'black dye'... *sighs*"
+"farbe" -> "Ich rÃ¼hre 'weiÃŸe Farbe', 'gelbe Farbe', 'rote Farbe', 'blaue Farbe', 'grÃ¼ne Farbe' und 'schwarze Farbe' an... *seufzt*"
 
-"%NUMBER rot Farbe",item(302,all)>=expr(%NUMBER*2),item(201,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2681,%NUMBER,333,0)
-"%NUMBER rot Farbe",item(302,all)>=expr(%NUMBER*2),item(201,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2681,%NUMBER,333,0)
-"rot Farbe",item(302,all)>=2,item(201,all)>=2,item(51,all)>=1->"Da hast du deine Farbe.",item(2681,1,333,0)
-"rot Farbe",item(302,all)>=2,item(201,all)>=2,item(52,all)>=1->"Da hast du deine Farbe.",item(2681,1,333,0)
-"rot Farbe"->"Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 2 Zwiebeln, 2 Kirschen und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER red dye",item(302,all)>=expr(%NUMBER*2),item(201,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2681,%NUMBER,333,0)
-"%NUMBER red dye",item(302,all)>=expr(%NUMBER*2),item(201,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2681,%NUMBER,333,0)
-"red dye",item(302,all)>=2,item(201,all)>=2,item(51,all)>=1->"Here's your dye.",item(2681,1,333,0)
-"red dye",item(302,all)>=2,item(201,all)>=2,item(52,all)>=1->"Here's your dye.",item(2681,1,333,0)
-"red dye"->"Without material I can't mix Dye. Red dye needs at least 2 Onions, 2 Cherries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- generall
+"hallo", "gr[Ã¼ue]+[sÃŸ]+e", "guten tag", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Abend", "Tach", "Moin", "Greb" -> "#me gibt ein bedrÃ¼ckt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu."
+"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein bedrÃ¼ckt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu."
+"wie hei[sÃŸ]+t du", "wie hei[sÃŸ]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME und man hÃ¤lt mich hier gegen meinen Willen fest!"
+"Farewell", "Good bye", "Bye", "Fare thy well" -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "TschÃ¼ÃŸ.", "Wiedersehen.", "Adieu!", "Baba..."
+"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
+"Ciao", "Fareba", "Adieu", "Au revoir", german -> "TschÃ¼ÃŸ.", "Wiedersehen.", "Adieu!", "Baba..."
+"How are you", "How feel", "How do you do" -> "Na wie solls mir schon gehen?...eben."
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "What do you think?...exactly."
+"your name", "who are you", "who art thou" -> "I'm %NPCNAME. And I don't wan't to be here!"
+"I am", "I'm" -> "We havn't met allready, did we?"
+"Ich bin" -> "Hab ich dich nich schon mal geshen?"
 
-"%NUMBER gelb Farbe",item(157,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2682,%NUMBER,333,0)
-"%NUMBER gelb Farbe",item(157,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2682,%NUMBER,333,0)
-"gelb Farbe",item(157,all)>=2,item(51,all)>=1->"Da hast du deine Farbe.",item(2682,1,333,0)
-"gelb Farbe",item(157,all)>=2,item(52,all)>=1->"Da hast du deine Farbe.",item(2682,1,333,0)
-"gelb Farbe"->"Ohne Material kann ich keine Fraben machen. Für gelbe Farbe brauch ich mindestens 2 Faulbaumrinden und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER yellow dye",item(157,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2682,%NUMBER,333,0)
-"%NUMBER yellow dye",item(157,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2682,%NUMBER,333,0)
-"yellow dye",item(157,all)>=2,item(51,all)>=1->"Here's your dye.",item(2682,1,333,0)
-"yellow dye",item(157,all)>=2,item(52,all)>=1->"Here's your dye.",item(2682,1,333,0)
-"yellow dye"->"Without material I can't mix Dye. Yellow dye needs at least 2 rotten tree barks and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- Help
+"hilfe" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
+"helfen" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
+"help" -> "Actually, i have to batter all 'stones' into pebbles and mix 'dye'.", state = 0
 
-"%NUMBER wei[ßs] Farbe",item(161,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2683,%NUMBER,333,0)
-"%NUMBER wei[ßs] Farbe",item(161,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Da hast du deine Farbe.",item(2683,%NUMBER,333,0)
-"wei[ßs] Farbe",item(161,all)>=2,item(51,all)>=1->"Da hast du deine Farbe.",item(2683,1,333,0)
-"wei[ßs] Farbe",item(161,all)>=2,item(52,all)>=1->"Da hast du deine Farbe.",item(2683,1,333,0)
-"wei[ßs] Farbe"->"Ohne Material kann ich keine Fraben machen. Für weiße Farbe brauch ich mindestens 2 Hirtnepilze und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER white dye",item(161,all)>=expr(%NUMBER*2),item(51,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2683,%NUMBER,333,0)
-"%NUMBER white dye",item(161,all)>=expr(%NUMBER*2),item(52,all)>=expr(%NUMBER*1)->"Here's your dye.",item(2683,%NUMBER,333,0)
-"white dye",item(161,all)>=2,item(51,all)>=1->"Here's your dye.",item(2683,1,333,0)
-"white dye",item(161,all)>=2,item(52,all)>=1->"Here's your dye.",item(2683,1,333,0)
-"white dye"->"Without material I can't mix Dye. White dye needs at least 2 herders mushroom and a bucket, witch you have to buy from me if you havn't one allready... water is here."
+-- smalltalk
+"murgo", english -> "Murgo? He is my owner. And Krudash is his wife."
+"murgo", german -> "Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
 
-"dye"->"I mix 'white dye', 'yellow dye', 'red dye', 'blue dye', 'green dye'and 'black dye'... *sighs*"
-"farbe"->"Ich rühre 'weiße Farbe', 'gelbe Farbe', 'rote Farbe', 'blaue Farbe', 'grüne Farbe' und 'schwarze Farbe' an... *seufzt*"
-
---generall
-"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.","#me nickt dir lustlos zu."
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"#me gives you an aggrieved and sarkastic 'Hihoo...'.","#me gives you a spiritless nod."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"#me gives you an aggrieved and sarkastic 'Hihoo...'.","#me gives you a spiritless nod."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.","#me nickt dir lustlos zu."
-"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME und man hält mich hier gegen meinen Willen fest!"
-"Farewell","Good bye","Bye","Fare thy well"->"Farewell.","Good bye.","Bye.","Ciao...","Adieu!"
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Tschüß.","Wiedersehen.","Adieu!","Baba..."
-"Ciao","Fareba","Adieu","Au revoir",english->"Farewell.","Good bye.","Bye.","Ciao...","Adieu!"
-"Ciao","Fareba","Adieu","Au revoir",german->"Tschüß.","Wiedersehen.","Adieu!","Baba..."
-"How are you","How feel","How do you do"->"Na wie solls mir schon gehen?...eben."
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"What do you think?...exactly."
-"your name","who are you","who art thou"->"I'm %NPCNAME. And I don't wan't to be here!"
-"I am","I'm"->"We havn't met allready, did we?"
-"Ich bin"->"Hab ich dich nich schon mal geshen?"
-
---Help 
-
-
-"hilfe"->"Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.",state=0
-"helfen"->"Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.",state=0
-"help"->"Actually, i have to batter all 'stones' into pebbles and mix 'dye'.",state=0
-
---smalltalk
-"murgo",english->"Murgo? He is my owner. And Krudash is his wife."
-"murgo",german->"Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me klopft lustlos auf ein paar Steinen herum.", "#me knocks some stones in a spiritless way."
 cycletext "#me seufzt. 'Schon wieder...'", "#me sighs. 'Again...'"
 cycletext "#me's Magen knurrt leise.", "#me's stomach is growling a little bit."
-cycletext "#me schürt das Feuer und rührt in einem stinkendem Topf etwas Farbe an.", "#me pokes the fire and mixes some dye into a stinky pot."
-cycletext "#me reibt sich müde die Augen.", "#me rubs his sleepy eyes."
+cycletext "#me schÃ¼rt das Feuer und rÃ¼hrt in einem stinkendem Topf etwas Farbe an.", "#me pokes the fire and mixes some dye into a stinky pot."
+cycletext "#me reibt sich mÃ¼de die Augen.", "#me rubs his sleepy eyes."
 cycletext "Seit dem ich versucht habe Wegzulaufen muss ich pausenlos schuften!", "Until I tried to run away, I have to  peg away!"
-cycletext "Wenn er mich zwingt das nochmal zu essen, hau ich ihm ins Gemächt!", "If he force me to eat this stuff again, I will bash his family jewels!"
+cycletext "Wenn er mich zwingt das nochmal zu essen, hau ich ihm ins GemÃ¤cht!", "If he force me to eat this stuff again, I will bash his family jewels!"
 cycletext "... und dann wird mir alles egal sein.. ja genau! Hihi.", "... and then I won't care annymore.. oh yes! Hihi."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
-
-

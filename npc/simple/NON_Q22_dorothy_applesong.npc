@@ -1,80 +1,101 @@
-name="Dorothy Applesong"
-position= -66, -100, 0
-sex=female
-race=halfling
-direction=  West
-QuestId=22
+------------------------------------------------------------------------------AC
+-- NPC Name: Dorothy Applesong                                           None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  -66, -100, 0           --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---the NPC lost a necklace while near greenbriar she wishes to ask a friend of hers whether the amulet was found...
+name = "Dorothy Applesong"
+race = halfling
+sex = female
+position = -66, -100, 0
+direction = west
+affiliation = "None"
+job = "none"
 
---Before Quest--
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
 
-"Hello", queststatus=0 -> "Hello there, my name's Dorothy *looks sadly at the ground*, could you help me please?"
-"Hallo", queststatus=0 -> "Hallo auch, mein Name ist Dorothy *sieht traurig zu Boden*, könntest du mir vielleicht helfen?"
-"Greetings", queststatus=0 -> "Hello there, my name's Dorothy *looks sadly at the ground*, could you help me please?"
-"Grüße", queststatus=0 -> "Hallo auch, mein Name ist Dorothy *sieht traurig zu Boden*, könntest du mir vielleicht helfen?"
-"Help", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1
-"Hilfe", queststatus<>3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflückte. Könntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der Nähe des Eingangs zur Stadt finden.", queststatus=1
-"How", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1"
-"Wie", queststatus<>3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflückte. Könntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der Nähe des Eingangs zur Stadt finden.", queststatus=1
-"Wrong", queststatus<>3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus=1"
-"Fehlt", queststatus<>3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflückte. Könntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der Nähe des Eingangs zur Stadt finden.", queststatus=1
-"Was", queststatus<>3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflückte. Könntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der Nähe des Eingangs zur Stadt finden.", queststatus=1
+author = "not set"
 
-"Bye", queststatus<>3 -> "Umm, goodbye *wipes eyes*"
-"Tschüss", queststatus<>3 -> "Ahm, auf Wiedersehen *wischt sich die Augen*"
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
---Already given quest
+-- the NPC lost a necklace while near greenbriar she wishes to ask a friend of hers whether the amulet was found...
+-- QuestId=22
 
-"Hello", queststatus=1 -> "Hello again, did you find my locket yet? *looks hopeful*"
-"Hallo", queststatus=1 -> "Hallo nochmal, hast du mein Medaillon schon gefunden? *schaut hoffnungsvoll*"
-"Greetings", queststatus=1 -> "Hello again, did you find my locket yet? *looks hopeful*"
-"Grüße", queststatus=1 -> "Hallo nochmal, hast du mein Medaillon schon gefunden? *schaut hoffnungsvoll*"
-"Yes", queststatus=1, male -> "Thank you kind sir. *gives a broad smile* I'll be ever so grateful!"
-"Ja", queststatus=1, male -> "Danke euch, gütiger Herr. *lächelt dich breit an* Ich werde euch ewig dankbar sein!"
-"Yes", queststatus=1, female -> "Thank you miss. *gives a broad smile* I'll be ever so grateful"
-"Ja", queststatus=1, female -> "Danke euch, gütige Dame. *lächelt dich breit an* Ich werde euch ewig dankbar sein!"
+-- Before Quest--
+"Hello", queststatus(22) = 0 -> "Hello there, my name's Dorothy *looks sadly at the ground*, could you help me please?"
+"Hallo", queststatus(22) = 0 -> "Hallo auch, mein Name ist Dorothy *sieht traurig zu Boden*, kÃ¶nntest du mir vielleicht helfen?"
+"Greetings", queststatus(22) = 0 -> "Hello there, my name's Dorothy *looks sadly at the ground*, could you help me please?"
+"GrÃ¼ÃŸe", queststatus(22) = 0 -> "Hallo auch, mein Name ist Dorothy *sieht traurig zu Boden*, kÃ¶nntest du mir vielleicht helfen?"
+"Help", queststatus(22) ~= 3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus(22) = 1
+"Hilfe", queststatus(22) ~= 3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflÃ¼ckte. KÃ¶nntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der NÃ¤he des Eingangs zur Stadt finden.", queststatus(22) = 1
+"How", queststatus(22) ~= 3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus(22) = 1
+"Wie", queststatus(22) ~= 3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflÃ¼ckte. KÃ¶nntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der NÃ¤he des Eingangs zur Stadt finden.", queststatus(22) = 1
+"Wrong", queststatus(22) ~= 3 -> "I lost my locket while I was in Greenbriar, picking strawberries. Could you go ask Barney Haycrop whether he found a locket? You'll find him near the entrance of the town.", queststatus(22) = 1
+"Fehlt", queststatus(22) ~= 3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflÃ¼ckte. KÃ¶nntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der NÃ¤he des Eingangs zur Stadt finden.", queststatus(22) = 1
+"Was", queststatus(22) ~= 3 -> "Ich habe mein Medaillon verloren, als ich in Greenbriar Erdbeeren pflÃ¼ckte. KÃ¶nntest du wohl Barney Haycrop fragen, ob er es gefunden hat? Du wirst ihn in der NÃ¤he des Eingangs zur Stadt finden.", queststatus(22) = 1
+"Bye", queststatus(22) ~= 3 -> "Umm, goodbye *wipes eyes*"
+"TschÃ¼ss", queststatus(22) ~= 3 -> "Ahm, auf Wiedersehen *wischt sich die Augen*"
 
---Talked to other NPC
+-- Already given quest
+"Hello", queststatus(22) = 1 -> "Hello again, did you find my locket yet? *looks hopeful*"
+"Hallo", queststatus(22) = 1 -> "Hallo nochmal, hast du mein Medaillon schon gefunden? *schaut hoffnungsvoll*"
+"Greetings", queststatus(22) = 1 -> "Hello again, did you find my locket yet? *looks hopeful*"
+"GrÃ¼ÃŸe", queststatus(22) = 1 -> "Hallo nochmal, hast du mein Medaillon schon gefunden? *schaut hoffnungsvoll*"
+"Yes", queststatus(22) = 1, sex = male -> "Thank you kind sir. *gives a broad smile* I'll be ever so grateful!"
+"Ja", queststatus(22) = 1, sex = male -> "Danke euch, gÃ¼tiger Herr. *lÃ¤chelt dich breit an* Ich werde euch ewig dankbar sein!"
+"Yes", queststatus(22) = 1, sex = female -> "Thank you miss. *gives a broad smile* I'll be ever so grateful"
+"Ja", queststatus(22) = 1, sex = female -> "Danke euch, gÃ¼tige Dame. *lÃ¤chelt dich breit an* Ich werde euch ewig dankbar sein!"
 
-"Hello", queststatus=2 -> "Please tell me you found my locket... it was a gift from my mother, and very precious to me"
-"Hallo", queststatus=2 -> "Bitte sagt mir, wenn ihr das Medaillon gefunden habt... es war ein Geschenk meiner Mutter und ist sehr wertvoll für mich."
-"Greetings", queststatus=2 -> "Please tell me you found my locket... it was a gift from my mother, and very precious to me"
-"Grüße", queststatus=2 -> "Bitte sagt mir, wenn ihr das Medaillon gefunden habt... es war ein Geschenk meiner Mutter und ist sehr wertvoll für mich."
-"Locket", queststatus=2, item(222,belt)>0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Medaillon", queststatus=2, item(222, belt)>0 -> "Oh, ich danke euch! Danke! Ich weiß nicht, wie ich euch das vergelten könnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Here", queststatus=2, item(222,belt)>0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Hier", queststatus=2, item(222, belt)>0 -> "Oh, ich danke euch! Danke! Ich weiß nicht, wie ich euch das vergelten könnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Have", queststatus=2, item(222,belt)>0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Habe", queststatus=2, item(222, belt)>0 -> "Oh, ich danke euch! Danke! Ich weiß nicht, wie ich euch das vergelten könnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteitem(222,1),  item(353,1,333,0), queststatus=3
-"Locket", queststatus=2 -> "You have my locket? Where is it? *smiles hopefully*"
-"Medaillon", queststatus=2 -> "Ihr habt mein Medaillon? Wo ist es? *lächelt hoffnungsvoll*"
-"Here", queststatus=2 -> "You have my locket? Where is it? *smiles hopefully*"
-"Hier", queststatus=2 -> "Ihr habt mein Medaillon? Wo ist es? *lächelt hoffnungsvoll*"
-"Have", queststatus=2 -> "You have my locket? Where is it? *smiles hopefully*"
-"Habe", queststatus=2 -> "Ihr habt mein Medaillon? Wo ist es? *lächelt hoffnungsvoll*"
+-- Talked to other NPC
+"Hello", queststatus(22) = 2 -> "Please tell me you found my locket... it was a gift from my mother, and very precious to me"
+"Hallo", queststatus(22) = 2 -> "Bitte sagt mir, wenn ihr das Medaillon gefunden habt... es war ein Geschenk meiner Mutter und ist sehr wertvoll fÃ¼r mich."
+"Greetings", queststatus(22) = 2 -> "Please tell me you found my locket... it was a gift from my mother, and very precious to me"
+"GrÃ¼ÃŸe", queststatus(22) = 2 -> "Bitte sagt mir, wenn ihr das Medaillon gefunden habt... es war ein Geschenk meiner Mutter und ist sehr wertvoll fÃ¼r mich."
+"Locket", queststatus(22) = 2, item(222, belt) > 0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Medaillon", queststatus(22) = 2, item(222, belt) > 0 -> "Oh, ich danke euch! Danke! Ich weiÃŸ nicht, wie ich euch das vergelten kÃ¶nnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Here", queststatus(22) = 2, item(222, belt) > 0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Hier", queststatus(22) = 2, item(222, belt) > 0 -> "Oh, ich danke euch! Danke! Ich weiÃŸ nicht, wie ich euch das vergelten kÃ¶nnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Have", queststatus(22) = 2, item(222, belt) > 0 -> "Oh Thank you! Thank you!, I don't know what I can do to ever repay you... here, have this, I made it myself", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Habe", queststatus(22) = 2, item(222, belt) > 0 -> "Oh, ich danke euch! Danke! Ich weiÃŸ nicht, wie ich euch das vergelten kÃ¶nnte... hier, nehmt dies, ich habe es selbst gemacht.", deleteItem(222, 1), item(353, 1, 333, 0), queststatus(22) = 3
+"Locket", queststatus(22) = 2 -> "You have my locket? Where is it? *smiles hopefully*"
+"Medaillon", queststatus(22) = 2 -> "Ihr habt mein Medaillon? Wo ist es? *lÃ¤chelt hoffnungsvoll*"
+"Here", queststatus(22) = 2 -> "You have my locket? Where is it? *smiles hopefully*"
+"Hier", queststatus(22) = 2 -> "Ihr habt mein Medaillon? Wo ist es? *lÃ¤chelt hoffnungsvoll*"
+"Have", queststatus(22) = 2 -> "You have my locket? Where is it? *smiles hopefully*"
+"Habe", queststatus(22) = 2 -> "Ihr habt mein Medaillon? Wo ist es? *lÃ¤chelt hoffnungsvoll*"
 
---Quest Is done
+-- Quest Is done
+"Hello", queststatus(22) = 3 -> "Hello, and thanks for all you did for me. Hope you enjoyed the pie *smiles*"
+"Hallo", queststatus(22) = 3 -> "Hallo und danke nochmal fÃ¼r alles, dass ihr fÃ¼r mich getan habt. Ich hoffe, der Kuchen schmeckte euch. *lÃ¤chelt*"
+"Greetings", queststatus(22) = 3 -> "Hello, and thanks for all you did for me. Hope you enjoyed the pie *smiles*"
+"GrÃ¼ÃŸe", queststatus(22) = 3 -> "Hallo und danke nochmal fÃ¼r alles, dass ihr fÃ¼r mich getan habt. Ich hoffe, der Kuchen schmeckte euch. *lÃ¤chelt*"
+"Bye", queststatus(22) = 3 -> "Goodbye *smiles broadly*"
+"TschÃ¼ss", queststatus(22) = 3 -> "Auf Wiedersehen *lÃ¤chelt breit*"
 
-"Hello", queststatus=3 -> "Hello, and thanks for all you did for me. Hope you enjoyed the pie *smiles*"
-"Hallo", queststatus=3 -> "Hallo und danke nochmal für alles, dass ihr für mich getan habt. Ich hoffe, der Kuchen schmeckte euch. *lächelt*"
-"Greetings", queststatus=3 -> "Hello, and thanks for all you did for me. Hope you enjoyed the pie *smiles*"
-
-"Grüße", queststatus=3 -> "Hallo und danke nochmal für alles, dass ihr für mich getan habt. Ich hoffe, der Kuchen schmeckte euch. *lächelt*"
-"Bye", queststatus=3 -> "Goodbye *smiles broadly*"
-"Tschüss", queststatus=3 -> "Auf Wiedersehen *lächelt breit*"
-
---Generic NPC Stuff
-
-"Sell", queststatus<>3 -> "#me sobs quietly to herself"
-"Verkaufe", queststatus<>3 -> "#me schluchzt leise vor sich hin"
-"Buy", queststatus<>3 -> "#me sobs quietly to herself"
-"Kaufe", queststatus<>3 -> "#me schluchzt leise vor sich hin"
-"Wares", queststatus<>3 -> "#me sobs quietly to herself"
-"Waren", queststatus<>3 -> "#me schluchzt leise vor sich hin"
-"Sell", queststatus=3 -> "Hehe, you seem to have liked that pie... I'm sorry but I don't make enough to sell"
-"Verkaufe", queststatus=3 -> "Hehe, der Kuchen scheint euch geschmeckt zu haben..., es tut mir leid aber ich mache nicht genug, um ihn zu verkaufen."
-"Buy", queststatus=3 -> "I don't buy anything, I'm quite content now *looks proudly at her locket*"
-"Kaufe", queststatus=3 -> "Ich kaufe nichts, ich bin nun sehr zufrieden mit der Welt *sieht stolz auf ihr Medaillon*"
-"Wares", queststatus=3 -> "Sorry, I'm no vendor"
-"Waren", queststatus=3 -> "Tut mir Leid, ich bin kein Händler."
+-- Generic NPC Stuff
+"Sell", queststatus(22) ~= 3 -> "#me sobs quietly to herself"
+"Verkaufe", queststatus(22) ~= 3 -> "#me schluchzt leise vor sich hin"
+"Buy", queststatus(22) ~= 3 -> "#me sobs quietly to herself"
+"Kaufe", queststatus(22) ~= 3 -> "#me schluchzt leise vor sich hin"
+"Wares", queststatus(22) ~= 3 -> "#me sobs quietly to herself"
+"Waren", queststatus(22) ~= 3 -> "#me schluchzt leise vor sich hin"
+"Sell", queststatus(22) = 3 -> "Hehe, you seem to have liked that pie... I'm sorry but I don't make enough to sell"
+"Verkaufe", queststatus(22) = 3 -> "Hehe, der Kuchen scheint euch geschmeckt zu haben..., es tut mir leid aber ich mache nicht genug, um ihn zu verkaufen."
+"Buy", queststatus(22) = 3 -> "I don't buy anything, I'm quite content now *looks proudly at her locket*"
+"Kaufe", queststatus(22) = 3 -> "Ich kaufe nichts, ich bin nun sehr zufrieden mit der Welt *sieht stolz auf ihr Medaillon*"
+"Wares", queststatus(22) = 3 -> "Sorry, I'm no vendor"
+"Waren", queststatus(22) = 3 -> "Tut mir Leid, ich bin kein HÃ¤ndler."

@@ -1,47 +1,67 @@
-name="Ward Blankman"
-position=68,62,100
-sex=male
-race=human
-direction=south
+------------------------------------------------------------------------------AC
+-- NPC Name: Ward Blankman                                               None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  68, 62, 100            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
+name = "Ward Blankman"
+race = human
+sex = male
+position = 68, 62, 100
+direction = south
+affiliation = "None"
+job = "none"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 "greet", "hello" -> "Greetings to you. My name is %NPCNAME. I'm guarding the undead right there."
-"gr[üu][sß]", "grue[sß]", "hallo" -> "Grüß' dich. Mein Name ist %NPCNAME. Ich bewache die Untoten dort drüben."
-
+"gr[Ã¼u][sÃŸ]", "grue[sÃŸ]", "hallo" -> "GrÃ¼ÃŸ' dich. Mein Name ist %NPCNAME. Ich bewache die Untoten dort drÃ¼ben."
 "bye", "farewell", "be well" -> "Be well.", "Farewell.", "Good bye."
-"auf bald", "bis bald", "leb.+wohl", "tsch[üu][ßs]", "mach.+gut" -> "Auf bald.", "Bis bald.", "Leb wohl.", "Mach's gut."
-
+"auf bald", "bis bald", "leb.+wohl", "tsch[Ã¼u][ÃŸs]", "mach.+gut" -> "Auf bald.", "Bis bald.", "Leb wohl.", "Mach's gut."
 "who you", "what you" -> "I'm %NPCNAME, the guard of the undead on this isle."
-"wer du", "was du", "wer ihr", "was ihr" -> "Ich bin %NPCNAME, der Wächter der Untoten auf dieser Insel."
-
+"wer du", "was du", "wer ihr", "was ihr" -> "Ich bin %NPCNAME, der WÃ¤chter der Untoten auf dieser Insel."
 "guardian" -> "I don't know any guardian of the undead. Perhaps you'll meet one on Gobaith. But now hurry up, you've talked long enough. Move on, climb up the ladder and enter Findecano's castle."
-"h[uü]ter", "hueter" -> "Ich kenne keinen Hüter der Untoten. Aber vielleicht triffst du einen auf Gobaith. Aber jetzt spute dich, du hast schon lange genug geredet. Geh weiter, kletter die Leiter hoch und betrete das Schloss von Findecano."
-
+"h[uÃ¼]ter", "hueter" -> "Ich kenne keinen HÃ¼ter der Untoten. Aber vielleicht triffst du einen auf Gobaith. Aber jetzt spute dich, du hast schon lange genug geredet. Geh weiter, kletter die Leiter hoch und betrete das Schloss von Findecano."
 "guard" -> "I am a guard of the undead. It is my duty to ensure that both the living and the undead do not endanger the other group."
-"w[äa]chter", "waechter" -> "Ich bin ein Wächter der Untoten. Es ist meine Pflicht sicherzustellen, dass sowohl die Lebenden als auch die Untoten nicht die andere Gruppe gefährden."
-
+"w[Ã¤a]chter", "waechter" -> "Ich bin ein WÃ¤chter der Untoten. Es ist meine Pflicht sicherzustellen, dass sowohl die Lebenden als auch die Untoten nicht die andere Gruppe gefÃ¤hrden."
 "creature" -> "Those creatures are undead."
 "kreatur" -> "Diese Kreaturen sind Untote."
-
 "undead" -> "I've trapped the undead in this cave. Mummies and skeletons. May Cherga release their souls."
-"untot" -> "Ich habe die Untoten in diese Höhle gesperrt. Mumien und Skelette. Möge Cherga ihre Seelen freigeben."
-
+"untot" -> "Ich habe die Untoten in diese HÃ¶hle gesperrt. Mumien und Skelette. MÃ¶ge Cherga ihre Seelen freigeben."
 "living" -> "The living should not disturb the undead. They are at a difficult stage on the way to Cherga's realm."
-"lebend" -> "Die Lebenden sollten die Untoten nicht stören. Sie sind in einem schwierigen Abschnitt auf dem Weg zu Chergas Reich."
-
+"lebend" -> "Die Lebenden sollten die Untoten nicht stÃ¶ren. Sie sind in einem schwierigen Abschnitt auf dem Weg zu Chergas Reich."
 "cherga", "realm", english -> "Cherga is the Goddess of Spirits and the Underworld. Those undead probably still have to fulfill a certain task. Only then their souls will find peace."
-"cherga", "reich", german -> "Cherga ist die Göttin der Geister und der Unterwelt. Diese Untoten haben wahrscheinlich noch ein bestimmte Aufgabe zu erfüllen. Erst dann werden ihre Seelen Frieden finden."
-
+"cherga", "reich", german -> "Cherga ist die GÃ¶ttin der Geister und der Unterwelt. Diese Untoten haben wahrscheinlich noch ein bestimmte Aufgabe zu erfÃ¼llen. Erst dann werden ihre Seelen Frieden finden."
 "soul", "peace" -> "These souls can only find peace when they have fulfilled their task."
-"seele", "friede" -> "Jene Seelen können nur Frieden finden, wenn sie ihre Aufgabe erledigt haben."
-
+"seele", "friede" -> "Jene Seelen kÃ¶nnen nur Frieden finden, wenn sie ihre Aufgabe erledigt haben."
 "task" -> "I don't know what task they have to do. Usually only the Gods know this. However some chosen ones - the guardians of the undead - are told to help them. They might know more."
-"aufgabe" -> "Ich weiß nicht, was für eine Aufgabe sie erledigen müssen. Normalerweise wissen das nur die Götter. Jedoch sind einige Auserwählte - die Hüter der Untoten - damit beauftragt, ihnen zu helfen. Diese wissen möglicherweise mehr."
-
+"aufgabe" -> "Ich weiÃŸ nicht, was fÃ¼r eine Aufgabe sie erledigen mÃ¼ssen. Normalerweise wissen das nur die GÃ¶tter. Jedoch sind einige AuserwÃ¤hlte - die HÃ¼ter der Untoten - damit beauftragt, ihnen zu helfen. Diese wissen mÃ¶glicherweise mehr."
 "ladder" -> "Yes, climb up that ladder. Just step on it and you'll be on the other side of the ladder."
 "leiter" -> "Ja, kletter diese Leiter hoch. Tret einfach darauf und du wirst am anderen Ende der leiter sein."
-
 "findecano", "castle", english -> "Go to Findecano. He's waiting for you."
-"findecano", "schlo[sß]", german -> "Geh zu Findecano. Er wartet auf dich."
+"findecano", "schlo[sÃŸ]", german -> "Geh zu Findecano. Er wartet auf dich."
 
-cycletext "#me reibt sich die Hände.","#me rubs his hands."
-cycletext "#me schüttelt den Kopf 'Arme Kreaturen.'","#me shakes his head 'Poor creatures.'"
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me reibt sich die HÃ¤nde.", "#me rubs his hands."
+cycletext "#me schÃ¼ttelt den Kopf 'Arme Kreaturen.'", "#me shakes his head 'Poor creatures.'"

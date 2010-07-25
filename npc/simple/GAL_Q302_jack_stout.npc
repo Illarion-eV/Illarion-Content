@@ -1,127 +1,146 @@
-name="Jack Stout"
-position=543,214,0
-sex=male
-race=human
-direction=northwest
-QuestID=302
+------------------------------------------------------------------------------AC
+-- NPC Name: Jack Stout                                                  None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  543, 214, 0            --
+-- NPC Sex:  male                       NPC Direction: northwest              --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Rincewind
---Jack Stout s‰gt Bretter und verkauft Bolzen sowie Hobeln.
+name = "Jack Stout"
+race = human
+sex = male
+position = 543, 214, 0
+direction = northwest
+affiliation = "None"
+job = "none"
 
---Queststatus Overview "Bogens‰hne f¸r Jack Stout"
---1: Aufforderung zu Mo' zu gehen.
---2: Mo'rurt talks
---3: Mo' agreed
---4: belohnung - schreinerskill or windpfeile
---5: quest solved
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
+author = "not set"
 
---language: human, orc, common
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
---Verkauft/kauft: Bolzen (237)
---Verkauft/kauft: Wurfspeer (293)
---Verkauft/kauft: Fackel (391)
---Verkauft/kauft: N‰gel und Keile (2717)
---Verkauft/kauft: Teller (2952)
---Verkauft/kauft: Suppensch¸ssel (2935)
---Verkauft/kauft: Seil (2760)
---Verkauft/kauft: Hobel (2715)
+-- NPC by Rincewind
+-- Jack Stout s√§gt Bretter und verkauft Bolzen sowie Hobeln.
+-- QuestID=302
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)<=1->"Ja, ja. Ich kˆnnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn ¸berredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus(302)=1
-"quest","job","problem",german,queststatus(302)<=1->"Ja, ja. Ich kˆnnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn ¸berredest mir eine neue zu machen, kann ich dir ja auch aushelfen.",queststatus(302)=1
-"quest","job","problem",english,queststatus(302)<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus(302)=1
-"task","adventure","mission","money","earn","bow",queststatus(302)<=1->"Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.",queststatus(302)=1
+-- queststatus(302) Overview "Bogens√§hne f√ºr Jack Stout"
+-- 1: Aufforderung zu Mo' zu gehen.
+-- 2: Mo'rurt talks
+-- 3: Mo' agreed
+-- 4: belohnung - schreinerskill or windpfeile
+-- 5: quest solved
 
---go to NPC Mo'rurt and ¸berzeuge ihn f¸r Jack eine neue Bogens‰hne zu machen. 
+-- language: human, orc, common
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus(302)=4
-"quest","job","problem",german,queststatus(302)=3->"Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.",queststatus(302)=4
-"quest","job","problem",english,,queststatus(302)=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus(302)=4
-"task","adventure","mission","money","earn","bow",queststatus(302)=3->"Hm? Mo' said he makes a new Bowstrong for me? Awesome.",queststatus(302)=4
+-- Verkauft/kauft: Bolzen (237)
+-- Verkauft/kauft: Wurfspeer (293)
+-- Verkauft/kauft: Fackel (391)
+-- Verkauft/kauft: N√§gel und Keile (2717)
+-- Verkauft/kauft: Teller (2952)
+-- Verkauft/kauft: Suppensch√ºssel (2935)
+-- Verkauft/kauft: Seil (2760)
+-- Verkauft/kauft: Hobel (2715)
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) =< 1 -> "Ja, ja. Ich k√∂nnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn √ºberredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
+"quest", "job", "problem", queststatus(302) =< 1, german -> "Ja, ja. Ich k√∂nnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn √ºberredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
+"quest", "job", "problem", queststatus(302) =< 1, english -> "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.", queststatus(302) = 1
+"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) =< 1 -> "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.", queststatus(302) = 1
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+10
-"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<5->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+10
-"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+10
-"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<5->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+10
+-- go to NPC Mo'rurt and √ºberzeuge ihn f√ºr Jack eine neue Bogens√§hne zu machen.
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 3 -> "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.", queststatus(302) = 4
+"quest", "job", "problem", queststatus(302) = 3, german -> "Hm? Mo' hat gesagt er macht mir die Sehne neu? Fantastisch.", queststatus(302) = 4
+"quest", "job", "problem", queststatus(302) = 3, english -> "Hm? Mo' said he makes a new Bowstrong for me? Awesome.", queststatus(302) = 4
+"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 3 -> "Hm? Mo' said he makes a new Bowstrong for me? Awesome.", queststatus(302) = 4
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 5, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", rune(carpentry) + 10, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 5, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", rune(carpentry) + 10, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 5, queststatus(302) = 4, english -> "Oh... well. I owe you one. Let me show you how to make good arrows.", rune(carpentry) + 10, queststatus(302) = 5
+"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 5, queststatus(302) = 4 -> "Oh... well. I owe you one. Let me show you how to make good arrows.", rune(carpentry) + 10, queststatus(302) = 5
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 15, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", rune(carpentry) + 5, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 15, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.", rune(carpentry) + 5, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 15, queststatus(302) = 4, english -> "Oh... well. I owe you one. Let me show you how to make good arrows.", rune(carpentry) + 5, queststatus(302) = 5
+"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 15, queststatus(302) = 4 -> "Oh... well. I owe you one. Let me show you how to make good arrows.", rune(carpentry) + 5, queststatus(302) = 5
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", skill(carpentry) < 60, queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so h√§ltst... ja genau. So ist es viel besser. Du wirst schon sehen.", rune(carpentry) + 2, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 60, queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so h√§ltst... ja genau. So ist es viel besser. Du wirst schon sehen.", rune(carpentry) + 2, queststatus(302) = 5
+"quest", "job", "problem", skill(carpentry) < 60, queststatus(302) = 4, english -> "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.", rune(carpentry) + 2, queststatus(302) = 5
+"task", "adventure", "mission", "money", "earn", "bow", skill(carpentry) < 60, queststatus(302) = 4 -> "Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.", rune(carpentry) + 2, queststatus(302) = 5
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 4 -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!", item(322, 25, 333, 0), queststatus(302) = 5
+"quest", "job", "problem", queststatus(302) = 4, german -> "Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!", item(322, 25, 333, 0), queststatus(302) = 5
+"quest", "job", "problem", queststatus(302) = 4, english -> "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?", item(322, 25, 333, 0), queststatus(302) = 5
+"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 4 -> "Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?", item(322, 25, 333, 0), queststatus(302) = 5
+"verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) = 5 -> "Danke f√ºr deine Hilfe, mit der Sehne."
+"quest", "job", "problem", queststatus(302) = 5, german -> "Danke f√ºr deine Hilfe, mit der Sehne."
+"quest", "job", "problem", queststatus(302) = 5, english -> "Thanks for your help with the Bowstring."
+"task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 5 -> "Thanks for your help with the Bowstring."
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+5
-"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<15->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Lass mir dir Zeigen wie man Pfeile am besten Macht.",queststatus(302)=5,skill(crafts, carpentry)+5
-"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+5
-"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<15->"Oh... well. I owe you one. Let me show you how to make good arrows.",queststatus(302)=5,skill(crafts, carpentry)+5
+-- saw logs--------------------------
+"saw %NUMBER apple", item(2560, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2716, %NUMBER, 333, 0)
+"saw %NUMBER apple" -> "I wowuld be glad to do so, but you havn't enough applewood."
+"s[ae√§]ge %NUMBER apfel", item(2560, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu s√§gen. Nach einigen Augenblicken beendet er die Arbeit.", item(2716, %NUMBER, 333, 0)
+"s[ae√§]ge %NUMBER apfel" -> "W√ºrd ich sofort machen. Aber du hast nicht gen√ºgend Apfelholz."
+"saw %NUMBER conifer", item(3, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2543, %NUMBER, 333, 0)
+"saw %NUMBER conifer" -> "I wowuld be glad to do so, but you havn't enough coniferwood."
+"s[ae√§]ge %NUMBER nadel", item(3, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu s√§gen. Nach einigen Augenblicken beendet er die Arbeit.", item(2543, %NUMBER, 333, 0)
+"s[ae√§]ge %NUMBER nadel" -> "W√ºrd ich sofort machen. Aber du hast nicht gen√ºgend Nadelholz."
+"saw %NUMBER cherry", item(543, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(545, %NUMBER, 333, 0)
+"saw %NUMBER cherry" -> "I wowuld be glad to do so, but you havn't enough cherrywood."
+"s[ae√§]ge %NUMBER kirsch", item(543, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu s√§gen. Nach einigen Augenblicken beendet er die Arbeit.", item(545, %NUMBER, 333, 0)
+"s[ae√§]ge %NUMBER kirsch" -> "W√ºrd ich sofort machen. Aber du hast nicht gen√ºgend Kirschenholz."
+"saw %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(546, %NUMBER, 333, 0)
+"saw %NUMBER naldor" -> "I wowuld be glad to do so, but you havn't enough Naldorwood."
+"s[ae√§]ge %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu s√§gen. Nach einigen Augenblicken beendet er die Arbeit.", item(546, %NUMBER, 333, 0)
+"s[ae√§]ge %NUMBER naldor" -> "W√ºrd ich sofort machen. Aber du hast nicht gen√ºgend Naldorholz."
+"saw" -> "I 'saw applewood', 'saw cherrywood', 'saw coniferwood' and 'saw naldorwood. At least two logs."
+"s[ae√§]ge" -> "Ich 's√§ge Apfelholz', 's√§ge Kirschholz', 's√§ge Nadelholz' und 's√§ge Naldorholz'. Mindestens zwei St√ºck."
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so h‰ltst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus(302)=5,skill(crafts, carpentry)+2
-"quest","job","problem",german,queststatus(302)=4,skill(carpentry)<60->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Wenn du beim Schnitzen das Messer in etwa so h‰ltst... ja genau. So ist es viel besser. Du wirst schon sehen.",queststatus(302)=5,skill(crafts, carpentry)+2
-"quest","job","problem",english,queststatus(302)=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus(302)=5,skill(crafts, carpentry)+2
-"task","adventure","mission","money","earn","bow",queststatus(302)=4,skill(carpentry)<60->"Oh... well. I owe you one. If you take the curvingkife like this... yes you got it! You will see it will work better.",queststatus(302)=5,skill(crafts, carpentry)+2
+-- generall
+"hallo", "gr[√ºue]+[s√ü]+e", "guten tag", "Gru√ü", "Seid gegr√º√üt", "Guten Abend", "Tach", "Moin", "Greb" -> "Hallo.", "#me ahmt l√§chelnd ein orkisches 'Greebas!' nach.", "Gru√ü."
+"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hello.", "#me smiles and imitates an orcish 'Greebas!'.", "Greet."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hello.", "#me smiles and imitates an orcish 'Greebas!'.", "Greet."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hallo.", "#me ahmt l√§chelnd ein orkisches 'Greebas' nach.", "Gru√ü."
+"wie hei[s√ü]+t du", "wie hei[s√ü]+t ihr", "dein name", "wer seid", "wer bist" -> "Eigentlich hei√üe ich %NPCNAME aber Orks sagen mei√üt einfach nur 'Stout' *er schmunzelt* Mir soll's recht sein."
+"Farewell", "Good bye", "Bye", "Fare thy well" -> "Farewell.", "#me smiles and imitates an orcish 'Farebas!'.", "Good bye."
+"Tsch√º√ü", "Tsch√ºss", "Wiedersehen", "Gehabt euch wohl" -> "Tsch√º√ü.", "Wiedersehen.", "#me ahmt l√§chelnd ein orkisches 'Farebas!' nach."
+"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Farewell.", "#me smiles and imitates an orcish 'Farebas!'.", "Good bye."
+"Ciao", "Fareba", "Adieu", "Au revoir", german -> "Tsch√º√ü.", "Wiedersehen.", "#me ahmt l√§chelnd ein orkisches 'Farebas!' nach."
+"How are you", "How feel", "How do you do" -> "Fein,fein. Ja wirklich! Ist ein gutes Leben hier.", "Wenn ich Gl√ºck habe bekomme ich eine Ork zur Frau! Das w√§re fantastisch.", "Mo' behandelt mich ordentlich. Ich hab sogar eine Armbrust bekommen und gehe jetzt oft Jagen.", "Um nichts auf der Welt w√ºrde ich das hier eintauschen.", "Besser als Beryard, dem Trauerklo√ü. *lacht*"
+"Wie geht", "Wie f√ºhlst", "Wie ist es ergangen" -> "Well,well. Promised! It's a good live here.", "If I shall be lucky, the give me an orcess as wife! Would be awesome.", "Mo' traets me well. I got an crossbow and hunt a lot.", "I wouldn't change my live against the greatest offers.", "Better then Beryard, this mope. *laughs*"
+"your name", "who are you", "who art thou" -> "Actually my name is %NPCNAME. But each orc calls me just 'Stout'. *smirks* I'm glad with."
+"I am", "I'm" -> "We havn't met allready, did we?"
+"Ich bin" -> "Hab ich dich nich schon mal geshen?"
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus(302)=5,item(322,25,333,0)
-"quest","job","problem",german,queststatus(302)=4->"Oh... richtig. Ich bin dir etwas schuldig nicht wahr? Ich kann dir leider nichts beibringen... Aber nimm doch diese Pfeile hier!",queststatus(302)=5,item(322,25,333,0)
-"quest","job","problem",english,queststatus(302)=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus(302)=5,item(322,25,333,0)
-"task","adventure","mission","money","earn","bow",queststatus(302)=4->"Oh... well. I owe you one. I can't teach you something. Whats about this bundle of arrows? Do you like?",queststatus(302)=5,item(322,25,333,0)
+-- Help
+"hilfe" -> "Ich 's√§ge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.", state = 0
+"helfen" -> "Ich 's√§ge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.", state = 0
+"help" -> "I 'saw' different wood and 'sell' a little bit.", state = 0
 
-"verdienen","aufgabe","abenteuer","armbrust","sehne",queststatus(302)=5->"Danke f¸r deine Hilfe, mit der Sehne."
-"quest","job","problem",german,queststatus(302)=5->"Danke f¸r deine Hilfe, mit der Sehne."
-"quest","job","problem",english,queststatus(302)=5->"Thanks for your help with the Bowstring."
-"task","adventure","mission","money","earn","bow",queststatus(302)=5->"Thanks for your help with the Bowstring."
+-- smalltalk
+"murgo", english -> "Murgo? Nice guy!"
+"murgo", german -> "Murgo? Netter Kerl!"
 
---saw logs--------------------------
-"saw %NUMBER apple",item(2560,all)>=expr(%NUMBER*1)->"#me starts to saw the wood, after a few moments he finishes the work.",item(2716,%NUMBER,333,0)
-"saw %NUMBER apple"->"I wowuld be glad to do so, but you havn't enough applewood."
-"s[ae‰]ge %NUMBER apfel",item(2560,all)>=expr(%NUMBER*1)->"#me beginnt das Holz zu s‰gen. Nach einigen Augenblicken beendet er die Arbeit.",item(2716,%NUMBER,333,0)
-"s[ae‰]ge %NUMBER apfel"->"W¸rd ich sofort machen. Aber du hast nicht gen¸gend Apfelholz."
-
-"saw %NUMBER conifer",item(3,all)>=expr(%NUMBER*1)->"#me starts to saw the wood, after a few moments he finishes the work.",item(2543,%NUMBER,333,0)
-"saw %NUMBER conifer"->"I wowuld be glad to do so, but you havn't enough coniferwood."
-"s[ae‰]ge %NUMBER nadel",item(3,all)>=expr(%NUMBER*1)->"#me beginnt das Holz zu s‰gen. Nach einigen Augenblicken beendet er die Arbeit.",item(2543,%NUMBER,333,0)
-"s[ae‰]ge %NUMBER nadel"->"W¸rd ich sofort machen. Aber du hast nicht gen¸gend Nadelholz."
-
-"saw %NUMBER cherry",item(543,all)>=expr(%NUMBER*1)->"#me starts to saw the wood, after a few moments he finishes the work.",item(545,%NUMBER,333,0)
-"saw %NUMBER cherry"->"I wowuld be glad to do so, but you havn't enough cherrywood."
-"s[ae‰]ge %NUMBER kirsch",item(543,all)>=expr(%NUMBER*1)->"#me beginnt das Holz zu s‰gen. Nach einigen Augenblicken beendet er die Arbeit.",item(545,%NUMBER,333,0)
-"s[ae‰]ge %NUMBER kirsch"->"W¸rd ich sofort machen. Aber du hast nicht gen¸gend Kirschenholz."
-
-"saw %NUMBER naldor",item(544,all)>=expr(%NUMBER*1)->"#me starts to saw the wood, after a few moments he finishes the work.",item(546,%NUMBER,333,0)
-"saw %NUMBER naldor"->"I wowuld be glad to do so, but you havn't enough Naldorwood."
-"s[ae‰]ge %NUMBER naldor",item(544,all)>=expr(%NUMBER*1)->"#me beginnt das Holz zu s‰gen. Nach einigen Augenblicken beendet er die Arbeit.",item(546,%NUMBER,333,0)
-"s[ae‰]ge %NUMBER naldor"->"W¸rd ich sofort machen. Aber du hast nicht gen¸gend Naldorholz."
-
-"saw"->"I 'saw applewood', 'saw cherrywood', 'saw coniferwood' and 'saw naldorwood. At least two logs."
-"s[ae‰]ge"-> "Ich 's‰ge Apfelholz', 's‰ge Kirschholz', 's‰ge Nadelholz' und 's‰ge Naldorholz'. Mindestens zwei St¸ck."
-
---generall
-"hallo","gr[¸ue]+[sﬂ]+e","guten tag","Gruﬂ","Seid gegr¸ﬂt","Guten Abend","Tach","Moin","Greb"->"Hallo.","#me ahmt l‰chelnd ein orkisches 'Greebas!' nach.","Gruﬂ."
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Hello.","#me smiles and imitates an orcish 'Greebas!'.","Greet."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Hello.","#me smiles and imitates an orcish 'Greebas!'.","Greet."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","#me ahmt l‰chelnd ein orkisches 'Greebas' nach.","Gruﬂ."
-"wie hei[sﬂ]+t du","wie hei[sﬂ]+t ihr","dein name","wer seid","wer bist"->"Eigentlich heiﬂe ich %NPCNAME aber Orks sagen meiﬂt einfach nur 'Stout' *er schmunzelt* Mir soll's recht sein."
-"Farewell","Good bye","Bye","Fare thy well"->"Farewell.","#me smiles and imitates an orcish 'Farebas!'.","Good bye."
-"Tsch¸ﬂ","Tsch¸ss","Wiedersehen","Gehabt euch wohl"->"Tsch¸ﬂ.","Wiedersehen.","#me ahmt l‰chelnd ein orkisches 'Farebas!' nach."
-"Ciao","Fareba","Adieu","Au revoir",english->"Farewell.","#me smiles and imitates an orcish 'Farebas!'.","Good bye."
-"Ciao","Fareba","Adieu","Au revoir",german->"Tsch¸ﬂ.","Wiedersehen.","#me ahmt l‰chelnd ein orkisches 'Farebas!' nach."
-"How are you","How feel","How do you do"->"Fein,fein. Ja wirklich! Ist ein gutes Leben hier.","Wenn ich Gl¸ck habe bekomme ich eine Ork zur Frau! Das w‰re fantastisch.","Mo' behandelt mich ordentlich. Ich hab sogar eine Armbrust bekommen und gehe jetzt oft Jagen.","Um nichts auf der Welt w¸rde ich das hier eintauschen.","Besser als Beryard, dem Trauerkloﬂ. *lacht*"
-"Wie geht","Wie f¸hlst","Wie ist es ergangen"->"Well,well. Promised! It's a good live here.","If I shall be lucky, the give me an orcess as wife! Would be awesome.","Mo' traets me well. I got an crossbow and hunt a lot.","I wouldn't change my live against the greatest offers.","Better then Beryard, this mope. *laughs*"
-"your name","who are you","who art thou"->"Actually my name is %NPCNAME. But each orc calls me just 'Stout'. *smirks* I'm glad with."
-"I am","I'm"->"We havn't met allready, did we?"
-"Ich bin"->"Hab ich dich nich schon mal geshen?"
-
---Help 
-
-
-"hilfe"->"Ich 's‰ge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.",state=0
-"helfen"->"Ich 's‰ge' verschiedenes Holz und 'verkaufe' auch ein bisschen was.",state=0
-"help"->"I 'saw' different wood and 'sell' a little bit.",state=0
-
---smalltalk
-"murgo",english->"Murgo? Nice guy!"
-"murgo",german->"Murgo? Netter Kerl!"
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me zupft and der Befiederung einer seiner Bolzen herum.", "#me picks the fletching about one of his bolts."
-cycletext "#me reibt mit dem Hemd‰rmel am Griff seiner sch‰bigen Armrbust.", "#me rubs with his shirtsleeve the handle of his crossbow."
-cycletext "#me f‰hrt, kritisch blickend, mit den Fingern auf der Bogensehne entlang.", "#me's fingers strokes slowly over the bowstring. His face seems afraid for a second."
-cycletext "#me l‰chelt zufrieden.", "#me smiles in a happy way."
-cycletext "#me kaut auf einem St¸ck Speck herum.", "#me chomps on a pice of bacon."
-cycletext "Wenn der Halbe nicht so immer so jammern w¸rde!", "If the half one wouldn't weep the whole time!"
+cycletext "#me reibt mit dem Hemd√§rmel am Griff seiner sch√§bigen Armrbust.", "#me rubs with his shirtsleeve the handle of his crossbow."
+cycletext "#me f√§hrt, kritisch blickend, mit den Fingern auf der Bogensehne entlang.", "#me's fingers strokes slowly over the bowstring. His face seems afraid for a second."
+cycletext "#me l√§chelt zufrieden.", "#me smiles in a happy way."
+cycletext "#me kaut auf einem St√ºck Speck herum.", "#me chomps on a pice of bacon."
+cycletext "Wenn der Halbe nicht so immer so jammern w√ºrde!", "If the half one wouldn't weep the whole time!"
 cycletext "Hm... die Sehne meiner Armbrust sollte mal neu gemacht werden.", "Hm... the bowstring of my crossbow must be changed."
-cycletext "#me pustet einige S‰gesp‰hne vom Tisch.", "#me puffs some sawdust away from the table."
-cycletext "#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft." , "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air."
-cycletext "#me's Augen fallen zu, er schwankt eine Sekunde beunruhigend, dann schnarcht er laut auf, erwacht daraufhin erschrocken. Er blickt sich beunruhigt um." , "#me eyes closes. He swings a second ominously, then gives a loud snore and wake up again. He gives the surrounding area a puzzled glance."
+cycletext "#me pustet einige S√§gesp√§hne vom Tisch.", "#me puffs some sawdust away from the table."
+cycletext "#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air."
+cycletext "#me's Augen fallen zu, er schwankt eine Sekunde beunruhigend, dann schnarcht er laut auf, erwacht daraufhin erschrocken. Er blickt sich beunruhigt um.", "#me eyes closes. He swings a second ominously, then gives a loud snore and wake up again. He gives the surrounding area a puzzled glance."

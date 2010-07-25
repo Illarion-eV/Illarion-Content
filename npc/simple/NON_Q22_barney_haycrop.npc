@@ -1,34 +1,57 @@
-name="Barney Haycrop"
-position= -417,44,0
-sex=male
-race=halfling
-direction= West
-QuestId=22
+------------------------------------------------------------------------------AC
+-- NPC Name: Barney Haycrop                                              None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  -417, 44, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
+name = "Barney Haycrop"
+race = halfling
+sex = male
+position = -417, 44, 0
+direction = west
+affiliation = "None"
+job = "none"
 
---Non Quest-Related--
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
 
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+
+-- Non Quest-Related--
+-- QuestId=22
 "Hello" -> "Ah, good day, and welcome to Greenbriar! Fine day for a nice smoke"
-
-"Greetings"-> "Ah, good day, and welcome to Greenbriar! Fine day for a nice smoke"
-
+"Greetings" -> "Ah, good day, and welcome to Greenbriar! Fine day for a nice smoke"
 "Who" -> "Me name's Barney Haycrop, and its a pleasure to meet you"
-
 "What" -> "Well, I'm not doing anything really, just lazing about"
-
 "Buy" -> "Buying and selling sounds like too much hard work for me"
-
 "Sell" -> "Buying and selling sounds like too much hard work for me"
-
 "Wares" -> " 'ave nothign to sell, my friend"
-
 "Bye" -> "Ahh, goodbye"
 
---Quest Related--
+-- Quest Related--
+"Locket", queststatus(22) = 1 -> "A locket you say... what a coincidence; I found one a few days ago... here, I trust you'll give it to the right owner", item(222, 1, 199, 0), queststatus(22) = 2
 
-"Locket", queststatus=1 -> "A locket you say... what a coincidence; I found one a few days ago... here, I trust you'll give it to the right owner", queststatus=2, item(222,1,199,0)
+-- Cycles--
 
---Cycles--
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me [german]", "#me inhales deeply from his pipe"
 cycletext "#me [german]", "#me lazes about"

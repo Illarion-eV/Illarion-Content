@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -21,6 +21,7 @@ job = "tailor,merchant"
 language = common
 language = halfling
 defaultLanguage = common
+autointroduce = on
 
 author = "Estralis Seborian"
 

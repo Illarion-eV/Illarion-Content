@@ -3,7 +3,6 @@ position=5,556,0  --Pirate bay, guarding the bridge to tabaccofield.
 sex=male
 race=human
 direction=north
-QuestID=0
 --questID not necessery, but this NPC is a important part of quest 305.
 
 --warptile: 5,557,0 -> 5,553,0
@@ -12,8 +11,8 @@ QuestID=0
 --NPC by Rincewind
 -- Ruggero guards the bridge to tobacco field in pirate Bay. When the Player is dressed like a pirate he is allowed to pass (warped on the bridge). There shall be warp-tile, so the Player is able to return in front of the NPC.
 
-
---Queststatus Overview "spionage bei den Piraten"
+--QuestID 305
+--queststatus(305) Overview "spionage bei den Piraten"
 --1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
 --2: Player is ordered to dress like a pirate and burn the tobacco field with a toarch.
 --3: Player burned the tabaco field

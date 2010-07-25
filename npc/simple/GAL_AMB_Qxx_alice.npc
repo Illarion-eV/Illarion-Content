@@ -1,67 +1,93 @@
-name="Alice"
-position=389,268,0
-sex=female
-race=human
-direction=west
-QuestID=0
+------------------------------------------------------------------------------AC
+-- NPC Name: Alice                                                       None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  389, 268, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
+name = "Alice"
+race = human
+sex = female
+position = 389, 268, 0
+direction = west
+affiliation = "None"
+job = "none"
 
---NPC by Rincewind
---Alice schmilzt verschiedene Erze zu Barren. Wenn benötigte Kohle und Erz gebracht wird.
---Queststatus Overview - no quest
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
---language: human, orc, common
+author = "not set"
 
---oremelter
-"melt %NUMBER gold",item(234,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me starts to melt the ore, after a few moments she finishes her work.",item(236,%NUMBER,333,0)
-"melt %NUMBER gold"->"#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'"
-"schmelz %NUMBER gold",item(234,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.",item(236,%NUMBER,333,0)
-"schmelz %NUMBER gold"->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Goldnuggets.'"
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
-"melt %NUMBER copper",item(2536,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me starts to melt the ore, after a few moments she finishes her work.",item(2550,%NUMBER,333,0)
-"melt %NUMBER copper"->"#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'"
-"schmelz %NUMBER kupfer",item(2536,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.",item(2550,%NUMBER,333,0)
-"schmelz %NUMBER kupfer"->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und KUpfererz.'"
+-- NPC by Rincewind
+-- Alice schmilzt verschiedene Erze zu Barren. Wenn benÃ¶tigte Kohle und Erz gebracht wird.
+-- Queststatus Overview - no quest
 
-"melt %NUMBER iron",item(22,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me starts to melt the ore, after a few moments she finishes her work.",item(2535,%NUMBER,333,0)
-"melt %NUMBER iron"->"#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'"
-"schmelz %NUMBER eisen",item(22,all)>=expr(%NUMBER*1),item(21,all)>=expr(%NUMBER*1)->"#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.",item(2535,%NUMBER,333,0)
-"schmelz %NUMBER eisen"->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Eisenerz.'"
+-- language: human, orc, common
 
-"melt"->"I 'melt copper ore', '-iron ore' and '-gold nuggets'..."
-"schmelz"->"Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'..."
+-- oremelter
+"melt %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(236, %NUMBER, 333, 0)
+"melt %NUMBER gold" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'"
+"schmelz %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0)
+"schmelz %NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Goldnuggets.'"
+"melt %NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2550, %NUMBER, 333, 0)
+"melt %NUMBER copper" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'"
+"schmelz %NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0)
+"schmelz %NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und KUpfererz.'"
+"melt %NUMBER iron", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2535, %NUMBER, 333, 0)
+"melt %NUMBER iron" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'"
+"schmelz %NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0)
+"schmelz %NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Eisenerz.'"
+"melt" -> "I 'melt copper ore', '-iron ore' and '-gold nuggets'..."
+"schmelz" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'..."
 
---generall
-"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"#me gibt ein schhüchternes 'H-hallo...' von sich.","#me nickt dir ängstlich zu."
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"#me gives you a shy 'H-hello...'.","#me nods in a scared way."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"#me gives you a shy 'H-hello...'.","#me nods in a scared way."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"#me gibt ein schhüchternes 'H-hallo...' von sich.","#me nickt dir ängstlich zu."
-"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"I-ich b-bin %NPCNAME..."
-"Farewell","Good bye","Bye","Fare thy well"->"Uhm...hm.","#me gives a quiet '...bye...'."
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"#me gibt ein leises '...tschüß...' von sich.","Uhm, hm."
-"Ciao","Fareba","Adieu","Au revoir",english->"Uhm...hm.","#me gives a quiet '...bye...'."
-"Ciao","Fareba","Adieu","Au revoir",german->"#me gibt ein leises '...tschüß...' von sich.","Uhm, hm."
-"How are you","How feel","How do you do"->"G-g-gut! M-Mir geht-gehts g-gut. I-ich h-h-hab doch n-nichts falsch g-gemacht, o-o-oder?"
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"I-I'm f-f-fine. H-h-havn't d-done some-something wrong, o-o-or?"
-"your name","who are you","who art thou"->"M-my n-n-name is NPCNAME..."
-"I am","I'm"->"H-how m-may I help you?"
-"Ich bin"->"W-was soll i-ich machen?"
+-- generall
+"hallo", "gr[Ã¼ue]+[sÃŸ]+e", "guten tag", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Abend", "Tach", "Moin", "Greb" -> "#me gibt ein schhÃ¼chternes 'H-hallo...' von sich.", "#me nickt dir Ã¤ngstlich zu."
+"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "#me gives you a shy 'H-hello...'.", "#me nods in a scared way."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you a shy 'H-hello...'.", "#me nods in a scared way."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein schhÃ¼chternes 'H-hallo...' von sich.", "#me nickt dir Ã¤ngstlich zu."
+"wie hei[sÃŸ]+t du", "wie hei[sÃŸ]+t ihr", "dein name", "wer seid", "wer bist" -> "I-ich b-bin %NPCNAME..."
+"Farewell", "Good bye", "Bye", "Fare thy well" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "#me gibt ein leises '...tschÃ¼ÃŸ...' von sich.", "Uhm, hm."
+"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Uhm...hm.", "#me gives a quiet '...bye...'."
+"Ciao", "Fareba", "Adieu", "Au revoir", german -> "#me gibt ein leises '...tschÃ¼ÃŸ...' von sich.", "Uhm, hm."
+"How are you", "How feel", "How do you do" -> "G-g-gut! M-Mir geht-gehts g-gut. I-ich h-h-hab doch n-nichts falsch g-gemacht, o-o-oder?"
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "I-I'm f-f-fine. H-h-havn't d-done some-something wrong, o-o-or?"
+"your name", "who are you", "who art thou" -> "M-my n-n-name is NPCNAME..."
+"I am", "I'm" -> "H-how m-may I help you?"
+"Ich bin" -> "W-was soll i-ich machen?"
 
---Help 
+-- Help
+"hilfe" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'...", state = 0
+"helfen" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'...", state = 0
+"help" -> "I 'melt copper ore', '-iron ore' and '-gold nuggets'...", state = 0
 
-"hilfe"->"Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'...",state=0
-"helfen"->"Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnugets'...",state=0
-"help"->"I 'melt copper ore', '-iron ore' and '-gold nuggets'...",state=0
+-- smalltalk
+"murgo", english -> "Murgo? He is my owner. And Krudash is his wife."
+"murgo", german -> "Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
 
---smalltalk
-"murgo",english->"Murgo? He is my owner. And Krudash is his wife."
-"murgo",german->"Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
-
-cycletext "#me reibt sich müde die Augen.", "#me rubs her sleepy eyes."
-cycletext "#me tritt eineige Male auf den Blasebalg, schnell beginnen die Kohlen in der Esse hell zu glühen.", "#me pumps the bellows several times and the coals in the forge start to glow brigtly."
-cycletext "#me schaufelt einige Kohlenstücke in die Esse.", "#me shovels some coal into the forge."
+cycletext "#me reibt sich mÃ¼de die Augen.", "#me rubs her sleepy eyes."
+cycletext "#me tritt eineige Male auf den Blasebalg, schnell beginnen die Kohlen in der Esse hell zu glÃ¼hen.", "#me pumps the bellows several times and the coals in the forge start to glow brigtly."
+cycletext "#me schaufelt einige KohlenstÃ¼cke in die Esse.", "#me shovels some coal into the forge."
 cycletext "#me gibt eine leisen Schluchzer von sich.", "#me sobs quietly."
 cycletext "#me kratzt an ihren verfilzten Haaren.", "#me scratches her scruffy hairs."
-cycletext "#me rülpst leise, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung." , "#me burps quietly, flavour of stale beer and roasted meat floats into the noses of the surrounding area."
-cycletext "#me balanziert für einige Sekunden auf den Zähenspitzen." , "#me balances for several second at his/her toes."
+cycletext "#me rÃ¼lpst leise, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps quietly, flavour of stale beer and roasted meat floats into the noses of the surrounding area."
+cycletext "#me balanziert fÃ¼r einige Sekunden auf den ZÃ¤henspitzen.", "#me balances for several second at his/her toes."

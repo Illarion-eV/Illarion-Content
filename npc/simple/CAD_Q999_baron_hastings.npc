@@ -1,188 +1,203 @@
---Note: ALWAYS add commentaries in an extra line! 
---This Template is used for NPCs that should move around (travellers, citizens, etc.) 
-name="Baron Hastings" 
-sex=male 
-race=human 
-position=?????????? 
-direction=South 
-radius=3 
-QuestID=999 
---An Usurper to the Throne (Cadomyr) 
+------------------------------------------------------------------------------AC
+-- NPC Name: Baron Hastings                                              None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
---NPC by Cromballs 
+name = "Baron Hastings"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "none"
 
---Help 
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
-"Help"->inform ( [Game Help] This NPC is Baron Hastings the Usurper. Keyphrases: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard. ) 
-"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist Baron Hastings der Usurpator. Schlüsselwörter: Grüße, Baron, Adlige, Cadomyr, Thron, Auftrag, König Edwards, Usurpator, Erbfolge, Bastard. ) 
+author = "not set"
 
--- QUEST TRIGGER ADDED FOR POSSIBLE FUTURE QUESTS; The answer is ambiguous until such quests are implemented. 
---General speech 
-  
---First player starts talking to NPC 
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 3
 
-"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening",idle->"Be greeted. I will listen to you, but do not waste my time.","Greetings. I am a very important man, what do you want with me?",begin 
-"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir",idle->"Seid mir gegrüßt. Ich werde Euch anhören, doch verschwendet nicht meine Zeit.","Grüße. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?",begin 
-"Hiho","Hallo","Hey","Greebas","Greebs",english,idle->","Be greeted. I will listen to you, but do not waste my time.","Greetings. I am a very important man, what do you want with me?",begin 
-"Hiho","Hallo","Hey","Greebas","Greebs",german,idle->"Seid mir gegrüßt. Ich werde Euch anhören, doch verschwendet nicht meine Zeit.","Grüße. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?",begin 
+-- Note: ALWAYS add commentaries in an extra line!
+-- This Template is used for NPCs that should move around (travellers, citizens, etc.)
 
---Second player tries to talk to NPC 
---NPC tells him to wait 
+-- Quest: An Usurper to the Throne (Cadomyr)
+-- QuestID=999
+-- NPC by Cromballs
 
-".*",english,busy->"Can't you see that I am busy? Your manners are lacking... Alas, yet another display of the decay that the Queen has brought upon us!" 
-".*",german,busy->"Seht ihr nicht, dass ich beschäftigt bin? Es fehlt Euch an Manieren. Ach, dies scheint mir jedoch nur ein weiteres Abbild des Elends, in welches die Königin uns stürzte." 
+-- Help
+"Help" -> inform("[Game Help] This NPC is Baron Hastings the Usurper. Keyphrases: Greetings, Queen, Baron, Nobles, Cadomyr, Throne, Quest, King Edwards, Usurper, Succession, Bastard.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baron Hastings der Usurpator. SchlÃ¼sselwÃ¶rter: GrÃ¼ÃŸe, Baron, Adlige, Cadomyr, Thron, Auftrag, KÃ¶nig Edwards, Usurpator, Erbfolge, Bastard.")
 
+-- QUEST TRIGGER ADDED FOR POSSIBLE FUTURE QUESTS; The answer is ambiguous until such quests are implemented.
+-- General speechÂ 
+-- First player starts talking to NPC
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", idle -> "Be greeted. I will listen to you, but do not waste my time.", "Greetings. I am a very important man, what do you want with me?", begin
+"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", idle -> "Seid mir gegrÃ¼ÃŸt. Ich werde Euch anhÃ¶ren, doch verschwendet nicht meine Zeit.", "GrÃ¼ÃŸe. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english, idle -> "Be greeted. I will listen to you, but do not waste my time.", "Greetings. I am a very important man, what do you want with me?", begin
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german, idle -> "Seid mir gegrÃ¼ÃŸt. Ich werde Euch anhÃ¶ren, doch verschwendet nicht meine Zeit.", "GrÃ¼ÃŸe. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?", begin
 
---First player ends talk 
+-- Second player tries to talk to NPC
+-- NPC tells him to wait
+".*", english, busy -> "Can't you see that I am busy? Your manners are lacking... Alas, yet another display of the decay that the Queen has brought upon us!"
+".*", german, busy -> "Seht ihr nicht, dass ich beschÃ¤ftigt bin? Es fehlt Euch an Manieren. Ach, dies scheint mir jedoch nur ein weiteres Abbild des Elends, in welches die KÃ¶nigin uns stÃ¼rzte."
 
-"Farewell","Good bye","Bye","Fare thee well"->"Farewell to you.","If you tell of my wherabouts to anyone, my men will get you.","Good bye, traveler.",end 
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Lebet wohl.","Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.","Auf Wiedersehen, Reisender.",end 
-"Ciao","Adieu","Au revoir","Farebba","See you",english->"Farewell to you.","If you tell of my wherabouts to anyone, my men will get you.","Good bye, traveler.",end 
-"Ciao","Adieu","Au revoir","Farebba","See you"->"Lebet wohl.","Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.","Auf Wiedersehen, Reisender.",end 
-"How are you","How feel","How do you do"->"#me furrows his brows. 'I am upset, for the travesty continues and the bitch still sits on 'my' throne.'","I weep for Cadomyr",end 
-"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"#me runzelt die Stirn. 'Ich bin darüber erzürnt, dass diese lächerliche Burleske weitergeht und dieses Miststück noch immer auf 'meinem' Thron sitzt.","Ich beweine Cadomyr.",end 
-"your name","who are you","who art thou"->"I am Baron Hastings, the Rightful Lord of Cadomyr","My name is Hastings. Baron Hastings.",end 
-"dein name","wer bist du","wer seid ihr","wie heißt"->"Ich bin Baron Hastings, der rechtmäßige Herrscher Cadomyrs.","Meine Name ist Hastings. Baron Hastings.",end 
+-- First player ends talk
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell to you.", "If you tell of my wherabouts to anyone, my men will get you.", "Good bye, traveler.", end
+"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "Lebet wohl.", "Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine MÃ¤nner Euch fassen.", "Auf Wiedersehen, Reisender.", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farewell to you.", "If you tell of my wherabouts to anyone, my men will get you.", "Good bye, traveler.", end
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Lebet wohl.", "Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine MÃ¤nner Euch fassen.", "Auf Wiedersehen, Reisender.", end
+"How are you", "How feel", "How do you do" -> "#me furrows his brows. 'I am upset, for the travesty continues and the bitch still sits on 'my' throne.'", "I weep for Cadomyr", end
+"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befinden" -> "#me runzelt die Stirn. 'Ich bin darÃ¼ber erzÃ¼rnt, dass diese lÃ¤cherliche Burleske weitergeht und dieses MiststÃ¼ck noch immer auf 'meinem' Thron sitzt.", "Ich beweine Cadomyr.", end
+"your name", "who are you", "who art thou" -> "I am Baron Hastings, the Rightful Lord of Cadomyr", "My name is Hastings. Baron Hastings.", end
+"dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Ich bin Baron Hastings, der rechtmÃ¤ÃŸige Herrscher Cadomyrs.", "Meine Name ist Hastings. Baron Hastings.", end
 
---Catching typical NPC phrases 
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "How dare you? Do I look like some petty merchant?!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Wie kÃ¶nnt Ihr es wagen? Sehe ich vielleicht wie ein lÃ¤ppischer HÃ¤ndler aus?!"
+"tell something" -> "I will tell you something. They day shall come when Cadomyr belongs to me! You would do well to remember that!"
+"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Ich werde euch was erzÃ¤hlen. Es wird der Tagen kommen, an dem Cadomyr mein ist! Und Ihr wÃ¼rdet gut daran tun, Euch dessen zu erinnern."
 
-"what sell","what buy","list wares","price of"->"How dare you? Do I look like some petty merchant?!" 
-"was verkauf","was kauf","warenliste","preis von"->"Wie könnt Ihr es wagen? Sehe ich vielleicht wie ein läppischer Händler aus?!" 
-"tell something"->"I will tell you something. They day shall come when Cadomyr belongs to me! You would do well to remember that!" 
-"erzähl was","erzähl etwas"->"Ich werde euch was erzählen. Es wird der Tagen kommen, an dem Cadomyr mein ist! Und Ihr würdet gut daran tun, Euch dessen zu erinnern." 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "What? Do you take me for some peddler? An outrage!"
+"beruf" -> "Was? Haltet Ihr mich fÃ¼r einen Hausierer? Welch ein Frevel!"
+"job", english -> "Job? I am the rightful king of Cadomyr, ruling it is my job!"
+"job" -> "Job? Ich bin der rechtmÃ¤ÃŸige KÃ¶nig von Cadomyr. Zu herrschen ist mein Job."
+"Gobaith", "Gobiath", english -> "A tragedy, brought upon the isle by decadence and the lack of strong leadership.", "I could foresee troubles, that's what happens when you bring Salkamaerians to meddle in your affairs!"
+"Gobaith", "Gobiath" -> "Eine TragÃ¶die, hervorgerufen durch Dekadenz und dem Mangel ein starken Herrschaft.", "Den Ã„rger hÃ¤tte ich voraussagen kÃ¶nnen. Das passiert, wenn man Salkamaerianer dazu bewegt, sich in seine Angelegenheiten einzumischen."
+"I am", "my name" -> "I am 'Baron' Hastings. You would do well to remember that name."
+"Ich bin", "mein Name" -> "I am 'Baron' Hastings. Ihr wÃ¼rdet gut daran tun, Euch dessen zu erinnern."
 
---Small talk: The talk here should focus on possible questions. Feel free to add more! 
+-- More small talk; add at least five triggers
+"King Edwards" -> "#me grimaces. 'Do not mention that name! He was for a long time a good king. Then he grew weak and let that bitch-daughter of hers poison his mind against me, now I curse his memory!'"
+"Cadomyr", english -> "#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'"
+"Throne", english -> "The Throne of Cadomyr belongs, by tradition, to the closest male relative of the the former king. It is a travesty that a honorless bitch like Rosaline has been allowed to claim it as hers!"
+"Nobles" -> "#me hisses angrily: 'Spineless 'nobles' scurried behind her back like the dogs they are! All failed to support 'me', the rightful King of Cadomyr. Once I have them beheaded, I shall need new nobles. Interested?'"
+"Interest" -> "#me seems to study you for a moment. 'Maybe, maybe... But first you need to prove your worth by doing a task for me'"
+"Usurper" -> "#me stares at you disdainfully. 'Usurper is what the bitch-queen calls me, but -she- is the true usurper... and she will suffer the fate of one, mark my words.'"
+"Tomb" -> "That fool King Edwards has been buried in the middle of the town. Sadly, I cannot risk desecrating it myself.. but I would like someone to do it for me."
+"Succession" -> "#me smiles bitterly 'You see, friend... In Cadomyr we appreciate tradition. By tradition, the King should have named 'me' as his successor. A nation needs the strong will of a man, and not the fickleness of a.. bitch!'"
+"Bastard", english -> "Oh yes, I can tell you... I have evidence that the little bitch is not a trueborn child of King Edwards at all! She was sired by a Gynk ambassador, and has no right to keep her dirt-blood posterior on the Cadomyr throne!"
+"KÃ¶nig Edwards" -> "#me verzieht das Gesicht. 'ErwÃ¤hne nicht diesen Namen! Lange Zeit war er ein guter KÃ¶nig gewesen. Doch dann wurde er schwach und hat dieses MiststÃ¼ck seinen Verstand mit Vorbehalten gegen mich vergiften lassen. Jetzt spucke ich auf sein Andenken!'"
+"Cadomyr" -> "#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehÃ¶rt mir Â– durch das recht der Tradition und des Blutes. Ich bin der nÃ¤hste mÃ¤nnliche Verwandte von KÃ¶nig Edwards."
+"Thron" -> "Der Tradition nach gehÃ¶rt der Thron von Cadomyr dem nÃ¤hsten mÃ¤nnlichen Verwandten des vorherigen KÃ¶nigs. Es ist eine Burleske, dass einem solch ehrlosen MiststÃ¼ck wie Rosaline es erlaubt wurde zu behaupten, es sei  der ihre!"
+"Adlige", "Adelige" -> "#me zischt wÃ¼tend: 'RÃ¼ckratlose 'Adlige', verstecken sich hinter ihrem RÃ¼cken wie die Hunde, die sie sind! Alle haben versagt 'mir', dem rechtmÃ¤ÃŸigen KÃ¶nig von Cadomyr, beizustehen. Sobald ich sie enthauptet haben lasse, brauche ich neue Adlige. Interesse?'"
+"interess" -> "#me scheint Dich einen Moment zu mustern. 'Vielleich, vielleich...Aber zu erst musst du dich beweisen, indem du eine Aufgabe fÃ¼r mich erfÃ¼llst."
+"Usurpator" -> "#me starrt Dich fÃ¼r einen Moment verÃ¤chtlich an. 'Usurpator ist es, was mich diese MiststÃ¼ck-KÃ¶nigin nennt, aber -sie- ist der wahre Usurpator...und sie wird das Schicksal eines solchen ertragen. Merk dir meine Worte!'"
+"Grab" -> "Der Narr KÃ¶nig Edwards wurde in der Mitte der Stadt begraben. Leider kann ich es nicht riskieren es selbst zu schÃ¤nden... Aber vielleicht wÃ¼rde es ja wer anders fÃ¼r mich tun."
+"Erbfolge" -> "#me lÃ¤chelt bitter. 'Nun, mein Freund...In Cadomyr wertschÃ¤tzen wir die Tradition. Der Tradition nach hÃ¤tte der KÃ¶nig 'mich' zu seinem Nachfolger ernennen mÃ¼ssen. Ein Volk braucht die StÃ¤rke eines Mannes und nicht den Wankelmut eines...MiststÃ¼cks.'"
+"Bastard" -> "Oh ja, das kann ich dir sagen...Ich habe Beweise, dass dieses MiststÃ¼ck Ã¼berhaupt kein echtes Kind KÃ¶nig Edwards ist! Sie wurde von einem Botschafter Gynks gezeugt und hat kein Recht mit ihrem Hinterteil auf meinem Thron zu bleiben!"
 
-"profession"->"What? Do you take me for some peddler? An outrage!" 
-"beruf"->"Was? Haltet Ihr mich für einen Hausierer? Welch ein Frevel!" 
-"job",english->"Job? I am the rightful king of Cadomyr, ruling it is my job!" 
-"job"->"Job? Ich bin der rechtmäßige König von Cadomyr. Zu herrschen ist mein Job." 
-"Gobaith","Gobiath",english->"A tragedy, brought upon the isle by decadence and the lack of strong leadership.","I could foresee troubles, that's what happens when you bring Salkamaerians to meddle in your affairs!" 
-"Gobaith","Gobiath"->"Eine Tragödie, hervorgerufen durch Dekadenz und dem Mangel ein starken Herrschaft.","Den Ärger hätte ich voraussagen können. Das passiert, wenn man Salkamaerianer 
-dazu bewegt, sich in Deine Angelegenheiten einzumischen." 
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Another bitch-witch-queen, dressed up in filthy robes instead of a Queenly gowns. I cannot fathom where they get the idea of putting a -woman- in charge, those idiots of Runewick."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Nur eine andere MiststÃ¼ck-Hexen-KÃ¶nigin, die sich in dreckigen Roben statt kÃ¶niglichen GewÃ¤ndern kleidet. Ich kann nicht mal erahnen, wie diese Idioten von Runewick auf die Idee kamen, einer Frau die Macht zu geben."
+"Runewick", english -> "The people of Runewick are filthy pawns of the meddlesome Salkamaerians. Once I am the King, I drive them back to the sea where they belong!"
+"Runewick" -> "Die Menschen in Runewick sind nicht mehr als schmutzige Schachfiguren der lÃ¤stigen Salkamaerianer. Sobald ich KÃ¶ni bin, treibe ich sie alle wieder ins Meer, wo sie hingehÃ¶ren!"
+"Valerio", "Guilianni", "Don", english -> "A mere thug in a gentleman's attire! The thug has no honor and he is unfit to be the leader of an outhouse, let alone a city. But then again, his servants are all honorless thugs and crooks as well."
+"Valerio", "Guilianni", "Don" -> "Ein lÃ¤ppischer Verbrecher in der Kleidung eines Ehrenmannes! Dieser Verbrecher hat keine Ehre und ist ungeeignet der FÃ¼hrer eines Abort, geschweige denn einer Stadt zu sein. Auf der anderen Seite sind seine Diener jedoch auch nur ehrlose Verbrecher und Gauner."
+"Galmair", english -> "Galmair is a den of decadence and dishonor. When I am the ruler of Cadomyr, I promise you that I will torch the vile den until nothing but cinders remain!"
+"Galmair" -> "Galmair ist eine HÃ¼tte der Dekadenz und Ehrlosigkeit. Wenn ich den Herrscher von Cadomyr bin, so verspreche ich dir, brenne ich diese erbÃ¤rmliche HÃ¼tte ab, bis nur noch Asche zurÃ¼ckbleibt!"
+"rosaline", "kÃ¶nigin", "queen", "edwards", english -> "That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!"
+"rosaline", "kÃ¶nigin", "queen", "edwards" -> "Dieses MiststÃ¼ck! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich Ã¼bergeht! Mich! Den 'rechtmÃ¤ÃŸigen' Erben! Ich werde diese HÃ¼re in ein Kloster sperren, sobald ich sie gestÃ¼rzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
+"Cadomyr", english -> "Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!"
+"Cadomyr" -> "Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, LoyalitÃ¤t und Ehre. Wir sind die wahren und rechtmÃ¤ÃŸigen Besitzer dieser Insel; alles gehÃ¶rt uns...und Cadomyr gehÃ¶rt mir!"
 
-"I am","my name"->"I am 'Baron' Hastings. You would do well to remember that name." 
-"Ich bin","mein Name"->"I am 'Baron' Hastings. Ihr würdet gut daran tun, Euch dessen zu erinnern." 
+-- Main land factions
+"albar", english -> "We are all Albarianas here, except for that bastard bitch-queen of ours! Like all Albarians, we are full of courage and honor. More than can be said of any other race."
+"albar", german -> "Wir sind hier alle Albarianer, auÃŸer diese MiststÃ¼ck-Bastard-KÃ¶nigin! Wie alle Albarianer sind wir voll von Courage und Ehre. Mehr als man von irgendeiner anderen Rasse sagen kann."
+"gynk", "gync", english -> "Treacherous scum! Such a degenerate brood of cutthroats, thieves and charlatans will sooner or later implode in their own filth. We Albarians will remain forever."
+"gync", "gynk", german -> "BetrÃ¼gerischer Dreck! So eine degenerierte Brut von MÃ¶rdern, Dieben und Scharlatanen wird frÃ¼her oder spÃ¤ter an ihrem eigenen Dreck zugrunde gehen. Wir Albarianer werden immer da sein!"
+"salkama", english -> "The salkamaerians are meddlesome, uncouth swine. They are sailing across the oceans to put their big noses in business they have no stake in. May the gods strike them down with the plague."
+"salkama", german -> "Die Salkamaerianer sind ungehobelte, lÃ¤stige Schweine. Sie segeln Ã¼bers Meer und stecken ihre groÃŸen Nasen in alles, was sie nichts angeht. MÃ¶gen die GÃ¶tter sie mit einer Plage strafen!"
 
---More small talk; add at least five triggers 
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "I worship Zhambra and Malachin. If you worship Moshran, then you better get out of my sight with due haste!"
+"Gott", "GÃ¶tter" -> "Ich verehre Zhambra und Malachin. Solltet ihr Moshran verehren, solltet Ihr machen, dass ihr schnell davon kommt."
+"Adron", english -> "Adron is a true god and should be respected, but I cannot claim him as my own."
+"Adron" -> "Adron ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Bragon", "BrÃ¡gon", english -> "Bragon is a true god and should be respected, but I cannot claim him as my own."
+"Bragon", "BrÃ¡gon" -> "Bragon ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Cherga", english -> "Cherga is a true god and should be respected, but I cannot claim her as my own."
+"Cherga" -> "Cherga ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Elara", english -> "Elara is a true god and should be respected, but I cannot claim her as my own."
+"Elara" -> "Elara ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Eldan", english -> "Eldan is a true god and should be respected, but I cannot claim him as my own."
+"Eldan" -> "Eldan ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Findari", english -> "Findari is a true god and should be respected, but I cannot claim her as my own."
+"Findari" -> "Findari ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Irmorom", english -> "Irmorom is a true god and should be respected, but I cannot claim him as my own."
+"Irmorom" -> "Irmorom ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Malachin", "MalachÃ­n", english -> "I follow Malachin as every knightly man should. I count on his divine support when the time to take what is mine comes!"
+"Malachin", "MalachÃ­n" -> "Ich folge Malachin, so wie jeder ritterliche Mann es tun sollte. Ich verlasse mich auf seinen gÃ¶ttlichen Beistand, wenn die zeit gekommen ist, das, was mein ist, mir zu nehmen!"
+"Moshran", english -> "Moshran! That false god of barbarians, orcs and other wretched scum! I am certain that the Bitch-Queen of Cadomyr is nothing but one of his courtesans, that bloody witch!"
+"Moshran" -> "Moshran! Dieser falsche Gott von Barbaren, Orks und anderem erbÃ¤rmlichen Dreck! Ich bin sicher, dass diese MiststÃ¼ck-KÃ¶nigin von Cdomyr nicht mehr ist als eine von seinen Dirnen, diese verdammte Hexe!"
+"Nargun", "NargÃºn", english -> "Nargun is a true god and should be respected, but I cannot claim him as my own."
+"Nargun", "NargÃºn" -> "Nargun ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Oldra", english -> "Oldra is a true god and should be respected, but I cannot claim her as my own."
+"Oldra" -> "Oldra ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Ronagan", english -> "Ronagan is a true god and should be respected, but I cannot claim him as my own."
+"Ronagan" -> "Ronagan ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen."
+"Sirani", english -> "Sirani is a true god and should be respected, but I cannot claim her as my own."
+"Sirani" -> "Sirani ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Tanora", "Zelphia", english -> "Tanora is a true god and should be respected, but I cannot claim her as my own."
+"Tanora", "Zelphia" -> "Tanora ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Ushara", english -> "Ushrara is a true god and should be respected, but I cannot claim her as my own."
+"Ushara" -> "Ushara ist eine wahre GÃ¶ttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen."
+"Zhambra", english -> "I follow Zhambra for he is the Patron of Loyalty, something which the wretched peasants have forgotten! They all belong to me!"
+"Zhambra" -> "Ich folge Zhambra, da er der Patron der LoyalitÃ¤t ist. Etwas, was diese erbÃ¤rmlichen Bauern vergessen haben! Sie gehÃ¶ren alle mir!"
 
-"King Edwards"->"#me grimaces. 'Do not mention that name! He was for a long time a good king. Then he grew weak and let that bitch-daughter of hers poison his mind against me, now I curse his memory!'" 
-"Cadomyr",english->"#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'" 
-"Throne",english->"The Throne of Cadomyr belongs, by tradition, to the closest male relative of the the former king. It is a travesty that a honorless bitch like Rosaline has been allowed to claim it as hers!" 
-"Nobles"->"#me hisses angrily: 'Spineless 'nobles' scurried behind her back like the dogs they are! All failed to support 'me', the rightful King of Cadomyr. Once I have them beheaded, I shall need new nobles. Interested?'" 
-"Interest"->"#me seems to study you for a moment. 'Maybe, maybe... But first you need to prove your worth by doing a task for me'" 
-"Usurper"->"#me stares at you disdainfully. 'Usurper is what the bitch-queen calls me, but -she- is the true usurper... and she will suffer the fate of one, mark my words.'" 
-"Tomb"->"That fool King Edwards has been buried in the middle of the town. Sadly, I cannot risk desecrating it myself.. but I would like someone to do it for me." 
-"Succession"->"#me smiles bitterly 'You see, friend... In Cadomyr we appreciate tradition. By tradition, the King should have named 'me' as his successor. A nation needs the strong will of a man, and not the fickleness of a.. bitch!'" 
-"Bastard",english->"Oh yes, I can tell you... I have evidence that the little bitch is not a trueborn child of King Edwards at all! She was sired by a Gynk ambassador, and has no right to keep her dirt-blood posterior on the Cadomyr throne!" 
+-- Catching quest triggers
+"quest", queststatus(999) = 0, english -> inform("[Quest started] An usurper to the throne"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
+"quest", queststatus(999) = 0, german -> inform("[Quest started] An usurper to the throne"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
+"task", "adventure", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
 
-"König Edwards"->"#me verzieht das Gesicht. 'Erwähne nicht diesen Namen! Lange Zeit war er ein guter König gewesen. Doch dann wurde er schwach und hat dieses Miststück seinen Verstand mit Vorbehalten gegen mich vergiften lassen. Jetzt spucke ich auf sein Andenken!'" 
-"Cadomyr"->"#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir – durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards." 
-"Thron"->"Der Tradition nach gehört der Thron von Cadomyr dem nähsten männlichen Verwandten des vorherigen Königs. Es ist eine Burleske, dass einem solch ehrlosen Miststück wie Rosaline es erlaubt wurde zu behaupten, es sei  der ihre!"
-"Adlige“,“Adelige"->“#me zischt wütend: 'Rückratlose 'Adlige', verstecken sich hinter ihrem rücken wie die Hunde, die sie sind! Alle haben versagt 'mir', dem rechtmäßigen König von Cadomyr, beizustehen. Sobald ich sie enthauptet haben lasse, brauche ich neue Adlige. Interesse?'“
-"interess"->"#me scheint Dich einen Moment zu mustern. 'Vielleich, vielleich...Aber zu erst musst du dich beweisen, indem du eine Aufgabe für mich erfüllst."
-"Usurpator"->“#me starrt Dich für einen Moment verächtlich an. 'Usurpator ist es, was mich diese Miststück-Königin nennt, aber -sie- ist der wahre Usurpator...und sie wird das Schicksal eines solchen ertragen. Merk dir meine Worte!'“
-"Grab"->“Der Narr König Edwards wurde in der Mitte der Stadt begraben. Leider kann ich es nicht riskieren es selbst zu schänden... Aber vielleicht würde es ja wer anders für mich tun.“
-"Erbfolge"->“#me lächelt bitter. 'Nun, mein Freund...In Cadomyr wertschätzen wir die Tradition. Der Tradition nach hätte der König 'mich' zu seinem Nachfolger ernennen müssen. Ein Volk braucht die Stärke eines Mannes und nicht den Wankelmut eines...Miststücks.'“
-"Bastard“->“Oh ja, das kann ich dir sagen...Ich habe Beweise, dass dieses Miststück überhaupt kein echtes Kind König Edwards ist! Sie wurde von einem Botschafter Gynks gezeugt und hat kein Recht mit ihrem Hinterteil auf meinem Thron zu bleiben!“
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "Excellent!", "Very good.", "I knew I could count on you."
+"Ja" -> "Exzellent!", "Sehr gut.", "Ich wusste, dass ich mich auf Euch verlassen kÃ¶nnte."
+"No" -> "What do you mean, 'no'?", "I do not take kindly to refusals.", "Remember who you are talking to, traveler!"
+"Nein" -> "Was meint Ihr mit 'nein'?", "Abweisungen nehme ich nicht sehr wohlgesonnen auf.", "Bedenke mit wem du hier sprichst, Reisende!"
 
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /Â  Response is only given 1/5 of the time
 
---Faction stuff 
+-- ".*",english,chance(20)->"If you side with the queen, you will regret it!","Cross me, and I promise you retribution.","I will reward those who remain loyal, keep that in your mind."
+-- ".*",german,chance(20)->"Stellt Euch an die Seite der KÃ¶nigin und Ihr werdet es bereuen!","Kommt mir in die Quere und ich verspreche Euch Vergeltung.","Ich werde die belohnen, die loyal bleiben. Behaltet das im Hinterkopf."
 
-"Elvaine","Morgan","archmage","Erzmagier",english->"Another bitch-witch-queen, dressed up in filthy robes instead of a Queenly gowns. I cannot fathom where they get the idea of putting a -woman- in charge, those idiots of Runewick." 
-"Elvaine","Morgan","archmage","Erzmagier"->"Nur eine andere Miststück-Hexen-Königin, die sich in dreckigen Roben statt königlichen Gewändern kleidet. Ich kann nicht mal erahnen, wie diese Idioten von Runewick auf die Idee kamen, einer Frau die Macht zu geben." 
-"Runewick",english->"The people of Runewick are filthy pawns of the meddlesome Salkamaerians. Once I am the King, I drive them back to the sea where they belong!" 
-"Runewick"->"Die Menschen in Runewick sind nicht mehr als schmutzige Schachfiguren der lästigen Salkamaerianer. Sobald ich Köni bin, treibe ich sie alle wieder ins Meer, wo sie hingehören!"
-"Valerio","Guilianni","Don",english->"A mere thug in a gentleman's attire! The thug has no honor and he is unfit to be the leader of an outhouse, let alone a city. But then again, his servants are all honorless thugs and crooks as well." 
-"Valerio","Guilianni","Don"->"Ein läppischer Verbrecher in der Kleidung eines Ehrenmannes! Dieser Verbrecher hat keine Ehre und ist ungeeignet der Führer eines Abort, geschweige denn einer Stadt zu sein. Auf der anderen Seite sind seine Diener jedoch auch nur ehrlose Verbrecher und Gauner." 
-"Galmair",english->"Galmair is a den of decadence and dishonor. When I am the ruler of Cadomyr, I promise you that I will torch the vile den until nothing but cinders remain!" 
-"Galmair"->"Galmair ist eine Hütte der Dekadenz und Ehrlosigkeit. Wenn ich den Herrscher von Cadomyr bin, so verspreche ich dir, brenne ich diese erbärmliche Hütte ab, bis nur noch Asche zurückbleibt!" 
-"rosaline","königin","queen","edwards",english->"That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!" 
-"rosaline","königin","queen","edwards"->"Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze! 
-"Cadomyr",english->"Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!" 
-"Cadomyr"->"Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, Loyalität und Ehre. Wir sind die wahren und rechtmäßigen Besitzer dieser Insel; alles gehört uns...und Cadomyr gehört mir!" 
+-- Easter egg; A reference to the Battle of Hastings
+"Harold", english -> "Do you mean the man who got an arrow through his eye?"
+"Harold", german -> "Meint Ihr den Mann, durch dessen Auge sich ein Pfeil bohrte?"
 
---Main land factions 
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
-"albar",english->"We are all Albarianas here, except for that bastard bitch-queen of ours! Like all Albarians, we are full of courage and honor. More than can be said of any other race." 
-"albar",german->"Wir sind hier alle Albarianer, außer diese Miststück-Bastard-Königin! Wie alle Albarianer sind wir voll von Courage und Ehre. Mehr als man von irgendeiner anderen Rasse sagen kann.“ 
-"gynk","gync",english->"Treacherous scum! Such a degenerate brood of cutthroats, thieves and charlatans will sooner or later implode in their own filth. We Albarians will remain forever." 
-"gync","gynk",german->"Betrügerischer Dreck! So eine degenerierte Brut von Mördern, Dieben und Scharlatanen wird früher oder später an ihrem eigenen Dreck zugrunde gehen. Wir Albarianer werden immer da sein!" 
-"salkama",english->"The salkamaerians are meddlesome, uncouth swine. They are sailing across the oceans to put their big noses in business they have no stake in. May the gods strike them down with the plague." 
-"salkama",german->"Die Salkamaerianer sind ungehobelte, lästige Schweine. Sie segeln übers Meer und stecken ihre großen Nasen in alles, was sie nichts angeht. Mögen die Götter sie mit einer Plage strafen!“
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
---Gods - use the triggers of the god the NPC worships or fights 
-
-"god"->"I worship Zhambra and Malachin. If you worship Moshran, then you better get out of my sight with due haste!" 
-"Gott","Götter"->“Ich verehre Zhambra und Malachin. Solltet ihr Moshran verehren, solltet Ihr machen, dass ihr schnell davon kommt." 
-
-"Adron",english->"Adron is a true god and should be respected, but I cannot claim him as my own." 
-"Adron"->"Adron ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Bragon","Brágon",english->"Bragon is a true god and should be respected, but I cannot claim him as my own." 
-"Bragon","Brágon"->"Bragon ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Cherga",english->"Cherga is a true god and should be respected, but I cannot claim her as my own." 
-"Cherga"->"Cherga ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Elara",english->""Elara is a true god and should be respected, but I cannot claim her as my own."" 
-"Elara"->"Elara ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Eldan",english->"Eldan is a true god and should be respected, but I cannot claim him as my own." 
-"Eldan"->"Eldan ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Findari",english->"Findari is a true god and should be respected, but I cannot claim her as my own." 
-"Findari"->"Findari ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Irmorom",english->"Irmorom is a true god and should be respected, but I cannot claim him as my own." 
-"Irmorom"->"Irmorom ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Malachin","Malachín",english->"I follow Malachin as every knightly man should. I count on his divine support when the time to take what is mine comes!" 
-"Malachin","Malachín"->"Ich folge Malachin, so wie jeder ritterliche Mann es tun sollte. Ich verlasse mich auf seinen göttlichen Beistand, wenn die zeit gekommen ist, das, was mein ist, mir zu nehmen!" 
-"Moshran",english->"Moshran! That false god of barbarians, orcs and other wretched scum! I am certain that the Bitch-Queen of Cadomyr is nothing but one of his courtesans, that bloody witch!" 
-"Moshran"->"Moshran! Dieser falsche Gott von Barbaren, Orks und anderem erbärmlichen Dreck! Ich bin sicher, dass diese Miststück-Königin von Cdomyr nicht mehr ist als eine von seinen Dirnen, diese verdammte Hexe!" 
-"Nargun","Nargún",english->"Nargun is a true god and should be respected, but I cannot claim him as my own." 
-"Nargun","Nargún"->"Nargun ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Oldra",english->"Oldra is a true god and should be respected, but I cannot claim her as my own." 
-"Oldra"->"Oldra ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Ronagan",english->"Ronagan is a true god and should be respected, but I cannot claim him as my own." 
-"Ronagan"->"Ronagan ist ein wahrer Gott und sollte geachtet werden. Dennoch kann ich ihn nicht den meinigen nennen." 
-"Sirani",english->"Sirani is a true god and should be respected, but I cannot claim her as my own." 
-"Sirani"->"Sirani ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Tanora","Zelphia",english->"Tanora is a true god and should be respected, but I cannot claim her as my own." 
-"Tanora","Zelphia"->"Tanora ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Ushara",english->"Ushrara is a true god and should be respected, but I cannot claim her as my own." 
-"Ushara"->"Ushara ist eine wahre Göttin und sollte geachtet werden. Dennoch kann ich sie nicht die meinige nennen." 
-"Zhambra",english->"I follow Zhambra for he is the Patron of Loyalty, something which the wretched peasants have forgotten! They all belong to me!" 
-"Zhambra"->"Ich folge Zhambra, da er der Patron der Loyalität ist. Etwas, was diese erbärmlichen Bauern vergessen haben! Sie gehören alle mir!" 
-
---Catching quest triggers 
-
-"quest",queststatus=0,english->"So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'",queststatus=1,inform([Quest started] An usurper to the throne)
-"quest",queststatus=0,german->"So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'“,queststatus=1,inform([Quest started] An usurper to the throne)
-"task","adventure",queststatus=0->"So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'",queststatus=1,inform([Quest started] Ein Usurpator greift nach dem Thron)
-"Auftrag","Aufgabe","Abenteuer",queststatus=0->"So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'“,queststatus=1,inform([Quest started] Ein Usurpator greift nach dem Thron)
-
---Last catch: Think about keyphrases the player might say and that are not caught until here 
-
-"Yes"->"Excellent!","Very good.","I knew I could count on you." 
-"Ja"->"Exzellent!","Sehr gut.","Ich wusste, dass ich mich auf Euch verlassen könnte." 
-"No"->"What do you mean, 'no'?","I do not take kindly to refusals.","Remember who you are talking to, traveler!" 
-"Nein"->"Was meint Ihr mit 'nein'?","Abweisungen nehme ich nicht sehr wohlgesonnen auf.","Bedenke mit wem du hier sprichst, Reisende!" 
-
---Absolutely last catch: Everything a player says and is not caught earlier 
---This response should give the player a hint about what to ask the NPC 
---Optional Trigger /  Response is only given 1/5 of the time 
-
---".*",english,chance(20)->"If you side with the queen, you will regret it!","Cross me, and I promise you retribution.","I will reward those who remain loyal, keep that in your mind." 
---".*",german,chance(20)->"Stellt Euch an die Seite der Königin und Ihr werdet es bereuen!","Kommt mir in die Quere und ich verspreche Euch Vergeltung.","Ich werde die belohnen, die loyal bleiben. Behaltet das im Hinterkopf." 
-
---Easter egg; A reference to the Battle of Hastings 
-"Harold",english->"Do you mean the man who got an arrow through his eye?"
-"Harold",german->"Meint Ihr den Mann, durch dessen Auge sich ein Pfeil bohrte?" 
-
---Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-
-cycletext "#me richtet die Vorderseite seines teuren Mantels.","#me straightens the front of his expensive coat." 
-cycletext "#me schaut auf und ruft wie besessen: 'Der Thron wird mein sein'“,"#me looks up and exclaims obsessively: 'The Throne will be mine!'" 
-cycletext "#me grummelt: 'Die falsche Königin sollte lieber aufpassen.'","#me grumbles: 'The false queen better watch out'" 
-cycletext "Ich beweine Dich, Cadomyr, wegen der Ehrlosigkeit, die Dich befallen hat.","I weep for the dishonor that has befallen you, Cadomyr." 
-cycletext "Der Tag wird kommen, an welchem ich auf dem Thron meiner Ahnen sitze!","The day shall come, when I sit on the throne of my ancestors!" 
-cycletext "Ich frage mich, wie die Bauern wohl reagieren, wenn sie erst einmal erfahren haben, dass die 'Königin' nicht mehr ist als ein Bastard!","I wonder how the peasants react, once they learn that the 'queen' is nothing but a bastard!" 
-cycletext "Gift vielleicht? Hmm...","Poison, maybe? Hmm..."
-cycletext "#me läuft herum, laut dabei nachdenkend: 'Oder sollte ich mich doch auf die Schwerter verlassen?'","#me walks around, pondering out loud 'Or still, should I rely on blades instead?'“
-cycletext “Hah. 'Vergiftete' *Schwerter*, da ist ja die Antwort zu meinem Problem.","Hah. 'Poisoned' *blades*, now there is the answer to my problem!"
-cycletext “#me läuft mit einem fiebrigen Glanz in den Augen herum.“,"#me walks around, with a feverish gleam in his eyes."
+cycletext "#me richtet die Vorderseite seines teuren Mantels.", "#me straightens the front of his expensive coat."
+cycletext "#me schaut auf und ruft wie besessen: 'Der Thron wird mein sein'", "#me looks up and exclaims obsessively: 'The Throne will be mine!'"
+cycletext "#me grummelt: 'Die falsche KÃ¶nigin sollte lieber aufpassen.'", "#me grumbles: 'The false queen better watch out'"
+cycletext "Ich beweine Dich, Cadomyr, wegen der Ehrlosigkeit, die Dich befallen hat.", "I weep for the dishonor that has befallen you, Cadomyr."
+cycletext "Der Tag wird kommen, an welchem ich auf dem Thron meiner Ahnen sitze!", "The day shall come, when I sit on the throne of my ancestors!"
+cycletext "Ich frage mich, wie die Bauern wohl reagieren, wenn sie erst einmal erfahren haben, dass die 'KÃ¶nigin' nicht mehr ist als ein Bastard!", "I wonder how the peasants react, once they learn that the 'queen' is nothing but a bastard!"
+cycletext "Gift vielleicht? Hmm...", "Poison, maybe? Hmm..."
+cycletext "#me lÃ¤uft herum, laut dabei nachdenkend: 'Oder sollte ich mich doch auf die Schwerter verlassen?'", "#me walks around, pondering out loud 'Or still, should I rely on blades instead?'"
+cycletext "Hah. 'Vergiftete' *Schwerter*, da ist ja die Antwort zu meinem Problem.", "Hah. 'Poisoned' *blades*, now there is the answer to my problem!"
+cycletext "#me lÃ¤uft mit einem fiebrigen Glanz in den Augen herum.", "#me walks around, with a feverish gleam in his eyes."

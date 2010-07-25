@@ -3,65 +3,51 @@ position=418,349,0 -- next at a ++chimney++ at Galmair!
 sex=male
 race=halfling
 direction=northeast
-QuestID=304
 
 --NPC by Rincewind.
 --Prandlin is asleep. So I don't used the usual template. Altough it's a cool NPC. He's with the quest "Jack's Peg leg."
+--QuestID=304
+--queststatus(304) Overview
+--queststatus(304)=1 Player got told that 'old Prandlin' stolen the pegleg.
+--queststatus(304)=2 Prandlin and peg leg dedected
+--queststatus(304)=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
+--queststatus(304)=4 the staff/pegleg is stolen
+--queststatus(304)=5 quest end. Jack got his leg.
 
---Queststatus Overview 
---Queststatus=1 Player got told that 'old Prandlin' stolen the pegleg. 
---Queststatus=2 Prandlin and peg leg dedected
---Queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
---Queststatus=4 the staff/pegleg is stolen
---Queststatus=5 quest end. Jack got his leg. 
-
-
-".+",queststatus(304)=1,german->"#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schˆn verzierter Stab wie ihn Magier verwenden.", inform( 'Dort! Prandlins Gehstock... er sieht aus als w‰re er fr¸her ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne das der alte Halbling aufwacht?' ),queststaus=2
+".+",queststatus(304)=1,german->"#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer sch√∂n verzierter Stab wie ihn Magier verwenden.", inform( 'Dort! Prandlins Gehstock... er sieht aus als w√§re er fr√ºher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne das der alte Halbling aufwacht?' ),queststaus=2
 ".+",queststatus(304)=1,english->"xxx", inform ( 'xxx' ),queststaus=2
 
-".+",queststatus(304)=2,german->"#me brabbelt zufreiden l‰chelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen kˆnnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus(304)=2,german->"#me brabbelt zufreiden l√§chelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen k√∂nnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
 ".+",queststatus(304)=2,english->"xxx", inform ( 'xxx' ),queststaus=3
 
-"#me (.+) stab","#me (.+) bein",queststatus(304)=3,item(208,belt)>=1->"#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schl‰ft seelig weiter.", infrom( Groﬂartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen. ), queststatus(304)=4,deleteitem(208,1),item(208,1,933,0)
+"#me (.+) stab","#me (.+) bein",queststatus(304)=3,item(208,belt)>=1->"#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schl√§ft seelig weiter.", infrom( Gro√üartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen. ), queststatus(304)=4,deleteitem(208,1),item(208,1,933,0)
 "#me (.+) staff","#me (.+) leg",queststatus(304)=3,item(208,belt)>=1->"#me xxx", infrom( xxx ), queststatus(304)=4,deleteitem(208,1),item(208,1,933,0)
 
-".+",queststatus(304)=3,german->"#me brabbelt zufreiden l‰chelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen kˆnnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
+".+",queststatus(304)=3,german->"#me brabbelt zufreiden l√§chelnd und sabbert schmatzend auf seine Wolldecke. ", inform( 'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen k√∂nnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.' ),queststaus=3
 ".+",queststatus(304)=3,english->"xxx", inform ( 'xxx' )
 
-
-"hilfe"->"#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie mˆglich an einen verzierten Magierstab." 
-"helfen"->"#me ist ein alter, runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie mˆglich an einen verzierten Magierstab."
+"hilfe"->"#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie m√∂glich an einen verzierten Magierstab."
+"helfen"->"#me ist ein alter, runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie m√∂glich an einen verzierten Magierstab."
 "help"->"XX"
 
-".",german->"#me murmelt im Schlaf: 'Eh-n.Gnh.'","#me murmelt im Schlaf: 'Piraten werd... geh‰ngt.'","#me murmelt im Schlaf: 'Piraten werd... geh‰ngt.'","#me murmelt im Schlaf: 'Wie sie mein-n...'","#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen ¸brig...'"
-"?",german->"#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'","#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'","#me murmelt im Schlaf: 'Ja-ja.. ich k¸mmere mich darum. Gleich morgen...'","#me murmelt im Schlaf: 'Uh, schon Mittag...?'",
-"!",german->"#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'","#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'","#me murmelt im Schlaf: 'Galmair soll sich bloﬂ nicht f¸r voll nehmn...'","#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln m¸ssen..'"
+".",german->"#me murmelt im Schlaf: 'Eh-n.Gnh.'","#me murmelt im Schlaf: 'Piraten werd... geh√§ngt.'","#me murmelt im Schlaf: 'Piraten werd... geh√§ngt.'","#me murmelt im Schlaf: 'Wie sie mein-n...'","#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen √ºbrig...'"
+"?",german->"#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'","#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'","#me murmelt im Schlaf: 'Ja-ja.. ich k√ºmmere mich darum. Gleich morgen...'","#me murmelt im Schlaf: 'Uh, schon Mittag...?'",
+"!",german->"#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'","#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'","#me murmelt im Schlaf: 'Galmair soll sich blo√ü nicht f√ºr voll nehmn...'","#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln m√ºssen..'"
 ".",english->"xxx"
 "?",english->"xxx"
 "!",english->"xxx"
 
-
 cycletext "#me brabbelt leise in Schlaf.","#me xxx"
 cycletext "#me dreht sich im Schlaf herum.","#me xxx"
-cycletext "#me zieht die Wolldecke um seine Beine, etwas hˆher.","#me xxx"
+cycletext "#me zieht die Wolldecke um seine Beine, etwas h√∂her.","#me xxx"
 cycletext "#me schmazt ein wenig.","#me xxx"
-cycletext "#me schnarcht laut und melodiˆs.","#me xxx"
+cycletext "#me schnarcht laut und melodi√∂s.","#me xxx"
 cycletext "#me gibt einen grunzenden Laut von sich.","#me xxx"
 cycletext "#me sabbert in seine Wolldecke.","#me xxx"
-cycletext "#me kuschelt sich an den verzierten Magierstab, in seinen H‰nden.","#me xxx ornate mage's staff"
+cycletext "#me kuschelt sich an den verzierten Magierstab, in seinen H√§nden.","#me xxx ornate mage's staff"
 cycletext "#me atmet beinahe unmerklich, kaum eine Bewegung ist auszumachen.","#me xxx"
-cycletext "#me sitzt regungsloﬂ vor dem knisternden Kamin, der wohlige w‰rme im Raum verbreitet.","#me xxx"
-cycletext "#me schl‰ft seelig ruhig im besten Sessel des Raumes. Da wundert es nicht, dass er ein Gl¸ckliches Gesicht macht.","#me xxx"
+cycletext "#me sitzt regungslo√ü vor dem knisternden Kamin, der wohlige w√§rme im Raum verbreitet.","#me xxx"
+cycletext "#me schl√§ft seelig ruhig im besten Sessel des Raumes. Da wundert es nicht, dass er ein Gl√ºckliches Gesicht macht.","#me xxx"
 cycletext "#me kratzt sich im Schlaf die haarige krumme Nase.","#me xxx"
 cycletext "#me beginnt leise und gackernd zu lachen, trozdem scheint er weiter zu schlafen.","#me xxx"
 cycletext "#me murmelt im Schlaf: 'Ich muss den Erzmagier sprech...'","#me xxx"
-
-
-
-
-
-
-
-
-
-

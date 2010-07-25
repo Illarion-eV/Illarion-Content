@@ -1,33 +1,56 @@
-name="Fredegar Bumbleroot"
-position=-100,-100,0
-sex=male
-race=halfling
-dir=west
+------------------------------------------------------------------------------AC
+-- NPC Name: Fredegar Bumbleroot                                         None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  -100, -100, 0          --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
-questid=558
-radius=30
+name = "Fredegar Bumbleroot"
+race = halfling
+sex = male
+position = -100, -100, 0
+direction = west
+affiliation = "None"
+job = "none"
 
-" ",busy,german -> "Tut mir leid, ich bin beschäftigt. Warte bitte einen Moment bis ich mein Gespräch beendet habe."
-" ",busy,english -> "I'm sorry, but I'm busy at the moment. Could you please wait until i finished by speech?"
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
 
-"gr[üue]+[sß]+e","Hallo","Guten Tag",queststatus=2 -> "Hiho! Schön dich zu sehen! Wie gehts dir?",begin
-"greetings","hello",queststatus=2 -> "Hiho! Nice to see you! How are you?",begin
+author = "not set"
 
-"gr[üue]+[sß]+e","Hallo","Guten Tag" -> "Hiho! Habt ihr irgendwo einen kleinen goldenen Ring gesehen?",begin,state=1
-"greetings","hello" -> "Hiho! Did you saw a small gold ring?",begin,state=1
-"ja",state=1 -> "Wirklich? Wo ist er? Könnt ihr mir ihn bringen?",queststatus=1,state=0
-"yes",state=1 -> "Really? Where is it? Can you bring it to me?",queststatus=1,state=0
-"nein",state=1 -> "Schade... ihr sagt mit bescheid wenn ihr ihn findet, ja? Ich muss weiter suchen...",state=0,end
-"no",state=1 -> "Sadly... but you tell me if you find it, yes? I have to go on searching...",state=0,end
-"ring",state=1,german -> "Ja... ein einfacher Goldring... Ich hab ihn verloren. Habt ihr ihn gesehen?"
-"ring",state=1,english -> "Yes...a simple gold ring... I lost it. Did you saw it?"
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 30
 
-"ring","ja",queststatus=1,item(335,belt)>=1,german -> "Ja wirklich! Das muss er sein! Ich danke euch. Hier, ich gebe euch mein Geheimrezept für Würstchen und ein paar Würstchen zum kosten!",skill(crafts,baking)+5,item(3051,5,333,0),queststatus=2, deleteitem(335,1)
-"ring","ja",queststatus=1,german -> "Wo ist der Ring denn?"
-"nein",queststatus=1 -> "Schade",end
-"ring","yes",queststatus=1,item(335,belt)>=1,english -> "Yes! Really! That has to be my ring! Thank you so much. Here, i give you me secret rezept for sausages and some sausages to taste it.",skill(crafts,baking)+5,item(3051,5,333,0),queststatus=2, deleteitem(335,1)
-"ring","yes",queststatus=1,english -> "Where is the ring?"
-"no",queststatus=1 -> "Sadly...",end
-
-"auf bald","bis bald","tschüss" -> "Bis bald!",end
-"farewell","bye","good day" -> "Be well!",end
+-- questid=558
+" ", german, busy -> "Tut mir leid, ich bin beschÃ¤ftigt. Warte bitte einen Moment bis ich mein GesprÃ¤ch beendet habe."
+" ", english, busy -> "I'm sorry, but I'm busy at the moment. Could you please wait until i finished by speech?"
+"gr[Ã¼ue]+[sÃŸ]+e", "Hallo", "Guten Tag", queststatus(558) = 2 -> "Hiho! SchÃ¶n dich zu sehen! Wie gehts dir?", begin
+"greetings", "hello", queststatus(558) = 2 -> "Hiho! Nice to see you! How are you?", begin
+"gr[Ã¼ue]+[sÃŸ]+e", "Hallo", "Guten Tag" -> "Hiho! Habt ihr irgendwo einen kleinen goldenen Ring gesehen?", state = 1, begin
+"greetings", "hello" -> "Hiho! Did you saw a small gold ring?", state = 1, begin
+"ja", state = 1 -> "Wirklich? Wo ist er? KÃ¶nnt ihr mir ihn bringen?", state = 0, queststatus(558) = 1
+"yes", state = 1 -> "Really? Where is it? Can you bring it to me?", state = 0, queststatus(558) = 1
+"nein", state = 1 -> "Schade... ihr sagt mit bescheid wenn ihr ihn findet, ja? Ich muss weiter suchen...", state = 0, end
+"no", state = 1 -> "Sadly... but you tell me if you find it, yes? I have to go on searching...", state = 0, end
+"ring", state = 1, german -> "Ja... ein einfacher Goldring... Ich hab ihn verloren. Habt ihr ihn gesehen?"
+"ring", state = 1, english -> "Yes...a simple gold ring... I lost it. Did you saw it?"
+"ring", "ja", queststatus(558) = 1, item(335, belt) => 1, german -> "Ja wirklich! Das muss er sein! Ich danke euch. Hier, ich gebe euch mein Geheimrezept fÃ¼r WÃ¼rstchen und ein paar WÃ¼rstchen zum kosten!", rune(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
+"ring", "ja", queststatus(558) = 1, german -> "Wo ist der Ring denn?"
+"nein", queststatus(558) = 1 -> "Schade", end
+"ring", "yes", queststatus(558) = 1, item(335, belt) => 1, english -> "Yes! Really! That has to be my ring! Thank you so much. Here, i give you me secret rezept for sausages and some sausages to taste it.", rune(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
+"ring", "yes", queststatus(558) = 1, english -> "Where is the ring?"
+"no", queststatus(558) = 1 -> "Sadly...", end
+"auf bald", "bis bald", "tschÃ¼ss" -> "Bis bald!", end
+"farewell", "bye", "good day" -> "Be well!", end

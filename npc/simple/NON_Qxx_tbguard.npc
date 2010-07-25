@@ -50,7 +50,7 @@ cycletext "#me hustet kurz.","#me coughs once."
 "Varshikar",english->"Varshikar is a small town in the northeast. The bearers of fire live there."
 
 "Nordmark",german->"Das ist irgendeine Barbarensiedlung. Soll im Norden sein... mehr weis ich davon nicht."
-"Northmark,"Nordmark",english->"This is some barbarian settlement. Somewhere in the north, I don't know more about this."
+"Northmark","Nordmark",english->"This is some barbarian settlement. Somewhere in the north, I don't know more about this."
 
 "Greenbriar","Green Briar",german->"Die Halblingssiedlung, liegt im Südwesten auf einer kleinen Insel. Etwas südlich davon ist das Versteck der Tempelratten."
 "Greenbriar","Green Briar",english->"The halfling settlement, this is located in the south west on a small island. A little south of is the hideout of the temple rats is located."
@@ -83,4 +83,4 @@ cycletext "#me hustet kurz.","#me coughs once."
 "Temple","Tempel",english->"The temple is a group of criminals, cutthroats, murderers, kidnappers, Moshran worshippers and necromants! Every of their members is banned from the town!"
 
 "Träger Feuer","Bearer Fire",german->"Die Träger des Feuers leben im Nordenosten, bei Varshikar. Sie kämpfen wie auch Troll's Bane gegen Abschaum wie den Tempel. Angeführt werden sie von Djironnyma."
-"Bearer Fire",english->"The Bearers of Fire live in the north east, at Varshikar. They fight, similar to Troll's Bane against scums like the temple. They are leaded by Djironnyma." 
+"Bearer Fire",english->"The Bearers of Fire live in the north east, at Varshikar. They fight, similar to Troll's Bane against scums like the temple. They are leaded by Djironnyma."
