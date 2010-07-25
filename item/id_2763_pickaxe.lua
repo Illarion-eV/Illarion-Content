@@ -26,6 +26,8 @@
 require("item.general.metal")
 require("base.common")
 require("base.treasure")
+require("content.gathering")
+require("base.gcraft")
 
 module("item.id_2763_pickaxe", package.seeall, package.seeall(item.general.metal))
 
@@ -317,7 +319,7 @@ function Scale(ScBegin, ScEnd, value)
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
-	InitGathering();
+	content.gathering.InitGathering();
     Init();
     base.common.ResetInterruption( User, ltstate );
     if ( ltstate == Action.abort ) then
@@ -386,7 +388,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if (ltstate == Action.none) then
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to hit the stone with a pick axe.");
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         return
     end
 
@@ -405,12 +407,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     Skill = GetModifiedSkill(User);
 
-	if not mining:FindRandomItem(User) then
+	if not base.gcraft.mining:FindRandomItem(User) then
 		return
 	end
 	
     if not checkSucc(Skill) then
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         User:learn(2,"mining",1,100);
         return
     end
@@ -431,7 +433,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if Ressource == 0 then     -- set resource to raw stone and continue script
         Ressource = 735
     elseif Ressource < 0 then  -- find nothing
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         base.common.GetHungry( User, 300 );
         return
     end
@@ -448,7 +450,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         "Du kannst nicht noch mehr halten.",
         "You can't carry any more.");
     else
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15);
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
     end
 end
 
@@ -502,9 +504,9 @@ end
 
 -- Arbeitszeit generieren
 -- 2s - 5.5s
-function GenWorkTime(User)
+--[[function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
     local Skill  = math.min(100,User:getSkill("mining")*10);    -- Schmieden: 0 - 100
 
     return math.floor(-0.3 * (Attrib + Skill) + 60);
-end
+end ]]--
