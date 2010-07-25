@@ -1,7 +1,10 @@
 -- Seil
 require("base.common")
-dofile( "lte_tying_capturer.lua" );
-dofile("quest_aquest28.lua");    --the quest file for the Farmer quest
+require("quest_aquest28")    
+require("lte.tying_capturer") 
+module("item.id_2760_seil", package.seeall)      
+--dofile( "lte_tying_capturer.lua" );
+--dofile("quest_aquest28.lua");    --the quest file for the Farmer quest
 
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
@@ -40,7 +43,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	if ( TargetItem.id ~= 2207 ) or SourceItem.data == 1 then
 		return false;
     end
-    local dummy_1, task = split_questdata(User);
+    local dummy_1, task = quest_aquest28.split_questdata(User);
     
     if equapos(TargetItem.pos,position(-73,-108,0)) then
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
@@ -287,9 +290,9 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 		if TargetItem.id == 2760 then
 			if TargetItem.data == 1 and Rope.data == 0 then
 				foundCaptive, Captive = Tying:findValue("Captive");
-				Target = IsCharidInRangeOf(Captive,User.pos,5);
+				Target = lte.tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 				if Target then
-					local AttribOffset = GetBestAttribOffset(User,Target,{"strength","dexterity"});
+					local AttribOffset = lte.tying_capturer.GetBestAttribOffset(User,Target,{"strength","dexterity"});
 					local Quality = math.min(600,120+math.random(25,35)*AttribOffset);
 					TargetItem.quality = math.min(2500,TargetItem.quality+(Quality*2));
 					world:changeItem(TargetItem);
@@ -322,7 +325,7 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 		end
 		
 		if not Target then
-			Target = IsCharidInRangeOf(Captive,User.pos,5);
+			Target = lte.tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 			if Target then
 				foundEffect, Tying = Target.effects:find(24);
 				if foundEffect then
@@ -357,7 +360,7 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 				local foundValue, CaptiveTarget = Tying:findValue("Captive");
 				if foundValue then
 					if Captive == CaptiveTarget then -- Target char has the same captive!
-						CaptiveChar = IsCharidInRangeOf(Captive,User.pos,5);
+						CaptiveChar = lte.tying_capturer.IsCharidInRangeOf(Captive,User.pos,5);
 						if CaptiveChar then
 							foundEffect, Tying = CaptiveChar.effects:find(24);
 							if foundEffect then
