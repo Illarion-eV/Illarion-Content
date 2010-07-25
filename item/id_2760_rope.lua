@@ -15,7 +15,9 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-    local gText = "Du siehst ";
+    User:inform("debug1");
+    
+	local gText = "Du siehst ";
 	local eText = "You see ";
 	if Item.data == 1 then
 		local eQual, gQual;
@@ -37,6 +39,7 @@ function LookAtItem(User,Item)
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
+    User:inform("debug2");
     
 	TyingDataHandler(User, SourceItem, nil, TargetItem);
 	
