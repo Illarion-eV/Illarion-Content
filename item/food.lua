@@ -147,11 +147,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			-- inform the player
 			if poison then
 				base.common.TempInformNLS(User,
-				"Du fï¿½hlst dich krank und etwas benommen.",
+				"Du fühlst dich krank und etwas benommen.",
 				"You feel sick and a little dizzy.");
 			elseif (domMalus < 0) then
 				base.common.TempInformNLS( User,
-				"Du bekommst kaum noch was runter und dir wird schlecht. Dies schadet sicherlich deinem Kï¿½rper.",
+				"Du bekommst kaum noch was runter und dir wird schlecht. Dies schadet sicherlich deinem Körper.",
 				"You hardly manage to eat something more and get sick! This surely harms your body.");
 				-- check for newbie state
 				if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
@@ -160,7 +160,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				foodLevel = foodLevel - 10000;
 			elseif  (foodLevel > 55000) then
 				base.common.TempInformNLS( User,
-				"Nur mit Mï¿½he kannst du dir noch etwas hinunter zwingen.",
+				"Nur mit Mühe kannst du dir noch etwas hinunter zwingen.",
 				"You hardly manage to eat something more.");
 			elseif  (foodLevel > 50000) then
 				base.common.TempInformNLS( User,
@@ -172,7 +172,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				"You are stuffed");
 			elseif  (foodLevel > 30000) then
 				base.common.TempInformNLS( User,
-				"Du fï¿½hlst dich noch etwas hungrig.",
+				"Du fühlst dich noch etwas hungrig.",
 				"You still feel a little hungry.");
 			elseif  (foodLevel > 20000) then
 				base.common.TempInformNLS( User,
@@ -189,7 +189,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                 if (math.random(1,100)==1) then
                     local deText, enText = content.furtunecookies.cookie();
                     base.common.InformNLS( User,
-                    "Du findest ein Stï¿½ck Papier in dem Keks: \""..deText.."\"",
+                    "Du findest ein Stück Papier in dem Keks: \""..deText.."\"",
                     "You find a piece of paper inside the cookie: \""..enText.."\"");
                 end
             end
@@ -306,29 +306,29 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				constMod=0;
 				if (constModOld < constMod) then
 					base.common.InformNLS(User,
-					"Durch deine ausgewogene Ernï¿½hrung erlangt dein Kï¿½rper seine gewohnte Verfassung wieder.",
+					"Durch deine ausgewogene Ernährung erlangt dein Körper seine gewohnte Verfassung wieder.",
 					"Due to your balanced diet your body regains its usual condition.");
 				elseif (constModOld > constMod) then
 					base.common.InformNLS(User,
-					"Durch deine nur gewï¿½hnliche Ernï¿½hrung kann dein Kï¿½rper seine gute Verfassung nicht halten.",
+					"Durch deine nur gewöhnliche Ernährung kann dein Körper seine gute Verfassung nicht halten.",
 					"Due to your commoners' diet your body cannot retain its good condition.");
 				end
 			elseif (dom>=2500 and dom<7500) then
 				constMod=1;
 				if (constModOld < constMod) then
 					base.common.InformNLS(User,
-					"Durch deine groï¿½artige Ernï¿½hrung erlangt dein Kï¿½rper eine gute Verfassung.",
+					"Durch deine großartige Ernährung erlangt dein Körper eine gute Verfassung.",
 					"Due to your great diet your body gains a good condition.");
 				elseif (constModOld > constMod) then
 					base.common.InformNLS(User,
-					"Da du deine Ernï¿½hrung etwas vernachlï¿½ssigt hast, kann dein Kï¿½rper seine groï¿½artige Verfassung nicht halten.",
-					"As you have slightly neglected your dietary choices, your body canï¿½t retain its great condition.");
+					"Da du deine Ernährung etwas vernachlässigt hast, kann dein Körper seine großartige Verfassung nicht halten.",
+					"As you have slightly neglected your dietary choices, your body can't retain its great condition.");
 				end
 			elseif (dom>=7500 and dom<=10000) then
 				constMod=2;
 				if (constModOld < constMod) then
 					base.common.InformNLS(User,
-					"Durch deine perfekte Ernï¿½hrung erlangt dein Kï¿½rper eine groï¿½artige Verfassung.",
+					"Durch deine perfekte Ernährung erlangt dein Körper eine großartige Verfassung.",
 					"Due to your perfect diet your body gains a great condition.");
 				end
 			else
@@ -349,7 +349,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 	else
 		base.common.TempInformNLS( User,
-			"Du kannst nicht wï¿½hrend eines Kampfes essen.",
+			"Du kannst nicht während eines Kampfes essen.",
 			"You cannot eat during a fight.");
 	end
 end

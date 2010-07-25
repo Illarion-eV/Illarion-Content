@@ -41,7 +41,7 @@ end
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     InitDrinks();
     if User.attackmode then
-        base.common.InformNLS( User, "Du wï¿½rdest alles verschï¿½tten.", "You'd spill everything.");
+        base.common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");
         return -- Abbrechen wenn Spieler im Kampf ist
     end
     local food = drinkList[ SourceItem.id ];
