@@ -25,7 +25,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
 	else
-		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schÃ¶pfen.", "You need to stand in front of the well to scoop water.");
+		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
 	end
 end
 
@@ -46,4 +46,11 @@ function FillBucket( User, SourceItem )
         end
         base.common.GetHungry( User, 200 );
     end    
+end
+
+function LookAtItem(User,Item)
+
+	local gText = "Du siehst einen leeren Eimer.";
+	local eText = "You see an empty bucket.";
+	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
 end
