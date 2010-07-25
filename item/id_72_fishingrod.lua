@@ -98,7 +98,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
         return
     end
 	
-    User:startAction(fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+    User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 
 end
 
