@@ -193,8 +193,8 @@ function Ini()
 end;
 
 function LookAtItem(User, Item)
-    base.common.InformNLS(User, "Blablabla", "Blablablablabla");
-	User:inform ("blabla hätte funktionieren müssen!");
+    --base.common.InformNLS(User, "Blablabla", "Blablablablabla");
+	--User:inform ("blabla hätte funktionieren müssen!");
 	if (texts == nil) then
         texts={};
         texts[1]="Shift-click the trowel first and the ground then (use trowel with ground) to display a menue for creating items. Use the counter to create different items.";
@@ -210,7 +210,7 @@ function LookAtItem(User, Item)
     end;
 
     if pagenumber==0 then
-        User:inform("This is the wonder trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
+        User:inform("This is the WOOOONDER trowel. Say a number between 1 and "..table.maxn(texts).." to view that help page and look at me then.");
     else
         User:inform(texts[pagenumber]);
     end;
