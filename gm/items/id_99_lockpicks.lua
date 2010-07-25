@@ -9,6 +9,7 @@ module("gm.items.id_99_lockpicks", package.seeall)
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	-- Hello World
     if (firsttime==nil) then
         firsttime=1;
         
