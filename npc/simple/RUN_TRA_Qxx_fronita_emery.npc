@@ -5,9 +5,9 @@
 -- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: July 24, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -23,7 +23,7 @@ language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Faladron"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -38,6 +38,8 @@ wrongLangUS = "#me looks at you confused."
 -- 5% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
 -- 5% Glass resources: 41, 314, 316, 726
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+
+-- Quest triggers currently blank, to be added at a later date
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keyphrases: glas, wares, Runewick, quest.")
@@ -78,16 +80,16 @@ wrongLangUS = "#me looks at you confused."
 "Ich bin", "mein Name" -> "Schön dich kennenzulernen %CHARNAME! Erwarte aber keinen Preisnachlass deswegen.", "Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist."
 
 -- More small talk; add at least five triggers
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Glas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sand" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"glass" -> "To work with glass is challenging. It becomes frail very fast", "The slender hands of a lady like myself are just right for that kind of work, har har."
+"sand" -> "You may think there's enough sand in the desert, still Cadomyr troubles the supply.", "Aye, lots of sand in the west. But Cadomyr guards it tightly. That's a problem."
+"rune magic" -> "You have to ask another dwarf about that."
+"magic", "mage", "sorcer", "spell" -> "Ach, sometimes I twitch when spells fly about, but you get used to that.", "There's dwarven rune magic. So why should magic bother me?"
+"problem", "trouble", "supply" -> "Cadomyr checks tightly how much sieved sand leaves the desert. Not enough for me to work properly, I say!", "Cadomyr is mocking us. If they allow sand to be exported it's usualy wet and hardly useable. ", "'I reign over every grain of sand!' says the queen. You can be overzealous too, you know."
+"Glas" -> "Mit Glas zu arbeiten ist eine Herausforderung. Es wird schnell sehr zerbrechlich.", "Zarte Frauenhände wie meine sind genau richtig für diese Arbeit, har har."
+"Sand" -> "Man möchte meinen Sand gäbs in der Wüste genug, trotzdem macht Cadomyr immer Ärger.", "Aye im Westen gibts viel davon. Aber da sitzt Cadomyr wachsam drauf. Das ist ein Problem."
+"Runenmagie" -> "Da musst du einen Zwerg fragen der sich genauer damit auskennt."
+"Magie", "Zauber" -> "Ach, ich zuck noch ein wenig wenn die Zaubersprüche fliegen, aber man gewöhnt sich dran.", "Wir Zwerge kennen ja auch die Runenmagie. Also warum soll mich Magie stören?"
+"Problem", "Ärger" -> "Cadomyr passt genau auf, wieviel feiner Sand aus der Wüste entnommen wird. Nicht genug für anständige Arbeit sag ich!", "Cadomyr ärgert uns. Wenn sie es mal erlauben und Sand nach Runewick kommt ist er feucht und fast unbrauchbar.", "'Ich herrsche über jedes Sandkorn!' sagt die Königin. Man kann auch übereifrig sein."
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
@@ -154,17 +156,16 @@ wrongLangUS = "#me looks at you confused."
 "Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Yes. True. Absolutely. And now buy my stuff!", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "Ja. Richtig. Aber wirklich. Und jetzt kauf was!", "Sehr schön. Jetzt einigen wir uns noch was du kaufst.", "Ich weiß, wunderbar nicht?"
+"No" -> "No? My heart just shattered like a piece of glass.", "Well whatever, bah!", "You're stealing my time!"
+"Nein" -> "Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.", "Na dann halt nicht, pah!", "Du stehlst nur meine Zeit!"
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-
--- ".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
--- ".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+".*", english, chance(20) -> "Listen, I don't want to be rude. Either you buy something or you leave, aye?", "If you go on rambling about like that you'll spoil my buisiness.", "Yes. Aye. Absolutely. And now buy my stuff!"
+".*", german, chance(20) -> "Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?", "Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.", "Ja. Aye. Absolut. Und jetzt kauf mir was ab!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -174,12 +175,9 @@ wrongLangUS = "#me looks at you confused."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me poliert ein fein gearbeitetes Weinglas.", "#me polishes a well crafted wine glass."
-cycletext "Genießt das feine .", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Genießt die feinen Getränke Runewicks in Runewicks besten Gläsern.", "Enjoy the best of Runewicks beverages in Runewicks best glasses."
+cycletext "In meinen Glaswaren funkelt die Ewigkeit!", "Eternity sparkles in my glass wares!"
+cycletext "#me spielt mit ein paar Glasmurmeln.", "#me plays with some glass pebbles."
+cycletext "Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them."
+cycletext "Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!"
+cycletext "Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs."
