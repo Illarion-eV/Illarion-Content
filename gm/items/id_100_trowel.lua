@@ -193,7 +193,7 @@ function Ini()
 end;
 
 function LookAtItem(User, Item)
-    --base.common.InformNLS(User, "Blablabla", "Blablablablabla");
+    --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
 	--User:inform ("blabla hätte funktionieren müssen!");
 	if (texts == nil) then
         texts={};
