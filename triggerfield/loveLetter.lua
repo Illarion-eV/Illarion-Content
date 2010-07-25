@@ -1,4 +1,4 @@
---Written by Llama as initiator of love letter quest
+--Written by Llama as initiator of love letter quest - 
 
 -- INSERT INTO triggerfields VALUES(-469,241,0,'loveLetter.lua');
 
