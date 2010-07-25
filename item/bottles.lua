@@ -70,7 +70,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		User:setQuestProgress( 1, progress );
         else
 		base.common.InformNLS( User,
-		"Plï¿½tzlich kommen dir aus unerklï¿½rlichen Grï¿½nden Bedenken die Flasche zu auszutrinken.",
+		"Plötzlich kommen dir aus unerklärlichen Gründen Bedenken die Flasche auszutrinken.",
 		"Suddenly you begin to doubt whether it would be wise to quaff this potion");
         end;
     else
@@ -116,7 +116,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
                         else
                             base.common.InformNLS( User,
-                            "Das Gefï¿½ï¿½ ist nicht in Griffweite.",
+                            "Das Gefäß ist nicht in Griffweite.",
                             "The vessel is out of reach.");
                         end
 
@@ -191,35 +191,7 @@ function LookAtItem(User,Item)
 end
 
 --Please don't remove!!!
-------------------------AB HIER,SKRIPT Fï¿½R DIE PRIESTER SILBERBRANDS(Heilung)-------------------
+------------------------AB HIER,SKRIPT FÜR DIE PRIESTER SILBERBRANDS(Heilung)-------------------
 function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
   InitDrinks();
-  if (SourceItem.id==2501) then
-	if (User.id==1048559757 or User.id==1322717830) then --for the Priests in Silverbrand(1048559757=Surian Silverbeard, 1322717830=Thogrimm)
-    	if (TargetChar.id~=User.id) then
-
-        	world:gfx(37,TargetChar.pos);
-			if (User.id==1048559757) then --Surian Silverbeard gets not so strong healing
-				TargetChar:increaseAttrib("hitpoints",3000); --heal the char
-        		TargetChar:setPoisonValue(0);
-				User:increaseAttrib("hitpoints",-300); --300HP damage for the Bragon priest
-			elseif (User.id==1322717830) then  --Thogrimm gets strong healing
-				TargetChar:increaseAttrib("hitpoints",5000); --heal the char
-        		TargetChar:setPoisonValue(0);
-        		User:increaseAttrib("hitpoints",-500); --500HP damage for the Irmorom priest
-			end
-
-			base.common.InformNLS( TargetChar, "Du fï¿½hlst wie eine heilende Wï¿½rme deinen Kï¿½rper durchstrï¿½mt und dir neue Kraft schenkt.",
-					         "You feel how a healing warmth runs through your body and spends you new strength.");
-
-
-
-
-		else
-			base.common.InformNLS( User, "Du kannst dich nicht selber heilen.",
-					     "You can't heal yourself.");
-		end
-
-    end
-  end
 end

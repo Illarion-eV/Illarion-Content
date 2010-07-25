@@ -1,6 +1,3 @@
---Script needs to be put in modules and all that crap - no idea how to do that!!!
---Base_common needs to be included.
-
 --Priest magic: Becoming a devotee, change devotion, become a priest by using an altar
 
 --Altars are dedicated to gods, encoded in the data value
@@ -30,6 +27,11 @@
 --14: Zhambra – God of friendship and loyalty  
 --15: Ronagan – God of thieves and shadows
 --16: Moshran – God of blood and bones
+
+require("base.common")
+
+AAA = 0 --placeholders without a value aren't that good I think
+BBB = 0 --
 
 function ini()
 

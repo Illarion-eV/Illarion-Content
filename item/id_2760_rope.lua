@@ -15,7 +15,6 @@ tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
 tyingQuality["limits"] = {15,10,5,2,0};
 
 function LookAtItem(User,Item)
-    User:inform("debug1");
     
 	local gText = "Du siehst ";
 	local eText = "You see ";
@@ -39,8 +38,7 @@ function LookAtItem(User,Item)
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
-    User:inform("debug2");
-    
+
 	TyingDataHandler(User, SourceItem, nil, TargetItem);
 	
 	if ( TargetItem.id ~= 2207 ) or SourceItem.data == 1 then
