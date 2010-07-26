@@ -14,7 +14,7 @@ bottomBorder = 2;
 taste = {};
 topBorder = {10000      ,100          ,60000      ,100   ,10000        ,9000      ,2400             ,10000}
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
-taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"s��"};
+taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
@@ -37,6 +37,10 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
     	  elseif ( attribList[i] == "mental capacity" ) then
             Val = base.common.Limit( (Character:getMentalCapacity() + Val) , 0, 2400 ); 
             Character:setMentalCapacity( Val );
+		  elseif ( attribList[i] == "hitpoints" ) then
+			Character:LTIncreaseHP(Val / 5, 5, 1000);
+		  elseif ( attribList[i] == "mana" ) then
+			Character:LTIncreaseMana(Val / 5, 5, 1000);
      	  else
             Character:increaseAttrib(attribList[i],Val);
         end
