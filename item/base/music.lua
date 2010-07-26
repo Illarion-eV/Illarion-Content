@@ -5,17 +5,17 @@ require("base.common")
 
 module("item.base.music", package.seeall)
 
-TalkTexts={};
+TalkTexts={ flute = {}, lute = {}, horn = {}, harp = {}, panpipe = {}, drum = {}};
 
-function addTalkText(eText,gText)
-    table.insert(TalkTexts,{eText,gText});
+function addTalkText(eText,gText, Skill)
+    table.insert(TalkTexts[Skill],{eText,gText});
 end
 
 function PlayInstrument(User,Item,Skill)
     local Skl=User:getSkill(Skill);
     local Qual=math.floor(Item.quality/100);
-    local PlayVal=base.common.Limit(math.floor((Skl+(Qual*5))/120*table.getn(TalkTexts)*(math.random(8,13)/10)),1,table.getn(TalkTexts));
-    User:talkLanguage( CCharacter.say, CPlayer.german, TalkTexts[PlayVal][2]);
-    User:talkLanguage( CCharacter.say, CPlayer.english, TalkTexts[PlayVal][1]);
+    local PlayVal=base.common.Limit(math.floor((Skl+(Qual*5))/120*table.getn(TalkTexts[Skill])*(math.random(8,13)/10)),1,table.getn(TalkTexts[Skill]));
+    User:talkLanguage( CCharacter.say, CPlayer.german, TalkTexts[Skill][PlayVal][2]);
+    User:talkLanguage( CCharacter.say, CPlayer.english, TalkTexts[Skill][PlayVal][1]);
     User:learn(8,Skill,3,100);
 end
