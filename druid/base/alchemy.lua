@@ -434,3 +434,30 @@ function ds_skillgain(User)
 		end
 	end
 end
+
+function checkPotionSpam(Character)
+	-- Check ob der Begrenzungseffekt da ist
+	foundEffect, myEffect = Character.effects:find(59);
+	if not foundEffect then -- nicht da, also erstellen
+		-- myEffect=CLongTimeEffect(0000000,1440000); -- TODO: Assign LTE ID
+		-- Character.effects:addEffect(myEffect, true);
+		-- myEffect:addValue("potioncount", 1);
+		return false;
+	else -- Effekt schon da, potioncount prüfen
+		found, count = myEffect:findValue("potioncount");
+		if(found) then -- increase potioncount
+			count = count + 1;
+		else -- looks like a bug, so simply set potioncount to 1
+			count = 1;
+		end
+		
+		if(count >= 3) then -- more than 3 potions in 4 hours? no!
+			return true;
+		end
+		
+		myEffect:addValue("potioncount", count);
+		
+		-- all is fine
+		return false;
+	end
+end
