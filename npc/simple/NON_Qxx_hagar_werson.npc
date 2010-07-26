@@ -2,8 +2,8 @@
 -- NPC Name: Hagar Wernson                                               None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  -345, -441, 0          --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: human                       NPC Position:  0, 0, 0               --
+-- NPC Sex:  male                     NPC Direction: west                     --
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
@@ -11,15 +11,15 @@
 --------------------------------------------------------------------------------
 
 name = "Hagar Wernson"
-race = elf
-sex = female
-position = -345, -441, 0
-direction = south
+race = human
+sex = male
+position = 0, 0, 0
+direction = west
 affiliation = "None"
 job = "none"
 
 language = common
-language = elf
+language = human
 defaultLanguage = common
 autointroduce = on
 
@@ -32,7 +32,7 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 
--- nordmark, in der taverne
+-- Galmair, in der Taverne
 "gr[üue]+[sß]+e", "Hallo", "Guten Tag", "Gruss", "Moin", race = elf, chance(10) -> "Moin...Langohr"
 "gr[üue]+[sß]+e", "Hallo", "Guten Tag", "Gruss", "Moin", race = elf -> "Moin..."
 "greetings", "hello", race = elf, chance(15) -> "G'day...long-ear"
@@ -47,6 +47,7 @@ wrongLangUS = "#me looks at you confused."
 "name", english, sex = female -> "What a pleasure! I am %NPCNAME, the innkeeper."
 "name", german -> "Ich bin %NPCNAME, der Wirt."
 "name", english -> "I am %NPCNAME, the innkeeper."
+
 "Was verkauft", sex = female -> "Ich hab Jungfernglück, den beliebten Apfelwein, nur sechs Kupfer fürn Kelch. Wär das nix fuer Euch? Oder Gnollgift, den guten Rotwein, nur acht Kupfer. Bärenfalle, den besten Met auch für acht. Und Nordburger Schädelbrecher, unser Bier. Der Krug zu lumpigen acht Kupfer"
 "Was kauft", "Was kaufst", sex = female -> "Ich kauf Kupferkelche zurück, meine Liebe. Ein'n Kupfer fürn Kelch. Und Bierkruege, auch für'n Kupfer. Für graue Flaschen zahl ich zwei."
 "what sell", sex = female -> "I got virgen's delight, our applewine, six copper the goblet. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our meade, both for eight copper the goblet. An' Northburger scullcracker, our beer, for eight copper the mug."
@@ -146,6 +147,7 @@ wrongLangUS = "#me looks at you confused."
 
 -- dank an Dariya fuer einige eklige ideen
 -- von kormkormsen fuer Illarion
+-- converted to new Illarion by Rincewind
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
