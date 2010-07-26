@@ -7,13 +7,13 @@ require("item.general.wood")
 
 module("item.id_90_flute", package.seeall, package.seeall(item.general.wood))
 
+addTalkText("#me produces some squeaking sounds on the flute","#me macht einige quietschende Geräusche auf der Flöte","flute");
+addTalkText("#me plays a horribly out of tune melody","#me spielt eine fürchterlich verstimmte Melodie auf der Flöte","flute");
+addTalkText("#me plays an out of tune melody","#me spielt eine verstimmte Melodie auf der Flöte","flute");
+addTalkText("#me plays an airy tune on the flute","#me spielt eine leichte Melodie auf der Flöte","flute");
+addTalkText("#me plays a wild tune on the flute","#me spielt eine wilde Melodie auf der Flöte","flute");
+
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    if InitInstruments() then
-        addTalkText("#me produces some squeaking sounds on the flute","#me macht einige quietschende Gerï¿½usche auf der Flï¿½te");
-        addTalkText("#me plays a horribly out of tune melody","#me spielt eine fï¿½rchterlich verstimmte Melodie auf der Flï¿½te");
-        addTalkText("#me plays an out of tune melody","#me spielt eine verstimmte Melodie auf der Flï¿½te");
-        addTalkText("#me plays an airy tune on the flute","#me spielt eine leichte Melodie auf der Flï¿½te");
-        addTalkText("#me plays a wild tune on the flute","#me spielt eine wilde Melodie auf der Flï¿½te");
-    end
-    PlayInstrument(User,SourceItem,"flute");
+	item.base.music.PlayInstrument(User,SourceItem,"flute");
 end
