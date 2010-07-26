@@ -12,7 +12,7 @@ module("druid.item.id_166_pink_bottle", package.seeall(druid.base.alchemy))
 
 bottomBorder = 2;
 taste = {};
-topBorder = {10000      ,100          ,60000      ,100   ,10000        ,9000      ,2400             ,10000}
+topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
 taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
