@@ -11,6 +11,11 @@ module("druid.item.id_330_white_bottle", package.seeall(druid.base.alchemy))
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
+	if (druid.base.alchemy.checkPotionSpam(Character)) then
+		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
+		return;
+	end
+
 -- Grundwerte, Listen einlesen:
 -- Sprachverstï¿½ndnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
 	if firsttime == nil then

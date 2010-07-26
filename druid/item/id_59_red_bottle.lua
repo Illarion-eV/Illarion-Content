@@ -19,6 +19,11 @@ taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","acidly"      ,"
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
+	if (druid.base.alchemy.checkPotionSpam(Character)) then
+		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
+		return;
+	end
+
     local dataZList = SplitBottleData(Character,Sourceitem.id_data);
 
 --    for i=1,8 do
@@ -86,6 +91,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if Character.attackmode then
         base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+		return
 	end
 	
     if (ltstate == Action.none) then
