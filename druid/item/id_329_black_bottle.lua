@@ -56,34 +56,52 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 end
 
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
-  if Sourceitem.id_data == 0 then
-	return;
-    -- vermutlich Tinte
-  elseif Sourceitem.id_data == 71796337 then
-	Character:inform("Deactivated due to technical issues.");
-	return;
-  else
-    if not Character.attackmode then
 
-       world:erase(SourceItem,1);
-       world:makeSound(12,Character.pos);
-       world:gfx(5,Character.pos);
-
-       -- Hier verweisen wir auf die Wirkung
-       -- Korrektur von Nitram, erst Flasche l�schen, dann Verwandeln, weil beim Verwandeln die Flasche gedroped wird.
-       DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
-
-       if( math.random( 20 ) <= 1 ) then
-         base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
-       else
-         Character:createItem( 164, 1, 333,0);
-       end
-
-       Character.movepoints=Character.movepoints-50;
-
-    else
-      base.common.InformNLS(Character,"Du kannst nichts trinken w�hrend du k�mpfst.", "You can't drink something while fighting.");
+    if (ltstate == Action.abort) then
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
+        world:erase(SourceItem,1);
+        -- Chance for a new bottle 19/20
+        if(math.random(20) == 1) then
+            base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+        else
+            Character:createItem(164, 1, 333, 0);
+        end
+        return
     end
+
+    if Character.attackmode then
+        base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+	end
+	
+    if (ltstate == Action.none) then
+        User:startAction(20,0,0,12,25);
+        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
+        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+        return
+    end
+
+	if Sourceitem.id_data == 0 then
+		return; -- vermutlich Tinte
+	elseif Sourceitem.id_data == 71796337 then -- Unsichtbarkeitstrank
+		Character:inform("Deactivated due to technical issues.");
+		return;
+	else
+
+		world:erase(SourceItem,1);
+		world:gfx(5,Character.pos);
+
+		-- Hier verweisen wir auf die Wirkung
+		-- Korrektur von Nitram, erst Flasche löschen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
+		DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+
+		if( math.random( 20 ) <= 1 ) then
+			base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+		else
+			Character:createItem( 164, 1, 333,0);
+		end
+
+		Character.movepoints=Character.movepoints-50;
   end
 end
 

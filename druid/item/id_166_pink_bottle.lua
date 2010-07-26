@@ -1,6 +1,7 @@
 --I_166_lila_flasche
 --Druidensystem in Arbeit
 --Falk
+--Delay added by Blay09
 
 require("base.common")
 require("druid.base.alchemy")
@@ -53,27 +54,45 @@ end
 
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
-    if not Character.attackmode then
-        -- Hier verweisen wir auf die Wirkung
-        if Sourceitem.id_data==0 then
-          --keine Wirkungen
-        else
-          DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
-        end
+    if (ltstate == Action.abort) then
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
-        world:makeSound(12,Character.pos);
-
-        if( math.random( 20 ) <= 1 ) then
-            base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+        -- Chance for a new bottle 19/20
+        if(math.random(20) == 1) then
+            base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
         else
-            Character:createItem( 164, 1, 333,0);
+            Character:createItem(164, 1, 333, 0);
         end
-
-        Character.movepoints=Character.movepoints-50;
-
-    else
-        base.common.InformNLS(Character,"Du kannst nichts trinken w�hrend du k�mpfst.", "You can't drink something while fighting.");
+        return
     end
+
+    if Character.attackmode then
+        base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+	end
+	
+    if (ltstate == Action.none) then
+        User:startAction(20,0,0,12,25);
+        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
+        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+        return
+    end
+	
+	-- Hier verweisen wir auf die Wirkung
+    if Sourceitem.id_data==0 then
+		--keine Wirkungen
+    else
+		DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+    end
+    world:erase(SourceItem,1);
+
+    if( math.random( 20 ) <= 1 ) then
+        base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+    else
+        Character:createItem( 164, 1, 333,0);
+    end
+
+    Character.movepoints=Character.movepoints-50;
 
 end
 

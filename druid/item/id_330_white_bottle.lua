@@ -125,7 +125,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
         -- ALTE FASSUNG ALS HEILTRANK
         if (ltstate == Action.abort) then
 
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me versch�ttet die Milch.");
+            User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet die Milch.");
             User:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the milk.");
 
             world:erase( SourceItem, 1 );
@@ -197,25 +197,44 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Old style potion done
     
   else
-	if not Character.attackmode then
-	     -- Hier verweisen wir auf die Wirkung
-	     DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+		if (ltstate == Action.abort) then
+			Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
+			Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
+			world:erase(SourceItem,1);
+			-- Chance for a new bottle 19/20
+			if(math.random(20) == 1) then
+				base.common.InformNLS(Character, "Die Flasche zerbricht.", "The bottle breaks.");
+			else
+				Character:createItem(164, 1, 333, 0);
+			end
+			return
+		end
 
-	     world:erase(SourceItem,1);
-	     world:makeSound(12,Character.pos);
-	     world:gfx(5,Character.pos)
+		if Character.attackmode then
+			base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
+		end
+		
+		if (ltstate == Action.none) then
+			User:startAction(20,0,0,12,25);
+			User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
+			User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+			return
+		end
+		
+	    -- Hier verweisen wir auf die Wirkung
+	    DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
-	     if( math.random( 20 ) <= 1 ) then
-	       base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
-	     else
-	       Character:createItem( 164, 1, 333,0);
-	     end
+	    world:erase(SourceItem,1);
+	    world:makeSound(12,Character.pos);
+	    world:gfx(5,Character.pos)
 
-	     Character.movepoints=Character.movepoints-50;
+	    if( math.random( 20 ) <= 1 ) then
+			base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+	    else
+			Character:createItem( 164, 1, 333,0);
+	    end
 
-	else
-	    base.common.InformNLS(Character,"Du kannst nichts trinken w�hrend du k�mpfst.", "You can't drink something while fighting.");
-	end
+	    Character.movepoints=Character.movepoints-50;
   end
 end
 

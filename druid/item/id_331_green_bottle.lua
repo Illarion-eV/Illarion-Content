@@ -16,74 +16,8 @@ Security = {};
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     if (Sourceitem.id_data == 0) then
-        -- ALTE FASSUNG ALS HEILTRANK
-        if (ltstate == Action.abort) then
-
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me versch�ttet den Trank.");
-            User:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
-
-            world:erase( SourceItem, 1 );
-
-            if (math.random( 20 ) == 1) then
-                base.common.TempInformNLS( User,
-                "Die Flasche zerbricht.",
-                "The bottle breaks.");
-            else
-                User:createItem( 164, 1, 333, 0 );
-            end
-
-            return
-        end
-
-        if User.attackmode then
-            base.common.InformNLS( User,
-            "Du kannst nichts trinken w�hrend du k�mpfst.",
-            "You can't drink something while fighting." );
-            return
-        end
-
-        if (ltstate == Action.none) then
-
-            User:startAction( 20, 0, 0, 12, 25 );
-
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-            User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
-
-            return
-        end
-
-        world:erase(SourceItem,1);
-
-        if( math.random( 20 ) == 1 ) then
-            base.common.InformNLS( User,
-            "Die Flasche zerbricht.",
-            "The bottle breaks.");
-        else
-            User:createItem( 164, 1, 333,0);
-        end
-
-        User:LTIncreaseHP(500,14,2);
-        User:increaseAttrib("foodlevel",2000);
-        User.movepoints = User.movepoints - 20;
-
-        if (User:increaseAttrib("foodlevel",0) > 60000) then
-            base.common.InformNLS( User,
-            "Du bekommst kaum noch was runter und dir wird schlecht.",
-            "You hardly manage to eat something more and get sick!");
-
-            User:increaseAttrib("hitpoints",-1000);
-        elseif  (User:increaseAttrib("foodlevel",0) > 40000) then
-            base.common.InformNLS( User,
-            "Du bist satt.",
-            "You are stuffed.");
-        else
-            base.common.InformNLS( User,
-            "Du trinkst die Flasche aus und f�hlst wie neue St�rke dich durchstr�mt.",
-            "You drink up the bottle, and you feel the new strength that flows through your body.");
-        end
-
+        -- Keine Wirkung
         return
-        -- Old style potion done
     end
 
     local msg = base.common.GetNLS( User,

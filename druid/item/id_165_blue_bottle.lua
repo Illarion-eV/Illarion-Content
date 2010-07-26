@@ -154,126 +154,7 @@ end  -- function DoDruidism
 --  
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
   if Sourceitem.id_data == 0 then
-    -- ALTE FASSUNG VOR DRUIDENSYSTEM
-    -- check for ltstate == Action.abort
-    -- means the script got interrupted before the time needed was up (-> drinking was not finished!)
-    if (ltstate == Action.abort) then
-
-        -- Cast forced emotes from the Charakter who uses our potion (german for germans, english for the rest)
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me versch�ttet den Trank.");
-        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
-
-        -- remove the potion item
-        world:erase(SourceItem,1);
-
-        -- choose by random to create an empty bottle or not.
-        -- Chance for a new bottle 19/20
-        if( math.random( 20 ) == 1 ) then
-            -- Sadly our Character does not get a new bottle
-            -- So we tell him the bad news in german and english
-            base.common.InformNLS( Character,
-            "Die Flasche zerbricht.",
-            "The bottle breaks.");
-        else
-            -- Our lucky Character gets a empty bottle
-            -- Lets create 1 bottle with ID 164, quality 333 and data 0
-            Character:createItem( 164, 1, 333,0);
-        end
-
-        -- since the Character failed to drink the potion we are done now
-        return
-    end
-
-    -- Lets check if the one who wants to drink the potion fights
-    if Character.attackmode then
-        -- It appears that our Character hits someone
-        -- So he can't drink something
-        -- Lets tell him about that...
-        base.common.InformNLS(Character,
-        "Du kannst nichts trinken w�hrend du k�mpfst.",
-        "You can't drink something while fighting.");
-
-        -- We are done with the script, lets leave. The Character fights so he gets no additional health
-        return
-    end
-
-    -- Now we check if the character is drinking the potion currently or not (since the drinking process needs some time)
-    if (ltstate == Action.none) then
-        -- Action.none so the character does nothing. Lets open the bottle and drink the potion
-
-        -- Start the action!
-        -- 2,0 seconds until the action is done
-        -- GFX id 0 is shown while the waiting time ( so no gfx )
-        -- every 0 seconds the GFX is shown ( so never )
-        -- SFX id 12 is played ( drinking sound )
-        -- every 2,5 seconds. So the sound is only played once
-        Character:startAction(20,0,0,12,25);
-
-        -- lets tell everyone that our Character drink a potion by a forced emote
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-        Character:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
-
-        -- And quit the script since we are done now and waiting for the next call
-        return
-    end
-
-    -- since we are here the character started allready to drink. Now we offer some results
-
-    -- lets delete the potion item
-    world:erase(SourceItem,1);
-
-    -- choose by random to create a empty bottle or not.
-    -- Chance for a new bottle 19/20
-    if( math.random( 20 ) == 1 ) then
-        -- Sadly our Character does not get a new bottle
-        -- So we tell him the bad news in german and english
-        base.common.InformNLS( Character,
-        "Die Flasche zerbricht.",
-        "The bottle breaks.");
-    else
-        -- Our lucky Character gets an empty bottle
-        -- Lets create 1 bottle with ID 164, quality 333 and data 0
-        Character:createItem( 164, 1, 333,0);
-    end
-
-    -- now we slowly give the Character some mana
-    -- 600 Healthpoints, every 1 seconds, 13 times
-    -- so we gain 7800 HP in 13 seconds
-    Character:LTIncreaseMana(600,13,1);
-
-    -- Such a potion fills up the foodpoints as well
-    -- Lets give the Character 2000 FP
-    Character:increaseAttrib("foodlevel",1000);
-
-    -- And since we want to slow down the drinking Character slightly, lets take some Movepoints
-    Character.movepoints = Character.movepoints - 20;
-
-    -- Now lets see if our Character has too much foodpoints
-    -- Maybe he becomes sick by it and looses some health
-    if (Character:increaseAttrib("foodlevel",0) > 60000) then
-        -- Character has more then 60000 foodpoints
-        -- that was one barbecued halfling to much
-
-        -- Lets inform the player that he ate too much
-
-        base.common.InformNLS(Character,"Du f�hlst wie der Trank deine Konzentration wieder steigert",
-		"You feel that the potion raises your concentration again");
-
-
-        -- And take away some of his health.
-        -- 1000 points less health instandly
-        Character:increaseAttrib("hitpoints",-1000);
-    elseif  (Character:increaseAttrib("foodlevel",0) > 40000) then
-        -- The Character has already eaten alot.
-        -- Lets tell him that he is stuffed!
-        base.common.InformNLS( Character,
-        "Du bist satt.",
-        "You are stuffed.");
-    else
-        -- Still much space in the stomach. Just say him what the potion does to his body
-       base.common.InformNLS(Character,"Du f�hlst wie der Trank deine Konzentration wieder steigert",
-		"You feel that the potion raises your concentration again");
-    end    
+	-- Keine Wirkung
   else
     -- NEUE FASSUNG MIT DRUIDENSYSTEM
     if not Character.attackmode then
@@ -293,7 +174,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
        Character.movepoints=Character.movepoints-50;
          
     else
-      base.common.InformNLS(Character,"Du kannst die Paste nicht benutzen w�hrend du k�mpfst.", "You can't use the paste something while fighting.");
+      base.common.InformNLS(Character,"Du kannst die Paste nicht benutzen während du kämpfst.", "You can't use the paste something while fighting.");
     end
   end  
 end
@@ -309,17 +190,9 @@ end
 function LookAtItem(Character,Item)
   
   if (Character:getPlayerLanguage()==0) then
-    if item.id_data==0 then
-      world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Manatrunk\"")           
-    else
-      world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Wunderpaste\"")
-    end 
+	world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Wunderpaste\"")
   else
-    if item.id_data==0 then    
-      world:itemInform(Character,Item,"You look at a sticker telling: \"Mana Potion\"")
-    else
-      world:itemInform(Character,Item,"You look at a sticker telling: \"Marvel Paste\"")
-    end        
+	world:itemInform(Character,Item,"You look at a sticker telling: \"Marvel Paste\"")      
   end
   
 end
