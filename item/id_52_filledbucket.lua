@@ -25,7 +25,7 @@ end
     -- Wasserflasche auffï¿½llen
 if( TargetItem.id == 2498 ) then
     if(TargetItem.number > 1) then
-		base.common.InformNLS(User, "#w Du kannst nur eine Flasche befÃ¼llen!", "#w You can only fill one bottle.");
+		base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
 		return;
 	end
         world:makeSound( 10, User.pos )
@@ -33,7 +33,7 @@ if( TargetItem.id == 2498 ) then
     else
         if TargetItem.id ~= 0 then
 			if ((TargetItem.id==12 or TargetItem.id == 359) and (User.pos.z==100 or User.pos.z==101)) then --Prevents extinguishing campfires on n00bia(needed for the cook-npc)
-				base.common.InformNLS(User,"#w Du solltest das Feuer besser nicht ausmachen, du kï¿½nntest es noch gebrauchen.","#w You shouldn't extinguish the fire, you maybe could need it.");
+				base.common.InformNLS(User,"#w Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","#w You shouldn't extinguish the fire, you maybe could need it.");
 				return;
 			else	
 			world:makeSound( 9, User.pos );
@@ -64,7 +64,7 @@ function UseItemWithCharacter (Character, SourceItem, TargetCharacter, Counter, 
     SourceItem.id = 51;
     SourceItem.data = 0;
     world:changeItem(SourceItem);
-	base.common.InformNLS(TargetCharacter, "#w Du fÃ¼hlst dich gleich viel sauberer.", "#w You feel much cleaner.");
+	base.common.InformNLS(TargetCharacter, "#w Du fühlst dich gleich viel sauberer.", "#w You feel much cleaner.");
 
 end
 

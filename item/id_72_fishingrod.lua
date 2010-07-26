@@ -33,13 +33,13 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	
 	-- Angeln unterirdisch nicht mï¿½glich
     if (TargetPos.z < 0) then
-    	base.common.InformNLS(User, "In unterirdischen Wasserlï¿½chern wird das Angeln kaum erfolgreich sein.", "Fishing in underground waterholes wouldn't be successful.");
+    	base.common.InformNLS(User, "In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.", "Fishing in underground waterholes wouldn't be successful.");
 		return
     end
 	
 	if base.common.Encumbrence(User) then -- Behinderung
         base.common.InformNLS(User,
-        "Deine Rï¿½stung behindert dich beim Fischen.",
+        "Deine Rüstung behindert dich beim Fischen.",
         "Your armor disturbes you while fishing.");
         return
     end
@@ -93,7 +93,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
     world:makeSound(9,TargetPos);
 	
 	if base.common.ToolBreaks(User, SourceItem, true) then -- Angel beschï¿½digen
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me lï¿½sst die Angel aus den Hï¿½nden rutschen und die Angel sinkt auf den Grund.");
+        User:talkLanguage(CCharacter.say, CPlayer.german, "#me lässt die Angel aus den Händen rutschen und die Angel sinkt auf den Grund.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me lets the fishing rod slip out of the hands and it sinks to the ground.");
         return
     end

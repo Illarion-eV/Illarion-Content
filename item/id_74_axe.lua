@@ -130,11 +130,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     if base.common.Encumbrence(User) then
         if (User.pos.z == 100) then
             base.common.InformNLS( User,
-            "Deine Rï¿½stung behindert Dich beim Holz schlagen. Wenn du arbeiten willst kannst du keine schwere Rï¿½stungen tragen. Lege deine Rï¿½stung und deinen Helm in deine Tasche. Dann kannst du arbeiten.",
+            "Deine Rüstung behindert Dich beim Holz schlagen. Wenn du arbeiten willst kannst du keine schwere Rüstungen tragen. Lege deine Rüstung und deinen Helm in deine Tasche. Dann kannst du arbeiten.",
             "Your armor disturbes you when chopping trees. If you want to work you must not carry heavy armors. Put your armor and your helmet into your bag. Then you can work." );
         else
             base.common.InformNLS( User,
-            "Deine Rï¿½stung behindert Dich beim Holz schlagen.",
+            "Deine Rüstung behindert Dich beim Holz schlagen.",
             "Your armor disturbes you when chopping trees" );
         end
         return
@@ -170,7 +170,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     if ( ltstate == Action.none ) then
         User:startAction( 12, 0, 0, 6, 15);
         if (logs[ TargetItem.id ] == nil) then
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt den Baum zu fï¿½llen.");
+            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt den Baum zu fällen.");
             User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to cut down a tree.");
         else
             User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Holz aus dem Baumstamm zu schlagen.");
@@ -180,7 +180,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         if Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate ) then
             if base.common.ToolBreaks( User, SourceItem ) then
                 base.common.InformNLS(User,
-                "Die alte und abgenutzt Axt in deinen Hï¿½nden zerbricht.",
+                "Die alte und abgenutzt Axt in deinen Händen zerbricht.",
                 "The old and used axe in your hands breaks.");
             else
                 User:startAction( 12, 0, 0, 6, 15);
@@ -191,7 +191,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         else
             if base.common.ToolBreaks( User, SourceItem ) then
                 base.common.InformNLS(User,
-                "Die alte und abgenutzte Axt in deinen Hï¿½nden zerbricht.",
+                "Die alte und abgenutzte Axt in deinen Händen zerbricht.",
                 "The old and used axe in your hands breaks.");
             end
             --if (User:getSkill("lumberjacking") < 100) then
@@ -232,7 +232,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate 
         end
     end
     base.common.InformNLS( User,
-    "Hier ist nichts was du mit der Axt bearbeiten kï¿½nntest.",
+    "Hier ist nichts was du mit der Axt bearbeiten könntest.",
     "Here is nothing you could work at with your axe." );
 end
 

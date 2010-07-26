@@ -26,9 +26,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert beim Asche herstellen.",
+        "Deine Rüstung behindert beim Asche herstellen.",
         "Your armor disturbes you while producing potash." );
         return
     end
@@ -45,7 +45,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
        (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS(User,
-            "Du benï¿½tigst Holz um daraus Asche herzustellen.",
+            "Du benötigst Holz um daraus Asche herzustellen.",
             "You need wood to produce potash.");
         end
         return
@@ -112,7 +112,7 @@ end -- function
 
 function CharacterOnField(User)
     base.common.InformNLS( User,
-      "Du fï¿½hlst Schmerzen vom brennenden Feuer.",
+      "Du fühlst Schmerzen vom brennenden Feuer.",
       "You can feel the pain from the burning fire." );
     if not (User:getQuestProgress(2) > 0) and not (User:increaseAttrib("hitpoints",0) < 2000) then
 		User:increaseAttrib("hitpoints",-math.random(200,400));

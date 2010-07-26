@@ -23,7 +23,7 @@ function InitCraftingTool( )
         tailoring:AddTool( 103 ); -- Schneidertisch
         
         tailoring:AddInterruptMessage(
-        "Du wischst dir den Schweiï¿½ von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
         
         tailoring:AddInterruptMessage(
@@ -31,23 +31,23 @@ function InitCraftingTool( )
         "You sting yourself with the needle into your finger.");
         
         tailoring:AddInterruptMessage(
-        "Du ï¿½berprï¿½fst kurz die Maï¿½e deiner Arbeit.",
+        "Du überprüfst kurz die Maße deiner Arbeit.",
         "You check some of your work's fine details.");
         
         tailoring:AddInterruptMessage(
-        "Du bist dir einen Moment unschlï¿½ssig mit der Wahl des Materials, aber nach kurzer ï¿½berlegung entscheidest du dich doch das Material weiter zu benutzen.",
+        "Du bist dir einen Moment unschlüssig mit der Wahl des Materials, aber nach kurzer Überlegung entscheidest du dich doch das Material weiter zu benutzen.",
         "You think a moment about the material you use but then you decide to continue with your current materials.");
         
         tailoring:AddInterruptMessage(
-        "Dir fï¿½llt die Nadel zu Boden und du musst sie kurz suchen.",
+        "Dir fällt die Nadel zu Boden und du musst sie kurz suchen.",
         "The needle falls to the floor and you need a while to find it again.");
         
         tailoring:AddInterruptMessage(
-        "Du musst kurz unter den Stoffen nach der Schere suchen um den Faden abschneiden zu kï¿½nnen.",
+        "Du musst kurz unter den Stoffen nach der Schere suchen um den Faden abschneiden zu können.",
         "You search for a pair of scissors under the cloth.");
         
         tailoring:AddInterruptMessage(
-        "Dir rutscht der Faden aus der Nadel, du benï¿½tigst einen Augenblick um ihn wieder einzufï¿½deln.",
+        "Dir rutscht der Faden aus der Nadel, du benötigst einen Augenblick um ihn wieder einzufädeln.",
         "The thread slips out of the needle. You need a while to thread it again.");
         
         --------------------------------------------------------------------------------------------
@@ -697,14 +697,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     
     if ( SourceItem:getType() ~= 4 ) then -- Hammer in der Hand
         base.common.InformNLS( User, 
-        "Du muï¿½t die Nagel in die Hand nehmen um damit zu arbeiten.", 
+        "Du musst die Nagel in die Hand nehmen um damit zu arbeiten.", 
         "You have to take the needle in your hand, to work with it." )
         return
     end
 
     if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert beim schneidern.",
+        "Deine Rüstung behindert beim schneidern.",
         "Your armor disturbes you while tailoring." );
         Tailoring:SwapToInactiveItem( User );
         return

@@ -393,7 +393,7 @@ function CharacterOnField( User )
         end
     else
         base.common.InformNLS( User,
-        "Ein Gegenstand stÃ¶rt die Magie des Portals.",
+        "Ein Gegenstand stört die Magie des Portals.",
         "Some item disturbs the magic of the portal." );
     end
 end

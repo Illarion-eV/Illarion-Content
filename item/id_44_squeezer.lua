@@ -13,7 +13,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
     if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert beim arbeiten.",
+        "Deine Rüstung behindert beim arbeiten.",
         "Your armor disturbes while working." );
         return
     end
@@ -47,7 +47,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User:countItemAt("all",141)>1) then
         if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
             User:startAction( 30, 0, 0, 0, 0 );
-            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt ï¿½l zu pressen.");
+            User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Öl zu pressen.");
             User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to squeeze out oil.");
             return;
         end
@@ -55,7 +55,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             local selectMessage = math.random(1,1);
             if ( selectMessage == 1 ) then
                 base.common.InformNLS(User,
-                "Du wischst dir den Schweiï¿½ von der Stirn.",
+                "Du wischst dir den Schweiß von der Stirn.",
                 "You wipe sweat off your forehead.");
             end
             return;
@@ -73,7 +73,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         base.common.GetHungry( User, 300 );
     else
         base.common.InformNLS(User,
-        "Du benï¿½tigst schwarze Disteln um ï¿½l zu pressen.",
+        "Du benötigst schwarze Disteln um Öl zu pressen.",
         "You need black thistle to sqeeze out oil.");
     end
 end

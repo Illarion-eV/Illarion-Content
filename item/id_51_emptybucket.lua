@@ -47,10 +47,3 @@ function FillBucket( User, SourceItem )
         base.common.GetHungry( User, 200 );
     end    
 end
-
-function LookAtItem(User,Item)
-
-	local gText = "Du siehst einen leeren Eimer.";
-	local eText = "You see an empty bucket.";
-	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
-end

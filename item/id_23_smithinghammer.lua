@@ -23,15 +23,15 @@ function InitCraftingTool( )
         smithing:AddActiveTool( 172, 13 ); -- Amboss mit glï¿½hendem Metall
 
         smithing:AddInterruptMessage(
-        "Du wischst dir den Schweiï¿½ von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
 
         smithing:AddInterruptMessage(
-        "Du schlï¿½gst dir mit dem Hammer auf den Finger.",
+        "Du schlägst dir mit dem Hammer auf den Finger.",
         "You hit your finger with the hammer.");
 
         smithing:AddInterruptMessage(
-        "Du betrachtest das Werkstï¿½ck kurz um die Stellen zu finden welche du noch verbessern mï¿½chtest.",
+        "Du betrachtest das Werkstück kurz um die Stellen zu finden welche du noch verbessern möchtest.",
         "You examine your current work, keeping an eye out for any mistakes.");
 
         smithing:AddInterruptMessage(
@@ -39,15 +39,15 @@ function InitCraftingTool( )
         "You correct a very rough area.");
 
         smithing:AddInterruptMessage(
-        "Du schï¿½ttest etwas Kohle auf das Metall und klopfst sie ein um die Hï¿½rte zu steigern.",
+        "Du schüttest etwas Kohle auf das Metall und klopfst sie ein um die Härte zu steigern.",
         "You pour some coal upon the metal and hit it into to increase the hardness.");
 
         smithing:AddInterruptMessage(
-        "Du hï¿½ltst einen Moment inne und ï¿½berlegst eine zusï¿½tzliche Gravur anzubringen, entscheidest dich aber dagegen.",
+        "Du hältst einen Moment inne und überlegst eine zusätzliche Gravur anzubringen, entscheidest dich aber dagegen.",
         "You think about to include a additional gravur a moment, but you decide against.");
 
         smithing:AddInterruptMessage(
-        "Du ï¿½berprï¿½fst kurz die Maï¿½e des Werkstï¿½cks.",
+        "Du überprüfst kurz die Maße des Werkstücks.",
         "You check the fine details of your work.");
 
         --------------------------------------------------------------------------------------------
@@ -781,15 +781,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 
     if ( SourceItem:getType() ~= 4 ) then -- Hammer in der Hand
         base.common.InformNLS( User,
-        "Du muï¿½t den Hammer in die Hand nehmen um damit zu arbeiten.",
+        "Du musst den Hammer in die Hand nehmen um damit zu arbeiten.",
         "You have to take the hammer in your hand, to work with it." );
         Smithing:SwapToInactiveItem( User );
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert beim schmieden.",
+        "Deine Rüstung behindert beim schmieden.",
         "Your armor disturbes you while smithing." );
         Smithing:SwapToInactiveItem( User );
         return
