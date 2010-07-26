@@ -17,7 +17,7 @@ Interrupt_Messages = { 	add = function (self,gText,eText)
 
 Interrupt_Messages:add(	"Ein schwarzer Fleck huscht durch das Wasser. Etwas erschrocken weichst du zurÃ¼ck.",
 						"You notice a large black dot in the water, you decide not to disturb it.");
-Interrupt_Messages:add(	"Dein Blick verliert sich fï¿½r kurze Zeit in deinem Spiegelbild und du bist abgelenkt.",
+Interrupt_Messages:add(	"Dein Blick verliert sich für kurze Zeit in deinem Spiegelbild und du bist abgelenkt.",
 						"You take a while to admire that good-looking person staring at you from your reflection.");
 Interrupt_Messages:add(	"Der Boden unter dir rutscht leicht weg, sodass du gerade noch das Gleichgewicht halten kannst.",
 						"Some stones slip away from the bank, disturbing all the fish.");

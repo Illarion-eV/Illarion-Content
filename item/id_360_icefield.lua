@@ -29,7 +29,7 @@ function CharacterOnField(User)
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
                 resist=SpellResistence(User);      -- Magie Resistenz prï¿½fen
-                if resist<FieldItem.quality then   -- Qualitï¿½t des Items --> Stï¿½rke mit Magie Resistenz vergleichen
+                if resist<FieldItem.quality then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
                     damageDealt=base.common.NormalRnd((7/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]),(9/100)*math.floor((FieldItem.quality-resist)*AffectedStren[i]));--AffectedStren[i]
                     User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
                 end

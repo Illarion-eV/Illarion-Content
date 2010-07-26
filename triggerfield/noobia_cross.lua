@@ -14,7 +14,7 @@ function MoveToField(User)
 			"You haven't passed the lessons of the dwarves Hammerfaust. Go this way back and talk to one of them. They will send you further if you're done.");
 	else
 		base.common.TempInformNLS(User,
-			"*Als du so den Weg entlangschlenderst, fï¿½llt dir die glï¿½nzende Sï¿½ule neben dem Echsenmenschen auf. Dieser Gefï¿½hrte scheint wohl mehr darï¿½ber zu wissen. Vielleicht sagst du ihm mal hallo und fragst ihn, wer er ist und was diese Sï¿½ule ist.*",
+			"*Als du so den Weg entlangschlenderst, fï¿½llt dir die glänzende Sï¿½ule neben dem Echsenmenschen auf. Dieser Gefï¿½hrte scheint wohl mehr darï¿½ber zu wissen. Vielleicht sagst du ihm mal hallo und fragst ihn, wer er ist und was diese Sï¿½ule ist.*",
 			"*As you stroll along the road, the shiny column next to the Lizardman attracts your attention. This fellow seems to know more about it. Perhaps you say hello and ask him who he is and what this column is.*")
 	end
 end

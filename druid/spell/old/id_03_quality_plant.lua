@@ -24,12 +24,12 @@ end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param)
 --Caster:inform("debug #03.4")
---Analyse einer Pflanze (Qualitï¿½t)
+--Analyse einer Pflanze (Qualität)
 
   if (IsThatAPlant(TargetItem) == true) then
     qualstat = math.floor(TargetItem.quality/100)
              
-    textDE= "Diese Pflanze hat eine "..qListDe[qualstat].." Qualitï¿½t"
+    textDE= "Diese Pflanze hat eine "..qListDe[qualstat].." Qualität"
     textEN= "This plant has a "..qListEn[qualstat].." quality"
 
     if Caster:getPlayerLanguage() == 0 then

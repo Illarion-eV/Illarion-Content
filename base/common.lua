@@ -322,7 +322,7 @@ end;
 function FitForHardWork(User, required)
     if (User:increaseAttrib("foodlevel", 0) < required) then
         InformNLS(User,
-        "Du bist dafï¿½r zu erschï¿½pft.",
+        "Du bist dafür zu erschöpft.",
         "You are too exhausted for that.");
         return false;
     end;
@@ -339,7 +339,7 @@ function GetHungry(User, units)
     local food = User:increaseAttrib("foodlevel", -units);
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
         InformNLS(User,
-        "Die Arbeit macht Dich langsam mï¿½de und hungrig.",
+        "Die Arbeit macht Dich langsam müde und hungrig.",
         "You are getting tired and hungry from your work.");
     end;
 end;
@@ -402,7 +402,7 @@ function ToolBreaks(User, theItem, fast)
     local durabrake = 0.5 * (100 - dura);               -- Bremse des Duraverlusts bei niedriger Dura
     local qualbrake = 0.5 * (10  - qual);               -- Bremse beim Senken von Qual, wenn Qual schon niedrig
 
-    --Zerstï¿½rung des Werkzeugs bei Minimum an Quality oder niedriger Durabilitï¿½t
+    --Zerstörung des Werkzeugs bei Minimum an Quality oder niedriger Haltbarkeit
     if (theItem.quality <= 101) or (dura <=1) then
         world:erase( theItem, 1 );
         return true;
@@ -442,7 +442,7 @@ function ToolBreaks(User, theItem, fast)
             theItem.quality = qual * 100 + dura - 90;
             world:changeItem(theItem);
             InformNLS(User,
-            "Das Werkzeugs erleidet durch dauernde Beanspruchung einen Qualitï¿½tsverlust.",
+            "Das Werkzeugs erleidet durch dauernde Beanspruchung einen Qualitätsverlust.",
             "The quality of the tool is lowered by overuse.");
         end;
     end;
@@ -1145,7 +1145,7 @@ function Hour_To_String(hour)
     elseif (hour >= 4 and hour < 6) then
         return "vor Sonnenaufgang", "before sunset";
     elseif (hour >= 6 and hour < 8) then
-        return "frï¿½her Morgen", "early morning";
+        return "früher Morgen", "early morning";
     elseif (hour >= 8 and hour < 10) then
         return "morgens", "at morning";
     elseif (hour >= 10 and hour < 12) then
@@ -1155,11 +1155,11 @@ function Hour_To_String(hour)
     elseif (hour >= 14 and hour < 16) then
         return "nachmittag", "afternoon";
     elseif (hour >= 16 and hour < 18) then
-        return "frï¿½her abend", "early evening";
+        return "früher abend", "early evening";
     elseif (hour >= 18 and hour < 20) then
         return "abends","at evening";
     elseif (hour >= 20 and hour < 22) then
-        return "spï¿½ter abend", "late evening";
+        return "später abend", "late evening";
     else
         return "vor Mitternacht", "before midnight";
     end;

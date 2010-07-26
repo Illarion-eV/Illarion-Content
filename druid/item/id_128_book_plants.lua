@@ -1,4 +1,4 @@
--- Buch fï¿½r das Druidensystem
+-- Buch für das Druidensystem
 -- Buch "Alchemie 2"
 -- Falk
 require("base.books")

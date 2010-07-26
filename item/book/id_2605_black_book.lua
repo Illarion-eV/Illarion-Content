@@ -30,12 +30,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Einer der Novizen bemerkte heute meine Mï¿½hen in der Bibliothek. Er hat gesagt dass es genau fï¿½nf Gï¿½tter seien - Als ob ich das nicht wï¿½sste.",0,0,0);
             base.books.AddGermanBookText("Auï¿½erdem sprach er von einem Zyklus des Erschaffens. Offensichtlich wollte er mir einen Hinweis zukommen lassen. Was er wohl meinte?",0,0,0);
             base.books.AddGermanBookText("Ich habe eine interessante Beobachtung gemacht: Alle fï¿½nf Tage fï¿½llt das Licht durch einen Spalt in der Decke genau auf das Buch der Priester Eldans.",0,0,0);
-            base.books.AddGermanBookText("Wie ich beobachten konnte gilt dies auch fï¿½r die Bï¿½cher der anderen Priester der Fï¿½nf.",0,0,0);
+            base.books.AddGermanBookText("Wie ich beobachten konnte gilt dies auch für die Bï¿½cher der anderen Priester der Fï¿½nf.",0,0,0);
             base.books.AddGermanBookText("Endlich konnte ich dem Text innerhalb des Buches das Gebet entreiï¿½en.",0,0,0);
             base.books.AddGermanBookText("Allerdings muss ich Eldan bei der Weihe ein Opfer darbringen. Der Ritualmeister wies mich darauf hin, dass ich Eldan etwas opfern muss was er mag.",0,0,0);
             base.books.AddGermanBookText("Das war der unglaublichste Tag in meinem Leben: Ich hielt die Flasche in der Hand und rief Eldan an das Opfer anzunehmen.",0,0,0);
-            base.books.AddGermanBookText("Daraufhin erfasste mich ein gewaltigiger Sog und es zog mich weit in die Ferne. Ein unglaubliches Gefï¿½hl. Dort angekommen sah ich einen groï¿½en Altarraum vor mir.",0,0,0);
-            base.books.AddGermanBookText("Ich vermute es war ein geheimer Altarraum Eldans in Nabranoo, der Stadt der Gï¿½tter. Dieser Raum sah aus wie fï¿½r die Ewigkeit geschaffen.",0,0,0);
+            base.books.AddGermanBookText("Daraufhin erfasste mich ein gewaltigiger Sog und es zog mich weit in die Ferne. Ein unglaubliches Gefï¿½hl. Dort angekommen sah ich einen großen Altarraum vor mir.",0,0,0);
+            base.books.AddGermanBookText("Ich vermute es war ein geheimer Altarraum Eldans in Nabranoo, der Stadt der Gï¿½tter. Dieser Raum sah aus wie für die Ewigkeit geschaffen.",0,0,0);
             base.books.AddGermanBookText("Dort sprach ich, am Altar knieend, das Gebet und ich konnte Eldans Blick auf mir spï¿½ren als er mich zur Novizin berief.",0,0,0);
             base.books.AddGermanBookText("Kapitel II: Die Reise geht weiter:",0,0,0);
             base.books.AddGermanBookText("Du verstehst diese Sprache nicht.",0,0,0);
@@ -103,7 +103,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Doch wird sie durch ihre Fertigung und Form nie an eine Zwergenaxt heranreichen welche durch zwergische Schmiede geformt wurde.",0,0,1);
             base.books.AddGermanBookText("Legenden zufolge soll es auch magische und Feuer-Kriegsï¿½xte geben.",0,0,1);
             base.books.AddGermanBookText("Schlachtaxt",2629,0,1); -- ### battleaxe ###
-            base.books.AddGermanBookText("Die Schlachtaxt an sich ist keine sehr gute Axt, von Zwergen wird sie allenfalls zum Trainieren genutzt da man mit ihr keinen groï¿½en Schaden anrichten kann.",0,0,1);
+            base.books.AddGermanBookText("Die Schlachtaxt an sich ist keine sehr gute Axt, von Zwergen wird sie allenfalls zum Trainieren genutzt da man mit ihr keinen großen Schaden anrichten kann.",0,0,1);
             base.books.AddGermanBookText("Doppelaxt",205,0,1); -- ### doubleaxe ###
             base.books.AddGermanBookText("Durch Grï¿½ï¿½e und Masse ï¿½berzeugt die Doppelaxt, Treffer die mit dieser Axt angerichtet werden beenden unweigerlich Leben.",0,0,1);
             base.books.AddGermanBookText("Doch sind nur wenige in der Lage solch eine wuchtige Waffe, auch nach jahrelangem Training, richtig zu fï¿½hren.",0,0,1);
@@ -131,9 +131,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Here are some of my favourite recipes. Price in coppers are only suggestions.",0,0,3);
 
 
-			base.books.AddGermanBookText("Viele Leute werden Dir bereitwillig Zutaten heranschaffen, wenn Du fï¿½r sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
+			base.books.AddGermanBookText("Viele Leute werden Dir bereitwillig Zutaten heranschaffen, wenn Du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
 			base.books.AddGermanBookText("Ein Wort der Weisheit: Verkaufe deine Gerichte nie unter Preis. Es ist schwer genug sie anzurichten.",0,0,3);
-			base.books.AddGermanBookText("Nimm auch keine Groï¿½bestellungen an, da Du sonst schuften muï¿½t, wï¿½hrend die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
+			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da Du sonst schuften muï¿½t, wï¿½hrend die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
 			base.books.AddGermanBookText("Im Folgenden nun einige meiner Lieblingsgerichte. Die angegebenen Preise in Kupfer sind nur ein Vorschlag.",0,0,3);
 
 
@@ -157,7 +157,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
 			base.books.AddGermanBookText("Lachsgericht\n Grundzutaten: Lachssteaks, Zwiebeln, Tomaten\n Einfach, 30 Kupfer.",556,0,3); -- ### salmon dish ###
 			base.books.AddGermanBookText("Zerkleinere 2 Zwiebeln sehr fein und brï¿½une sie in einem leichten ï¿½l an. Fï¿½ge 2 gewï¿½rfelte Tomaten und ein paar Champignonscheiben hinzu. Stell es zum Warmhalten beiseite. ",2952,0,3); -- ### plate ###
-			base.books.AddGermanBookText("Nimm ein paar dicke Lachssteaks und rï¿½ste sie auf beiden seiten fï¿½r ein paar Minuten, bis sie zart sind. Du kï¿½nntest sie auch in einer Gemï¿½sebrï¿½he pochieren.",355,0,3); -- ### salmon ###
+			base.books.AddGermanBookText("Nimm ein paar dicke Lachssteaks und rï¿½ste sie auf beiden seiten für ein paar Minuten, bis sie zart sind. Du könntest sie auch in einer Gemï¿½sebrï¿½he pochieren.",355,0,3); -- ### salmon ###
 			base.books.AddGermanBookText("Serviere mit der Gemï¿½sesoï¿½e und etwas Toast mit Butter. Passend zu diesem nahrhaften Gericht wï¿½re ein sï¿½ï¿½er Weiï¿½wein aus den Trauben der Drei Schwestern Siranis.",2500,0,3); -- ### bottle of wine ###
 
 			base.books.AddEnglishBookText("Meat dish\n Basic ingredients: steak, onions, carrots\n Medium easy, 35 cps.",557,0,3); -- ### meat dish ###
@@ -168,7 +168,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Fleischgericht\n Grundzutaten: Steak, Zwiebeln, Karotten\n Mittel bis leicht, 35 Kupfer.",557,0,3); -- ### meat dish ###
 			base.books.AddGermanBookText("Bereite aus zwei kleinen Zwiebeln, zwei Karotten und etwas Geburtspilz ein Duxelles. Fï¿½ge etwas Sahne hinzu und reduziere es zu einer Paste.",162,0,3); -- ### birth mushroom ###
 			base.books.AddGermanBookText("Brate dï¿½nne Scheiben Steak in Butter. Steak aus der Flanke ist das Beste. Lass es nicht anbrennen!",2940,0,3); -- ### steak ###
-			base.books.AddGermanBookText("Serviere die Steaks mit einer groï¿½zï¿½gigen Menge Duxelles darauf. Zu diesem pikanten Gericht passt ein Krug silverbrandsches Schwarzbier.",2501,0,3); -- ### bottle of dark beer ###
+			base.books.AddGermanBookText("Serviere die Steaks mit einer großzï¿½gigen Menge Duxelles darauf. Zu diesem pikanten Gericht passt ein Krug silverbrandsches Schwarzbier.",2501,0,3); -- ### bottle of dark beer ###
 
 			base.books.AddEnglishBookText("Sausage dish\n Basic ingredients: sausages, cabbage, carrots\n Medium, 40 cps.",2922,0,3); -- ### sausage dish ###
 			base.books.AddEnglishBookText("Grate or chop finely about 2 cups of carrots and cabbage. Add some blue birdsberry, a dash of wine vinegar and sea-salt. Mix well and leave aside in a cool place for two hours ",753,0,3); -- ### blue birdsberry ###
@@ -176,7 +176,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Serve the hot sausages in a slitted bread roll, adding the grated vegetables on top. Accompany this popular dish with a mug of light beer or some root beer from Tol Vanima.",2501,0,3); -- ### bottle of dark beer ###
 
 			base.books.AddGermanBookText("Wï¿½rstchen mit Beilage\n Grundzutaten: Wï¿½rste, Kohl, Karotten\n Mittel, 40 Kupfer.",2922,0,3); -- ### sausage dish ###
-			base.books.AddGermanBookText("Schneide oder hacke etwa 2 Karotten und den Kohl in Streifen. Fï¿½ge schwarze Vogelbeeren, einen Spritzer Weinessig und Meersalz hinzu. Mixe es sehr gut und stell es fï¿½r circa zwei Stunden an einen kï¿½hlen Platz.",753,0,3); -- ### blue birdsberry ###
+			base.books.AddGermanBookText("Schneide oder hacke etwa 2 Karotten und den Kohl in Streifen. Fï¿½ge schwarze Vogelbeeren, einen Spritzer Weinessig und Meersalz hinzu. Mixe es sehr gut und stell es für circa zwei Stunden an einen kï¿½hlen Platz.",753,0,3); -- ### blue birdsberry ###
 			base.books.AddGermanBookText("Rï¿½ste einige Wï¿½rste aus Schweinefleisch. Varshikarisches Schweinefleisch ist das magerste und wohlschmeckendste.",3051,0,3); -- ### sausage ###
 			base.books.AddGermanBookText("Serviere die heiï¿½en wï¿½rste in einem aufgeschnittenem Brï¿½tchen, belege es mit ein wenig des Gemï¿½sesalates. Passend zu diesem beliebten Gericht ist ein Krug leichten Bieres oder Rootbeer aus Tol Vanima.",2501,0,3); -- ### bottle of dark beer ###
 
@@ -212,7 +212,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Reh\n Grundzutaten: Rehfleisch, Zwiebeln, Kohl, Beeren \n Sehr schwierig, 75 Kupfer. \n Beachte, dass hier Beeren aus dem Wald benï¿½tigt werden und nicht die Brombeeren.",554,0,3); -- ### venison dish ###
 			base.books.AddGermanBookText("Wende die dick geschnittenen Zwiebeln und den Kohl in einer Marinade aus einem Teil Meersalz, einem Teil Weinessig und einem Teil sï¿½ï¿½en Met. Fï¿½ge dann die Waldbeeren hinzu. Nach etwa zehn Tagen ruhig stehend ist es gut durchgezogen.",81,0,3); -- ### berries ###
 			base.books.AddGermanBookText("Persï¿½nlich verfeinere ich noch mit ein paar geheimen Zutaten, wie etwa Nachtengelsblï¿½ten...!",138,0,3); -- ### night angels blossom ###
-			base.books.AddGermanBookText("Das Rehfleisch sollte gut abgehangen sein, damit es wohlschmeckend ist. Es gibt hierbei keine festen Regeln aber es sollte an einem kï¿½hlen, luftigen Platz fï¿½r mindestens zehn Tage hï¿½ngen.",552,0,3);
+			base.books.AddGermanBookText("Das Rehfleisch sollte gut abgehangen sein, damit es wohlschmeckend ist. Es gibt hierbei keine festen Regeln aber es sollte an einem kï¿½hlen, luftigen Platz für mindestens zehn Tage hï¿½ngen.",552,0,3);
 			base.books.AddGermanBookText("Das Rehfleisch sollte immer ï¿½ber einem heiï¿½en Feuer oder in einem heiï¿½en Ofen zubereitet werden. Koch es aber nicht 'zu' lange! Servier das Fleisch mit dem 'Sauerkraut'.",552,0,3); -- ### deer meat ###
 			base.books.AddGermanBookText("Dieses herzhafte Mahl geht am besten mit einem alten Wein oder Met, oder sogar einem Likï¿½r. ",2502,0,3); -- ### gynkese fire ###
 

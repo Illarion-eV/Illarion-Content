@@ -31,7 +31,7 @@ function loadBook(toData)
     base.books.AddEnglishBookText( "Who doesn't want to respect the founder dwarves should decide to find a new home, before he takes the oath. ", 0, 0,toData); 
     base.books.AddEnglishBookText( "Tialdin, King of Silverbrand ", 0, 0,toData);
     
-    base.books.AddGermanBookText( "Im Folgenden befindet sich eine Mitschrift einer Rede unseres groï¿½en Kï¿½nigs und Grï¿½nders von Silberbrand zur Grï¿½ndung von Silberbrand:", 0, 0,toData);   
+    base.books.AddGermanBookText( "Im Folgenden befindet sich eine Mitschrift einer Rede unseres großen Kï¿½nigs und Grï¿½nders von Silberbrand zur Grï¿½ndung von Silberbrand:", 0, 0,toData);   
     base.books.AddGermanBookText( "Wehrte Untertanen, Verbï¿½ndete und Freunde Silberbrands, ", 0, 0,toData);
     base.books.AddGermanBookText( "Silberbrand wurde uns nicht von den Gï¿½ttern geschenkt, es ist das Ergebnis harter Arbeit der Grï¿½nderzwerge, ", 0, 0,toData);      
     base.books.AddGermanBookText( "die mit ihren eigenen Hï¿½nden die Tunnel in den Fels trieben, jeden Stein, jeden Amboss und jede Esse mit ihrem Gold bezahlten. In dieser Stadt steckt nach damals gï¿½ltigen Preisen der Gegenwert von ", 0, 0,toData);   

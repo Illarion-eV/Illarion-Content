@@ -68,7 +68,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	
 	-- Spieler fischt bereits
 	local chance = math.random(10)
-	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 30% fï¿½r Lachs
+	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 30% für Lachs
 		local notcreated = User:createItem(73, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(73, notcreated, User.pos, true, 333, 0);
@@ -76,7 +76,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 			return false
 		end
 		User:learn(2, "fishing", 2, 100);
-	elseif(chance <= 8) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 60% fï¿½r Forelle
+	elseif(chance <= 8) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 60% für Forelle
 		local notcreated = User:createItem(355, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(355, notcreated, User.pos, true, 333, 0);

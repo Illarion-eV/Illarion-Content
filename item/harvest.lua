@@ -108,7 +108,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
 			-- harvest fruit
             if( success ) then
-                -- Qualitï¿½t nach Zufall:
+                -- Qualität nach Zufall:
                 QualWert = math.random(111,999)
                 --User:inform( "creating harvest" );
                 User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );

@@ -113,7 +113,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User, 
-        "Du hast keinen Rohen Edelstein den du schleifen kï¿½nntest.", 
+        "Du hast keinen Rohen Edelstein den du schleifen könntest.", 
         "You don't have a raw gemstone you could cut." );
     end
 end

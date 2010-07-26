@@ -143,7 +143,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "The furnace's fire appears to be too weak, you take the bellows in your hand and breathe new life into it.");
         else
             base.common.InformNLS(User,
-            "Du schï¿½pfst kurz die Schlacke von der Schmelze ab um die Qualitï¿½t des Metalls zu steigern.",
+            "Du schï¿½pfst kurz die Schlacke von der Schmelze ab um die Qualität des Metalls zu steigern.",
             "You draw the slag away to increase the quality of the metal.");
         end        
         if (SourceItem.id == 2835) then

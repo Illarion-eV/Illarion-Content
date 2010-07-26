@@ -261,7 +261,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		--using 705 (Complete)
 		if(SourceItem.data == 705) then
 			if (User:getPlayerLanguage() ==0) then
-				User:inform("Auf einer kleinen Aufschrift ist zu lesen: 'Du hast den Schlï¿½ssel, nun finde das Schloss.'");
+				User:inform("Auf einer kleinen Aufschrift ist zu lesen: 'Du hast den Schlüssel, nun finde das Schloss.'");
 			else
 				User:inform("A small inscription reads: 'You have the key, now find the lock'");
 			end;

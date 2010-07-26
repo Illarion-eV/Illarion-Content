@@ -1,6 +1,6 @@
 -- ds_base_missile.lua
 -- Druidensystem
--- Effekte fï¿½r Wurfkï¿½rper
+-- Effekte für Wurfkï¿½rper
 -- Falk & Nitram
 
 -- Liste der IDs mit Objekten aus Holz
@@ -68,7 +68,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
-            -- Schaden bestimmt sich aus Item Qualitï¿½t
+            -- Schaden bestimmt sich aus Item Qualität
             -- 1000HP - 9990HP
             local qual = Item.quality;
             if (qual > 999) then
@@ -99,7 +99,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- Der dreifache Wert der Rï¿½stungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 3;
 
-            -- Modifier fï¿½r Attribute mit mehr als 10000 Punkten
+            -- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
             if ( Schaden > 0 ) then
@@ -421,30 +421,30 @@ function effect_36557188(User,Item)
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
----- SCHADEN AUF Rï¿½STUNGEN - QUALITï¿½T ----
+---- SCHADEN AUF Rï¿½STUNGEN - Qualität ----
 
---Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 1er Feld
+--Voller Qualitäts-Schaden auf Rï¿½stungen auf 1er Feld
 function effect_98538617(User,Item)
     damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "armor" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 9er Feld
+--Voller Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
 function effect_79684787(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Rï¿½stungen auf 9er Feld
+--Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
 function effect_32484266(User,Item)
     local hitArea = fieldOfRadius1( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 21er Feld
+--Voller Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
 function effect_96261935(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Rï¿½stungen auf 21er Feld
+--Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
 function effect_26372612(User,Item)
     local hitArea = fieldOfRadius2( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
@@ -480,30 +480,30 @@ function effect_32185872(User,Item)
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
----- SCHADEN AUF WAFFEN - QUALITï¿½T ----
+---- SCHADEN AUF WAFFEN - Qualität ----
 
---Voller Qualitï¿½ts-Schaden auf Waffen auf 1er Feld
+--Voller Qualitäts-Schaden auf Waffen auf 1er Feld
 function effect_91357421(User,Item)
     damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "weapon" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Waffen auf 9er Feld
+--Voller Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_52761593(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Waffen auf 9er Feld
+--Aufgeteilter Qualitäts-Schaden auf Waffen auf 9er Feld
 function effect_19123643(User,Item)
     local hitArea = fieldOfRadius1( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Waffen auf 21er Feld
+--Voller Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_35471525(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "weapon" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Waffen auf 21er Feld
+--Aufgeteilter Qualitäts-Schaden auf Waffen auf 21er Feld
 function effect_32812622(User,Item)
     local hitArea = fieldOfRadius2( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "weapon" );
@@ -538,30 +538,30 @@ function effect_88343542(User,Item)
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
----- SCHADEN AUF HOLZITEMS - QUALITï¿½T ----
+---- SCHADEN AUF HOLZITEMS - Qualität ----
 
---Voller Qualitï¿½ts-Schaden auf Holzitems auf 1er Feld
+--Voller Qualitäts-Schaden auf Holzitems auf 1er Feld
 function effect_67589591(User,Item)
     damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "wood" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Holzitems auf 9er Feld
+--Voller Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_96566994(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Holzitems auf 9er Feld
+--Aufgeteilter Qualitäts-Schaden auf Holzitems auf 9er Feld
 function effect_13983419(User,Item)
     local hitArea = fieldOfRadius1( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
 end
 
---Voller Qualitï¿½ts-Schaden auf Holzitems auf 21er Feld
+--Voller Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_42218944(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "wood" );
 end
 
---Aufgeteilter Qualitï¿½ts-Schaden auf Holzitems auf 21er Feld
+--Aufgeteilter Qualitäts-Schaden auf Holzitems auf 21er Feld
 function effect_69657293(User,Item)
     local hitArea = fieldOfRadius2( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "wood" );
@@ -618,8 +618,8 @@ end
 --dura auf Waffen 9er Feld
 --dura auf Holz 9er Feld
 --dura auf Metall 9er Feld
---das Ganze jeweils fï¿½r 1er Feld
---das Ganze jeweils fï¿½r Quality
+--das Ganze jeweils für 1er Feld
+--das Ganze jeweils für Quality
 
 -- Die Effekt-Nummer kann willkï¿½rlich achtstellig sein (ohne Ziffer 0), die Anpassung erfolgt dann in ds_327_blaue_Flasache.lua
 -- Datawerte aus Zufallsgenerator
@@ -630,7 +630,7 @@ end
 --Zum Vortï¿½uschen eines Effektes: Hier soll ein Dummy des Casters erscheinen, also ein Monster gleicher Rasse, das sich nach einer weile wieder selbst zerstï¿½rt. Sinn soll sein, einen Gegner zu verwirren, wen er jetzt angreifen muss.
 --Eine Steigerung wï¿½re dann ein Dummy, der den Gegner angreift.
 
---Zu Wettereffekten: Jeweils ein Effekt fï¿½r je eine Wetterï¿½nderung: also 1 Wurfbombe fï¿½r Nebel, eine fï¿½r Regen etc. Dauer gemï¿½ï¿½ Quality des Trankes (LTE)
+--Zu Wettereffekten: Jeweils ein Effekt für je eine Wetterï¿½nderung: also 1 Wurfbombe für Nebel, eine für Regen etc. Dauer gemï¿½ï¿½ Quality des Trankes (LTE)
 --Man kï¿½nnte auch die Intensitï¿½t ï¿½ber quality steuern, zb aquality = 345 ==> Intensitï¿½t = 3 (1-9) und Dauer = 45 (11-99)
 
 --Zur Aufhebung der Matschbarriere folgen noch Vorschlï¿½ge

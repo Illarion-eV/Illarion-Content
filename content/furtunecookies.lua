@@ -32,7 +32,7 @@ function cookie(User)
         germText="Sei dir selbst dein bester Freund.";
         englText="Be your own best friend.";
     elseif (luck==10) then
-        germText="Ehre die Vergangenheit, aber lebe fï¿½r den Augenblick.";
+        germText="Ehre die Vergangenheit, aber lebe für den Augenblick.";
         englText="Do not be overly judgemental of your loved one's intentions or actions.";
     elseif (luck==11) then
 	    germText="Wichtige Dinge nur halb zu tun ist wertlos; denn meistens ist es die andere Hï¿½lfte die zï¿½hlt.";
@@ -44,7 +44,7 @@ function cookie(User)
         germText="Es ist schwer verschï¿½ttetes Wasser wieder zu sammeln.";
         englText="The shortest distance between two people is a smile.";
     elseif (luck==14) then
-        germText="Die Ruhe ist die natï¿½rliche Stimmung eines wohlgeregelten, mit sich einigen Geistes.";
+        germText="Die Ruhe ist die natürliche Stimmung eines wohlgeregelten, mit sich einigen Geistes.";
         englText="You can't have everything. Where would you put it?";
     elseif (luck==15) then
         germText="Worï¿½ber du im Zweifel bist, das tue nicht.";
@@ -65,7 +65,7 @@ function cookie(User)
         germText="Sie kï¿½nnen herausholen, was in Ihnen steckt.";
         englText="The chief danger in life is that you may take too many precautions.";
     elseif (luck==22) then
-        germText="Tu' nichts, woran deine Seele Schaden erleiden kï¿½nnte, auch wenn du die Welt gewinnen kï¿½nntest.";
+        germText="Tu' nichts, woran deine Seele Schaden erleiden kï¿½nnte, auch wenn du die Welt gewinnen könntest.";
         englText="If you don't care where you are, then you ain't lost.";
     elseif (luck==23) then
         germText="Wenn Du die Nacht erwartest, wird auch ein nï¿½chster morgen kommen.";
@@ -89,7 +89,7 @@ function cookie(User)
     	germText="Wer mit dem Finger auf andere zeigt, sollte nicht vergessen, daï¿½ dabei immer drei Finger seiner Hand auf ihn selbst gerichtet sind.";
         englText="Bees are not as busy as we think they are. They just can't buzz any slower.";
     elseif (luck==30) then
-    	germText="An kleinen Dingen muï¿½ man sich nicht stoï¿½en, wenn man zu groï¿½en Dingen auf dem Weg ist.";
+    	germText="An kleinen Dingen muï¿½ man sich nicht stoï¿½en, wenn man zu großen Dingen auf dem Weg ist.";
         englText="Nothing is as easy as it looks.";
     elseif (luck==31) then
     	germText="Es steht eine Herausforderung ins Haus. Wappne dich!";
@@ -110,7 +110,7 @@ function cookie(User)
         germText="Den Tï¿½chtigen belohnt das Glï¿½ck.";
         englText="Common sense is not so common.";
     elseif (luck==37) then
-        germText="Es ist besser, eine kleines Licht zu entzï¿½nden, als ï¿½ber groï¿½e Dunkelheit zu fluchen.";
+        germText="Es ist besser, eine kleines Licht zu entzï¿½nden, als ï¿½ber große Dunkelheit zu fluchen.";
         englText="If this fortune didn't exist, somebody would have invented it.";
     elseif (luck==38) then
         germText="Gut ist der Vorsatz, hingegen die Erfï¿½llung schwer.";
@@ -119,7 +119,7 @@ function cookie(User)
         germText="Ein Wort wird eine Brï¿½cke bauen.";
         englText="If you don't stand for something, you'll fall for everything.";
     elseif (luck==40) then
-        germText="Dein Sinn fï¿½r Humor ist dein bester Begleiter, verliere ihn nicht.";
+        germText="Dein Sinn für Humor ist dein bester Begleiter, verliere ihn nicht.";
         englText="Stand up to be seen; speak up to be heard; shut up to be appreciated.";
     elseif (luck==41) then
         germText="Hilfe! Ich bin in einer Glï¿½ckkeksbï¿½ckerei eingesperrt!";

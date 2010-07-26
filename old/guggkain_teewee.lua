@@ -90,7 +90,7 @@ function initializeNpc()
     AddAdditionalTrigger("[Bb]is [Bb]ald");
     AddAdditionalTrigger("[Mm]ach es [Gg]ut");
     AddAdditionalText("Jodele. Bis bald. Ihr kï¿½nnt gern wieder kommen.");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft Ihr', 'Ich mï¿½chte <Anzahl> <Ware> kaufen', 'Ich mï¿½chte <Ware> kaufen', 'Ich mï¿½chte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr fï¿½r <Ware>', 'Was kauft ihr?'");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft Ihr', 'Ich mï¿½chte <Anzahl> <Ware> kaufen', 'Ich mï¿½chte <Ware> kaufen', 'Ich mï¿½chte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
     
     AddCycleText("#me kaut auf einem dicken Kï¿½fer herum.","#me chews of a large beetle.");
     AddCycleText("#me schaut sich nach Kunden um.","#me looks around for customers.");
@@ -153,7 +153,7 @@ function receiveText(texttype, message, originator)
                 gText="Kommt wieder wenn ihr genug Geld habt!";
                 eText="Come back when you have enough money!";
             elseif (Status==4) then -- Item ausverkauft // item out of stock
-                gText="Tut mir leid. Ich habe das im Moment nicht. Kommt doch bitte spï¿½ter wieder.";
+                gText="Tut mir leid. Ich habe das im Moment nicht. Kommt doch bitte später wieder.";
                 eText="I am sorry, I don't have this currently. Come back later.";
             elseif (Status==5) then -- Item wird nicht verkauft // item
                 gText="Tut mir Leid. Ich verkaufe das nicht.";
@@ -161,10 +161,10 @@ function receiveText(texttype, message, originator)
             elseif (Status==6) then -- Verkauf eines einzelnen Items erfolgreich // Selling of a single item succeed
                 gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist es, was ihr kaufen wollt? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
                 eText="You want a "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
-            elseif (Status==7) then -- Verkaufspreis Ansage fï¿½r ein Item // selling price announcement for an item
+            elseif (Status==7) then -- Verkaufspreis Ansage für ein Item // selling price announcement for an item
                 gText=GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
                 eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
-            elseif (Status==8) then -- Einkaufspreis Ansage fï¿½r ein Item // buying price announcement for an item
+            elseif (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
                 gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wï¿½re mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
                 eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
             elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed

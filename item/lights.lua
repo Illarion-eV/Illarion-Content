@@ -72,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 
 		elseif this.req then
 			base.common.TempInformNLS(User,
-				"Dafï¿½r brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gï¿½rtel.",
+				"dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gï¿½rtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
 	elseif LightsOn[SourceItem.id] then

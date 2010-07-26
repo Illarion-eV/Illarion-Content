@@ -24,7 +24,7 @@ function InitGathering()
 		woodchopping:AddSpecialRandomItem(235,1,333,0,0.05,"In einer Spechthï¿½hle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","In a woodpecker's hole you find a golden ring. Will it bring them all, and in the darkness bind them?"); --gold ring
 		woodchopping:AddSpecialRandomItem(2664,1,333,0,0.1,"Du findest einen Ast, den man auch sehr gut als Keule verwenden kï¿½nnte.","You find a branch that could be used as a club."); --Club
 		woodchopping:SetTreasureMap(0.015,"Fein sï¿½uberlich aufgerollt findest du eine Schatzkarte in einem ausgehï¿½hlten Ast.","You find a treasure map in a hollowed-out branch, neatly rolled up.");
-		woodchopping:AddMonster(221,0.02,"Dein Frevel gegen die Natur ruft die Wï¿½chter der Bï¿½ume herbei. Wie aus dem Nichts stampft ein wï¿½tender Troll auf dich zu.","Your crimes against nature summon the guardian of the trees. Out of nowhere, an angry troll stomps towards you.",4,7);
+		woodchopping:AddMonster(221,0.02,"Dein Frevel gegen die Natur ruft die Wächter der Bäume herbei. Wie aus dem Nichts stampft ein wï¿½tender Troll auf dich zu.","Your crimes against nature summon the guardian of the trees. Out of nowhere, an angry troll stomps towards you.",4,7);
 
 		 
 		--honeygathering
@@ -34,11 +34,11 @@ function InitGathering()
 		honeygathering:AddSpecialRandomItem(2744,1,333,0,0.005,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague seems to have forgotten his pipe. You take it with you."); --Pipe
 		honeygathering:AddSpecialRandomItem(151,1,333,0,0.05,"Die Bienen haben offensichtlich Vorrï¿½te angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","The bees seem to have gathered a stash. They have dragged even an entire strawberry to their hive."); --Strawberry
 		honeygathering:AddSpecialRandomItem(431,1,333,0,0.1,"An deinen Hï¿½nden bleibt klebriger Wachs hï¿½ngen.","Your hands get stuck in sticky wax.", 0); --Wax
-		honeygathering:SetTreasureMap(0.015,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was fï¿½r eine ï¿½berrachung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
+		honeygathering:SetTreasureMap(0.015,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine ï¿½berrachung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
 		honeygathering:AddMonster(122,0.02,"Eine ï¿½ber deine Handlungen etwas erboste Biene scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A bee, unamused by your deeds, appears to have decided to put them to an end.",4,7);
 		honeygathering:AddInterruptMessage("Du wirst von etwas in dem Bienenstock gestochen. Was das wohl wahr?", "Something stings you inside the beehive. What could that be?");
 		honeygathering:AddInterruptMessage("Du wischst dir den Schweiï¿½ von der Stirn.", "You wipe sweat off your forehead.");
-		honeygathering:AddInterruptMessage("Du wirfst kurz einen Blick in den Bienenkorb um nach einer besseren Stelle fï¿½r Honigwaben zu suchen.", "You decide to search deeper for honeycombs.");
+		honeygathering:AddInterruptMessage("Du wirfst kurz einen Blick in den Bienenkorb um nach einer besseren Stelle für Honigwaben zu suchen.", "You decide to search deeper for honeycombs.");
 		honeygathering:AddInterruptMessage("Du greifst direkt in eine Stelle mit Honig und ziehst die Hand zurï¿½ck. Nun bleibt dir wohl nichts anderes ï¿½brig als dir die Finger abzulecken.", "You decide to take a short break to lick off honey from your hands");
 		honeygathering:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.", "A curious bee buzzes around your head and you try to scare it away.");
 
@@ -82,7 +82,7 @@ function InitGathering()
 		 
 		--sanddigging
 
-		sanddigging:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brï¿½gon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brï¿½gon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
+		sanddigging:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
 		sanddigging:AddSpecialRandomItem(198,1,333,1,0.005,"Ein Stein, strahlend wie die heiï¿½e Wï¿½stensonne, kommt zwischen all dem Sand zum Vorschein. Du findest einen magischen Topa.","A stone, bright as the hot desert sun, reveals itself between all the sand. You find a magic topaz."); --Magical topaz
 		sanddigging:AddSpecialRandomItem(3077,1,333,0,0.005,"Eine funkelnde Mï¿½nze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A shining coin is on your shovel blade. The hard work pays off, finally!"); --Silver coin
 		sanddigging:SetTreasureMap(0.015,"Der Sand gibt eine gut erhaltene Karte frei. Die Hitze konnte dem Pergament nichts anhaben.","In the sand there is a well-preserved map. The heat could not harm the parchment.");
@@ -90,7 +90,7 @@ function InitGathering()
 		sanddigging:AddSpecialRandomItem(21,1,333,0,0.05,"Du findest einige noch heiï¿½e Kohlen im Sand. Ein Glï¿½ck, dass du nicht auf diese ï¿½berreste einer nï¿½chtlichen Grillfeier getreten bist.","You find some hot coals in the sand. It's lucky that you did not stomp on the remains of a midnight barbeque."); --Coal
 		sanddigging:AddSpecialRandomItem(1266,1,333,0,0.1,"Deine Schaufel stï¿½ï¿½t auf einen runden Kieselstein.","Your shovel encounters a round pebble."); --Rock
 		sanddigging:AddInterruptMessage("Du wischst dir den Schweiï¿½ von der Stirn.", "You wipe sweat off your forehead.");
-		sanddigging:AddInterruptMessage("Du stï¿½ï¿½t beim Graben auf einen groï¿½en Stein. Der plï¿½tzliche Schlag auf die Schaufel lï¿½sst sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact makes you almost drop your shovel.");
+		sanddigging:AddInterruptMessage("Du stï¿½ï¿½t beim Graben auf einen großen Stein. Der plï¿½tzliche Schlag auf die Schaufel lï¿½sst sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact makes you almost drop your shovel.");
 		sanddigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
 		sanddigging:AddInterruptMessage("Das Graben im Sand macht dich sehr durstig und du hï¿½lst kurz inne.", "Digging for sand makes you thirsty. You have to take a short break.");
 		sanddigging:AddInterruptMessage("Du meinst du hï¿½ttest etwas vor dir gesehen, aber es war wohl nur eine Luftspiegelung.", "Something in front of you catches your attention. Just a mirage...");
@@ -105,7 +105,7 @@ function InitGathering()
 		claydigging:AddSpecialRandomItem(51,1,333,0,0.05,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
 		claydigging:AddSpecialRandomItem(2184,1,333,0,0.1,"Ein Tonkrug offenbahrt sich im Matsch. Die ï¿½berreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. The remains of an ancient civilisation, or just of the last drinking bout?"); --clay cup
 		claydigging:AddInterruptMessage("Du wischst dir den Schweiï¿½ von der Stirn.", "You wipe sweat off your forehead.");
-		claydigging:AddInterruptMessage("Du stï¿½ï¿½t beim Graben auf einen groï¿½en Stein. Der plï¿½tzliche Schlag auf die Schaufel lï¿½sst sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact makes you almost drop your shovel.");
+		claydigging:AddInterruptMessage("Du stï¿½ï¿½t beim Graben auf einen großen Stein. Der plï¿½tzliche Schlag auf die Schaufel lï¿½sst sie dir beinahe aus der Hand rutschen", "While digging you hit a big stone, the sudden impact makes you almost drop your shovel.");
 		claydigging:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.", "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
 		claydigging:AddInterruptMessage("Du bekommst einen Schlammspritzer ins Gesicht und musst ihn kurz mit den ï¿½rmel abwischen.", "Mud splatters your face. You clean your face with your sleave.");
 		claydigging:AddInterruptMessage("Das Loch, in dem du grï¿½bst, fï¿½llt sich mit Wasser und du muï¿½t es kurz abschï¿½pfen.", "The pit you are digging fills with water you have to scoop first.");
@@ -113,7 +113,7 @@ function InitGathering()
 		 
 		--herbgathering
 
-		herbgathering:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brï¿½gon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brï¿½gon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
+		herbgathering:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
 		herbgathering:AddSpecialRandomItem(284,1,333,1,0.005,"Tief im Gestrï¿½pp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Blaustein.","Deep in the shrub you notice a blue, eerie glow. You find a magical bluestone."); --Magical bluestone
 		herbgathering:AddSpecialRandomItem(2183,1,333,0,0.005,"Ein alter Krug liegt verlassen und einsam im Gebï¿½sch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:SetTreasureMap(0.015,"Unter einer Lage Blï¿½tter stï¿½ï¿½t du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nï¿½he.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby.");
@@ -143,17 +143,17 @@ function InitGathering()
 
 		--woolcutting
 
-		woolcutting:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brï¿½gon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brï¿½gon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
+		woolcutting:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
 		woolcutting:AddSpecialRandomItem(285,1,333,1,0.005,"Wï¿½hrend du das Schaf scherst, tritt dein Fuss achtlos gegen einen Stein, welcher sich aber als durchaus beachtenswert herausstellt. Du findest einen magischen Diamant.","While you shear the sheep your foot kicks a stone carelessly. It turns out to be quite remarkable. You find a magical diamond."); --Magical diamond
 		woolcutting:AddSpecialRandomItem(222,1,333,0,0.005,"Dieses Schaf trï¿½gt ein merkwï¿½rdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet
 		woolcutting:SetTreasureMap(0.015,"Mit einem lauten 'Mï¿½h' kratzt und schnï¿½ffelt das Schaf am Boden. Was du dort findest, macht dich sprachlosï¿½","With a loud 'Baa' the sheep scratches and sniffs on the ground. What you find there makes you speechless...");
 		woolcutting:AddMonster(131,0.02,"Wï¿½hrend du die Wolle einsammelst, formiert sich ein lï¿½stiger Schwarm ungeï¿½hnlich agressiver Fliegen.","While you gather the wool, a swarm of annoying, aggressive flies forms. They dart towards you!",4,7);
-		woolcutting:AddSpecialRandomItem(153,1,333,0,0.05,"Ein groï¿½es Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunï¿½chst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
+		woolcutting:AddSpecialRandomItem(153,1,333,0,0.05,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunï¿½chst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
 		woolcutting:AddSpecialRandomItem(156,1,333,0,0.1,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grï¿½nzeug.","Some grass was ensnared in the fur of the sheep. You remove the sticky green substance."); --Steppe fern
 		
 		--potashproducing
 		
-		potashproducing:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brï¿½gon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brï¿½gon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
+		potashproducing:AddSpecialRandomItem(2553,1,333,0,0.005,"Fï¿½r deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labour, Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
 		potashproducing:AddSpecialRandomItem(45,1,333,1,0.005,"In der Asche erspï¿½hst du einen grï¿½n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the potash you spot a green sparkling object. You find a magical emerald."); --Magical emerald
 		potashproducing:SetTreasureMap(0.015,"Fein sï¿½uberlich aufgerollt findest du eine Schatzkarte in einem ausgehï¿½hlten Ast. Gut, dass du das Holz noch nicht verbrannt hattest!","You find a treasure map in a hollowed-out branch, neatly rolled up. Luckily you did not burn it!");
 		--potashproducing:AddMonster(MONSTERID,PROBABILITY,"DETEXT","ENTEXT",SOUND,GFXLIST);

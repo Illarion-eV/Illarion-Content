@@ -25,7 +25,7 @@ GOD_LIST = {GOD_NARGUN,GOD_ELARA,GOD_ADRON,GOD_OLDRA,GOD_CHERGA,GOD_MALACHIN,
 
 GOD_EN = {
     [GOD_USHARA]   = "Ushara",
-    [GOD_BRAGON]   = "Brï¿½gon",
+    [GOD_BRAGON]   = "Brágon",
     [GOD_ELDAN]    = "Eldan",
     [GOD_TANORA]   = "Tanora",
     [GOD_FINDARI]  = "Findari",
@@ -46,7 +46,7 @@ GOD_EN = {
 
 GOD_DE = {
     [GOD_USHARA]   = "Ushara",
-    [GOD_BRAGON]   = "Brï¿½gon",
+    [GOD_BRAGON]   = "Brágon",
     [GOD_ELDAN]    = "Eldan",
     [GOD_TANORA]   = "Tanora",
     [GOD_FINDARI]  = "Findari",

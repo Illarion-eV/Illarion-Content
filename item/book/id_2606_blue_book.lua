@@ -27,13 +27,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
             base.books.AddGermanBookText("\n \n Die Kultur der Gnome",0,0,0);
             base.books.AddGermanBookText("Gnome sind so etwas ï¿½hnliches wie Zwerge, jedoch wesentlich dï¿½nner und auch etwas kleiner als Halblinge. Wir sind schlau und flink und gewandt in der Herstellung von Gerï¿½tschaften.",0,0,0);
-            base.books.AddGermanBookText("Wir taugen nicht als Diebe, unsere Weltanschauung erlaubt uns so etwas nicht. Unsere Nasen sind irgendwie etwas zu groï¿½ geraten und vielleicht kommt daher unsere Vorliebe fï¿½r lange Namen. Manche von uns haben vier Vornamen.",0,0,0);
+            base.books.AddGermanBookText("Wir taugen nicht als Diebe, unsere Weltanschauung erlaubt uns so etwas nicht. Unsere Nasen sind irgendwie etwas zu groß geraten und vielleicht kommt daher unsere Vorliebe für lange Namen. Manche von uns haben vier Vornamen.",0,0,0);
             base.books.AddGermanBookText("Die Kleidung der Gnome ist eher praktisch denn modisch. Wir leben gerne untertage, wie die Zwerge. Unser Minen jedoch sind, verglichen mit denen der Zwerge, sehr viel kleiner.",0,0,0);
             base.books.AddGermanBookText("Fï¿½r gewï¿½hnlich sind unsere Heimstï¿½tten mit hellem Lehm verputzt.",0,0,0);
-            base.books.AddGermanBookText("Wie schon gesagt, wir Gnome haben eine Vorliebe fï¿½r neumodischen mechanischen Kram. Hï¿½hlen und Minen sind deshalb oft mit solchen Sachen vollgestopft.",0,0,0);
-            base.books.AddGermanBookText("Unsere Apparate sind oft recht aufwï¿½ndig. Hï¿½lzerne Getriebe, Seile, Fahrgestelle, daraus bestehen sie meist. Wir benutzen sie dann fï¿½r so einfache Tï¿½tigkeiten wie das zurï¿½ckziehen eines Wassereimers aus dem Brunnen.",0,0,0);
-            base.books.AddGermanBookText("Ganz im Gegensatz zu den Zwergen mï¿½gen wir die Berge nicht, stattdessen besitzen wir einen Hang zur Magie, insbesondere fï¿½r Illuminationszauber. Mit so etwas kann man sich auch gut die Zeit vertreiben.",0,0,0);
-            base.books.AddGermanBookText("Wir, die Gnome, sind die einzige Rasse, die dank ihrer Magie in der Lage ist, durch  Alabrians Siedlungen zu reisen ohne jedwede Anfeindungen. Unsere Magie ist so groï¿½artig, dass man uns dafï¿½r bezahlt, sie vorzufï¿½hren.",0,0,0);
+            base.books.AddGermanBookText("Wie schon gesagt, wir Gnome haben eine Vorliebe für neumodischen mechanischen Kram. Hï¿½hlen und Minen sind deshalb oft mit solchen Sachen vollgestopft.",0,0,0);
+            base.books.AddGermanBookText("Unsere Apparate sind oft recht aufwï¿½ndig. Hï¿½lzerne Getriebe, Seile, Fahrgestelle, daraus bestehen sie meist. Wir benutzen sie dann für so einfache Tï¿½tigkeiten wie das zurï¿½ckziehen eines Wassereimers aus dem Brunnen.",0,0,0);
+            base.books.AddGermanBookText("Ganz im Gegensatz zu den Zwergen mï¿½gen wir die Berge nicht, stattdessen besitzen wir einen Hang zur Magie, insbesondere für Illuminationszauber. Mit so etwas kann man sich auch gut die Zeit vertreiben.",0,0,0);
+            base.books.AddGermanBookText("Wir, die Gnome, sind die einzige Rasse, die dank ihrer Magie in der Lage ist, durch  Alabrians Siedlungen zu reisen ohne jedwede Anfeindungen. Unsere Magie ist so großartig, dass man uns dafür bezahlt, sie vorzufï¿½hren.",0,0,0);
             base.books.AddGermanBookText("Wir beten oft zu Irmorom, wie die Zwerge, aber eigentlich sind wir nicht besonders religiï¿½s. Wir glauben daran, das man alles mit ein wenig Gehirnschmalz und Mystik erreichen kann. Trotzdem gibt es unter uns einige Priester.",0,0,0);
             base.books.AddGermanBookText("Mï¿½nner und Frauen haben in unserer Gesellschaft gleiche Rechte.",0,0,0);
 

@@ -188,22 +188,22 @@ function ds_analyse_327(Caster,Item)
     EtikettDe ="Sattmacher".."\n" --Sattmacher (noch in Arbeit)
     EtikettEn ="".."\n"
   elseif Item.data == 43245354 then
-    EtikettDe ="Rostschleuder" --Haltbarkeitsschaden fï¿½r Rï¿½stungen auf 9er Feld
+    EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rï¿½stungen auf 9er Feld
     EtikettEn ="Rusttrap"
   elseif Item.data == 64175321 then
-    EtikettDe ="Holzkï¿½fer" --Haltbarkeitsschaden fï¿½r Holzwaren auf 9er Feld
+    EtikettDe ="Holzkï¿½fer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
     EtikettEn =""
   elseif Item.data == 15516428 then
-    EtikettDe ="Schwertgrab" --Halbarkeitsschaden fï¿½r Waffen auf 9er Feld
+    EtikettDe ="Schwertgrab" --Halbarkeitsschaden für Waffen auf 9er Feld
     EtikettEn =""
   elseif Item.data == 17616268 then
-    EtikettDe ="Rostfresser" --Haltbarkeitsschaden fï¿½r Rï¿½stungen auf 1 Feld
+    EtikettDe ="Rostfresser" --Haltbarkeitsschaden für Rï¿½stungen auf 1 Feld
     EtikettEn =""
   elseif Item.data == 16623552 then
-    EtikettDe ="Holzwurm" --Haltbarkeitsschaden fï¿½r Holzwaren auf 1 Feld
+    EtikettDe ="Holzwurm" --Haltbarkeitsschaden für Holzwaren auf 1 Feld
     EtikettEn =""
   elseif Item.data == 92124379 then
-    EtikettDe ="Waffennarr" --Halbarkeitsschaden fï¿½r Waffen auf 1 Feld
+    EtikettDe ="Waffennarr" --Halbarkeitsschaden für Waffen auf 1 Feld
     EtikettEn =""
   elseif Item.data == 63321157 then
     EtikettDe ="Windtrank" --Herstellen von Windpfeilen
@@ -312,7 +312,7 @@ function ds_analyse_329(Caster,Item)
       EtikettDe = "ein Gestaltenwandler-Trunk 'Rotwurm'"
       EtikettEn = "Shape Shifter Potion 'Redworm'"
   elseif Item.data == 99992352 then
-      EtikettDe = "ein Gestaltenwandler-Trunk 'Groï¿½er Dï¿½mon'"
+      EtikettDe = "ein Gestaltenwandler-Trunk 'Großer Dï¿½mon'"
       EtikettEn = "Shape Shifter Potion 'Big Demon'"
   elseif Item.data == 38114786 then
       EtikettDe = "ein Gestaltenwandler-Trunk 'Skorpion'"

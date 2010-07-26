@@ -1,4 +1,4 @@
--- LTE fï¿½r das Druidensystem
+-- LTE für das Druidensystem
 -- by Falk
 -- immunity. Has actually nothing to do with healing potion 328 orange bottle
 

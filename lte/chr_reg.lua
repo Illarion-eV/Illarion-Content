@@ -106,7 +106,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
         if ( Poisonvalue == 0 ) then -- Gift besiegt
             -------------- Meldungen ausgeben ------------------
             base.common.InformNLS(Char,
-                "Du fï¿½hlst wie das Gift in deinem Kï¿½rper seine Wirkung verliert",
+                "Du fühlst wie das Gift in deinem Kï¿½rper seine Wirkung verliert",
                 "You feel how the poison in your body looses its effect.");
             -------------- Meldungen fertig --------------------
         else
@@ -115,7 +115,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
                 if ( math.random(1,40) == 2 or not Effect:findValue("poison") ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 40 Sekunden )
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
-                        "Du fï¿½hlst wie dein Kï¿½rper von innen heraus geschwï¿½cht wird.",
+                        "Du fühlst wie dein Kï¿½rper von innen heraus geschwï¿½cht wird.",
                         "You feel how your body becomes weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
@@ -125,7 +125,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me drips some saliva out of the mouth and falls to the ground.");
                 base.common.InformNLS(Char,
-                    "Du fï¿½hlst ein Brennen in deinem Kï¿½rper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
+                    "Du fühlst ein Brennen in deinem Kï¿½rper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
                     "You feel a cauterization in your body and that the saliva concentrates in your mouth. Then the world around you becomes dark.");
             end
         end
@@ -237,7 +237,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
                 if ( ( Foodvalue < 15000 ) and ( Foodvalue > 6000 ) ) then -- Noch 4 Stunden und 10 Minuten bis zum verhungern
                     if ( math.random(1,360) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 30 Minuten )
                         base.common.InformNLS(Char,
-                        "Du fï¿½hlst ein leichtes Grummeln in deinem Magen.",
+                        "Du fühlst ein leichtes Grummeln in deinem Magen.",
                         "You feel a slight mumble in your stomach.");
                     end
                 elseif ( ( Foodvalue < 6000 ) and ( Foodvalue > 3000 ) ) then -- Noch 1 Stunde und 40 Minuten bis zum verhungern

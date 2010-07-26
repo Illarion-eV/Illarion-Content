@@ -26,7 +26,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand verrottet in "..TargetItem.wear.." druidischen Zerfallseinheiten", 
---"This item rots within "..TargetItem.wear.." druid rotting-units"); -- das kann man schï¿½ner formulieren
+--"This item rots within "..TargetItem.wear.." druid rotting-units"); -- das kann man schöner formulieren
   textDE="Dieser Gegenstand verrottet in "..TargetItem.wear.." druidischen Zerfallseinheiten"
   textEN="This item rots within "..TargetItem.wear.." druid rotting-units"
 	if Caster:getPlayerLanguage() == 0 then

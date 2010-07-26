@@ -1,4 +1,4 @@
--- LTE fï¿½r das Druidensystem
+-- LTE für das Druidensystem
 -- by Falk
 require("base.common")
 
@@ -39,7 +39,7 @@ function callEffect(Effect,Character)               -- Effect wird ausgefï¿½hrt
                 Effect:removeValue("zaehler_"..i);
                 if not MessageSend then
                     MessageSend = true;
-                    base.common.InformNLS( Character, "Du fï¿½hlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
+                    base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
                 end
             else
                 Effect:addValue("zaehler_"..i,zaehler);
@@ -75,7 +75,7 @@ function removeEffect(Effect,Character)
             Effect:removeValue("zaehler_"..i);
             if not MessageSend then
                 MessageSend = true;
-                base.common.InformNLS( Character, "Du fï¿½hlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
+                base.common.InformNLS( Character, "Du fühlst, dass der Trank seine Wirkung verliert.", "You feel that the potion looses its effect.");
             end
         end
     end

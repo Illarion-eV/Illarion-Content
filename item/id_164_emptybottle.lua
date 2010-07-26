@@ -86,7 +86,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				world:changeItem(SourceItem);
 			else
 				base.common.TempInformNLS(User,
-				"Anscheinend ist keine Flï¿½ssigkeit mehr fï¿½r dich ï¿½brig.",
+				"Anscheinend ist keine Flï¿½ssigkeit mehr für dich ï¿½brig.",
 				"Obviously there is no liquid left for you.");
 			end
 		end

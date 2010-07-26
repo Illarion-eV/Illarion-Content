@@ -1,7 +1,7 @@
 --I_165_blaue_flasche
---Druidensystem in Arbeit / Pasten fï¿½r Items
+--Druidensystem in Arbeit / Pasten für Items
 --Falk
---HINWEIS: In dieser Ausbaustufe(12/2007) kann nur die Haltbarkeit verbessert werden, nicht die Qualitï¿½t
+--HINWEIS: In dieser Ausbaustufe(12/2007) kann nur die Haltbarkeit verbessert werden, nicht die Qualität
 
 require("base.common")
 require("druid.base.alchemy")
@@ -77,49 +77,49 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
      qual = math.floor(Targetitem.id_quality/100)
      dura = Targetitem.id_quality - qual*100
      
---   Effekte fï¿½r Metall:
+--   Effekte für Metall:
      for zaehler = 1,table.getn(ListeObjMetall) do
          if ListeObjMetall[zaehler]==Targetitem.id_id then
             wert = dataZList[1] -5  
             dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(Sourceitem.id_quality/10))/100)) 
          end    
      end
---   Effekte fï¿½r Nahrung:
+--   Effekte für Nahrung:
      for zaehler = 1,table.getn(ListeObjNahrung) do
          if ListeObjNahrung[zaehler]==Targetitem.id_id then    
             wert = dataZList[2] -5
             dura = dura + (wert*25*((Character:getSkill("cooking")+math.floor(Sourceitem.id_quality/10))/100))                
          end    
      end     
---   Effekte fï¿½r Leder:
+--   Effekte für Leder:
      for zaehler = 1,table.getn(ListeObjLeder) do
          if ListeObjLeder[zaehler]==Targetitem.id_id then       
             wert = dataZList[3] -5   
             dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(Sourceitem.id_quality/10))/100))        
          end    
      end
---   Effekte fï¿½r Edelsteine:
+--   Effekte für Edelsteine:
      for zaehler = 1,table.getn(ListeObjEdelstein) do
          if ListeObjEdelstein[zaehler]==Targetitem.id_id then         
             wert = dataZList[4] -5
                    dura = dura + (wert*25*((Character:getSkill("goldsmithing")+math.floor(Sourceitem.id_quality/10))/100))     
          end    
      end 
---   Effekte fï¿½r Edelmetalle:
+--   Effekte für Edelmetalle:
      for zaehler = 1,table.getn(ListeObjEdelMet) do
          if ListeObjEdelMet[zaehler]==Targetitem.id_id then         
             wert = dataZList[5] -5  
                    dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(Sourceitem.id_quality/10))/100))  
          end    
      end              
---   Effekte fï¿½r Holz:
+--   Effekte für Holz:
      for zaehler = 1,table.getn(ListeObjHolz) do
          if ListeObjHolz[zaehler]==Targetitem.id_id then
             wert = dataZList[6] -5
                    dura = dura + (wert*25*((Character:getSkill("carpentry")+math.floor(Sourceitem.id_quality/10))/100))    
          end    
      end
---   Effekte fï¿½r Stoff:
+--   Effekte für Stoff:
      for zaehler = 1,table.getn(ListeObjStoff) do
          if ListeObjStoff[zaehler]==Targetitem.id_id then          
             wert = dataZList[7] -5 
@@ -127,7 +127,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
          end    
      end
 --     
---   Effekte fï¿½r Sonstige:
+--   Effekte für Sonstige:
      for zaehler = 1,table.getn(ListeObjHorn) do
          if ListeObjHorn[zaehler]==Targetitem.id_id then
             wert = dataZList[8] -5

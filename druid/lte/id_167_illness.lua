@@ -1,4 +1,4 @@
--- LTE fï¿½r das Druidensystem
+-- LTE für das Druidensystem
 -- by Falk
 require("base.common")
 require("druid.base.outfit")
@@ -56,7 +56,7 @@ function getEffect_1(Character,Runde)
 		end
 		if curItem.id > 0 then
 			base.common.InformNLS(Character,
-				"#w Du fï¿½hlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reiï¿½en",
+				"#w Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reiï¿½en",
 				"#w You feel a painful heat emerging and you have to put off some clothes");
 			world:createItemFromItem(curItem,Character.pos,true);
 			world:erase(curItem,1);
@@ -97,7 +97,7 @@ function getEffect_2(Character,Runde)
       end
 
       Character:setAttrib("faceto",richtung)
---    Grafik fï¿½r Erbrochenes?
+--    Grafik für Erbrochenes?
 --    Wï¿½rge-Sound wï¿½re nicht schlecht
       Character:talkLanguage(CCharacter.say,CPlayer.german,"#me muss sich ï¿½bergeben");
 	  Character:talkLanguage(CCharacter.say,CPlayer.english,"#me has to vomit");
@@ -293,7 +293,7 @@ function getEffect_7(Character,Runde)
       Character.movepoints = Character.movepoints -50
 	  if Runde-(math.floor(Runde/30)*30) == 0 then
 		base.common.InformNLS(Character,
-			"#w Du fï¿½hlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glï¿½nzt kalter Schweiï¿½.",
+			"#w Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glï¿½nzt kalter Schweiï¿½.",
 			"#w You feel febrile, your pulse is low, at your frown cold sweat is shining.");
 	  end
    end
@@ -393,7 +393,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 			end
 		end
 		base.common.InformNLS(Character,
-			"#w Du fï¿½hlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Kï¿½rper.",
+			"#w Du fühlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Kï¿½rper.",
 			"#w You suddenly have a very strange feeling. Something's wrong with your body.");
 		if illness == 3 then
 			--  Sprachskills sichern

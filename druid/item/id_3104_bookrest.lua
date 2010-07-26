@@ -1,5 +1,5 @@
 -- ds_3104_pult.lua
--- Pergament fï¿½r das Druidensystem
+-- Pergament für das Druidensystem
 -- Falk
 require("base.common")
 require("druid.base.alchemy")
@@ -88,7 +88,7 @@ function init()
 
 	-- Hellblaue Flasche / Pasten
 	rKey[64] = 95555555; rNameDE[64] = "Metall-Pflegeï¿½l";              rNameEN[64] = "Metal Care Product";
-	rKey[65] = 59555555; rNameDE[65] = "Wunderpaste fï¿½r Lebensmittel"; rNameEN[65] = "Foodstuff Panaceas";
+	rKey[65] = 59555555; rNameDE[65] = "Wunderpaste für Lebensmittel"; rNameEN[65] = "Foodstuff Panaceas";
 	rKey[66] = 55955555; rNameDE[66] = "Lederfett";                    rNameEN[66] = "Dubbin";
 	rKey[67] = 55595555; rNameDE[67] = "Edelstein-Politur";            rNameEN[67] = "Gemstone Polish" ;
 	rKey[68] = 55559555; rNameDE[68] = "Edelmetall-Pflege";            rNameEN[68] = "Noble Metal Polish";
@@ -120,31 +120,31 @@ function init()
 	rKey[91] = 95257533; rNameDE[91] = ""; rNameEN[91] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 9er Feld
 	rKey[92] = 59159412; rNameDE[92] = ""; rNameEN[92] = ""; --Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
 	rKey[93] = 36557188; rNameDE[93] = ""; rNameEN[93] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
-	rKey[94] = 98538617; rNameDE[94] = ""; rNameEN[94] = ""; --Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 1er Feld
-	rKey[95] = 79684787; rNameDE[95] = ""; rNameEN[95] = ""; --Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[96] = 32484266; rNameDE[96] = ""; rNameEN[96] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[97] = 96261935; rNameDE[97] = ""; rNameEN[97] = ""; --Voller Qualitï¿½ts-Schaden auf Rï¿½stungen auf 21er Feld
-	rKey[98] = 26372612; rNameDE[98] = ""; rNameEN[98] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Rï¿½stungen auf 21er Feld
+	rKey[94] = 98538617; rNameDE[94] = ""; rNameEN[94] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 1er Feld
+	rKey[95] = 79684787; rNameDE[95] = ""; rNameEN[95] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
+	rKey[96] = 32484266; rNameDE[96] = ""; rNameEN[96] = ""; --Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
+	rKey[97] = 96261935; rNameDE[97] = ""; rNameEN[97] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
+	rKey[98] = 26372612; rNameDE[98] = ""; rNameEN[98] = ""; --Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
 	rKey[99] = 56548394; rNameDE[99] = ""; rNameEN[99] = ""; --Voller Haltbarkeits-Schaden auf Waffen auf 1er Feld
 	rKey[100] = 81876627; rNameDE[100] = ""; rNameEN[100] = ""; --Voller Haltbarkeits-Schaden auf Waffen auf 9er Feld
 	rKey[101] = 86656358; rNameDE[101] = ""; rNameEN[101] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 9er Feld
 	rKey[102] = 77254231; rNameDE[102] = ""; rNameEN[102] = ""; --Voller Haltbarkeits-Schaden auf Waffen auf 21er Feld
 	rKey[103] = 32185872; rNameDE[103] = ""; rNameEN[103] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 21er Feld
-	rKey[104] = 91357421; rNameDE[104] = ""; rNameEN[104] = ""; --Voller Qualitï¿½ts-Schaden auf Waffen auf 1er Feld
-	rKey[105] = 52761593; rNameDE[105] = ""; rNameEN[105] = ""; --Voller Qualitï¿½ts-Schaden auf Waffen auf 9er Feld
-	rKey[106] = 19123643; rNameDE[106] = ""; rNameEN[106] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Waffen auf 9er Feld
-	rKey[107] = 35471525; rNameDE[107] = ""; rNameEN[107] = ""; --Voller Qualitï¿½ts-Schaden auf Waffen auf 21er Feld
-	rKey[108] = 32812622; rNameDE[108] = ""; rNameEN[108] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Waffen auf 21er Feld
+	rKey[104] = 91357421; rNameDE[104] = ""; rNameEN[104] = ""; --Voller Qualitäts-Schaden auf Waffen auf 1er Feld
+	rKey[105] = 52761593; rNameDE[105] = ""; rNameEN[105] = ""; --Voller Qualitäts-Schaden auf Waffen auf 9er Feld
+	rKey[106] = 19123643; rNameDE[106] = ""; rNameEN[106] = ""; --Aufgeteilter Qualitäts-Schaden auf Waffen auf 9er Feld
+	rKey[107] = 35471525; rNameDE[107] = ""; rNameEN[107] = ""; --Voller Qualitäts-Schaden auf Waffen auf 21er Feld
+	rKey[108] = 32812622; rNameDE[108] = ""; rNameEN[108] = ""; --Aufgeteilter Qualitäts-Schaden auf Waffen auf 21er Feld
 	rKey[109] = 12836431; rNameDE[109] = ""; rNameEN[109] = ""; --Voller Haltbarkeits-Schaden auf Holzitems auf 1er Feld
 	rKey[110] = 43185342; rNameDE[110] = ""; rNameEN[110] = ""; --Voller Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 	rKey[111] = 57771997; rNameDE[111] = ""; rNameEN[111] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 9er Feld
 	rKey[112] = 13245638; rNameDE[112] = ""; rNameEN[112] = ""; --Voller Haltbarkeits-Schaden auf Holzitems auf 21er Feld
 	rKey[113] = 88343542; rNameDE[113] = ""; rNameEN[113] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Holzitems auf 21er Feld
-	rKey[114] = 67589591; rNameDE[114] = ""; rNameEN[114] = ""; --Voller Qualitï¿½ts-Schaden auf Holzitems auf 1er Feld
-	rKey[115] = 96566994; rNameDE[115] = ""; rNameEN[115] = ""; --Voller Qualitï¿½ts-Schaden auf Holzitems auf 9er Feld
-	rKey[116] = 13983419; rNameDE[116] = ""; rNameEN[116] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Holzitems auf 9er Feld
-	rKey[117] = 42218944; rNameDE[117] = ""; rNameEN[117] = ""; --Voller Qualitï¿½ts-Schaden auf Holzitems auf 21er Feld
-	rKey[118] = 69657293; rNameDE[118] = ""; rNameEN[118] = ""; --Aufgeteilter Qualitï¿½ts-Schaden auf Holzitems auf 21er Feld
+	rKey[114] = 67589591; rNameDE[114] = ""; rNameEN[114] = ""; --Voller Qualitäts-Schaden auf Holzitems auf 1er Feld
+	rKey[115] = 96566994; rNameDE[115] = ""; rNameEN[115] = ""; --Voller Qualitäts-Schaden auf Holzitems auf 9er Feld
+	rKey[116] = 13983419; rNameDE[116] = ""; rNameEN[116] = ""; --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 9er Feld
+	rKey[117] = 42218944; rNameDE[117] = ""; rNameEN[117] = ""; --Voller Qualitäts-Schaden auf Holzitems auf 21er Feld
+	rKey[118] = 69657293; rNameDE[118] = ""; rNameEN[118] = ""; --Aufgeteilter Qualitäts-Schaden auf Holzitems auf 21er Feld
 
 	-- Rote Flasche / Primï¿½rattribute
 	rKey[179] = 65555555; rNameDE[179] = "Quelle der Kraft";    rNameEN[179] = "Spring Of Power"; --"strength"

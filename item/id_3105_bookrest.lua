@@ -65,7 +65,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 				end
 	        elseif (SourceItem.pos.z == 0) then
 	            if (User:getPlayerLanguage()==0) then
-	                User:inform("In deinen Hï¿½nden, Suchender, hï¿½lst du die vierte Wahrheit. Rein und klar wie auch das Wasser ist sie fï¿½r jene, die es wagen hineinzublicken. Ruhe bringt sie dem aufgewï¿½hlten Geist.");
+	                User:inform("In deinen Hï¿½nden, Suchender, hï¿½lst du die vierte Wahrheit. Rein und klar wie auch das Wasser ist sie für jene, die es wagen hineinzublicken. Ruhe bringt sie dem aufgewï¿½hlten Geist.");
 	                User:inform("Die fï¿½nfte Weiheit kann nur finden, wer sie in sich selbst findet. Wer geschickt die vier in Wort verbindet, dem wird sich der Weg zu wahrer Weisheit ï¿½ffnen.");
 	            else
 	                User:inform("In your hands, seeker, you hold the fourth wisdom. Pure and clear like the water is the wisdom for those, who have the bravery to see through the fog. Calmness for the troubled mind.");

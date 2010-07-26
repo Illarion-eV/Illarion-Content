@@ -189,7 +189,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
             "You are stuffed.");
         else
             base.common.InformNLS( User,
-            "Du trinkst die Flasche aus und fï¿½hlst wie neue Stï¿½rke dich durchstrï¿½mt.",
+            "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchstrï¿½mt.",
             "You drink up the bottle, and you feel the new strength that flows through your body.");
         end
 

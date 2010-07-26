@@ -14,7 +14,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
        base.books.AddGermanBookText("Dies ist das Buch der Pflanzen.",0,0,0);
        base.books.AddGermanBookText("Die Wï¿½stenhimmelskapsel wird in Wï¿½sten gefunden. Sie wird dazu gebraucht, das Element Wind zu verwenden.",0,0,0);
        base.books.AddGermanBookText("Das Donfblatt wï¿½chst im Wald. Es wird angeblich benutzt, um irgend etwas zusammenzukleben.",0,0,0);
-       base.books.AddGermanBookText("Sandbeeren verstï¿½rken den Effekt von Zaubertrï¿½nken. Man sagt, sie seien in der Wï¿½ste zu finden.",0,0,0);
+       base.books.AddGermanBookText("Sandbeeren verStärken den Effekt von Zaubertrï¿½nken. Man sagt, sie seien in der Wï¿½ste zu finden.",0,0,0);
        base.books.AddGermanBookText("Wutbeeren kï¿½nnen in Hecken tief im Wald gefunden werden.",0,0,0);
        base.books.AddGermanBookText("Wenn man eine Tanne pflanzen will, braucht man zuerst einen Tannensetzling.",0,0,0);
        base.books.AddGermanBookText("Tannensetzlinge kï¿½nnen von Tannen abgeschnitten werden.",0,0,0);
@@ -30,12 +30,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
        base.books.AddGermanBookText("Der gut schmechende Rotkopfpilz kann in Wï¿½ldern gefundenwerden.",0,0,0);
        base.books.AddGermanBookText("Ein Kirschbaum wird mit seinen Wurzeln gefï¿½llt.",0,0,0);
        base.books.AddGermanBookText("Eine Palme wird mit ihren Wurzeln gefï¿½llt.",0,0,0);
-       base.books.AddGermanBookText("Man sollte nie versuchen, Bï¿½ume zu fï¿½llen, wenn man Schilde trï¿½gt.",0,0,0);
+       base.books.AddGermanBookText("Man sollte nie versuchen, Bäume zu fï¿½llen, wenn man Schilde trï¿½gt.",0,0,0);
        base.books.AddGermanBookText("In Schilfgï¿½rteln nahe an saftigen Wiesen kann die Vierblï¿½ttrige Einbeere von wachsamen Augen gefunden werden.",0,0,0);
        base.books.AddGermanBookText("Das Gelbe Kraut ist eine wiederkehrende Pflanze in Wiesen.",0,0,0);
        base.books.AddGermanBookText("In den tiefsten Wï¿½ldern wartet die Flammenkelchblï¿½te darauf gepflï¿½ckt zu werden.",0,0,0);
        base.books.AddGermanBookText("Wenn Engel weinen, lassen ihre Trï¿½nen Nachtengelsblï¿½ten im Dreck wachsen.",0,0,0);
-       base.books.AddGermanBookText("Das Heidekraut braucht nie Regen. Wenige Tropfen des morgendlichen Taus auf einem sandigen Hï¿½gel sind genug fï¿½r diese genï¿½gsame Pflanze.",0,0,0);
+       base.books.AddGermanBookText("Das Heidekraut braucht nie Regen. Wenige Tropfen des morgendlichen Taus auf einem sandigen Hï¿½gel sind genug für diese genï¿½gsame Pflanze.",0,0,0);
        base.books.AddGermanBookText("Das Fuï¿½blatt ist der einzige Farn, der keinen sandigen Untergrund im Sinn hat.",0,0,0);
        base.books.AddGermanBookText("Grabe mit deiner Hand im Dreck und finde einige Sibanac Blï¿½tter im Schilf.",0,0,0);
        base.books.AddGermanBookText("Wo Kulturland in Steppe ï¿½bergeht, findet sich ein von den meisten Leuten ï¿½bersehener Farn.",0,0,0);

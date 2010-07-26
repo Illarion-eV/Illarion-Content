@@ -10,7 +10,7 @@ function InitRanks()
     AddRank("a assistant","ein Geselle");
     AddRank("a master","ein Meister");
     AddRank("a senior master","ein Altmeister");
-    AddRank("a grand master","ein Groï¿½meister");
+    AddRank("a grand master","ein Großmeister");
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)

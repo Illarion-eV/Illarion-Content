@@ -43,7 +43,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if not base.common.FitForWork( User ) then -- Nicht erschï¿½pft
+    if not base.common.FitForWork( User ) then -- Nicht erschöpft
         return
     end
     

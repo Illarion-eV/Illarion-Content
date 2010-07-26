@@ -9,7 +9,7 @@ module("druid.item.id_328_orange_bottle", package.seeall(druid.base.alchemy))
 -- UPDATE common SET com_script='druid.item.id_328_orange_bottle' WHERE com_itemid = 328;
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
---Heilmittel fï¿½r 8 Virus-Erkrankungen
+--Heilmittel für 8 Virus-Erkrankungen
   find, myEffect = Character.effects:find(167);
   if find then 
      
@@ -27,7 +27,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 				potionData = math.mod(Sourceitem.id_data,10000000);
 			end
 			if potionData == codeList[diagnose] then
---            Feststellung, ob die Qualitï¿½t des Heiltrankes ï¿½ber der Schwere der Krankheit liegt 
+--            Feststellung, ob die Qualität des Heiltrankes ï¿½ber der Schwere der Krankheit liegt 
 --            Je hï¿½her die Krankheit in der Ordnungsnummer (1-8) liegt, umso hï¿½her sind die Anforderungen an den Heiltrank                    
               -- CONST may reduce the needed quality
 			  local const = math.min(25,Character:increaseAttrib("constitution",0));
@@ -48,7 +48,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 					"#w The effect of the potion allays your suffering.");
 				 return;
               else
-                 Character:inform("debug: keine Heilung wegen zu niedriger Trank-Qualitï¿½t")
+                 Character:inform("debug: keine Heilung wegen zu niedriger Trank-Qualität")
               end
            else
               Character:inform("debug: keine Heilung wegen falscher Medikamentation")

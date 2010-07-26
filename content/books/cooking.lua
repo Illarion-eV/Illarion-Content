@@ -33,7 +33,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("~Pilzsuppe~\n Zutaten:\n 2 Champignon Pilze\n 1 Eimer Wasser\n 1 Suppenschï¿½ssel",2456,30,toData);
     base.books.AddGermanBookText("Zubereitung:\n Beginnt das Wasser zu erhitzen und sobald es kocht fï¿½gt ihr die Pilze hinzu.  Rï¿½hrt um und lasst alles solange  kochen bis es eine Brï¿½he daraus entsteht. Serviere es solange es heiï¿½ ist.",163,30,toData);
     base.books.AddGermanBookText("~Wï¿½rstchen~\n Zutaten\n 1 roher Schinken",3051,30,toData);
-    base.books.AddGermanBookText("Zubereitung:\n Nehmt den rohen Schinken und gebt ihn in Naturdï¿½rme. Ein Schinken fï¿½llt zwei Wï¿½rste. Kocht sie bis sie gar sind. Diese kï¿½nnen fï¿½r komplexere Speisen verwendet oder einfach so gegessen werden.",307,30,toData);
+    base.books.AddGermanBookText("Zubereitung:\n Nehmt den rohen Schinken und gebt ihn in Naturdï¿½rme. Ein Schinken fï¿½llt zwei Wï¿½rste. Kocht sie bis sie gar sind. Diese kï¿½nnen für komplexere Speisen verwendet oder einfach so gegessen werden.",307,30,toData);
 end;
 
 function loadTitle(toData)

@@ -1932,8 +1932,8 @@ function InformAboutCritical(AttChar,DefChar,Area)
         base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart gegen die Beine.","You land a heavy strike against your enemies legs.");
         base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Beine getroffen.","You are hit by a heavy blow upon your legs.");
     elseif (Area == CCharacter.feet) then
-        base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart auf die Fï¿½ï¿½e.","You strike the feet of your enemy with a heavy blow.");
-        base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Fï¿½ï¿½e getroffen.","You are struck upon your feet with a heavy blow.");
+        base.common.InformNLS(AttChar,"Du triffst deinen Gegner hart auf die Füße.","You strike the feet of your enemy with a heavy blow.");
+        base.common.InformNLS(DefChar,"Du wirst von deinem Gegner hart gegen die Füße getroffen.","You are struck upon your feet with a heavy blow.");
     end
     return
 end

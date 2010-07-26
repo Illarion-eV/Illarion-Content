@@ -11,7 +11,7 @@ item.base.music.addTalkText("#me plays the harp with a horrible crash","#me mach
 item.base.music.addTalkText("#me plays a stilted tune on the harp","#me spielt eine gezierte Melodie auf der Harfe");
 item.base.music.addTalkText("#me plays a smooth melody on the harp","#me spielt eine gleichbleibende Melodie auf der Harfe");
 item.base.music.addTalkText("#me plays a pretty tune on the harp","#me spielt eine nette Melodie auf der Harfe");
-item.base.music.addTalkText("#me plays a beautiful melody on the harp","#me spielt eine wunderschï¿½ne Melodie auf der Harfe");
+item.base.music.addTalkText("#me plays a beautiful melody on the harp","#me spielt eine wunderschöne Melodie auf der Harfe");
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     item.base.music.PlayInstrument(User,SourceItem,"harp");

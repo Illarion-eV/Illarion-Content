@@ -63,7 +63,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand hat ein Gewicht von "..myItem.Weight.." druidischen Gewichtseinheiten", 
---"This item weights "..myItem.Weight.." druid weight-units"); -- das kann man schï¿½ner formulieren
+--"This item weights "..myItem.Weight.." druid weight-units"); -- das kann man schöner formulieren
 	textDE="Dieser Gegenstand hat ein Gewicht von "..myItem.Weight.." druidischen Gewichtseinheiten"
 	textEN="This item weights "..myItem.Weight.." druid weight-units"
 	if Caster:getPlayerLanguage() == 0 then

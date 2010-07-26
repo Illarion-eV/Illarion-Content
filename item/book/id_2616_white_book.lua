@@ -28,7 +28,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
             base.books.AddGermanBookText("\n \n Das Volk der Feen",0,0,0);
             base.books.AddGermanBookText("Wir, die Feen, werden schon seit einer ganzen Weile wahrgenommen, aber wir bleiben weiterhin gut versteckt. Man bekommt uns selten zu Gesicht, aber du kannst darauf wetten, dass wir auch dich irgendwann mal aufs Korn nehmen.",0,0,0);
-            base.books.AddGermanBookText("Wir sind sehr klein und kï¿½nnen uns in Bï¿½schen und Bï¿½umen verbergen, um von dortaus unseren Schabernack zu treiben.",0,0,0);
+            base.books.AddGermanBookText("Wir sind sehr klein und kï¿½nnen uns in Bï¿½schen und Bäumen verbergen, um von dortaus unseren Schabernack zu treiben.",0,0,0);
             base.books.AddGermanBookText("Weibliche Feen haben bunte Flï¿½gel, ï¿½hnlich Schmetterlingen. Die Schwingen der mï¿½nnlichen Feen dagegen sind grï¿½nlich und durchsichtig.",0,0,0);
             base.books.AddGermanBookText("Unsere Flï¿½gel sind krï¿½ftig und sie schlagen rasend schnell. Dadurch kï¿½nnen wir auch starken Stï¿½rmen trotzen. Dennoch sind wir letztlich recht zerbrechlich, was uns nicht gerade zu Kï¿½mpfern macht.",0,0,0);
             base.books.AddGermanBookText("Unsere abgeschnittenen oder verstï¿½mmelten Gliedmaï¿½en wachsen nach, insbesondere unsere Flï¿½gel, die binnen weniger Wochen regenerieren.",0,0,0);
@@ -36,7 +36,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Fï¿½r gewï¿½hnlich bevï¿½lkern wir Plï¿½tze in der freien Natur, hauptsï¿½chlich tief in den Wï¿½ldern. Wir siedeln gerne in der Nï¿½he von Elben-Niederlassungen, zumal wir gut mit ihnen auskommen.",0,0,0);
             base.books.AddGermanBookText("Feen werden etwa 400 Jahre alt, fast kï¿½nnten wir es also mit den Elben aufnehmen - aber nur fast. Wir genieï¿½en die Gesellschaft unserer Artgenossen und pflegen unsere Lebensart.",0,0,0);
             base.books.AddGermanBookText("Unsere Kï¿½nige und Kï¿½niginnen sind stets verheirat, ledige Feen kï¿½nnen niemals Herrscher sein. Unsere Adligen haben keinen Landbesitz, weil es unmï¿½glich ist, Ushara's Land zu besitzen.",0,0,0);
-            base.books.AddGermanBookText("Wir haben ein besonderes Verhï¿½ltnis zur Natur, wie die Elben. Wir sind dafï¿½r bekannt, bisweilen den Idealen Adrons zu folgen. Und wir verabscheuen alles Unnatï¿½rliche, sowie Untote und Dï¿½monen.",0,0,0);
+            base.books.AddGermanBookText("Wir haben ein besonderes Verhï¿½ltnis zur Natur, wie die Elben. Wir sind dafür bekannt, bisweilen den Idealen Adrons zu folgen. Und wir verabscheuen alles Unnatürliche, sowie Untote und Dï¿½monen.",0,0,0);
             base.books.AddGermanBookText("Wir sind naturbegabte Zauberkundige, und obwohl der angeborene Mangel an Aufmerksamkeit nicht gerade hilfreich ist, haben wir allerhand Kurioses zu bieten.",0,0,0);
             base.books.AddGermanBookText("Wir haben gerne unseren Spaï¿½ und treiben Schabernack, sind aber schreckhaft. Wir vergessen nie, wie man uns behandelt hat und halten stets Wort.",0,0,0);
             
@@ -90,15 +90,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "Dies hat wohl dazu gefï¿½hrt das die Zwerge einen der Ihren zum Kï¿½nig gemacht haben. Der sollte dann einfach nur die Richtung angeben, damit klar ist wo draufgehauen wird.", 0, 0, 1 );
             base.books.AddGermanBookText( "Wohl in der Hoffnung das dieser schneller Versteht und schon weiï¿½ was richtig ist, nun ja und wenn er es auch nicht weiï¿½, nach der Schlacht beschwert sich eh keiner mehr, weil die Zwerge", 0, 0, 1 );
             base.books.AddGermanBookText( "hatten ihren Spaï¿½ und der Rest existiert nicht mehr. ", 0, 0, 1 );
-            base.books.AddGermanBookText( "Streitlust, was ist schï¿½ner als ein Hammer der auf einem Kopf einschlï¿½gt oder ein zï¿½nftiges Streitgesprï¿½ch mit zahllosen Beleidigungen und Schmï¿½hungen? ", 0, 0, 1 );
+            base.books.AddGermanBookText( "Streitlust, was ist schöner als ein Hammer der auf einem Kopf einschlï¿½gt oder ein zï¿½nftiges Streitgesprï¿½ch mit zahllosen Beleidigungen und Schmï¿½hungen? ", 0, 0, 1 );
             base.books.AddGermanBookText( "Streiten ist eindeutig eine der Lieblingsbeschï¿½ftigung der Zwerge, ganz einfach aus dem Grunde weil sie das gut kï¿½nnen. Zwerge pflegen ihre Streitkultur genauso wie ihre Kampfkraft und", 0, 0, 1 );
             base.books.AddGermanBookText( "trainieren sie auch untereinander mit Freude und Vergnï¿½gen. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Schmiedekunst und andere Handwerke, ein jeder Zwerg kann schmieden, da dies aber nichts Ungewï¿½hnliches unter den Zwergen ist reden sie meist gar nicht darï¿½ber und ", 0, 0, 1 );
-            base.books.AddGermanBookText( "erwï¿½hnen das Schmieden als Beruf nicht einmal. Ansonsten bleibt zu sagen, dass Zwerge in vielen Handwerken bewandert sind und dort auch meist Qualitï¿½ten erreichen wo andere nur", 0, 0, 1 );
+            base.books.AddGermanBookText( "erwï¿½hnen das Schmieden als Beruf nicht einmal. Ansonsten bleibt zu sagen, dass Zwerge in vielen Handwerken bewandert sind und dort auch meist Qualitäten erreichen wo andere nur", 0, 0, 1 );
             base.books.AddGermanBookText( "neidisch werden kï¿½nnen. Beliebt ist das Goldschmieden, aber auch Steinmetzarbeiten, Baukunst und Gemmenschleifferei haben unter Zwergen eine lange Tradition.", 0, 0, 1 );
             base.books.AddGermanBookText( "Das wï¿½hlen im Gestein um an die Schï¿½tze der Mutter zu kommen darf hierbei nicht vergessen werden, immerhin sind sie ein Geschenk der Mutter und das sollte man in Ehren halten und zu Tage fï¿½rdern. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Was Zwerge ï¿½ber das Kroppzeug mit dem sie sich die Welt teilen mï¿½ssen denken: ", 0, 0, 1 );
-            base.books.AddGermanBookText( "Elfen sind verachtenswerte vollkommen unwï¿½rdige und lï¿½cherliche Kreaturen, ihre Arroganz und das Getue um Magie und Bï¿½ume (Die ja bekanntlich nur zum Tunnel abstï¿½tzen da sind) ist im besten Falle ", 0, 0, 1 );
+            base.books.AddGermanBookText( "Elfen sind verachtenswerte vollkommen unwï¿½rdige und lï¿½cherliche Kreaturen, ihre Arroganz und das Getue um Magie und Bäume (Die ja bekanntlich nur zum Tunnel abstï¿½tzen da sind) ist im besten Falle ", 0, 0, 1 );
             base.books.AddGermanBookText( "lï¿½cherlich. Auï¿½erdem sind sie einfach dï¿½mlich weil sie einfach nicht verstehen das Gold, Reichtum und ein gepflegter Streit das einzig wahre sind. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Echsen vereinen in sich eigentlich alles was Zwerge verachten, Wasser und Fische. Dem Wasser gegenï¿½ber haben sie eine tiefliegende Abneigung weil Wasser (gerade in ï¿½berfluteten Tunneln) ", 0, 0, 1 );
             base.books.AddGermanBookText( "den Tod bedeutet. Diese Viecher sollten im Wasser bleiben wo sie hingehï¿½ren und unsere Augen nicht mit ihrem Anblick beleidigen. ", 0, 0, 1 );
@@ -108,9 +108,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "Halblinge die kleinen Brï¿½der der Menschen leben auch nicht viel lï¿½nger. Allerdings kann man mit ihnen feste Feste feiern weil sie Bier und gutes Essen genauso schï¿½tzen wie wir. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Ihr Fleiï¿½ und ihre Hingabe zum Anbau und zur Zubereitung von Essen kommt der Handwerkskunst der Zwerge nahezu gleich. Sie sind freundliche kleine Kerle, allerdings sollte man sie nicht allzu", 0, 0, 1 );
             base.books.AddGermanBookText( "hart anfassen da Ihnen die Stabilitï¿½t von unsereins abgeht. ", 0, 0, 1 );
-            base.books.AddGermanBookText( "Orks - Orks stinken sie sind Kreaturen Moshrans und damit in Irmoroms Schï¿½pfung nicht vorgesehen. Ihre Existenz ist eine Beleidigung fï¿½r jeden Glï¿½ubigen. ", 0, 0, 1 );
+            base.books.AddGermanBookText( "Orks - Orks stinken sie sind Kreaturen Moshrans und damit in Irmoroms Schï¿½pfung nicht vorgesehen. Ihre Existenz ist eine Beleidigung für jeden Glï¿½ubigen. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Ferner lehnen sie jedwede Art von Ordnung ab. Ihre Verbï¿½nde sind unorganisiert und der mangelnde Respekt gegenï¿½ber hï¿½her Gestellten verhindert das sie auch nur Ansatzweise zum gesellschaftlichen", 0, 0, 1 );
-            base.books.AddGermanBookText( "Umgang geeignet sein kï¿½nnten. Ihre Anfï¿½hrer kommen alleine durch Brutalitï¿½t nach oben. Weisheit, Alter und Erfahrung spielen bei Ihnen ï¿½berhaupt keine Rolle.", 0, 0, 1 );
+            base.books.AddGermanBookText( "Umgang geeignet sein kï¿½nnten. Ihre Anführer kommen alleine durch Brutalitï¿½t nach oben. Weisheit, Alter und Erfahrung spielen bei Ihnen überhaupt keine Rolle.", 0, 0, 1 );
             base.books.AddGermanBookText( "Einige Gedanken ï¿½ber das Zwergendasein einfach mal so: ", 0, 0, 1 );
             base.books.AddGermanBookText( "Was bedeutet es ein Zwerg zu sein? das ist so eine Sache denn stereotypen gibt es bei den Zwergen genauso wenig wie bei Menschen. Es gibt erhebliche Unterschiede und Ausnahmen bestï¿½tigen die Regel. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Dennoch gibt es einige Eigenschaften die gemeinhin allen Zwergen nachgesagt werden. Ob man diese Bedienen will oder nicht lasse ich mal dahingestellt, allerdings erleichtert das bedienen von ", 0, 0, 1 );
@@ -148,7 +148,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Woher nehmen sich gewï¿½hnliche sterbliche Wesen die Atroganz einen goldenen Reif am Haupt zu tragen und anderen zu befehlen und nach willkï¿½hrlichen Gesetzten zu richten? ",0,25,2);
 			base.books.AddGermanBookText("Wir, die unter Schutze Ronagan stehenden, stehlen Euch den goldenen Reif von der Stirn, auf dass ihr Euch besinnt welch kï¿½mmerliche Wesen ihr seid!",0,25,2);
 			base.books.AddGermanBookText("Allen anderen steht es nun frei, sich slebst als Kï¿½nig zu versuchen, denn wir verkï¿½nden, mit diesigem Schreiben, die Versteigerung der goldenen Krone von Schurkin Friedwulfa,",0,25,2);
-			base.books.AddGermanBookText("Herrscherin unter Irmoroms Thron, dem Reiche Silberbrand. Sollen die Unwï¿½rdigen die schï¿½ne Krone tragen und behaupten sie seinen ein Jemand von Wichtigkeit,",0,25,2);
+			base.books.AddGermanBookText("Herrscherin unter Irmoroms Thron, dem Reiche Silberbrand. Sollen die Unwï¿½rdigen die schöne Krone tragen und behaupten sie seinen ein Jemand von Wichtigkeit,",0,25,2);
 			base.books.AddGermanBookText("von Gottes gnaden erwï¿½hlt! Ronagan lacht ï¿½ber euch, aber bietet uns dennoch eine stolze Summe die eines Kï¿½nigs wï¿½rdig ist, per Taube.",0,25,2);
 			base.books.AddGermanBookText("Mit verabscheuendem aber heiteren Gruï¿½e,\ndas Volk der Schatten,\ndie Kinder Ronagans,\nder von gottes Schatten betuchte\nRufus der Langfinger.",0,25,2);
 			base.books.AddGermanBookText("Pergament 2:\nAn die barkï¿½pfigen Kï¿½nige der Zwerge unterm Thron des Irmorom.",0,25,2);

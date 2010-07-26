@@ -336,7 +336,7 @@ function InitLibraries()
     "Verwirrung",
     "Confusion" );
   AddBookshelves( PositionsEight, BooksEight,
-    "Poesie und epische Geschichten, Lobpreis an Irmorom, Gebet im Namen Findaris, Gebet fï¿½r Zelphia",
+    "Poesie und epische Geschichten, Lobpreis an Irmorom, Gebet im Namen Findaris, Gebet für Zelphia",
     "Poetry and Epic Stories, Glorification to Irmorom, Petition for Findari, Petition for Zelphia" );
   AddBookshelves( PositionsEightB, BooksEightB,
 	"Kodex der Grauen Rose",
@@ -553,7 +553,7 @@ end
 --        end
 --        User:sendMenu(BuecherMenue);
 --    else
---        -- Position fï¿½r Buch
+--        -- Position für Buch
 --        local buchPos = position(SourceItem.pos.x+1, SourceItem.pos.y+1, SourceItem.pos.z )    
 --        
 --        done = false;

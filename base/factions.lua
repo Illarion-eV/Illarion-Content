@@ -493,9 +493,9 @@ function createChoice(originator,message,choiceIndex,Factionvalues)
     local theChoice = choiceIndex[originator.id];
 	choiceIndex[originator.id] = nil;
 
---[[ fï¿½r Rï¿½nge =2: Hauptschlï¿½ssel, Kerkerschlï¿½ssel   (full member)
-	 fï¿½r Rï¿½nge =3 UND Anfï¿½hrer: Hauptschlï¿½ssel, Kerkerschlï¿½ssel, Anwï¿½rterdekret, Mitglieddekret, Anfï¿½hrerdekret (leader of guild)
-	 fï¿½r Rï¿½nge =1: Nix]]-- (aspirant of guild)
+--[[ für Ränge=2: Hauptschlüssel, Kerkerschlüssel   (full member)
+	 für Ränge=3 UND Anführer: Hauptschlüssel, Kerkerschlüssel, Anwärterdekret, Mitglieddekret, Anführerdekret (leader of guild)
+	 für Ränge=1: Nix]]-- (aspirant of guild)
 			     --aspirant Guild, full member, leader Guild
 	choiceAuthorizationsGuild = { {nil}, {4,5}, {1,2,3,4,5}}; --includes the choices(key, member decree...) which are Allowed to get bought by the Guildrank
 

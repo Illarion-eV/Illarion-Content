@@ -38,24 +38,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("\n \n Illarions Gï¿½tterwelt",0,0,0); 
             base.books.AddGermanBookText("Die Alten Gï¿½tter",0,0,0); 
             base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fï¿½nf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
-            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Gï¿½ldene. Er wird als stark, gerecht und groï¿½zï¿½gig beschrieben. ",0,0,0); 
-            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhï¿½nger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund fï¿½r seine geringe Gefolgschaft.",0,0,0); 
-            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zustï¿½ndig fï¿½r die Kunst. Auch ihre Anhï¿½nger sind dï¿½nn gesï¿½at, in aller Regel Wahrsager und Bï¿½nkelsï¿½nger.",0,0,0); 
+            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Gï¿½ldene. Er wird als stark, gerecht und großzï¿½gig beschrieben. ",0,0,0); 
+            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhï¿½nger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund für seine geringe Gefolgschaft.",0,0,0); 
+            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zustï¿½ndig für die Kunst. Auch ihre Anhï¿½nger sind dï¿½nn gesï¿½at, in aller Regel Wahrsager und Bï¿½nkelsï¿½nger.",0,0,0); 
             base.books.AddGermanBookText("Tanora ist die alte Gï¿½ttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Gï¿½ttern, die mï¿½glicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
             base.books.AddGermanBookText("Die alte Gottheit Ushara wacht ï¿½ber die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
             base.books.AddGermanBookText("Die Jï¿½ngeren Gï¿½tter",0,0,0); 
             base.books.AddGermanBookText("Die Jï¿½ngeren unter den Gottheiten waren elf herausragende Bï¿½rgerliche, die, auserwï¿½hlt von den Alten, bestimmt wurden, zu Gï¿½ttern aufzusteigen.",0,0,0); 
-            base.books.AddGermanBookText("Elara ist die Gï¿½ttin des Wissens. Sie wird hauptsï¿½chlich von Zauberern und Gelehrten verehrt. Gerï¿½chteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als groï¿½gewachsene alterslose Frau.",0,0,0); 
+            base.books.AddGermanBookText("Elara ist die Gï¿½ttin des Wissens. Sie wird hauptsï¿½chlich von Zauberern und Gelehrten verehrt. Gerï¿½chteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als großgewachsene alterslose Frau.",0,0,0); 
             base.books.AddGermanBookText("Adrons ist der Gott der Feste. Man sagt von ihm, er erscheine als ansehnlicher Mann oder auch als Bettler mit Flasche. Er ist aufbrausend und bisweilen streitlustig.",0,0,0); 
-            base.books.AddGermanBookText("Cherga is die Gï¿½ttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht fï¿½r Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
+            base.books.AddGermanBookText("Cherga is die Gï¿½ttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht für Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
             base.books.AddGermanBookText("Oldra is die Gï¿½ttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ï¿½ltere Frau auf. Viele Bauern, Mï¿½tter und Familien beten zu ihr.",0,0,0);
             base.books.AddGermanBookText("Nargï¿½n ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
-            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr wï¿½rdevoll, ernst und fï¿½r gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
+            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr wï¿½rdevoll, ernst und für gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
             base.books.AddGermanBookText("Irmorom ist der Gott des Handwerks und des Handels. Er liebt Wohlstand und Gerechtigkeit. Die, die ihn verehren, sind stolz auf ihre handwerklichen Begabungen und ihren Reichtum.",0,0,0);
             base.books.AddGermanBookText("Sirani ist die Gï¿½ttin der Liebe und des Vergnï¿½gens. Fï¿½r gewï¿½hnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
             base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzï¿½hlt, er wï¿½rde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hï¿½lt nichts von solchen Dingen.",0,0,0);
-            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht fï¿½r das Geben an Bedï¿½rftige und hï¿½lt nichts von strengen Gesetzen. Man erzï¿½hlt, er helfe ehrwï¿½rdigen Dieben.",0,0,0);
-            base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als groï¿½er Krieger zerbrochen.",0,0,0);
+            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht für das Geben an Bedï¿½rftige und hï¿½lt nichts von strengen Gesetzen. Man erzï¿½hlt, er helfe ehrwï¿½rdigen Dieben.",0,0,0);
+            base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als großer Krieger zerbrochen.",0,0,0);
 
             ---------------
             
@@ -81,24 +81,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Because halflings are not well in magic, it would be wise to give a practitioner room incase his spell has unwanted effects.",0,0,1);
 
             base.books.AddGermanBookText("\n \n Kultur und Geschichte der Halblinge",0,0,1);
-            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natï¿½rlich fï¿½rdert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
-            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der grï¿½ï¿½te Unterschied zu menschen in ihren groï¿½en und haarigen Fï¿½ï¿½en, die sie stolz in aller ï¿½fentlichkeit prï¿½sentieren. Sie neigen dazu, ï¿½lter zu werden als die Menschen.",0,0,1);
+            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fï¿½rdert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
+            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der grï¿½ï¿½te Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller ï¿½fentlichkeit prï¿½sentieren. Sie neigen dazu, ï¿½lter zu werden als die Menschen.",0,0,1);
             base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hï¿½gel und Wï¿½lder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen kï¿½nnen diese Hï¿½hlen eine beachtliche Grï¿½ï¿½e erreichen.",0,0,1);
             base.books.AddGermanBookText("Ihre Hï¿½user sind voller Mï¿½bel und anderer Besitztï¿½mer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
-            base.books.AddGermanBookText("Zuhause leben sie in Groï¿½familien, denen ein Clanfï¿½hrer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
+            base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanfï¿½hrer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
             base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dï¿½rfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gï¿½be im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
             base.books.AddGermanBookText("Und zwar Frï¿½hstï¿½ck, Mittagessen und Abendbrot!",0,0,1);
-            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse fï¿½r Essen und Trinken. Sie sind als Schleckermï¿½uler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag ï¿½ber die Kochkï¿½nste hï¿½lt.",0,0,1);
+            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermï¿½uler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag ï¿½ber die Kochkï¿½nste hï¿½lt.",0,0,1);
             base.books.AddGermanBookText("Es ist nicht unï¿½blich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschï¿½ftigen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden fï¿½r ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Krï¿½utersammler.",0,0,1);
+            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Krï¿½utersammler.",0,0,1);
             base.books.AddGermanBookText("In den Dï¿½rfern findet man hï¿½ufig kleine Oldra-Schreine. Tatsï¿½chlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
-            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafï¿½r entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne fï¿½r Diebstï¿½hle genutzt.",0,0,1);
+            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne für Diebstï¿½hle genutzt.",0,0,1);
             base.books.AddGermanBookText("Es ist ratsam, Halblinge im Auge zu behalten, die mit dem Zeichen Ronagans geschmï¿½ckt sind, sie kï¿½nnten Bï¿½ses im Schilde fï¿½hren.",0,0,1);
             base.books.AddGermanBookText("Halblinge haben zum Leben eine recht simple Einstellung. Sie sorgen sich selten um die Zukunft und ihr Auskommen, stattdessen bevorzugen sie Entspannung und einen anhaltenden Plausch mit guten Freunden.",0,0,1);
-            base.books.AddGermanBookText("Sie haben keinen Sinn fï¿½r Hierachien, halten aber Familie und Freundschaften fï¿½r unverzichtbar. Das kann man auch an ihrer lockeren Gesellschaftsstruktur ablesen.",0,0,1);
+            base.books.AddGermanBookText("Sie haben keinen Sinn für Hierachien, halten aber Familie und Freundschaften für unverzichtbar. Das kann man auch an ihrer lockeren Gesellschaftsstruktur ablesen.",0,0,1);
             base.books.AddGermanBookText("Ihre kindhafte Erscheinung  mag als Wehrlosigkeit missverstanden werden. Sie sind sehr schwer in Wallung zu bringen, vorausgesetzt, man spielt nicht gerade mit ihrem Essen.",0,0,1);
             base.books.AddGermanBookText("Sie sind auch sehr zielstrebig und man sollte einem halbling nicht in die Quere kommen, wenn er sich erst einmal etwas in den Kopf gesetzt hat. Orks wie Menschen mussten das auf die harte Tour lernen.",0,0,1);
-            base.books.AddGermanBookText("Weil Halblinge keine groï¿½artigen Magier sind, empfiehlt es sich, einem ï¿½benden aus dem Weg zu gehen, fï¿½r den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
+            base.books.AddGermanBookText("Weil Halblinge keine großartigen Magier sind, empfiehlt es sich, einem ï¿½benden aus dem Weg zu gehen, für den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
             
             ----------
             
@@ -131,15 +131,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Seit den Orkkriegen waren die Stï¿½mme der Zwerge weit verteilt ï¿½ber die Lï¿½nder, doch stets hielten sie fest an ihrem Glauben und an ihren Traditionen.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " So war auch das Fest der Bindung eine von ihnen die den Zwergen oft schon die heitersten Momente brachte...", 0, 0, 2 );
             base.books.AddGermanBookText( " Doch der Krieg und das andauernde Leid wï¿½hrend diesem lies den Drang sich an Liebe zu Binden erschwachen in den tapferen Herzen der Brï¿½der und so lebten sie sich immer weiter auseinander. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stï¿½mmen, die in verschiedenen Bergen hausten, zerriss und sie mehr fï¿½r sich als fï¿½r einander waren. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschï¿½pfen wiederfahren war und so lockte er den groï¿½en Schmied Ragnï¿½l Erik's Sohn und die groï¿½e Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stï¿½mmen, die in verschiedenen Bergen hausten, zerriss und sie mehr für sich als für einander waren. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschï¿½pfen wiederfahren war und so lockte er den großen Schmied Ragnï¿½l Erik's Sohn und die große Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
             base.books.AddGermanBookText( " die beiden verschiedene Stï¿½mme fï¿½hrten mit Hilfe einer List in ein entlegenes Bergwerk das schon seit langem verlassen war. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und kaum das die beiden fï¿½r sich waren freundeten sie sich an und trafen sich immer hï¿½ufiger in der besagten Mine. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und kaum das die beiden für sich waren freundeten sie sich an und trafen sich immer hï¿½ufiger in der besagten Mine. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Eines Tages beschloï¿½en sie einander zu heiraten und sie wollten die Hochzeit an jenem Ort feiern an dem sie sich so zufï¿½llig getroffen hatten. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Doch die Zwerge waren misstrauisch geworden und engstirnig so das sie nicht einsahen das sie in Zukunft teilen sollten mit den anderen so taten sich die ï¿½ltestenrï¿½te ", 0, 0, 2 );     
             base.books.AddGermanBookText( " beider Seiten zusammen und sprachen zu dem Paar: 'Es sei euch genehmigt zu heiraten und die Stï¿½mme zu vereinen, an dem Tage an dem das Bergwerk das ihr so sehr mï¿½gt wieder ", 0, 0, 2 );
             base.books.AddGermanBookText( " edele Gesteine hervorbringt.' Das stimmte Irmorom nachdenklich doch er war bereit dem Paar zu helfen und so lies er das Bergwerk vor Gold und Edelsteinen geradezu ï¿½berquellen. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und als dann das Paar mit der frohen Kunde erneut vor die ï¿½ltestenrï¿½te trat da sprachen sie: 'Es ist wie ihr verlangt habt das Bergwerk nun der schï¿½nsten Steine Pracht in sich birgt!' ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und als dann das Paar mit der frohen Kunde erneut vor die ï¿½ltestenrï¿½te trat da sprachen sie: 'Es ist wie ihr verlangt habt das Bergwerk nun der schönsten Steine Pracht in sich birgt!' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Kaum das der edle Schmied dies gesagt hatte blitzte die Gier in den Augen der ï¿½ltesten und ohne auch nur ï¿½ber die Hochzeit zu reden machten sie sich auf in die Minen um all das ", 0, 0, 2 );
             base.books.AddGermanBookText( " Gold und die Edelsteinen hinfortzutragen. Das erzï¿½rnte Irmorom so sehr das er persï¿½nlich vom heiligen Berg des Ursprungs herunterkam und als der Langbart, als den man ihn ", 0, 0, 2 );   
             base.books.AddGermanBookText( " schon oft gesehen hatte, unter die Zwerge trat. Er sprach zu den ï¿½ltesten: 'Seht euch an ihr die ihr euch die Weisen und edlen nennt ihr solltet euch schï¿½men der  ", 0, 0, 2 );   
@@ -172,12 +172,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Bluestone flow into a trinket in which there is another stone embedded.",0,0,3);
 
             base.books.AddGermanBookText("\n\n~~Blausteine~~",284,0,3);
-            base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine fï¿½r die meisten Personen ausstrahlt macht diese Steine fï¿½r Krieger wie auch fï¿½r Magier gleichermaï¿½en bedeutsam.",0,0,3);
-			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Blausteinen die Grundlage fï¿½r viele Arten von Schutzmagie sind.",0,0,3);
+            base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaï¿½en bedeutsam.",0,0,3);
+			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Blausteinen die Grundlage für viele Arten von Schutzmagie sind.",0,0,3);
             base.books.AddGermanBookText("Waffen:\n\nLï¿½sst man die magischen Energien von Blausteinen in eine Waffe einflieï¿½en, so steigert sich dadurch die Fï¿½higkeit des Trï¿½gers zur Verteidigung.",2626,0,3);
 			base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nIn Rï¿½stungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
 			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
-			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualitï¿½t des Werkzeuges.",72,0,3);
+			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualität des Werkzeuges.",72,0,3);
 			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Kï¿½rper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
 			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Blausteins in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
 

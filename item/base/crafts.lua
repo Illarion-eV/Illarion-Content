@@ -641,7 +641,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
     if self:checkSuccess(User, ItemID,toolItem) then
         local ItemQual = 0;
         local ItemCount = 1;
-        if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualitï¿½t
+        if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualität
             ItemQual = self:GenerateQuality( User, ItemID, toolItem );
             ItemCount = self.Products[ ItemID ].Quantity;
 			base.common.TempInformNLS(User,

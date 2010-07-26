@@ -30,7 +30,7 @@ for i,plant in pairs(plantList) do
 	plantDataListById[plant] = plantDataList[i];
 end
 
---Qualit�tsbezeichnungen
+--Qualit�tsbezeichnungen
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 

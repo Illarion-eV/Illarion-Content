@@ -42,7 +42,7 @@ function InitWegweiser()
     AddWeg({344,214,0},"Willkommen, Besucher der Elfen","Welcome, Visitors of the Elven",2,0);
     AddWeg({-49,-102,0},"Osten - Silberbrand hinter den Kupferbergen, dahinter Varshikar","East - Silverbrand behind the Copper Mountains, beyond to Varshikar",2,0);
     AddWeg({-446,-20,0},"Osten - Nach Troll's Bane","East - To Troll's Bane",2,0);
-    AddWeg({-74,-36,0},"Sï¿½dosten - Der Friedhof","South-East - The Graveyard",2,0);
+    AddWeg({-74,-36,0},"Südosten - Der Friedhof","South-East - The Graveyard",2,0);
     AddWeg({87,4,0},"Die Reste des Schildes zeigen gen Osten - 'Kallahorn'","The remains of the old sign shows to east - 'Kallahorn'",2,0);
     AddWeg({68,-104,0},"Osten - Varshikar","East - Varshikar",2,0);
     AddWeg({147,-155,0},"Osten - Varshikar","East - Varshikar",2,0);
@@ -56,22 +56,22 @@ function InitWegweiser()
     AddWeg({-401,81,0},"Zur Taverne","To the Tavern",2,0);
     AddWeg({-465,-471,0},"Besprechungs und Diskussionsrï¿½ume","Conference and discussion rooms",2,0);
     AddWeg({-472,-484,0},"Bï¿½se Spieler gibts hier zu sehen","Mean players you can find here",2,0);
-    AddWeg({-459,-484,0},"Besprechungsraum fï¿½r Druiden und Elfen","Conference room for druids and elfes",2,0);
+    AddWeg({-459,-484,0},"Besprechungsraum für Druiden und Elfen","Conference room for druids and elfes",2,0);
     AddWeg({-439,-490,0},"Treppe nach Varshikar","Ladder to Varshikar",2,0);
     AddWeg({-236,-337,0},"Haut ab, Ihr seid hier nicht willkommen!","Go away, you are not wanted here!",2,0);
     AddWeg({346,-36,0},"Hier!","Here!",2,0);
     
-    --Sï¿½den
+    --Süden
     AddWeg({-282,44,0},"Zu den Fï¿½hren","To the Ferries",4,0);
-    AddWeg({-69,-203,0},"Sï¿½den - Troll's Bane","South - Troll's Bane",4,0);
+    AddWeg({-69,-203,0},"Süden - Troll's Bane","South - Troll's Bane",4,0);
     AddWeg({-95,-107,0},"Zur Taverne Fluffy Sheep","To the tavern Fluffy Sheep",4,0);
-    AddWeg({-142,-49,0},"Sï¿½den - Zum Hafen, dahinter nach Greenbriar","South - To the Harbour, beyond to Greenbriar",4,0);
+    AddWeg({-142,-49,0},"Süden - Zum Hafen, dahinter nach Greenbriar","South - To the Harbour, beyond to Greenbriar",4,0);
     AddWeg({-175,54,0},"Zur Farmer Union","To the Farmer Union",4,0);
     AddWeg({-282,23,0},"Zum Hafen","To the Harbour",4,0);
     AddWeg({-95,-107,0},"Zur Taverne Fluffy Sheep","To the tavern Fluffy Sheep",4,0);
     AddWeg({-72,-141,0},"Zu Eliza's Shop","To Eliza's Shop",4,0);
-    AddWeg({-81,-66,0},"Sï¿½den - Die sï¿½dlichen Wï¿½lder. Achtung gefï¿½hrliche Kreaturen!","South - The southern Forests, Be careful, dangerous creatures!",4,0);
-    AddWeg({60,-186,0},"Sï¿½den - Nach Troll's Bane","South -To Troll's Bane",4,0);
+    AddWeg({-81,-66,0},"Süden - Die sï¿½dlichen Wï¿½lder. Achtung gefï¿½hrliche Kreaturen!","South - The southern Forests, Be careful, dangerous creatures!",4,0);
+    AddWeg({60,-186,0},"Süden - Nach Troll's Bane","South -To Troll's Bane",4,0);
     AddWeg({-118,-101,0},"Das Hospital","The Hospital",4,0);
     AddWeg({-419,39,0},"Willkommen in Greenbriar","Welcome to Green Briar",4,0);
     AddWeg({-489,-452,0},"Achtung Testgelï¿½nde! Betreten auf eigene Gefahr!","Danger proving ground! Entry on own risk",4,0);
@@ -83,7 +83,7 @@ function InitWegweiser()
     AddWeg({-82,-280,0},"Zur Nordmine - Achtung, Wï¿½lfe und Goblins!","To the northern mine - Attention, wolves and goblins!",6,0);
     AddWeg({-99,-189,0},"Westen - Der Leuchtturm","West - The Lighthouse",6,0);
     AddWeg({-208,-205,0},"Westen - Die Sï¿½mpfe, dahinter der Leuchtturm","West - The Swamps, and beyond the Lighthouse",6,0);
-    AddWeg({-76,-112,0},"Westen - Zu der Bibiliothek, der Taverne, die Werkstï¿½tten & dem Sï¿½dtor.","West - To the Library, the Tavern, Workshops & Southgate",6,0);
+    AddWeg({-76,-112,0},"Westen - Zu der Bibiliothek, der Taverne, die Werkstï¿½tten & dem Südtor.","West - To the Library, the Tavern, Workshops & Southgate",6,0);
     AddWeg({307,231,0},"Zu den Fï¿½hren","To the Ferries",6,0);
     AddWeg({-285,20,0},"Nach Greenbriar, Zum Kloster Eldan und Druidenhaus","To Greenbriar, To the Monastery of Eldan and the Druidhouse",6,0);
     AddWeg({-181,55,0},"Westen - Der Hafen, und dahinter Greenbriar","West - The Harbour, and beyond Greenbriar",6,0);
@@ -108,8 +108,8 @@ function InitWegweiser()
 --    AddWeg({ -69,-130,0},"Eliza's Shop - Neu im Sortiment: Kinder aller Rassen","Eliza's Shop - New for sale: Children of all races",2,0);
 --    AddWeg({ -59,-111,0},"Eliza's Shop - Neu im Sortiment: Kinder aller Rassen","Eliza's Shop - New for sale: Children of all races",0,0);
 --    AddWeg({ -74,-108,0},"Achtung - Geheimer Tunnelkomplex!","Attention - Secret Cave!",2,0);
---    AddWeg({ -90, -87,0},"Nur fï¿½r kurze Zeit: Das ekelhafteste, abscheulichste Bier auf ganz Gobaith - Frisch aus Silberbrand!","For a short time only: The most disgusting, abhorrent beer on Gobaith - Fresh from Silverbrand!",0,0);
---    AddWeg({ -96,-100,0},"Nur fï¿½r kurze Zeit: Das ekelhafteste, abscheulichste Bier auf ganz Gobaith - Frisch aus Silberbrand!","For a short time only: The most disgusting, abhorrent beer on Gobaith - Fresh from Silverbrand!",4,0);    
+--    AddWeg({ -90, -87,0},"Nur für kurze Zeit: Das ekelhafteste, abscheulichste Bier auf ganz Gobaith - Frisch aus Silberbrand!","For a short time only: The most disgusting, abhorrent beer on Gobaith - Fresh from Silverbrand!",0,0);
+--    AddWeg({ -96,-100,0},"Nur für kurze Zeit: Das ekelhafteste, abscheulichste Bier auf ganz Gobaith - Frisch aus Silberbrand!","For a short time only: The most disgusting, abhorrent beer on Gobaith - Fresh from Silverbrand!",4,0);    
 --    
 	
 	-- Noobia --
@@ -160,7 +160,7 @@ function InitWegweiser()
     AddGrave({-434,52,0},"Das Grab des unbekannten Halblings.","The grave of the unknown halfling.",3,0);
     AddGrave({-435,47,0},"Hier liegt Rosy Bottoms. 'Herzallerliebste Schwester, Du wurdest gerï¿½cht. ~Dusty Bottoms'.","Here Lies Rosy Bottoms Dearest. 'Sister You have been avenged. ~Dusty Bottoms'",1,0);
     AddGrave({-439,46,0},"Hier liegt Baron Dusty Bottoms vom westlichen Meer, Grï¿½nder vom Weiler Greenbriar, Diplomat, Kaufmann und Meisterhandwerker, Treuer Freund zu X und Demonen gleich. Ruhe in Frieden.","Here Lies Baron Dusty Bottoms of the Western Sea, Founder of the 'Hamlet of Greenbriar', Diplomat, Merchant and Master Craftsman, Truest friend to Men and Demons alike. Rest in Peace.",3,0);
-    AddGrave({-439,58,0},"Hier liegt Zal'undin, nun und fï¿½r immer.","Here lies Zal'undin, now and forever.",3,0);
+    AddGrave({-439,58,0},"Hier liegt Zal'undin, nun und für immer.","Here lies Zal'undin, now and forever.",3,0);
     AddGrave({-435,55,0},"Franz Strohblum, er starb in den Waeldern von Greenbriar als Widerstandskï¿½mpfer gegen die Horden des Tempels.","Franz Strohblum, he die in the Forest of Greenbriar as a resistance fighter to the hordes of the temple.",2,0);
     AddGrave({-442,54,0},"Geliebt, beweint und unvergessen ...! - Pia Dandelion -","beloved, weeped and unforgotten ...! - Pia Dandelion -",1,0);
     AddGrave({-442,55,0},"Keine Chance zu leben. Vergib mir! Anfala","No chance to life. Forgive me! Anfala",1,0);
@@ -215,7 +215,7 @@ function InitWegweiser()
     AddPennant({-150,-82,0},"Willkommen in Troll's Bane","Welcome in Troll's Bane",1,0); 
     AddPennant({-81,-148,0},"Willkommen in Troll's Bane","Welcome in Troll's Bane",2,0); 
     AddPennant({-77,-143,0},"Nordtor","Northern Gate",1,0); 
-    AddPennant({-155,-89,0},"Sï¿½dtor","Southern Gate",2,0); 
+    AddPennant({-155,-89,0},"Südtor","Southern Gate",2,0); 
     AddPennant({-63,-108,0},"Osttor","Eastern Gate",2,0); 
     AddPennant({-95,-100,-3},"Kï¿½nigreich Silberbrand","Kingdom of Silverbrand",2,0); 
     AddPennant({-96,-93,0},"Taverne \"Fluffy Sheep\" - Territorium Silberbrand","Tavern \"Fluffy Sheep\" - Territory of Silverbrand",2,0);
@@ -298,7 +298,7 @@ function InitWegweiser()
     -- 7 = scandrel pine
 
     -- Tol Vanima --
-    AddTree({432,205,0},"Katherine van Illdoran \"Ich habe nur ein Leben gelebt, aber fï¿½r Tausende geliebt.\"","Katherine van Illdoran \"I only lived one life, but i have loved for a thousand.\"",5,0);
+    AddTree({432,205,0},"Katherine van Illdoran \"Ich habe nur ein Leben gelebt, aber für Tausende geliebt.\"","Katherine van Illdoran \"I only lived one life, but i have loved for a thousand.\"",5,0);
 
 
     ---------------- Sï¿½ulen/Statuen  ----------------
@@ -310,13 +310,13 @@ function InitWegweiser()
     -- Tol Vanima (Magnus Haus) --
 	AddPillar({317, 241, 0},"~ Das primitive Relief einer Person, die an ein Tor, ï¿½hnlich dem neben der Sï¿½ule, klopft und wohl auch rufend um Einlass zu bitten scheint. ~","~ The primitive relief of a person that is knocking on a gate, similar to the one beside the pillar. Also, they seem to be pleading loudly for entrance. ~",1,0);
 	AddPillar({314, 241, 0},"~ Das primitive Relief einer Person, die das Tor nach Betreten des Raumes dahinter auch wieder schliesst. ~","~ The primitive relief of a person that closes the gate again after having entered the room behind it. ~",1,0);
-	AddPillar({317, 236, 0},"~ Die Statue einer gebeugten, alten Frau mit Kleidung und Haaren aus Efeu. Sie lï¿½chelt gï¿½tig, beinah groï¿½zï¿½gig. Zudem hï¿½lt sie eine Miniatur des Magnol-Anwesens in ihren Hï¿½nden. ~","~ The statue of an old, bent woman with clothes and hair made of ivy. She is smiling gratefully, even almost generously. Additionally she is holding a miniature of the Magnol-house in her hands. ~",2,0);
+	AddPillar({317, 236, 0},"~ Die Statue einer gebeugten, alten Frau mit Kleidung und Haaren aus Efeu. Sie lï¿½chelt gï¿½tig, beinah großzï¿½gig. Zudem hï¿½lt sie eine Miniatur des Magnol-Anwesens in ihren Hï¿½nden. ~","~ The statue of an old, bent woman with clothes and hair made of ivy. She is smiling gratefully, even almost generously. Additionally she is holding a miniature of the Magnol-house in her hands. ~",2,0);
 	AddPillar({314, 236, 0},"~ Die Statue eines Jï¿½nglings, fein gekleidet und mit einem sehr freundlichen Lï¿½cheln auf den Lippen. Er hat eine Hand ausgesteckt, als wolle er die des Ankï¿½mmlings schï¿½tteln. ~","~ The statue of a young man, nicely clad and bearing a very friendly smile on his lips. One of his hands is extended as if to shake that of the newcomer. ~",2,0);
 	AddPillar({315, 233, 1},"~ Die Statue eines Hï¿½nen, dessen Kï¿½rper fast vollstï¿½ndig in Flammen gehï¿½llt ist. Ein strenger, mahnender Ausdruck ruht in den Zï¿½gen seines kantigen Gesichts. ~","~The statue of a giant whose body is almost fully covered in flames. His facial expression and the look in his eyes are strict and warning. ~",2,0);
 	AddPillar({317, 233, 1},"~ Die Statue eines schielenden aber lï¿½chelnden Greises, der am Stock geht und dessen magerer Kï¿½rper mit Lumpen eingekleidet ist. Mit seiner Rechten hï¿½lt er einen Krug hoch und prostet dir zu. ~","~ The statue of a cross-eyed but smiling old man who walks with the help of a stick and whose thin body is clad with rags. With his right hand he is holding up a mug to toast you. ~",2,0);
 	AddPillar({312, 232, 2},"~ Das Relief zwei junger Mï¿½nner, die auf einem Steg stehen und dich, beide mit Reisebï¿½ndeln beladen, hoffnungsvoll aber auch etwas unsicher ansehen. ~","~ The relief of two young men standing on a landing stage. Loaded with travelling bags they are both looking at you hopefully but also with a certain uncertainty. ~",1,0);
-	AddPillar({325, 232, 2},"~ Das Relief einer wunderschï¿½nen, kurzhaarigen Elfe, die am Fuï¿½e eines Baumes sitzt. Zwischen ihren Knien hï¿½lt sie eine Harfe und ihre zerbrechlichen Finger streicheln die Saiten. ~","~ The relief of a beautiful, short-haired elfess who is sitting at the bottom of a tree. Between her knees she holds a harp while her delicate fingers stroke the cords. ~",1,0);
-	AddPillar({312, 239, 2},"~ Das Relief eines schrecklichen Skelettkriegers, der einen gewaltigen Streithammer schwingt, dessen Kopf von einer unnatï¿½rlichen Aura umgeben ist. ~","~ The relief of a terrible skeleton warrior who is wielding an impressive warhammer. The head of this weapon is enveloped within an unnatural aura. ~",1,0);
+	AddPillar({325, 232, 2},"~ Das Relief einer wunderschönen, kurzhaarigen Elfe, die am Fuï¿½e eines Baumes sitzt. Zwischen ihren Knien hï¿½lt sie eine Harfe und ihre zerbrechlichen Finger streicheln die Saiten. ~","~ The relief of a beautiful, short-haired elfess who is sitting at the bottom of a tree. Between her knees she holds a harp while her delicate fingers stroke the cords. ~",1,0);
+	AddPillar({312, 239, 2},"~ Das Relief eines schrecklichen Skelettkriegers, der einen gewaltigen Streithammer schwingt, dessen Kopf von einer unnatürlichen Aura umgeben ist. ~","~ The relief of a terrible skeleton warrior who is wielding an impressive warhammer. The head of this weapon is enveloped within an unnatural aura. ~",1,0);
 	AddPillar({325, 239, 2},"~ Das Relief einer traurigen Szene. Ein junger Holzfï¿½ller, sein Beil in der Linken, wird von einem riesigen, umfallenden Apfelbaum, der pralle Frï¿½chte trï¿½gt, begraben. ~","~ The relief of a tragic scene. A young lumberjack, holding his hatchet in the left hand, is buried beneath a giant, falling apple tree. Its branches bear big, proud fruits. ~",1,0);
 	AddPillar({314, 234, 2},"~ Das Relief einer aufgewï¿½hlten See, deren hohe Wogen eine Nussschale von Segelboot bedrï¿½ngen. Es ist eine zusammengekauerte Gestalt an Bord, die ihre Arme um den Mast geschlungen hat. ~","~ The relief of a rough sea pressuring a tiny sailboat. There is a crouching figure on board with her arms wrapped around the mast. ~",1,0);
 	AddPillar({323, 234, 2},"~ Das Relief eines gemï¿½tlichen Bauernhauses, das von weiten Feldern umgeben ist. Auf diesen kann man einen Mann mit Schlapphut sehen, der eine Vogelscheuche aufstellt. ~","~ The relief of a comfortable farmhouse surrounded by great fields on which you can recognize a man with slouch hat setting up a scarecrow. ~",1,0);

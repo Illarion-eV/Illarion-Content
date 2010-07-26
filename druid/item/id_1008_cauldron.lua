@@ -67,7 +67,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         
         -- Das Flascheitem wird entsprechend aller Daten modifiziert
         bottleInHand.id = 331;
-        -- Die Qualit�t des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
+        -- Die Qualit�t des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
 		local quali = (User:getSkill("alchemy") + 10) * 10;
 		if(quali > 999) then
 			quali = 999;

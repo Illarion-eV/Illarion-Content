@@ -125,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User, 
-        "Du hast kein Holz das du zersï¿½gen kï¿½nntest.", 
+        "Du hast kein Holz das du zersï¿½gen könntest.", 
         "You don't have any wood you could saw." );
     end
 end

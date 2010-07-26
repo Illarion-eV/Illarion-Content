@@ -88,7 +88,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
                 if base.common.IsInterrupted( User ) then
                     base.common.InformNLS(User,
-                    "Der Fï¿½rberstab fï¿½llt dir in den Farbeimer. Nach einigem suchen findest du ihn darin wieder. Die Qualitï¿½t deiner Farbe hast du gleich mal mit deinen Hï¿½nden getestet.",
+                    "Der Fï¿½rberstab fï¿½llt dir in den Farbeimer. Nach einigem suchen findest du ihn darin wieder. Die Qualität deiner Farbe hast du gleich mal mit deinen Hï¿½nden getestet.",
                     "You drop the dyers wand into the bucket with color. After a while of searching you find it again. You can see the quality of your color at your hands now.");
                     return
                 end

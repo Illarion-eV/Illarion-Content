@@ -6,7 +6,7 @@ require("npc.base.ships");
 require("npc.base.functions");
 module("npc.blackbeard", package.seeall, package.seeall(npc.base.ships));
 
--- Insert Statements fï¿½r Nï¿½tige NPCs
+-- Insert Statements für Nï¿½tige NPCs
 -- INSERT INTO npc VALUES (1000,2,-401,-489,0,0,'f','Ship NPC',NULL,0);
 -- INSERT INTO npc VALUES (1001,2,-401,-488,0,0,'f','Ship NPC',NULL,0);
 -- INSERT INTO npc VALUES (1002,2,-401,-487,0,0,'f','Ship NPC',NULL,0);
@@ -35,9 +35,9 @@ end;
 function dummy()
     if InitShips() then
         anchor = position(-290,53,0);
-        route = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4, -- 49x Sï¿½den
+        route = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4, -- 49x Süden
                  6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6, -- 52x Westen
-                 4,4,4,4,4,4,4,4,4,4,4,4,4, -- 13x Sï¿½den
+                 4,4,4,4,4,4,4,4,4,4,4,4,4, -- 13x Süden
                  6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6, -- 51x Westen
                  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 -- 19x Norden
                 }

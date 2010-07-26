@@ -124,7 +124,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (ltstate ~= Action.success) then
         base.common.InformNLS( User,
-        "Du hast kein Rohleder und keine Felle die du gerben kï¿½nntest.",
+        "Du hast kein Rohleder und keine Felle die du gerben könntest.",
         "You don't have any rawleather or furs you could tan." );
     end
 end

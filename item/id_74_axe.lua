@@ -118,7 +118,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     initLists(  );
     if (SourceItem:getType() ~= 4) then
         base.common.InformNLS( User,
-        "Zum Bï¿½ume fï¿½llen musst du die Axt in die Hand nehmen.",
+        "Zum Bäume fï¿½llen musst du die Axt in die Hand nehmen.",
         "To chop a tree you need to take the axe in your hands." );
         return
     end

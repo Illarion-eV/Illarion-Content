@@ -27,7 +27,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
   --
 --base.common.InformNLS( Caster, 
 --"Dieser Gegenstand hat ein Volumen von "..myItem.Volume.." druidischen Volumeneinheiten", 
---"This item has a volume of "..myItem.Volume.." druid volume-units"); -- das kann man schï¿½ner formulieren
+--"This item has a volume of "..myItem.Volume.." druid volume-units"); -- das kann man schöner formulieren
   
   textDE="Dieser Gegenstand hat ein Volumen von "..myItem.Volume.." druidischen Volumeneinheiten"
   textEN="This item has a volume of "..myItem.Volume.." druid volume-units"

@@ -48,7 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User:countItemAt("belt",259) == 0) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du hast nichts was du hier zermahlen kï¿½nntest.", 
+            "Du hast nichts was du hier zermahlen könntest.", 
             "You have nothing that you can grind here." );
         end
         return
@@ -96,7 +96,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             "You beat the flour out of your clothes so that you do not look like a ghost anymore.");
         elseif ( selectMessage == 4 ) then
             base.common.InformNLS(User,
-            "Du sï¿½uberst kurz den Mï¿½hlstein um eine bessere Qualitï¿½t des Mehls zu erreichen.",
+            "Du sï¿½uberst kurz den Mï¿½hlstein um eine bessere Qualität des Mehls zu erreichen.",
             "You clean the millstone.");
         else
             base.common.InformNLS(User,

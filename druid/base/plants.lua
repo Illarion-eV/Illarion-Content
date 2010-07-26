@@ -1,4 +1,4 @@
--- Skript fï¿½r das Druidensystem
+-- Skript für das Druidensystem
 -- Pflanzennamen
 require("base.common")
 

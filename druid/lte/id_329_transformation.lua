@@ -1,4 +1,4 @@
--- LTE fï¿½r das Druidensystem
+-- LTE für das Druidensystem
 -- by Falk
 -- Zeitverlauf und Rï¿½ckwandlung bei Verwandlungen
 require("base.common")

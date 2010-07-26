@@ -33,7 +33,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Die Kuchenbibel",0,0,toData);
     base.books.AddGermanBookText("Inhaltsverzeichnung:\nWidmung Seite 3\nVorbereitung Seite 4-5\nRezepte Seite 5-15\nUnterformen Seite 16-20\nPhilosophisches Seite 21-22\nDanksagen, Seite",0,0,toData);
     base.books.AddGermanBookText("Widmung:\n\n An alle Freunde der sï¿½ï¿½en Leckereien\n\n\n Die Autoren Lana von Maibach und Cassandria",0,0,toData);
-    base.books.AddGermanBookText("Vorbereitung:\n Um losbacken zu kï¿½nnen, braucht man natï¿½rlich erstmal ganz viel Teig, ein Nudelholz, um den Teig auszuwï¿½llen, einen Ofenschieber und nï¿½tï¿½rlich die jeweigen Zutaten. Man lege sich dies",0,0,toData);
+    base.books.AddGermanBookText("Vorbereitung:\n Um losbacken zu kï¿½nnen, braucht man natürlich erstmal ganz viel Teig, ein Nudelholz, um den Teig auszuwï¿½llen, einen Ofenschieber und nï¿½tï¿½rlich die jeweigen Zutaten. Man lege sich dies",0,0,toData);
     base.books.AddGermanBookText("alles zurecht und schon kann der Backspass beginnen.",0,0,toData);
     base.books.AddGermanBookText("Apfelhauch:\n\n Man nehme zwei Batzen Teig und fome daraus erstmal eine Runde Form. Dann schï¿½llt und entkern man die ï¿½pfel, aï¿½erbem muss man sie noch in Stï¿½ck schneiden. Man nimmt eine der rrunden",353,0,toData); -- ### Apfelkuchen ###
     base.books.AddGermanBookText("Teiformen und setze darauf vorsichtig die einzelnen Apfelscheiben je nach Geschmack nï¿½her oder weiter auseinander Dann denkt man den Kuchen mit der anderen Teigform zu und backt sie bei mittlerer",0,0,toData);
@@ -50,7 +50,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Teigbehï¿½ltnis zu und bï¿½ckt das ganze etwa 10 Minuten und dann kann man auf Brombeerwolken schweben.",0,0,toData);
     base.books.AddGermanBookText("Sï¿½ï¿½e Verfï¿½hrung:\n\nMan wï¿½llt einen Teigklumpen aus und macht Ausstecherchen. Dann erhitzt man Honig, bis sich dieser vollstï¿½ndig verflï¿½ssigt hat und bestreiche die Ausstecher mit einem Pinzel mit",453,0,toData); -- ### Kekse ###
     base.books.AddGermanBookText("Honig. Das ganze wird dann noch etwa 15 Minuten bei mittlerer Hitze gebacken und man kann sich dann der Verfï¿½hrung hingeben.",0,0,toData);
-    base.books.AddGermanBookText("Die Gï¿½te des Kuchens:\n(Auch auf andere Schleckereien anwendbar)\n\nDie Qualitï¿½t eines Kuchen wird an den Bisstellen im Kuchen gemessen. Sollten soviele Bisstellen vorhanden sein, dass kein Kuchen",0,0,toData);
+    base.books.AddGermanBookText("Die Gï¿½te des Kuchens:\n(Auch auf andere Schleckereien anwendbar)\n\nDie Qualität eines Kuchen wird an den Bisstellen im Kuchen gemessen. Sollten soviele Bisstellen vorhanden sein, dass kein Kuchen",0,0,toData);
     base.books.AddGermanBookText("mehr da ist, kann man davon ausgehen, dass der Kuchen ein guter Kucchen war.",0,0,toData);
     base.books.AddGermanBookText("Danksagung:\n\n Wir danken allen Kuchen, Keksen und Muffins, die von uns verspeist wurden und uns zu dieser Bibel inspiriert haben. Desweiteren mï¿½chten wir den Bï¿½ckern danken, ohne die es diese",0,0,toData);
     base.books.AddGermanBookText("Leckerein nicht gebe, auï¿½erdem unseren Freunden, die uns mit Leckerein versorgt haben, wï¿½hrend wir dieses Buch schrieben\n\n Die Autoren\n Lana von Maibach und Cassandria",0,0,toData);

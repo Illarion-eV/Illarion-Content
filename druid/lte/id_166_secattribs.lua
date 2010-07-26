@@ -1,4 +1,4 @@
--- LTE fï¿½r das Druidensystem
+-- LTE für das Druidensystem
 -- by Falk
 
 module("druid.lte.id_166_secattribs", package.seeall)

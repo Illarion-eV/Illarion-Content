@@ -41,16 +41,16 @@ function LookAtItem(User,Item)
         else
             world:itemInform(User,Item,"You see a peculiar dagger.");
         end
-    elseif (Item.data == 800) then -- Questitem fï¿½r Noradur (Char lï¿½st sich ig auf - teleport zum gm schloss)
-        if ( (User:isAdmin()) or (User.id==923280786)) then -- nur fï¿½r gm
+    elseif (Item.data == 800) then -- Questitem für Noradur (Char lï¿½st sich ig auf - teleport zum gm schloss)
+        if ( (User:isAdmin()) or (User.id==923280786)) then -- nur für gm
             if (User:getPlayerLanguage()==0) then
                 world:itemInform(User,Item,"Auf dem Ring sind am Rand verschlungene arkane Symbole zu erkennen.");
             else
                 world:itemInform(User,Item,"You can see some arcane symbols engraved in the ring.");
             end
         end
-    elseif (Item.data == 801) then -- Questitem fï¿½r Noradur (Firebreathing)
-        if (User:isAdmin()) then -- nur fï¿½r gm
+    elseif (Item.data == 801) then -- Questitem für Noradur (Firebreathing)
+        if (User:isAdmin()) then -- nur für gm
             if (User:getPlayerLanguage()==0) then
                 world:itemInform(User,Item,"Ring des Feuers");
             else
@@ -58,7 +58,7 @@ function LookAtItem(User,Item)
             end
         end
     elseif (Item.data == 802) then -- Questitem  (Ritual)
-        if (User:isAdmin()) then -- nur fï¿½r gm
+        if (User:isAdmin()) then -- nur für gm
             if (User:getPlayerLanguage()==0) then
                 world:itemInform(User,Item,"Ritual");
             else
@@ -66,7 +66,7 @@ function LookAtItem(User,Item)
             end
         end
 	elseif (Item.data == 803) then -- Questitem (Icebreathing)
-        if (User:isAdmin()) then -- nur fï¿½r gm
+        if (User:isAdmin()) then -- nur für gm
             if (User:getPlayerLanguage()==0) then
                 world:itemInform(User,Item,"Ring des Eises");
             else
@@ -74,7 +74,7 @@ function LookAtItem(User,Item)
             end
         end
     elseif (Item.data == 804) then -- Questitem  (Give the crown)
-        if (User:isAdmin()) then -- nur fï¿½r gm
+        if (User:isAdmin()) then -- nur für gm
                 world:itemInform(User,Item,"Give the crown! (Krone erscheint auf 370, 134, -10)");
         end
     else
@@ -182,9 +182,9 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         -- Questring (Rilduran-quest)
         ---------------------------------------------------------------
         if (SourceItem.data == 800) then
-            if ( (User:isAdmin())  or (User.id==923280786) ) then -- nur fï¿½r gm!!
+            if ( (User:isAdmin())  or (User.id==923280786) ) then -- nur für gm!!
                 if ( string.find( User.lastSpokenText, "[Aa][Ss][Tt][Rr][Aa][Ll]" ) ~= nil ) then
-                    User:talkLanguage( CCharacter.say, CPlayer.german, "#me's Konturen scheinen fï¿½r einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollstï¿½ndig auflï¿½st.");
+                    User:talkLanguage( CCharacter.say, CPlayer.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollstï¿½ndig auflï¿½st.");
                     User:talkLanguage( CCharacter.say, CPlayer.english, "#me's outlines begins to glimmer, before his form dissolves completely.");
                     world:gfx(52,User.pos);
                     User:warp(position(-37,-193,1));
@@ -201,7 +201,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         -----------------------------------------------------------------
         -- Questring (Drachen-quest)
         -----------------------------------------------------------------
-		if (User:isAdmin()) then -- nur fï¿½r gm!!
+		if (User:isAdmin()) then -- nur für gm!!
         	if (SourceItem.data == 801) then
                 if (User:get_race() == 33) then
                     FireBreath(User);
@@ -218,7 +218,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         -- Questring (Ritual)
         ------------------------------------------------------------------
         if (SourceItem.data == 802) then
-            if (User:isAdmin()) then -- nur fï¿½r gm!!
+            if (User:isAdmin()) then -- nur für gm!!
                 if ( string.find( User.lastSpokenText, "Stufe1" ) ~= nil ) then
                     world:gfx(37,position(50,-328,-23));	-- wasser
                     world:gfx(5,position(48,-330, -23));	-- erde
@@ -273,7 +273,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
 		-- Questring (Give the crown)
         ------------------------------------------------------------------
 		if (SourceItem.data == 804) then
-            if (User:isAdmin()) then -- nur fï¿½r gm!!
+            if (User:isAdmin()) then -- nur für gm!!
 				world:gfx(7,position(370,134, -10));    -- wind
                 world:gfx(7,position(371,134, -10));    -- wind
                 world:gfx(7,position(369,134, -10));    -- wind
@@ -308,7 +308,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         --------------------------------------
     end
     function UseItemWithField(User,SourceItem,TargetPos,Counter,Param,ltstate)
-		if (User:isAdmin()) then -- nur fï¿½r gm!!
+		if (User:isAdmin()) then -- nur für gm!!
         	if (SourceItem.data == 801) then
         	    if (User:get_race() == 33) then
         	        FireBreath(User);

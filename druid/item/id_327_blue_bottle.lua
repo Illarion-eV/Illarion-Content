@@ -11,8 +11,8 @@ module("druid.item.id_327_blue_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
--- Datawerte fï¿½r Wurfkï¿½rper
--- Werte mï¿½ssen fï¿½r optimierte Suche aufsteigend geordnet sein
+-- Datawerte für Wurfkï¿½rper
+-- Werte mï¿½ssen für optimierte Suche aufsteigend geordnet sein
 listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 26372612, 29732752, 32185872, 32484266,
           32812622, 33421656, 35471525, 36557188, 36835636, 42218944, 43185342, 43245354, 47564545, 52761593, 55938556,
           56548394, 57771997, 59159412, 62358491, 63155452, 64312656, 66475155, 67589591, 69657293, 71943574, 75568356,
@@ -171,7 +171,7 @@ function Drop(User,Item)
         User:talkLanguage(CCharacter.say,CPlayer.german,"#me lï¿½sst eine Flasche fallen, welche explodiert.");
         User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
         base.common.InformNLS( User,
-        "Der Wurfkï¿½rper rutscht dir aus den Hï¿½nden und zerplatzt vor deinen Fï¿½ï¿½en.",
+        "Der Wurfkï¿½rper rutscht dir aus den Hï¿½nden und zerplatzt vor deinen Füßen.",
         "The missile slips out of your hands and burst asunder in front of you feets.");
     end;
 end;

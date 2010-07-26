@@ -157,7 +157,7 @@ function LookAtItem(User,Item)
         EtikettDe = "Gestaltenwandler Rotwurm"
         EtikettEn = "Shape Shifter Potion Redworm"
     elseif item.id_data == 99992352 then
-        EtikettDe = "Gestaltenwandler Groï¿½er Dï¿½mon"
+        EtikettDe = "Gestaltenwandler Großer Dï¿½mon"
         EtikettEn = "Shape Shifter Potion Big Demon"
     elseif item.id_data == 38114786 then
         EtikettDe = "Gestaltenwandler Skorpion"

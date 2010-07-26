@@ -141,11 +141,11 @@ function teleportLookAt( User, Item )
     elseif ( phi < 9*math.pi/8 ) then
         dirTxt = base.common.GetNLS( User, "Westen", "west" );
     elseif ( phi < 11*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Sï¿½dwesten", "southwest" );
+        dirTxt = base.common.GetNLS( User, "Südwesten", "southwest" );
     elseif ( phi < 13*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Sï¿½den", "south" );
+        dirTxt = base.common.GetNLS( User, "Süden", "south" );
     elseif ( phi < 15*math.pi/8 ) then
-        dirTxt = base.common.GetNLS( User, "Sï¿½dosten", "southeast" );
+        dirTxt = base.common.GetNLS( User, "Südosten", "southeast" );
     else
         dirTxt = base.common.GetNLS( User, "Osten", "east" );
     end;

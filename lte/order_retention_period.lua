@@ -20,7 +20,7 @@ function addEffect (eff, User)
 end
 
 function removeEffect (eff,User)
-    --beim entfernen die Vertrauenswï¿½rdigkeit erhï¿½hen aber wert fï¿½r gute Auftrï¿½ge senken
+    --beim entfernen die Vertrauenswï¿½rdigkeit erhï¿½hen aber wert für gute Auftrï¿½ge senken
     base.orders.setThrustWorthyness(User,
         base.orders.ThrustworthynessChangeAfterRetentionPeriod,
         base.orders.GoodOrderChangeAfterRetentionPeriod);

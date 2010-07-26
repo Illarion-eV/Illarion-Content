@@ -41,7 +41,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     if seedList == nil then
         seedList = {  };
 		
-		-- ID der Pflanze, Skill fï¿½r 3 Pflanzen, Skill fï¿½r 2 Pflanze, Skill fï¿½r 1 Pflanze, anbaubar in {spring,summer,fall,winter}, Regionale Einschrï¿½nkung x-Koord., Regionale Einschrï¿½nkung Y-Koord.		
+		-- ID der Pflanze, Skill für 3 Pflanzen, Skill für 2 Pflanze, Skill für 1 Pflanze, anbaubar in {spring,summer,fall,winter}, Regionale Einschrï¿½nkung x-Koord., Regionale Einschrï¿½nkung Y-Koord.		
         
         seedList[  259 ] = { 
           246,50,30,10,              -- Getreide: -V247 -V248 (sense) -V249 ( Skript dreschen )- 246

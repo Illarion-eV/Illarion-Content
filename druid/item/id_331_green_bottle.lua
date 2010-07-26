@@ -1,4 +1,4 @@
--- Testskript 1 fï¿½r Weiterentwicklung Druidenmagie
+-- Testskript 1 für Weiterentwicklung Druidenmagie
 -- 2007 by Falk
 -- 2009 by Nitram
 -- Trinken aus grï¿½ner Flasche (331)

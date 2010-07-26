@@ -47,7 +47,7 @@ function dummy()
     AddTraderTrigger("Help","");
     AddConsequence("inform","[Game Help] This NPC is Bippi the peasant. Keyphrases: milk,cow,farmhand,task,'what is my task?'.");
     AddTraderTrigger("Hilfe","");
-    AddConsequence("inform","[Spielhilfe] Dieser NPC ist Bippi der Bauer. Schlï¿½sselwï¿½rter: Milch,Kuh,Helfer,Aufgabe,'Was ist meine Aufgabe?'.");
+    AddConsequence("inform","[Spielhilfe] Dieser NPC ist Bippi der Bauer. Schlüsselwï¿½rter: Milch,Kuh,Helfer,Aufgabe,'Was ist meine Aufgabe?'.");
     
 	-- General Speech
     -- First contact
@@ -73,9 +73,9 @@ function dummy()
     AddAdditionalTrigger("Moin");
     AddAdditionalTrigger("mit dir");
     AddCondition("qpg","=",0);
-    AddAdditionalText("Hallo da! Oh ihr seht aber mï¿½de aus. Darf ich euch eine Schale Milch aufwarten, als Stï¿½rkung?");
+    AddAdditionalText("Hallo da! Oh ihr seht aber müde aus. Darf ich euch eine Schale Milch aufwarten, als Stï¿½rkung?");
     AddAdditionalText("Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berï¿½hmte Milch zu probieren.");
-    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was fï¿½r eine Milch es sich handelt.");
+    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt.");
     
     AddTraderTrigger("Hiho","Oh greetings, traveler! How nice of you to drop by, can I offer you a bowl of 'milk'?");
     AddAdditionalTrigger("Hallo");
@@ -86,7 +86,7 @@ function dummy()
     AddCondition("qpg","=",0);
     AddAdditionalText("Hello there! Oh you sure look tired. May I offer you a bowl of milk, it's replenishing.");
     AddAdditionalText("Hiho! So you've found your way to old Bippi here. You're here to try my famous milk, I guess?");
-    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was fï¿½r eine Milch es sich handelt.");
+    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt.");
     
 	AddTraderTrigger("Hiho","Oh Grï¿½ï¿½e, Reisender! Besuch freut mich immer, darf ich euch eine Schale 'Milch' anbieten?");
     AddAdditionalTrigger("Hallo");
@@ -95,9 +95,9 @@ function dummy()
     AddAdditionalTrigger("Greebs");
     AddCondition("lang","german");
     AddCondition("qpg","=",0);
-    AddAdditionalText("Hallo da! Oh ihr seht aber mï¿½de aus. Darf ich euch eine Schale Milch aufwarten, als Stï¿½rkung?");
+    AddAdditionalText("Hallo da! Oh ihr seht aber müde aus. Darf ich euch eine Schale Milch aufwarten, als Stï¿½rkung?");
     AddAdditionalText("Hiho! Da habt ihr also zum alten Bippi gefunden. Ihr kommt bestimmt um meine berï¿½hmte Milch zu probieren.");
-    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was fï¿½r eine Milch es sich handelt.");
+    AddConsequence("inform","Milch hï¿½rt sich jetzt sehr verlockend an, aber du fragst ihn besser vorher um was für eine Milch es sich handelt.");
     -- After receiving the quest
     AddTraderTrigger("Hello","Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.");
     AddAdditionalTrigger("Greetings");
@@ -109,7 +109,7 @@ function dummy()
     AddAdditionalTrigger("Good evening");
     AddAdditionalText("Good to see you again! Let's check if there's something to do for you.");
     AddAdditionalText("Welcome, the cows have already inquired about you.");
-    AddTraderTrigger("Grï¿½ï¿½e","Oh wie schï¿½n, dass ihr zurï¿½ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.");
+    AddTraderTrigger("Grï¿½ï¿½e","Oh wie schön, dass ihr zurï¿½ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.");
     AddAdditionalTrigger("Gruï¿½");
     AddAdditionalTrigger("Seid gegrï¿½ï¿½t");
     AddAdditionalTrigger("Guten Tag");
@@ -118,7 +118,7 @@ function dummy()
     AddAdditionalTrigger("Tach");
     AddAdditionalTrigger("Moin");
     AddAdditionalTrigger("mit dir");
-    AddAdditionalText("Es ist schï¿½n euch wiederzusehen. Lasst uns schauen ob es etwas fï¿½r euch zu tun gibt.");
+    AddAdditionalText("Es ist schön euch wiederzusehen. Lasst uns schauen ob es etwas für euch zu tun gibt.");
     AddAdditionalText("Willkommen, die Kï¿½he haben schon nach euch gefragt.");
     AddTraderTrigger("Hiho","Oh you're back, that's nice! I think there's a new task waiting for you, but I might be wrong.");
     AddAdditionalTrigger("Hallo");
@@ -128,13 +128,13 @@ function dummy()
     AddCondition("lang","english");
     AddAdditionalText("Good to see you again! Let's check if there's something to do for you.");
     AddAdditionalText("Welcome, the cows have already inquired about you.");
-    AddTraderTrigger("Hiho","Oh wie schï¿½n, dass ihr zurï¿½ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.");
+    AddTraderTrigger("Hiho","Oh wie schön, dass ihr zurï¿½ck seid! Ich glaube es wartet eine neue Aufgabe auf euch, ich kann mich aber auch irren.");
     AddAdditionalTrigger("Hallo");
     AddAdditionalTrigger("Hey");
     AddAdditionalTrigger("Greebas");
     AddAdditionalTrigger("Greebs");
     AddCondition("lang","german");
-    AddAdditionalText("Es ist schï¿½n euch wiederzusehen. Lasst uns schauen ob es etwas fï¿½r euch zu tun gibt.");
+    AddAdditionalText("Es ist schön euch wiederzusehen. Lasst uns schauen ob es etwas für euch zu tun gibt.");
     AddAdditionalText("Willkommen, die Kï¿½he haben schon nach euch gefragt.");
    
     -- Time to say Goodbye & Smalltalk
@@ -171,7 +171,7 @@ function dummy()
     AddAdditionalText("Ah my leg grows stiffer each passing week. I worry who will take care of my cows when one day I...");
     AddAdditionalText("Work is hard and I'm not growing any younger. I think I need someone to take care of some of my tasks.");
     AddTraderTrigger("Wie geht","Ach, ich spï¿½re das Alter in meinen Knochen. Hï¿½tte ich doch nur jemanden der im Stall aushilft.");
-    AddAdditionalTrigger("Wie fï¿½hlst");
+    AddAdditionalTrigger("Wie fühlst");
     AddAdditionalTrigger("Wie ist es ergangen");
     AddAdditionalTrigger("Wie Befinden");
     AddAdditionalText("Ah mein Bein wird von Woche zu Woche steifer. Ich sorge mich schon wer sich um meine Kï¿½he kï¿½mmern wird wenn ich einmal...");
@@ -206,7 +206,7 @@ function dummy()
     AddAdditionalText("Well if you ask like that. I think I need farmhands to cope with all the work, maybe you want to help me?");
     AddTraderTrigger("erzï¿½hl was","Nun, ihr seht nicht aus wie ein Viehzï¿½chter, sonst wï¿½rde ich ï¿½ber die Arbeit sprechen.");
     AddAdditionalTrigger("erzï¿½hl etwas");
-    AddAdditionalText("Mein Groï¿½groï¿½vater hat angefangen sein Wissen ï¿½ber Milchkï¿½he weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.");
+    AddAdditionalText("Mein Großgroßvater hat angefangen sein Wissen ï¿½ber Milchkï¿½he weiterzugeben, heute bin ich der, der alle Geheimnisse kennt.");
     AddAdditionalText("Nun, wenn ihr so bittet. Ich glaube ich brauche Helfer um die Arbeit zu bewï¿½ltigen, wie wï¿½re es mit euch?");
     
 	-- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -220,7 +220,7 @@ function dummy()
     AddCondition("lang","english");
     AddAdditionalText("I'm a peasant and I specialized in tending dairy cows.");
     AddAdditionalText("I live and work here as a cattle breeder. I sell the milk I've milked.");
-    AddTraderTrigger("job","Ich ziehe Kï¿½he groï¿½ um dann deren Milch zu verkaufen.");
+    AddTraderTrigger("job","Ich ziehe Kï¿½he groß um dann deren Milch zu verkaufen.");
     AddAdditionalText("Ich bin Bauer und habe mich auf Milchkuh Haltung spezialisiert.");
     AddAdditionalText("Ich lebe und arbeite hier als Kuhzï¿½chter. Die gemolkene Milch verkaufe ich.");
     AddTraderTrigger("Gobaith","Never heard about it. Are there cows at that place?");
@@ -230,7 +230,7 @@ function dummy()
     AddAdditionalText("Ah I heard about it. I think it looks like a latrine after being visited by someone who drank too much milk now.");
     AddTraderTrigger("Gobaith","Davon hab ich noch nie gehï¿½rt. Gibt es dort Kï¿½he?");
     AddAdditionalTrigger("Gobiath");
-    AddAdditionalText("Gobaith klingt irgendwie sehr saftig. Wie eine grï¿½ne Wiese besten Grases fï¿½r die Kï¿½he.");
+    AddAdditionalText("Gobaith klingt irgendwie sehr saftig. Wie eine grï¿½ne Wiese besten Grases für die Kï¿½he.");
     AddAdditionalText("Ah ich habs gehï¿½rt. Ich glaube dort sieht es jetzt so aus wie auf dem Donnerbalken wenn man zu viel Milch getrunken hat.");
     AddTraderTrigger("I am","Nice to meet you! Let's celebrate this with a glass of milk.");
     AddAdditionalTrigger("my name");
@@ -263,15 +263,15 @@ function dummy()
     AddTraderTrigger("Kuh","Meine Kï¿½he sind mein ganzer Stolz! Auï¿½erdem sichern sie mir meine Existenz. Wenn ich nur jemanden hï¿½tte der mir mit all der Arbeit hilft...");
     AddAdditionalTrigger("Kï¿½he");
     AddCondition("qpg","=",0);
-    AddAdditionalText("Ich werde alt und die Arbeit mit den Kï¿½hen wird fï¿½r mich immer schwerer. Ich kï¿½nnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an...");
+    AddAdditionalText("Ich werde alt und die Arbeit mit den Kï¿½hen wird für mich immer schwerer. Ich kï¿½nnte Hilfe im Stall gebrauchen aber wer nimmt sich schon so einer Aufgabe an...");
     AddTraderTrigger("Stall","Ja, im Stall stehen meine Kï¿½he, wenn sie nicht gerade weiden.");
-    AddAdditionalText("Mein Stall ist das groï¿½e Gebï¿½ude rechts von uns.");
+    AddAdditionalText("Mein Stall ist das große Gebï¿½ude rechts von uns.");
     AddAdditionalText("Drei Kï¿½he passen in meinen Stall, toll oder?");
     AddTraderTrigger("Arbeit","Wenn ihr euch um meine Kï¿½he kï¿½mmert, kï¿½nnt ihr auch etwas Milch haben. Helft ihr mir?");
     AddAdditionalTrigger("helfer");
     AddCondition("qpg","=",0);
     AddAdditionalText("Nun, ich kï¿½nnte Hï¿½nde die zupacken kï¿½nnen gebrauchen. Wollt ihr mir helfen?");
-    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafï¿½r geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
+    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
     AddConsequence("state","=",1);
     AddConsequence("inform","Sag 'Ich helfe euch' wenn du ihm helfen mï¿½chtest.");
     
@@ -318,7 +318,7 @@ function dummy()
     AddAdditionalTrigger("kï¿½nigin");
     AddAdditionalTrigger("queen");
     AddAdditionalTrigger("edwards");
-    AddAdditionalText("Wï¿½ren meine Kï¿½he Esel, ich brï¿½uchte nur fï¿½r das Bad der Kï¿½nigin zu arbeiten und hï¿½tte ausgesorgt.");
+    AddAdditionalText("Wï¿½ren meine Kï¿½he Esel, ich brï¿½uchte nur für das Bad der Kï¿½nigin zu arbeiten und hï¿½tte ausgesorgt.");
     AddTraderTrigger("Cadomyr","Due to the hot temperature not much milk is drank there. Only a choosen few appreciate my milk there.");
     AddCondition("lang","english");
     AddAdditionalText("Some connoisseurs spend good money on having my milk transported to Cadomyr.");
@@ -362,12 +362,12 @@ function dummy()
     AddAdditionalText("Adron liebt Getrï¿½nke. Milch ist ein Getrï¿½nk. Ich liebe Milch. Also teilen wir eine Liebe zur Milch.");
     AddAdditionalText("For langer Zeit wurde ich schwer krank. Ein Wanderer fand mich zitternd vor Fieber im Stall und pflegte mich gesund. Ich glaube er war das!");
     AddTraderTrigger("Bragon","I'm sorry. I don't pray to that deity that often, so I can't say much about this.");
-    AddAdditionalTrigger("Brï¿½gon");
+    AddAdditionalTrigger("Brágon");
     AddCondition("lang","english");
     AddAdditionalText("I trust Adron and Oldra to take care of my farm and sucess, I'm not that familiar with other deities.");
     AddAdditionalText("Hmm. I can't say much about that one. I usually pray to Adron and Oldra.");
     AddTraderTrigger("Bragon","Tut mir leid. Ich bete zu dieser Gottheit eigentlich kaum, kann also nichts dazu sagen.");
-    AddAdditionalTrigger("Brï¿½gon");
+    AddAdditionalTrigger("Brágon");
     AddAdditionalText("Ich lege meinen Hof und meinen Erfolg in die Hï¿½nde Adrons und Oldras, andere Gï¿½tter sind mir nicht so vertraut.");
     AddAdditionalText("Hmm. Leider kann ich nicht viel darï¿½ber sagen. Ich bete eher zu Adron und Oldra.");
     AddTraderTrigger("Cherga","I'm sorry. I don't pray to that deity that often, so I can't say much about this.");
@@ -484,7 +484,7 @@ function dummy()
     AddTraderTrigger("quest","Wenn ihr euch um meine Kï¿½he kï¿½mmert, kï¿½nnt ihr auch etwas Milch haben. Helft ihr mir?");
     AddCondition("lang","german");
     AddAdditionalText("Nun, ich kï¿½nnte Hï¿½nde die zupacken kï¿½nnen gebrauchen. Wollt ihr mir helfen?");
-    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafï¿½r geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
+    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
     AddConsequence("state","=",1);
     AddConsequence("inform","Sag 'Ich helfe euch' wenn du ihm helfen mï¿½chtest.");
     AddTraderTrigger("task","Once you tend to my cows, you may have some milk. Will you help me?");
@@ -497,7 +497,7 @@ function dummy()
     AddAdditionalTrigger("Aufgabe");
     AddAdditionalTrigger("Abenteuer");
     AddAdditionalText("Nun, ich kï¿½nnte Hï¿½nde die zupacken kï¿½nnen gebrauchen. Wollt ihr mir helfen?");
-    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafï¿½r geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
+    AddAdditionalText("Kï¿½nntet ihr mir helfen? Ich kann euch nicht viel dafür geben aber es wï¿½rde mir viel bedeuten und mir einige Sorgen abnehmen.");
     AddConsequence("state","=",1);
     AddConsequence("inform","Sag 'Ich helfe euch' wenn du ihm helfen mï¿½chtest.");
     -- Last catch: Think about keyphrases the player might say and that are not caught until here
@@ -506,7 +506,7 @@ function dummy()
     AddAdditionalText("#me nods leisuredly: 'My grandfather used to say that all the time.");
     AddTraderTrigger("Ja","Richtig so! Darauf trinken wir ein Glas Milch.");
     AddAdditionalText("Absolut! Sogar meine Kï¿½he verstehen das.");
-    AddAdditionalText("#me nickt mï¿½ï¿½ig: 'Mein Groï¿½vater sagte das auch immer.'");
+    AddAdditionalText("#me nickt mï¿½ï¿½ig: 'Mein Großvater sagte das auch immer.'");
     AddTraderTrigger("No","Ah? Can a glass of milk change your mind?");
     AddAdditionalText("That's sad. Still you should try my milk.");
     AddAdditionalText("Don't be that negative! Drink a bit of milk and everything will turn out well!");
@@ -521,11 +521,11 @@ function dummy()
     -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
     AddCycleText("#me plagt sich damit einen schweren Eimer Getreide zu heben.","#me labours hard on lifting a heavy bucket of grain.");
     AddCycleText("#me sieht sich traurig um und seufzt: 'So viel zu tun...'","#me looks arround with a worried frown: 'So much to do...");
-    AddCycleText("#me nimmt einen groï¿½en Schluck aus einer Flasche: 'Mhh... Milch.'","#me takes a big gulp from a bottle: 'Mhh... milk.'");
+    AddCycleText("#me nimmt einen großen Schluck aus einer Flasche: 'Mhh... Milch.'","#me takes a big gulp from a bottle: 'Mhh... milk.'");
     AddCycleText("Trinkt ihr brav Milch?","Got milk?");
     AddCycleText("Cheeseball, Mjilka, Betsy! Es wird Zeit euch zu melken!","Cheeseball, Mjilka, Betsy! Time to milk you!");
     AddCycleText("Milch ist gesund! Macht die Knochen stark, nicht wund!","Milk is tasty, so always be hasty, to drink for your bones, make them turn as hard as stones!");
-    AddCycleText("Frï¿½her sah der Hof und der Arbeitsaufwand hier viel kleiner aus...","Back in the days working on this farm wasn't that stressful to me...");
+    AddCycleText("früher sah der Hof und der Arbeitsaufwand hier viel kleiner aus...","Back in the days working on this farm wasn't that stressful to me...");
     AddCycleText("Wo man Milch trinkt da lass dich gern nieder.","Where there's milk drunk, one can come to rest with no worries in his heart.");
     AddCycleText("Hallo! Ja ihr da! Wolltet ihr schon mal auf einem Hof arbeiten?","Hello! Yes you over there! Did you ever consider working on a farm?");
     AddCycleText("Hat man Milch getrunken kann nichts mehr in die Hose gehen! Hmm, wobei...","Once you tried milk, you never go back!");
@@ -590,7 +590,7 @@ function receiveText(texttype, message, originator)
 		        outText=base.common.npc.base.npcautofunction.GetNLS(User,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
     		elseif ((string.find(message,"[Hh]ilfe")~=nil or string.find(message,"[Hh]elp")~=nil) and originator:getQuestProgress(28)>0) then
-				gText = "Schlï¿½sselwï¿½rter: 'Wie lautet meine Aufgabe?','Gib mir einen Hinweis zur Aufgabe'";
+				gText = "Schlüsselwï¿½rter: 'Wie lautet meine Aufgabe?','Gib mir einen Hinweis zur Aufgabe'";
 				eText = "Keyphrases : 'What is my task?','Give me a hint to the task'";
 				base.common.TempInformNLS(originator, gText,eText);
 			elseif ((string.find(message,"[Hh]inweis")~=nil or string.find(message,"[Hh]int")~=nil) and originator:getQuestProgress(28)>0) then
@@ -643,7 +643,7 @@ function TaskText(taskid)
 					};
         gTask[2] = {
 					desctxt="Ich glaube ich bin erkï¿½ltet. Heute mit kaltem Wasser zu arbeiten wï¿½re mein Tod. Bitte wascht die Kuh heute.",
-					helptxt="Wasser ist zum Waschen da. Und mit den Hï¿½nden werdet ihr es nicht tragen kï¿½nnen. Neben dem Haus ist ein Brunnen aber nimm deinen eigenen Eimer dafï¿½r!"
+					helptxt="Wasser ist zum Waschen da. Und mit den Hï¿½nden werdet ihr es nicht tragen kï¿½nnen. Neben dem Haus ist ein Brunnen aber nimm deinen eigenen Eimer dafür!"
 					};
 
         eTask[2] = {
@@ -652,7 +652,7 @@ function TaskText(taskid)
 					};
 		gTask[3] = {
 					desctxt="Wenn ich singe wird die Milch besonders cremig, aber heute bin ich heiser. Singt der Kuh doch bitte ein Lied vor!",
-					helptxt="Ihr kï¿½nnt nicht singen? Nun frï¿½her hab ich auch ï¿½fter mit der Laute vorgespielt aber meine Finger wollen nichtmehr richtig, probiert es damit?"
+					helptxt="Ihr kï¿½nnt nicht singen? Nun früher hab ich auch ï¿½fter mit der Laute vorgespielt aber meine Finger wollen nichtmehr richtig, probiert es damit?"
 					};
 
         eTask[3] = {
