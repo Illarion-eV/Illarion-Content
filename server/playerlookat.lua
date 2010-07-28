@@ -104,7 +104,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     output=output..getWeaponText( TargetCharacter, lang, SourceCharacter );
     
 		--faction additions
-	Faction = BF_get(TargetCharacter);
+	Faction = base.factions.BF_get(TargetCharacter);
 	if Faction.rankTown == 0 then
 		factiontext = ( lang ==0 and " ("..TownRankList[Faction.rankTown].gRank..")" or " ("..TownRankList[Faction.rankTown].eRank..")" );
 	else
