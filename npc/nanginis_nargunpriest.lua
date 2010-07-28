@@ -5,9 +5,13 @@ require("base.common")
 module("npc.nanginis_nargunpriest", package.seeall)
 
 function RandomStart(thisNPC)
-						              --cadomyr,                                                 (runewick),                     galmair and so on
-local PossiblePositions = { position(123,567,0),position(94,573,0),position(127,598,0), position(371,257,0) , position(407,350,0), position(396,304,0) };
-local rand=math.random(table.getn(PossiblePositions));
+	local r = math.random(0,100);
+	if (r<90) then
+		return;
+	end
+										  --cadomyr,                                                 (runewick),                     galmair and so on
+	local PossiblePositions = { position(123,567,0),position(94,573,0),position(127,598,0), position(371,257,0) , position(407,350,0), position(396,304,0) };
+	local rand=math.random(table.getn(PossiblePositions));
 
 	thisNPC:warp(PossiblePositions[rand]);
 	thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Nargun sei gepriesen, da bin ich!");
