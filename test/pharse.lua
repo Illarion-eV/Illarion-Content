@@ -78,7 +78,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	end
 	if counter==1 then
 		User:inform("create npc");
-		local created = world:createDynamicNPC("Guard",0,base.common.GetFrontPosition(User),0,"npc_lightmaster.lua");
+		local created = world:createDynamicNPC("Guard",0,base.common.GetFrontPosition(User),0,"npc.lightmaster");
 		if created then
 			User:inform("npc created");
 		end
