@@ -1,9 +1,37 @@
-name="John Doe"
-position=0,0,0
-sex=male
-race=human
-direction=west
-radius=0
+------------------------------------------------------------------------------AC
+-- NPC Name: John Doe                                                    None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: July 28, 2010                           easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
+
+name = "John Doe"
+race = human
+sex = male
+position = 0, 0, 0
+direction = west
+affiliation = "None"
+job = "none"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
 
 -- John Leador - (-64,-105,0) - north
 -- Adran Tanner - (-64,-108,0) - south
@@ -19,68 +47,54 @@ radius=0
 -- Talon Lefar - (-134,-102,0) - south
 -- Viktor Arkon - (-155,-88,0) - west
 -- Toran Lobas - (-155,-84,0) - west
+"Help", "Hilfe", english -> "(( [Help] This is a NPC with the name %NPCNAME. He reacts on: Hello, Who are you, What do you do, Troll's Bane"
+"Help", "Hilfe", german -> "(( [Hilfe] Das ist ein NPC mit Namen %NPCNAME. Er reagiert auf: Hallo, Wer bist du, Was machst du, Troll's Bane"
+"Grü[ßs]+e", "Hallo", "Hi", "Hiho", german -> "Grüße euch", "Guten Tag", "Grüße, geht jetzt weiter ich muss aufpassen", "Hmmm? Was? Ah...grüße, ja ja.", "Grüße, wollt ihr etwas?"
+"Greetings", "Hello", "Hi", "Good day", "Hiho", english -> "Greetings", "Good day", "Greetings, move along now please, I have to watch", "Hmm? What? Ah... greetings, yes yes.", "Greetings, do you want anything?"
+"Auf bald", "Bis bald", "Tschüss", "Wiedersehen", "Mach[t]*s gut" -> "Auf bald und haltet euch an die Gesetze in der Stadt.", "Bis bald, wenn etwas passiert wisst ihr wo ich bin."
+"Farewell", "Be well", "Bye", "see you" -> "Farewell and follow the laws of this town.", "Farewell, in case something happens you know where to find me."
+"Wer du", "Wer sie", "Wer ihr" -> "Ich bin %NPCNAME, Stadtwache von Troll's Bane und Soldat in der Armee Salkamars! Hail dem Imperium!"
+"Who you" -> "I'm %NPCNAME, town guard of Troll's Bane and soldier at the salkamaerian Army"
+"Was tust", "Was machst", "Was macht", "Was tut", "Aufgabe" -> "Was meine Aufgabe ist? Wonach sieht es denn aus? Ich passe hier auf das keiner Ärger macht."
+"What do", "work", "task" -> "What my task is? What does it look like? I'm watching so nobody causes any trouble here."
+"Troll's Bane", "Trolls Bane", german -> "Ja das hier ist Troll's Bane, eine ziemlich herunter gekommene Stadt die nun aber dank Prinz von Lonewood wieder erblühen wird! Dabei helfen ihm Herzog Devan und Herzog Ross."
+"Troll's Bane", "Trolls Bane", english -> "Well yes this is Troll's Bane, it's a mess here, but thanks to prince of Lonewood this town will become much better now! By this he is supported by Duke Devan and Duke Ross."
+"Varshikar", german -> "Varshikar ist eine kleine Stadt im Nordosten. Die Träger des Feuers haben dort ihren Sitz."
+"Varshikar", english -> "Varshikar is a small town in the northeast. The bearers of fire live there."
+"Nordmark", german -> "Das ist irgendeine Barbarensiedlung. Soll im Norden sein... mehr weis ich davon nicht."
+"Northmark", "Nordmark", english -> "This is some barbarian settlement. Somewhere in the north, I don't know more about this."
+"Greenbriar", "Green Briar", german -> "Die Halblingssiedlung, liegt im Südwesten auf einer kleinen Insel. Etwas südlich davon ist das Versteck der Tempelratten."
+"Greenbriar", "Green Briar", english -> "The halfling settlement, this is located in the south west on a small island. A little south of is the hideout of the temple rats is located."
+"Hellbriar", "Hell Briar", german -> "Das ist das Versteck des Tempels, einer Bande von Mördern, Entführern, Moschran Anbetern und Nekromanten. Die Sorte von Leuten die in Troll's Bane nichts zu suchen haben."
+"Hellbriar", "Hell Briar", english -> "This is the hideout of the temple, a group of murderers, kidnappers, moshran worshippers and necromants. The kind of persons who are absolutly not wanted in Troll's Bane."
+"Vanima", german -> "Die Insel der Elfen, soll ein ziemlich ruhiger Ort sein, ich war nie dort."
+"Vanima", english -> "The island of the elves. I heared is a pretty quiet place... but I was never there myself."
+"Silberbrand", german -> "Ah ja, Silberbrand, Heimat der Zwerge. Die haben mit Abstand das beste Bier hier auf der Insel!"
+"Silverbrand", "Silberbrand", english -> "Ah yes, Silverbrand. Home of the dwarfs. They make the best beer on this island by far!"
+"Union", german -> "Die Farmers Union... das sind ein paar Bauern die südlich von Troll's Bane leben glaube ich."
+"Union", english -> "The farmers union... thats some peasants who live south of Troll's Bane as far as I know."
+"Lonewood", german -> "Unser großer Anführer, Prinz Anarius of Lonewood. Er regiert Troll's Bane und hat die ganzen Verbrecher, wie den Tempel, die diese Stadt bevölkert haben hinausgetrieben!"
+"Lonewood", english -> "Out great leader, prince Anarius of Lonewood. He leads Troll's Bane and drove all those criminals, such as the temple, who were in that town out!"
+"Ross", german -> "Herzog Roland Ross ist einer der Herzöge von Troll's Bane die den Prinzen bei seiner Arbeit zum Wohle der Stadt unterstützen."
+"Ross", english -> "Duke Roland Ross is one of the dukes of Troll's Bane who help the prince at this work to improve the welfare of the town."
+"Devan", german -> "Herzog Geralt Devan ist einer der Herzöge von Troll's Bane die den Prinzen bei seiner Arbeit zum Wohle der Stadt unterstützen."
+"Devan", english -> "Duke Geralt Devan is one of the dukes of Troll's Bane who help the prince at this work to improve the welfare of the town."
+"Mitglieder Tempel", "Mitglieder Temple", german -> "Man muss den Feind kennen um ihn zu besiegen. Darum sage ich euch die bekannten Mitglieder des Tempels. Es sind Verdazar, Joxia Doral, Dain Laiden, Daelyn, Johann Brown, Drathe Blue, Endyl, Dominic Fisher, Edward Cromwell, Orioli, Dramyr, Misjlah, Azrael Suruki, Slug'nar, Thain, Ian Blyte, Lindian und Erick McSpinan. Merkt euch diese Namen, sie sind der Feind!"
+"Members Temple", english -> "One has to know the enemy to defend it. So I tell you the currently known members of the temple. There are Verdazar, Joxia Doral, Dain Laiden, Daelyn, Johann Brown, Drathe Blue, Endyl, Dominic Fisher, Edward Cromwell, Orioli, Dramyr, Misjlah, Azrael Suruki, Slug'nar, Thain, Ian Blyte, Lindian and Erick McSpinan. Remember them! They are the enemy!"
+"Temple", "Tempel", german -> "Der Tempel ist eine Bande von Verbrechern, Halsabschneidern, Mördern, Entführern, Moschran Anbetern und Nekromanten! Jedes ihrer Mitglieder ist aus der Stadt verbannt!"
+"Temple", "Tempel", english -> "The temple is a group of criminals, cutthroats, murderers, kidnappers, Moshran worshippers and necromants! Every of their members is banned from the town!"
+"Träger Feuer", "Bearer Fire", german -> "Die Träger des Feuers leben im Nordenosten, bei Varshikar. Sie kämpfen wie auch Troll's Bane gegen Abschaum wie den Tempel. Angeführt werden sie von Djironnyma."
+"Bearer Fire", english -> "The Bearers of Fire live in the north east, at Varshikar. They fight, similar to Troll's Bane against scums like the temple. They are leaded by Djironnyma."
 
-cycletext "#me blickt sich aufmerksam um.","#me looks around concentrated."
-cycletext "#me lehnt sich leicht gegen die Wand.","#me leans slightly against the wall."
-cycletext "#me blickt zum Tor.","#me looks towards the door."
-cycletext "#me blickt zu seinem Partner und nickt ihm zu.","#me looks to his partner and nods to him."
-cycletext "#me gähnt leicht und hält die Hand vor den Mund.","#me yawns slightly and puts his hand in front of his mouth."
-cycletext "#me wischt über seine Rüstung bis diese wieder glänzt.","#me wipes over his armor until it looks shiny again."
-cycletext "#me hustet kurz.","#me coughs once."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
-"Help","Hilfe",english->"(( [Help] This is a NPC with the name %NPCNAME. He reacts on: Hello, Who are you, What do you do, Troll's Bane"
-"Help","Hilfe",german->"(( [Hilfe] Das ist ein NPC mit Namen %NPCNAME. Er reagiert auf: Hallo, Wer bist du, Was machst du, Troll's Bane"
-
-"Grü[ßs]+e","Hallo","Hi","Hiho",german->"Grüße euch","Guten Tag","Grüße, geht jetzt weiter ich muss aufpassen","Hmmm? Was? Ah...grüße, ja ja.","Grüße, wollt ihr etwas?"
-"Greetings","Hello","Hi","Good day","Hiho",english->"Greetings","Good day","Greetings, move along now please, I have to watch","Hmm? What? Ah... greetings, yes yes.","Greetings, do you want anything?"
-
-"Auf bald","Bis bald","Tschüss","Wiedersehen","Mach[t]*s gut"->"Auf bald und haltet euch an die Gesetze in der Stadt.","Bis bald, wenn etwas passiert wisst ihr wo ich bin."
-"Farewell","Be well","Bye","see you"->"Farewell and follow the laws of this town.","Farewell, in case something happens you know where to find me."
-
-"Wer du","Wer sie","Wer ihr"->"Ich bin %NPCNAME, Stadtwache von Troll's Bane und Soldat in der Armee Salkamars! Hail dem Imperium!"
-"Who you"->"I'm %NPCNAME, town guard of Troll's Bane and soldier at the salkamaerian Army"
-
-"Was tust","Was machst","Was macht","Was tut","Aufgabe"->"Was meine Aufgabe ist? Wonach sieht es denn aus? Ich passe hier auf das keiner Ärger macht."
-"What do","work","task"->"What my task is? What does it look like? I'm watching so nobody causes any trouble here."
-
-"Troll's Bane","Trolls Bane",german->"Ja das hier ist Troll's Bane, eine ziemlich herunter gekommene Stadt die nun aber dank Prinz von Lonewood wieder erblühen wird! Dabei helfen ihm Herzog Devan und Herzog Ross."
-"Troll's Bane","Trolls Bane",english->"Well yes this is Troll's Bane, it's a mess here, but thanks to prince of Lonewood this town will become much better now! By this he is supported by Duke Devan and Duke Ross."
-
-"Varshikar",german->"Varshikar ist eine kleine Stadt im Nordosten. Die Träger des Feuers haben dort ihren Sitz."
-"Varshikar",english->"Varshikar is a small town in the northeast. The bearers of fire live there."
-
-"Nordmark",german->"Das ist irgendeine Barbarensiedlung. Soll im Norden sein... mehr weis ich davon nicht."
-"Northmark","Nordmark",english->"This is some barbarian settlement. Somewhere in the north, I don't know more about this."
-
-"Greenbriar","Green Briar",german->"Die Halblingssiedlung, liegt im Südwesten auf einer kleinen Insel. Etwas südlich davon ist das Versteck der Tempelratten."
-"Greenbriar","Green Briar",english->"The halfling settlement, this is located in the south west on a small island. A little south of is the hideout of the temple rats is located."
-
-"Hellbriar","Hell Briar",german->"Das ist das Versteck des Tempels, einer Bande von Mördern, Entführern, Moschran Anbetern und Nekromanten. Die Sorte von Leuten die in Troll's Bane nichts zu suchen haben."
-"Hellbriar","Hell Briar",english->"This is the hideout of the temple, a group of murderers, kidnappers, moshran worshippers and necromants. The kind of persons who are absolutly not wanted in Troll's Bane."
-
-"Vanima",german->"Die Insel der Elfen, soll ein ziemlich ruhiger Ort sein, ich war nie dort."
-"Vanima",english->"The island of the elves. I heared is a pretty quiet place... but I was never there myself."
-
-"Silberbrand",german->"Ah ja, Silberbrand, Heimat der Zwerge. Die haben mit Abstand das beste Bier hier auf der Insel!"
-"Silverbrand","Silberbrand",english->"Ah yes, Silverbrand. Home of the dwarfs. They make the best beer on this island by far!"
-
-"Union",german->"Die Farmers Union... das sind ein paar Bauern die südlich von Troll's Bane leben glaube ich."
-"Union",english->"The farmers union... thats some peasants who live south of Troll's Bane as far as I know."
-
-"Lonewood",german->"Unser großer Anführer, Prinz Anarius of Lonewood. Er regiert Troll's Bane und hat die ganzen Verbrecher, wie den Tempel, die diese Stadt bevölkert haben hinausgetrieben!"
-"Lonewood",english->"Out great leader, prince Anarius of Lonewood. He leads Troll's Bane and drove all those criminals, such as the temple, who were in that town out!"
-
-"Ross",german->"Herzog Roland Ross ist einer der Herzöge von Troll's Bane die den Prinzen bei seiner Arbeit zum Wohle der Stadt unterstützen."
-"Ross",english->"Duke Roland Ross is one of the dukes of Troll's Bane who help the prince at this work to improve the welfare of the town."
-
-"Devan",german->"Herzog Geralt Devan ist einer der Herzöge von Troll's Bane die den Prinzen bei seiner Arbeit zum Wohle der Stadt unterstützen."
-"Devan",english->"Duke Geralt Devan is one of the dukes of Troll's Bane who help the prince at this work to improve the welfare of the town."
-
-"Mitglieder Tempel","Mitglieder Temple",german->"Man muss den Feind kennen um ihn zu besiegen. Darum sage ich euch die bekannten Mitglieder des Tempels. Es sind Verdazar, Joxia Doral, Dain Laiden, Daelyn, Johann Brown, Drathe Blue, Endyl, Dominic Fisher, Edward Cromwell, Orioli, Dramyr, Misjlah, Azrael Suruki, Slug'nar, Thain, Ian Blyte, Lindian und Erick McSpinan. Merkt euch diese Namen, sie sind der Feind!"
-"Members Temple",english->"One has to know the enemy to defend it. So I tell you the currently known members of the temple. There are Verdazar, Joxia Doral, Dain Laiden, Daelyn, Johann Brown, Drathe Blue, Endyl, Dominic Fisher, Edward Cromwell, Orioli, Dramyr, Misjlah, Azrael Suruki, Slug'nar, Thain, Ian Blyte, Lindian and Erick McSpinan. Remember them! They are the enemy!"
-
-"Temple","Tempel",german->"Der Tempel ist eine Bande von Verbrechern, Halsabschneidern, Mördern, Entführern, Moschran Anbetern und Nekromanten! Jedes ihrer Mitglieder ist aus der Stadt verbannt!"
-"Temple","Tempel",english->"The temple is a group of criminals, cutthroats, murderers, kidnappers, Moshran worshippers and necromants! Every of their members is banned from the town!"
-
-"Träger Feuer","Bearer Fire",german->"Die Träger des Feuers leben im Nordenosten, bei Varshikar. Sie kämpfen wie auch Troll's Bane gegen Abschaum wie den Tempel. Angeführt werden sie von Djironnyma."
-"Bearer Fire",english->"The Bearers of Fire live in the north east, at Varshikar. They fight, similar to Troll's Bane against scums like the temple. They are leaded by Djironnyma."
+cycletext "#me blickt sich aufmerksam um.", "#me looks around concentrated."
+cycletext "#me lehnt sich leicht gegen die Wand.", "#me leans slightly against the wall."
+cycletext "#me blickt zum Tor.", "#me looks towards the door."
+cycletext "#me blickt zu seinem Partner und nickt ihm zu.", "#me looks to his partner and nods to him."
+cycletext "#me gähnt leicht und hält die Hand vor den Mund.", "#me yawns slightly and puts his hand in front of his mouth."
+cycletext "#me wischt über seine Rüstung bis diese wieder glänzt.", "#me wipes over his armor until it looks shiny again."
+cycletext "#me hustet kurz.", "#me coughs once."

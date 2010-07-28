@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Krudash                                                     None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  371, 258, 0            --
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 28, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -21,9 +21,9 @@ job = "Trader"
 language = common
 language = orc
 defaultLanguage = common
-autointroduce =on
+autointroduce = on
 
-author = Rincewind
+author = "Rincewind"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."

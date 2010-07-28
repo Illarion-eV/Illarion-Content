@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: July 28, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 name = "William Daloire"
@@ -21,6 +21,7 @@ job = "none"
 language = common
 language = human
 defaultLanguage = common
+autointroduce = on
 
 author = "not set"
 
