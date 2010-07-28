@@ -106,10 +106,10 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 		--faction additions
 	Faction = base.factions.BF_get(TargetCharacter);
 	if Faction.rankTown == 0 then
-		factiontext = ( lang ==0 and " ("..TownRankList[Faction.rankTown].gRank..")" or " ("..TownRankList[Faction.rankTown].eRank..")" );
+		factiontext = ( lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank..")" or " ("..base.factions.TownRankList[Faction.rankTown].eRank..")" );
 	else
-		factiontext = ( (lang ==0 and " ("..TownRankList[Faction.rankTown].gRank.." "..TownNameGList[Faction.tid][1].."s)" ) 
-				or 	" ("..TownRankList[Faction.rankTown].eRank.." of "..TownNameEList[Faction.tid][1]..")" );
+		factiontext = ( (lang ==0 and " ("..base.factions.TownRankList[Faction.rankTown].gRank.." "..base.factions.TownNameGList[Faction.tid][1].."s)" ) 
+				or 	" ("..base.factions.TownRankList[Faction.rankTown].eRank.." of "..base.factions.TownNameEList[Faction.tid][1]..")" );
 	end
 	output = output .. factiontext;
 	
