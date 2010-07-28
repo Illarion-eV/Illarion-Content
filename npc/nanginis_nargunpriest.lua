@@ -6,7 +6,7 @@ module("npc.nanginis_nargunpriest", package.seeall)
 
 function RandomStart(thisNPC)
 	local r = math.random(0,100);
-	if (r<90) then
+	if (r<99) then
 		return;
 	end
 										  --cadomyr,                                                 (runewick),                     galmair and so on

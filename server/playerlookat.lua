@@ -35,6 +35,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
     
 	if not CustomLookAt then
 		content.lookat.custom.InitCustomLookAt();
+		CustomLookAt = content.lookat.custom.CustomLookAt;
 	end
 	
     local lang = SourceCharacter:getPlayerLanguage();
