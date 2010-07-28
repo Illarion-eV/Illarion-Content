@@ -157,13 +157,13 @@ function receiveText(texttype, message, originator)
 end
 
 function abortRoute(theNPC)
-	npc.base.guards.BG_AbortRoute(theNPC);
+	npc.base.guards.AbortRoute(theNPC);
 end
 
 function characterOnSight(npc,enemy)
-	npc.base.guards.BG_CharacterOnSight(npc,enemy);
+	npc.base.guards.CharacterOnSight(npc,enemy);
 end
 
 function characterNear(npc,enemy)
-	npc.base.guards.BG_CharacterNear(npc,enemy);
+	npc.base.guards.CharacterNear(npc,enemy);
 end
