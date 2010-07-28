@@ -3,15 +3,20 @@ require("npc.base.waypoints");
 require("base.doors")
 module("npc.base.patrol", package.seeall)
 
+-- functions for subscription:
+-- AbortRoute(guard)
+-- CharacterNear(guard,char)
+
 -- ** defaults **
-PatrolPointer = 0;				--
-WpPointer = 0;					-- pointers for the PatrolList
-RandomPatrolChooser = true;		-- define if the patrols are randomly chosen. Can be changed in other scripts.
-WpDone = 0;						-- count how many waypoints (as destination) have been visited
-WpMax = 0;						-- save how many waypoints have to be visited in this patrol
-NextWp = nil;					-- save the next waypoint (the guard is walking to)
-CurWp = nil;					-- save the current waypoint (the guard is walking away from)
-WpTry = 0;						-- save how many times the route was aborted and choose a solution
+PatrolPointer = {};				--
+WpPointer = {};					-- pointers for the PatrolList
+RandomPatrolChooser = {};		-- define if the patrols are randomly chosen. Can be changed in other scripts.
+WpDone = {};						-- count how many waypoints (as destination) have been visited
+WpMax = {};						-- save how many waypoints have to be visited in this patrol
+NextWp = {};					-- save the next waypoint (the guard is walking to)
+CurWp = {};					-- save the current waypoint (the guard is walking away from)
+WpTry = {};						-- save how many times the route was aborted and choose a solution
+PatrolInitDone = {};
 
 --[[
 PatrolList must contain lists with positions at first, then they are replaced with the respective waypoints
@@ -23,16 +28,24 @@ PatrolList = {};
 
 
 -- replace position data in PatrolList with waypoints and delete those which have no respective waypoint
-function BP_PatrolInit(guard)
-	if patrolInit~=nil then
+function PatrolInit(guard)
+	if PatrolInitDone[guard.id]~=nil then
 		return;
 	end
-	patrolInit = 1;
+	PatrolInitDone[guard.id] = 1;
+	PatrolPointer[guard.id] = 0;
+	WpPointer[guard.id] = 0;
+	RandomPatrolChooser[guard.id] = true;
+	WpDone[guard.id] = 0;
+	WpMax[guard.id] = 0;
+	NextWp[guard.id] = nil;
+	CurWp[guard.id] = nil;
+	WpTry[guard.id] = 0;
 	local nospace = true;
 	for _,patrol in pairs(PatrolList) do
 		nospace = true;
 		for j,pos in ipairs(patrol) do
-			local wp = BP_GetWpFromPos(pos);
+			local wp = GetWpFromPos(pos);
 			if wp==nil then
 				nospace = false;
 				patrol[j] = -1;
@@ -62,78 +75,78 @@ end
 starts the patrol and initializes the PatrolList and WaypointList
   @return boolean  if the patrol has been started
 ]]
-function BP_StartPatrol(guard)
+function StartPatrol(guard)
 	if firstStartPatrol==nil then
 		firstStartPatrol = 1;
-		BWP_Init();
-		BP_PatrolInit();
+		npc.base.waypoints.Init();
+		PatrolInit();
 	end
-	PatrolPointer = 0;
-	WpTry = 0;
-	BP_ChooseNewPatrol(guard);
-	NextWp = BP_GetWpFromPos(guard.pos);
-	if not NextWp then
-		NextWp = PatrolList[PatrolPointer][WpPointer];
-		guard:forceWarp(NextWp.pos);
+	PatrolPointer[guard.id] = 0;
+	WpTry[guard.id] = 0;
+	ChooseNewPatrol(guard);
+	NextWp[guard.id] = GetWpFromPos(guard.pos);
+	if not NextWp[guard.id] then
+		NextWp[guard.id] = PatrolList[PatrolPointer[guard.id]][WpPointer[guard.id]];
+		guard:forceWarp(NextWp[guard.id].pos);
 	end
-	if not NextWp then
+	if not NextWp[guard.id] then
 		return false;
 	end
 	guard.waypoints:clear();
-	BP_SetNewWp(guard);
+	SetNewWp(guard);
 	guard:setOnRoute(true);
 	return true;
 end
 
 --[[
 choose a new patrol. Sequential and random (see RandomPatrolChooser) is supported.
-If you want to define an own algorithm, define a function BP_ChooseCustomPatrol(guard)
+If you want to define an own algorithm, define a function ChooseCustomPatrol(guard)
 It should set WpPointer,WpDone,WpMax,PatrolPointer and return if something was done.
 If not, the regular function will continue.
 ]]
-function BP_ChooseNewPatrol(guard)
-	if BP_ChooseCustomPatrol then
-		if BP_ChooseCustomPatrol(guard) then
+function ChooseNewPatrol(guard)
+	if ChooseCustomPatrol then
+		if ChooseCustomPatrol(guard) then
 			return;
 		end
 	end
 	guard.waypoints:clear();
-	WpPointer = 0;
-	WpDone = 0;
+	WpPointer[guard.id] = 0;
+	WpDone[guard.id] = 0;
 	local l = table.getn(PatrolList);
-	if RandomPatrolChooser then
-		PatrolPointer = math.random(1,l);
+	if RandomPatrolChooser[guard.id] then
+		PatrolPointer[guard.id] = math.random(1,l);
 	else
-		PatrolPointer = PatrolPointer + 1;
-		if PatrolPointer>l then
-			PatrolPointer = 1;
+		PatrolPointer[guard.id] = PatrolPointer[guard.id] + 1;
+		if PatrolPointer[guard.id]>l then
+			PatrolPointer[guard.id] = 1;
 		end
 	end
-	if PatrolList[PatrolPointer].base[2] ~= 0 then
-		WpMax = PatrolList[PatrolPointer].base[2];
+	if PatrolList[PatrolPointer[guard.id]].base[2] ~= 0 then
+		WpMax[guard.id] = PatrolList[PatrolPointer[guard.id]].base[2];
 	else
-		WpMax = table.getn(PatrolList[PatrolPointer]);
+		WpMax[guard.id] = table.getn(PatrolList[PatrolPointer[guard.id]]);
 	end
-	BP_ChooseNewWp();
+	ChooseNewWp(guard);
 end
 
 -- choose a new waypoint as destination, sequentially or randomly
-function BP_ChooseNewWp()
+function ChooseNewWp(guard)
 	--npcdebug("ChooseNewWp");
-	local l = table.getn(PatrolList[PatrolPointer]);
-	if PatrolList[PatrolPointer].base[1] then
-		WpPointer = math.random(1,l);
+	local l = table.getn(PatrolList[PatrolPointer[guard.id]]);
+	if PatrolList[PatrolPointer[guard.id]].base[1] then
+		WpPointer[guard.id] = math.random(1,l);
 	else
-		WpPointer = WpPointer + 1;
-		if WpPointer>l then
-			WpPointer = 1;
+		WpPointer[guard.id] = WpPointer[guard.id] + 1;
+		if WpPointer[guard.id]>l then
+			WpPointer[guard.id] = 1;
 		end
 	end
 end
 
 -- get the respective waypoint or nil if noone exists
-function BP_GetWpFromPos(pos)
-	local index = BWP_PosToIndex(pos);
+function GetWpFromPos(pos)
+	local index = npc.base.waypoints.PosToIndex(pos);
 	for _,area in pairs(WaypointList) do
 		if area[index] then
 			return area[index];
@@ -146,23 +159,23 @@ end
 choose and set a new (temporary) waypoint.
 NextWp has to be set (which is actually the current waypoint)
 ]]
-function BP_SetNewWp(guard)
-	if equapos(guard.pos,PatrolList[PatrolPointer][WpPointer].pos) then
-		WpDone = WpDone + 1;
-		if WpDone>=WpMax then
-			BP_ChooseNewPatrol(guard);
+function SetNewWp(guard)
+	if equapos(guard.pos,PatrolList[PatrolPointer[guard.id]][WpPointer[guard.id]].pos) then
+		WpDone[guard.id] = WpDone[guard.id] + 1;
+		if WpDone[guard.id]>=WpMax[guard.id] then
+			ChooseNewPatrol(guard);
 		else
-			BP_ChooseNewWp();
+			ChooseNewWp(guard);
 		end
 	end
-	local last = CurWp;
-	CurWp = NextWp;
+	local last = CurWp[guard.id];
+	CurWp[guard.id] = NextWp[guard.id];
 	local w = false;
-	NextWp,w = CurWp:getNextWaypoint(PatrolList[PatrolPointer][WpPointer],last);
-	BP_OpenDoor();
-	guard.waypoints:addWaypoint(NextWp.pos);
+	NextWp[guard.id],w = CurWp[guard.id]:getNextWaypoint(PatrolList[PatrolPointer[guard.id]][WpPointer[guard.id]],last);
+	OpenDoor(guard);
+	guard.waypoints:addWaypoint(NextWp[guard.id].pos);
 	if w then
-		guard:warp(NextWp.pos);
+		guard:warp(NextWp[guard.id].pos);
 	end
 end
 
@@ -170,54 +183,54 @@ end
 continues patrol when route is aborted (set new wp, warp or restart patrol)
 should be called in the respective function of the monster/npc OR in base_guard.lua
 ]]
-function BP_AbortRoute(guard)
-	if equapos(guard.pos,NextWp.pos) then
+function AbortRoute(guard)
+	if equapos(guard.pos,NextWp[guard.id].pos) then
 		npcdebug("try OK");
-		WpTry = 0;
+		WpTry[guard.id] = 0;
 		guard.waypoints:clear();
-		BP_CloseDoor();
-		BP_SetNewWp(guard);
+		CloseDoor(guard);
+		SetNewWp(guard);
 		guard:setOnRoute(true);
-	elseif WpTry==0 then
+	elseif WpTry[guard.id]==0 then
 		npcdebug("try 0");
-		WpTry = 1;
+		WpTry[guard.id] = 1;
 		guard:setOnRoute(true);
-	elseif WpTry==1 then
+	elseif WpTry[guard.id]==1 then
 		npcdebug("try 1");
-		guard:warp(NextWp.pos);
-		WpTry = 2;
-		BP_AbortRoute(guard);
-	elseif WpTry==2 then
+		guard:warp(NextWp[guard.id].pos);
+		WpTry[guard.id] = 2;
+		AbortRoute(guard);
+	elseif WpTry[guard.id]==2 then
 		npcdebug("try 2");
-		guard:forceWarp(NextWp.pos);
-		WpTry = 3;
-		BP_AbortRoute(guard);
+		guard:forceWarp(NextWp[guard.id].pos);
+		WpTry[guard.id] = 3;
+		AbortRoute(guard);
 	else
 		npcdebug("try 3");
-		BP_StartPatrol(guard);
+		StartPatrol(guard);
 	end
 end
 
 -- open the door of curWp
-function BP_OpenDoor()
-	local door = CurWp.data.door;
-	if door and equapos(door.toPos,NextWp.pos) then
-		local item = BP_GetDoorItem(door.pos);
+function OpenDoor(guard)
+	local door = CurWp[guard.id].data.door;
+	if door and equapos(door.toPos,NextWp[guard.id].pos) then
+		local item = GetDoorItem(door.pos);
 		base.doors.OpenDoor(item);
 	end
 end
 
 -- close the door of NextWp
-function BP_CloseDoor()
-	local door = NextWp.data.door;
-	if door and equapos(door.toPos,CurWp.pos) then
+function CloseDoor(guard)
+	local door = NextWp[guard.id].data.door;
+	if door and equapos(door.toPos,CurWp[guard.id].pos) then
 		local item = world:getItemOnField(door.pos);
 		base.doors.CloseDoor(item);
 	end
 end
 
 -- get the door item, works only if it is on top
-function BP_GetDoorItem(Posi)
+function GetDoorItem(Posi)
     local item = world:getItemOnField(Posi);
 	if (base.doors.CheckOpenDoor(item.id) or base.doors.CheckClosedDoor(item.id)) then
 		return item;
@@ -225,11 +238,11 @@ function BP_GetDoorItem(Posi)
     return nil;
 end;
 
-function BP_CharacterNear(guard,char)
+function CharacterNear(guard,char)
 	--npcdebug("char near");
-	if equapos(NextWp.pos,char.pos) then
+	if equapos(NextWp[guard.id].pos,char.pos) then
 		npcdebug("char on waypoint, abort route!");
-		BP_AbortRoute(guard);
+		AbortRoute(guard);
 	end
 end
 

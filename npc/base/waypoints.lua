@@ -56,12 +56,12 @@ function Waypoint:new(pos,area,neighbours,data)
 	if not WaypointList[area] then
 		WaypointList[area] = {};
 	end
-	WaypointList[area][BWP_PosToIndex(pos)] = this;
+	WaypointList[area][PosToIndex(pos)] = this;
 	if data.waiting then
 		if not WaitingList[area] then
 			WaitingList[area] = {};
 		end
-		WaitingList[area][BWP_PosToIndex(pos)] = this;
+		WaitingList[area][PosToIndex(pos)] = this;
 	end
 	if not AreaList[area] then
 		AreaList[area] = {};
@@ -154,12 +154,12 @@ end
 This function should be called after all waypoints have been set.
 It connects the waypoints as neighbourhoods and bridges and the areas using a Dijkstra algorhithm.
 ]]
-function BWP_Init()
+function Init()
 	for _,area in pairs(WaypointList) do
 		for _,this in pairs(area) do
 			if this.data.bridge then
 				local b = this.data.bridge;
-				b.toWaypoint = WaypointList[b.toArea][BWP_PosToIndex(b.toWaypoint)];
+				b.toWaypoint = WaypointList[b.toArea][PosToIndex(b.toWaypoint)];
 			end
 			for _,that in pairs(area) do
 				if this:getDistance(that)<12 then
@@ -190,7 +190,7 @@ function BWP_Init()
 end
 
 -- calculate a distinct index for the given position
-function BWP_PosToIndex(pos)
+function PosToIndex(pos)
 	local index = 0;
 	if pos.x<0 then
 		index = index + 100000000000000;
@@ -206,7 +206,7 @@ function BWP_PosToIndex(pos)
 end
 
 -- recalculate the distinct index and return the posStruct 
-function BWP_IndexToPos(index)
+function IndexToPos(index)
 	local x,y,z;
 	x = math.floor(math.mod(index,100000000000000)/10000000000);
 	if index>=100000000000000 then

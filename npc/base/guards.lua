@@ -1,71 +1,84 @@
 -- base script for patrolling faction guards
 
+-- functions for subscription:
+-- CharacterOnSight(guard, char)
+-- AbortRoute(guard)
+-- CharacterNear(guard,enemy)
+
 require("npc.base.patrol");
 require("base.common")
 require("base.factions");
 module("npc.base.guards", package.seeall)
 
-BG_Faction = 0;						-- faction of the guard
-BG_WarpPos = position(0,0,0);	-- position where intruders can be warped to
-BG_Enemy = 0;						-- id of the current intruder
-BG_EnemyWp = nil;					-- waypoint of last enemy
-
 -- definitions
-BG_ACTION_NONE = 0;
-BG_ACTION_WARP = 1;
-BG_ACTION_KILL = 2;
+ACTION_NONE = 0;
+ACTION_WARP = 1;
+ACTION_KILL = 2;
 
+Faction = {};					-- faction of the guard
+WarpPos = {};					-- position where intruders can be warped to
+Enemy = {};						-- id of the current intruder
+EnemyWp = {};					-- waypoint of last enemy
+LastEnemy = {};					-- id of last enemy
 
-function BG_StartGuard(guard)
+function Init(guard)
+	Faction[guard.id] = 0;
+	WarpPos[guard.id] = position(0,0,0);
+	Enemy[guard.id] = 0;
+	EnemyWp[guard.id] = nil;
+	LastEnemy[guard.id] = 0;
+end
+
+function StartGuard(guard)
 	math.randomseed(base.common.GetCurrentTimestamp());
-	BP_StartPatrol(guard);
+	npc.base.patrol.StartPatrol(guard);
 end
 
 -- called when character is in range of 3 tiles. Attack/warp the char if necessary.
-function BG_CharacterNear3(guard,char)
-	local _, action = BG_CheckCharacter(char);
-	if ( action == BG_ACTION_WARP ) then
-		BG_Warp(guard,char);
-	elseif ( action == BG_ACTION_KILL ) then
-		BG_Attack(guard,char);
+function CharacterNear3(guard,char)
+	local _, action = CheckCharacter(guard, char);
+	if ( action == ACTION_WARP ) then
+		Warp(guard,char);
+	elseif ( action == ACTION_KILL ) then
+		Attack(guard,char);
 	end
 end
 
 -- should be called in the respective monster/npc script
 -- check if char is an enemy and if something has to be done.
-function BG_CharacterOnSight(guard, char)
-	if BG_IsEnemyInRange(guard.pos, char.id, 3) then
-		BG_CharacterNear3(guard,char);
+function CharacterOnSight(guard, char)
+	if IsEnemyInRange(guard, char.id, 3) then
+		CharacterNear3(guard,char);
 	end
-	if not BG_IsBusy(guard) then
-		BG_Enemy = 0;
+	if not IsBusy(guard) then
+		Enemy[guard.id] = 0;
 	end
-	if BG_CheckCharacter(char) then
-		if BG_Enemy==0 then
-			BG_Enemy = char.id;
-		elseif BG_Enemy~=char.id then
-			if BG_IsBusy(guard) then
+	if CheckCharacter(guard, char) then
+		if Enemy[guard.id]==0 then
+			Enemy[guard.id] = char.id;
+		elseif Enemy[guard.id]~=char.id then
+			if IsBusy(guard) then
 				return;
 			else
-				BG_Enemy = char.id;
+				Enemy[guard.id] = char.id;
 			end
 		end
-		if BG_Enemy == char.id then
-			BG_Approach(guard,char);
+		if Enemy[guard.id] == char.id then
+			Approach(guard,char);
 		end
 	end
 end
 
 -- check if the guard has an enemy near
-function BG_IsBusy(guard)
-	return BG_IsEnemyInRange(guard.pos,BG_Enemy);
+function IsBusy(guard)
+	return IsEnemyInRange(guard,Enemy[guard.id]);
 end
 
 -- check if and what has to be done with this char, depending on the faction and the mode
 -- for testing: check if char has flour (ID 2) in hand slots
-function BG_CheckCharacter(char)
+function CheckCharacter(guard, char)
 	if char:get_type()==1 then
-		return true,BG_ACTION_ATTACK;
+		return true,ACTION_KILL;
 	end
 	
 	-- for testing
@@ -73,34 +86,34 @@ function BG_CheckCharacter(char)
 	if item.id~=2 then
 		item = char:getItemAt(6);
 	end
-	return (item.id==2), BG_ACTION_KILL;
+	return (item.id==2), ACTION_KILL;
 	
 	--[[
-	local mode = BG_GetMode();
-	local action = BG_ACTION_NONE;
+	local mode = GetMode(guard, char);
+	local action = ACTION_NONE;
 	if mode==1 then
 		if char.attackmode then
-			action = BG_ACTION_WARP;
+			action = ACTION_WARP;
 		end
 	elseif mode==2 then
 		if char.attackmode then
-			action = BG_ACTION_KILL;
+			action = ACTION_KILL;
 		else
-			action = BG_ACTION_WARP;
+			action = ACTION_WARP;
 		end
 	elseif mode==3 then
-		action = BG_ACTION_KILL;
+		action = ACTION_KILL;
 	end
-	return (action~=BG_ACTION_NONE), action;
+	return (action~=ACTION_NONE), action;
 	]]
 end
 
 -- get the mode for this faction depending on the char's faction
-function BG_GetMode(char)
+function GetMode(guard, char)
 	--for testing: aggressive
-	return 3;
+	return ACTION_KILL;
 	--[[
-	local found, mode = ScriptVars:find("BG_Mode_".. BG_Faction);
+	local found, mode = ScriptVars:find("Mode_".. Faction[guard.id]);
 	if not found then
 		return 0;
 	end
@@ -110,16 +123,16 @@ function BG_GetMode(char)
 	return mode;]]
 end
 
--- teleports the char to BG_WarpPos
-function BG_Warp(guard, char)
-	char:warp(BG_WarpPos);
+-- teleports the char to WarpPos
+function Warp(guard, char)
+	char:warp(WarpPos[guard.id]);
 	base.common.TempInformNLS(Char,
 		"Du wurdest von einer Wache des Landes verwiesen.",
 		"You've just been expelled from the territory by a guard.");
 end
 
 -- attacks the enemy
-function BG_Attack(guard, enemy)
+function Attack(guard, enemy)
 	--npcdebug("try attack");
 	if math.random(1,5)==1 then
 		world:makeSound(3,enemy.pos);
@@ -128,35 +141,35 @@ function BG_Attack(guard, enemy)
 end
 
 -- check if a (hostile) char is in range (default: 15)
-function BG_IsEnemyInRange(pos, enemyId, range)
+function IsEnemyInRange(guard, enemyId, range)
 	if not range then
 		range = 15;
 	end
-	local charList = world:getCharactersInRangeOf(pos,range);
+	local charList = world:getCharactersInRangeOf(guard.pos,range);
 	for _,c in pairs(charList) do
 		if c.id == enemyId then
-			return BG_CheckCharacter(c);
+			return CheckCharacter(guard, c);
 		end
 	end
 	return false;
 end
 
 -- should be called in the respective function of the monster/npc
-function BG_AbortRoute(guard)
+function AbortRoute(guard)
 	npcdebug("abort route");
-	BP_AbortRoute(guard);
+	npc.base.patrol.AbortRoute(guard);
 end
 
 -- set the waypoints properly and approach the enemy
-function BG_Approach(guard,char)
-	BG_EnemyWp = Waypoint:new(char.pos);
-	if BG_EnemyWp:getDistance(NextWp,true) < BG_EnemyWp:getDistance(CurWp,true) then
+function Approach(guard,char)
+	EnemyWp[guard.id] = Waypoint:new(char.pos);
+	if EnemyWp[guard.id]:getDistance(NextWp,true) < EnemyWp[guard.id]:getDistance(CurWp,true) then
 		CurWp = NextWp;
 	end
 	local curMin = MAX_DISTANCE;
 	local d;
 	for _,n in pairs(CurWp.neighbours) do
-		d = BG_EnemyWp:getDistance(n,true);
+		d = EnemyWp[guard.id]:getDistance(n,true);
 		if d < curMin then
 			curMin = d;
 			NextWp = n;
@@ -164,7 +177,7 @@ function BG_Approach(guard,char)
 	end
 	local b = CurWp.data.bridge;
 	if b then
-		d = BG_EnemyWp:getDistance(b.toWaypoint,true);
+		d = EnemyWp[guard.id]:getDistance(b.toWaypoint,true);
 		if d < curMin then
 			NextWp = b.toWaypoint;
 			d = curMin;
@@ -176,22 +189,22 @@ function BG_Approach(guard,char)
 		end
 	end
 	guard.waypoints:clear();
-	if BG_EnemyWp:getDistance(CurWp,true)>15 and BG_EnemyWp:getDistance(NextWp,true)>15 then
-		BG_Enemy = 0;
-		BP_AbortRoute(guard);
+	if EnemyWp[guard.id]:getDistance(CurWp,true)>15 and EnemyWp[guard.id]:getDistance(NextWp,true)>15 then
+		Enemy[guard.id] = 0;
+		npc.base.patrol.AbortRoute(guard);
 		npcdebug("too far away");
 	else
-		guard.waypoints:addWaypoint(BG_EnemyWp.pos);
+		guard.waypoints:addWaypoint(EnemyWp[guard.id].pos);
 	end
 	guard.waypoints:addWaypoint(NextWp.pos);
 	guard:setOnRoute(true);
 end
 
-function BG_CharacterNear(guard,enemy)
-	if not BG_IsBusy(guard) and BG_EnemyWp and equapos(enemy.pos,BG_EnemyWp.pos) then
-		BG_Enemy = 0;
-		BP_AbortRoute(guard);
+function CharacterNear(guard,enemy)
+	if not IsBusy(guard) and EnemyWp[guard.id] and equapos(enemy.pos,EnemyWp[guard.id].pos) then
+		Enemy[guard.id] = 0;
+		npc.base.patrol.AbortRoute(guard);
 	else
-		BP_CharacterNear(guard,enemy);
+		npc.base.patrol.CharacterNear(guard,enemy);
 	end
 end
