@@ -1,7 +1,7 @@
 require("npc.base.functions")
 require("npc.base.guards");
 module("npc.lightmaster", package.seeall)
-
+--[[
 npc.base.waypoints.Waypoint:new(position(122,604,0),1);
 npc.base.waypoints.Waypoint:new(position(130,604,0),1);
 npc.base.waypoints.Waypoint:new(position(129,596,0),1);
@@ -39,6 +39,7 @@ position(96,576,0),
 position(114,577,0),
 position(130,591,0)
 }
+]]
 --[[
 PatrolList[1] = { base = {true,5},
 position(122,604,0),
@@ -124,7 +125,7 @@ function nextCycle()  -- ~10 times per second
 		action = false;
         npc.base.functions.increaseLangSkill(TradSpeakLang);
         thisNPC.activeLanguage=TradStdLang;
-		npc.base.guards.BG_StartGuard(thisNPC);
+		npc.base.guards.StartGuard(thisNPC);
 		thisNPC:setAttrib("agility",15);
 		thisNPC:createAtPos(5,392,1);
 		local torch = thisNPC:getItemAt(5);
