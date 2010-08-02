@@ -7,6 +7,8 @@ function InitWegweiser()
     signItemId={};
     signPerception={};
 
+	--UPDATE common SET com_script="item/signpost.lua" WHERE com_itemid=245;
+
     ---------------- WEGWEISER ----------------
 
     --AddWeg({X,Y,Z},german text,english text, direction, needed value of perception);
@@ -448,6 +450,8 @@ function PrepareTables(TablePos)
         signPerception[TablePos] = {};
     end
 end
+
+-- DirToItemID converts item IDs into local type values for the Add functions to work with
 
 function DirToItemID(Value)
     if (Value==0) then
