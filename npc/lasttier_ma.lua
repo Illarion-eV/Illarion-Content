@@ -34,8 +34,8 @@ function InitNPC()
     if not InitDone then
         InitDone = true;
         
-        FollowInRange = 5; -- Maximaler Abstand zum Besitzer in dem das Lasttier folgt
-        CyclesBetweenSteps = 8; -- Wieviele 1/10s zwischen 2 Schritten
+        FollowInRange = 7; -- Maximaler Abstand zum Besitzer in dem das Lasttier folgt
+        CyclesBetweenSteps = 6; -- Wieviele 1/10s zwischen 2 Schritten
         ActiveCyclesWithoutTarget = 880; -- Aktive Schritte ohne Ziel bis zum löschen
         
         lost = {};
