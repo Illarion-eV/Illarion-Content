@@ -12,13 +12,6 @@ closeDoor = base.class.class(function(door, posi)
 end);
 
 function closeDoor:execute()
-    --[[lst=world:getPlayersOnline();
-    for i,ply in pairs(lst) do
-        if ply.id==42 then
-            char=ply;
-        end
-    end
-    char:inform("in exe");--]]
     if (world:isItemOnField(self.pos)==true) then
         item=world:getItemOnField(self.pos);
         base.doors.CloseDoor(item);

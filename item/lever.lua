@@ -25,6 +25,15 @@ function init()
     myLev1:bind(0,handler.movelever.moveLever(myLev2));
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
+    
+    riddleLever1 = base.lever.Lever(position(120,637,0),true);
+    riddleLever2 = base.lever.Lever(position(120,637,0),true);
+    riddleLever3 = base.lever.Lever(position(120,637,0),true);
+    riddleLever4 = base.lever.Lever(position(120,637,0),true);
+    riddleLever5 = base.lever.Lever(position(120,637,0),true);
+    
+    
+    
     --[[for x=117,119 do
         for y=632,636 do
             testlever2:bind(0,deleteItem(position(x,y,0),0));
