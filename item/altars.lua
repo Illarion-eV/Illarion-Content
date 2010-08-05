@@ -148,11 +148,11 @@ function LookAtItem( User, Item )
 
     if thisGod==0 or thisGod>16 then --undedicated altar
 
-        base.common.InformNLS(User,"Ungeweihter Altar","Undedicated altar");
+        world:itemInform(User,Item,base.common.GetNLS(User,"Ungeweihter Altar","Undedicated altar"));
 
     elseif thisGod > 0 then --dedicated altar
 
-        base.common.InformNLS(User,"Altar "..godName[thisGod].."s, "..godDescriptionG[thisGod]..".","Altar of "..godName[thisGod]..", the "..godDescriptionE[thisGod]..".");
+        world:itemInform(User,Item,base.common.GetNLS(User,"Altar "..godName[thisGod].."s, "..godDescriptionG[thisGod]..".","Altar of "..godName[thisGod]..", the "..godDescriptionE[thisGod].."."));
     
         --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
 
