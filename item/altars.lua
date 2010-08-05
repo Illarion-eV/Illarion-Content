@@ -31,9 +31,6 @@
 require("base.common")
 module("item.altars", package.seeall)
 
-AAA = 0 --placeholders without a value aren't that good I think
-BBB = 0 --
-
 function ini()
 
     init=true;
@@ -159,8 +156,8 @@ function LookAtItem( User, Item )
     
         --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
 
-        devotion=User:getQuestProgress(AAA);
-        priesthood=User:getQuestProgress(BBB);
+        devotion=User:getQuestProgress(401);
+        priesthood=User:getQuestProgress(402);
 
         --Check for corrupted status
 
@@ -259,8 +256,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
         --Let us first know who the user is
 
-        devotion=User:getQuestProgress(AAA);
-        priesthood=User:getQuestProgress(BBB);
+        devotion=User:getQuestProgress(401);
+        priesthood=User:getQuestProgress(402);
 
         --Check for corrupted status
 
@@ -288,8 +285,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                  base.common.InformNLS(User,"#w Ihr empfangt den Segen "..godName[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","#w You receive the blessing of "..godName[thisGod].." and devote your life to the faith in the divinity. Your donation:");
                  world:gfx(16,User.pos);
                  world:makeSound(13,User.pos);
-                 User:setQuestProgress(AAA,thisGod); --become devotee
-                 User:setQuestProgress(BBB,0); --the char was no priest before - must not be one afterwards
+                 User:setQuestProgress(401,thisGod); --become devotee
+                 User:setQuestProgress(402,0); --the char was no priest before - must not be one afterwards
                  
              else --does not have the stuff
 
@@ -309,8 +306,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                      base.common.InformNLS(User,"#w Ihr schwört eurem alten Glauben ab und empfangt die Weihe eines Priesters "..godName[thisGod].."s. Euer Opfer:","#w You abjure your old faith and receive the ordination to the priesthood of "..godName[thisGod]..". Your donation:");
                      world:gfx(16,User.pos);
                      world:makeSound(13,User.pos);
-                     User:setQuestProgress(AAA,thisGod); --become devotee of this god
-                     User:setQuestProgress(BBB,thisGod); --become priest of this god
+                     User:setQuestProgress(401,thisGod); --become devotee of this god
+                     User:setQuestProgress(402,thisGod); --become priest of this god
              
                  else --does not have the stuff
  
@@ -334,8 +331,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                  deleteStuff(User,devoteItems[thisGod]);
                  base.common.InformNLS(User,"#w Ihr empfangt den Segen "..godName[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","#w You receive the blessing of "..godName[thisGod].." and devote your life to the faith in the divinity. Your donation:");                 world:gfx(16,User.pos);
                  world:makeSound(13,User.pos);
-                 User:setQuestProgress(AAA,thisGod); --become devotee
-                 User:setQuestProgress(BBB,0); --the char was no priest before - must not be one afterwards
+                 User:setQuestProgress(401,thisGod); --become devotee
+                 User:setQuestProgress(402,0); --the char was no priest before - must not be one afterwards
 
              else --does not have the stuff
                  base.common.InformNLS(User,"#w Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","#w To devote yourself to "..godName[thisGod]..", you'll have to donate:");
@@ -371,7 +368,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                         base.common.InformNLS(User,"#w Ihr empfangt die Weihe eines Priesters "..godName[thisGod].."s. Euer Opfer:","#w You receive the ordination to the priesthood of "..godName[thisGod]..". Your donation:");
                         world:gfx(31,User.pos);
                         world:makeSound(13,User.pos);
-                        User:setQuestProgress(BBB,thisGod); --become priest of this god
+                        User:setQuestProgress(402,thisGod); --become priest of this god
                         User:teachMagic(1,1); --priest runes
                         User:teachMagic(1,2);
                         User:teachMagic(1,3); 
@@ -433,7 +430,7 @@ function checkAudience(god, position)
     counter=0; 
     for i=1,table.getn(theCandidates) do
         candidate=theCandidate[i];
-        if candidate:getQuestProgress(AAA) == god then
+        if candidate:getQuestProgress(401) == god then
             counter=counter+1;
         end
     end
