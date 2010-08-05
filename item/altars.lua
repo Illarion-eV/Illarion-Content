@@ -401,13 +401,13 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 end --function
 
 function tellStuff(list,lang)
-    string="#w ";
-    string=string+world:getItemName(list[1],lang);
+    text="#w ";
+    text=text+world:getItemName(list[1],lang);
     for i=2,table.getn(list) do
-        string=string+", ";
-        string=string+world:getItemName(list[i],lang);
+        text=text+", ";
+        text=text+world:getItemName(list[i],lang);
     end
-    return string;
+    return text;
 end
 
 function checkStuff(User,list)
