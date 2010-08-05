@@ -402,10 +402,10 @@ end --function
 
 function tellStuff(list,lang)
     text="#w ";
-    text=text+world:getItemName(list[1],lang);
+    text=text..world:getItemName(list[1],lang);
     for i=2,table.getn(list) do
-        text=text+", ";
-        text=text+world:getItemName(list[i],lang);
+        text=text..", ";
+        text=text..world:getItemName(list[i],lang);
     end
     return text;
 end
