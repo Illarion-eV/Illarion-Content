@@ -342,7 +342,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
         elseif devotion == thisGod and priesthood == thisGod and User:getMagicType()== 1 then --a priest of this god. Prays, nothing more.
 
-             base.common.InformNLS(User,"#w Ihr betet zur "..godName[thisGod].." und bekräftigt euren Glauben.","#w You pray to "..godName[thisGod].." and confirm your faith.");
+             base.common.InformNLS(User,"#w Ihr betet zu "..godName[thisGod].." und bekräftigt euren Glauben.","#w You pray to "..godName[thisGod].." and confirm your faith.");
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
 
@@ -369,10 +369,11 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                         world:gfx(31,User.pos);
                         world:makeSound(13,User.pos);
                         User:setQuestProgress(402,thisGod); --become priest of this god
+	                    User:setMagicType(1);
                         User:teachMagic(1,1); --priest runes
                         User:teachMagic(1,2);
                         User:teachMagic(1,3); 
-                    
+
                     else --does not have the stuff
 
                         base.common.InformNLS(User,"#w Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","#w To become a priest of "..godName[thisGod]..", you'll have to donate:");
