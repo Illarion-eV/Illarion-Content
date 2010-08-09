@@ -8,7 +8,7 @@
 module("item.id_2_flour", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-    User:inform("Checking the Queen NPC (ä)");
+    User:inform("NEU: JETZT NOCH WEISSER!!! Checking the Queen NPC (ä)");
     
     if (npc == nil) then
         User:inform("[npc] table not load.");
