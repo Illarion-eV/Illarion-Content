@@ -1,359 +1,882 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,893,799,1,2,false,'Fronita Emery','npc_fronita_emery.lua',1);
+--------------------------------------------------------------------------------
+-- NPC Name: Fronita Emery                                           Runewick --
+-- NPC Job:  Trader,glassblower                                               --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
+-- NPC Sex:  female                     NPC Direction: east                   --
+--                                                                            --
+-- Author:   Faladron                                                         --
+--                                                                            --
+-- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+require("npc.base.basic")
+require("npc.base.condition.chance")
+require("npc.base.condition.language")
+require("npc.base.consequence.inform")
+require("npc.base.talk")
 module("npc.fronita_emery", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fronita Emery the merchant. Keyphrases: glas, wares, Runewick, quest."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fronita Emery die Händlerin. Schlüsselwörter: Glas, Waren, Runewick, Aufgabe."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
+talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("mit dir");
+talkEntry:addResponse("Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?");
+talkEntry:addResponse("Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
+talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?");
+talkEntry:addResponse("Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("Fair winds and clear sight to you!");
+talkEntry:addResponse("May Elara enlighten your path.");
+talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Günstige Winde und klare Sicht!");
+talkEntry:addResponse("Möge Elara euren Pfad erleuchten.");
+talkEntry:addResponse("Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addTrigger("See you");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Fair winds and clear sight to you!");
+talkEntry:addResponse("May Elara enlighten your path.");
+talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Günstige Winde und klare Sicht!");
+talkEntry:addResponse("Möge Elara euren Pfad erleuchten.");
+talkEntry:addResponse("Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I am very well. Look at this bottle here. If you hold it against the light it sparkles in every color imaginable.");
+talkEntry:addResponse("I am a little short of breath and there's blisters from all the glass I polished, but that's to expect from my work.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befinden");
+talkEntry:addResponse("Mir geht es ausgezeichnet. Sehr euch diese Flasche hier an. Hält man sie gegen das Licht funkelt sie in allen Farben.");
+talkEntry:addResponse("Ich bin etwas außer Atem und habe Schwielen vom Glas polieren, aber das ist Berufsrisiko.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I'm Fronita. I am a glassblower and I sell my wares here.");
+talkEntry:addResponse("My name? Fronita Emery, I deal in glass goods.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.");
+talkEntry:addResponse("Mein Name? Fronita Emery, ich handle mit Glaswaren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("You will be amazed by my stock of glass related wares.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Mein Angebot an Glaswaren wird euch begeistern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I'd love to live in a house of glass but alas, the summer heat would be unbearable inside.");
+talkEntry:addResponse("Metal corrodes away, but glass is here to stay.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Wäre die Hitze im Sommer nicht unerträglich, ich würde in einem Haus aus Glas wohnen.");
+talkEntry:addResponse("Metall rostet, aber Glas ist zeitlos.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
+talkEntry:addResponse("I'm a glassblower and I sell my wares here");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!");
+talkEntry:addResponse("Ich bin Glasbläserin und verkaufe hier meine Waren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!");
+talkEntry:addResponse("Ich bin Glasbläserin und verkaufe hier meine Waren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
+talkEntry:addResponse("I'm a glassblower and I sell my wares here");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("LOCATION");
+talkEntry:addResponse("You're in Runewick, enjoy the marvellous sight!");
+talkEntry:addResponse("#me smirks and winks: 'I'm taking a wild guess here, but you might be on the market.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ORT");
+talkEntry:addResponse("Du bist in Runewick, der Stadt mit der schönsten Aussicht!");
+talkEntry:addResponse("#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trader");
+talkEntry:addTrigger("merchant");
+talkEntry:addTrigger("collegue");
+talkEntry:addTrigger("vendor");
+talkEntry:addTrigger("market");
+talkEntry:addResponse("Speak right up. Just ask around and you'll find the wares you're looking for.");
+talkEntry:addResponse("I am sure it won't be hard for you to find the other merchants of Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("händler");
+talkEntry:addTrigger("kollege");
+talkEntry:addTrigger("höker");
+talkEntry:addTrigger("markt");
+talkEntry:addResponse("Seid nur nicht auf den Mund gefallen. Fragt und ihr findet was ihr an Waren sucht.");
+talkEntry:addResponse("Es wird euch sicher nicht schwer fallen, die anderen Händler in Runewick zu finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm just a humble crafter. Ask a scholar about that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich bin nur eine einfache Händlerin. Fragt doch einen Gelehrten über sowas.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I am");
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Nice to meet you, %CHARNAME! But don't expect a discount just because you told me your name.");
+talkEntry:addResponse("What a funny name. Somehow it gives away that you're not from around here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich bin");
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Schön dich kennenzulernen %CHARNAME! Erwarte aber keinen Preisnachlass deswegen.");
+talkEntry:addResponse("Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("glass");
+talkEntry:addResponse("To work with glass is challenging. It becomes frail very fast");
+talkEntry:addResponse("The slender hands of a lady like myself are just right for that kind of work, har har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sand");
+talkEntry:addResponse("You may think there's enough sand in the desert, still Cadomyr troubles the supply.");
+talkEntry:addResponse("Aye, lots of sand in the west. But Cadomyr guards it tightly. That's a problem.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rune magic");
+talkEntry:addResponse("You have to ask another dwarf about that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("magic");
+talkEntry:addTrigger("mage");
+talkEntry:addTrigger("sorcer");
+talkEntry:addTrigger("spell");
+talkEntry:addResponse("Ach, sometimes I twitch when spells fly about, but you get used to that.");
+talkEntry:addResponse("There's dwarven rune magic. So why should magic bother me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("problem");
+talkEntry:addTrigger("trouble");
+talkEntry:addTrigger("supply");
+talkEntry:addResponse("Cadomyr checks tightly how much sieved sand leaves the desert. Not enough for me to work properly, I say!");
+talkEntry:addResponse("Cadomyr is mocking us. If they allow sand to be exported it's usualy wet and hardly useable. ");
+talkEntry:addResponse("'I reign over every grain of sand!' says the queen. You can be overzealous too, you know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Glas");
+talkEntry:addResponse("Mit Glas zu arbeiten ist eine Herausforderung. Es wird schnell sehr zerbrechlich.");
+talkEntry:addResponse("Zarte Frauenhände wie meine sind genau richtig für diese Arbeit, har har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sand");
+talkEntry:addResponse("Man möchte meinen Sand gäbs in der Wüste genug, trotzdem macht Cadomyr immer Ärger.");
+talkEntry:addResponse("Aye im Westen gibts viel davon. Aber da sitzt Cadomyr wachsam drauf. Das ist ein Problem.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runenmagie");
+talkEntry:addResponse("Da musst du einen Zwerg fragen der sich genauer damit auskennt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Magie");
+talkEntry:addTrigger("Zauber");
+talkEntry:addResponse("Ach, ich zuck noch ein wenig wenn die Zaubersprüche fliegen, aber man gewöhnt sich dran.");
+talkEntry:addResponse("Wir Zwerge kennen ja auch die Runenmagie. Also warum soll mich Magie stören?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Problem");
+talkEntry:addTrigger("Ärger");
+talkEntry:addResponse("Cadomyr passt genau auf, wieviel feiner Sand aus der Wüste entnommen wird. Nicht genug für anständige Arbeit sag ich!");
+talkEntry:addResponse("Cadomyr ärgert uns. Wenn sie es mal erlauben und Sand nach Runewick kommt ist er feucht und fast unbrauchbar.");
+talkEntry:addResponse("'Ich herrsche über jedes Sandkorn!' sagt die Königin. Man kann auch übereifrig sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
+talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.");
+talkEntry:addResponse("We have the greenest meadows, the tastiest food and the best beer here in Rnewick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Eine wunderbare Stadt! Man tritt einige Schritte weg vom Schmelzofen und die kühle Seeluft erfrischt einen.");
+talkEntry:addResponse("Wir haben die grünsten Wiesen, das leckerste Essen und das beste Bier hier in Runewick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Imagine a little goblin with the beard of a dwarf. That's him.");
+talkEntry:addResponse("Even if I admire archmage Morgan, I don't understand why he doesn't do anything against this fiend!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Stellt euch einen kleinen Goblin mit Zwergenbart vor. Das ist er.");
+talkEntry:addResponse("Auch wenn ich Erzmagier Morgan sonst bewundere, warum er nichts gegen diesen Halunken unternimmt ist mir ein Rätsel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair, bah! They don't need glass, they swig straight from the water hole!");
+talkEntry:addResponse("If you're robbed there and yell for help, only more people come to split the loot!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Galmair, pah! Die brauchen kein Glas, die saufen aus der Tränke!");
+talkEntry:addResponse("Wird man dort ausgeraubt und ruft um Hilfe kommen nur mehr Leute um sich die Beute zu teilen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
+talkEntry:addResponse("Two big childhood dreams combined: Queen of her own enormous sandbox.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!");
+talkEntry:addResponse("Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?.");
+talkEntry:addResponse("I don't like them. There's always troubles everytime I try to gather sand from the dessert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Leider muss ich sagen, dort gibt es bessere Glasbläser als mich. Aber kein Wunder! Bei all dem Sand.");
+talkEntry:addResponse("Ich mag sie nicht. Es gibt immer wieder Probleme wenn ich Sand aus der Wüste holen will.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I am a woman.");
+talkEntry:addResponse("Brutal and agressive people, all of their culture is based on war and opression.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wie froh bin ich nicht dort zu leben. Als Frau hätte ich wohl nie Glasblasen lernen dürfen.");
+talkEntry:addResponse("Ein grobes aggressives Volk. ihre ganze Kultur lebt von Krieg und Unterdrückung.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ugh! Let's talk about more pleasant things. My stock of wares for example.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Pfui. Lass uns doch über etwas Schöneres reden. Mein Warenangebot zum Beispiel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Once I've earned enough money I want to visit Salkamar.");
+talkEntry:addResponse("I once heard that they have colourful windows there with pictures made of glas that tell stories.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wenn der Handel genug Geld abgeworfen hat möchte ich Salkamar einmal besuchen.");
+talkEntry:addResponse("Es heißt, dort gibt es bunte Fenster mit Bildern aus Glas die Geschichten erzählen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Gods? Findari and Elara bless my life.");
+talkEntry:addResponse("Elara clears my mind like crystal glass and Findari fans the fire in my heart.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Götter? Findari und Elara behüten mein Leben.");
+talkEntry:addResponse("Elara klärt meinen Geist wie Kristallglas und Findari schürt das Feuer in meinem Herzen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You have a lot of time to think about the important things of life when you stare at the furnace..");
+talkEntry:addResponse("My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addResponse("Bis das Glas schmilzt hat man viel Zeit im Schein der Esse über das wirklich wichtige nachzudenken.");
+talkEntry:addResponse("Der Glaube an Elara gibt mir Frieden. Ich freue mich auf das stille Warten wenn das Glas kühlt, es klärt den Geist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If you literally need air to survive, like me, it is obvious who you should be grateful to.");
+talkEntry:addResponse("Findari guides my hand on the bellows, so the fire never dies.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addResponse("Wenn man so wie ich Luft buchstäblich zum Leben braucht, ist es klar wem man dafür danken sollte.");
+talkEntry:addResponse("Findari lenkt meine Hand am Blasebalg damit das Feuer nicht stirbt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Who knows what he would've become, had he entrusted himself to Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("Wer weiß, hätte er sich Elara anvertraut wäre er vielleicht nicht so geworden wie er ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, that's true. But I prefer Elara and Findari.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Aye, richtig. Mir sagen Elara und Findari aber mehr zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Yes. True. Absolutely. And now buy my stuff!");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Ja. Richtig. Aber wirklich. Und jetzt kauf was!");
+talkEntry:addResponse("Sehr schön. Jetzt einigen wir uns noch was du kaufst.");
+talkEntry:addResponse("Ich weiß, wunderbar nicht?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("No? My heart just shattered like a piece of glass.");
+talkEntry:addResponse("Well whatever, bah!");
+talkEntry:addResponse("You're stealing my time!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.");
+talkEntry:addResponse("Na dann halt nicht, pah!");
+talkEntry:addResponse("Du stehlst nur meine Zeit!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Listen, I don't want to be rude. Either you buy something or you leave, aye?");
+talkEntry:addResponse("If you go on rambling about like that you'll spoil my buisiness.");
+talkEntry:addResponse("Yes. Aye. Absolutely. And now buy my stuff!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Hör mal, ich will nicht unhöflich sein. Aber entweder kaufste was oder verschwindest, aye?");
+talkEntry:addResponse("Wenn du hier weiter so rumbrabbelst vermiest du mir das Geschäft.");
+talkEntry:addResponse("Ja. Aye. Absolut. Und jetzt kauf mir was ab!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me poliert ein fein gearbeitetes Weinglas.", "#me polishes a well crafted wine glass.");
+talkingNPC:addCycleText("Genießt die feinen Getränke Runewicks in Runewicks besten Gläsern.", "Enjoy the best of Runewicks beverages in Runewicks best glasses.");
+talkingNPC:addCycleText("In meinen Glaswaren funkelt die Ewigkeit!", "Eternity sparkles in my glass wares!");
+talkingNPC:addCycleText("#me spielt mit ein paar Glasmurmeln.", "#me plays with some glass pebbles.");
+talkingNPC:addCycleText("Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them.");
+talkingNPC:addCycleText("Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!");
+talkingNPC:addCycleText("Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(2);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 0;
-    -- NPC by Estralis Seborian
-    -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
-    -- 5% Tools (Glass blower): 311, 312
-    -- 5% Glass products: 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498
-    -- 5% Glass resources: 41, 314, 316, 726
-    -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-    -- Help 
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Game Help] This is NPC is the glass artisan Fronita Emery. Keyphrases: Hello, glass, YOURTRIGGER1, YOURTRIGGER2.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Spielhilfe] Dieser NPC ist die Glaskünstlerin Fronita Emery. Schlüsselwörter: Hallo, Glas, DEINTRIGGER1, DEINTRIGGER2.");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Grüße","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gruß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    npc.base.autonpcfunctions.AddTraderTrigger("profession","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("beruf","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("job","ANSWER1");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("job","ANSWER1");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("PROFESSION","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("BERUF","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("LOCATION","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("ORT","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("trader","OTHER NPCs1");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("merchant");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("collegue");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("vendor");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("market");
-    npc.base.autonpcfunctions.AddAdditionalText("OTHER NPCs2");
-    npc.base.autonpcfunctions.AddAdditionalText("OTHER NPCs3");
-    npc.base.autonpcfunctions.AddTraderTrigger("händler","OTHER NPCs1");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("kollege");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("höker");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("markt");
-    npc.base.autonpcfunctions.AddAdditionalText("OTHER NPCs2");
-    npc.base.autonpcfunctions.AddAdditionalText("OTHER NPCs3");
-    npc.base.autonpcfunctions.AddTraderTrigger("Gobaith","ANSWER1");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    npc.base.autonpcfunctions.AddTraderTrigger("Gobaith","ANSWER1");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER3");
-    -- More small talk; add at least five triggers
-    npc.base.autonpcfunctions.AddTraderTrigger("YOURTRIGGER1","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("YOURTRIGGER2","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("YOURTRIGGER3","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("YOURTRIGGER4","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("YOURTRIGGER5","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("DEINTRIGGER1","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("DEINTRIGGER2","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("DEINTRIGGER3","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("DEINTRIGGER4","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("DEINTRIGGER5","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Faction stuff
-    npc.base.autonpcfunctions.AddTraderTrigger("Elvaine","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Morgan");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("archmage");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Erzmagier");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Elvaine","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Morgan");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("archmage");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Erzmagier");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Valerio","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guilianni");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Don");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Valerio","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guilianni");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Don");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("rosaline","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("königin");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("queen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("edwards");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("rosaline","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("königin");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("queen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("edwards");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Main land factions
-    npc.base.autonpcfunctions.AddTraderTrigger("albar","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("albar","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("gynk","ENGLISH1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gync");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("gync","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gynk");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("salkama","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("salkama","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-    npc.base.autonpcfunctions.AddTraderTrigger("GOD","ENGLISH1.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH2.");
-    npc.base.autonpcfunctions.AddAdditionalText("ENGLISH3.");
-    npc.base.autonpcfunctions.AddTraderTrigger("GOTT","GERMAN1.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN2.");
-    npc.base.autonpcfunctions.AddAdditionalText("GERMAN3.");
-    -- Catching quest triggers
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","NO QUEST");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","NO QUEST");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","NO QUEST");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","NO QUEST");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","ANSWER1");
-    npc.base.autonpcfunctions.AddAdditionalText("ANSWER2");
-    -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    npc.base.autonpcfunctions.AddCycleText("GERMAN","ENGLISH");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END

@@ -1,523 +1,1038 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),2,784,772,0,4,false,'Myrthe Mildthorn','npc_myrthe_mildthorn.lua',1);
+--------------------------------------------------------------------------------
+-- NPC Name: Myrthe Mildthorn                                            None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  784, 772, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
-dofile("npc_autonpcfunctions.lua");
+require("npc.base.basic")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.queststatus")
+require("npc.base.consequence.rankpoints")
+require("npc.base.talk")
+module("npc.myrthe_mildthorn", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keyphrases: Hello, laundry, cave, quest."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist das Waschweib Myrthe Mildthorn. Schlüsselwörter: Hallo, Wäsche, Höhle, Quest."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Oh, hello, got laundry? Excuse me, I thought you're one of my customers.");
+talkEntry:addResponse("#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?");
+talkEntry:addResponse("Hiho! How can I help you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
+talkEntry:addResponse("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
+talkEntry:addResponse("Hiho! Wie kann ich euch helfen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, hello, got laundry? Excuse me, I thought you're one of my customers.");
+talkEntry:addResponse("#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?");
+talkEntry:addResponse("Hiho! How can I help you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
+talkEntry:addResponse("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
+talkEntry:addResponse("Hiho! Wie kann ich euch helfen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("Farewell! If your clothes get dirty, just come back to me, will you?");
+talkEntry:addResponse("Oh, you have to leave? I do not feel comfortable here, all alone.");
+talkEntry:addResponse("Ah, I look forward to meet you again.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
+talkEntry:addResponse("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
+talkEntry:addResponse("Ah, ich freu mich schon darauf, euch wiederzusehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Farewell! If your clothes get dirty, just come back to me, will you?");
+talkEntry:addResponse("Oh, you have to leave? I do not feel comfortable here, all alone.");
+talkEntry:addResponse("Ah, I look forward to meet you again.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
+talkEntry:addResponse("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
+talkEntry:addResponse("Ah, ich freu mich schon darauf, euch wiederzusehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I feel... clean!");
+talkEntry:addResponse("Oh, I am so worried, maybe you can help me.");
+talkEntry:addResponse("Afraid!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Mir geht es... sauber!");
+talkEntry:addResponse("Oh, ich bin so besorgt, vielleicht könnt ihr mir ja helfen.");
+talkEntry:addResponse("Ich hab Angst!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I am Myrthe. Hello!");
+talkEntry:addResponse("Myrthe Mildthorn, at your service.");
+talkEntry:addResponse("Wasch-woman Myrthe Mildthorn reports for duty!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin die Myrthe. Hallo!");
+talkEntry:addResponse("Myrthe Mildthorn, stets zu Diensten.");
+talkEntry:addResponse("Waschweib Myrthe Mildthorn meldet sich zur Stelle!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wash");
+talkEntry:addTrigger("laundry");
+talkEntry:addResponse("Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
+talkEntry:addResponse("As a washer-woman, I am an important member of the society. I make people look noble!");
+talkEntry:addResponse("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wasch");
+talkEntry:addTrigger("Wäsche");
+talkEntry:addResponse("Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
+talkEntry:addResponse("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
+talkEntry:addResponse("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("Oh, Yewdale is not far away. Just follow the road, you cannot miss it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nana... she lives in Yewdale, am I not right? She cooks the finest soups, indeed.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wolf");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wolves");
+talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("panther");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Spider");
+talkEntry:addResponse("Eeek! I once saw the web of a giant spider between two trees in the north. That was so scary!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cave");
+talkEntry:addResponse("To the north, there is an abandoned bear cave. Now wolves, panthers and even terrible spiders dwell there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bear");
+talkEntry:addResponse("A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthil");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Anthil's water is perfect for doing laundry. It could be a bit warmer, though.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("brook");
+talkEntry:addTrigger("river");
+talkEntry:addResponse("This brook here is the called the Anthil, didn't you know? The water is pure and clean, just as my laundry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eibenthal");
+talkEntry:addResponse("Oh, Eibenthal ist nicht weit von hier. Geht einfach die Straße entlang, ihr könnte es nicht verfehlen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addResponse("Nana... Sie lebt in Eibenthal, nicht wahr? Sie kocht die besten Suppen, ohja.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wolf");
+talkEntry:addTrigger("Wölfe");
+talkEntry:addResponse("In der Nacht höre ich ihr Gejaule. Und sie haben sogar schon Yewdale heimgesucht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Panther");
+talkEntry:addResponse("Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Spinne");
+talkEntry:addResponse("Eeek! Ich habe letztens ein riesiges Spinnennetz zwischen zwei Bäumen im Norden gesehen. Das war so schrecklich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Höhle");
+talkEntry:addResponse("Im Norden gibt es eine alte Bärenhöhle. Jetzt hausen dort Wölfe, Panther und schreckliche Spinnen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bär");
+talkEntry:addResponse("Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthil");
+talkEntry:addResponse("Das Wasser des Anthils ist perfekt, um Wäsche darin zu waschen. Es könnte nur ein wenig wärmer sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bach");
+talkEntry:addTrigger("Fluss");
+talkEntry:addTrigger("Fluß");
+talkEntry:addResponse("Dieser Bach hier ist der Anthil, wußtet ihr das nicht? Das Wasser ist sauber und klar, genauso wie meine Wäsche.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is that magnificient town to the east. I wash the laundry of the citizens! Isn't that great?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, isn't that a cook from the north who cooks noodles of semolina?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me points to the west: 'There is Cadomyr! I've never been there, but I heard it is a barren place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("#me deutet nach Westen: 'Dort liegt Cadomyr. Ich war noch nie dort, aber ich habe gehört, es ist ein staubtrockener Ort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Albar... I am a simple washer-woman. How should I know about such things?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Albar... ich bin nur ein einfaches Waschweib. Warum sollte ich mich mit solchen Dingen auskennen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Gynk, that sounds funny, what is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Gynk, das klingt witzig, was ist denn das?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I think the archmage of Runewick is from... Salamander?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Ich glaube, der Erzmagier von Runewick kommt aus... Salamander?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I pray to Tanora every morning for leaving the water of the Anthil brook as clear as it is now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
+talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
+talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
+talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
+talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
+talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("There is still a pack of wolves in the north. Can't you hear them howling?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 11));
+talkEntry:addResponse("Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
+talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
+talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
+talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
+talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."));
+talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."));
+talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods III"));
+talkEntry:addResponse("Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald III"));
+talkEntry:addResponse("Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods III"));
+talkEntry:addResponse("Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald III"));
+talkEntry:addResponse("Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("A giant spider built a giant web in the woods! I fear for my life!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 19));
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 21));
+talkEntry:addResponse("Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a novice robe. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
+talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a novice robe."));
+talkEntry:addResponse("Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
+talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 21));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Novizenrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
+talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 21));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Novizenrobe."));
+talkEntry:addResponse("Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
+talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, you did so much for me, the woods and the laundry. You can bring me your laundry whenever you want - I'll wash it for free!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
+talkEntry:addResponse("Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
+talkEntry:addResponse("Oh, you did so much for me, the woods and the laundry. You can bring me your laundry whenever you want - I'll wash it for free!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
+talkEntry:addResponse("Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("moan");
+talkEntry:addResponse("I do not moan! I just... notice things.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("maulen");
+talkEntry:addResponse("Ich maule nicht... Ich mache nur Anmerkungen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ariel");
+talkEntry:addTrigger("Sunil");
+talkEntry:addTrigger("Persil");
+talkEntry:addTrigger("Tandil");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I prefer soap.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ariel");
+talkEntry:addTrigger("Sunil");
+talkEntry:addTrigger("Persil");
+talkEntry:addTrigger("Tandil");
+talkEntry:addResponse("Ich nehme lieber Seife.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Yes, no.");
+talkEntry:addResponse("Sure, clear.");
+talkEntry:addResponse("Everything is wonderful!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Ja, ne.");
+talkEntry:addResponse("Sicherlich, klar.");
+talkEntry:addResponse("Alles wunderbar!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("Nothing is clear.");
+talkEntry:addResponse("Who is Regor?");
+talkEntry:addResponse("Who the heck?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Nichts ist klar.");
+talkEntry:addResponse("Wer ist Regor?");
+talkEntry:addResponse("Wer verdammt nochmal?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("Ohje, ohje.", "Ohje, ohje.");
+talkingNPC:addCycleText("#me schrubbt emsig ihre Wäsche sauber.", "#me scrubs her laundry clean.");
+talkingNPC:addCycleText("#me beobachtet mit verträumten Gesichtsausdruck eine Forelle im Wasser.", "#me stares at a trout, passing by.");
+talkingNPC:addCycleText("#me summt vor sich hin.", "#me hums to herself.");
+talkingNPC:addCycleText("#me wäscht Wäsche.", "#me washes laundry clean.");
+talkingNPC:addCycleText("#me faltet ein Laken zusammen.", "#me folds a blanket.");
+talkingNPC:addCycleText("#me inspiziert ein Loch in einem Umhang und steckt kichernd ihren Finger hindurch.", "#me inspects a hole in a coat and sticks her finger through it, giggling.");
+talkingNPC:addCycleText("Ah, nicht nur sauber, sondern rein muss es sein.", "Ah, not just clean but pure it should be.");
+talkingNPC:addCycleText("Willst du viel, spül' im Anthil.", "Want a lot, rinse in a pot.");
+talkingNPC:addCycleText("#me reinigt ihr Waschbrett.", "#me cleans her wash board.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(5);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    -- Runewick homeland
-    QuestID = 79;
-    -- NPC by Estralis Seborian
-    -- Myrthe Mildthorn, a washer-woman
-    -- Quest: A cave in the Woods (79)
-    -- Queststatus Overview
-    -- 0: No Quest taken
-    -- 1: Quest 1 taken - kill 10 wolves, player receives torch
-    -- 2-11: Killing 10 wolves
-    -- 12: Quest 1 solved, reward: 100cp, +5 rankpoints
-    -- 13: Quest 2 taken - kill 5 panthers
-    -- 14-18: Killing 5 panthers
-    -- 19: Quest 2 solved, reward: 100cp, yellow robe, +10 rankpoints
-    -- 20: Quest 3 taken - kill 1 spider
-    -- 21: Killing 1 spider
-    -- 22: Quest 3 solved, reward: ITEM2, +20 rankpoints
-    -- Help
-    AddTraderTrigger("Help","");
-    AddConsequence("inform","[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keyphrases: Hello, laundry, cave, quest.");
-    AddTraderTrigger("Hilfe","");
-    AddConsequence("inform","[Spielhilfe] Dieser NPC ist das Waschweib Myrthe Mildthorn. Schlüsselwörter: Hallo, Wäsche, Höhle, Quest.");
-    -- General speech
-    AddTraderTrigger("Hello","Oh, hello, got laundry? Excuse me, I thought you're one of my customers.");
-    AddAdditionalTrigger("Greetings");
-    AddAdditionalTrigger("Be greeted");
-    AddAdditionalTrigger("Hail");
-    AddAdditionalTrigger("Good day");
-    AddAdditionalTrigger("Good morning");
-    AddAdditionalTrigger("Good evening");
-    AddAdditionalText("#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?");
-    AddAdditionalText("Hiho! How can I help you?");
-    AddTraderTrigger("Grüße","Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
-    AddAdditionalTrigger("Gruß");
-    AddAdditionalTrigger("Seid gegrüßt");
-    AddAdditionalTrigger("Guten Tag");
-    AddAdditionalTrigger("Guten Abend");
-    AddAdditionalTrigger("Mahlzeit");
-    AddAdditionalTrigger("Tach");
-    AddAdditionalTrigger("Moin");
-    AddAdditionalText("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
-    AddAdditionalText("Hiho! Wie kann ich euch helfen?");
-    AddTraderTrigger("Hiho","Oh, hello, got laundry? Excuse me, I thought you're one of my customers.");
-    AddAdditionalTrigger("Hallo");
-    AddAdditionalTrigger("Hey");
-    AddAdditionalTrigger("Greebas");
-    AddAdditionalTrigger("Greebs");
-    AddCondition("lang","english");
-    AddAdditionalText("#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?");
-    AddAdditionalText("Hiho! How can I help you?");
-    AddTraderTrigger("Hiho","Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
-    AddAdditionalTrigger("Hallo");
-    AddAdditionalTrigger("Hey");
-    AddAdditionalTrigger("Greebas");
-    AddAdditionalTrigger("Greebs");
-    AddCondition("lang","german");
-    AddAdditionalText("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
-    AddAdditionalText("Hiho! Wie kann ich euch helfen?");
-    AddTraderTrigger("Farewell","Farewell! If your clothes get dirty, just come back to me, will you?");
-    AddAdditionalTrigger("Good bye");
-    AddAdditionalTrigger("Bye");
-    AddAdditionalTrigger("Fare thee well");
-    AddAdditionalText("Oh, you have to leave? I do not feel comfortable here, all alone.");
-    AddAdditionalText("Ah, I look forward to meet you again.");
-    AddTraderTrigger("Tschüß","Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
-    AddAdditionalTrigger("Tschüss");
-    AddAdditionalTrigger("Wiedersehen");
-    AddAdditionalTrigger("Gehabt euch wohl");
-    AddAdditionalText("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
-    AddAdditionalText("Ah, ich freu mich schon darauf, euch wiederzusehen.");
-    AddTraderTrigger("Ciao","Farewell! If your clothes get dirty, just come back to me, will you?");
-    AddAdditionalTrigger("Adieu");
-    AddAdditionalTrigger("Au revoir");
-    AddCondition("lang","english");
-    AddAdditionalText("Oh, you have to leave? I do not feel comfortable here, all alone.");
-    AddAdditionalText("Ah, I look forward to meet you again.");
-    AddTraderTrigger("Ciao","Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?");
-    AddAdditionalTrigger("Adieu");
-    AddAdditionalTrigger("Au revoir");
-    AddCondition("lang","german");
-    AddAdditionalText("Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.");
-    AddAdditionalText("Ah, ich freu mich schon darauf, euch wiederzusehen.");
-    AddTraderTrigger("How are you","I feel... clean!");
-    AddAdditionalTrigger("How feel");
-    AddAdditionalTrigger("How do you do");
-    AddAdditionalText("Oh, I am so worried, maybe you can help me.");
-    AddAdditionalText("Afraid!");
-    AddTraderTrigger("Wie geht","Mir geht es... sauber!");
-    AddAdditionalTrigger("Wie fühlst");
-    AddAdditionalTrigger("Wie ist es ergangen");
-    AddAdditionalText("Oh, ich bin so besorgt, vielleicht könnt ihr mir ja helfen.");
-    AddAdditionalText("Ich hab Angst!");
-    AddTraderTrigger("your name","I am Myrthe. Hello!");
-    AddAdditionalTrigger("who are you");
-    AddAdditionalTrigger("who art thou");
-    AddAdditionalText("Myrthe Mildthorn, at your service.");
-    AddAdditionalText("Wasch-woman Myrthe Mildthorn reports for duty!");
-    AddTraderTrigger("dein name","Ich bin die Myrthe. Hallo!");
-    AddAdditionalTrigger("wer bist du");
-    AddAdditionalTrigger("wer seid ihr");
-    AddAdditionalTrigger("wie heißt");
-    AddAdditionalText("Myrthe Mildthorn, stets zu Diensten.");
-    AddAdditionalText("Waschweib Myrthe Mildthorn meldet sich zur Stelle!");
-    -- Catching typical NPC phrases
-    AddTraderTrigger("what sell","I can wash your laundry, but I do not trade with goods.");
-    AddAdditionalTrigger("what buy");
-    AddAdditionalTrigger("list wares");
-    AddAdditionalTrigger("price of");
-    AddTraderTrigger("was verkauf","Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
-    AddAdditionalTrigger("was kauf");
-    AddAdditionalTrigger("warenliste");
-    AddAdditionalTrigger("preis von");
-    AddTraderTrigger("tell something","First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
-    AddTraderTrigger("erzähl was","Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
-    AddAdditionalTrigger("erzähl etwas");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    AddTraderTrigger("wash","Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
-    AddAdditionalTrigger("laundry");
-    AddAdditionalText("As a washer-woman, I am an important member of the society. I make people look noble!");
-    AddAdditionalText("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
-    AddTraderTrigger("Wasch","Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
-    AddAdditionalTrigger("Wäsche");
-    AddAdditionalText("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
-    AddAdditionalText("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
-    AddTraderTrigger("profession","I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
-    AddTraderTrigger("beruf","Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
-    AddTraderTrigger("job","I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
-    AddCondition("lang","english");
-    AddTraderTrigger("job","Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
-    -- More small talk; add at least five triggers
-    AddTraderTrigger("Yewdale","Oh, Yewdale is not far away. Just follow the road, you cannot miss it.");
-    AddTraderTrigger("Nana","Nana... she lives in Yewdale, am I not right? She cooks the finest soups, indeed.");
-    AddAdditionalTrigger("Winterbutter");
-    AddCondition("lang","english");
-    AddTraderTrigger("wolf","In the night, I hear them howling! They even attacked Yewdale once!");
-    AddCondition("lang","english");
-    AddTraderTrigger("wolves","In the night, I hear them howling! They even attacked Yewdale once!");
-    AddTraderTrigger("panther","Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
-    AddCondition("lang","english");
-    AddTraderTrigger("Spider","Eeek! I once saw the web of a giant spider between two trees in the north. That was so scary!");
-    AddTraderTrigger("cave","To the north, there is an abandoned bear cave. Now wolves, panthers and even terrible spiders dwell there.");
-    AddTraderTrigger("bear","A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook.");
-    AddTraderTrigger("Anthil","Anthil's water is perfect for doing laundry. It could be a bit warmer, though.");
-    AddCondition("lang","english");
-    AddTraderTrigger("brook","This brook here is the called the Anthil, didn't you know? The water is pure and clean, just as my laundry.");
-    AddAdditionalTrigger("river");
-    AddTraderTrigger("Eibenthal","Oh, Eibenthal ist nicht weit von hier. Geht einfach die Straße entlang, ihr könnte es nicht verfehlen.");
-    AddTraderTrigger("Nana","Nana... Sie lebt in Eibenthal, nicht wahr? Sie kocht die besten Suppen, ohja.");
-    AddAdditionalTrigger("Winterbutter");
-    AddTraderTrigger("Wolf","In der Nacht höre ich ihr Gejaule. Und sie haben sogar schon Yewdale heimgesucht!");
-    AddAdditionalTrigger("Wölfe");
-    AddTraderTrigger("Panther","Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
-    AddTraderTrigger("Spinne","Eeek! Ich habe letztens ein riesiges Spinnennetz zwischen zwei Bäumen im Norden gesehen. Das war so schrecklich!");
-    AddTraderTrigger("Höhle","Im Norden gibt es eine alte Bärenhöhle. Jetzt hausen dort Wölfe, Panther und schreckliche Spinnen!");
-    AddTraderTrigger("Bär","Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen.");
-    AddTraderTrigger("Anthil","Das Wasser des Anthils ist perfekt, um Wäsche darin zu waschen. Es könnte nur ein wenig wärmer sein.");
-    AddTraderTrigger("Bach","Dieser Bach hier ist der Anthil, wußtet ihr das nicht? Das Wasser ist sauber und klar, genauso wie meine Wäsche.");
-    AddAdditionalTrigger("Fluss");
-    AddAdditionalTrigger("Fluß");
-    -- Faction stuff
-    AddTraderTrigger("Elvaine","The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
-    AddAdditionalTrigger("Morgan");
-    AddAdditionalTrigger("archmage");
-    AddAdditionalTrigger("Erzmagier");
-    AddCondition("lang","english");
-    AddTraderTrigger("Elvaine","Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
-    AddAdditionalTrigger("Morgan");
-    AddAdditionalTrigger("archmage");
-    AddAdditionalTrigger("Erzmagier");
-    AddTraderTrigger("Runewick","Runewick is that magnificient town to the east. I wash the laundry of the citizens! Isn't that great?");
-    AddCondition("lang","english");
-    AddTraderTrigger("Runewick","Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?");
-    AddTraderTrigger("Valerio","Oh, isn't that a cook from the north who cooks noodles of semolina?");
-    AddAdditionalTrigger("Guilianni");
-    AddAdditionalTrigger("Don");
-    AddCondition("lang","english");
-    AddTraderTrigger("Valerio","Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?");
-    AddAdditionalTrigger("Guilianni");
-    AddAdditionalTrigger("Don");
-    AddTraderTrigger("Galmair","Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!");
-    AddCondition("lang","english");
-    AddTraderTrigger("Galmair","Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!");
-    AddTraderTrigger("rosaline","Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
-    AddAdditionalTrigger("königin");
-    AddAdditionalTrigger("queen");
-    AddAdditionalTrigger("edwards");
-    AddCondition("lang","english");
-    AddTraderTrigger("rosaline","Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
-    AddAdditionalTrigger("königin");
-    AddAdditionalTrigger("queen");
-    AddAdditionalTrigger("edwards");
-    AddTraderTrigger("Cadomyr","#me points to the west: 'There is Cadomyr! I've never been there, but I heard it is a barren place.");
-    AddCondition("lang","english");
-    AddTraderTrigger("Cadomyr","#me deutet nach Westen: 'Dort liegt Cadomyr. Ich war noch nie dort, aber ich habe gehört, es ist ein staubtrockener Ort.");
-    -- Main land factions
-    AddTraderTrigger("albar","Albar... I am a simple washer-woman. How should I know about such things?");
-    AddCondition("lang","english");
-    AddTraderTrigger("albar","Albar... ich bin nur ein einfaches Waschweib. Warum sollte ich mich mit solchen Dingen auskennen?");
-    AddTraderTrigger("gynk","Gynk, that sounds funny, what is that?");
-    AddAdditionalTrigger("gync");
-    AddCondition("lang","english");
-    AddTraderTrigger("gync","Gynk, das klingt witzig, was ist denn das?");
-    AddAdditionalTrigger("gynk");
-    AddTraderTrigger("salkama","I think the archmage of Runewick is from... Salamander?");
-    AddCondition("lang","english");
-    AddTraderTrigger("salkama","Ich glaube, der Erzmagier von Runewick kommt aus... Salamander?");
-    -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-    AddTraderTrigger("Tanora","I pray to Tanora every morning for leaving the water of the Anthil brook as clear as it is now.");
-    AddAdditionalTrigger("Zelphia");
-    AddCondition("lang","english");
-    AddTraderTrigger("Tanora","Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt.");
-    AddAdditionalTrigger("Zelphia");
-    -- 1st quest: Kill 10 wolves, player receives torch.
-    -- Give out quest 1 and a torch
-    AddTraderTrigger("quest","Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",0);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",1);
-    AddConsequence("item",391,1,399,0);
-    AddConsequence("inform","[New quest] A Cave in the Woods I");
-    AddTraderTrigger("quest","Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",0);
-    AddConsequence("qpg","=",1);
-    AddConsequence("item",391,1,399,0);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald I");
-    AddTraderTrigger("task","Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg","=",0);
-    AddConsequence("qpg","=",1);
-    AddConsequence("item",391,1,399,0);
-    AddConsequence("inform","[New quest] A Cave in the Woods I");
-    AddTraderTrigger("Auftrag","Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg","=",0);
-    AddConsequence("qpg","=",1);
-    AddConsequence("item",391,1,399,0);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald I");
-    -- Quest 1 taken but not solved, repeat the instructions
-    AddTraderTrigger("quest","There is still a pack of wolves in the north. Can't you hear them howling?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",0);
-    AddCondition("qpg","<",11);
-    AddCondition("lang","english");
-    AddTraderTrigger("quest","Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",0);
-    AddCondition("qpg","<",11);
-    AddTraderTrigger("task","There is still a pack of wolves in the north. Can't you hear them howling?");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg",">",0);
-    AddCondition("qpg","<",11);
-    AddTraderTrigger("Auftrag","Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg",">",0);
-    AddCondition("qpg","<",11);
-    -- Quest 1 solved, reward: 100cp, +5 rankpoints
-    AddTraderTrigger(".+","Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.");
-    AddCondition("qpg","=",11);
-    AddCondition("lang","english");
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",12);
-    AddConsequence("rankpoints","runewick","+",5);
-    AddConsequence("money","+",100);
-    AddConsequence("inform","[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour.");
-    AddTraderTrigger(".+","Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.");
-    AddCondition("qpg","=",11);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",12);
-    AddConsequence("money","+",100);
-    AddConsequence("inform","[Quest solved] You are awarded 100 copper coins.");
-    AddTraderTrigger(".+","Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
-    AddCondition("qpg","=",11);
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",12);
-    AddConsequence("rankpoints","runewick","+",5);
-    AddConsequence("money","+",100);
-    AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    AddTraderTrigger(".+","Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
-    AddCondition("qpg","=",11);
-    AddConsequence("qpg","=",12);
-    AddConsequence("money","+",100);
-    AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke.");
-    -- 2nd quest: Kill 5 panthers
-    -- Give out quest 2
-    AddTraderTrigger("quest","You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",12);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",13);
-    AddConsequence("inform","[New quest] A Cave in the Woods II");
-    AddTraderTrigger("quest","Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",12);
-    AddConsequence("qpg","=",13);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald II");
-    AddTraderTrigger("task","You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg","=",12);
-    AddConsequence("qpg","=",13);
-    AddConsequence("inform","[New quest] A Cave in the Woods II");
-    AddTraderTrigger("Auftrag","Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg","=",12);
-    AddConsequence("qpg","=",13);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald II");
-    -- Quest 2 taken but not solved, repeat the instructions
-    AddTraderTrigger("quest","I saw a black shadow again! Are there still mean panthers around?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",12);
-    AddCondition("qpg","<",18);
-    AddCondition("lang","english");
-    AddTraderTrigger("quest","Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",12);
-    AddCondition("qpg","<",18);
-    AddTraderTrigger("task","I saw a black shadow again! Are there still mean panthers around?");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg",">",12);
-    AddCondition("qpg","<",18);
-    AddTraderTrigger("Auftrag","Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg",">",12);
-    AddCondition("qpg","<",18);
-    -- Quest 2 solved, reward: 100cp, yellow robe (195), +10 rankpoints
-    AddTraderTrigger(".+","Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
-    AddCondition("qpg","=",18);
-    AddCondition("lang","english");
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",19);
-    AddConsequence("rankpoints","runewick","+",10);
-    AddConsequence("money","+",100);
-    AddConsequence("item",195,1,599,0);
-    AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour.");
-    AddTraderTrigger(".+","Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
-    AddCondition("qpg","=",18);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",19);
-    AddConsequence("money","+",100);
-    AddConsequence("item",195,1,599,0);
-    AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and a yellow robe.");
-    AddTraderTrigger(".+","Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
-    AddCondition("qpg","=",18);
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",19);
-    AddConsequence("rankpoints","runewick","+",10);
-    AddConsequence("money","+",100);
-    AddConsequence("item",195,1,599,0);
-    AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    AddTraderTrigger(".+","Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
-    AddCondition("qpg","=",18);
-    AddConsequence("qpg","=",19);
-    AddConsequence("money","+",100);
-    AddConsequence("item",195,1,599,0);
-    AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe.");
-    -- 3rd quest: Kill 1 spider
-    -- Give out quest 3
-    AddTraderTrigger("quest","Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",19);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",20);
-    AddConsequence("inform","[New quest] A Cave in the Woods III");
-    AddTraderTrigger("quest","Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",19);
-    AddConsequence("qpg","=",20);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald III");
-    AddTraderTrigger("task","Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg","=",19);
-    AddConsequence("qpg","=",20);
-    AddConsequence("inform","[New quest] A Cave in the Woods III");
-    AddTraderTrigger("Auftrag","Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg","=",19);
-    AddConsequence("qpg","=",20);
-    AddConsequence("inform","[Neues Quest] Eine Höhle im Wald III");
-    -- Quest 3 taken but not solved, repeat the instructions
-    AddTraderTrigger("quest","A giant spider built a giant web in the woods! I fear for my life!");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",19);
-    AddCondition("qpg","<",21);
-    AddCondition("lang","english");
-    AddTraderTrigger("quest","Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg",">",19);
-    AddCondition("qpg","<",21);
-    AddTraderTrigger("task","A giant spider built a giant web in the woods! I fear for my life!");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg",">",19);
-    AddCondition("qpg","<",21);
-    AddTraderTrigger("Auftrag","Eine riesige Spinne hat ein riesiges Netz im Wald gebaut! Ich fürchte um mein Leben!");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg",">",19);
-    AddCondition("qpg","<",21);
-    -- Quest 3 solved, reward: novice robe, +20 rankpoints
-    AddTraderTrigger(".+","Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
-    AddCondition("qpg","=",21);
-    AddCondition("lang","english");
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",22);
-    AddConsequence("rankpoints","runewick","+",20);
-    AddConsequence("item",547,1,799,0);
-    AddConsequence("inform","[Quest solved] You are awarded a novice robe. You advance in Archmage Elvaine Morgan's favour.");
-    AddTraderTrigger(".+","Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
-    AddCondition("qpg","=",21);
-    AddCondition("lang","english");
-    AddConsequence("qpg","=",22);
-    AddConsequence("item",547,1,799,0);
-    AddConsequence("inform","[Quest solved] You are awarded a novice robe.");
-    AddTraderTrigger(".+","Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
-    AddCondition("qpg","=",21);
-    AddCondition("town","=","runewick");
-    AddConsequence("qpg","=",22);
-    AddConsequence("item",547,1,799,0);
-    AddConsequence("rankpoints","runewick","+",20);
-    AddConsequence("inform","[Quest gelöst] Du erhältst eine Novizenrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    AddTraderTrigger(".+","Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
-    AddCondition("qpg","=",21);
-    AddConsequence("qpg","=",22);
-    AddConsequence("item",547,1,799,0);
-    AddConsequence("inform","[Quest gelöst] Du erhältst eine Novizenrobe.");
-    -- No more quests, just nice words of gratitude
-    AddTraderTrigger("quest","Oh, you did so much for me, the woods and the laundry. You can bring me your laundry whenever you want - I'll wash it for free!");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",22);
-    AddCondition("lang","english");
-    AddTraderTrigger("quest","Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos.");
-    AddAdditionalTrigger("mission");
-    AddCondition("qpg","=",22);
-    AddTraderTrigger("task","Oh, you did so much for me, the woods and the laundry. You can bring me your laundry whenever you want - I'll wash it for free!");
-    AddAdditionalTrigger("adventure");
-    AddCondition("qpg","=",22);
-    AddTraderTrigger("Auftrag","Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos.");
-    AddAdditionalTrigger("Aufgabe");
-    AddAdditionalTrigger("Abenteuer");
-    AddCondition("qpg","=",22);
-    -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-    AddTraderTrigger("moan","I do not moan! I just... notice things.");
-    AddTraderTrigger("maulen","Ich maule nicht... Ich mache nur Anmerkungen.");
-    AddTraderTrigger("Ariel","I prefer soap.");
-    AddAdditionalTrigger("Sunil");
-    AddAdditionalTrigger(",Tandil");
-    AddCondition("lang","english");
-    AddTraderTrigger("Ariel","Ich nehme lieber Seife.");
-    AddAdditionalTrigger("Sunil");
-    AddAdditionalTrigger(",Tandil");
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-    AddTraderTrigger("Yes","Yes, no.");
-    AddAdditionalText("Sure, clear.");
-    AddAdditionalText("Everything is wonderful!");
-    AddTraderTrigger("Ja","Ja, ne.");
-    AddAdditionalText("Sicherlich, klar.");
-    AddAdditionalText("Alles wunderbar!");
-    AddTraderTrigger("No","Nothing is clear.");
-    AddAdditionalText("Who is Regor?");
-    AddAdditionalText("Who the heck?");
-    AddTraderTrigger("Nein","Nichts ist klar.");
-    AddAdditionalText("Wer ist Regor?");
-    AddAdditionalText("Wer verdammt nochmal?");
-    -- Cycletext: Add as many random messages as possible
-    AddCycleText("Ohje, ohje.","Ohje, ohje.");
-    AddCycleText("#me schrubbt emsig ihre Wäsche sauber.","#me scrubs her laundry clean.");
-    AddCycleText("#me beobachtet mit verträumten Gesichtsausdruck eine Forelle im Wasser.","#me stares at a trout, passing by.");
-    AddCycleText("#me summt vor sich hin.","#me hums to herself.");
-    AddCycleText("#me wäscht Wäsche.","#me washes laundry clean.");
-    AddCycleText("#me faltet ein Laken zusammen.","#me folds a blanket.");
-    AddCycleText("#me inspiziert ein Loch in einem Umhang und steckt kichernd ihren Finger hindurch.","#me inspects a hole in a coat and sticks her finger through it, giggling.");
-    AddCycleText("Ah, nicht nur sauber, sondern rein muss es sein.","Ah, not just clean but pure it should be.");
-    AddCycleText("Willst du viel, spül' im Anthil.","Want a lot, rinse in a pot.");
-    AddCycleText("#me reinigt ihr Waschbrett.","#me cleans her wash board.");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if BasicNPCChecks(originator,2) then
-        if LangOK(originator,TradSpeakLang) then
-            TellSmallTalk(message,originator);
-        else
-            Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END

@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: July 23, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 require("npc.base.basic")
@@ -92,7 +92,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thy well");
+talkEntry:addTrigger("Fare thee well");
 talkEntry:addResponse("#me waves: 'Begone.'");
 talkEntry:addResponse("Go with Malachin's blessings and do deeds to honour Cadomyr's name. And mine.");
 talkEntry:addResponse("Off, off, and serve me every minute of your life how I serve Cadomyr.");
@@ -1135,6 +1135,8 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
+
 mainNPC:initDone();
 end;
 
