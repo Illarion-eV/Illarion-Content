@@ -88,7 +88,7 @@ direction=south
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas!","Hurr!"","Hullo!"
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas!","Hurr!"","Hullo!"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich binne NPCNAME. Wer seist du?"
-"Farewell","Good bye","Bye","Fare thy well"->"Farebas!","Blessings to youb."
+"Farewell","Good bye","Bye","Fare thee well"->"Farebas!","Blessings to youb."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Farebas!",","Segen über dir."
 "Ciao","Fareba","Adieu","Au revoir",english->"Farebas!","Blessings to youb."
 "Ciao","Fareba","Adieu","Au revoir",german->"Farebas!","Segen über dir."

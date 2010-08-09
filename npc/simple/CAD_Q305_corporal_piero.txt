@@ -53,7 +53,7 @@ direction=south
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","Seid gegrüßt.","Zhambra zum Gruße.","Lang lebe Königin Rosaline Edwards." 
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME. Diener der Königin von Cadomyr"
 "your name","who are you","who art thou"->"I am %NPCNAME. Servant of the queen in Cadomyr."
-"Farewel","Good bye","Bye","Fare thy well"->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
+"Farewel","Good bye","Bye","Fare thee well"->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Gehabt Euch wohl.","Einen Schönen Tag noch.","Zhambra sei mit Euch."
 "Ciao","Fareba","Adieu","Au revoir",english->"Farewell.","Have a good day.","Good bye.","Zhambra shall be with you."
 "Ciao","Fareba","Adieu","Au revoir",german->"Gehabt Euch wohl.","Einen Schönen Tag noch.","Zhambra sei mit Euch."

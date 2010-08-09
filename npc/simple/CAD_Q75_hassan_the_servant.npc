@@ -72,7 +72,7 @@ wrongLangUS = "#me looks at you confused."
 "quest", "mission", queststatus(75) = 2, german -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
 "Aufgabe", "Abenteuer", "Frage", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.", queststatus(75) = 1
 "Aufgabe", "Abenteuer", "Frage", queststatus(75) = 2 -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
-"Farewell", "Good bye", "Bye", "Fare thy well" -> "Farewell, traveller!"
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell, traveller!"
 "Ciao", "Adieu", "Au revoir", english -> "Farewell, traveller!"
 "your name", "who are you", "who art thou" -> "Hassan, the royal fan-waver."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gute Reise."

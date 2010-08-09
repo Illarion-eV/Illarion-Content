@@ -49,7 +49,7 @@ direction=west
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Chhh.","Greets!","Aye!","Arr!"
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Chhh.","Grüsse!","Aye!","Arr!"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?"
-"Farewell","Good bye","Bye","Fare thy well"->"Arr! Don't get bit by seadogs!","Aye."
+"Farewell","Good bye","Bye","Fare thee well"->"Arr! Don't get bit by seadogs!","Aye."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Arr! lass dich nich von d'n Seehunden fressn!","Aye."
 "Ciao","Adieu","Au revoir",english->"Arr! Don't get bit by seadogs!","Aye."
 "Ciao","Adieu","Au revoir",german->"Arr! lass dich nich von d'n Seehunden fressn!","Aye."

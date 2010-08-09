@@ -96,7 +96,7 @@ direction=west
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas!","Hurr!","#me grunts and waves a mug of beer.","Skoal! Come over 'ere and drink with Sogg!"
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas!","Hurr!","#me grunzt und winkt mit einem Krug Bier.","Prost! Kommst du her, und trinkst mit Sogg!"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Isch bin %NPCNAME. 'hick' Mirr bewacht all die Fässer und Flasch!"
-"Farewell","Good bye","Bye","Fare thy well"->"Farebaaaa...!"
+"Farewell","Good bye","Bye","Fare thee well"->"Farebaaaa...!"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Farebaaaa...!"
 "Ciao","Adieu","Au revoir"."Fareba",english->"Farebaaaa...!"
 "Ciao","Adieu","Au revoir"."Fareba",german->"Farebaaaa...!"

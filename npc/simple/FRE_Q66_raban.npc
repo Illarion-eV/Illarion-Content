@@ -68,7 +68,7 @@ radius = 10
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
-"Farewell", "Good bye", "Bye", "Fare thy well" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "Ciao", "Adieu", "Au revoir", english -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
 "Ciao", "Adieu", "Au revoir", german -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"

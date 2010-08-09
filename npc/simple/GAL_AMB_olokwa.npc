@@ -95,7 +95,7 @@ direction=west
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas!","Greebs.. seeking advice, do you?","#me wears a blindfold. Altough he truns his head to you. '%CHARNAME...'"
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas!","Greebs.. suchst du Rat? Tust du?","#me's Augen sind verbunden, dennoch dreht er den Kopf in deine Richtung. '%CHARNAME...'"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Mein Name, %NPCNAME ist! Mein Auge nur Schwärze sieht, trozdem %NPCNAME sieht mehr, als alle Anderen."
-"Farewell","Good bye","Bye","Fare thy well"->"Farebas."
+"Farewell","Good bye","Bye","Fare thee well"->"Farebas."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Farebas."
 "Ciao","Adieu","Au revoir","Fareba",english->"Farebas."
 "Ciao","Adieu","Au revoir","Fareba",german->"Farebas."

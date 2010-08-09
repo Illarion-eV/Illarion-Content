@@ -56,7 +56,7 @@ radius = 100
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ronagan zum Gruße! Könnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Huhu", english -> "Greetings! Could it be that Ronagan sent you to me to help me with my task?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Huhu", german -> "Ronagan zum Gruße! Könnte es sein, dass Ronagan Euch zu mir geschickt hat, um mir bei meiner Aufgabe zu helfen?"
-"Farewell", "Good bye", "Bye", "Fare thy well" -> "Ronagan's blessing! And watch your back."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Ronagan's blessing! And watch your back."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Ronagans Segen! Und paßt auf, was hinter euch passiert."
 "Ciao", "Adieu", "Au revoir", english -> "Ronagan's blessing! And watch your back."
 "Ciao", "Adieu", "Au revoir", german -> "Ronagan's Segen! Und Und paßt auf, was hinter euch passiert!"

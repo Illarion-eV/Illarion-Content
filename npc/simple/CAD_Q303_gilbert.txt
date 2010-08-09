@@ -58,7 +58,7 @@ direction=southeast
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Good day.","Greetings.","Greets.","Hello.","Be greeted."
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","Grüße.","Guten Tag.","Gruß.","Seid gegrüßt."
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME."
-"Farewell","Good bye","Bye","Fare thy well"->"Farewell.","Good bye.","Bye.","Ciao.","Adieu...","You leave?"
+"Farewell","Good bye","Bye","Fare thee well"->"Farewell.","Good bye.","Bye.","Ciao.","Adieu...","You leave?"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Tschüß.","Wiedersehen.","Gehabt euch wohl.","Adieu..."
 "Ciao","Adieu","Au revoir",english->"Farewell.","Good bye.","Bye.",Ciao","Adieu...","You leave?"
 "Ciao","Adieu","Au revoir",german->"Tschüß.","Tschüss.","Wiedersehen.","Auf bald","Gehabt euch wohl.","Adieu...","Au revoir..."

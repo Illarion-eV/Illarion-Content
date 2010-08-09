@@ -63,7 +63,7 @@ direction=north
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Hej Landratte!","Aye.","Mast- und Schotbruch, Matrose!","Arr! Was gibt's?","Ahoi!"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME. Bei meinen wankenden Masten!"
 "your name","who are you","who art thou"->"I am %NPCNAME. Siver me timbers!"
-"Farewel","Good bye","Bye","Fare thy well"->"Aye.","Good wind."
+"Farewel","Good bye","Bye","Fare thee well"->"Aye.","Good wind."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Aye.","Gut Wind."
 "Ciao","Fareba","Adieu","Au revoir",english->"Aye.","Good wind."
 "Ciao","Fareba","Adieu","Au revoir",german->"Aye.","Gut Wind."

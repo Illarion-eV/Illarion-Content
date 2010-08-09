@@ -228,7 +228,7 @@ direction=southwest
 "sock",english->"Socks, wear it to avoid cold feet."
 "loch"->"Was soll ich dazu sagen?"
 "hole"->" What should I say now?"
-"Farewell","Good bye","Bye","Fare thy well"->"Farewell.","Good bye.","Bye.",Ciao","Adieu","Au revoir","You're leaving? I'll miss you."
+"Farewell","Good bye","Bye","Fare thee well"->"Farewell.","Good bye.","Bye.",Ciao","Adieu","Au revoir","You're leaving? I'll miss you."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Tschüß.","Tschüss.","Wiedersehen.","Gehabt euch wohl.",Ciao","Adieu","Au revoir","Mach's gut!"
 "Ciao","Adieu","Au revoir",english->"Farewell.","Good bye.","Bye.",Ciao","Adieu","Au revoir","You leave? I'll miss you."
 "Ciao","Adieu","Au revoir",german->"Tschüß.","Tschüss.","Wiedersehen.","auf bald","Gehabt euch wohl.",Ciao","Adieu","Au revoir","Mach's gut!"

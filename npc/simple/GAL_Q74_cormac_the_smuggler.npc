@@ -60,7 +60,7 @@ wrongLangUS = "#me looks at you confused."
 "task", "adventure", "question", queststatus(74) = 0 -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
 "task", "adventure", "question", queststatus(74) = 2 -> "What is it ya want to know? I know the latest gossip."
 "task", "adventure", "question", queststatus(74) = 1 -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
-"Farewell", "Good bye", "Bye", "Fare thy well" -> "Until next time, traveller!"
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Until next time, traveller!"
 "Ciao", "Adieu", "Au revoir", english -> "See ye around, traveller! Stay safe."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'", queststatus(74) = 1
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 2 -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"

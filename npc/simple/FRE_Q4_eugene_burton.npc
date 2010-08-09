@@ -64,7 +64,7 @@ radius = 1
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Shh! Not so loud! You'll scare away my game!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
-"Farewell", "Good bye", "Bye", "Fare thy well" -> "Go forth with Malachin's blessing. May you never starve."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Go forth with Malachin's blessing. May you never starve."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
 "Ciao", "Adieu", "Au revoir", english -> "Go forth with Malachin's blessing. May you never starve"
 "Ciao", "Adieu", "Au revoir", german -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."

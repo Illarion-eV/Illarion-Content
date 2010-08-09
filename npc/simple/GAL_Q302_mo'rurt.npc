@@ -94,7 +94,7 @@ direction=north
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas.","Hurr!","Well hunt!"
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas.","Hurr!","Gutte Jagt!"
 "wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Mirr ist %NPCNAME. Beste Jäga in ganze Klan bin."
-"Farewell","Good bye","Bye","Fare thy well"->"Farebas.","Well hunt!"
+"Farewell","Good bye","Bye","Fare thee well"->"Farebas.","Well hunt!"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Farebas.","Gutte Jagt."
 "Ciao","Adieu","Au revoir"."Fareba",english->"Farebas.","Well hunt!"
 "Ciao","Adieu","Au revoir"."Fareba",german->"Farebas.","Gutte Jagt."

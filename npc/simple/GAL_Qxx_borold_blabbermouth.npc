@@ -15,7 +15,7 @@ cycletext "#me schaut sich neugierig um.","#me looks inquisitive around."
 "Hiho","Hallo","Hey","Greebas","Greebs",english->"Hiho! I can help you to get rich and famous. Do you want to know how I do that?","Hey ye! Do you want become rich and famous?","Eh, do you want to become famous?", queststatus(xx)=1
 "Hiho","Hallo","Hey","Greebas","Greebs",german->"Hey du! Ich kann dir helfen reich und berühmt zu werden. Willste wissen wie?","Jaja, hallo auch. Willst du reich und berühmt werden?","Hiho, hast du Interesse dran berühmt zu werden?", queststatus(xx)=1
 
-"Farewell","Good bye","Bye","Fare thy well"->"Bye","Goodbye","Farewell"
+"Farewell","Good bye","Bye","Fare thee well"->"Bye","Goodbye","Farewell"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Bis bald.","Man sieht sich.","Tschüss"
 "Ciao","Adieu","Au revoir",english->"Bye","Goodbye","Farewell"
 "Ciao","Adieu","Au revoir",german->"Bis bald.","Man sieht sich.","Tschüss"
