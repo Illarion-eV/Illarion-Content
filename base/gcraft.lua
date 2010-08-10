@@ -62,7 +62,7 @@ function GCraft:SetFoodLevel(FoodLevel)
 end
 
 function GCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
-	self.Treasure = Probability * 1000;
+	self.Treasure = Probability * 100;
 	self.TreasureMsg[0] = MessageDE;
 	self.TreasureMsg[1] = MessageEN;
 end
