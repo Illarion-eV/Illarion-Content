@@ -11,7 +11,7 @@ module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- Krauterliste initialisieren
-	initHerbs();
+	scheduled.newgaia.initHerbs();
 	
 	-- wird die Arbeit durch andere aktion unterbrochen?
     base.common.ResetInterruption( User, ltstate );
