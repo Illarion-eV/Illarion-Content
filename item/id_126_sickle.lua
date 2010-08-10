@@ -95,10 +95,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return;		
 	end    
 	
-	local notcreated=User:createItem(currentherb,1,333,0);
+	local notcreated=User:createItem(currentHerb,1,333,0);
 
     if (notcreated~=0) then
-        world:createItemFromId(currentherb,1,User.pos,true,333,0);
+        world:createItemFromId(currentHerb,1,User.pos,true,333,0);
         base.common.InformNLS(User,
         "Du kannst nicht noch mehr halten.",
         "You can't carry any more.");
