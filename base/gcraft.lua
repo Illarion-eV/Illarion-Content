@@ -72,10 +72,10 @@ function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local maxr;
 	if(self.RandomItems[0] == nil) then
 		minr = 0;
-		maxr = minr + Probability;
+		maxr = minr + Probability * 100;
 	else
 		minr = self.RandomItems[#self.RandomItems].ProbRange[1];
-		maxr = minr + Probability;
+		maxr = minr + Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}});
 	return;
@@ -87,7 +87,7 @@ function GCraft:AddInterruptMessage(MessageDE, MessageEN)
 end
 
 function GCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, GFX)
-	table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = Probability, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
+	table.insert(self.Monsters, Monster:new{["MonsterID"] = MonsterID, ["Probability"] = (Probability * 100), ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN, ["Sound"] = Sound, ["GFX"] = GFX});
 	return;
 end
 
@@ -96,10 +96,10 @@ function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probabilit
 	local maxr;
 	if(self.RandomItems[0] == nil) then
 		minr = 0;
-		maxr = minr + Probability;
+		maxr = minr + Probability * 100;
 	else
 		minr = self.RandomItems[#self.RandomItems].ProbRange[1];
-		maxr = minr + Probability;
+		maxr = minr + Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
@@ -134,7 +134,7 @@ function GCraft:FindRandomItem(User)
 	
 	if (self.Monsters[0] ~= nil) then
 		local ra = math.random(#self.Monsters);
-		local pa = math.random() * 100;
+		local pa = math.random(10000);
 		User:inform("chosen monster: "..ra.." rand: "..pa.."/"..self.Monsters[ra].Probability);
 		if(pa < self.Monsters[ra].Probability) then
 			local TargetPos = base.common.GetFrontPosition(User);
@@ -151,7 +151,7 @@ function GCraft:FindRandomItem(User)
 	end
 	
 	if(self.RandomItems[0] ~= nil) then
-		local p = math.random() * 100;
+		local p = math.random(10000);
 		for it = 0, #self.RandomItems, 1 do
 			User:inform("rand: "..p.." min: "..self.RandomItems[it].ProbRange[0].." max: "..self.RandomItems[it].ProbRange[1]);
 			if(p >= self.RandomItems[it].ProbRange[0] and p <= self.RandomItems[it].ProbRange[1]) then
@@ -166,6 +166,8 @@ function GCraft:FindRandomItem(User)
 				end
 			end
 		end
+	else
+		User:inform("wtf");
 	end
 	return true
 end
