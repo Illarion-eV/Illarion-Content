@@ -32,9 +32,28 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
 	if ( ltstate == Action.success ) then         -- Unterbrechungsmeldungen
         if base.common.IsInterrupted( User ) then
-            base.common.InformNLS( User,
-            "Während du nach Kräutern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
-            "While searching for herbs your sickle gets stuck and it nearly slides out of your hand.");
+            local selectMessage = math.random(1,5);
+            if ( selectMessage == 1 ) then
+                        base.common.InformNLS( User,
+                        "Du wischst dir den Schweiß von der Stirn.",
+                        "You wipe sweat off your forehead.");
+                    elseif ( selectMessage == 2 ) then
+                        base.common.InformNLS( User,
+                        "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
+                        "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
+                    elseif ( selectMessage == 3 ) then
+                        base.common.InformNLS( User,
+                        "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
+                        "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
+                    elseif ( selectMessage == 4 ) then
+                        base.common.InformNLS( User,
+                        "Während du nach Kräutern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
+            			"While searching for herbs your sickle gets stuck and it nearly slides out of your hand.");
+					else
+                        base.common.InformNLS( User,
+                        "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
+                        "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
+            end
             return
         end
     end
@@ -93,7 +112,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if (ltstate == Action.none) then -- Untï¿½tig: Starte Angeln!
         User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt Kräuter zu sammeln.");
-        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts gathering herbs.");
+        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts collecting herbs.");
         return
     end
 	
