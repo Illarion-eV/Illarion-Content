@@ -96,6 +96,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end    
 	
 	User:inform("Hier kann man "..currentHerb.." finden");
+	local notcreated=User:createItem(currentHerb,1,333,0);
+
+    if (notcreated~=0) then
+        world:createItemFromId(currentHerb,1,User.pos,true,333,0);
+        base.common.InformNLS(User,
+        "Du kannst nicht noch mehr halten.",
+        "You can't carry any more.");
+    else
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+    end
 	
 
 end
