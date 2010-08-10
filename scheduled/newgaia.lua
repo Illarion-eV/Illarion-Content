@@ -8,7 +8,7 @@ function initHerbs()
 	-- item		= item, the herb can found in
 	-- region	= Array with the regions
 	herbs = {}
-  	herbs[133] = {id = 133, ground = 11, item = {273}, region = {1}} 	-- Sonnenkraut / sun herb
+  	herbs[1] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
 	--herbs[134] = {id = 134, ground =  3, item = {273}, region = {}} 	-- Vierblättrige Einbeere / fourleafed oneberry
 	--herbs[135] = {id = 135, ground =  3, item = {301}, region = {}} 	-- Gelbkraut / yellow weed
 	--herbs[136] = {id = 136, ground =  3, item = {301}, region = {}} 	-- Wutbeere / anger berry
@@ -16,7 +16,7 @@ function initHerbs()
 	--herbs[138] = {id = 138, ground =  3, item = {301}, region = {}} 	-- Nachtengelsblüte / night angels blossom
 	--herbs[140] = {id = 140, ground =  3, item = {301}, region = {}} 	-- Donfblatt / donf blade
 	--herbs[141] = {id = 141, ground =  3, item = {301}, region = {}} 	-- Schwarze Distel / black thistle
-	herbs[142] = {id = 142, ground =  3, item = {301}, region = {1}} 	-- Sandbeere / sandberry
+	herbs[1] = {id = 142, ground =  3, item = {301}, region = {}} 	-- Sandbeere / sandberry
 	--herbs[143] = {id = 143, ground =  3, item = {301}, region = {}} 	-- Roter Holunder / red elder
 	--herbs[144] = {id = 144, ground =  3, item = {301}, region = {}} 	-- Jungfernkraut / virgins weed
 	--herbs[145] = {id = 145, ground =  3, item = {301}, region = {}} 	-- Heideblüte / heath flower
