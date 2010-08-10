@@ -55,7 +55,6 @@ function initHerbs()
     --herbs[768] = {id = 768, ground =  3, item = {301}, region = {}} 	-- Wolfsfarn / wolverine fern
     --herbs[769] = {id = 769, ground =  3, item = {301}, region = {}} 	-- Wüstenbeere / desert berry
 
-	
 	initRegions();
 end
 
@@ -67,7 +66,7 @@ function initRegions()
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
 	-- Chance of Drop for this reagion in % {spring, summer, autum, winter}
 	-- Sunflowers
-	addRegion(133,{130,160},{600,670},{0,0}, {30, 60, 40, 50});
+	addRegion(133,{1,1000},{1,1000},{0,0}, {30, 60, 40, 50});
 	addRegion(142,{130,160},{600,670},{0,0}, {30, 60, 40, 50});
 	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 end
