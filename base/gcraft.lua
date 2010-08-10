@@ -132,7 +132,7 @@ function GCraft:FindRandomItem(User)
 		end
 	end
 	
-	if (self.Monsters[0] ~= nil) then
+	if (self.Monsters[1] ~= nil) then
 		local ra = math.random(#self.Monsters);
 		local pa = math.random(10000);
 		User:inform("chosen monster: "..ra.." rand: "..pa.."/"..self.Monsters[ra].Probability);
@@ -150,7 +150,7 @@ function GCraft:FindRandomItem(User)
 		end
 	end
 	
-	if(self.RandomItems[0] ~= nil) then
+	if(self.RandomItems[1] ~= nil) then
 		local p = math.random(10000);
 		for it = 0, #self.RandomItems, 1 do
 			User:inform("rand: "..p.." min: "..self.RandomItems[it].ProbRange[0].." max: "..self.RandomItems[it].ProbRange[1]);
