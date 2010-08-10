@@ -5,6 +5,7 @@
 require("item.general.metal")
 require("base.common")
 require("scheduled.newgaia")
+require("base.gcraft")
 
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
