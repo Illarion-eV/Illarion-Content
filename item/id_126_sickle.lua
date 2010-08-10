@@ -5,19 +5,16 @@
 require("item.general.metal")
 require("base.common")
 require("scheduled.newgaia")
-require("base.gcraft")
 
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	
-	-- Krauterliste initialisieren
+	content.gathering.InitGathering();
 	scheduled.newgaia.initHerbs();
 	
-	-- wird die Arbeit durch andere aktion unterbrochen?
-    base.common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
+	base.common.ResetInterruption(User, ltstate);
+	if (ltstate == Action.abort) then -- Arbeit unterbrochen
+        if (User:increaseAttrib("sex", 0) == 0) then
             gText = "seine";
             eText = "his";
         else
@@ -28,9 +25,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
         return
     end
+
+    if not base.common.CheckItem(User, SourceItem) then -- Sicherheitscheck
+        return
+    end
     
-    -- Unterbrechungsmeldungen
-	if ( ltstate == Action.success ) then
+	if ( ltstate == Action.success ) then         -- Unterbrechungsmeldungen
         if base.common.IsInterrupted( User ) then
             base.common.InformNLS( User,
             "Wï¿½hrend du nach Krï¿½utern suchst, verhakt sich deine Sichel und rutscht dir fast aus der Hand.",
@@ -39,19 +39,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end
     
-     -- Sehr streife Rï¿½stung?
-    if base.common.Encumbrence(User) then
+    if base.common.Encumbrence(User) then    -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rï¿½stung behindert dabei Krï¿½uter zu sammeln.",
         "Your armor disturbes you collecting herbs." );
         return
     end
-    
-    -- Sicherheitscheck
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
-    
+        
     -- Ist ueberhaupt ein Item da, in dem gesucht wird?
     if ((TargetItem == nil) or (TargetItem.id == 0)) then
         TargetItem = base.common.GetFrontItem( User );
@@ -93,23 +87,40 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     -- Pruefen, ob man hier ueberhaupt was finden kann
 	if not checkRegion(TargetItem) then
 		User:inform("Hier kann man keine brauchbaren Krï¿½uter finden");
-		return;		
-	end    
+		return		
+	end
+	
+	if (ltstate == Action.none) then -- Untï¿½tig: Starte Angeln!
+        User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
+        User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt Kräuter zu sammeln.");
+        User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts gathering herbs.");
+        return
+    end
+	
+	if not content.gathering.herbgathering:FindRandomItem(User) then
+		return
+	end  
 	
 	local notcreated=User:createItem(currentHerb,1,333,0);
 
     if (notcreated~=0) then
         world:createItemFromId(currentHerb,1,User.pos,true,333,0);
         base.common.InformNLS(User,
-        "Du kannst nicht noch mehr halten.",
-        "You can't carry any more.");
-    else
-        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+        "Du kannst nicht noch mehr halten.","You can't carry any more.");
+    	return false
+	end
+		User:learn(2, "herblore", 2, 100);
+	
+	if base.common.ToolBreaks( User, SourceItem, true ) then
+        base.common.InformNLS(User,  
+        "Die alte und abgenutzte Sichel in deinen Hï¿½nden zerbricht.",
+        "The old and used sickle in your hands breaks.");
+        return
     end
 	
+    User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 
 end
-
 
 function checkRegion(TargetItem)
 	for HerbID, herb in pairs(scheduled.newgaia.herbs) do  
