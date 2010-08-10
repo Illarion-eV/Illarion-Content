@@ -128,7 +128,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         "Du kannst nicht noch mehr halten.","You can't carry any more.");
     	return false
 	end
-		User:learn(2, "herblore", 2, 100);
+		User:learn(2, "herb lore", 2, 100);
+		base.common.InformNLS(User,
+        "Du hast etwas neues gelernt.","you learned something new.");
 	
 	if base.common.ToolBreaks( User, SourceItem, true ) then
         base.common.InformNLS(User,  
