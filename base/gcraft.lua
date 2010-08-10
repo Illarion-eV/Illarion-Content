@@ -62,7 +62,7 @@ function GCraft:SetFoodLevel(FoodLevel)
 end
 
 function GCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
-	self.Treasure = Probability;
+	self.Treasure = Probability * 1000;
 	self.TreasureMsg[0] = MessageDE;
 	self.TreasureMsg[1] = MessageEN;
 end
@@ -124,8 +124,8 @@ function GCraft:FindRandomItem(User)
 	end
 	
 	if (self.Treasure > 0) then
-		local rand = math.random() * 100;
-		User:inform("Treasure rand: "..rand.."/"..self.Treasure);
+		local rand = math.random(10000);
+		User:inform("Treasure rand: "..rand.."|"..self.Treasure);
 		if(rand < self.Treasure) and base.treasure.createMap(User) then
 			base.common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
 			return false
