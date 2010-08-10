@@ -8,7 +8,7 @@ function initHerbs()
 	-- item		= item, the herb can found in
 	-- region	= Array with the regions
 	herbs = {}
-  	--herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
+  	herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
 	--herbs[134] = {id = 134, ground =  3, item = {273}, region = {}} 	-- Vierblättrige Einbeere / fourleafed oneberry
 	--herbs[135] = {id = 135, ground =  3, item = {301}, region = {}} 	-- Gelbkraut / yellow weed
 	--herbs[136] = {id = 136, ground =  3, item = {301}, region = {}} 	-- Wutbeere / anger berry
@@ -67,8 +67,8 @@ function initRegions()
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
 	-- Chance of Drop for this reagion in % {spring, summer, autum, winter}
 	-- Sunflowers
-	--addRegion(133,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
-	addRegion(142,{0,1024},{0,1024},{0,3}, {30, 60, 40, 50});
+	addRegion(133,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
+	addRegion(142,{1,1024},{1,1024},{0,3}, {30, 60, 40, 50});
 	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 end
 
