@@ -1132,6 +1132,30 @@ function split(str, pat)
    return t;
 end
 
+
+--[[
+    Split_number
+    Splits a digit chain into digits and returns it in a table
+    Example: split_number(3015,4) returns following table: table = {3, 0, 1, 5}
+	@param Number - the number chain that shall be splitted
+    @param AmountOfDigits - the amount of digits the number chain has
+
+    @return table - the splitted number chain into digits
+]]
+function Split_number(Number, AmountOfDigits)
+
+	local temptable = {};
+	local tempcnt = 0;
+
+
+	for i = (AmountOfDigits-1), 0, -1 do
+		tempcnt = tempcnt + 1;
+		temptable[tempcnt] = math.floor(math.mod((Number / (10^i)), 10) + 0.5);
+	end
+	return temptable;
+end
+
+
 --[[
     converts a given hour of day to a string like: early morning, morning,
     @param hour the hour which should be converted

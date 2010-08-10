@@ -5,6 +5,7 @@
 
 require("base.common")
 require("base.factions")
+require("quest.enduranceCave")
 
 module("item.id_10_teleportgate", package.seeall, package.seeall(base.factions))
 
@@ -320,7 +321,13 @@ function CharacterOnField( User )
                 dest = position(405,207,0);
             end;
 
-			--teleporter in the forced labour camp
+			--check if we are in the endurance cave and change the destination if needed
+			local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
+			if (PlayerInCave == true) then
+			   dest = t_dest
+			end
+
+			--check if we are at the teleporter in the forced labour camp
 			if User.pos == (position(-495, -484, -40)) then
 			    if User:getQuestProgress(25)<1 then --user has finished quest
 					local ItemListe = {49,234,2536,22,21,2763};    --delete ores,coal, pickaxe,gold and bread
