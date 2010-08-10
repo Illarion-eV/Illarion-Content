@@ -4,13 +4,57 @@ module("scheduled.newgaia", package.seeall)
 
 function initHerbs()
 	-- id  		= Itemid
-	-- ground	= Ground the herb is dropping on
+	-- ground	= Ground(2=rock,3=sand,4=field,5=lava,6=water,7=street,8=dirt,9=forest,10=snow,11=meadow)
 	-- item		= item, the herb can found in
-	-- region	= Array with the reagions
+	-- region	= Array with the regions
 	herbs = {}
-  	herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 			-- Sunflower
-	herbs[142] = {id = 142, ground =  3, item = {273}, region = {}} 			-- Sandbeere
-	herbs[146] = {id = 146, ground =  3, item = {301}, region = {}} 			-- Wuestenhimmelskaspel
+  	--herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
+	--herbs[134] = {id = 134, ground =  3, item = {273}, region = {}} 	-- Vierblättrige Einbeere / fourleafed oneberry
+	--herbs[135] = {id = 135, ground =  3, item = {301}, region = {}} 	-- Gelbkraut / yellow weed
+	--herbs[136] = {id = 136, ground =  3, item = {301}, region = {}} 	-- Wutbeere / anger berry
+	--herbs[137] = {id = 137, ground =  3, item = {301}, region = {}} 	-- Flammenkelchblüte / flamegoblet blossom
+	--herbs[138] = {id = 138, ground =  3, item = {301}, region = {}} 	-- Nachtengelsblüte / night angels blossom
+	--herbs[140] = {id = 140, ground =  3, item = {301}, region = {}} 	-- Donfblatt / donf blade
+	--herbs[141] = {id = 141, ground =  3, item = {301}, region = {}} 	-- Schwarze Distel / black thistle
+	herbs[142] = {id = 142, ground =  3, item = {301}, region = {}} 	-- Sandbeere / sandberry
+	--herbs[143] = {id = 143, ground =  3, item = {301}, region = {}} 	-- Roter Holunder / red elder
+	--herbs[144] = {id = 144, ground =  3, item = {301}, region = {}} 	-- Jungfernkraut / virgins weed
+	--herbs[145] = {id = 145, ground =  3, item = {301}, region = {}} 	-- Heideblüte / heath flower
+	--herbs[146] = {id = 146, ground =  3, item = {301}, region = {}} 	-- Wüstenhimmelskapsel / desert sky capsule
+	--herbs[147] = {id = 147, ground =  3, item = {301}, region = {}} 	-- Brombeere / black berry
+	--herbs[148] = {id = 148, ground =  3, item = {301}, region = {}} 	-- Firnisblüte / firnis blossom
+	--herbs[149] = {id = 149, ground =  3, item = {301}, region = {}} 	-- Tannen-Sproß / fir tree sprout
+	--herbs[151] = {id = 151, ground =  3, item = {301}, region = {}} 	-- Erdbeere / strawberry
+	--herbs[152] = {id = 152, ground =  3, item = {301}, region = {}} 	-- Lebenswurz / life root
+	--herbs[153] = {id = 153, ground =  3, item = {301}, region = {}} 	-- Fussblatt / foot leaf
+	--herbs[154] = {id = 154, ground =  3, item = {301}, region = {}} 	-- Hopfen / hop
+    --herbs[155] = {id = 155, ground =  3, item = {301}, region = {}} 	-- Sibanac Blatt / sibanac leaf
+	--herbs[156] = {id = 156, ground =  3, item = {301}, region = {}} 	-- Steppenfarn / steppe fern
+	--herbs[157] = {id = 157, ground =  3, item = {301}, region = {}} 	-- Faulbaum Rinde / rotten tree bark
+	--herbs[158] = {id = 158, ground =  3, item = {301}, region = {}} 	-- Knollenschwammpilz / bulbsponge mushroom
+    --herbs[159] = {id = 159, ground =  3, item = {301}, region = {}} 	-- Fliegenpilz / toadstool
+    --herbs[160] = {id = 160, ground =  3, item = {301}, region = {}} 	-- Rotköpfchen / red head
+    --herbs[161] = {id = 161, ground =  3, item = {301}, region = {}} 	-- Hirtenpilz / herders mushroom
+    --herbs[162] = {id = 162, ground =  3, item = {301}, region = {}} 	-- Geburtspilz / birth mushroom
+    --herbs[163] = {id = 163, ground =  3, item = {301}, region = {}} 	-- Champignon / champignon
+
+	--herbs[752] = {id = 752, ground =  3, item = {301}, region = {}} 	-- Alraune / mandrake
+	--herbs[753] = {id = 753, ground =  3, item = {301}, region = {}} 	-- Blaue Vogelbeere / blue birdsberry
+    --herbs[754] = {id = 754, ground =  3, item = {301}, region = {}} 	-- einblättrige Vierbeere / oneleaved fourberry
+    --herbs[755] = {id = 755, ground =  3, item = {301}, region = {}} 	-- Feuerwurz / fire root
+    --herbs[756] = {id = 756, ground =  3, item = {301}, region = {}} 	-- Frommbeere / pious berry
+    --herbs[757] = {id = 757, ground =  3, item = {301}, region = {}} 	-- Gottesblume / godsflower
+    --herbs[758] = {id = 758, ground =  3, item = {301}, region = {}} 	-- Herzblut / lifeblood
+    --herbs[760] = {id = 760, ground =  3, item = {301}, region = {}} 	-- Rauchblatt / reek leave
+    --herbs[762] = {id = 762, ground =  3, item = {301}, region = {}} 	-- Schwefelkraut / sulfur weed
+    --herbs[763] = {id = 763, ground =  3, item = {301}, region = {}} 	-- Sumpfblume / marsh flower
+    --herbs[764] = {id = 764, ground =  3, item = {301}, region = {}} 	-- Tagteufel / daydevil
+    --herbs[765] = {id = 765, ground =  3, item = {301}, region = {}} 	-- Tagtraum / daydream
+    --herbs[766] = {id = 766, ground =  3, item = {301}, region = {}} 	-- Trugblüte / con blossom
+    --herbs[767] = {id = 767, ground =  3, item = {301}, region = {}} 	-- Wasserblume / water blossom
+    --herbs[768] = {id = 768, ground =  3, item = {301}, region = {}} 	-- Wolfsfarn / wolverine fern
+    --herbs[769] = {id = 769, ground =  3, item = {301}, region = {}} 	-- Wüstenbeere / desert berry
+
 	
 	initRegions();
 end
