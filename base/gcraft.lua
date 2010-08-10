@@ -63,18 +63,18 @@ end
 
 function GCraft:SetTreasureMap(Probability, MessageDE, MessageEN)
 	self.Treasure = Probability * 100;
-	self.TreasureMsg[0] = MessageDE;
-	self.TreasureMsg[1] = MessageEN;
+	self.TreasureMsg[1] = MessageDE;
+	self.TreasureMsg[2] = MessageEN;
 end
 
 function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local minr;
 	local maxr;
-	if(self.RandomItems[0] == nil) then
+	if(self.RandomItems[1] == nil) then
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
-		minr = self.RandomItems[#self.RandomItems].ProbRange[1];
+		minr = self.RandomItems[#self.RandomItems].ProbRange[2];
 		maxr = minr + Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}});
@@ -94,7 +94,7 @@ end
 function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
 	local minr;
 	local maxr;
-	if(self.RandomItems[0] == nil) then
+	if(self.RandomItems[1] == nil) then
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
@@ -107,9 +107,9 @@ end
 
 function GCraft:FindRandomItem(User)
     if base.common.IsInterrupted(User) then
-		if(self.InterruptMsg[0] ~= nil) then
+		if(self.InterruptMsg[1] ~= nil) then
 			local m = math.random(#self.InterruptMsg);
-			base.common.InformNLS(User, self.InterruptMsg[m][0], self.InterruptMsg[m][1]);
+			base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
 			return false
 		end
     end
@@ -152,9 +152,9 @@ function GCraft:FindRandomItem(User)
 	
 	if(self.RandomItems[1] ~= nil) then
 		local p = math.random(10000);
-		for it = 0, #self.RandomItems, 1 do
-			User:inform("rand: "..p.." min: "..self.RandomItems[it].ProbRange[0].." max: "..self.RandomItems[it].ProbRange[1]);
-			if(p >= self.RandomItems[it].ProbRange[0] and p <= self.RandomItems[it].ProbRange[1]) then
+		for it = 1, #self.RandomItems, 1 do
+			User:inform("rand: "..p.." min: "..self.RandomItems[it].ProbRange[1].." max: "..self.RandomItems[it].ProbRange[2]);
+			if(p >= self.RandomItems[it].ProbRange[1] and p <= self.RandomItems[it].ProbRange[2]) then
 				if (self.RandomItems[it].MessageDE ~= nil) and (self.RandomItems[it].MessageEN ~= nil) then
 					base.common.InformNLS(User, self.RandomItems[it].MessageDE, self.RandomItems[it].MessageEN);
 				end
@@ -166,8 +166,6 @@ function GCraft:FindRandomItem(User)
 				end
 			end
 		end
-	else
-		User:inform("wtf");
 	end
 	return true
 end
