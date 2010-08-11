@@ -36,8 +36,8 @@ function InCave (User)
 		player:inform("Your next step would be number "..mystep);
 		player:inform("your sequence is: " ..myseq);
 		
-		for i=1, i< table.getn(magPortal) do -- lookup through which portal he goes
-			if (player.pos == magPortal[i]) then
+		for i=1, i< magPortal.maxn do -- lookup through which portal he goes
+			if ( equapos(player.pos, magPortal[i]) ) then
 				portalindex = i;
 			end
 		end
@@ -50,8 +50,8 @@ function InCave (User)
 		return;              	  -- warp till all monsters are dead!
 	end
 
-	for i=1, i< table.getn(magPortal) do -- lookup through which portal he goes
-		if (player.pos == magPortal[i]) then
+	for i=1, i< magPortal.maxn do -- lookup through which portal he goes
+		if ( equapos(player.pos, magPortal[i]) ) then
 			portalindex = i;
 		end
 	end
@@ -125,11 +125,11 @@ function CreateMonster(stage)
 	end	
 
 
-	if (stage > table.getn(monsterlist)) then--unknown stage, don't cast any monsters
+	if (stage > monsterlist.maxn) then--unknown stage, don't cast any monsters
 		return;
 	end
 	
-	for i = 1, table.getn(monsterlist) do
+	for i = 1, monsterlist.maxn do
     	world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
     end
 end
