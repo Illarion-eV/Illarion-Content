@@ -5,7 +5,6 @@ require("base.common")
 module("quest.enduranceCave", package.seeall)
 
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
-
 			   -- magic portal coordinates
 	magPortal = {position (240,732,0), position (240,722,0), 
 					   position (250,732,0), position (250,722,0)};
