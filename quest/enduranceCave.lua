@@ -5,8 +5,7 @@ require("base.common")
 module("quest.enduranceCave", package.seeall)
 
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
-if not VariablesInitialized then
-	VariablesInitialized = true;
+
 			   -- magic portal coordinates
 	magPortal = {position (240,732,0), position (240,722,0), 
 					   position (250,732,0), position (250,722,0)};
@@ -21,7 +20,6 @@ if not VariablesInitialized then
 	searchRadius 		   = 80;			   -- 25 tiles search radius
 						   
 	DebuggingEnabled = false;
-end
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
 function InCave (User)
@@ -34,8 +32,10 @@ function InCave (User)
 		GivePlayerNewSequence(player);
 		return;
 	elseif string.find(player.lastSpokenText, "status") then
-		player:inform("Your next step would be number "..player:getQuestProgress(204));
-		player:inform("your sequence is: " ..player:getQuestProgress(203));
+		mystep = player:getQuestProgress(204);
+		myseq  = player:getQuestProgress(203); 
+		player:inform("Your next step would be number "..mystep);
+		player:inform("your sequence is: " ..myseq);
 		
 		for i=1, i< table.getn(magPortal) do -- lookup through which portal he goes
 			if (player.pos == magPortal[i]) then
