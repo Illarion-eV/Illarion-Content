@@ -6,7 +6,7 @@ function initHerbs()
 	-- id  		= Itemid
 	-- ground	= Ground(2=rock,3=sand,4=field,5=lava,6=water,7=street,8=dirt,9=forest,10=snow,11=meadow)
 	-- item		= item, the herb can found in
-	-- region	= Array with the regions
+	-- region	= Array with the reagions
 	herbs = {}
   	herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
 	--herbs[134] = {id = 134, ground =  3, item = {273}, region = {}} 	-- Vierblättrige Einbeere / fourleafed oneberry
@@ -30,7 +30,7 @@ function initHerbs()
 	--herbs[154] = {id = 154, ground =  3, item = {301}, region = {}} 	-- Hopfen / hop
     --herbs[155] = {id = 155, ground =  3, item = {301}, region = {}} 	-- Sibanac Blatt / sibanac leaf
 	--herbs[156] = {id = 156, ground =  3, item = {301}, region = {}} 	-- Steppenfarn / steppe fern
-	--herbs[157] = {id = 157, ground =  3, item = {301}, region = {}} 	-- Faulbaum Rinde / rotten tree bark
+	--herbs[157] = {id = 157, ground =  3, item = {301}, region = {}} 	-- Faulbaum Rinde / rotten tree bark	
 	--herbs[158] = {id = 158, ground =  3, item = {301}, region = {}} 	-- Knollenschwammpilz / bulbsponge mushroom
     --herbs[159] = {id = 159, ground =  3, item = {301}, region = {}} 	-- Fliegenpilz / toadstool
     --herbs[160] = {id = 160, ground =  3, item = {301}, region = {}} 	-- Rotköpfchen / red head
@@ -55,6 +55,7 @@ function initHerbs()
     --herbs[768] = {id = 768, ground =  3, item = {301}, region = {}} 	-- Wolfsfarn / wolverine fern
     --herbs[769] = {id = 769, ground =  3, item = {301}, region = {}} 	-- Wüstenbeere / desert berry
 
+	
 	initRegions();
 end
 
@@ -66,8 +67,8 @@ function initRegions()
 	-- z-Koord: {From, To} 2 Values! Use p.E. {0,0} if you want just area 0. smaller value must be named first. Take care by neg. values!
 	-- Chance of Drop for this reagion in % {spring, summer, autum, winter}
 	-- Sunflowers
-	addRegion(133,{1,1000},{1,1000},{0,0}, {30, 100, 40, 50});
-	addRegion(142,{130,160},{600,670},{0,0}, {30, 60, 40, 50});
+	addRegion(133,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
+	addRegion(142,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 	--addRegion(146,{120,150},{640,650},{0,0}, {30, 60, 40, 50});
 end
 
@@ -86,7 +87,7 @@ function setHerb(HerbID)
 	user:inform("Herb: ".. herbs[HerbID].id);
 	user:inform("Herb ground: " ..herbs[HerbID].ground);
 
-	RegionID = 1;	
+	RegionID = 1;
 	while RegionID  <= table.getn(herbs[HerbID].region) do
 		user:inform("Anzahl der Tiles: "..getTileNumbersofRegion(herbs[HerbID].region[RegionID]));
 		user:inform("Drop-Chance: "..getDropChance(herbs[HerbID].region[RegionID][4]));
@@ -140,3 +141,4 @@ function checkGround(herbs,TilePos)
 	end
 	return true;
 end
+
