@@ -4,11 +4,13 @@
 
 require("item.general.metal")
 require("base.common")
+require("scheduled.newgaia")
 
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
+	scheduled.newgaia.initHerbs();
 	
 	base.common.ResetInterruption(User, ltstate);
 	if (ltstate == Action.abort) then -- Arbeit unterbrochen
@@ -100,6 +102,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         step=step+str2;
     end
     skill=skill+step;
+    
+    -- Pruefen, ob man hier ueberhaupt was finden kann
+	if not checkRegion(TargetItem) then
+		User:inform("Hier kann man keine brauchbaren Kräuter finden");
+		return		
+	end
 	
 	if (ltstate == Action.none) then -- Untï¿½tig: Starte Angeln!
         User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
@@ -112,10 +120,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end  
 	
-	local notcreated=User:createItem(133,1,333,0);
+	local notcreated=User:createItem(currentHerb,1,333,0);
 
     if (notcreated~=0) then
-        world:createItemFromId(133,1,User.pos,true,333,0);
+        world:createItemFromId(currentHerb,1,User.pos,true,333,0);
         base.common.InformNLS(User,
         "Du kannst nicht noch mehr halten.","You can't carry any more.");
     	return false
@@ -133,4 +141,34 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
     User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 
+end
+
+function checkRegion(TargetItem)
+	for HerbID, herb in pairs(scheduled.newgaia.herbs) do  
+		-- untergrund checken um Regionen zu bestimmen
+		TileID = world:getField(TargetItem.pos):tile();
+		if (TileID==herb.ground) then
+			-- checken, ob die Itemid des Targets fuer das Kraut stimmt
+			for ItemID, item in pairs(herb.item) do
+				if (TargetItem.id == item) then
+					-- wenn bisher alles zutrifft, dann region durchsuchen
+					for RegionIndex, region in pairs(herb.region) do
+						for zPos = herb.region[RegionIndex][3][1], herb.region[RegionIndex][3][2], 1 do
+							for yPos = herb.region[RegionIndex][2][1], herb.region[RegionIndex][2][2], 1 do
+								for xPos = herb.region[RegionIndex][1][1], herb.region[RegionIndex][1][2], 1 do
+									TilePos = position(xPos,yPos,zPos);
+									if (TilePos==TargetItem.pos) then
+										-- wenn alles stimmt, dann die HerbID definieren
+										currentHerb=herb.id;
+										return true;
+									end
+								end
+							end
+						end		
+					end
+				end
+			end
+		end
+	end
+	return false;
 end
