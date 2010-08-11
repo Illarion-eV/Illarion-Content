@@ -311,6 +311,12 @@ function CharacterOnField( User )
             vanTrap = true;
         end;
 
+        --check if we are in the endurance cave and change the destination if needed
+		local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
+		if (PlayerInCave) then
+			gate = t_dest;
+		end
+
         if gate ~= nil then
             --User:inform( "gate found" )
 
@@ -320,12 +326,6 @@ function CharacterOnField( User )
             if vanTrap then
                 dest = position(405,207,0);
             end;
-
-			--check if we are in the endurance cave and change the destination if needed
-			local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
-			if (PlayerInCave == true) then
-			   dest = t_dest
-			end
 
 			--check if we are at the teleporter in the forced labour camp
 			if User.pos == (position(-495, -484, -40)) then
