@@ -8,7 +8,7 @@ function initHerbs()
 	-- item		= item, the herb can found in
 	-- region	= Array with the regions
 	herbs = {}
-  	herbs[133] = {id = 133, ground = 11,  global=1, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
+  	herbs[133] = {id = 133, ground = 11, item = {273}, region = {}} 	-- Sonnenkraut / sun herb
 	--herbs[134] = {id = 134, ground =  3, item = {273}, region = {}} 	-- Vierblättrige Einbeere / fourleafed oneberry
 	--herbs[135] = {id = 135, ground =  3, item = {301}, region = {}} 	-- Gelbkraut / yellow weed
 	--herbs[136] = {id = 136, ground =  3, item = {301}, region = {}} 	-- Wutbeere / anger berry
@@ -86,20 +86,7 @@ function setHerb(HerbID)
 	user:inform("Herb: ".. herbs[HerbID].id);
 	user:inform("Herb ground: " ..herbs[HerbID].ground);
 
-	RegionID = 1;
-	
-	if (herbs[HerbID].global==1) then
-		if (checkGround(herbs[HerbID],TilePos)==true) then
-						user:inform("TileCheck OK");
-						if (math.random(100)<=getDropChance(herbs[HerbID].region[RegionID][4])) then
-							user:inform("Getroffen, setze Pflanze");
-							world:createItemFromId(HerbID,1,TilePos,false,333,333);
-						else
-							user:inform("Nicht getroffen");
-						end
-		end
-	end
-	
+	RegionID = 1;	
 	while RegionID  <= table.getn(herbs[HerbID].region) do
 		user:inform("Anzahl der Tiles: "..getTileNumbersofRegion(herbs[HerbID].region[RegionID]));
 		user:inform("Drop-Chance: "..getDropChance(herbs[HerbID].region[RegionID][4]));
