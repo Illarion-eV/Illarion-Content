@@ -22,7 +22,7 @@ module("quest.enduranceCave", package.seeall)
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
 function InCave (User)
-	local player = getCharForId(User.id);  --create a save copy of the char struct
+	local player = User;--getCharForId(User.id);  --create a save copy of the char struct
 	local portalindex = nil;
 	
 	-- just for debugging
