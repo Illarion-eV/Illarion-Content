@@ -22,7 +22,7 @@ module("quest.enduranceCave", package.seeall)
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
 function InCave (User)
-	local player = User;--getCharForId(User.id);  --create a save copy of the char struct
+	local player = getCharForId(User.id);  --create a save copy of the char struct
 	local portalindex = nil;
 	
 	-- just for debugging
@@ -142,8 +142,8 @@ function GivePlayerNewSequence(player)
 	for i = 1, (StepAmount-1) do
 		shufflesequence = shufflesequence .. math.random(1,4);
 	end	
-	
-	player:inform("Your sequence is: "..tonumber(shufflesequence));
+	shufflesequence = tonumber(shufflesequence);
+	player:inform("Your sequence is: "..shufflesequence);
 	player:setQuestProgress(203, shufflesequence);
 	player:setQuestProgress(204,1);
 end
