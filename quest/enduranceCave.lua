@@ -16,7 +16,7 @@ module("quest.enduranceCave", package.seeall)
 	anteroompos = position(250,737, 0); --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (245,727,0); -- the center of the room
-	searchRadius 		   = 80;			   -- 25 tiles search radius
+	searchRadius 		   = 1000;			   -- 25 tiles search radius
 						   
 	DebuggingEnabled = false;
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
