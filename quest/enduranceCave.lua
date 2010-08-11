@@ -143,7 +143,9 @@ function GivePlayerNewSequence(player)
 	for i = 1, (StepAmount-1) do
 		shufflesequence = shufflesequence .. math.random(1,4);
 	end	
+	if shufflesequence == nil then shufflesequence = 12345678 end
+	
 	player:inform("Your sequence is: "..shufflesequence);
-	player:setQuestProgress(203,shufflesequence);
+	player:setQuestProgress(203, shufflesequence);
 	player:setQuestProgress(204,1);
 end
