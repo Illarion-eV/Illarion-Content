@@ -73,10 +73,10 @@ function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local maxr;
 	if(table.maxn(self.RandomItems) > 0) then
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
-		maxr = minr + Probability * 100;
+		maxr = minr + Probability * 1000;
 	else
 		minr = 0;
-		maxr = Probability * 100;
+		maxr = Probability * 1000;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr});
 	return;
@@ -97,10 +97,10 @@ function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probabilit
 	local maxr;
 	if(table.maxn(self.RandomItems) > 0) then
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
-		maxr = minr + Probability * 100;
+		maxr = minr + Probability * 1000;
 	else
 		minr = 0;
-		maxr = Probability * 100;
+		maxr = Probability * 000;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
@@ -152,7 +152,7 @@ function GCraft:FindRandomItem(User)
 	end
 	
 	if(table.maxn(self.RandomItems) > 0) then
-		local p = math.random(10000);
+		local p = math.random(100000);
 		for it = 1, table.maxn(self.RandomItems), 1 do
 			User:inform("rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
 			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
