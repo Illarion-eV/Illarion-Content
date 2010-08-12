@@ -95,7 +95,7 @@ end
 function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN, DebugUser)
 	local minr;
 	local maxr;
-	if(table.maxn(self.RandomItems) ~= 0) then
+	if(table.maxn(self.RandomItems) ~= 1) then
 		if(DebugUser ~= nil) then
 			DebugUser:inform("maxn randomitems: " .. table.maxn(self.RandomItems));
 		end
