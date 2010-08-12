@@ -133,7 +133,7 @@ function CreateMonster(stage)
 		return;
 	end
 	
-	for i = 1, table.maxn(monsterlist) do
+	for i = 1, table.maxn(monsterlist[stage]) do
     	world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
     end
 end
