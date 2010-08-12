@@ -13,7 +13,7 @@ module("quest.enduranceCave", package.seeall)
 						   --to reach the end boss
 						   
 	bosspos    = position(0,0,0); --warp position of the boss room
-	anteroompos = position(250,737, 0); --warp position of the anterroom
+	anteroompos = position(250,737,0); --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (245,727,0); -- the center of the room
 	searchRadius 		   = 1000;			   -- 25 tiles search radius
@@ -64,8 +64,7 @@ function InCave (User)
 	
 	local nextstepindex, steppath = DecodePlayerPath(player); -- splits the path the player has to go
 	                                                    -- and returns also how many steps the player has walked so far
-	
-	player:inform("The next step is"..steppath[nextstepindex]);
+	                                                    
 	if (nextstepindex > StepAmount) then --9th step leads directly to the end boss
 		return true, bosspos;
 	end

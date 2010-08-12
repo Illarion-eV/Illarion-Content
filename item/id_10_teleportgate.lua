@@ -315,6 +315,7 @@ function CharacterOnField( User )
 		local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 		if (PlayerInCave) then
 			gate = t_dest;
+			User:inform("player in Cave");
 		end
 
         if gate ~= nil then
