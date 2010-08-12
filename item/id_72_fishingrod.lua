@@ -11,7 +11,7 @@ module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood
 
 
 function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
-	content.gathering.InitGathering();
+	content.gathering.InitGathering(User);
 	
     base.common.ResetInterruption(User, ltstate);
 	if (ltstate == Action.abort) then -- Arbeit unterbrochen

@@ -92,15 +92,16 @@ function GCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, 
 	return;
 end
 
-function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
+function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN, DebugUser)
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) ~= 0) then
+		DebugUser:inform("maxn randomitems: " .. table.maxn(self.RandomItems));
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
 	else
 		minr = 0;
-		maxr = minr + Probability * 100;
+		maxr = Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
