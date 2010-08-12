@@ -28,4 +28,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		User:talkLanguage(CCharacter.say, CPlayer.english, "#me throws a coin in the air and catches it again. It shows "..eValue..".");
 
 	end
+	
+	
+	if (User:isAdmin()) then
+	
+		world:createItemFromId(10, 1 ,position (240,732,0), 0, 0);
+        world:createItemFromId(10, 1 ,position (240,722,0), 0, 0);
+        world:createItemFromId(10, 1 ,position (250,732,0), 0, 0);
+        world:createItemFromId(10, 1 ,position (250,722,0), 0, 0);
+        
+        User:inform("feddisch, portale stehen");
+	end
 end
