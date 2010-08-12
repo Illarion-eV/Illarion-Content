@@ -22,8 +22,8 @@ module("quest.enduranceCave", package.seeall)
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
 function InCave (User)
-	player = getCharForId(User.id);  --create a save copy of the char struct
-	portalindex = nil;
+	local player = getCharForId(User.id);  --create a save copy of the char struct
+	local portalindex = nil;
 	
 	-- just for debugging
 	
@@ -85,7 +85,7 @@ end
 
 
 function AllMonstersDead()
-	myMonsters = world:getMonstersInRangeOf(CenterPositionOfPortalRoom, searchRadius);
+	local myMonsters = world:getMonstersInRangeOf(CenterPositionOfPortalRoom, searchRadius);
 	
 	if (myMonsters[1]~=nil) then -- if there is at least one monster around send false
 		return false;
@@ -96,10 +96,10 @@ function AllMonstersDead()
 end
 
 function DecodePlayerPath(player)
-	pathquestid = player:getQuestProgress(203); -- get the path steps for this player
-	steppath = Split_number(pathquestid, StepAmount); -- splits questid into a list
+	local pathquestid = player:getQuestProgress(203); -- get the path steps for this player
+	local steppath = base.common.Split_number(pathquestid, StepAmount); -- splits questid into a list
 
-	solvedsteps = player:getQuestProgress(204); -- get steps he already did
+	local solvedsteps = player:getQuestProgress(204); -- get steps he already did
 	
 	
 	-- increase the counter of solved quests now, will get reseted in the InCave function
