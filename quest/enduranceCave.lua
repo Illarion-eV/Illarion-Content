@@ -47,6 +47,7 @@ function InCave (User)
 	-------
 	
 	if not AllMonstersDead() then -- there are still monsters alive, don't let him
+	    player:inform("There are still monsters alive");
 		return;              	  -- warp till all monsters are dead!
 	end
 
@@ -57,12 +58,14 @@ function InCave (User)
 	end
 
 	if (portalindex == nil) then -- player didn't walk through one of the portals,
+		player:inform("player didn't walk through one of the portals");
 		return;                  -- he isn't in the endurance cave
 	end
 	
 	local nextstepindex, steppath = DecodePlayerPath(player); -- splits the path the player has to go
 	                                                    -- and returns also how many steps the player has walked so far
 	
+	player:inform("The next step is"..steppath[nextstepindex]);
 	if (nextstepindex > StepAmount) then --9th step leads directly to the end boss
 		return true, bosspos;
 	end
