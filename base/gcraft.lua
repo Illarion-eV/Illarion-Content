@@ -96,7 +96,9 @@ function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probabilit
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) ~= 0) then
-		DebugUser:inform("maxn randomitems: " .. table.maxn(self.RandomItems));
+		if(DebugUser ~= nil) then
+			DebugUser:inform("maxn randomitems: " .. table.maxn(self.RandomItems));
+		end
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
 	else
