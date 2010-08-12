@@ -19,8 +19,8 @@ function InitGathering(DebugUser)
 		
 		--woodchopping
 
-		woodchopping:AddSpecialRandomItem(2551,1,333,0,0.005,"F�r deine harte und ehrliche Arbeit belohnt dich Findari, die G�ttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour, Findari, the Godess of Air, awards you with a treasure of Pure Air."); --Pure air
-		woodchopping:AddSpecialRandomItem(45,1,333,1,0.005,"Im Unterholz ersp�hst du einen gr�n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. You find a magical emerald."); --Magical emerald
+		woodchopping:AddSpecialRandomItem(2551,1,333,0,0.005,"F�r deine harte und ehrliche Arbeit belohnt dich Findari, die G�ttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour, Findari, the Godess of Air, awards you with a treasure of Pure Air.", DebugUser); --Pure air
+		woodchopping:AddSpecialRandomItem(45,1,333,1,0.005,"Im Unterholz ersp�hst du einen gr�n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. You find a magical emerald.", DebugUser); --Magical emerald
 		woodchopping:AddSpecialRandomItem(2441,1,333,0,0.005,"Im Erdboben machst du einen alten, rostigen Helm aus. Ein �berbleibsel einer l�ngst vergessenen Schlacht?","On the soil you find an old, rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
 		woodchopping:AddSpecialRandomItem(235,1,333,0,0.05,"In einer Spechth�hle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","In a woodpecker's hole you find a golden ring. Will it bring them all, and in the darkness bind them?"); --gold ring
 		woodchopping:AddSpecialRandomItem(2664,1,333,0,0.1,"Du findest einen Ast, den man auch sehr gut als Keule verwenden k�nnte.","You find a branch that could be used as a club."); --Club
@@ -133,8 +133,8 @@ function InitGathering(DebugUser)
 		--fishing:AddSpecialRandomItem(92,1,333,0,0.05,"Du ziehst eine glitzernde �llampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
 		--fishing:AddSpecialRandomItem(53,1,333,0,0.1,"Ein alter, durchl�cherter Lederstiefel h�ngt am Haken.","An old, perforated leather boot hangs on your hook."); --Leather boots
 		
-		fishing:AddSpecialRandomItem(2554,1,333,0,10,"F�r deine harte und ehrliche Arbeit belohnt dich Tanora, die G�ttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour, Tanora, the Godess of Water, awards you with a treasure of Pure Water.", DebugUser); --Pure water
-		fishing:AddSpecialRandomItem(284,1,333,1,10,"Im Wasser kaum auszumachen, ersp�hst du ein blaues Funkeln am Boden des Gew�ssers. Du findest einen magischen Blaustein.","In the water, you spot a barely noticeable blue sparkle at the bottom of the water. You find a magical bluestone.", DebugUser); --Magical bluestone
+		fishing:AddSpecialRandomItem(2554,1,333,0,10,"F�r deine harte und ehrliche Arbeit belohnt dich Tanora, die G�ttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour, Tanora, the Godess of Water, awards you with a treasure of Pure Water."); --Pure water
+		fishing:AddSpecialRandomItem(284,1,333,1,10,"Im Wasser kaum auszumachen, ersp�hst du ein blaues Funkeln am Boden des Gew�ssers. Du findest einen magischen Blaustein.","In the water, you spot a barely noticeable blue sparkle at the bottom of the water. You find a magical bluestone."); --Magical bluestone
 		fishing:AddSpecialRandomItem(51,1,333,0,10,"Ein Eimer verf�ngt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","A bucket gets caught in your fishing line. Someone must have lost it here."); --Bucket
 		fishing:SetTreasureMap(5,"Statt eines Fisches hast du eine Karte am Haken h�ngen.","Instead of a fish you find a map hanging on your hook.");
 		fishing:AddMonster(101,5,"Ein heftiger Ruck rei�t dir fast die Angel aus der Hand. Noch w�hrend du dich wunderst teilt sich das Wasser vor dir und eine glitschige Wasserleiche steigt aus den Wellen empor.","A heavy force pulls on your fishing rod. While you are wondering what it could be, the water in front of you ripples and a slimy mummy climbs out of the water.",4,7);
