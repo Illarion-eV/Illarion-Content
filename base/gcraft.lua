@@ -70,7 +70,7 @@ end
 function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local minr;
 	local maxr;
-	if(self.RandomItems[1] == nil) then
+	if(table.maxn(self.RandomItems) == 0) then
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
@@ -94,7 +94,7 @@ end
 function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
 	local minr;
 	local maxr;
-	if(self.RandomItems[1] == nil) then
+	if(table.maxn(self.RandomItems) == 0) then
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
