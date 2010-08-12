@@ -74,7 +74,7 @@ function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
-		minr = self.RandomItems[#self.RandomItems].ProbRange[2];
+		minr = self.RandomItems[table.maxn(self.RandomItems)].ProbRange[2];
 		maxr = minr + Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}});
