@@ -36,7 +36,7 @@ function InCave (User)
 		player:inform("Your next step would be number "..mystep);
 		player:inform("your sequence is: " ..myseq);
 		
-		for i=1, (i < table.maxn(magPortal)) do -- lookup through which portal he goes
+		for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
 			if ( equapos(player.pos, magPortal[i]) ) then
 				portalindex = i;
 			end
@@ -50,7 +50,7 @@ function InCave (User)
 		return;              	  -- warp till all monsters are dead!
 	end
 
-	for i=1, (i< table.maxn(magPortal)) do -- lookup through which portal he goes
+	for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
 		if ( equapos(player.pos, magPortal[i]) ) then
 			portalindex = i;
 		end
