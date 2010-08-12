@@ -8,7 +8,8 @@ RandomItem = {
     Quantity = 1,
     Quality = 333,
     Data = 0,
-    ProbRange = { },
+	MinProb = 0,
+	MaxProb = 0,
     MessageDE = nil,
 	MessageEN = nil,
 };
@@ -74,10 +75,10 @@ function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 		minr = 0;
 		maxr = minr + Probability * 100;
 	else
-		minr = self.RandomItems[table.maxn(self.RandomItems)].ProbRange[2];
+		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
 	end
-	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}});
+	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr});
 	return;
 end
 
@@ -95,20 +96,20 @@ function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probabilit
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) ~= 0) then
-		minr = self.RandomItems[table.maxn(self.RandomItems)].ProbRange[2];
+		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
 	else
 		minr = 0;
 		maxr = minr + Probability * 100;
 	end
-	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["ProbRange"] = {minr,maxr}, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
+	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr, ["MessageDE"] = MessageDE, ["MessageEN"] = MessageEN});
 	return;
 end
 
 function GCraft:FindRandomItem(User)
     if base.common.IsInterrupted(User) then
 		if(table.maxn(self.InterruptMsg) ~= 0) then
-			local m = math.random(#self.InterruptMsg);
+			local m = math.random(table.maxn(self.InterruptMsg));
 			base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
 			return false
 		end
@@ -133,7 +134,7 @@ function GCraft:FindRandomItem(User)
 	end
 	
 	if (table.maxn(self.Monsters) ~= 0) then
-		local ra = math.random(#self.Monsters);
+		local ra = math.random(table.maxn(self.Monsters));
 		local pa = math.random(10000);
 		User:inform("chosen monster: "..ra.." rand: "..pa.."/"..self.Monsters[ra].Probability);
 		if(pa < self.Monsters[ra].Probability) then
@@ -153,8 +154,8 @@ function GCraft:FindRandomItem(User)
 	if(table.maxn(self.RandomItems) ~= 0) then
 		local p = math.random(10000);
 		for it = 1, #self.RandomItems, 1 do
-			User:inform("rand: "..p.." min: "..self.RandomItems[it].ProbRange[1].." max: "..self.RandomItems[it].ProbRange[2]);
-			if(p >= self.RandomItems[it].ProbRange[1] and p <= self.RandomItems[it].ProbRange[2]) then
+			User:inform("rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
+			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
 				if (self.RandomItems[it].MessageDE ~= nil) and (self.RandomItems[it].MessageEN ~= nil) then
 					base.common.InformNLS(User, self.RandomItems[it].MessageDE, self.RandomItems[it].MessageEN);
 				end
