@@ -16,6 +16,7 @@ function InitGathering(DebugUser)
 		woolcutting = base.gcraft.GCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2};
 		potashproducing = base.gcraft.GCraft:new{LeadAttrib = "dexterity", LeadSkill = "woodchopping", LeadSkillGroup = 2};
 		
+		--[[
 		--woodchopping
 
 		woodchopping:AddSpecialRandomItem(2551,1,333,0,0.005,"F�r deine harte und ehrliche Arbeit belohnt dich Findari, die G�ttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour, Findari, the Godess of Air, awards you with a treasure of Pure Air."); --Pure air
@@ -157,7 +158,7 @@ function InitGathering(DebugUser)
 		potashproducing:AddSpecialRandomItem(45,1,333,1,0.005,"In der Asche ersp�hst du einen gr�n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the potash you spot a green sparkling object. You find a magical emerald."); --Magical emerald
 		potashproducing:SetTreasureMap(0.015,"Fein s�uberlich aufgerollt findest du eine Schatzkarte in einem ausgeh�hlten Ast. Gut, dass du das Holz noch nicht verbrannt hattest!","You find a treasure map in a hollowed-out branch, neatly rolled up. Luckily you did not burn it!");
 		--potashproducing:AddMonster(MONSTERID,PROBABILITY,"DETEXT","ENTEXT",SOUND,GFXLIST);
-
+		]]--
 		Init = 1;
 	end
 end
