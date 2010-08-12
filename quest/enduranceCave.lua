@@ -62,7 +62,7 @@ function InCave (User)
 		return;                  -- he isn't in the endurance cave
 	end
 	
-	local nextstepindex, steppath = DecodePlayerPath(player); -- splits the path the player has to go
+	local nextstepindex, steppath = DecodePlayerPath(User); -- splits the path the player has to go
 	                                                    -- and returns also how many steps the player has walked so far
 	
 	player:inform("The next step is"..steppath[nextstepindex]);
@@ -71,7 +71,8 @@ function InCave (User)
 	end
 	                                                    
 	if (portalindex ~= steppath[nextstepindex]) then -- wrong path, reset solved status
-													 -- and create Monsters
+
+		player:inform("bring the monsters!");	 -- and create Monsters
 		CreateMonster(nextstepindex); -- creates some monsters dependant from level
 		player:setQuestProgress(204,1); -- reset step counter
 		player:inform("n00b, you lost the game, try it again!");	
