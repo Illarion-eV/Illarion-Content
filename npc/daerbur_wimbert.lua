@@ -1,637 +1,1161 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,-135,-400,0,4,false,'Daerbur Wimbert','npc_daerbur_wimbert.lua',0);
+--------------------------------------------------------------------------------
+-- NPC Name: Daerbur Wimbert                                          Galmair --
+-- NPC Job:  miner                                                            --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  392, 160, -3           --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: August 12, 2010                         easyNPC Parser v1.00 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+require("npc.base.basic")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.queststatus")
+require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.skill")
+require("npc.base.talk")
 module("npc.daerbur_wimbert", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 0");
+talkEntry:addResponse("Quest status set to 0");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 1");
+talkEntry:addResponse("Quest status set to 1");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 2");
+talkEntry:addResponse("Quest status set to 2");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 3");
+talkEntry:addResponse("Quest status set to 3");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 4");
+talkEntry:addResponse("Quest status set to 4");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 5");
+talkEntry:addResponse("Quest status set to 5");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 6");
+talkEntry:addResponse("Quest status set to 6");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 7");
+talkEntry:addResponse("Quest status set to 7");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 8");
+talkEntry:addResponse("Quest status set to 8");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Hah?");
+talkEntry:addResponse("Heh?");
+talkEntry:addResponse("Hih?");
+talkEntry:addResponse("Hoh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Hah?");
+talkEntry:addResponse("Heh?");
+talkEntry:addResponse("Hih?");
+talkEntry:addResponse("Hoh?");
+talkEntry:addResponse("Häh?");
+talkEntry:addResponse("Höh?");
+talkEntry:addResponse("Hüh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Hah?");
+talkEntry:addResponse("Heh?");
+talkEntry:addResponse("Hih?");
+talkEntry:addResponse("Hoh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Huh?");
+talkEntry:addResponse("Hah?");
+talkEntry:addResponse("Heh?");
+talkEntry:addResponse("Hih?");
+talkEntry:addResponse("Hoh?");
+talkEntry:addResponse("Häh?");
+talkEntry:addResponse("Höh?");
+talkEntry:addResponse("Hüh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!");
+talkEntry:addResponse("Why did you come if you wanted to leave anyway? You like change to your life, I assume.");
+talkEntry:addResponse("Bye");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!");
+talkEntry:addResponse("Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?");
+talkEntry:addResponse("Tschüß!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!");
+talkEntry:addResponse("Why did you come if you wanted to leave anyway? You like change to your life, I assume.");
+talkEntry:addResponse("Bye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!");
+talkEntry:addResponse("Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?");
+talkEntry:addResponse("Tschüß!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.");
+talkEntry:addResponse("I feel just like you, maybe a bit more sad or lucky, who knows.");
+talkEntry:addResponse("Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.");
+talkEntry:addResponse("Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.");
+talkEntry:addResponse("How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("Daerbur Wimbert.");
+talkEntry:addResponse("Daerbur.");
+talkEntry:addResponse("Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Daerbur Wimbert.");
+talkEntry:addResponse("Daerbur.");
+talkEntry:addResponse("Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.");
+talkEntry:addResponse("You have enough, I have enough, so why trade?");
+talkEntry:addResponse("Bartering is so stupid, don't we all want to betray each other?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?");
+talkEntry:addResponse("Du hast genug, ich hab genug, also warum handeln?");
+talkEntry:addResponse("Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Once upon a time, in land far far away... I forgot the rest. But this line thrills me!");
+talkEntry:addResponse("And they all died happily ever after... I'm not a good story teller.");
+talkEntry:addResponse("What shall I tell you, fairytales? Better ask a fairy!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.");
+talkEntry:addResponse("Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.");
+talkEntry:addResponse("Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("miner");
+talkEntry:addResponse("I dig for gems, metals, and holes.");
+talkEntry:addResponse("Once, I dug a hole and some stinky, black fluid squirted out. Bah!");
+talkEntry:addResponse("If you find any gems, well, do not pick them up or nobody else can find them anymore.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bergarbeiter");
+talkEntry:addResponse("Ich grabe nach Edelsteinen, Metallen und Löchern.");
+talkEntry:addResponse("Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!");
+talkEntry:addResponse("Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dark hole");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It is not dark down here, you just need a torch.");
+talkEntry:addResponse("A nice mine, isn't it? All mine in this mine, hehe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dunkelloch");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.");
+talkEntry:addResponse("Eine schöne Mine, nicht wahr? Alles meins hier unten!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mine");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It is not dark down here, you just need a torch.");
+talkEntry:addResponse("A nice mine, isn't it? All mine in this mine, hehe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mine");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.");
+talkEntry:addResponse("Eine schöne Mine, nicht wahr? Alles meins hier unten!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("In Runewick, da sind sie dick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick, that makes me sick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ja, Galmair, das ist hier!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yes, Galmair, that is here!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Cadomyr, das verbitt' ich mir!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr, won't come here!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addResponse("You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hacke");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addResponse("Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick");
+talkEntry:addResponse("Need a pick, it has a nick. In Galmair, you get a new one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hacke");
+talkEntry:addResponse("Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine I"));
+talkEntry:addResponse("Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine I"));
+talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine I"));
+talkEntry:addResponse("Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine I"));
+talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Away with those rocks! Bring me ten stone blocks and I'll reward you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addResponse("Away with those rocks! Bring me ten stone blocks and I'll reward you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addResponse("Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."));
+talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(733, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Away with those rocks! Bring me ten stone blocks and I'll reward you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine II"));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine II"));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine II"));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine II"));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Grabe weiter, es liegt immernoch so viel Kohle über den Edelsteinen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dig some more, there is still so much coal atop the gems.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
+talkEntry:addResponse("Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
+talkEntry:addResponse("Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
+talkEntry:addResponse("Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
+talkEntry:addResponse("Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Bring me five raw blackstones and you get money. I'm so excited!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addResponse("Bring me five raw blackstones and you get money. I'm so excited!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addResponse("Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
+talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Mehr Edelsteine, bitte. Ich brauche wenigstens fünf ungeschliffene Schwarzsteine, ja?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Some more gems, please. I need five raw blackstones, not less, yes?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine IV"));
+talkEntry:addResponse("Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine IV"));
+talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine IV"));
+talkEntry:addResponse("Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine IV"));
+talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addResponse("Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addResponse("Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."));
+talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(68, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du kommst ohne Nadelholz wieder? Hat Valandil dich beim Holzfällen erwischt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(3, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You come back without conifer wood? Did Valandil catch you, chopping trees?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
+talkEntry:addResponse("I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
+talkEntry:addResponse("Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("What was first, yes or no? I mean, did people first think about how to agree or how to disagree?");
+talkEntry:addResponse("Indeed.");
+talkEntry:addResponse("Yes?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?");
+talkEntry:addResponse("Jawohl.");
+talkEntry:addResponse("Ja?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("I say yes, you say no, I say goodbye, you say hello!");
+talkEntry:addResponse("No?");
+talkEntry:addResponse("Why?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!");
+talkEntry:addResponse("Nein?");
+talkEntry:addResponse("Wieso?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nuts");
+talkEntry:addTrigger("nutty");
+talkEntry:addTrigger("strange");
+talkEntry:addTrigger("wierd");
+talkEntry:addTrigger("loony");
+talkEntry:addResponse("I am what I am. And what are you, something else?");
+talkEntry:addResponse("That's all a matter of perspective.");
+talkEntry:addResponse("Points of view!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("komisch");
+talkEntry:addTrigger("bescheuert");
+talkEntry:addTrigger("dusselig");
+talkEntry:addResponse("Ich bin, was ich bin. Und was bist du, was anderes?");
+talkEntry:addResponse("Das ist alles Ansichtssache.");
+talkEntry:addResponse("Meinungen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ROFL");
+talkEntry:addResponse("#me laughes out loud.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("Ich frag mich, was wir sagen würden, wenn der Boden dauernd auf uns rumtrampeln würde. Er ist ziemlich ruhig...", "I wonder what we would say if the ground would stomp on us. It is quite silent...");
+talkingNPC:addCycleText("Ist Dunkelheit das Fehlen von Licht oder Licht das Fehlen von Dunkeltheit?", "Is darkness the lack of light or light the lack of darkness?");
+talkingNPC:addCycleText("#me hält einen funkelnden Edelstein vor seine zugekniffenen Augen und nickt langsam.", "#me holds a gem in front of his eyes and nods slowly.");
+talkingNPC:addCycleText("Vorsicht vor den Steinen.", "Beware of rocks.");
+talkingNPC:addCycleText("Wer braucht schon den Himmel, wenn man eine gut abgestützte Höhlendecke hat.", "Who needs the sky when you have a well supported ceiling.");
+talkingNPC:addCycleText("Hela, heba, helloa.", "Hela, heba, helloa.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(2);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Dieser NPC ist der Bergarbeiter Daerbur Wimbert.", "This NPC is the miner Daerbur Wimbert.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 68;
-    -- NPC by Estralis Seborian
-    -- Queststatus Overview
-    -- 0: No Quest taken
-    -- 1: Quest 1 taken - gather 10 raw materials for 50cp
-    -- 2: Quest 1 solved
-    -- 3: Quest 2 taken - gather 20 raw materials for 100cp
-    -- 4: Quest 2 solved
-    -- 5: Quest 3 taken - gather 5 rare raw materials for 100cp
-    -- 6: Quest 3 solved
-    -- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
-    -- 8: Quest 4 solved
-    -- Debugging
-    npc.base.autonpcfunctions.AddTraderTrigger("set 0","Quest status set to 0");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 1","Quest status set to 1");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 2","Quest status set to 2");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 3","Quest status set to 3");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 4","Quest status set to 4");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 5","Quest status set to 5");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 6","Quest status set to 6");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 7","Quest status set to 7");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 8","Quest status set to 8");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    -- Help 
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Spielhilfe] Dieser NPC ist der Bergarbeiter Daerbur Wimbert. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","Huh?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("Hah?");
-    npc.base.autonpcfunctions.AddAdditionalText("Heh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hih?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hoh?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Grüße","Huh?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gruß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("Hah?");
-    npc.base.autonpcfunctions.AddAdditionalText("Heh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hih?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hoh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Häh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Höh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hüh?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Huh?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Hah?");
-    npc.base.autonpcfunctions.AddAdditionalText("Heh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hih?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hoh?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Huh?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Hah?");
-    npc.base.autonpcfunctions.AddAdditionalText("Heh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hih?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hoh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Häh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Höh?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hüh?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("Why did you come if you wanted to leave anyway? You like change to your life, I assume.");
-    npc.base.autonpcfunctions.AddAdditionalText("Bye");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?");
-    npc.base.autonpcfunctions.AddAdditionalText("Tschüß!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","So, you are leaving. That is interesting, that means, you go somewhere else. Exciting!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Why did you come if you wanted to leave anyway? You like change to your life, I assume.");
-    npc.base.autonpcfunctions.AddAdditionalText("Bye.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","So, du gehst also. Das ist interessant, denn das bedeutet, dass du woanders hingehst. Wie spanned!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Wieso bist du überhaupt gekommen, wenn du eh wieder gehen wolltest? Du magst Veränderungen in deinem Leben, richtig?");
-    npc.base.autonpcfunctions.AddAdditionalText("Tschüß!");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("I feel just like you, maybe a bit more sad or lucky, who knows.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.");
-    npc.base.autonpcfunctions.AddAdditionalText("How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary.");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","Daerbur Wimbert.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("Daerbur.");
-    npc.base.autonpcfunctions.AddAdditionalText("Daerbur Wimbert, son of Dimbur Wimbert and Klemka Jebmil, brother of Turgen Wimbert and Nadla Wimbert. That's me.");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Daerbur Wimbert.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("Daerbur.");
-    npc.base.autonpcfunctions.AddAdditionalText("Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich.");
-    -- Catching typical NPC phrases 
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("You have enough, I have enough, so why trade?");
-    npc.base.autonpcfunctions.AddAdditionalText("Bartering is so stupid, don't we all want to betray each other?");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("Du hast genug, ich hab genug, also warum handeln?");
-    npc.base.autonpcfunctions.AddAdditionalText("Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","Once upon a time, in land far far away... I forgot the rest. But this line thrills me!");
-    npc.base.autonpcfunctions.AddAdditionalText("And they all died happily ever after... I'm not a good story teller.");
-    npc.base.autonpcfunctions.AddAdditionalText("What shall I tell you, fairytales? Better ask a fairy!");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach.");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    npc.base.autonpcfunctions.AddTraderTrigger("miner","I dig for gems, metals, and holes.");
-    npc.base.autonpcfunctions.AddAdditionalText("Once, I dug a hole and some stinky, black fluid squirted out. Bah!");
-    npc.base.autonpcfunctions.AddAdditionalText("If you find any gems, well, do not pick them up or nobody else can find them anymore.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Bergarbeiter","Ich grabe nach Edelsteinen, Metallen und Löchern.");
-    npc.base.autonpcfunctions.AddAdditionalText("Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!");
-    npc.base.autonpcfunctions.AddAdditionalText("Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden.");
-    npc.base.autonpcfunctions.AddTraderTrigger("dark hole","It is not dark down here, you just need a torch.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("A nice mine, isn't it? All mine in this mine, hehe.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Dunkelloch","Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Eine schöne Mine, nicht wahr? Alles meins hier unten!");
-    npc.base.autonpcfunctions.AddTraderTrigger("mine","It is not dark down here, you just need a torch.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("A nice mine, isn't it? All mine in this mine, hehe.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Mine","Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Eine schöne Mine, nicht wahr? Alles meins hier unten!");
-    -- Factions
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","In Runewick, da sind sie dick!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Runewick, that makes me sick!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Ja, Galmair, das ist hier!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Yes, Galmair, that is here!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Cadomyr, das verbitt' ich mir!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Cadomyr, won't come here!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Tool hints
-    npc.base.autonpcfunctions.AddTraderTrigger("pick","You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hacke","Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("pick","Need a pick, it has a nick. In Galmair, you get a new one.");
-    npc.base.autonpcfunctions.AddTraderTrigger("hacke","Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue.");
-    -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Away with those rocks! Bring me ten stone blocks and I'll reward you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Away with those rocks! Bring me ten stone blocks and I'll reward you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",733,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",733,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",733,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",733,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Away with those rocks! Bring me ten stone blocks and I'll reward you.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",733,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 2nd quest: Gather 20 different raw materials for 100cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Grabe weiter, es liegt immernoch so viel Kohle über den Edelsteinen.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Dig some more, there is still so much coal atop the gems.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 3rd quest: Gather 5 rare raw materials for 100cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Bring me five raw blackstones and you get money. I'm so excited!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Bring me five raw blackstones and you get money. I'm so excited!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",252,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",252,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",252,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",252,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Mehr Edelsteine, bitte. Ich brauche wenigstens fünf ungeschliffene Schwarzsteine, ja?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Some more gems, please. I need five raw blackstones, not less, yes?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",252,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Dark Hole Mine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Dunkellochmine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",3,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",3,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",3,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",3,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Du kommst ohne Nadelholz wieder? Hat Valandil dich beim Holzfällen erwischt?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","You come back without conifer wood? Did Valandil catch you, chopping trees?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",3,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Final dialogue: No more quests, just nice hints
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","What was first, yes or no? I mean, did people first think about how to agree or how to disagree?");
-    npc.base.autonpcfunctions.AddAdditionalText("Indeed.");
-    npc.base.autonpcfunctions.AddAdditionalText("Yes?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?");
-    npc.base.autonpcfunctions.AddAdditionalText("Jawohl.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ja?");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","I say yes, you say no, I say goodbye, you say hello!");
-    npc.base.autonpcfunctions.AddAdditionalText("No?");
-    npc.base.autonpcfunctions.AddAdditionalText("Why?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!");
-    npc.base.autonpcfunctions.AddAdditionalText("Nein?");
-    npc.base.autonpcfunctions.AddAdditionalText("Wieso?");
-    npc.base.autonpcfunctions.AddTraderTrigger("nuts","I am what I am. And what are you, something else?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("nutty");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("strange");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wierd");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("loony");
-    npc.base.autonpcfunctions.AddAdditionalText("That's all a matter of perspective.");
-    npc.base.autonpcfunctions.AddAdditionalText("Points of view!");
-    npc.base.autonpcfunctions.AddTraderTrigger("komisch","Ich bin, was ich bin. Und was bist du, was anderes?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bescheuert");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("dusselig");
-    npc.base.autonpcfunctions.AddAdditionalText("Das ist alles Ansichtssache.");
-    npc.base.autonpcfunctions.AddAdditionalText("Meinungen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("ROFL","#me laughes out loud.");
-    -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-    npc.base.autonpcfunctions.AddCycleText("Ich frag mich, was wir sagen würden, wenn der Boden dauernd auf uns rumtrampeln würde. Er ist ziemlich ruhig...","I wonder what we would say if the ground would stomp on us. It is quite silent...");
-    npc.base.autonpcfunctions.AddCycleText("Ist Dunkelheit das Fehlen von Licht oder Licht das Fehlen von Dunkeltheit?","Is darkness the lack of light or light the lack of darkness?");
-    npc.base.autonpcfunctions.AddCycleText("#me hält einen funkelnden Edelstein vor seine zugekniffenen Augen und nickt langsam.","#me holds a gem in front of his eyes and nods slowly.");
-    npc.base.autonpcfunctions.AddCycleText("Vorsicht vor den Steinen.","Beware of rocks.");
-    npc.base.autonpcfunctions.AddCycleText("Wer braucht schon den Himmel, wenn man eine gut abgestützte Höhlendecke hat.","Who needs the sky when you have a well supported ceiling.");
-    npc.base.autonpcfunctions.AddCycleText("Hela, heba, helloa.","Hela, heba, helloa.");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
