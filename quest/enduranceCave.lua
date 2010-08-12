@@ -11,14 +11,13 @@ module("quest.enduranceCave", package.seeall)
 					   
 	StepAmount = 8; -- the amount of steps the player has to go
 						   --to reach the end boss
-						   
-	bosspos    = position(0,0,0); --warp position of the boss room
-	anteroompos = position(250,737,0); --warp position of the anterroom
+
+	bosspos    	= {0,0,0}; --warp position of the boss room
+	anteroompos = {250,737,0}; --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (245,727,0); -- the center of the room
-	searchRadius 		   = 1000;			   -- 25 tiles search radius
+	searchRadius 		   = 100;			   -- 25 tiles search radius
 						   
-	DebuggingEnabled = false;
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
 function InCave (User)
@@ -33,7 +32,7 @@ function InCave (User)
 	elseif string.find(player.lastSpokenText, "status") then
 		mystep = player:getQuestProgress(204);
 		myseq  = player:getQuestProgress(203); 
-		player:inform("Your next step would be number "..mystep);
+		player:inform("Your next step would be the"..mystep.."th step.");
 		player:inform("your sequence is: " ..myseq);
 		
 		for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
@@ -58,7 +57,6 @@ function InCave (User)
 	end
 
 	if (portalindex == nil) then -- player didn't walk through one of the portals,
-		player:inform("player didn't walk through one of the portals");
 		return;                  -- he isn't in the endurance cave
 	end
 	
