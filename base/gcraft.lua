@@ -133,14 +133,14 @@ function GCraft:FindRandomItem(User)
 		end
 	end
 	
-	if (table.maxn(self.Monsters) ~= 0) then
+	if (table.maxn(self.Monsters) > 0) then
 		local ra = math.random(table.maxn(self.Monsters));
 		local pa = math.random(10000);
 		User:inform("chosen monster: "..ra.." rand: "..pa.."/"..self.Monsters[ra].Probability);
 		if(pa < self.Monsters[ra].Probability) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
-			for g = 0, #self.Monsters[ra].GFX, 1 do
+			for g = 0, table.maxn(self.Monsters[ra].GFX), 1 do
 				world:gfx(self.Monsters[ra].GFX[g], TargetPos);
 			end
 			if(self.Monsters[ra].Sound ~= nil) then
@@ -151,9 +151,9 @@ function GCraft:FindRandomItem(User)
 		end
 	end
 	
-	if(table.maxn(self.RandomItems) ~= 0) then
+	if(table.maxn(self.RandomItems) > 0) then
 		local p = math.random(10000);
-		for it = 1, #self.RandomItems, 1 do
+		for it = 1, table.maxn(self.RandomItems), 1 do
 			User:inform("rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
 			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
 				if (self.RandomItems[it].MessageDE ~= nil) and (self.RandomItems[it].MessageEN ~= nil) then
