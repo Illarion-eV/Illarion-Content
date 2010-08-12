@@ -2,7 +2,7 @@ require("base.gcraft")
 
 module("content.gathering", package.seeall)
 
-function InitGathering(DebugUser)
+function InitGathering()
 	if(Init == nil) then
 		woodchopping = base.gcraft.GCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2};
 		honeygathering = base.gcraft.GCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2};
@@ -19,8 +19,8 @@ function InitGathering(DebugUser)
 		
 		--woodchopping
 
-		woodchopping:AddSpecialRandomItem(2551,1,333,0,0.005,"F�r deine harte und ehrliche Arbeit belohnt dich Findari, die G�ttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour, Findari, the Godess of Air, awards you with a treasure of Pure Air.", DebugUser); --Pure air
-		woodchopping:AddSpecialRandomItem(45,1,333,1,0.005,"Im Unterholz ersp�hst du einen gr�n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. You find a magical emerald.", DebugUser); --Magical emerald
+		woodchopping:AddSpecialRandomItem(2551,1,333,0,0.005,"F�r deine harte und ehrliche Arbeit belohnt dich Findari, die G�ttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labour, Findari, the Godess of Air, awards you with a treasure of Pure Air."); --Pure air
+		woodchopping:AddSpecialRandomItem(45,1,333,1,0.005,"Im Unterholz ersp�hst du einen gr�n funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. You find a magical emerald."); --Magical emerald
 		woodchopping:AddSpecialRandomItem(2441,1,333,0,0.005,"Im Erdboben machst du einen alten, rostigen Helm aus. Ein �berbleibsel einer l�ngst vergessenen Schlacht?","On the soil you find an old, rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
 		woodchopping:AddSpecialRandomItem(235,1,333,0,0.05,"In einer Spechth�hle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","In a woodpecker's hole you find a golden ring. Will it bring them all, and in the darkness bind them?"); --gold ring
 		woodchopping:AddSpecialRandomItem(2664,1,333,0,0.1,"Du findest einen Ast, den man auch sehr gut als Keule verwenden k�nnte.","You find a branch that could be used as a club."); --Club

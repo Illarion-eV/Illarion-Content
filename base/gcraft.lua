@@ -71,12 +71,12 @@ end
 function GCraft:AddRandomItem(ItemID, Quantity, Quality, Data, Probability)
 	local minr;
 	local maxr;
-	if(table.maxn(self.RandomItems) == 0) then
-		minr = 0;
-		maxr = minr + Probability * 100;
-	else
+	if(table.maxn(self.RandomItems) > 0) then
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
+	else
+		minr = 0;
+		maxr = Probability * 100;
 	end
 	table.insert(self.RandomItems, RandomItem:new{["ID"] = ItemID, ["Quantity"] = Quantity, ["Quality"] = Quality, ["Data"] = Data, ["MinProb"] = minr, ["MaxProb"] = maxr});
 	return;
@@ -92,14 +92,10 @@ function GCraft:AddMonster(MonsterID, Probability, MessageDE, MessageEN, Sound, 
 	return;
 end
 
-function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN, DebugUser)
+function GCraft:AddSpecialRandomItem(ItemID, Quantity, Quality, Data, Probability, MessageDE, MessageEN)
 	local minr;
 	local maxr;
 	if(table.maxn(self.RandomItems) > 0) then
-		if(DebugUser ~= nil) then
-			DebugUser:inform("maxn randomitems: " .. table.maxn(self.RandomItems));
-			DebugUser:inform("maxprob: " .. self.RandomItems[table.maxn(self.RandomItems)]["MaxProb"]);
-		end
 		minr = self.RandomItems[table.maxn(self.RandomItems)].MaxProb;
 		maxr = minr + Probability * 100;
 	else
