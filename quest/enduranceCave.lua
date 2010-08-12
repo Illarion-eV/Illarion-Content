@@ -13,9 +13,9 @@ module("quest.enduranceCave", package.seeall)
 						   --to reach the end boss
 
 	bosspos    	= {0,0,0}; --warp position of the boss room
-	anteroompos = {250,737,0}; --warp position of the anterroom
+	anteroompos = {246,727,0}; --warp position of the anterroom
 	
-	CenterPositionOfPortalRoom = position (245,727,0); -- the center of the room
+	CenterPositionOfPortalRoom = position (246,727,0); -- the center of the room
 	searchRadius 		   = 100;			   -- 25 tiles search radius
 						   
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
@@ -64,6 +64,7 @@ function InCave (User)
 	                                                    -- and returns also how many steps the player has walked so far
 	                                                    
 	if (nextstepindex > StepAmount) then --9th step leads directly to the end boss
+	    player:inform("The boss is all yours");
 		return true, bosspos;
 	end
 	                                                    
