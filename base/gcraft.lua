@@ -108,7 +108,7 @@ end
 
 function GCraft:FindRandomItem(User)
     if base.common.IsInterrupted(User) then
-		if(table.maxn(self.InterruptMsg) ~= 0) then
+		if(table.maxn(self.InterruptMsg) > 0) then
 			local m = math.random(table.maxn(self.InterruptMsg));
 			base.common.InformNLS(User, self.InterruptMsg[m][1], self.InterruptMsg[m][2]);
 			return false
@@ -136,7 +136,7 @@ function GCraft:FindRandomItem(User)
 	if (table.maxn(self.Monsters) > 0) then
 		local ra = math.random(table.maxn(self.Monsters));
 		local pa = math.random(10000);
-		User:inform("chosen monster: "..ra.." rand: "..pa.."/"..self.Monsters[ra].Probability);
+		User:inform("chosen monster: "..ra.." (id: " .. self.Monsters[ra].MonsterID .. ") rand: "..pa.."/"..self.Monsters[ra].Probability);
 		if(pa < self.Monsters[ra].Probability) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
