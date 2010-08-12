@@ -39,7 +39,7 @@ function GCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
-    gc.RandomItems = {{}};
+    gc.RandomItems = {};
     gc.InterruptMsg = {};
     return gc;
 end
