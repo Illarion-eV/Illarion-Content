@@ -75,7 +75,7 @@ function InCave (User)
 		player:inform("n00b, you lost the game, try it again!");	
 	end
 
-    return true, anterroompos;
+    return true, anteroompos;
 		
 end
 
