@@ -4,22 +4,49 @@ require("base.common")
 
 module("quest.enduranceCave", package.seeall)
 
--------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
-			   -- magic portal coordinates
-	magPortal = {position (240,732,0), position (240,722,0), 
-					   position (250,732,0), position (250,722,0)};
-					   
-	StepAmount = 8; -- the amount of steps the player has to go
-						   --to reach the end boss
+function AddStageInfo(stage, german, english)
+    StatusInfo[stage][0] = german;
+    StatusInfo[stage][1] = german;
+end
 
-	bosspos    	= {0,0,0}; --warp position of the boss room
+
+
+
+-------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
+if not GlobalsInitialized then
+	GlobalsInitialized = true;
+			   -- magic portal coordinates
+	magPortal   = {position (240,732,0), position (240,722,0),
+					   position (250,732,0), position (250,722,0)};
+
+	StepAmount  = 8; 		   -- the amount of steps the player has to go
+						   	   --to reach the end boss
+
+	bosspos    	= {0,0,0}; 	   --warp position of the boss room
 	anteroompos = {246,727,0}; --warp position of the anterroom
 	
 	CenterPositionOfPortalRoom = position (246,727,0); -- the center of the room
-	searchRadius 		   = 100;			   -- 25 tiles search radius
-						   
+	
+	searchRadius 		   = 100;			   		   -- 25 tiles search radius when
+													   --looking if there are any monsters around
+	
+	InfoItemPosition       = position (1,33,7);        --the position of the Info Item
+	
+	StatusInfo    = {gText, eText};   -- create new List which shall hold the status informations
+	for i=1, StepAmount do --every step gets an own list where index 0 represents german and 1 english
+		StatusInfo[i] = {};
+	end
+	
+
+	AddStageInfo(1, "1 deutsch", "1 englisch");
+	
+	
+
+end
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 
+-- this function is the main function of the quest and gets activated when a player
+-- goes through one of the magic portals
 function InCave (User)
 	local player = getCharForId(User.id);  --create a save copy of the char struct
 	local portalindex = nil;
@@ -32,7 +59,7 @@ function InCave (User)
 	elseif string.find(player.lastSpokenText, "status") then
 		mystep = player:getQuestProgress(204);
 		myseq  = player:getQuestProgress(203); 
-		player:inform("Your next step would be the"..mystep.."th step.");
+		player:inform("Your next step would be the "..mystep.."th step.");
 		player:inform("your sequence is: " ..myseq);
 		
 		for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
@@ -81,7 +108,7 @@ function InCave (User)
 end
 
 
-
+--this function looks up whether all monsters around a position are dead or not
 function AllMonstersDead()
 	local myMonsters = world:getMonstersInRangeOf(CenterPositionOfPortalRoom, searchRadius);
 	
@@ -93,6 +120,8 @@ function AllMonstersDead()
 
 end
 
+--decodes the path and the next step the player has to do by reading the questid
+--and putting it into a list
 function DecodePlayerPath(player)
 	local pathquestid = player:getQuestProgress(203); -- get the path steps for this player
 	local steppath = base.common.Split_number(pathquestid, StepAmount); -- splits questid into a list
@@ -137,15 +166,31 @@ function CreateMonster(stage)
 end
 
 
-
+--creates a new digit sequence for the player
 function GivePlayerNewSequence(player)
 	shufflesequence = math.random(1,4);
 	
 	for i = 1, (StepAmount-1) do
 		shufflesequence = shufflesequence .. math.random(1,4);
 	end	
-	shufflesequence = tonumber(shufflesequence);
-	player:inform("Your sequence is: "..shufflesequence);
+	shufflesequence = tonumber(shufflesequence); --convert the string shufflesequnce
+												 -- into a number
 	player:setQuestProgress(203, shufflesequence);
 	player:setQuestProgress(204,1);
+end
+
+--gives the player an inform about his progress of the current quest, returns the
+--next stage the player reaches
+
+function StatusInfoOnLookAt(player, Item)
+
+	if not (equapos(Item.pos, InfoItemPosition))  then
+	    return;
+	end
+	
+	local stage = player:getQuestProgress(204);
+	local lang = player:getPlayerLanguage(); --returns 0 for german, 1=english
+
+	player:inform(StatusInfo[stage][lang]); -- send an crypted inform about current
+										    --stage to the player
 end
