@@ -208,8 +208,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     "harvest[4]:"..harvest[ 4 ],
                     "harvest[4]:"..harvest[ 4 ] );
                     base.common.InformNLS( User,
-                    "harvest[5]:"..harvest[ 5 ],
-                    "harvest[5]:"..harvest[ 5 ] );
+                    "harvest[5]:"..harvest[ 5 ][season],
+                    "harvest[5]:"..harvest[ 5 ][season] );
             end
 
 			success = true;
