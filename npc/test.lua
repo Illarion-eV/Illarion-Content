@@ -13,12 +13,12 @@ end;
 
 function nextCycle()
     if (justOnce == nil) then
+        justOnce = true;
         local globalLua = to_string(_G);
         
         file = io.open("/home/nitram/testnpc/output.txt","w");
         file:write(globalLua);
         file:close();
-        justOnce = true;
     end;
 end;
 function lookAtNpc(char, mode) end;
@@ -39,10 +39,10 @@ table.insert(sb, npc.test.table_print (value, indent + 2, done))
 table.insert(sb, string.rep (" ", indent)) -- indent it
 table.insert(sb, "}\n");
 elseif "number" == type(key) then
-table.insert(sb, string.format("\"%s\"\n", tostring(value)))
+table.insert(sb, string.format("\"%s\"\n", value .. ""))
 else
 table.insert(sb, string.format(
-    "%s = \"%s\"\n", tostring (key), tostring(value)))
+    "%s = \"%s\"\n", key .. "", value .. ""))
     end
     end
     return table.concat(sb)
@@ -53,7 +53,7 @@ end
 
 function to_string( tbl )
 if  "nil"       == type( tbl ) then
-return tostring(nil)
+return "nil";
 elseif  "table" == type( tbl ) then
 return table_print(tbl)
 elseif  "string" == type( tbl ) then
