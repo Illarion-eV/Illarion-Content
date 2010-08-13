@@ -229,7 +229,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 User.movepoints=User.movepoints-4;
                 if( harvest[ 2 ] > 0 ) then
                     User:learn( 2, "herb lore", 2, 100 );
-                    base.common.BC_GetHungry( User, 100 );
+                    base.common.GetHungry( User, 100 );
                 else
                     User:learn( 2, "herb lore", 2, 5 );
                 end
@@ -359,18 +359,18 @@ function InitHerblore()
         { 4,30, 133, 0 , {8,10,2,0}, 15 } };            -- Wiese: Sonnenkraut
 
         harvestItem[ 1812 ] = {                      -- kleine Palme
-        { 3,20, 80, 0, {3,8,5,0}, 11 } };                -- Sand: Banane
+        { 3,20, 80, 0, {6,10,6,1}, 11 } };                -- Sand: Banane
 
         harvestItem[ 1813 ] = {                      -- kleine Palme
-        { 3,20, 80, 0, {3,8,5,0}, 11 } };               -- Sand: Banane
+        { 3,20, 80, 0, {6,10,6,1}, 11 } };               -- Sand: Banane
 
         harvestItem[ 2169 ] = {                      -- Alter Baumstamm
-        { 2,30, 157, 0, {6,10,9,0}, 11 },               -- Wald: Faulbaumrinde
-        { 7,10, 157, 0, {6,10,9,0}, 11 } };             -- Dreck: Faulbaumrinde
+        { 2,30, 157, 0, {6,10,6,0}, 11 },               -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {6,10,6,0}, 11 } };             -- Dreck: Faulbaumrinde
 
         harvestItem[ 2170 ] = {                      -- Alter Baumstamm
-        { 2,30, 157, 0, {6,10,9,0}, 11 },                -- Wald: Faulbaumrinde
-        { 7,10, 157, 0, {6,10,9,0}, 11 } };              -- Dreck: Faulbaumrinde
+        { 2,30, 157, 0, {6,10,6,0}, 11 },                -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {6,10,6,0}, 11 } };              -- Dreck: Faulbaumrinde
 
         harvestItem[ 2492 ] = {                      -- reife Karotten
         { 0, 0, 2493, -1, {6,10,9,0}, 11 } };            -- Alle: Karotten
