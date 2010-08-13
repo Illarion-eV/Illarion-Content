@@ -279,10 +279,10 @@ function InitHerblore()
         -- Ground(field=1,forest=2,sand=3,grass=4,rocks=5,water=6,dirt=7)
 
         harvestItem[ 301 ] = {                       -- Hecke
-        { 2, 0, 147, 0, {0,10,10,5}, 46 },            	-- Wald: Brombeere
-        { 3, 5, 142, 0, {2,10,10,6}, 35},             	-- Sand: Sandbeere
-        { 4, 0, 143, 0, {0,10,10,5}, 36},             	-- Wiese: Roter Holunder
-        { 7,50, 136, 0, {4,10,10,7}, 18 } };          	-- Dreck: Wutbeere
+        { 2, 0, 147, 0, {10,10,10,10}, 46},            	-- Wald: Brombeere
+        { 3, 5, 142, 0, {10,10,10,10}, 35},             	-- Sand: Sandbeere
+        { 4, 0, 143, 0, {10,10,10,10}, 36},             	-- Wiese: Roter Holunder
+        { 7,50, 136, 0, {10,10,10,10}, 18} };          	-- Dreck: Wutbeere
 
 
     end
