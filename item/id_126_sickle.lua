@@ -145,7 +145,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 success = true;
             elseif ( harvest[ 2 ] > skill ) then
                 success = false;
-		skilluse=1;
+			skilluse=1;
 	        base.common.BC_InformNLS( User,
                       "Deine Kenntnisse in der Kräuterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
                       "Your knowlege in herblore is not sufficiently to collect herbs here.");
@@ -465,7 +465,7 @@ function SearchTileInRange(GroundType,Radius,Posi)
     SearchPos=position(Posi.x+i,Posi.y+k,Posi.z)
     field = world:getField( SearchPos )
     TileID = field:tile();
-    bodenart = BC_GetGroundType( TileID )
+    bodenart = base.common.BC_GetGroundType( TileID )
     for itn=1,table.getn(GroundType) do
         if (bodenart==GroundType[itn]) then
             found=true
