@@ -197,25 +197,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( success ) then
                     if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
-                        base.common.InformNLS( User,
-                    "success",
-                    "success" );
                     else
                         success = false;
-                        base.common.InformNLS( User,
-                    "kein success",
-                    "no success" );
                     end
                 end
-                base.common.InformNLS( User,
-                    "zufallszahl:"..zufall,
-                    "random number:"..zufall );
-                    base.common.InformNLS( User,
-                    "harvest[4]:"..harvest[ 4 ],
-                    "harvest[4]:"..harvest[ 4 ] );
-                    base.common.InformNLS( User,
-                    "harvest[5]:"..harvest[ 5 ][season],
-                    "harvest[5]:"..harvest[ 5 ][season] );
             end
 
 			success = true;
@@ -249,9 +234,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( harvest[ 2 ] > 0 ) then
                     User:learn( 2, "herb lore", 2, 100 );
                     base.common.GetHungry( User, 100 );
-                    base.common.InformNLS( User,
-                    "Nahrung wird verbraucht",
-                    "food is in usage." );
                 else
                     User:learn( 2, "herb lore", 2, 5 );
                 end
