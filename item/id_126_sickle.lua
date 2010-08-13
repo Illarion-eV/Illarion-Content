@@ -221,10 +221,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			success = true;
 
             -- harvest fruit
-            if( success == true ) then
-             base.common.InformNLS( User,
-                    "success aufnahme",
-                    "success overtaken" );
+            if( success ) then
                 step=0;
                 if gem1==7 then     -- topas modifies skill!
                     step=str1;
@@ -238,15 +235,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( harvest[ 4 ] ~= 0 ) then
                     --User:inform( "changing item" );
                     world:erase( TargetItem, 1 );
-                    -- collecting of herb
-                    --Quality (Standard 333, da stapelbar)	                
-	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
-	                base.common.InformNLS( User,
-                    "kraut wird gedroppt.",
-                    "herb is droppt." );
                 else
                     DecreaseAreaHerbs(TargetItem.pos,1);
                 end
+
+				-- Hier wird das neue Item erschaffen
+
+	                QualWert = 333
+	                User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );
 					
 
                 User.movepoints=User.movepoints-4;
