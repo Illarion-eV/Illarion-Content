@@ -90,6 +90,7 @@ function talkNPCEntry:addTrigger(text)
     if (text == nil or type(text) ~= "string") then
         return;
     end;
+    text = string.lower(text);
     table.insert(self._trigger, text);
 end;
 
@@ -121,7 +122,6 @@ end;
 
 function talkNPCEntry:checkEntry(player, text)
     for _1, pattern in pairs(self._trigger) do
-        player:inform("Checking pattern: " .. pattern .. " against text: " .. text);
         local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
         if (a ~= nil) then
