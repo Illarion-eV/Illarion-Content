@@ -191,15 +191,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     success = true;
                 end
             end
-
+            
+			local  zufall = math.random(10);
             if ( harvest[ 4 ] == 0 ) then
                 if( success ) then
-                    if( harvest[ 5 ][ season ] >= math.random(10) ) then
+                    if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
                     else
                         success = false;
                     end
                 end
+                base.common.InformNLS( User,
+                    "zufallszahl:"..zufall,
+                    "random number:"..zufall );
             end
 
 			success = true;
@@ -221,6 +225,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     world:erase( TargetItem, 1 );
                     --Quality (Standard 333, da stapelbar)	                
 	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
+	                base.common.InformNLS( User,
+                    "kraut wird gedroppt.",
+                    "herb is droppt." );
                 else
                     DecreaseAreaHerbs(TargetItem.pos,1);
                 end
@@ -230,6 +237,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( harvest[ 2 ] > 0 ) then
                     User:learn( 2, "herb lore", 2, 100 );
                     base.common.GetHungry( User, 100 );
+                    base.common.InformNLS( User,
+                    "Nahrung wird verbraucht",
+                    "food is in usage." );
                 else
                     User:learn( 2, "herb lore", 2, 5 );
                 end
@@ -279,10 +289,10 @@ function InitHerblore()
         -- Ground(field=1,forest=2,sand=3,grass=4,rocks=5,water=6,dirt=7)
 
         harvestItem[ 301 ] = {                       -- Hecke
-        { 2, 0, 147, 0, {10,10,10,10}, 46},            	-- Wald: Brombeere
-        { 3, 5, 142, 0, {10,10,10,10}, 35},             	-- Sand: Sandbeere
-        { 4, 0, 143, 0, {10,10,10,10}, 36},             	-- Wiese: Roter Holunder
-        { 7,50, 136, 0, {10,10,10,10}, 18} };          	-- Dreck: Wutbeere
+        { 2, 0, 147, 0, {10,10,10,10}, 46},          -- Wald: Brombeere
+        { 3, 5, 142, 0, {10,10,10,10}, 35},          -- Sand: Sandbeere
+        { 4, 0, 143, 0, {10,10,10,10}, 36},          -- Wiese: Roter Holunder
+        { 7,50, 136, 0, {10,10,10,10}, 18} };        -- Dreck: Wutbeere
 
 
     end
