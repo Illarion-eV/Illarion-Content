@@ -26,14 +26,17 @@ function init()
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
     
-    riddleLever1 = base.lever.Lever(position(120,637,0),true);
-    riddleLever2 = base.lever.Lever(position(120,637,0),true);
-    riddleLever3 = base.lever.Lever(position(120,637,0),true);
-    riddleLever4 = base.lever.Lever(position(120,637,0),true);
-    riddleLever5 = base.lever.Lever(position(120,637,0),true);
+    riddleLever1 = base.lever.Lever(position(220,735,0),true);
+    riddleLever2 = base.lever.Lever(position(220,737,0),true);
+    riddleLever3 = base.lever.Lever(position(220,739,0),true);
+    riddleLever4 = base.lever.Lever(position(220,741,0),true);
+    riddleLever5 = base.lever.Lever(position(220,743,0),true);
     
-    
-    
+    riddleLever1:bind(0,quest.leverRiddleA.addToLeverRiddleAString("1")); 
+    riddleLever2:bind(0,quest.leverRiddleA.addToLeverRiddleAString("2")); 
+    riddleLever3:bind(0,quest.leverRiddleA.addToLeverRiddleAString("3")); 
+    riddleLever4:bind(0,quest.leverRiddleA.addToLeverRiddleAString("4")); 
+    riddleLever5:bind(0,quest.leverRiddleA.addToLeverRiddleAString("5")); 
     --[[for x=117,119 do
         for y=632,636 do
             testlever2:bind(0,deleteItem(position(x,y,0),0));
@@ -65,6 +68,14 @@ function init()
     AddToLevers(testlever2);
     AddToLevers(myLev1);
     AddToLevers(myLev2);
+    
+    
+    AddToLevers(riddleLever1);
+    AddToLevers(riddleLever2);    
+    AddToLevers(riddleLever3);
+    AddToLevers(riddleLever4);
+    AddToLevers(riddleLever5);
+	 
 end
 
 function generateKey(posX,posY,posZ)

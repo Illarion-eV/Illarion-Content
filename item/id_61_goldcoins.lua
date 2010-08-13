@@ -37,6 +37,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         world:createItemFromId(10, 1 ,position (250,732,0),false, 0, 0);
         world:createItemFromId(10, 1 ,position (250,722,0),false, 0, 0);
         
-        User:inform("feddisch, portale stehen");
+        User:inform("portale stehen nahe 240,732,0 rum");
+        
+		world:createItemFromId(434, 1 ,position (220,735,0),false, 0, 0);
+        world:createItemFromId(434, 1 ,position (220,737,0),false, 0, 0);
+        world:createItemFromId(434, 1 ,position (220,739,0),false, 0, 0);
+        world:createItemFromId(434, 1 ,position (220,741,0),false, 0, 0);
+        world:createItemFromId(434, 1 ,position (220,743,0),false, 0, 0);  
+        
+        User:inform("hebel stehen nahe 220,735,0 rum");
+        
+        
 	end
 end
