@@ -300,11 +300,108 @@ function InitHerblore()
         -- Format of entry: boden, difficulty, product, followup item, aviable in seasons[0..10]{spring,summer,fall,winter}
         -- Ground(field=1,forest=2,sand=3,grass=4,rocks=5,water=6,dirt=7)
 
+        harvestItem[ 159 ] = {                       -- Fliegenpilz
+        { 0, 0, 159, 0, {6,3,10,4}, 11 }};             -- Alle: Fliegenpilz
+
+         harvestItem[ 161 ] = {                       -- Hirtenpilz
+        { 0, 0, 161, 0, {3,6,10,1}, 11 }};             -- Alle: Hirtenpilz
+
+        harvestItem[ 426 ] = {                       -- Pilz
+        { 0, 0, 162, 0, {10,5,3,1}, 11 }};             -- Alle: Geburtspilz
+
+        harvestItem[ 421 ] = {                       -- grüner Leuchtpilz
+        { 0, 0, 158, 0, {5,3,6,10}, 11 }};             -- Alle: Knollenschwamm
+
+        harvestItem[ 410 ] = {                       -- grüner Leuchtpilz
+        { 0, 0, 158, 0, {5,3,6,10}, 11 }};             -- Alle: Knollenschwamm
+
+        harvestItem[ 411 ] = {                       -- grüner Leuchtpilz
+        { 0, 0, 158, 0, {5,3,6,10}, 11 }};             -- Alle: Knollenschwamm
+
+        harvestItem[ 203 ] = {                       -- Palme
+        { 0, 0, 157, 0, {8,4,5,10}, 11 }};             -- Alle: Faulbaumrinde
+
+        harvestItem[ 273 ] = {                       -- Blume
+        { 2, 5, 144, 0, {5,0,2,10}, 37 },               -- Wald: Jungfernkraut
+        { 3, 5, 137, 0, {3,1,4,10}, 25 },               -- Sand: Flammkelchblüte
+        { 4, 7, 135, 0, {10,6,3,0}, 17 },               -- Wiese: Gelbkraut
+        { 5, 0, 148, 0, {2,10,3,0}, 47 },               -- Fels: Firnisblüte
+        { 7,50, 138, 0, {2, 2,9,5}, 26 } };             -- Dreck: Nachengelsblüte
+
+        harvestItem[ 274 ] = {                       -- Farn
+        { 2,30, 140, 0, {10,2,7,3}, 27 },               -- Wald: Donfblatt
+        { 3, 0, 156, 0, {10,1,2,4}, 61 },               -- Sand: Steppenfarn
+        { 4,10, 153, 0, {10,4,1,0}, 52 },               -- Wiese: Fußblatt
+        { 5,20, 153, 0, {4,10,3,0}, 52 } };             -- Fels: Fußblatt
+
+        harvestItem[ 290 ] = {                       -- Kohl
+        { 0, 0, 290, -1, {6,10,9,0}, 11 } };             -- Alle: Kohl
+
         harvestItem[ 301 ] = {                       -- Hecke
-        { 2, 0, 147, 0, {10,10,10,10}, 46},          -- Wald: Brombeere
-        { 3, 5, 142, 0, {10,10,10,10}, 35},          -- Sand: Sandbeere
-        { 4, 0, 143, 0, {10,10,10,10}, 36},          -- Wiese: Roter Holunder
-        { 7,50, 136, 0, {10,10,10,10}, 18} };        -- Dreck: Wutbeere
+        { 2, 0, 147, 0, {0,3,10,5}, 46 },               -- Wald: Brombeere
+        { 3, 5, 142, 0, {2,3,10,6}, 35},                -- Sand: Sandbeere
+        { 4, 0, 143, 0, {0,5,10,5}, 36},                -- Wiese: Roter Holunder
+        { 7,50, 136, 0, {4,3,10,7}, 18 } };             -- Dreck: Wutbeere
+
+        harvestItem[ 308 ] = {                       -- Tannenbaum
+        { 0,0, 149, 0, {8,4,5,10}, 11 } };             -- Alle: Tannensetzling
+
+        harvestItem[ 338 ] = {                       -- Schilf
+        { 4, 5, 134, 0, {6,1,5,10}, 16 },               -- Wiese: Einbeere
+        { 6,30, 155, 0, {4,10,5,1}, 54} };              -- Wasser: Sibanac Blatt
+
+        harvestItem[ 537 ] = {                       -- reife Zwiebeln
+        { 0, 0, 201, -1, {6,10,9,0}, 74 } };            -- Alle: Zwiebeln
+
+        harvestItem[ 540 ] = {                       -- reife Tomaten
+        { 0, 0, 200, -1, {6,10,9,0}, 82 } };            -- Alle: Tomaten
+
+        harvestItem[ 731 ] = {                       -- Hopfen
+        { 0, 0, 154, -1, {6,10,9,0}, 53 } };            -- Alle: Hopfen
+
+        harvestItem[ 732 ] = {                       -- alter Hopfen
+        { 0, 0, 728, -1, {6,10,9,0}, 11 } };            -- Alle: Hopfenwurzel
+
+        harvestItem[ 1782 ] = {                      -- Gras
+        { 2, 0, 151, 0, {10,3,1,0}, 48 },               -- Wald: Erdbeere
+        { 3, 5, 146, 0, {3,5,10,0}, 28 },               -- Sand: Wüstenhimmelskapsel
+        { 4,20, 141, 0, {0,4,10,3}, 38 },             -- Wiese:Distel
+        { 4,20, 145, 0, {10,6,3,0}, 38 } };             -- Stein:Heideblüte
+
+        harvestItem[ 1783 ] = {                      -- Gras
+        { 2, 0, 151, 0, {10,3,1,0}, 48 },               -- Wald: Erdbeere
+        { 3, 5, 146, 0, {3,5,10,0}, 28 },               -- Sand: Wüstenhimmelskapsel
+        { 4,20, 141, 0, {0,4,10,3}, 38 },               -- Wiese:Distel
+        { 4,20, 145, 0, {10,6,3,0}, 38 } };             -- Stein:Heideblüte
+
+        harvestItem[ 1790 ] = {                      -- Pilzkreis
+        { 0, 0, 163, 0, {1,6,10,2}, 73 } };             -- Alle: Champignon
+
+        harvestItem[ 1791 ] = {                      -- Sonnenblumen
+        { 4,30, 133, 0 , {8,10,2,0}, 15 } };            -- Wiese: Sonnenkraut
+
+        harvestItem[ 1812 ] = {                      -- kleine Palme
+        { 3,20, 80, 0, {3,8,5,0}, 11 } };               -- Sand: Banane
+
+        harvestItem[ 1813 ] = {                      -- kleine Palme
+        { 3,20, 80, 0, {3,8,5,0}, 11 } };               -- Sand: Banane
+
+        harvestItem[ 2169 ] = {                      -- Alter Baumstamm
+        { 2,30, 157, 0, {6,10,9,0}, 11 },                -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {6,10,9,0}, 11 } };              -- Dreck: Faulbaumrinde
+
+        harvestItem[ 2170 ] = {                      -- Alter Baumstamm
+        { 2,30, 157, 0, {6,10,9,0}, 11 },                -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {6,10,9,0}, 11 } };              -- Dreck: Faulbaumrinde
+
+        harvestItem[ 2492 ] = {                      -- reife Karotten
+        { 0, 0, 2493, -1, {6,10,9,0}, 11 } };            -- Alle: Karotten
+
+		harvestItem[ 782 ] = {                      -- reifes Zuckerrohr
+        { 0, 0, 778, -1, {6,10,9,0}, 73 } };            -- Alle: Zuckerrohr
+
+        harvestItem[ 777 ] = {                      -- reifer Tabak
+        { 0, 0, 772, -1, {6,10,9,0}, 82 } };            -- Alle: Tabak
 
 
     end
