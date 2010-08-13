@@ -49,17 +49,12 @@ function talkNPC:addTalkingEntry(newEntry)
 end;
 
 function talkNPC:receiveText(player, text)
-    player:inform("In receiveText of talkingNPC");
     for _, entry in pairs(self._entry) do
-        player:inform("Checking entry: " .. _ .. "");
         if entry:checkEntry(player, text) then
-            player:inform("Found valid entry. Executing");
             entry:execute(player);
-            player:inform("Finished execution");
             return true;
         end;
     end;
-    player:inform("Finished receiveText");
     
     return false;
 end;
@@ -68,8 +63,8 @@ function talkNPC:nextCycle(counter)
     if (counter >= self._nextCycleText) then
         self._nextCycleText = math.random(900, 3000);
         local german, english = self._cycleText:getRandomMessage();
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, german .. thisNPC.name);
-        thisNPC:talkLanguage(CCharacter.say, CPlayer.english, english .. thisNPC.name);
+        thisNPC:talkLanguage(CCharacter.say, CPlayer.german, german);
+        thisNPC:talkLanguage(CCharacter.say, CPlayer.english, english);
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
