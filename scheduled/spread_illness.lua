@@ -1,4 +1,3 @@
-dofile('base_functional.lua');
 require("base.common")
 module("scheduled.spread_illness", package.seeall)
 

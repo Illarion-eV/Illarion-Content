@@ -4,7 +4,6 @@
 require("base.common")
 require("base.factions")
 module("lte.chr_reg", package.seeall)
---dofile( "p_basics.lua" );
 
 crossPosition={};
 

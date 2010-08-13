@@ -18,26 +18,21 @@ function InformNLS(User, textInDe, textInEn)
     User:inform(GetNLS(User, textInDe, textInEn));
 end;
 
---[[
-    TempInformNLS
-    Send a temporary inform to the player that is not stored in the logfile
-    @param CharacterStruct - The character who receives the message
-    @param Text - german text
-    @param Text - english text
-]]
+--- Send a temporary inform to the player that is not stored in the logfile
+-- @param User The character who receives the message
+-- @param textInDe german text
+-- @param textInEn english text
 function TempInformNLS(User, textInDe, textInEn)
     User:inform("#w " .. GetNLS( User, textInDe, textInEn));
 end;
 
---[[
-    TalkNLS
-    Triggers a multi language talking for a character
-    In case there is no player in range who could hear the talking nothing is said
-    @param CharacterStruct - The character who should say the message
-    @param int - The method that is used to speak CCharacter.say, CCharacter.yell, CCharacter.whisper
-    @param Text - german text
-    @param Text - english text
-]]
+--- Triggers a multi language talking for a character
+-- In case there is no player in range who could hear the talking nothing is
+-- said
+-- @param User The character who should say the message
+-- @param method The method that is used to speak CCharacter.say, CCharacter.yell, CCharacter.whisper
+-- @param textInDe german text
+-- @param textInEn english text
 function TalkNLS(User, method, textInDe, textInEN)
     if (User == nil) then
         return;
@@ -90,15 +85,11 @@ function TalkNLS(User, method, textInDe, textInEN)
     end;
 end
 
---[[
-    IsLookingAt
-    Determine if a character is looking at a position or not
-    @param CharacterStruct - The character whos looking direction matters
-    @param PositionStruct - The position the character should look at
-    @return boolean - true in case the character looks at the position, else false
-]]
+--- Determine if a character is looking at a position or not
+-- @param User The character whos looking direction matters
+-- @param Location The position the character should look at
+-- @return true in case the character looks at the position, else false
 function IsLookingAt(User, Location)
-
     if not User or not Location then
         return false;
     end;
@@ -110,22 +101,23 @@ function IsLookingAt(User, Location)
     local richtung = User:get_face_to();
 
     return (((richtung == CCharacter.north) and (Location.y < User.pos.y)) or
-            ((richtung == CCharacter.northeast) and ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
+            ((richtung == CCharacter.northeast) and
+                ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
             ((richtung == CCharacter.east) and (Location.x > User.pos.x)) or
-            ((richtung == CCharacter.southeast) and ((Location.y > User.pos.y) or (Location.x > User.pos.x))) or
+            ((richtung == CCharacter.southeast) and
+                ((Location.y > User.pos.y) or (Location.x > User.pos.x))) or
             ((richtung == CCharacter.south) and (Location.y > User.pos.y)) or
-            ((richtung == CCharacter.southwest) and ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
+            ((richtung == CCharacter.southwest) and
+                ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
             ((richtung == CCharacter.west) and (Location.x < User.pos.x)) or
-            ((richtung == CCharacter.northwest) and ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
+            ((richtung == CCharacter.northwest) and
+                ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
 end;
 
---[[
-    GetDirection
-    Determine the direction from one position to another one
-    @param PositionStruct - The start position. The place you get the direction you have to look towards to see the target location
-    @param PositionStruct - The target position
-    @return integer - value for the direction ( 0=north, 2=east, ... )
-]]
+--- Determine the direction from one position to another one
+-- @param StartPosition The start position. The place you get the direction you have to look towards to see the target location
+-- @param TargetPosition The target position
+-- @return value for the direction, possible values are: CCharacter.dir_north, CCharacter.dir_northeast, CCharacter.dir_east, CCharacter.dir_southeast, CCharacter.dir_south, CCharacter.dir_southwest, CCharacter.dir_west, CCharacter.dir_northwest
 function GetDirection(StartPosition, TargetPosition)
     if (StartPosition.z < TargetPosition.z) then
         return CCharacter.dir_up;
@@ -156,15 +148,11 @@ function GetDirection(StartPosition, TargetPosition)
     end;
 end;
 
---[[
-    TurnTo
-    Turn a character towards a location
-    @param CharacterStruct - The character who shall be turned
-    @param PositionStruct - The position the character shall turn to
-]]
+--- Turn a character towards a location
+-- @param User The character who shall be turned
+-- @param Location The position the character shall turn to
 function TurnTo(User, Location)
     local oldDir = User:get_face_to();
-
     local newDir = GetDirection(User.pos, Location);
 
     if (newDir ~= oldDir) then
@@ -172,14 +160,11 @@ function TurnTo(User, Location)
     end;
 end;
 
---[[
-    GetFrontPosition
-    Get the position right in front of a character in looking direction
-    @param CharacterStruct - The character the front position is wanted
-    @return PositionStruct - The front position
-]]
+--- Get the position right in front of a character in looking direction
+-- @param User The character the front position is wanted
+-- @return The position in front of the character
 function GetFrontPosition(User)
-    local direct = User:get_face_to(  );
+    local direct = User:get_face_to();
 
     if (direct == CCharacter.north) then
         return position(User.pos.x, User.pos.y - 1, User.pos.z);
@@ -202,12 +187,9 @@ function GetFrontPosition(User)
     return User.pos;
 end;
 
---[[
-    GetFrontItem
-    Get the item that is in front of the character in case there is one
-    @param CharacterStruct - The character whos front area is searched
-    @return ItemStruct - The item that was found or nil
-]]
+--- Get the item that is in front of the character in case there is one
+-- @param User The character whos front area is searched
+-- @return The item that was found or nil
 function GetFrontItem(User)
     local Posi = GetFrontPosition(User);
 
@@ -218,12 +200,9 @@ function GetFrontItem(User)
     end;
 end;
 
---[[
-    GetFrontItemID
-    Get the ID of the item that is in front of the character in case there is one
-    @param CharacterStruct - The character whos front area is searched
-    @return integer - the id of the item or 0
-]]
+--- Get the ID of the item that is in front of the character in case there is one
+-- @param User The character whos front area is searched
+-- @return The ID of the item in front of the character or 0 in case there is none
 function GetFrontItemID(User)
     local theItem = GetFrontItem(User);
 
@@ -234,12 +213,9 @@ function GetFrontItemID(User)
     end;
 end;
 
---[[
-    GetFrontCharacter
-    Get character who is in front of the character in case there is one
-    @param CharacterStruct - The character whos front area is searched
-    @return CharacterStruct - The character in front of the parameter character or nil
-]]
+--- Get character who is in front of the character in case there is one
+-- @param User The character whos front area is searched
+-- @return The character in front of the parameter character or nil
 function GetFrontCharacter(User)
     local Posi = GetFrontPosition(User);
 
@@ -250,33 +226,31 @@ function GetFrontCharacter(User)
     end;
 end;
 
---[[
-    GetInArea
-    Check if a character is within a area determined with 2 positions
-    @param CharacterStruct - The character who is checked for being within the area
-    @param PositionStruct - The first position to determine the area
-    @param PositionStruct - The second position to determine the area
-    @return boolean - true if the character is in the area, false if not
-]]
+--- Check if a character is within a area determined with 2 positions. The
+-- rectangle of the area is determined by the grid of the tiles
+-- @param User The character who is checked for being within the area
+-- @param Pos1 The first position to determine the area
+-- @param Pos2 The second position to determine the area
+-- @return True if the character is in the area, false if not
 function GetInArea(User, Pos1, Pos2)
-    if (User.pos.x <= math.min(Pos1.x, Pos2.x) or User.pos.x >= math.max(Pos1.x, Pos2.x)) then
+    if (User.pos.x <= math.min(Pos1.x, Pos2.x) or
+        User.pos.x >= math.max(Pos1.x, Pos2.x)) then
         return false;
-    elseif (User.pos.y <= math.min(Pos1.y, Pos2.y) or User.pos.y >= math.max(Pos1.y, Pos2.y)) then
+    elseif (User.pos.y <= math.min(Pos1.y, Pos2.y) or
+        User.pos.y >= math.max(Pos1.y, Pos2.y)) then
         return false;
-    elseif (User.pos.z <= math.min(Pos1.z, Pos2.z) or User.pos.z >= math.max(Pos1.z, Pos2.z)) then
+    elseif (User.pos.z <= math.min(Pos1.z, Pos2.z) or
+        User.pos.z >= math.max(Pos1.z, Pos2.z)) then
         return false;
     end
     return true;
 end
 
---[[
-    CheckItem
-    Check if a ItemStruct is valid for a special character
-    @param CharacterStruct - Character who could own the item
-    @param ItemStruct - Item that shall be checked if its still valid
-    @param List of integer - alternative ItemIDs the item could have changed to and is still valid
-    @return boolean - true if everything is fine, else false
-]]
+--- Check if a ItemStruct is valid for a special character
+-- @param User Character who should own the item
+-- @param Item Item that shall be checked if its still valid
+-- @param altIDs alternative ItemIDs the item could have changed to and is still valid
+-- @return True if everything is fine, else false
 function CheckItem(User, Item, altIDs)
     local ItemCheck = nil;
     if (Item:getType() == 3) then
@@ -300,25 +274,19 @@ function CheckItem(User, Item, altIDs)
     return false;
 end;
 
---[[
-    FitForWork
-    Checks if the Character has a minimal default amount of food points
-    If not it prints out a inform message
-    @param CharacterStruct - The character whos foodpoints are checked
-    @return boolean - true in case the character has enougth food points, false if not
-]]
+--- Checks if the Character has a minimal default amount of food points. If not
+-- it prints out a inform message.
+-- @param User The character whos foodpoints are checked
+-- @return True in case the character has enougth food points, false if not
 function FitForWork(User)
     return FitForHardWork(User, 1000);
 end;
 
---[[
-    FitForHardWork
-    Checks if the Character has a minimal amount of food points
-    If not it prints out a inform message
-    @param CharacterStruct - The character whos foodpoints are checked
-    @param integer - amount of foodpoints that are required
-    @return boolean - true in case the character has enougth food points, false if not
-]]
+--- Checks if the Character has a minimal amount of food points. If not it
+-- prints out a inform message-
+-- @param User The character whos foodpoints are checked
+-- @param required Amount of foodpoints that are required
+-- @return True in case the character has enougth food points, false if not
 function FitForHardWork(User, required)
     if (User:increaseAttrib("foodlevel", 0) < required) then
         InformNLS(User,
@@ -329,12 +297,10 @@ function FitForHardWork(User, required)
     return true;
 end;
 
---[[
-    GetHungry
-    Decrease the foodpoints of a character and show a warning if the foodpoints are running low
-    @param CharacterStruct - The character that loses foodpoints
-    @param integer - The amount of foodpoints that are removed
-]]
+--- Decrease the foodpoints of a character and show a warning if the foodpoints
+-- are running low.
+-- @param User The character that loses foodpoints
+-- @param units The amount of foodpoints that are removed
 function GetHungry(User, units)
     local food = User:increaseAttrib("foodlevel", -units);
     if ((food > 1000 + units * 5) and (food <= 1000 + units * 6)) then
@@ -344,22 +310,16 @@ function GetHungry(User, units)
     end;
 end;
 
---[[
-    GetBonusFromTool
-    Checks if are gems integrated in a item and returns the strength one or both gems
-    Gem Index:  1: dimond
-                2: smaragd
-                3: ruby
-                4: blackstone
-                5: bluestone
-                6: amethyst
-                7: topas
-    @param ItemStruct - The item that shall be checked
-    @return int - index value of the first gem
-    @return int - strength of the first gem
-    @return int - index value of the second gem
-    @return int - strength of the second gem
-]]
+--- Checks if are gems integrated in a item and returns the strength one or both
+-- gems.<br />
+-- Gem index:
+-- <ol><li>dimond</li><li>smaragd</li><li>ruby</li><li>blackstone</li>
+-- <li>bluestone</li><li>amethyst</li><li>topas</li></ol>
+-- @param toolItem The item that shall be checked
+-- @return Index value of the first gem
+-- @return Strength of the first gem
+-- @return Index value of the second gem
+-- @return Strength of the second gem
 function GetBonusFromTool(toolItem)
     local dataValue=toolItem.data;
     if ((dataValue > 9) and (dataValue < 100)) then
@@ -379,13 +339,12 @@ function GetBonusFromTool(toolItem)
     return 0, 0, 0, 0;
 end;
 
---[[
-    ToolBreaks
-    Damage a item upon a random try involving the dexterity and the strength of the owner of the item
-    @param CharacterStruct - The character who has the item
-    @param ItemStruct - The item that might gets damaged
-    @return boolean - true of the item breaks, false if not
-]]
+--- Damage a item upon a random try involving the dexterity and the strength of
+-- the owner of the item
+-- @param User The character who has the item
+-- @param theItem The item that might gets damaged
+-- @param fast True in case the breaking speed should be faster then usually
+-- @return True of the item breaks, false if not
 function ToolBreaks(User, theItem, fast)
     if not User or not theItem then
         return false;
@@ -450,24 +409,25 @@ function ToolBreaks(User, theItem, fast)
     return false;
 end;
 
---[[
-    GetCurrentTimestamp
-    Get a timestamp based on the current server time
-    Resolution: RL Seconds
-
-    @return integer - The current timestamp
-]]
+--- Get a timestamp based on the current server time. Resolution in RL seconds.
+-- @return The current timestamp
 function GetCurrentTimestamp()
-    return GetCurrentTimestampForDate(world:getTime("year"),world:getTime("month"),world:getTime("day"),world:getTime("hour"),world:getTime("minute"),world:getTime("second"));
+    return GetCurrentTimestampForDate(world:getTime("year"),
+        world:getTime("month"),
+        world:getTime("day"),
+        world:getTime("hour"),
+        world:getTime("minute"),
+        world:getTime("second"));
 end
 
---[[
-    GetCurrentTimestampForDate
-    converts a given date to a timestamp
-    Resolution: RL Seconds
-
-    @return integer - The current timestamp
-]]
+--- Converts a date into a timestamp in with the resolution in RL seconds.
+-- @param year the year of the date to convert
+-- @param month the month of the date to convert
+-- @param day the day of the date to convert
+-- @param hour the hour of the date to convert
+-- @param minute the minute of the date to convert
+-- @param second the second of the date to convert
+-- @return The timestamp of the date
 function GetCurrentTimestampForDate(year, month, day, hour, minute, second)
     return math.floor(
           (( year  - 1 ) * 31536000 + -- (year-1)*((15*24) + 5)*24*60*60;
@@ -478,12 +438,18 @@ function GetCurrentTimestampForDate(year, month, day, hour, minute, second)
             second
            )/3
      );
-end
+end;
 
 
---[[
-    converts an ig timestamp to a concrete date
-    ]]--
+--- Convert a timestamp back into a full data. This is the inverse function of
+-- GetCurrentTimestamp() and GetCurrentTimestampForData(...).
+-- @param timestamp The timestamp that shall be converted
+-- @return The year of the resulting data and time
+-- @return The month of the resulting data and time
+-- @return The day of the resulting data and time
+-- @return The hour of the resulting data and time
+-- @return The minute of the resulting data and time
+-- @return The second of the resulting data and time
 function TimestampToDate(timestamp)
     local year = math.floor(timestamp / 31536000);
     timestamp = timestamp - (year * 31536000);
@@ -528,15 +494,9 @@ function TimestampToDate(timestamp)
     return year,month,day,hour,minute,timestamp;
 end
 
---[[
-    GetGroundType
-    Determines the type of ground a tile has
-    @param integer - ID of the tile
-    @return integer - the ground typ as one of the following constants:
-        GroundType.unknown, GroundType.field, GroundType.forest,
-        GroundType.sand, GroundType.gras, GroundType.rocks,
-        GroundType.water, GroundType.dirt
-]]
+--- Determines the type of ground a tile has.
+-- @param TileID ID of the tile that should be checked
+-- @return The ground typ as one of the following constants:  GroundType.unknown, GroundType.field, GroundType.forest, GroundType.sand, GroundType.gras, GroundType.rocks, GroundType.water, GroundType.dirt
 function GetGroundType(TileID)
     if (TileID == 4) then -- field
         return GroundType.field;
@@ -557,9 +517,8 @@ function GetGroundType(TileID)
     return GroundType.unknown;
 end;
 
---[[
-    This list contains the constants that are returned by GetGroundType.
-]]
+--- This list contains the constants that are returned by GetGroundType.
+-- @class Enumerator
 GroundType = {
     ["unknown"] = 0,
     ["field"] = 1,
@@ -571,26 +530,20 @@ GroundType = {
     ["dirt"] = 7
 };
 
---[[
-    NormalRnd
-    create random number with normal distribution
-    @param integer - minimal value of the random number range
-    @param integer - maximal value of the random number range
-    @return integer - the random number
-]]
+--- Create random number with normal distribution.
+-- @param minVal Minimal value of the random number range
+-- @param maxVal Maximal value of the random number range
+-- @return The random number
 function NormalRnd(minVal, maxVal)
     return NormalRnd2(minVal, maxVal, 10);
 end;
 
---[[
-    NormalRnd2
-    create random number with normal distribution
-    @param integer - minimal value of the random number range
-    @param integer - maximal value of the random number range
-    @param integer - how often will be diced
-    @return integer - the random number
-]]
-function NormalRnd2( minVal, maxVal, count )
+--- Create random number with normal distribution.
+-- @param minVal Minimal value of the random number range
+-- @param maxVal Maximal value of the random number range
+-- @param count How often will be diced
+-- @return The random number
+function NormalRnd2(minVal, maxVal, count)
     local base = 0;
     for _ = 1, count do
         base = base + math.random(maxVal - minVal + 1) - 1;

@@ -1,6 +1,3 @@
-if M_GFXSPELL ~= true then
-M_GFXSPELL = true;
-
 require("magic.base.basics");
 module("magic.base.gfxspell")
 
@@ -399,6 +396,4 @@ end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
     DoGFXSpell(Caster,TargetItem.pos,ltstate );
-end
-
 end

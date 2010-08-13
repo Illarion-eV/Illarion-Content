@@ -3,9 +3,6 @@ require("base.common")
 require("quest_aquest28")    
 require("lte.tying_capturer") 
 module("item.id_2760_rope", package.seeall)      
---dofile( "lte_tying_capturer.lua" );
---dofile("quest_aquest28.lua");    --the quest file for the Farmer quest
-
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
 tyingQuality = {};

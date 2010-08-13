@@ -1,6 +1,3 @@
-if M_TELEPORTSPELL ~= true then
-M_TELEPORTSPELL = true;
-
 require("magic.base.basics");
 module("magic.base.teleportspell")
 
@@ -102,6 +99,4 @@ end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
     DoTeleSpell(Caster,TargetItem.pos, ltstate);
-end
-
 end

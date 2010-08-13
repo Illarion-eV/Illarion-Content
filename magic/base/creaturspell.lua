@@ -1,6 +1,3 @@
-if M_CREATURSPELL ~= true then
-M_CREATURSPELL = true;
-
 require("magic.base.basics");
 module("magic.base.creaturspell")
 
@@ -95,5 +92,3 @@ end
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
     DoCreaturSpell(Caster,TargetItem.pos,ltstate);
 end
-
-end;

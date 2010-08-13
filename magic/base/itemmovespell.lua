@@ -1,6 +1,3 @@
-if M_ITEMMOVESPELL ~= true then
-M_ITEMMOVESPELL = true;
-
 require("magic.base.basics");
 module("magic.base.itemmovespell")
 
@@ -108,5 +105,3 @@ end
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
     DoItemMoveSpell(Caster,TargetItem.pos,ltstate);
 end
-
-end;

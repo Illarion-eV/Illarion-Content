@@ -1,6 +1,3 @@
-if M_ITEMSPELL ~= true then
-M_ITEMSPELL = true;
-
 require("magic.base.basics");
 module("magic.base.itemspell")
 
@@ -220,6 +217,4 @@ end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
     DoItemSpell(Caster,TargetItem.pos, ltstate);
-end
-
 end

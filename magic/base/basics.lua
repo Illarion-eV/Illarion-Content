@@ -1,6 +1,3 @@
-if M_BASICS ~= true then
-M_BASICS = true;
-
 require("base.common")
 require("content.lookat.unique");
 module("magic.base.basics", package.seeall)
@@ -496,11 +493,3 @@ function SpawnArea( monID, posi )
 	    end
 	end
 end
-
-function loadCorrectDefScript()
-    if Script ~= orgScript then
-        dofile( orgScript );
-    end
-end
-
-end;
