@@ -42,13 +42,13 @@ elseif "number" == type(key) then
     if "userdata" == type(value) then
         table.insert(sb, "\"Userdata\"\n");
     else
-        table.insert(sb, string.format("\"%s\"\n", value .. ""));
+        table.insert(sb, string.format("\"%s\"\n", tostring(value)));
     end;
 else
 if "userdata" == type(value) then
 table.insert(sb, "\"Userdata\"\n");
 else
-table.insert(sb, string.format("%s = \"%s\"\n", key .. "", value .. ""))
+table.insert(sb, string.format("%s = \"%s\"\n", tostring(key), tostring(value)))
     end end
     end
     return table.concat(sb)
