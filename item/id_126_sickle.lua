@@ -276,13 +276,13 @@ function InitHerblore()
         AreaHerbs = { };
         AreaTime = { };
         -- Format of entry: boden, difficulty, product, followup item, aviable in seasons[0..10]{spring,summer,fall,winter}
-        -- Ground(2=rock,3=sand,4=field,5=lava,6=water,7=street,8=dirt,9=forest,10=snow,11=meadow)
+        -- Ground(field=1,forest=2,sand=3,grass=4,rocks=5,water=6,dirt=7)
 
 		harvestItem[ 301 ] = {                          -- Hecke
         { 3, 0, 147, 0, {0,3,10,5}, 46 },               -- Sand:Sandbeere
-        { 8, 5, 142, 0, {2,3,10,6}, 35},                -- Dreck:Wutbeere
-        { 9, 0, 143, 0, {0,5,10,5}, 36},                -- Wald: Brombeere
-        { 11,50, 136, 0, {4,3,10,7}, 18 } };            -- WIESE: Holunder
+        { 7, 5, 142, 0, {2,3,10,6}, 35},                -- Dreck:Wutbeere
+        { 2, 0, 143, 0, {0,5,10,5}, 36},                -- Wald: Brombeere
+        { 4,50, 136, 0, {4,3,10,7}, 18 } };            -- WIESE: Holunder
 
     end
 end
