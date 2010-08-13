@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: August 13, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
 
 require("npc.base.basic")
