@@ -75,7 +75,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return;
     end
 
-    if not base.common.BC_IsLookingAt( User, TargetItem.pos ) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then
         base.common.BC_TurnTo( User, TargetItem.pos );
     end
 
