@@ -63,10 +63,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         "Your armor disturbes you collecting herbs." );
         return
     end
-    	
-	 if not base.common.BC_CheckItem( User, SourceItem ) then -- Sicherheitscheck
-        return
-    end
 
     if ((TargetItem == nil) or (TargetItem.id == 0)) then
         TargetItem = base.common.BC_GetFrontItem( User );
@@ -152,7 +148,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 end
             elseif ( harvest[ 4 ] == 0 ) then
                 if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-                    User:startAction(GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
+                    User:startAction(content.gathering.herbgathering:GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
                     User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt nach Kräutern zu suchen.");
                     User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to search for herbs.");
                     return
@@ -180,7 +176,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     return
                 end
 
-                User:startAction(GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
+                User:startAction(content.gathering.herbgathering:GenWorkTime(User,SourceItem), 0, 0, 0, 0 );
                 AreaHerb=GetAreaHerbs(TargetItem.pos);
                 chance=100*(1.00037765/(1+(35.1237078*math.exp(-0.71059788*AreaHerb))));
                 if chance < 1 then
@@ -395,28 +391,4 @@ end
 
 function CheckValidHerb(HerbID,TargetPos)
     return true;
-end
-
---Arbeitszeit generieren
-function GenWorkTime(User,toolItem)
-    local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = math.min(100,User:getSkill("herb lore")*10);     -- Schneidern: 0 - 100
-    gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(toolItem);
-    step=0;
-    if gem1==3 then     -- ruby modifies skill!
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    Skill=Skill+step;
-    step=0;
-    if gem1==6 then     -- amethyst modifies time needed
-        step=str1;
-    end
-    if gem2==6 then
-        step=step+str2;
-    end
-    step=step*1.75;
-    return math.floor((-0.2 * (Attrib + Skill) + 40)*(100-step)/100);
 end
