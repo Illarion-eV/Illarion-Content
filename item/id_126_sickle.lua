@@ -65,7 +65,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        TargetItem = base.common.BC_GetFrontItem( User );
+        TargetItem = base.common.GetFrontItem( User );
     end
 
     if not TargetItem then
