@@ -63,14 +63,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         "Your armor disturbes you collecting herbs." );
         return
     end
-    
-	
-	
-	
-	
-	
-	
-	
+    	
 	 if not base.common.BC_CheckItem( User, SourceItem ) then -- Sicherheitscheck
         return
     end
@@ -109,20 +102,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     local skill = User:getSkill( "herb lore" );
 
-    gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(SourceItem);
-    step=0;
-    if gem1==3 then     -- ruby modifies skill!
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    skill=skill+step;
+    --gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(SourceItem);
+    --step=0;
+    --if gem1==3 then     -- ruby modifies skill!
+    --    step=str1;
+    --end
+    --if gem2==3 then
+    --    step=step+str2;
+    --end
+    --skill=skill+step;
 
-    month=world:getTime("month");
-    if (month == 0) then
+    --month=world:getTime("month");
+    --if (month == 0) then
         month = 16;
-    end
+    --end
     season=math.ceil(month/4);
 
     for i, harvest in pairs(harvestList) do
@@ -243,9 +236,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 					
 	            else
 					User:inform("Wie zuvor wird nun einzeln gesammelt");
-					--Quality per Zufall
-	                QualWert = math.min(999,math.random(111,999)+step*20)
-	                User:createItem( harvest[ 3 ], 1, QualWert, harvest[ 6 ] );
+					--Quality (Standard 333, da stapelbar)	                
+	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
 				end
 
                 User.movepoints=User.movepoints-4;
@@ -289,6 +281,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             return
         end
     end -- for harvestList
+    
+    User:startAction(content.gathering.herbgathering:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 end
 
 function InitHerblore()
