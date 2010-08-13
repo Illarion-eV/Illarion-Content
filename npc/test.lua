@@ -7,8 +7,13 @@
 module("npc.test", package.seeall)
 
 function receiveText(texttype, message, speaker)
-speaker:warp(position(18, 18, 33));
-speaker:inform("TEST"); 
+    if not thisNPC:isInRange(speaker, 2) then
+        return;
+    end;
+    
+    speaker:warp(position(18, 18, 33));
+    speaker:inform("TEST");
+    speaker:inform("Du redest mit: " .. thisNPC.name); 
 end;
 
 function nextCycle()
