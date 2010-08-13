@@ -14,6 +14,8 @@ require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
 
+require("quest.leverRiddleA")
+
 module("item.lever", package.seeall)
 
 -- UPDATE common SET com_script='item.lever' WHERE com_itemid IN (434, 435, 436, 437, 438, 439);
