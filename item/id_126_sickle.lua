@@ -197,8 +197,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( success ) then
                     if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
+                        base.common.InformNLS( User,
+                    "sucsess",
+                    "success" );
                     else
                         success = false;
+                        base.common.InformNLS( User,
+                    "kein sucsess",
+                    "no success" );
                     end
                 end
                 base.common.InformNLS( User,
@@ -215,7 +221,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			success = true;
 
             -- harvest fruit
-            if( success ) then
+            if( success == true ) then
                 step=0;
                 if gem1==7 then     -- topas modifies skill!
                     step=str1;
