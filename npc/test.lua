@@ -39,11 +39,17 @@ table.insert(sb, npc.test.table_print (value, indent + 2, done))
 table.insert(sb, string.rep (" ", indent)) -- indent it
 table.insert(sb, "}\n");
 elseif "number" == type(key) then
-table.insert(sb, string.format("\"%s\"\n", value .. ""))
+    if "userdata" == type(value) then
+        table.insert(sb, "\"Userdata\"\n");
+    else
+        table.insert(sb, string.format("\"%s\"\n", value .. ""));
+    end;
 else
-table.insert(sb, string.format(
-    "%s = \"%s\"\n", key .. "", value .. ""))
-    end
+if "userdata" == type(value) then
+table.insert(sb, "\"Userdata\"\n");
+else
+table.insert(sb, string.format("%s = \"%s\"\n", key .. "", value .. ""))
+    end end
     end
     return table.concat(sb)
 else
