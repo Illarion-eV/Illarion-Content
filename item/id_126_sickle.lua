@@ -94,7 +94,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     local GroundTile = world:getField( TargetItem.pos );
 
     local TileID = GroundTile:tile();
-    local boden = BC_GetGroundType( TileID );
+    local boden = GetGroundType( TileID );
 
     local skill = User:getSkill( "herb lore" );
 
@@ -357,7 +357,7 @@ function SearchTileInRange(GroundType,Radius,Posi)
     SearchPos=position(Posi.x+i,Posi.y+k,Posi.z)
     field = world:getField( SearchPos )
     TileID = field:tile();
-    bodenart = base.common.BC_GetGroundType( TileID )
+    bodenart = base.common.GetGroundType( TileID )
     for itn=1,table.getn(GroundType) do
         if (bodenart==GroundType[itn]) then
             found=true
