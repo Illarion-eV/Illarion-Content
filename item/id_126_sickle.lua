@@ -223,22 +223,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( harvest[ 4 ] ~= 0 ) then
                     --User:inform( "changing item" );
                     world:erase( TargetItem, 1 );
+                    --Quality (Standard 333, da stapelbar)	                
+	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
                 else
                     DecreaseAreaHerbs(TargetItem.pos,1);
                 end
-
-				-- Hier wird das neue Item erschaffen
-	            leftHand = User:getItemAt(CCharacter.left_tool);
-	            rightHand = User:getItemAt(CCharacter.right_tool);
-				-- Korb dabei? dann wird dort hinein gesammelt
-	            if (leftHand.id==799) or (rightHand.id==799) then
-	                User:inform("nu wird im Körbchen gesammelt");
 					
-	            else
-					User:inform("Wie zuvor wird nun einzeln gesammelt");
-					--Quality (Standard 333, da stapelbar)	                
-	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
-				end
 
                 User.movepoints=User.movepoints-4;
                 if( harvest[ 2 ] > 0 ) then
