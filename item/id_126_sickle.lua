@@ -204,6 +204,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 base.common.InformNLS( User,
                     "zufallszahl:"..zufall,
                     "random number:"..zufall );
+                    base.common.InformNLS( User,
+                    "harvest[4]:"..harvest[ 4 ],
+                    "harvest[4]:"..harvest[ 4 ] );
+                    base.common.InformNLS( User,
+                    "harvest[5]:"..harvest[ 5 ],
+                    "harvest[5]:"..harvest[ 5 ] );
             end
 
 			success = true;
