@@ -210,13 +210,18 @@ function baseNPC:receiveText(speaker, text)
         speaker:introduce(thisNPC);
     end;
     
---    if not self:checkLanguageOK(speaker) then
---        self:_displayLanguageConfusion();
---        return false;
---    end;
---    thisNPC.activeLanguage = speaker.activeLanguage;
+    speaker:inform("Before Check Language");
+    
+    if not self:checkLanguageOK(speaker) then
+        self:_displayLanguageConfusion();
+        return false;
+    end;
+    thisNPC.activeLanguage = speaker.activeLanguage;
+    
+    speaker:inform("Before receive text functions");
     
     table.foreach(self._receiveTextFunctions, function(key, value)
+        speaker:inform("Checking receive text function: " .. key .. "");
         if (value:receiveText(speaker, text)) then
             return true;
         end;

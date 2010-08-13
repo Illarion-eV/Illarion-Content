@@ -49,12 +49,17 @@ function talkNPC:addTalkingEntry(newEntry)
 end;
 
 function talkNPC:receiveText(player, text)
+    player:inform("In receiveText of talkingNPC");
     for _, entry in pairs(self._entry) do
+        player:inform("Checking entry: " .. _ .. "");
         if entry:checkEntry(player, text) then
+            player:inform("Found valid entry. Executing");
             entry:execute(player);
+            player:inform("Finished execution");
             return true;
         end;
     end;
+    player:inform("Finished receiveText");
     
     return false;
 end;
