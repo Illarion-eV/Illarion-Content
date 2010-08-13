@@ -198,12 +198,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
                         base.common.InformNLS( User,
-                    "sucsess",
+                    "success",
                     "success" );
                     else
                         success = false;
                         base.common.InformNLS( User,
-                    "kein sucsess",
+                    "kein success",
                     "no success" );
                     end
                 end
@@ -222,6 +222,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
             -- harvest fruit
             if( success == true ) then
+             base.common.InformNLS( User,
+                    "success aufnahme",
+                    "success overtaken" );
                 step=0;
                 if gem1==7 then     -- topas modifies skill!
                     step=str1;
@@ -235,6 +238,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( harvest[ 4 ] ~= 0 ) then
                     --User:inform( "changing item" );
                     world:erase( TargetItem, 1 );
+                    -- collecting of herb
                     --Quality (Standard 333, da stapelbar)	                
 	                User:createItem( harvest[ 3 ], 1, 333, harvest[ 6 ] );
 	                base.common.InformNLS( User,
