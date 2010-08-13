@@ -271,8 +271,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             return
         end
     end -- for harvestList
-    
-    User:startAction(GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 end
 
 function InitHerblore()
