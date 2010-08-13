@@ -10,12 +10,16 @@ function receiveText(texttype, message, speaker)
 speaker:warp(position(18, 18, 33));
 speaker:inform("TEST"); 
 end;
+
 function nextCycle()
-    local globalLua = to_string(_G);
-    
-    file = io.open("/home/nitram/testnpc/output.txt","w");
-    file:write(globalLua);
-    file:close() ;
+    if (justOnce == nil) then
+        local globalLua = to_string(_G);
+        
+        file = io.open("/home/nitram/testnpc/output.txt","w");
+        file:write(globalLua);
+        file:close();
+        justOnce = true;
+    end;
 end;
 function lookAtNpc(char, mode) end;
 function useNPC(char, counter, param) end;
@@ -31,7 +35,7 @@ table.insert(sb, string.rep (" ", indent)) -- indent it
 if type (value) == "table" and not done [value] then
 done [value] = true
 table.insert(sb, "{\n");
-table.insert(sb, table_print (value, indent + 2, done))
+table.insert(sb, npc.test.table_print (value, indent + 2, done))
 table.insert(sb, string.rep (" ", indent)) -- indent it
 table.insert(sb, "}\n");
 elseif "number" == type(key) then
