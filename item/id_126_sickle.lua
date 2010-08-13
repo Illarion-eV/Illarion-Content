@@ -102,20 +102,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     local skill = User:getSkill( "herb lore" );
 
-    --gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(SourceItem);
-    --step=0;
-    --if gem1==3 then     -- ruby modifies skill!
-    --    step=str1;
-    --end
-    --if gem2==3 then
-    --    step=step+str2;
-    --end
-    --skill=skill+step;
+    gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(SourceItem);
+    step=0;
+    if gem1==3 then     -- ruby modifies skill!
+        step=str1;
+    end
+    if gem2==3 then
+        step=step+str2;
+    end
+    skill=skill+step;
 
-    --month=world:getTime("month");
-    --if (month == 0) then
+    month=world:getTime("month");
+    if (month == 0) then
         month = 16;
-    --end
+    end
     season=math.ceil(month/4);
 
     for i, harvest in pairs(harvestList) do
@@ -129,7 +129,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
         if groundok then
 
-            if base.common.BC_ToolBreaks( User, SourceItem ) then -- Zange beschädigen
+            if base.common.BC_ToolBreaks( User, SourceItem ) then -- Werkzeug beschädigen
                 base.common.BC_InformNLS( User,
                 "Die Sichel zerbricht.",
                 "The sickle breaks." );
