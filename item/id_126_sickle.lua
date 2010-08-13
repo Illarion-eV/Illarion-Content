@@ -69,14 +69,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     if not TargetItem then
-        base.common.BC_InformNLS( User,
+        base.common.InformNLS( User,
         "Hier kannst du nichts finden.",
         "You can't find anything here.");
         return;
     end
 
     if not base.common.IsLookingAt( User, TargetItem.pos ) then
-        base.common.BC_TurnTo( User, TargetItem.pos );
+        base.common.TurnTo( User, TargetItem.pos );
     end
 
     local harvestList = harvestItem[ TargetItem.id ];
@@ -85,7 +85,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     if ( SourceItem:getType() ~= 4 ) then
-        base.common.BC_InformNLS( User,
+        base.common.InformNLS( User,
         "Du musst die Sichel in der Hand haben um damit zu arbeiten",
         "You have to hold the sickle in your hand to work with it.");
         return
@@ -98,7 +98,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     local skill = User:getSkill( "herb lore" );
 
-    gem1, str1, gem2, str2=base.common.BC_GetBonusFromTool(SourceItem);
+    gem1, str1, gem2, str2=base.common.GetBonusFromTool(SourceItem);
     step=0;
     if gem1==3 then     -- ruby modifies skill!
         step=str1;
@@ -125,14 +125,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
         if groundok then
 
-            if base.common.BC_ToolBreaks( User, SourceItem ) then -- Werkzeug beschädigen
-                base.common.BC_InformNLS( User,
+            if base.common.ToolBreaks( User, SourceItem ) then -- Werkzeug beschädigen
+                base.common.InformNLS( User,
                 "Die Sichel zerbricht.",
                 "The sickle breaks." );
                 return
             end
 
-            if not base.common.BC_FitForWork( User ) then
+            if not base.common.FitForWork( User ) then
                 return false;
             end
 
@@ -142,7 +142,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             elseif ( harvest[ 2 ] > skill ) then
                 success = false;
 			skilluse=1;
-	        base.common.BC_InformNLS( User,
+	        base.common.InformNLS( User,
                       "Deine Kenntnisse in der Kräuterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
                       "Your knowlege in herblore is not sufficiently to collect herbs here.");
             elseif ( harvest[ 4 ] ~= 0 ) then
@@ -157,22 +157,22 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     return
                 end
 
-                if base.common.BC_IsInterrupted( User ) then
+                if base.common.IsInterrupted( User ) then
                     local selectMessage = math.random(1,4);
                     if ( selectMessage == 1 ) then
                         base.common.BC_InformNLS(User,
                         "Du wischst dir den Schweiß von der Stirn.",
                         "You wipe sweat off your forehead.");
                     elseif ( selectMessage == 2 ) then
-                        base.common.BC_InformNLS(User,
+                        base.common.InformNLS(User,
                         "Ein kleines pelziges Tier springt aus dem Gebüsch und rennt davon. Für einen Moment bist du fürchterlich erschrocken.",
                         "A small, furry critter jumps out of a bush and darts off. That really surprised you.");
                     elseif ( selectMessage == 3 ) then
-                        base.common.BC_InformNLS(User,
+                        base.common.InformNLS(User,
                         "Du greifst mit der Hand in eine Blattlauskolonie. Verärgert wischt du dir die Hand an der Hose ab.",
                         "The plant is crowded with lice. Annoyed, you wipe your hand clean on your trousers.");
                     else
-                        base.common.base.common.BC_InformNLS(User,
+                        base.common.base.common.InformNLS(User,
                         "Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.",
                         "An annoying bug buzzes around your head. You strike at it in order to drive it away.");
                     end
@@ -234,8 +234,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     User:learn( 2, "herb lore", 2, 5 );
                 end
 
-                if base.common.BC_ToolBreaks( User, SourceItem ) then
-                    base.common.BC_InformNLS(User,
+                if base.common.ToolBreaks( User, SourceItem ) then
+                    base.common.InformNLS(User,
                     "Die alte und abgenutzte Sichel in deinen Händen zerbricht.",
                     "The old and used sickle in your hands breaks.");
                 end
@@ -243,23 +243,23 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
             if( (not success ) and (skilluse~=1) ) then
                 if( boden == 1 ) then
-                    base.common.BC_InformNLS( User,
+                    base.common.InformNLS( User,
                     "Deine Hände graben durch die Erde, aber Du findest nichts.",
                     "Your hands muckrake through the dirt, but you do not find anything." );
                 elseif( boden == 2 ) then
-                    base.common.BC_InformNLS( User,
+                    base.common.InformNLS( User,
                     "Altes Laub und Nadeln sind alles was Du findest.",
                     "Dry leaves are all you find." );
                 elseif( boden == 3 ) then
-                    base.common.BC_InformNLS( User,
+                    base.common.InformNLS( User,
                     "Du findest nichts außer trockenem Sand.",
                     "You find nothing but dry sand" );
                 elseif( boden == 4 ) then
-                    base.common.BC_InformNLS( User,
+                    base.common.InformNLS( User,
                     "Du findest nichts außer Unkraut und Gras.",
                     "You find nothing but weed and grass." );
 				else
-                    base.common.BC_InformNLS( User,
+                    base.common.InformNLS( User,
                     "Du findest nichts.",
                     "You  do not find anything." );
                 end
