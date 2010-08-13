@@ -93,8 +93,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     local GroundTile = world:getField( TargetItem.pos );
 
-    local TileID = world:getField(TilePos):tile();
-    local boden = TileID;
+    local TileID = GroundTile:tile();
+    local boden = common.base.GetGroundType(TileID);
 
     local skill = User:getSkill( "herb lore" );
 
