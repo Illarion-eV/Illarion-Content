@@ -22,12 +22,12 @@ module("item.lever", package.seeall)
 
 function init()
     leverList={};
-    myLev1 = base.lever.Lever(position(124,637,0),true);
+    --[[myLev1 = base.lever.Lever(position(124,637,0),true);
     myLev2 = base.lever.Lever(position(125,637,0),false);
     myLev1:bind(0,handler.movelever.moveLever(myLev2));
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
-    
+      ]]--
     riddleLever1 = base.lever.Lever(position(220,735,0),true);
     riddleLever2 = base.lever.Lever(position(220,737,0),true);
     riddleLever3 = base.lever.Lever(position(220,739,0),true);
@@ -51,7 +51,7 @@ function init()
     end--]]
     --testlever:setMinStrength(200);
     --testlever:bind(2,deleteItem(position(119,635,0),2));
-    testlever:bind(1,handler.closedoor.closeDoor(position(119,639,0)));
+--[[    testlever:bind(1,handler.closedoor.closeDoor(position(119,639,0)));
     testlever:bind(1,handler.lockdoor.lockDoor(position(119,639,0)));
     testlever:bind(1,handler.deleteitem.deleteItem(position(118,639,0),2));
     --testlever:bind(1,deleteBridge(position(117,635,0)));
@@ -70,7 +70,7 @@ function init()
     AddToLevers(testlever2);
     AddToLevers(myLev1);
     AddToLevers(myLev2);
-    
+    ]]--
     
     AddToLevers(riddleLever1);
     AddToLevers(riddleLever2);    
