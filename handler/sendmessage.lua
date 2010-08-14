@@ -9,7 +9,7 @@ sendMessage = base.class.class(function(sndMsg, posi, msg, rad)
 end);
 
 function sendMessage:execute()
-    plyList=world:getPlayerInRangeOf(self.pos, self.radius);
+    plyList=world:getPlayersInRangeOf(self.pos, self.radius);
     for i, player in pairs(plyList) do
         player:inform(self.msg)
     end
