@@ -259,6 +259,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     base.common.InformNLS( User,
                     "Du findest nichts außer Unkraut und Gras.",
                     "You find nothing but weed and grass." );
+                elseif( boden == 5 ) then
+                    base.common.InformNLS( User,
+                    "Du findest nichts außer Geröll.",
+                    "You find nothing but boulders." );
+                elseif( boden == 6 ) then
+                    base.common.InformNLS( User,
+                    "Du findest nichts außer ein paar unnützen dürren Stängeln im Wasser.",
+                    "You find nothing except of some useless meagre stipes in the water." );
+                elseif( boden == 7 ) then
+                    base.common.InformNLS( User,
+                    "Du findest nichts außer ein paar modrigen Pflanzenresten.",
+                    "You find nothing but some musty plant remains." );
                 elseif( boden == 8 ) then
                     base.common.InformNLS( User,
                     "Du findest nichts außer Eis und Schnee.",
