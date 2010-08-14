@@ -192,22 +192,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 end
             end
             
+            local zufall = math.random(1,20);
             if ( harvest[ 4 ] == 0 ) then
                 if( success ) then
-                    if( harvest[ 5 ][ season ] >= math.random(1,20) ) then
+                    if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
                         
-                        base.common.InformNLS( User,
-                    "Season" ..season,
-                    "Season" ..season);
+                    base.common.InformNLS( User,"Season" ..season);
+                    base.common.InformNLS( User,"Zufall" ..zufall);
                     
                     else
                         success = false;
                     end
                 end
             end
-
-			success = true;
 
             -- harvest fruit
             if( success ) then
