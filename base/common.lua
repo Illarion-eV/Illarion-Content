@@ -512,6 +512,8 @@ function GetGroundType(TileID)
         return GroundType.rocks;
     elseif (TileID == 8) then -- dirt
         return GroundType.dirt;
+    elseif (TileID == 10) then -- snow
+        return GroundType.snow;
     end;
 
     return GroundType.unknown;
@@ -527,7 +529,8 @@ GroundType = {
     ["gras"] = 4,
     ["rocks"] = 5,
     ["water"] = 6,
-    ["dirt"] = 7
+    ["dirt"] = 7,
+    ["snow"] = 8
 };
 
 --- Create random number with normal distribution.
