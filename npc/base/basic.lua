@@ -157,7 +157,7 @@ function baseNPC:nextCycle()
         local tempList = self._equipmentList;
         self["_equipmentList"] = nil;
         
-        table.foreach(self._equipmentList, function(key, value)
+        table.foreach(tempList, function(key, value)
             thisNPC:createAtPos(value[1], value[2]);
             local item = thisNPC:getItemAt(value[1]);
             item.wear = 255;
