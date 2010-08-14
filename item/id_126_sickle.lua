@@ -196,6 +196,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( success ) then
                     if( harvest[ 5 ][ season ] >= math.random(1,20) ) then
                         success = true;
+                    User:inform( "season" ..harvest[ 5 ][ season ], "season" );
                     else
                         success = false;
                     end
