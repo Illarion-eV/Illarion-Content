@@ -192,10 +192,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 end
             end
             
-			local  zufall = math.random(10);
             if ( harvest[ 4 ] == 0 ) then
                 if( success ) then
-                    if( harvest[ 5 ][ season ] >= zufall ) then
+                    if( harvest[ 5 ][ season ] >= math.random(10) ) then
                         success = true;
                     else
                         success = false;
