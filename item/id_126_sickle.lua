@@ -194,13 +194,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             
             local zufall = math.random(1,10);
             if ( harvest[ 4 ] == 0 ) then
+            base.common.InformNLS( User,"Season" ..season);
+                    base.common.InformNLS( User,"Zufall" ..zufall);
                 if( success ) then
                     if( harvest[ 5 ][ season ] >= zufall ) then
                         success = true;
-                        
-                    base.common.InformNLS( User,"Season" ..season);
-                    base.common.InformNLS( User,"Zufall" ..zufall);
-                    
                     else
                         success = false;
                     end
@@ -235,7 +233,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 User.movepoints=User.movepoints-4;
                 if( harvest[ 2 ] > 0 ) then
                     User:learn( 2, "herb lore", 2, 100 );
-                    base.common.GetHungry( User, 100 );
+                    base.common.GetHungry( User, 200 );
                 else
                     User:learn( 2, "herb lore", 2, 5 );
                 end
