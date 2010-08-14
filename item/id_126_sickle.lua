@@ -261,6 +261,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     base.common.InformNLS( User,
                     "Du findest nichts auﬂer Unkraut und Gras.",
                     "You find nothing but weed and grass." );
+                elseif( boden == 8 ) then
+                    base.common.InformNLS( User,
+                    "Du findest nichts auﬂer Eis und Schnee.",
+                    "You find nothing but ice and snow." );
 				else
                     base.common.InformNLS( User,
                     "Du findest nichts.",
