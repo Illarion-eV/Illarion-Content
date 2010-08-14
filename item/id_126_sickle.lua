@@ -194,7 +194,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             
             if ( harvest[ 4 ] == 0 ) then
                 if( success ) then
-                    if( harvest[ 5 ][ season ] >= math.random(10) ) then
+                    if( harvest[ 5 ][ season ] >= math.random(1,20) ) then
                         success = true;
                     else
                         success = false;
