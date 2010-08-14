@@ -198,8 +198,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                         success = true;
                         
                         base.common.InformNLS( User,
-                    "Season" ..harvest[ 5 ][ season ],
-                    "Season" ..harvest[ 5 ][ season ]);
+                    "Season" ..season,
+                    "Season" ..season);
                     
                     else
                         success = false;
