@@ -196,7 +196,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if( success ) then
                     if( harvest[ 5 ][ season ] >= math.random(1,20) ) then
                         success = true;
-                    User:inform( "season" ..harvest[ 5 ][ season ], "season" );
+                        
+                        base.common.InformNLS( User,
+                    "Season" ..harvest[ 5 ][ season ],
+                    "Season" ..harvest[ 5 ][ season ]);
+                    
                     else
                         success = false;
                     end
