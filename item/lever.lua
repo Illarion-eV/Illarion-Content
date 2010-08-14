@@ -34,11 +34,11 @@ function init()
     riddleLever4 = base.lever.Lever(position(220,741,0),true);
     riddleLever5 = base.lever.Lever(position(220,743,0),true);
     
-    riddleLever1:bind(0,quest.leverRiddleA.addToLeverRiddleAString("1")); 
-    riddleLever2:bind(0,quest.leverRiddleA.addToLeverRiddleAString("2")); 
-    riddleLever3:bind(0,quest.leverRiddleA.addToLeverRiddleAString("3")); 
-    riddleLever4:bind(0,quest.leverRiddleA.addToLeverRiddleAString("4")); 
-    riddleLever5:bind(0,quest.leverRiddleA.addToLeverRiddleAString("5")); 
+    riddleLever1:bind(1,quest.leverRiddleA.addToLeverRiddleAString("1"));
+    riddleLever2:bind(1,quest.leverRiddleA.addToLeverRiddleAString("2"));
+    riddleLever3:bind(1,quest.leverRiddleA.addToLeverRiddleAString("3"));
+    riddleLever4:bind(1,quest.leverRiddleA.addToLeverRiddleAString("4"));
+    riddleLever5:bind(1,quest.leverRiddleA.addToLeverRiddleAString("5"));
     --[[for x=117,119 do
         for y=632,636 do
             testlever2:bind(0,deleteItem(position(x,y,0),0));
