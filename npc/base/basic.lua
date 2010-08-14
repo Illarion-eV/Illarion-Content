@@ -78,6 +78,10 @@ baseNPC = base.class.class(function(self)
     -- This variable stores if the NPC is supposed to to introduce automatically
     -- to the player.
     self["_autointroduce"] = true;
+    
+    -- This list is used to store the equipment that shall be set to the NPC at
+    -- the first run. Once the equipment is set, the list is destroyed.
+    self["_equipmentList"] = {};
 end);
 
 --- Constant for the state value of the NPC.
@@ -147,6 +151,17 @@ end;
 function baseNPC:nextCycle()
     if (self.initLanguages ~= nil) then
         self:initLanguages();
+    end;
+    
+    if (self._equipmentList ~= nil) then
+        table.foreach(self._cycleFunctions, function(key, value)
+            thisNPC:createAtPos(value[1], value[2]);
+            local item = thisNPC:getItemAt(value[1]);
+            item.wear = 255;
+            item.quality = 999;
+            world:changeItem(item);            
+        end);
+        self["_equipmentList"] = nil;
     end;
     
     self.nextCycle = self.nextCycle2;
@@ -335,6 +350,15 @@ function baseNPC:use(char)
     end;
 end;
 
+--- This equipment sets the equipment a NPC gets at first start. This is needed
+--- so the NPC looks good with paperdolling.
+--
+--  @param slot the slot the item is to be placed in
+--  @param item the item ID that shall be created
+function baseNPC:setEquipment(slot, item)
+    table.insert(self["_equipmentList"], {slot, item});
+end;
+
 --- This is a cleanup function that should be called once the initialization of
 --- the NPC is done. It will free the memory taken by all the functions that are
 --- needed to fill data into the NPC.
@@ -346,6 +370,7 @@ function baseNPC:initDone()
     self["setLookat"] = nil;
     self["setUseMessage"] = nil;
     self["setConfusedMessage"] = nil;
+    self["setEquipment"] = nil;
     self["initDone"] = nil;
 end;
 
