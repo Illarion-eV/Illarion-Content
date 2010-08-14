@@ -160,7 +160,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 if base.common.IsInterrupted( User ) then
                     local selectMessage = math.random(1,4);
                     if ( selectMessage == 1 ) then
-                        base.common.BC_InformNLS(User,
+                        base.common.InformNLS(User,
                         "Du wischst dir den Schweiß von der Stirn.",
                         "You wipe sweat off your forehead.");
                     elseif ( selectMessage == 2 ) then
@@ -191,13 +191,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     success = true;
                 end
             end
-            
-            local zufall = math.random(1,10);
+
             if ( harvest[ 4 ] == 0 ) then
-            base.common.InformNLS( User,"Season" ..season);
-                    base.common.InformNLS( User,"Zufall" ..zufall);
                 if( success ) then
-                    if( harvest[ 5 ][ season ] >= zufall ) then
+                    if( harvest[ 5 ][ season ] >= math.random(20) ) then
                         success = true;
                     else
                         success = false;
