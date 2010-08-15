@@ -18,14 +18,18 @@ function LeverRiddleAClass:execute()
   --      end   
   --  end
     
-    if quest==nil then
+    if questA==nil then
+        plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
+            for i, player in pairs(plyList) do
+            player:inform("now calling constructor... ");--..questA:getString());
+        end
         questA=quest.leverquest.LeverQuest();
     end
     
     ------------------DEBUG INFORMATION---------------------
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do
-        player:inform("self.toAdd : "..self.toAdd.." and "..questA:getString());
+        player:inform("self.toAdd : "..self.toAdd.." and ");--..questA:getString());
     end
    --------------------------------------------------------------
     
