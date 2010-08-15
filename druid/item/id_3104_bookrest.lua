@@ -395,32 +395,32 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 					if Param == 3110 then
 						--Prim�r- und Sekund�rattribute
 	    				i = math.random(119,256) --Zufallsauswahl des Rezeptes
-	    				langSkill=40
+	    				langSkill=10
 	    				langType ="common language"
 					elseif Param == 3111 then
 						--Pasten
 	    				i = math.random(64,71)	--Zufallsauswahl des Rezeptes
-	    				langSkill=50
+	    				langSkill=10
 	    				langType ="common language"
 					elseif Param == 3112 then
 						--Wurfgeschosse
 	    				i = math.random(72,118)	--Zufallsauswahl des Rezeptes
-	    				langSkill=60
+	    				langSkill=10
 	    				langType ="common language"
 					elseif Param == 3113 then
 						--Viren und Medizin
 	    				i = math.random(48,63)	--Zufallsauswahl des Rezeptes
-	    				langSkill=70
+	    				langSkill=10
 	    				langType ="common language"
 					elseif Param == 3114 then
 						--Sprachen
 	    				i = math.random(1,10)	--Zufallsauswahl des Rezeptes
-	    				langSkill=80
+	    				langSkill=10
 	    				langType ="common language"
 					elseif Param == 3115 then
 						--Verwandlungen
 	    				i = math.random(11,47)	--Zufallsauswahl des Rezeptes
-	    				langSkill=90
+	    				langSkill=10
 	    				langType ="common language"
 					end
 
