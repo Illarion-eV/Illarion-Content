@@ -367,11 +367,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if SourceItem.pos.x == 821 and SourceItem.pos.y == 96 and SourceItem.pos.z == 0 then
 
 	-- Eine Auswahl von Pergamenten anzeigen (nur Deko)
-	menuList ={}
-	menuList ={3093,131,127,3094,10,128,129,10,10,3110,3111,10,10,3112,3113,10,3097,3114,3115,3098}
+	
+	menuList ={131,127,128,129,3110,3111,3112,3113,3114,3115}
 
 		if Param==0 then
-			MyMen=MenuStruct();
+			MyMen=MenuStruct()
 			for key,value in pairs(menuList) do
 				MyMen:addItem(value);
 			end
