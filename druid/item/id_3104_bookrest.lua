@@ -367,15 +367,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if SourceItem.pos.x == 821 and SourceItem.pos.y == 96 and SourceItem.pos.z == 0 then
 
 	-- Eine Auswahl von Pergamenten anzeigen (nur Deko)
-	menuList ={}
-	menuList ={3093,131,127,3094,10,128,129,10,10,3110,3111,10,10,3112,3113,10,3097,3114,3115,3098};
+	
+        if ( Param == 0 ) then
+        	local menuList ={3093,131,127,3094,10,128,129,10,10,3110,3111,10,10,3112,3113,10,3097,3114,3115,3098};
+        	local BookList = CreateBookList( SourceItem.pos );
+        	MyMenu = MenuStruct()                    -- make new menu;
+        	for i = 1, table.getn( menuList ) do
+           	MyMenu:addItem( menuList[i] );
 
-		if Param==0 then
-			local	MyMen=MenuStruct();
-			for key,value in menuList do
-				MyMen:addItem(menuList[1]);
 			end
-			User:sendMenu(MyMen);
+			User:sendMenu(MyMenu);
 		else
 			--User:inform("PARAM = "..Param) -- Param gibt die ID des angewählten Items an
 			if Param > 126 and Param <132 then
