@@ -14,7 +14,7 @@ require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
 
-require("quest.leverRiddleA")
+--require("quest.leverRiddleA")
 
 module("item.lever", package.seeall)
 
