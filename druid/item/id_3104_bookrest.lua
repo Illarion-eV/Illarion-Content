@@ -380,7 +380,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			--User:inform("PARAM = "..Param) -- Param gibt die ID des angew�hlten Items an
 			if Param > 126 and Param <132 then
 				--Ein Alchemie-Lehrbuch wurde ausgew�hlt
-				world:createItemFromId(Param,1,Sourceitem.id_pos,true,333,0)
+				world:createItemFromId(Param,1,SourceItem.id.pos,true,333,0)
 			end
 
 			--zuf�llige Beschreibung der vorhandenen Rezepte
