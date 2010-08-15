@@ -39,9 +39,9 @@ function init()
     
     riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
     riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
-    --riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));
-    --riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));
-    --riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));
+    riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));
+    riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));
+    riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));
     --[[for x=117,119 do
         for y=632,636 do
             testlever2:bind(0,deleteItem(position(x,y,0),0));
@@ -77,9 +77,9 @@ function init()
     
     AddToLevers(riddleLever1);
     AddToLevers(riddleLever2);    
-   -- AddToLevers(riddleLever3);
-   -- AddToLevers(riddleLever4);
-   -- AddToLevers(riddleLever5);
+   AddToLevers(riddleLever3);
+   AddToLevers(riddleLever4);
+   AddToLevers(riddleLever5);
 	 
 end
 
