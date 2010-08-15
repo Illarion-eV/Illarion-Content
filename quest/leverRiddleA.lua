@@ -26,6 +26,8 @@ function LeverRiddleAClass:execute()
         questA=quest.leverquest.LeverQuest();
     end
     
+    questA:addToString(self.toAdd);
+    
     ------------------DEBUG INFORMATION---------------------
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do

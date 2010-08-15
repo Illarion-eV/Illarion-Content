@@ -20,11 +20,11 @@ function LeverQuest:getString()
    return self.theString;
 end
 
---function LeverQuest:addToString(char)
---    self.theString=self.theString..char;
---    
---    plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
---    for i, player in pairs(plyList) do
---        player:inform("theString: "..self.theString.." and char : "..char);
---    end
---end
+function LeverQuest:addToString(char)
+    self.theString=self.theString..char;
+    
+    plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
+    for i, player in pairs(plyList) do
+        player:inform("theString: "..self.theString.." and char : "..char);
+    end
+end
