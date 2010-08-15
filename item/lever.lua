@@ -37,7 +37,7 @@ function init()
     
     -- theQuest = quest.leverRiddleA.LeverRiddleAClass();
     
-    riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
+    --riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
     --riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
     --riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));
     --riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));
