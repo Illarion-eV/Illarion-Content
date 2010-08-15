@@ -46,7 +46,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		base.books.AddEnglishBookText("May the Gods bless you, Eldan upon all your ways.\nFalk vom Wald\nEldan Monastry",0,0,0); 
 
 	end
-	SendBookPage(User,Sourceitem.id_data,Counter);
+	SendBookPage(User,SourceItem.id_data,Counter);
 end
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
