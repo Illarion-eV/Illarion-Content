@@ -229,7 +229,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     local skill = User:getSkill( "lumberjacking" )+ User:increaseAttrib( "strength", 0 );
     if ( skill > math.random( 100 ) ) then
         world:erase( TargetItem, 1 )
-        if ( math.random(1) == 1 ) then
+        if ( math.random(5) == 5 ) then
             	world:createItemFromId( 152, 1, TargetItem.pos, true, 999 ,0);
             	base.common.InformNLS(User,
             	"Unter dem Baumstumpf findest du seltsame Wurzeln.",

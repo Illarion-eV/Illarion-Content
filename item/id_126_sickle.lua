@@ -309,7 +309,7 @@ function InitHerblore()
         
         harvestItem[ 274 ] = {                       -- Farn
         { 2,30, 140, 0, {10,16,10, 1}, 27 },               	-- Wald: 	Donfblatt
-        { 3, 0, 156, 0, {16,10, 1,10}, 61 },               	-- Sand: 	Steppenfarn
+        { 3, 0, 156, 0, {10, 1,10,16}, 61 },               	-- Sand: 	Steppenfarn
         { 4,10, 153, 0, {16,10, 1,10}, 52 },               	-- Wiese:	Fuﬂblatt
         { 5,20, 768, 0, {10,16,10, 1}, 52 },               	-- Fels: 	Wolfsfarn
 		{ 6, 0, 754, 0, {10,16,10, 1}, 52 },            	-- Wasser:  Wasserfarn
@@ -318,7 +318,7 @@ function InitHerblore()
         
         harvestItem[ 301 ] = {                       -- Hecke
         { 2, 0, 147, 0, { 1,10,16,10}, 46 },              -- Wald: 	Brombeere
-        { 3, 5, 142, 0, { 1,10,16,10}, 35 },              -- Sand: 	Sandbeere
+        { 3, 5, 142, 0, {10, 1,10,16}, 35 },              -- Sand: 	Sandbeere
         { 4, 0, 143, 0, { 1,10,16,10}, 36 },              -- Wiese: Roter Holunder
         { 5,20, 756, 0, {10,16,10, 1}, 52 },              -- Fels:  Frommbeere
         { 7,50, 136, 0, { 1,10,16,10}, 18 } };            -- Dreck: Wutbeere
@@ -424,6 +424,28 @@ function InitHerblore()
 
         harvestItem[ 1813 ] = {                      -- kleine Palme
         { 3,20, 80, 0, {14,20,16,1}, 11 } };               -- Sand: Banane
+        
+        
+        harvestItem[ 125 ] = {                       -- Baumstumpf Apfel
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 309 ] = {                       -- Baumstumpf Tanne
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 541 ] = {                       -- Baumstumpf Kirsche
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 542 ] = {                       -- Baumstumpf Cachdern
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 584 ] = {                       -- Baumstumpf Eldan-Eiche
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 585 ] = {                       -- Baumstumpf Kiefer
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        
+        harvestItem[ 587 ] = {                       -- Baumstumpf Naldor
+        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
 
 
     end
