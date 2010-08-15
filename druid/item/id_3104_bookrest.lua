@@ -370,7 +370,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
         if ( Param == 0 ) then
         	local menuList ={3093,131,127,3094,10,128,129,10,10,3110,3111,10,10,3112,3113,10,3097,3114,3115,3098};
-        	MyMenu = MenuStruct()                    -- make new menu;
+        	local MyMenu = MenuStruct();                    -- make new menu;
         	for i = 1, table.getn( menuList ) do
            	MyMenu:addItem( menuList[i] );
 
