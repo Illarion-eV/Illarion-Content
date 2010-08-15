@@ -77,9 +77,9 @@ function init()
     
     AddToLevers(riddleLever1);
     AddToLevers(riddleLever2);    
-   AddToLevers(riddleLever3);
-   AddToLevers(riddleLever4);
-   AddToLevers(riddleLever5);
+    AddToLevers(riddleLever3);
+    AddToLevers(riddleLever4);
+    AddToLevers(riddleLever5);
 	 
 end
 
