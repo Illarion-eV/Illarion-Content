@@ -6,7 +6,7 @@
 require("base.books")
 require("base.common")
 
-module("druid.item.id_131_book_letter", package.seeall, package.seeall(base.books) )
+module("druid.item.id_131_book_letter", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_131_book_letter' WHERE com_itemid = 131;
 
