@@ -427,25 +427,25 @@ function InitHerblore()
         
         
         harvestItem[ 125 ] = {                       -- Baumstumpf Apfel
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 309 ] = {                       -- Baumstumpf Tanne
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 541 ] = {                       -- Baumstumpf Kirsche
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 542 ] = {                       -- Baumstumpf Cachdern
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 584 ] = {                       -- Baumstumpf Eldan-Eiche
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 585 ] = {                       -- Baumstumpf Kiefer
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
         
         harvestItem[ 587 ] = {                       -- Baumstumpf Naldor
-        { 0,0, 152, 0, {16,10,1,10}, 11 } };             -- Alle: Lebenswurz
+        { 0,0, 152, 0, {10, 1,10,16}, 11 } };             -- Alle: Lebenswurz
 
 
     end
