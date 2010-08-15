@@ -38,7 +38,7 @@ function init()
     -- theQuest = quest.leverRiddleA.LeverRiddleAClass();
     
     riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
-    --riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
+    riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
     --riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));
     --riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));
     --riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));
@@ -76,7 +76,7 @@ function init()
     ]]--
     
     AddToLevers(riddleLever1);
-   -- AddToLevers(riddleLever2);    
+    AddToLevers(riddleLever2);    
    -- AddToLevers(riddleLever3);
    -- AddToLevers(riddleLever4);
    -- AddToLevers(riddleLever5);
