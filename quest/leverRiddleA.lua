@@ -18,10 +18,14 @@ function LeverRiddleAClass:execute()
   --      end   
   --  end
     
+    if quest==nil then
+        quest=quest.leverquest.LeverQuest();
+    end
+    
     ------------------DEBUG INFORMATION---------------------
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do
-        player:inform("self.toAdd : "..self.toAdd);
+        player:inform("self.toAdd : "..self.toAdd.." and "..quest.leverquest.getString());
     end
    --------------------------------------------------------------
     
