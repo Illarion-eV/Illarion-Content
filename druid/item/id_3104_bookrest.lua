@@ -363,7 +363,7 @@ end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 --User:inform("debug 3104-1")
---Man kï¿½nnte jetzt hergehen und den Standort des Schreines noch als Bedingung festschreiben. Damit gï¿½be es dann nur einen einzigen Schrein auf der Insel, oder eben mehrere, falls gewï¿½nscht.
+--Man könnte jetzt hergehen und den Standort des Schreines noch als Bedingung festschreiben. Damit gäbe es dann nur einen einzigen Schrein auf der Insel, oder eben mehrere, falls gewünscht.
 	if SourceItem.pos.x == 821 and SourceItem.pos.y == 96 and SourceItem.pos.z == 0 then
 
 	-- Eine Auswahl von Pergamenten anzeigen (nur Deko)
@@ -372,56 +372,56 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 		if Param==0 then
 			MyMen=MenuStruct();
-			for key,value in pairs(menuList) do
+			for key,value in menuList do
 				MyMen:addItem(value);
 			end
 			User:sendMenu(MyMen);
 		else
-			--User:inform("PARAM = "..Param) -- Param gibt die ID des angewï¿½hlten Items an
+			--User:inform("PARAM = "..Param) -- Param gibt die ID des angewählten Items an
 			if Param > 126 and Param <132 then
-				--Ein Alchemie-Lehrbuch wurde ausgewï¿½hlt
-				world:createItemFromId(Param,1,SourceItem.pos,true,333,0)
+				--Ein Alchemie-Lehrbuch wurde ausgewählt
+				world:createItemFromId(Param,1,SourceItem.pos,true,333,0) 
 			end
-
-			--zufï¿½llige Beschreibung der vorhandenen Rezepte
-
+      
+			--zufällige Beschreibung der vorhandenen Rezepte    
+               
 			if Param > 3109 and Param < 3116 then
-
-				if User:getMagicType() == 3 then --and User:getSkill("library research") > math.random(130) then
-
+	        
+				if User:getMagicType() == 3 then --and User:getSkill("library research") > math.random(130) then  
+	      	
 					init()
 					skilllost(User)	--jede Benutzung kostet skills
-
+					
 					if Param == 3110 then
-						--Primï¿½r- und Sekundï¿½rattribute
+						--Primär- und Sekundärattribute
 	    				i = math.random(119,256) --Zufallsauswahl des Rezeptes
 	    				langSkill=40
-	    				langType ="common language"
+	    				langType ="goblin language"
 					elseif Param == 3111 then
 						--Pasten
 	    				i = math.random(64,71)	--Zufallsauswahl des Rezeptes
 	    				langSkill=50
-	    				langType ="common language"
+	    				langType ="fairy language"
 					elseif Param == 3112 then
 						--Wurfgeschosse
 	    				i = math.random(72,118)	--Zufallsauswahl des Rezeptes
 	    				langSkill=60
-	    				langType ="common language"
+	    				langType ="gnome language"
 					elseif Param == 3113 then
 						--Viren und Medizin
 	    				i = math.random(48,63)	--Zufallsauswahl des Rezeptes
 	    				langSkill=70
-	    				langType ="common language"
+	    				langType ="gnome language"
 					elseif Param == 3114 then
 						--Sprachen
 	    				i = math.random(1,10)	--Zufallsauswahl des Rezeptes
 	    				langSkill=80
-	    				langType ="common language"
+	    				langType ="goblin language"
 					elseif Param == 3115 then
 						--Verwandlungen
 	    				i = math.random(11,47)	--Zufallsauswahl des Rezeptes
 	    				langSkill=90
-	    				langType ="common language"
+	    				langType ="fairy language"
 					end
 
 					dataZList = SplitBottleData(User,rKey[i])
