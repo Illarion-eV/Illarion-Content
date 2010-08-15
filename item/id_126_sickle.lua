@@ -299,131 +299,131 @@ function InitHerblore()
         -- Druidenkräuter
         
         harvestItem[ 273 ] = {                       -- Blume
-        { 2, 5, 144, 0, {5,0,2,10}, 37 },               -- Wald: 	Jungfernkraut
-        { 3, 5, 137, 0, {3,1,4,10}, 25 },               -- Sand: 	Flammkelchblüte
-        { 4, 7, 135, 0, {10,6,3,0}, 17 },               -- Wiese:	Gelbkraut
-        { 5, 0, 148, 0, {2,10,3,0}, 47 },               -- Fels: 	Firnisblüte
-        { 6, 0, 763, 0, {2,10,3,0}, 47 },               -- Wasser:	Sumpfblume
-        { 7,50, 138, 0, {2, 2,9,5}, 26 },             	-- Dreck:	Nachengelsblüte
-        { 8,50, 757, 0, {2, 2,9,5}, 26 } };             -- Schnee:  Gottesblume
+        { 2, 5, 144, 0, {10, 1,10,16}, 37 },             -- Wald: 	Jungfernkraut
+        { 3, 5, 137, 0, {10, 1,10,16}, 25 },             -- Sand: 	Flammkelchblüte
+        { 4, 7, 135, 0, {16,10, 1,10}, 17 },             -- Wiese:	Gelbkraut
+        { 5, 0, 148, 0, {10,16,10, 1}, 47 },             -- Fels: 	Firnisblüte
+        { 6, 0, 763, 0, {10,16,10, 1}, 47 },             -- Wasser:	Sumpfblume
+        { 7,50, 138, 0, { 1,10,16,10}, 26 },             -- Dreck:	Nachengelsblüte
+        { 8,50, 757, 0, {10,16,10, 1}, 26 } };           -- Schnee:  Gottesblume
         
         harvestItem[ 274 ] = {                       -- Farn
-        { 2,30, 140, 0, {10,2,7,3}, 27 },               -- Wald: 	Donfblatt
-        { 3, 0, 156, 0, {10,1,2,4}, 61 },               -- Sand: 	Steppenfarn
-        { 4,10, 153, 0, {10,4,1,0}, 52 },               -- Wiese:	Fußblatt
-        { 5,20, 768, 0, {4,10,3,0}, 52 },               -- Fels: 	Wolfsfarn
-		{ 6, 0, 754, 0, {10,10,10,10}, 52},             -- Wasser:  Wasserfarn
-		{ 7,50, 752, 0, {2, 2,9,5}, 26 },             	-- Dreck:	Alraune
-		{ 8,50, 760, 0, {2, 2,9,5}, 26 } };             -- Schnee:  Eisblatt
+        { 2,30, 140, 0, {10,16,10, 1}, 27 },               	-- Wald: 	Donfblatt
+        { 3, 0, 156, 0, {16,10, 1,10}, 61 },               	-- Sand: 	Steppenfarn
+        { 4,10, 153, 0, {16,10, 1,10}, 52 },               	-- Wiese:	Fußblatt
+        { 5,20, 768, 0, {10,16,10, 1}, 52 },               	-- Fels: 	Wolfsfarn
+		{ 6, 0, 754, 0, {10,16,10, 1}, 52 },            	-- Wasser:  Wasserfarn
+		{ 7,50, 752, 0, { 1,10,16,10}, 26 },             	-- Dreck:	Alraune
+		{ 8,50, 760, 0, { 1,10,16,10}, 26 } };             	-- Schnee:  Eisblatt
         
         harvestItem[ 301 ] = {                       -- Hecke
-        { 2, 0, 147, 0, {0,3,10,5}, 46 },               -- Wald: 	Brombeere
-        { 3, 5, 142, 0, {2,3,10,6}, 35},                -- Sand: 	Sandbeere
-        { 4, 0, 143, 0, {0,5,10,5}, 36},                -- Wiese: 	Roter Holunder
-        { 5,20, 756, 0, {4,10,3,0}, 52 };               -- Fels:  	Frommbeere
-        { 7,50, 136, 0, {4,3,10,7}, 18 } };             -- Dreck: 	Wutbeere
+        { 2, 0, 147, 0, { 1,10,16,10}, 46 },              -- Wald: 	Brombeere
+        { 3, 5, 142, 0, { 1,10,16,10}, 35 },              -- Sand: 	Sandbeere
+        { 4, 0, 143, 0, { 1,10,16,10}, 36 },              -- Wiese: Roter Holunder
+        { 5,20, 756, 0, {10,16,10, 1}, 52 },              -- Fels:  Frommbeere
+        { 7,50, 136, 0, { 1,10,16,10}, 18 } };            -- Dreck: Wutbeere
         
         harvestItem[ 338 ] = {                       -- Schilf
-        { 4, 5, 134, 0, {6,1,5,10}, 16 },               -- Wiese: 	Vierblättrige Einbeere
-        { 6,30, 155, 0, {4,10,5,1}, 54} };              -- Wasser: 	Sibanac Blatt
+        { 4, 5, 134, 0, {10, 1,10,16}, 16 },              -- Wiese:	 Vierblättrige Einbeere
+        { 6,30, 155, 0, {10,16,10, 1}, 54 } };            -- Wasser: Sibanac Blatt
         
         harvestItem[ 1782 ] = {                      -- Gras
-        { 2, 0, 151, 0, {10,3,1,0}, 48 },               -- Wald: 	Erdbeere
-        { 3, 5, 146, 0, {3,5,10,0}, 28 },               -- Sand: 	Wüstenhimmelskapsel
-        { 4,20, 141, 0, {0,4,10,3}, 38 },             	-- Wiese:	Schwarze Distel
-        { 5,20, 145, 0, {10,6,3,0}, 38 },             	-- Stein:	Heideblüte
-        { 6, 0, 761, 0, {10,10,10,10}, 52};             -- Wasser:  Regenkraut
-        { 7,50, 762, 0, {4,3,10,7}, 18 } };             -- Dreck:   Schwefelgras
+        { 2, 0, 151, 0, {10,16,10, 1}, 48 },             -- Wald: 	Erdbeere
+        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wüstenhimmelskapsel
+        { 4,20, 141, 0, { 1,10,16,10}, 38 },             -- Wiese:	Schwarze Distel
+        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblüte
+        { 6, 0, 761, 0, { 1,10,16,10}, 52 },             -- Wasser:  Regenkraut
+        { 7,50, 762, 0, {10, 1,10,16}, 18 } };           -- Dreck:   Schwefelgras
 
         harvestItem[ 1783 ] = {                      -- Gras
-        { 2, 0, 151, 0, {10,3,1,0}, 48 },               -- Wald: 	Erdbeere
-        { 3, 5, 146, 0, {3,5,10,0}, 28 },               -- Sand: 	Wüstenhimmelskapsel
-        { 4,20, 141, 0, {0,4,10,3}, 38 },               -- Wiese:	Schwarze Distel Distel
-        { 5,20, 145, 0, {10,6,3,0}, 38 },				-- Stein:	Heideblüte
-        { 6, 0, 761, 0, {10,10,10,10}, 52};             -- Wasser:  Regenkraut
-        { 7,50, 762, 0, {4,3,10,7}, 18 } };             -- Dreck:	Schwefelgras
+        { 2, 0, 151, 0, {10,16,10, 1}, 48 },             -- Wald: 	Erdbeere
+        { 3, 5, 146, 0, { 1,10,16,10}, 28 },             -- Sand: 	Wüstenhimmelskapsel
+        { 4,20, 141, 0, { 1,10,16,10}, 38 },             -- Wiese:	Schwarze Distel
+        { 5,20, 145, 0, {16,10, 1,10}, 38 },             -- Stein:	Heideblüte
+        { 6, 0, 761, 0, { 1,10,16,10}, 52 },             -- Wasser:  Regenkraut
+        { 7,50, 762, 0, {10, 1,10,16}, 18 } };           -- Dreck:   Schwefelgras
         
         harvestItem[ 1791 ] = {                      -- Sonnenblumen
-        { 4,30, 133, 0 , {8,10,2,0}, 15 } };            -- Wiese: Sonnenkraut
+        { 4,30, 133, 0, {10,16,10, 1}, 15 } };            -- Wiese: Sonnenkraut
         
         harvestItem[ 767 ] = {                      -- Wasserlilie
-        { 6,30, 767, 0 , {8,10,2,0}, 15 } };            -- Wasser: Wasserlilie
+        { 6,30, 767, 0, {10,16,10,1}, 15 } };            -- Wasser: Wasserlilie
         
         harvestItem[ 1807 ] = {                      -- Ceridern
-        { 0,30, 753, 0 , {8,10,2,0}, 15 } };            -- alle: Ceridern-Beere
+        { 0,30, 753, 0, {16,10, 1,10}, 15 } };            -- alle: Ceridern-Beere
         
         harvestItem[ 1808 ] = {                      -- Drachenbaum
-        { 0,30, 755, 0 , {8,10,2,0}, 15 } };            -- alle: Feuerschote
+        { 0,30, 755, 0, {16,10, 1,10}, 15 } };            -- alle: Feuerschote
         
         -- Pilze
 
         harvestItem[ 159 ] = {                       -- Fliegenpilz
-        { 0, 0, 159, 0, {6,3,10,4}, 11 }};             -- Alle: Fliegenpilz
+        { 0, 0, 159, 0, { 1,10,16,10}, 11 }};             -- Alle: Fliegenpilz
 
          harvestItem[ 161 ] = {                       -- Hirtenpilz
-        { 0, 0, 161, 0, {3,6,10,1}, 11 }};             -- Alle: Hirtenpilz
+        { 0, 0, 161, 0, { 1,10,16,10}, 11 }};             -- Alle: Hirtenpilz
 
         harvestItem[ 426 ] = {                       -- Pilz
-        { 0, 0, 162, 0, {10,5,3,1}, 11 }};             -- Alle: Geburtspilz
+        { 0, 0, 162, 0, {16,10, 1,10}, 11 }};             -- Alle: Geburtspilz
 
         harvestItem[ 158 ] = {                       -- Knollenschwamm
-        { 0, 0, 158, 0, {5,3,6,10}, 11 }};             -- Alle: Knollenschwamm
+        { 0, 0, 158, 0, {10, 1,10,16}, 11 }};             -- Alle: Knollenschwamm
 
         
         harvestItem[ 1790 ] = {                      -- Pilzkreis
-        { 0, 0, 163, 0, {1,6,10,2}, 73 } };             -- Alle: Champignon
+        { 0, 0, 163, 0, { 1,10,16,10}, 73 } };             -- Alle: Champignon
         
         -- Hilfskraut
 
         harvestItem[ 203 ] = {                       -- Palme
-        { 0, 0, 157, 0, {8,4,5,10}, 11 }};             -- Alle: Faulbaumrinde
+        { 0, 0, 157, 0, {10,10,10,10}, 11 }};             -- Alle: Faulbaumrinde
         
         harvestItem[ 2169 ] = {                      -- Alter Baumstamm
-        { 2,30, 157, 0, {6,10,9,0}, 11 },                -- Wald: Faulbaumrinde
-        { 7,10, 157, 0, {6,10,9,0}, 11 } };              -- Dreck: Faulbaumrinde
+        { 2,30, 157, 0, {10,16,10,1}, 11 },                -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {10,16,10,1}, 11 } };              -- Dreck: Faulbaumrinde
 
         harvestItem[ 2170 ] = {                      -- Alter Baumstamm
-        { 2,30, 157, 0, {6,10,9,0}, 11 },                -- Wald: Faulbaumrinde
-        { 7,10, 157, 0, {6,10,9,0}, 11 } };              -- Dreck: Faulbaumrinde
+        { 2,30, 157, 0, {10,16,10,1}, 11 },                -- Wald: Faulbaumrinde
+        { 7,10, 157, 0, {10,16,10,1}, 11 } };              -- Dreck: Faulbaumrinde
 
 
 
 		-- Ackerbau
 
     	harvestItem[ 290 ] = {                       -- Kohl
-        { 0, 0, 290, -1, {6,10,9,0}, 11 } };             -- Alle: Kohl
+        { 0, 0, 290, -1, {14,20,16,0}, 11 } };             -- Alle: Kohl
         
         harvestItem[ 537 ] = {                       -- reife Zwiebeln
-        { 0, 0, 201, -1, {6,10,9,0}, 74 } };            -- Alle: Zwiebeln
+        { 0, 0, 201, -1, {14,20,16,0}, 74 } };            -- Alle: Zwiebeln
 
         harvestItem[ 540 ] = {                       -- reife Tomaten
-        { 0, 0, 200, -1, {6,10,9,0}, 82 } };            -- Alle: Tomaten
+        { 0, 0, 200, -1, {14,20,16,0}, 82 } };            -- Alle: Tomaten
 
         harvestItem[ 731 ] = {                       -- Hopfen
-        { 0, 0, 154, -1, {6,10,9,0}, 53 } };            -- Alle: Hopfen
+        { 0, 0, 154, -1, {14,20,16,0}, 53 } };            -- Alle: Hopfen
 
         harvestItem[ 732 ] = {                       -- alter Hopfen
-        { 0, 0, 728, -1, {6,10,9,0}, 11 } };            -- Alle: Hopfenwurzel
+        { 0, 0, 728, -1, {14,20,16,0}, 11 } };            -- Alle: Hopfenwurzel
         
         harvestItem[ 2492 ] = {                      -- reife Karotten
-        { 0, 0, 2493, -1, {6,10,9,0}, 11 } };            -- Alle: Karotten
+        { 0, 0, 2493, -1, {14,20,16,0}, 11 } };            -- Alle: Karotten
 
 		harvestItem[ 782 ] = {                      -- reifes Zuckerrohr
-        { 0, 0, 778, -1, {6,10,9,0}, 73 } };            -- Alle: Zuckerrohr
+        { 0, 0, 778, -1, {14,20,16,0}, 73 } };            -- Alle: Zuckerrohr
 
         harvestItem[ 777 ] = {                      -- reifer Tabak
-        { 0, 0, 772, -1, {6,10,9,0}, 82 } };            -- Alle: Tabak
+        { 0, 0, 772, -1, {14,20,16,0}, 82 } };            -- Alle: Tabak
 
 		-- Sonstiges
 
         harvestItem[ 308 ] = {                       -- Tannenbaum
-        { 0,0, 149, 0, {8,4,5,10}, 11 } };             -- Alle: Tannensetzling
+        { 0,0, 149, 0, {16,10,5,10}, 11 } };             -- Alle: Tannensetzling
 
         harvestItem[ 1812 ] = {                      -- kleine Palme
-        { 3,20, 80, 0, {3,8,5,0}, 11 } };               -- Sand: Banane
+        { 3,20, 80, 0, {14,20,16,1}, 11 } };               -- Sand: Banane
 
         harvestItem[ 1813 ] = {                      -- kleine Palme
-        { 3,20, 80, 0, {3,8,5,0}, 11 } };               -- Sand: Banane
+        { 3,20, 80, 0, {14,20,16,1}, 11 } };               -- Sand: Banane
 
 
     end
