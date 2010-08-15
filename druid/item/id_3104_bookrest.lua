@@ -372,7 +372,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 		if Param==0 then
 			MyMen=MenuStruct();
-			for key,value in pairs(menuList) do
+			for key,value in menuList do
 				MyMen:addItem(value);
 			end
 			User:sendMenu(MyMen);
