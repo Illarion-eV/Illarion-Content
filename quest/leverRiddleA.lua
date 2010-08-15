@@ -25,7 +25,7 @@ function LeverRiddleAClass:execute()
     ------------------DEBUG INFORMATION---------------------
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do
-        player:inform("self.toAdd : "..self.toAdd.." and "..quest.leverquest.getString());
+        player:inform("self.toAdd : "..self.toAdd.." and ");--..quest.leverquest.getString());
     end
    --------------------------------------------------------------
     
