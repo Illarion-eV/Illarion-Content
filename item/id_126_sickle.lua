@@ -429,10 +429,6 @@ function InitHerblore()
     end
 end
 
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, GetItemDescription( User, Item, 1 ));
-end
-
 function GetAreaHerbs(TargetPosi)
     local AreaFieldX=math.floor((TargetPosi.x+500))+1;
     local AreaFieldY=math.floor((TargetPosi.y+500))+1;
