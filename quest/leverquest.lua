@@ -21,7 +21,9 @@ function LeverQuest:getString()
 end
 
 function LeverQuest:addToString(char)
-    self.theString=self.theString..char;
+    if (string.find(self.theString,char)==nil) then
+        self.theString=self.theString..char;
+    end
     
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do
