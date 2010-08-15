@@ -12,7 +12,7 @@ LeverQuest = base.class.class(function(lvQst)  -- this is the constructor
     lvQst.theString="abc";     -- this initializes the string that is produced by the levers and the sequence they were pulled.
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
     for i, player in pairs(plyList) do
-        player:inform("construktor. "..self.theString);
+        player:inform("construktor. "..lvQst.theString);
     end
 end);
 
