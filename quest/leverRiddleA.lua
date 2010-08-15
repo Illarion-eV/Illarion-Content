@@ -21,7 +21,7 @@ function LeverRiddleAClass:execute()
     if questA==nil then
         plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
             for i, player in pairs(plyList) do
-            player:inform("now calling constructor... ");--..questA:getString());
+            player:inform("now calling constructor..."..questA:getString());
         end
         questA=quest.leverquest.LeverQuest();
     end

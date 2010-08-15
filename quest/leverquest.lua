@@ -16,9 +16,9 @@ LeverQuest = base.class.class(function(lvQst)  -- this is the constructor
     end
 end);
 
---function LeverQuest:getString()
- --   return self.theString;
---end
+function LeverQuest:getString()
+   return self.theString;
+end
 
 --function LeverQuest:addToString(char)
 --    self.theString=self.theString..char;
