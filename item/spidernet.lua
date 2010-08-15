@@ -31,7 +31,7 @@ function CharacterOnField(User)
     if Ensnarl then
         --User.movepoints=User.movepoints-50;
         if (User:getPlayerLanguage() == 0) then
-            User:inform("Du verfï¿½ngst dich im Spinnennetz, kannst es aber zerreiï¿½en.");
+            User:inform("Du verfängst dich im Spinnennetz, kannst es aber zerreißen.");
         else
             User:inform("You become entangled in the spiderweb, but you can rip it.");
         end
