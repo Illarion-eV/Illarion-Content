@@ -39,6 +39,13 @@ if not GlobalsInitialized then
 	
 
 	AddStageInfo(1, "1 deutsch", "1 englisch");
+	AddStageInfo(2, "1 deutsch", "1 englisch");
+	AddStageInfo(3, "1 deutsch", "1 englisch");
+	AddStageInfo(4, "1 deutsch", "1 englisch");
+	AddStageInfo(5, "1 deutsch", "1 englisch");
+	AddStageInfo(6, "1 deutsch", "1 englisch");
+	AddStageInfo(7, "1 deutsch", "1 englisch");
+	AddStageInfo(8, "1 deutsch", "1 englisch");
 	
 	
 
