@@ -76,7 +76,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	base.books.AddEnglishBookText("Let be my words a warning for you, the nonbeliver have payed for their impatience.",0,0,0);
 
     end
-	base.books.SendBookPage(User,Sourceitem.id_data,Counter);
+	base.books.SendBookPage(User,SourceItem.data,Counter);
 end   
 
 

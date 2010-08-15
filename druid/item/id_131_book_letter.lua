@@ -66,7 +66,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				base.books.AddEnglishBookText("Tuor, Journeyman Carpenter of Koldamar",0,0,0);
 
    end
-   base.books.SendBookPage(User,Sourceitem.id_data,Counter);
+   base.books.SendBookPage(User,SourceItem.id_data,Counter);
 end
 
 function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
