@@ -364,7 +364,7 @@ end
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 --User:inform("debug 3104-1")
 --Man k�nnte jetzt hergehen und den Standort des Schreines noch als Bedingung festschreiben. Damit g�be es dann nur einen einzigen Schrein auf der Insel, oder eben mehrere, falls gew�nscht.
-	if Sourceitem.id_pos.x == -390 and Sourceitem.id_pos.y == -154 and Sourceitem.id_pos.z == 0 then
+	if Sourceitem.id_pos.x == 821 and Sourceitem.id_pos.y == 96 and Sourceitem.id_pos.z == 0 then
 
 	-- Eine Auswahl von Pergamenten anzeigen (nur Deko)
 	menuList ={}
@@ -396,32 +396,32 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 						--Prim�r- und Sekund�rattribute
 	    				i = math.random(119,256) --Zufallsauswahl des Rezeptes
 	    				langSkill=40
-	    				langType ="goblin language"
+	    				langType ="common language"
 					elseif Param == 3111 then
 						--Pasten
 	    				i = math.random(64,71)	--Zufallsauswahl des Rezeptes
 	    				langSkill=50
-	    				langType ="fairy language"
+	    				langType ="common language"
 					elseif Param == 3112 then
 						--Wurfgeschosse
 	    				i = math.random(72,118)	--Zufallsauswahl des Rezeptes
 	    				langSkill=60
-	    				langType ="gnome language"
+	    				langType ="common language"
 					elseif Param == 3113 then
 						--Viren und Medizin
 	    				i = math.random(48,63)	--Zufallsauswahl des Rezeptes
 	    				langSkill=70
-	    				langType ="gnome language"
+	    				langType ="common language"
 					elseif Param == 3114 then
 						--Sprachen
 	    				i = math.random(1,10)	--Zufallsauswahl des Rezeptes
 	    				langSkill=80
-	    				langType ="goblin language"
+	    				langType ="common language"
 					elseif Param == 3115 then
 						--Verwandlungen
 	    				i = math.random(11,47)	--Zufallsauswahl des Rezeptes
 	    				langSkill=90
-	    				langType ="fairy language"
+	    				langType ="common language"
 					end
 
 					dataZList = SplitBottleData(User,rKey[i])
