@@ -1,5 +1,5 @@
 require("base.class")
-require("quest.leverquest")
+--require("quest.leverquest")
 
 -- For Fal-Fal's lever Riddle
 
