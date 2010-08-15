@@ -364,7 +364,7 @@ end
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 --User:inform("debug 3104-1")
 --Man k�nnte jetzt hergehen und den Standort des Schreines noch als Bedingung festschreiben. Damit g�be es dann nur einen einzigen Schrein auf der Insel, oder eben mehrere, falls gew�nscht.
-	if SourceItem.id_pos.x == 821 and SourceItem.id_pos.y == 96 and SourceItem.id_pos.z == 0 then
+	if SSourceItem.pos.x == 821 and SourceItem.pos.y == 96 and SourceItem.pos.z == 0 then
 
 	-- Eine Auswahl von Pergamenten anzeigen (nur Deko)
 	menuList ={}
