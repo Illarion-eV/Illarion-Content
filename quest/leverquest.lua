@@ -5,6 +5,11 @@ module("quest.leverquest", package.seeall)
 -- This should be the base class for the leverquest; it should hopefully serve as an example how to do quests.
 LeverQuest = base.class.class(function(lvQst)  -- this is the constructor
     lvQst.theString="";                         -- this initializes the string that is produced by the levers and the sequence they were pulled.
+    lvQst.levPos1=position(220,735,0);
+    lvQst.levPos2=position(220,737,0);
+    lvQst.levPos3=position(220,739,0);
+    lvQst.levPos4=position(220,741,0);
+    lvQst.levPos5=position(220,743,0);
 end);
 
 function LeverQuest:addToString(char)

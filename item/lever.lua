@@ -14,7 +14,8 @@ require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
 
-require("quest.leverRiddleA")
+require("quest.leverRiddleA")       -- controlls the behaviour of the levers
+require("quest.leverquest")         -- main class for the whole quest
 
 module("item.lever", package.seeall)
 
@@ -28,14 +29,18 @@ function init()
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
       ]]--
-      
-    riddleLever1 = base.lever.Lever(position(220,735,0),true);
-    riddleLever2 = base.lever.Lever(position(220,737,0),true);
-    riddleLever3 = base.lever.Lever(position(220,739,0),true);
-    riddleLever4 = base.lever.Lever(position(220,741,0),true);
-    riddleLever5 = base.lever.Lever(position(220,743,0),true);
+    
+    questA=quest.leverquest.LeverQuest();   -- at the first execution, create an object of that class.
+    
+    riddleLever1 = base.lever.Lever(questA.levPos1,true);
+    riddleLever2 = base.lever.Lever(questA.levPos2,true);
+    riddleLever3 = base.lever.Lever(questA.levPos3,true);
+    riddleLever4 = base.lever.Lever(questA.levPos4,true);
+    riddleLever5 = base.lever.Lever(questA.levPos5,true);
     
     -- theQuest = quest.leverRiddleA.LeverRiddleAClass();
+    
+    
     
     riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
     riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
