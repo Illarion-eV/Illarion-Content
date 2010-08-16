@@ -50,11 +50,11 @@ function init()
     riddleLever4 = base.lever.Lever(questA.levPos4,true);
     riddleLever5 = base.lever.Lever(questA.levPos5,true);
         
-    riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));     -- bind the action that is executed when moving
-    riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));     -- a lever and set the string that should be
-    riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));     -- appended ("1",...). In the corresponding
-    riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));     -- execute-function, this is appended to the
-    riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));     -- questString.
+    riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1",questA));     -- bind the action that is executed when moving
+    riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2",questA));     -- a lever and set the string that should be
+    riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3",questA));     -- appended ("1",...). In the corresponding
+    riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4",questA));     -- execute-function, this is appended to the
+    riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5",questA));     -- questString.
     
     AddToLevers(riddleLever1);      -- Just add those levers to the list of levers...
     AddToLevers(riddleLever2);    
