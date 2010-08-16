@@ -17,7 +17,7 @@ LeverQuest = base.class.class(function(lvQst)   -- this is the constructor
     lvQst.levPos5=position(220,743,0);
     lvQst.levTyp5=434;
     
-    lvQst.corrOrder={1,2,3,4,5};
+    lvQst.corrSequence={1,2,3,4,5};
     
 end);
 
@@ -36,6 +36,22 @@ function LeverQuest:addToString(char)                   -- This is called by the
     end
 end
 
+function LeverQuest:shuffleSequence()
+    for i=1, 20 do
+        removeAt=math.random(5);
+        insertAt=math.random(5);
+        removeVal=self.corrSequence[removeAt];
+        table.remove(self.corrSequence,removeAt);
+        table.insert(self.corrSequence,insertAt,removeVal);
+    end
+    
+        plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
+        for i, player in pairs(plyList) do
+            player:inform("neue sequenz:"..self.corrSequence[1]..self.corrSequence[2]..self.corrSequence[3]..self.corrSequence[4]..self.corrSequence[5]);      -- replace this with the true consequence
+        end
+    
+end
+
 function LeverQuest:checkSuccess()
     if (self.theString=="12345") then       -- replace this by the true condition
         plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
@@ -44,6 +60,7 @@ function LeverQuest:checkSuccess()
         end
     end
     self.theString="";                      -- add the reset of levers here.
+    self:shuffleSequence()
     self:resetLevers();
 end
 
