@@ -352,7 +352,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
         "Deine R�stung behindert Dich Rohstoffe abzubauen.",
-        "Your armor disturbes you when mining ores" );
+        "Your armour disturbes you when mining ores" );
         return
     end
 

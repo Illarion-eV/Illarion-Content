@@ -115,16 +115,16 @@ function init()
 	rKey[86] = 62358491; rNameDE[86] = ""; rNameEN[86] = ""; --Aufgeteilter Sattmacher-Schaden auf 21er Feld
 	rKey[87] = 84613666; rNameDE[87] = ""; rNameEN[87] = ""; --Hasenbarriere auf 9er-Feld
 	rKey[88] = 29732752; rNameDE[88] = ""; rNameEN[88] = ""; --Hasenbarriere auf 21er-Feld
-	rKey[89] = 55938556; rNameDE[89] = ""; rNameEN[89] = ""; --Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 1er Feld
-	rKey[90] = 43245354; rNameDE[90] = ""; rNameEN[90] = ""; --Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[91] = 95257533; rNameDE[91] = ""; rNameEN[91] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[92] = 59159412; rNameDE[92] = ""; rNameEN[92] = ""; --Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
-	rKey[93] = 36557188; rNameDE[93] = ""; rNameEN[93] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
-	rKey[94] = 98538617; rNameDE[94] = ""; rNameEN[94] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 1er Feld
-	rKey[95] = 79684787; rNameDE[95] = ""; rNameEN[95] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[96] = 32484266; rNameDE[96] = ""; rNameEN[96] = ""; --Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
-	rKey[97] = 96261935; rNameDE[97] = ""; rNameEN[97] = ""; --Voller Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
-	rKey[98] = 26372612; rNameDE[98] = ""; rNameEN[98] = ""; --Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
+	rKey[89] = 55938556; rNameDE[89] = ""; rNameEN[89] = ""; --Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
+	rKey[90] = 43245354; rNameDE[90] = ""; rNameEN[90] = ""; --Voller Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
+	rKey[91] = 95257533; rNameDE[91] = ""; rNameEN[91] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
+	rKey[92] = 59159412; rNameDE[92] = ""; rNameEN[92] = ""; --Voller Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
+	rKey[93] = 36557188; rNameDE[93] = ""; rNameEN[93] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
+	rKey[94] = 98538617; rNameDE[94] = ""; rNameEN[94] = ""; --Voller Qualitäts-Schaden auf Rüstungen auf 1er Feld
+	rKey[95] = 79684787; rNameDE[95] = ""; rNameEN[95] = ""; --Voller Qualitäts-Schaden auf Rüstungen auf 9er Feld
+	rKey[96] = 32484266; rNameDE[96] = ""; rNameEN[96] = ""; --Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 9er Feld
+	rKey[97] = 96261935; rNameDE[97] = ""; rNameEN[97] = ""; --Voller Qualitäts-Schaden auf Rüstungen auf 21er Feld
+	rKey[98] = 26372612; rNameDE[98] = ""; rNameEN[98] = ""; --Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 21er Feld
 	rKey[99] = 56548394; rNameDE[99] = ""; rNameEN[99] = ""; --Voller Haltbarkeits-Schaden auf Waffen auf 1er Feld
 	rKey[100] = 81876627; rNameDE[100] = ""; rNameEN[100] = ""; --Voller Haltbarkeits-Schaden auf Waffen auf 9er Feld
 	rKey[101] = 86656358; rNameDE[101] = ""; rNameEN[101] = ""; --Aufgeteilter Haltbarkeits-Schaden auf Waffen auf 9er Feld

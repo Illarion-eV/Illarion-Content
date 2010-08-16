@@ -188,7 +188,7 @@ function ds_analyse_327(Caster,Item)
     EtikettDe ="Sattmacher".."\n" --Sattmacher (noch in Arbeit)
     EtikettEn ="".."\n"
   elseif Item.data == 43245354 then
-    EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rï¿½stungen auf 9er Feld
+    EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rüstungen auf 9er Feld
     EtikettEn ="Rusttrap"
   elseif Item.data == 64175321 then
     EtikettDe ="Holzkï¿½fer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
@@ -197,7 +197,7 @@ function ds_analyse_327(Caster,Item)
     EtikettDe ="Schwertgrab" --Halbarkeitsschaden für Waffen auf 9er Feld
     EtikettEn =""
   elseif Item.data == 17616268 then
-    EtikettDe ="Rostfresser" --Haltbarkeitsschaden für Rï¿½stungen auf 1 Feld
+    EtikettDe ="Rostfresser" --Haltbarkeitsschaden für Rüstungen auf 1 Feld
     EtikettEn =""
   elseif Item.data == 16623552 then
     EtikettDe ="Holzwurm" --Haltbarkeitsschaden für Holzwaren auf 1 Feld

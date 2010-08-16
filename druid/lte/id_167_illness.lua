@@ -37,7 +37,7 @@ end
 
 function getEffect_1(Character,Runde)
 -- Character:inform("Ork-Fieber/orc-fever")
--- Hitzewallung (man reisst sich alle Kleider, Rï¿½stungen vom Leib)
+-- Hitzewallung (man reisst sich alle Kleider, Rüstungen vom Leib)
 	if Runde -(math.floor(Runde/10)*10) == 0 then
 --   jede 10. Runde etwas ausziehen
 		local foundCloth = false;

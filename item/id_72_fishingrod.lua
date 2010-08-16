@@ -40,7 +40,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	if base.common.Encumbrence(User) then -- Behinderung
         base.common.InformNLS(User,
         "Deine Rüstung behindert dich beim Fischen.",
-        "Your armor disturbes you while fishing.");
+        "Your armour disturbes you while fishing.");
         return
     end
 	

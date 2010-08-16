@@ -264,7 +264,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Topasenergien von magischen Topasen haben wohl die unterschiedlichsten Wirkungen, abhï¿½ngig davon, in welchen Gegenstand man ihre Energien flieï¿½en lï¿½sst.",0,0,5);
             base.books.AddGermanBookText("So werden magische Topase von fast allen Schichten gleichermaï¿½en verwendet und geschï¿½tzt. Da sie zudem zu den seltensten Edelsteinen gehï¿½ren, macht sie das gleichzeitig auch zu den wertvollsten.",0,0,5);
             base.books.AddGermanBookText("Waffen:\n\nDie Engerien von magischen Topasen, die in eine Waffe gebunden werden machen die Klinge schï¿½rfer und verursachen so mehr Schaden beim Gegner.",205,0,5);
-            base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nIn Rï¿½stungen und Schilden bewirken Topasenergien einen hï¿½heren Schutz vor Schneidschaden.",2403,0,5);
+            base.books.AddGermanBookText("Rüstungen und Schilde:\n\nIn Rüstungen und Schilden bewirken Topasenergien einen hï¿½heren Schutz vor Schneidschaden.",2403,0,5);
             base.books.AddGermanBookText("Magierstï¿½be:\n\nTopasenergien, welche durch Magierstï¿½be flieï¿½en erhï¿½hen die Manaregernation des Trï¿½gers.",2782,0,5);
             base.books.AddGermanBookText("Werkzeuge:\n\nGegenstï¿½nde, die mit einem Werkzeug hergestellt wurden, welches mit Topasenergien verstï¿½rkt wurde, haben grundsï¿½tzlich eine hï¿½hereQualität als es normal der Fall wï¿½re.",724,0,5);
             base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken erhï¿½hen die magischen Energien von Topasen sowohl die Essenz als auch die Willenskraft des Trï¿½gers. Beides jedoch nur in halben maï¿½e, als es bei anderen Ringen der Fall ist.",83,0,5);

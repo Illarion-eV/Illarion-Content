@@ -19,7 +19,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.Encumbrence(User) then -- Sehr streife R�stung?
         base.common.InformNLS( User,
         "Deine R�stung behindert beim arbeiten.",
-        "Your armor disturbes while working." );
+        "Your armour disturbes while working." );
         return
     end
     

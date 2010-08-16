@@ -24,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     if base.common.Encumbrence(User) then -- Durch Steife R�stung behindert
         base.common.InformNLS( User,
         "Deine R�stung behindert dabei die Feldarbeit zu verrichten.",
-        "Your armor disturbes while farming." );
+        "Your armour disturbes while farming." );
         return
     end
     

@@ -30,7 +30,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Dies ist allerdings nur dann möglich, wenn der Gegenstand für solche Art von magischen Energien empfï¿½nglich ist.",0,0,toData);
     base.books.AddGermanBookText("Grundsï¿½tzlich gilt, dass jeder Gegenstand nur eine gewisse Menge magischer Energie aufnehmen kann.",0,0,toData);
     base.books.AddGermanBookText("Einmal ï¿½bertragen, kann die magische Energie der Steine nicht mehr aus dem Gegenstand entfernt oder oder mit anderen Energien ï¿½berlagert werden.",0,0,toData);
-    base.books.AddGermanBookText("Grundsï¿½tzlich lï¿½sst sich sagen, dass Waffen, Rï¿½stungen, Magierstï¿½be und Werkzeuge die Engerien von zwei Steinen aufnehmen können.",0,0,toData);
+    base.books.AddGermanBookText("Grundsï¿½tzlich lï¿½sst sich sagen, dass Waffen, Rüstungen, Magierstï¿½be und Werkzeuge die Engerien von zwei Steinen aufnehmen können.",0,0,toData);
     base.books.AddGermanBookText("In Ringe hingegen kann lediglich die Energien eines Steines ï¿½bertragen werden.",0,0,toData);
     base.books.AddGermanBookText("Zudem ist bei diesen auch zu beachten, dass sich die Energien der magischen Steine mit ggf. eingesetzten Steinen gleichen muss.",0,0,toData);
 end;

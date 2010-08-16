@@ -175,7 +175,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaï¿½en bedeutsam.",0,0,3);
 			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Blausteinen die Grundlage für viele Arten von Schutzmagie sind.",0,0,3);
             base.books.AddGermanBookText("Waffen:\n\nLï¿½sst man die magischen Energien von Blausteinen in eine Waffe einflieï¿½en, so steigert sich dadurch die Fï¿½higkeit des Trï¿½gers zur Verteidigung.",2626,0,3);
-			base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nIn Rï¿½stungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
+			base.books.AddGermanBookText("Rüstungen und Schilde:\n\nIn Rüstungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
 			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
 			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualität des Werkzeuges.",72,0,3);
 			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Körper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);

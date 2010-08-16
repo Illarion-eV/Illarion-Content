@@ -205,7 +205,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Moshran hat viele Gestalten. Sie erscheint in den unheiligen Bestien und der unheilbaren Seuche. Aber in jenen Zeiten war sie als der gierige Mann bekannt.", 0, 0, 2 );
             base.books.AddGermanBookText( " Der Gierige Mann lebte viele Monate unter den Zwergen. Vielleicht war er einst ein ganz normaler Mann, aber als Moshran in ihn eindrang, wurde er zum Gierigen Mann, und als dieser lebt er in der ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Erinnerung fort.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Eines Tages begab es sich, dass die Zwerge ihre Krï¿½fte verloren. Die Kraft verschwand aus den Armen der Krieger, und der Schmied konnte nicht lï¿½nger den Hammer heben um Rï¿½stungen und ï¿½xte zu ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Eines Tages begab es sich, dass die Zwerge ihre Krï¿½fte verloren. Die Kraft verschwand aus den Armen der Krieger, und der Schmied konnte nicht lï¿½nger den Hammer heben um Rüstungen und ï¿½xte zu ", 0, 0, 2 );
             base.books.AddGermanBookText( " schmieden. Die Stammesï¿½ltesten waren ï¿½berzeugt, dass Irmorom verï¿½rgert sein musste, während andere behaupteten, Irmorom habe sie für immer verlassen. ", 0, 0, 2 );     
             base.books.AddGermanBookText( " Da trat der Gierige Mann vor sie und sprach.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Das Volk der Zwerge ist faul und fett geworden. Ich habe die Geschenke Irmorom gestohlen. Ich hab das Gold gestohlen, auf dass ihr für immer grabt und grabt und eure Hï¿½nde leer bleiben.", 0, 0, 2 );

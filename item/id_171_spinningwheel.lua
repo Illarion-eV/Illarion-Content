@@ -38,7 +38,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if base.common.Encumbrence(User) then -- Sehr streife R�stung?
         base.common.InformNLS( User,
         "Deine R�stung behindert beim spinnen.",
-        "Your armor disturbes you while spinning." );
+        "Your armour disturbes you while spinning." );
         return
     end
     

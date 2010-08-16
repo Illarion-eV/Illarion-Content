@@ -96,7 +96,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- 0 - 360
             Stiffness = base.common.GetStiffness( Person );
 
-            -- Der dreifache Wert der Rï¿½stungssteifheit wird vom Schaden abgezogen ( max. -1080 )
+            -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 3;
 
             -- Modifier für Attribute mit mehr als 10000 Punkten
@@ -394,28 +394,28 @@ end
 
 ---- SCHADEN AUF Rï¿½STUNGEN - HALTBARKEIT ----
 
--- Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 1er Feld
+-- Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
 function effect_55938556(User,Item)
     damageItemDura( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "armor" );
 end
 
---Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 9er Feld
+--Voller Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
 function effect_43245354(User,Item)
     damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 9er Feld
+--Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 9er Feld
 function effect_95257533(User,Item)
     local hitArea = fieldOfRadius1( checkHit( User, Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
---Voller Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
+--Voller Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
 function effect_59159412(User,Item)
     damageItemDura( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Haltbarkeits-Schaden auf Rï¿½stungen auf 21er Feld
+--Aufgeteilter Haltbarkeits-Schaden auf Rüstungen auf 21er Feld
 function effect_36557188(User,Item)
     local hitArea = fieldOfRadius2( checkHit( User, Item ) );
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
@@ -423,28 +423,28 @@ end
 
 ---- SCHADEN AUF Rï¿½STUNGEN - Qualität ----
 
---Voller Qualitäts-Schaden auf Rï¿½stungen auf 1er Feld
+--Voller Qualitäts-Schaden auf Rüstungen auf 1er Feld
 function effect_98538617(User,Item)
     damageItemQual( Item, { selectCharacter( fieldOfRadius1( checkHit( User, Item ) ) ) }, 4, 5, 1, "armor" );
 end
 
---Voller Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
+--Voller Qualitäts-Schaden auf Rüstungen auf 9er Feld
 function effect_79684787(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 9er Feld
+--Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 9er Feld
 function effect_32484266(User,Item)
     local hitArea = fieldOfRadius1( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
---Voller Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
+--Voller Qualitäts-Schaden auf Rüstungen auf 21er Feld
 function effect_96261935(User,Item)
     damageItemQual( Item, fieldOfRadius1( checkHit( User, Item ) ), 4, 5, 1, "armor" );
 end
 
---Aufgeteilter Qualitäts-Schaden auf Rï¿½stungen auf 21er Feld
+--Aufgeteilter Qualitäts-Schaden auf Rüstungen auf 21er Feld
 function effect_26372612(User,Item)
     local hitArea = fieldOfRadius2( checkHit( User, Item ) );
     damageItemQual( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
