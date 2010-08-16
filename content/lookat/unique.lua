@@ -30,7 +30,7 @@ local SUFFIX_EN = {"","","","","","",""};
 			SUFFIX_DE={"der Unzerstï¿½rbarkeit","der Genauigkeit","des Großmeisters","des Todes","der Unantastbarkeit","des Greifs","des Drachen"}
             SUFFIX_EN={"of endurance","of precision","of the weapons master","of the undead","of defense","of the griffin","of the dragon"}
 		end
-	-- ** Suffix für die Rï¿½stung / Schilde **
+	-- ** Suffix für die Rüstung / Schilde **
 	elseif (Class==3 or Class==4) then
 		-- Stärke
 		if Str==5 then -- Sufe 6
@@ -172,7 +172,7 @@ local PRAEFIX_EN = {"","","","","","",""};
             PRAEFIX_DE={"unzerstï¿½rbare","exakte","heldenhafte","lethale","defensive","rasende","tï¿½dliche"}
             PRAEFIX_EN={"indestructible","exact","heroic","lethal","master","wild","deadly"}
         end
-    -- ** Suffix für die Rï¿½stung / Schilde **
+    -- ** Suffix für die Rüstung / Schilde **
     elseif (Class==3 or Class==4) then
         -- Stärke
         if Str==5 then -- Sufe 6
@@ -258,7 +258,7 @@ end
 -- @param: integer - Class-ID des betrachteten Items
 -- @return: text - String der Item-Klasse
 function writeClass(User,Class)
-    GEM_CLASS_DE={ "die Waffe", "die Waffe", "die Rï¿½stung", "den Schild", "den Stab", "das Werkzeug", "das Schmuckstï¿½ck" }
+    GEM_CLASS_DE={ "die Waffe", "die Waffe", "die Rüstung", "den Schild", "den Stab", "das Werkzeug", "das Schmuckstï¿½ck" }
     GEM_CLASS_EN={ "weapon", "weapon", "armor", "shield", "wand", "tool", "jewel" }
     if User:getPlayerLanguage() == 0 then
         ItemCl=GEM_CLASS_DE[Class];

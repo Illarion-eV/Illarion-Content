@@ -27,7 +27,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Man kann magische Edelsteine am Alter eines der fï¿½nf alten Götter umwandeln. Dabei ergeben immer 3 Steine gleicher Stärke einen Stein von hï¿½herer Qualität.",0,0,toData);
     base.books.AddGermanBookText("Das Umwandeln solcher Steine gelingt nicht immer. Je hï¿½her die Qualität ist, die erreicht werden soll, desto Grüßer ist die Gefahr dass der Umwandlungsversuch fehlschlï¿½gt.",0,0,toData);
     base.books.AddGermanBookText("Steine mit magischen Eigenschaften können dazu genutzt werden um die ihnen innewohnenden Krï¿½fte auf bestimmte Gegenstï¿½nde zu ï¿½bertragen.",0,0,toData);
-    base.books.AddGermanBookText("Dies ist allerdings nur dann mï¿½glich, wenn der Gegenstand für solche Art von magischen Energien empfï¿½nglich ist.",0,0,toData);
+    base.books.AddGermanBookText("Dies ist allerdings nur dann möglich, wenn der Gegenstand für solche Art von magischen Energien empfï¿½nglich ist.",0,0,toData);
     base.books.AddGermanBookText("Grundsï¿½tzlich gilt, dass jeder Gegenstand nur eine gewisse Menge magischer Energie aufnehmen kann.",0,0,toData);
     base.books.AddGermanBookText("Einmal ï¿½bertragen, kann die magische Energie der Steine nicht mehr aus dem Gegenstand entfernt oder oder mit anderen Energien ï¿½berlagert werden.",0,0,toData);
     base.books.AddGermanBookText("Grundsï¿½tzlich lï¿½sst sich sagen, dass Waffen, Rï¿½stungen, Magierstï¿½be und Werkzeuge die Engerien von zwei Steinen aufnehmen können.",0,0,toData);

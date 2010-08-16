@@ -92,7 +92,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- Schï¿½tzender AttributeEffekt vom Schaden abziehen
             Schaden = Schaden - AttribEffect;
 
-            -- Steifheit der Rï¿½stung ermitteln. Je steifer die Rï¿½stung deszo mehr wird der Schaden durch die Rï¿½stung abgefangen
+            -- Steifheit der Rüstung ermitteln. Je steifer die Rüstung deszo mehr wird der Schaden durch die Rüstung abgefangen
             -- 0 - 360
             Stiffness = base.common.GetStiffness( Person );
 
