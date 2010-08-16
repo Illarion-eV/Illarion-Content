@@ -20,7 +20,7 @@ function addEffect( Effect, Character)
     Effect:addValue("10",0);
 end;
 
-function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
+function callEffect( Effect, Char ) -- Effect wird ausgeführt
     -----------------------EINLESEN ANFANG------------------------------------
     local Hitpoints   = Char:increaseAttrib("hitpoints",0);   -- Hitpoints einlesen    ( 0 - 10000 )
     local Manapoints  = Char:increaseAttrib("mana",0);        -- Manapoints einlesen   ( 0 - 10000 )
@@ -93,7 +93,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english, "#me clenches and falls to the ground.");
                 base.common.InformNLS(Char,
-                    "Dein Magen verkrampft sich und du merkst nur noch wie dein Kï¿½rper auf dem Boden aufschlï¿½gt, bevor alles um dich dunkel wird.",
+                    "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
                     "Your stomach clenches and the last thing you feel is that your body hits the ground, before everything around you becomes dark.");
                 -------------- Meldungen fertig --------------------
             end
@@ -101,20 +101,20 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
     end
     if ( Poisonvalue > 0 ) then -- Vergiftet
         --Char:inform("poison: "..Poisonvalue);
-        Poisonvalue = math.max( 0,Poisonvalue - 15 * 5 ); -- Giftwert fï¿½llt in 2 Stunden, 46 Minuten von 10000 auf 0
+        Poisonvalue = math.max( 0,Poisonvalue - 15 * 5 ); -- Giftwert fällt in 2 Stunden, 46 Minuten von 10000 auf 0
         if ( Poisonvalue == 0 ) then -- Gift besiegt
             -------------- Meldungen ausgeben ------------------
             base.common.InformNLS(Char,
-                "Du fühlst wie das Gift in deinem Kï¿½rper seine Wirkung verliert",
+                "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
                 "You feel how the poison in your body looses its effect.");
             -------------- Meldungen fertig --------------------
         else
             Hitpoints = math.max( 0,Hitpoints - ( ( Poisonvalue * 0.07 ) * ( ( 30 - Const ) / 20 ) * 5 ) );
-            if ( Hitpoints > 0 ) then -- Geschwï¿½cht durch Gift aber kein Tod
+            if ( Hitpoints > 0 ) then -- Geschwächt durch Gift aber kein Tod
                 if ( math.random(1,40) == 2 or not Effect:findValue("poison") ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 40 Sekunden )
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
-                        "Du fühlst wie dein Kï¿½rper von innen heraus geschwï¿½cht wird.",
+                        "Du fühlst wie dein Körper von innen heraus geschwï¿½cht wird.",
                         "You feel how your body becomes weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
@@ -124,7 +124,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgefï¿½hrt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me drips some saliva out of the mouth and falls to the ground.");
                 base.common.InformNLS(Char,
-                    "Du fühlst ein Brennen in deinem Kï¿½rper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
+                    "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
                     "You feel a cauterization in your body and that the saliva concentrates in your mouth. Then the world around you becomes dark.");
             end
         end
