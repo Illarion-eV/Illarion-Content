@@ -1,6 +1,6 @@
 require("base.class")
 require("quest.leverquest")
-require("item.lever")
+--require("item.lever")
 
 -- For Fal-Fal's lever Riddle. This class handles the behaviour of the levers, but no real content of the quest. This is done in the LeverQuest class.
 
