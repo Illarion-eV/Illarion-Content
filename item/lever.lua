@@ -39,21 +39,29 @@ function init()
                                             -- the LeverQuest, such as the position of the levers, the condition
                                             -- when it is sucessfully finished and the actual state of the
                                             -- pressed levers.
-                                            -- Here, there is only one single object, questA, created for the LeverQuest-class!
+                                            -- We just need it here to get the positions of the levers. No need
+                                            -- to use the same instance as inside the levers (where we do need just
+                                            -- one instance, otherwise we would compile several different
+                                            -- QuestStrings...)
     
     riddleLever1 = base.lever.Lever(questA.levPos1,true);       -- initialize the lever positions with the usual
     riddleLever2 = base.lever.Lever(questA.levPos2,true);       -- Lever-initialization. Use the positions as
     riddleLever3 = base.lever.Lever(questA.levPos3,true);       -- stored in the LeverQuest class
     riddleLever4 = base.lever.Lever(questA.levPos4,true);
     riddleLever5 = base.lever.Lever(questA.levPos5,true);
+        
+    riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));     -- bind the action that is executed when moving
+    riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));     -- a lever and set the string that should be
+    riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));     -- appended ("1",...). In the corresponding
+    riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));     -- execute-function, this is appended to the
+    riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));     -- questString.
     
-    -- theQuest = quest.leverRiddleA.LeverRiddleAClass();
+    AddToLevers(riddleLever1);      -- Just add those levers to the list of levers...
+    AddToLevers(riddleLever2);    
+    AddToLevers(riddleLever3);
+    AddToLevers(riddleLever4);
+    AddToLevers(riddleLever5);
     
-    riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
-    riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
-    riddleLever3:bind(1,quest.leverRiddleA.LeverRiddleAClass("3"));
-    riddleLever4:bind(1,quest.leverRiddleA.LeverRiddleAClass("4"));
-    riddleLever5:bind(1,quest.leverRiddleA.LeverRiddleAClass("5"));
     --[[for x=117,119 do
         for y=632,636 do
             testlever2:bind(0,deleteItem(position(x,y,0),0));
@@ -87,11 +95,7 @@ function init()
     AddToLevers(myLev2);
     ]]--
     
-    AddToLevers(riddleLever1);
-    AddToLevers(riddleLever2);    
-    AddToLevers(riddleLever3);
-    AddToLevers(riddleLever4);
-    AddToLevers(riddleLever5);
+
 	 
 end
 
