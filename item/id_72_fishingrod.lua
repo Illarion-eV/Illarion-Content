@@ -51,6 +51,13 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
         return
     end
 	
+    if (world:getField(TargetPos):tile() ~= 6) then
+        BC_InformNLS(User,
+        "Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
+        "The chance to catch a fish is much higher in the water than on the land.");
+        return
+    end
+	
 	if not base.common.IsLookingAt(User, TargetPos) then -- Drehen wenn nï¿½tig
         base.common.TurnTo(User, TargetPos);
     end
