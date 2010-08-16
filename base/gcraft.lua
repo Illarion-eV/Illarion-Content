@@ -39,6 +39,10 @@ function GCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
+	gc.RandomItems = {};
+	gc.InterruptMsg = {};
+	gc.Monsters = {};
+	gc.TreasureMsg = {};
     return gc;
 end
 
