@@ -13,6 +13,6 @@ function LeverRiddleAClass:execute()        -- this function gets called when a 
     if questA==nil then     -- only create ONE object of the quest to make sure that every lever uses the same quest-string.
         questA=quest.leverquest.LeverQuest();   -- at the first execution, create an object of that class.
     end
-    questA=quest.leverquest.getnext();
+    
     questA:addToString(self.toAdd);  -- add the char to the quest-string that is member of the quest-class (LeverQuest) 
 end
