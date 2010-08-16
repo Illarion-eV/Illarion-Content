@@ -327,7 +327,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("\"Die Ernte\" so schimpft sie \"ist nicht eingefahren.\"\n \"Und diese Mï¿½ntel\" bemerkt sie \"sind zu dï¿½nn sie zu tragen.\"\n",0,5,7);
 			base.books.AddGermanBookText("\"Dein Tagewerk hast du nicht verrichtet, schlimmes Schicksal uns droht.\n \"Und im Winter, sag ich dir, wirds uns fehlen an Brot!\"\n \n",0,5,7);
 			base.books.AddGermanBookText("Mit Geschrei und Gelï¿½chter, fing er an ihr zu gestehn.\n \"Oh, lustige Ehefrau! Diese Dinge waren lï¿½ngst schon versehn!\"\n",0,5,7);
-			base.books.AddGermanBookText("\"Die Frï¿½chte pflï¿½ckt ich letzte Woche schon, sie lagern im Keller.\"\n \"Und neue Mï¿½ntel beschafft ich auch, kostet'n sie auch manch teuren Heller!\"\n \n",0,5,7);
+			base.books.AddGermanBookText("\"Die Früchte pflï¿½ckt ich letzte Woche schon, sie lagern im Keller.\"\n \"Und neue Mï¿½ntel beschafft ich auch, kostet'n sie auch manch teuren Heller!\"\n \n",0,5,7);
 			base.books.AddGermanBookText("Er herzt sie und neckt sie, erklï¿½rt eifrig und viel.\n \"Nicht Bitternis noch Kï¿½lte wird diesen Herbst ï¿½ber dich zieh'n!\"\n",0,5,7);
 			base.books.AddGermanBookText("\"Hab geschwitzt und geschuftet. Geackert fast bis ins Grab!\n Tat dieses tat jenes, damit du's wohl haben mag'st!\"\n \n",0,5,7);
 			base.books.AddGermanBookText("So gesprochen eilte jener hinaus, von ihren Worten verletzt,\n Ungesehn sprach jedoch er \"Nichts von alldem hab getan ich!\" entsetzt.\n",0,5,7);

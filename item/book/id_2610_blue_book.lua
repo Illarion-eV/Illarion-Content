@@ -198,7 +198,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( " Under my guard and my bless, Thiron, you shall be the first of many more to come, to bring my words to the dwarves. Never again, a greedy creature shall enter the lands of the dwarves. ", 0, 0, 2 );
             base.books.AddEnglishBookText( " Give your knowledge to those, who are ready to spend their lives to serve me. Thiron, Keeper Of The Forge!' ", 0, 0, 2 ); 
             base.books.AddEnglishBookText( " A Saga from the temple library of Silverbrand, translated by Einkill Al'Ad Kï¿½zï¿½r, Man-At-Arms of Irmorom ", 0, 0, 2 );
-            base.books.AddGermanBookText( " In einer lï¿½ngst vergangenen Zeit, als das Volk der Zwerge noch jung war, herrschte Frieden im Land. Die Sonne schien, die Frï¿½chte auf den Feldern gediehen, und die Zwerge lebten glï¿½cklich in dem ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " In einer lï¿½ngst vergangenen Zeit, als das Volk der Zwerge noch jung war, herrschte Frieden im Land. Die Sonne schien, die Früchte auf den Feldern gediehen, und die Zwerge lebten glï¿½cklich in dem ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Frieden, den ihnen Irmorom beschert hatte. Doch mit der Zeit wurden die Zwerge selbstgefï¿½llig und faul und nahmen das Land und all die Gaben, die ihnen Irmorom geschenkt hatte, als ", 0, 0, 2 );
             base.books.AddGermanBookText( " selbstverstï¿½ndlich hin. Sie vergaï¿½en oder verdrï¿½ngten den Gedanken, dass Moshran immer lauert und Freude daran hat, Irmorom und sein auserwï¿½hltes Volk zu quï¿½len. Und so geschah es, dass ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Moshran zu den Zwergen kam. ", 0, 0, 2 );   
