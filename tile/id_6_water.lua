@@ -1,4 +1,4 @@
--- Fishing Script fÃ¼r Echsen
+-- Fishing Script für Echsen
 
 -- UPDATE tiles SET til_script='tile.id_6_water' WHERE til_id = 6;
 
@@ -47,13 +47,13 @@ function useTile(User,Position,counter,param,ltstate)
         return
     end
 
-    -- Angeln unterirdisch nicht mï¿½glich
+    -- Angeln unterirdisch nicht möglich
     if (Position.z < 0) then
     	base.common.InformNLS(User,"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.","Fishing in underground waterholes won't be successful.");
 	    return
     end
 
-    if base.common.Encumbrence(User) then -- Durch Steife Rï¿½stung behindert
+    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
         base.common.InformNLS( User,
         "Deine Rüstung behindert dich beim Fischen.",
         "Your armour disturbes you while fishing." );

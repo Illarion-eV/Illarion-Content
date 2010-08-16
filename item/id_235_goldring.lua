@@ -21,11 +21,11 @@ function LookAtItem(User,Item)
         else
             world:itemInform(User,Item,"You see a golden wedding ring with the gravure: Roveig and Katarine, 7.Day of Eldas in the 23.Year")
         end
-	elseif ( Item.data == 103) then -- Dajmaï¿½l's Ring
+	elseif ( Item.data == 103) then -- Dajmail's Ring
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen goldenen Ring mit der Gravur: Dajmaï¿½l und Nordwind")
+            world:itemInform(User,Item,"Du siehst einen goldenen Ring mit der Gravur: Dajmail und Nordwind")
         else
-            world:itemInform(User,Item,"You see a golden ring with the gravure: Dajmaï¿½l and Northwind")
+            world:itemInform(User,Item,"You see a golden ring with the gravure: Dajmail and Northwind")
         end
 
         -------------------------------- QUESTRINGE [ Data > 500 ] ------------------------------------------------------------------------------------
@@ -37,11 +37,11 @@ function LookAtItem(User,Item)
         end
     elseif ( Item.data == 10000) then  -- Ring der Akademie
         if (User:getPlayerLanguage()==0) then
-            world:itemInform(User,Item,"Du siehst einen auffï¿½lligen Ring.");
+            world:itemInform(User,Item,"Du siehst einen auffälligen Ring.");
         else
             world:itemInform(User,Item,"You see a peculiar dagger.");
         end
-    elseif (Item.data == 800) then -- Questitem für Noradur (Char lï¿½st sich ig auf - teleport zum gm schloss)
+    elseif (Item.data == 800) then -- Questitem für Noradur (Char löst sich ig auf - teleport zum gm schloss)
         if ( (User:isAdmin()) or (User.id==923280786)) then -- nur für gm
             if (User:getPlayerLanguage()==0) then
                 world:itemInform(User,Item,"Auf dem Ring sind am Rand verschlungene arkane Symbole zu erkennen.");
@@ -104,7 +104,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
             -- Trauring von Roveig und Katarine
         elseif ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and (TargetItem.data == 101
             or TargetItem.data == 102) and (User.id==479308490 or User.id==975152582) ) then
-                User:inform("Als du den Ring anlegst, ï¿½berkommt Dich ein wohliges Gefï¿½hl");
+                User:inform("Als du den Ring anlegst, überkommt Dich ein wohliges Gefühl.");
             end
         end
     end
@@ -115,7 +115,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
                 if ((Character:increaseAttrib("essence",0)+Character:increaseAttrib("willpower",0)+Character:increaseAttrib("intelligence",0))>29) then
                     return true;
                 else
-                    base.common.InformNLS( Character,"Ein warnendes Kribbeln durchstrï¿½hmt deinen Arm als du den Ring berï¿½hrst. Du willst ihn lieber nicht anlegen.","A warning prickle travels through your arm as you touch the ring. You seems, it is better to let them lay.");
+                    base.common.InformNLS( Character,"Ein warnendes Kribbeln durchströhmt deinen Arm als du den Ring berührst. Du willst ihn lieber nicht anlegen.","A warning prickle travels through your arm as you touch the ring. You seems, it is better to let them lay.");
                     return false;
                 end
             end
@@ -124,7 +124,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
                 if ( Character.id == 489898022) then
                     return true;
                 else
-                    base.common.InformNLS( Character,"Ein warnendes Kribbeln durchstrï¿½hmt deinen Arm als du den Ring berï¿½hrst. Du willst ihn lieber nicht anlegen.","A warning prickle travels through your arm as you touch the ring. You seems, it is better to let them lay.");
+                    base.common.InformNLS( Character,"Ein warnendes Kribbeln durchströhmt deinen Arm als du den Ring berührst. Du willst ihn lieber nicht anlegen.","A warning prickle travels through your arm as you touch the ring. You seems, it is better to let them lay.");
                     return false;
                 end
             end
@@ -184,7 +184,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         if (SourceItem.data == 800) then
             if ( (User:isAdmin())  or (User.id==923280786) ) then -- nur für gm!!
                 if ( string.find( User.lastSpokenText, "[Aa][Ss][Tt][Rr][Aa][Ll]" ) ~= nil ) then
-                    User:talkLanguage( CCharacter.say, CPlayer.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollstï¿½ndig auflï¿½st.");
+                    User:talkLanguage( CCharacter.say, CPlayer.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollständig auflöst.");
                     User:talkLanguage( CCharacter.say, CPlayer.english, "#me's outlines begins to glimmer, before his form dissolves completely.");
                     world:gfx(52,User.pos);
                     User:warp(position(-37,-193,1));
