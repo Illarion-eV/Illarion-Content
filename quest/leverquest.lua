@@ -36,7 +36,7 @@ function LeverQuest:addToString(char)                   -- This is called by the
     end
 end
 
-function LeverQuest:shuffleSequence()
+function LeverQuest:shuffleSequence()       -- shuffles self.corrSequence
     for i=1, 20 do
         removeAt=math.random(5);
         insertAt=math.random(5);
@@ -44,16 +44,17 @@ function LeverQuest:shuffleSequence()
         table.remove(self.corrSequence,removeAt);
         table.insert(self.corrSequence,insertAt,removeVal);
     end
-    
-        plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
-        for i, player in pairs(plyList) do
-            player:inform("neue sequenz:"..self.corrSequence[1]..self.corrSequence[2]..self.corrSequence[3]..self.corrSequence[4]..self.corrSequence[5]);      -- replace this with the true consequence
-        end
-    
 end
 
-function LeverQuest:checkSuccess()
-    if (self.theString=="12345") then       -- replace this by the true condition
+function LeverQuest:checkSuccess()          -- checks, if the sequence is right
+
+        correctString=self.corrSequence[1] .. self.corrSequence[2] .. self.corrSequence[3] .. self.corrSequence[4] .. self.corrSequence[5]
+        plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
+        for i, player in pairs(plyList) do
+            player:inform("checking against "..correctString);      -- replace this with the true consequence
+        end
+
+    if (self.theString==correctString) then       -- replace this by the true condition
         plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
         for i, player in pairs(plyList) do
             player:inform("GEWONNEN");      -- replace this with the true consequence
@@ -64,7 +65,7 @@ function LeverQuest:checkSuccess()
     self:resetLevers();
 end
 
-function LeverQuest:resetLevers()
+function LeverQuest:resetLevers()           -- resets the levers to initial position after all 5 have been moved
     local LeverList={self.levPos1,self.levPos2,self.levPos3,self.levPos4,self.levPos5};
     local LeverType={self.levTyp1,self.levTyp2,self.levTyp3,self.levTyp4,self.levTyp5};
     for i, lvPo in pairs(LeverList) do
