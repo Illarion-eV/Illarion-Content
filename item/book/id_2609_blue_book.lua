@@ -30,7 +30,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Die Langlebigkeit der Elfen beinfluï¿½t oft ihre Sicht auf Probleme. Grüßere Probleme eines Menschen sind nicht so tragisch für einen Elfen, da sie schon früher Dinge dieser Natur erfahren haben.",0,0,0);
             base.books.AddGermanBookText("Da sie viel Zeit haben, warten sie oft, bis ein gesellschaftlicher Konflikt vorbei ist. Ihre Geduld ist riesig und kann nicht mit der der anderen Rassen verglichen werden.",0,0,0);
             base.books.AddGermanBookText("Sie sind bekannt für ihr Geschick mit Bogen und langen einhï¿½ndigen Schwertern. Bedingt durch ihre Waffenwahl bevorzugen sie leichte Rï¿½stung. Ihre Sinne sind sehr gut entwickelt, vor allem im Dunkeln. ",0,0,0);
-            base.books.AddGermanBookText("Elfen sind in beinahe allen magischen Schulen talentiert, sie haben jedoch eine Neigung zu Krï¿½uterkunde und allen ï¿½hnlichen Dinge. Der Grund dafür ist ihre enge Verbindung zur Natur.",0,0,0);
+            base.books.AddGermanBookText("Elfen sind in beinahe allen magischen Schulen talentiert, sie haben jedoch eine Neigung zu Kräuterkunde und allen ï¿½hnlichen Dinge. Der Grund dafür ist ihre enge Verbindung zur Natur.",0,0,0);
             base.books.AddGermanBookText("Elfisches Handwerk kann sehr erlesen sein, jedoch ist das nicht auf irgend ein spezielles Talent zurückzufï¿½hren, sondern auf die Menge an Zeit, welche sie brauchen um ihre Produkte zu perfektionieren.",0,0,0);
             base.books.AddGermanBookText("Der Familienname wird einem Fremden nie gesagt, um Flï¿½che auf die Familie zu verhindern.",0,0,0);
 

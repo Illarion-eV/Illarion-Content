@@ -56,7 +56,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if (User:countItemAt("belt",735)==0) and (User:countItemAt("belt",733)==0) then -- Getreidebï¿½ndel im Gï¿½rtel
+    if (User:countItemAt("belt",735)==0) and (User:countItemAt("belt",733)==0) then -- Getreidebï¿½ndel im Gürtel
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
             "Wenn du keine Steine hast, kannst du auch keine behauen.", 

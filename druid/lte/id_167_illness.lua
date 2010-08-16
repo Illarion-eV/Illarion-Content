@@ -150,7 +150,7 @@ function getEffect_4(Character,Runde)
      richtung = richtung + 4
      if richtung > 6 then richtung = 0 end
 
---    Kï¿½rper drehen, Schritte machen
+--    Körper drehen, Schritte machen
       Character:setAttrib("faceto",richtung)
       Character:move(richtung, true);
 
@@ -252,7 +252,7 @@ function getEffect_5(Character,Effect,Runde)
 	end
 	if doInform or Runde-(math.floor(Runde/60)*60) == 0 then
 		base.common.InformNLS(Character,
-			"#w An deinem Kï¿½rper haben sich rote, stark juckende Pusteln gebildet."..(doInform and " Du kannst jene Kleidung nicht am Kï¿½rper halten." or ""),
+			"#w An deinem Körper haben sich rote, stark juckende Pusteln gebildet."..(doInform and " Du kannst jene Kleidung nicht am Körper halten." or ""),
 			"#w All over your body you find little red terribly itching blisters."..(doInform and " You can't keep that clothes at your body." or ""));
 	end
 -- Krankheit verbreiten:
@@ -386,14 +386,14 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 			if immunityEffect:findValue("immunity_"..illness) then
 
 				base.common.InformNLS(Character,
-					"#w Du spï¿½rst wie die Krankheit von dir Besitz ergreifen will, doch dein Kï¿½rper wehrt sich erfolgreich.",
+					"#w Du spï¿½rst wie die Krankheit von dir Besitz ergreifen will, doch dein Körper wehrt sich erfolgreich.",
 					"#w You feel the illness trying to take control over you, but your body can resist.");
 				Character.effects:removeEffect(167);
 				return;
 			end
 		end
 		base.common.InformNLS(Character,
-			"#w Du fühlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Kï¿½rper.",
+			"#w Du fühlst dich auf einmal ganz seltsam. Irgendetwas stimmt nicht mit deinem Körper.",
 			"#w You suddenly have a very strange feeling. Something's wrong with your body.");
 		if illness == 3 then
 			--  Sprachskills sichern
@@ -494,7 +494,7 @@ function removeEffect(Effect,Character)
 	-- if illness is removed as usual and not due to immunity, then inform player and create gfx
 	if not foundImmunity then
 		base.common.InformNLS(Character,
-			"#w Du spï¿½rst wie die Krankheit aus deinem Kï¿½rper weicht und du neue Kraft bekommst.",
+			"#w Du spï¿½rst wie die Krankheit aus deinem Körper weicht und du neue Kraft bekommst.",
 			"#w You feel the illness withdrawing from your body and you regain your strength.");
 		world:gfx(45,Character.pos);
 	end

@@ -47,7 +47,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if (User:countItemAt("belt",249)==0) then -- Getreidebï¿½ndel im Gï¿½rtel
+    if (User:countItemAt("belt",249)==0) then -- Getreidebï¿½ndel im Gürtel
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
             "Was willst du mich dem Dreschflegel bearbeiten? Dich selbst?", 

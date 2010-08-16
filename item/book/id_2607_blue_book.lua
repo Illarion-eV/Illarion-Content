@@ -90,7 +90,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Und zwar Frï¿½hstï¿½ck, Mittagessen und Abendbrot!",0,0,1);
             base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermï¿½uler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag ï¿½ber die Kochkï¿½nste hï¿½lt.",0,0,1);
             base.books.AddGermanBookText("Es ist nicht unï¿½blich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschï¿½ftigen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Krï¿½utersammler.",0,0,1);
+            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Kräutersammler.",0,0,1);
             base.books.AddGermanBookText("In den Dï¿½rfern findet man hï¿½ufig kleine Oldra-Schreine. Tatsï¿½chlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
             base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne für Diebstï¿½hle genutzt.",0,0,1);
             base.books.AddGermanBookText("Es ist ratsam, Halblinge im Auge zu behalten, die mit dem Zeichen Ronagans geschmï¿½ckt sind, sie kï¿½nnten Bï¿½ses im Schilde fï¿½hren.",0,0,1);
@@ -130,7 +130,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( " Those holy rings are the sign for steadiness and the endless love of the couple, that can be competed by their ability to hold their drinks and their faith only...", 0, 0, 2 );
             base.books.AddGermanBookText( " Seit den Orkkriegen waren die Stï¿½mme der Zwerge weit verteilt ï¿½ber die Lï¿½nder, doch stets hielten sie fest an ihrem Glauben und an ihren Traditionen.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " So war auch das Fest der Bindung eine von ihnen die den Zwergen oft schon die heitersten Momente brachte...", 0, 0, 2 );
-            base.books.AddGermanBookText( " Doch der Krieg und das andauernde Leid wï¿½hrend diesem lies den Drang sich an Liebe zu Binden erschwachen in den tapferen Herzen der Brï¿½der und so lebten sie sich immer weiter auseinander. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Doch der Krieg und das andauernde Leid während diesem lies den Drang sich an Liebe zu Binden erschwachen in den tapferen Herzen der Brï¿½der und so lebten sie sich immer weiter auseinander. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stï¿½mmen, die in verschiedenen Bergen hausten, zerriss und sie mehr für sich als für einander waren. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschï¿½pfen wiederfahren war und so lockte er den großen Schmied Ragnï¿½l Erik's Sohn und die große Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
             base.books.AddGermanBookText( " die beiden verschiedene Stï¿½mme fï¿½hrten mit Hilfe einer List in ein entlegenes Bergwerk das schon seit langem verlassen war. ", 0, 0, 2 );   
@@ -143,7 +143,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Kaum das der edle Schmied dies gesagt hatte blitzte die Gier in den Augen der ï¿½ltesten und ohne auch nur ï¿½ber die Hochzeit zu reden machten sie sich auf in die Minen um all das ", 0, 0, 2 );
             base.books.AddGermanBookText( " Gold und die Edelsteinen hinfortzutragen. Das erzï¿½rnte Irmorom so sehr das er persï¿½nlich vom heiligen Berg des Ursprungs herunterkam und als der Langbart, als den man ihn ", 0, 0, 2 );   
             base.books.AddGermanBookText( " schon oft gesehen hatte, unter die Zwerge trat. Er sprach zu den ï¿½ltesten: 'Seht euch an ihr die ihr euch die Weisen und edlen nennt ihr solltet euch schï¿½men der  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Gier zu frï¿½nen wï¿½hrend euer neuer Kï¿½nig nach der Liebe einer Kriegernï¿½n trachtet die all eure Probleme lï¿½sen kï¿½nnte.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Gier zu frï¿½nen während euer neuer Kï¿½nig nach der Liebe einer Kriegernï¿½n trachtet die all eure Probleme lï¿½sen kï¿½nnte.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Doch sie lauschten ihm nicht denn die Gier hatte sie Blind und taub gleichermaï¿½en gemacht und so erkannten sie ihn auch nicht. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Und als er sie weiterhin behelligte und sie ermahnte da hoben sie alle ihre Finger und zeigten ihre Ringe die bewiesen das sie die ï¿½ltesten waren und sprachen voller ï¿½bermut zu ihm: ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Wir sind die Ohren und Mï¿½nder Irmoroms und was wir sagen ist Gesetz ein einfacher wie du sollte sich nicht mit uns messen!' ", 0, 0, 2 );
@@ -178,7 +178,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Rï¿½stungen und Schilde:\n\nIn Rï¿½stungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
 			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
 			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualität des Werkzeuges.",72,0,3);
-			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Kï¿½rper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
+			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Körper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
 			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Blausteins in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
 
 

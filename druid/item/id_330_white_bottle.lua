@@ -148,7 +148,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 
         if User.attackmode then
             base.common.InformNLS( User,
-            "Du kannst nichts trinken wï¿½hrend du kï¿½mpfst.",
+            "Du kannst nichts trinken während du kï¿½mpfst.",
             "You can't drink something while fighting." );
             return
         end

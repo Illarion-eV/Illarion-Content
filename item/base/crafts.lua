@@ -578,7 +578,7 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
 			end
 			if not foundSlot then
 				base.common.TempInformNLS(User,
-					"Du hast keinen Platz mehr in deinem Gï¿½rtel.",
+					"Du hast keinen Platz mehr in deinem Gürtel.",
 					"You have no room left in your belt.");
 				return;
 			end

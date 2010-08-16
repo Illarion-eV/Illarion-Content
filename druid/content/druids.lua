@@ -19,7 +19,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Druiden machen nur Profit im friedlichen und harmonischen Miteinander mit ihren Nachbarn.",0,0,toData);
     base.books.AddGermanBookText("Ein Druide ist immer freundlich, was sich in seiner liebenswï¿½rdigen Art ausdrï¿½ckt.",0,0,toData);
     base.books.AddGermanBookText("Einen Druiden zu bedrohen, kann große Gefahr auslï¿½sen. Gewï¿½hnlich friedfertig, wissen Druiden nicht nur zu heilen, sondern kennen auch die Kunst der Zerstörung.",0,0,toData);
-    base.books.AddGermanBookText("Sich in einem immerwï¿½hrenden Fluss befindend, versammelt, verschmilzt und zerfliesst die Welt stï¿½ndig.",0,0,toData);
+    base.books.AddGermanBookText("Sich in einem immerwährenden Fluss befindend, versammelt, verschmilzt und zerfliesst die Welt stï¿½ndig.",0,0,toData);
     base.books.AddGermanBookText("In der Anfangszeit des Druidenzirkels der Wï¿½lder musste er die Ignoranten zï¿½geln, die sich weigerten an ein friedfertiges Leben zu glauben.",0,0,toData);
     base.books.AddGermanBookText("Druiden sind oft auch Alchemisten!",0,0,toData);
     base.books.AddGermanBookText("Um Tinte zu machen, braucht man eine mineralische Komponente, eine verdï¿½nnende und eine botanische Komponente.",0,0,toData);
@@ -49,7 +49,7 @@ function loadBook(toData)
     
     base.books.AddGermanBookText("\nEine Einfï¿½hrung in die Alchemie",0,0,toData);
     base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, kï¿½nnte man sagen.",0,0,toData);
-    base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Krï¿½utern und Substanzen, die für die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,toData);
+    base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Kräutern und Substanzen, die für die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,toData);
     base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,toData);
     base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,toData);
     base.books.AddGermanBookText("Und schlussendlich braucht man, wen wundert's, einen reichen Vorrat an Pflanzen.",0,0,toData);

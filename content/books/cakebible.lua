@@ -53,7 +53,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Die Gï¿½te des Kuchens:\n(Auch auf andere Schleckereien anwendbar)\n\nDie Qualität eines Kuchen wird an den Bisstellen im Kuchen gemessen. Sollten soviele Bisstellen vorhanden sein, dass kein Kuchen",0,0,toData);
     base.books.AddGermanBookText("mehr da ist, kann man davon ausgehen, dass der Kuchen ein guter Kucchen war.",0,0,toData);
     base.books.AddGermanBookText("Danksagung:\n\n Wir danken allen Kuchen, Keksen und Muffins, die von uns verspeist wurden und uns zu dieser Bibel inspiriert haben. Desweiteren mï¿½chten wir den Bï¿½ckern danken, ohne die es diese",0,0,toData);
-    base.books.AddGermanBookText("Leckerein nicht gebe, auï¿½erdem unseren Freunden, die uns mit Leckerein versorgt haben, wï¿½hrend wir dieses Buch schrieben\n\n Die Autoren\n Lana von Maibach und Cassandria",0,0,toData);
+    base.books.AddGermanBookText("Leckerein nicht gebe, auï¿½erdem unseren Freunden, die uns mit Leckerein versorgt haben, während wir dieses Buch schrieben\n\n Die Autoren\n Lana von Maibach und Cassandria",0,0,toData);
 end;
 
 function loadTitle(toData)

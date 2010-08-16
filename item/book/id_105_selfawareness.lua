@@ -45,7 +45,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Edelstein schleifens",270,"gemcutting");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Glasblasens",313,"glass blowing");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Angelns",72,"fishing");
-            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Krï¿½utersammelns",126,"herb lore");
+            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Kräutersammelns",126,"herb lore");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst der Alchemie",58,"alchemy");
         
             AddGermanBookText("\n \n       Wissen \n           der \n       Magie",0,0);

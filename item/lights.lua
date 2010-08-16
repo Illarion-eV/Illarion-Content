@@ -44,13 +44,13 @@ LightsOff[2856] = { on = 2855, req = { id = 43, num = 1 } }; -- grey, static
 LightsOn[2855] = { off = 2856 };
 
 ReqTexts = {};
-ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenï¿½l" };
+ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
 ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
 		base.common.TempInformNLS(User,
-			"Nimm das Licht in die Hand oder lege es am Grï¿½tel ab.",
+			"Nimm das Licht in die Hand oder lege es am Grütel ab.",
 			"Take the light into your hand or put it on your belt.");
 		return;
 	end
@@ -72,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 
 		elseif this.req then
 			base.common.TempInformNLS(User,
-				"dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gï¿½rtel.",
+				"dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
 				"You need ".. ReqTexts.english[this.req.id] .. " in your belt or hands to do that.");
 		end
 	elseif LightsOn[SourceItem.id] then

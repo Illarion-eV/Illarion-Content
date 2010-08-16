@@ -98,7 +98,7 @@ local SUFFIX_EN = {"","","","","","",""};
             SUFFIX_DE={"der Ideen","des Trï¿½ffelschweins","der ruhigen Hand","der Ameise","des Wohlbefindens","des Seepferdchens","des Novizen"}
             SUFFIX_EN={"of ideas","of the forager","of even hand","of the ant","of wellness","of seehorse","of novice"}
 		elseif Str==1 then
-            SUFFIX_DE={"des Geistesblitzes","des Adlers","des Eichhï¿½rnchens","des Lasttiers","des Gï¿½rteltiers","der Schnelligkeit","der Konzentration"}
+            SUFFIX_DE={"des Geistesblitzes","des Adlers","des Eichhï¿½rnchens","des Lasttiers","des Gürteltiers","der Schnelligkeit","der Konzentration"}
             SUFFIX_EN={"of sudden inspirations","of the eagle","of the squirrel","of the packmule","of the armadillo","of quickness","of concentration"}
 		elseif Str==2 then
             SUFFIX_DE={"der Eule","der Weitsicht","des Taschenspielers","des Stieres","der Schildkrï¿½te","der Gewandheit","des reinen Geistes"}
@@ -229,7 +229,7 @@ local PRAEFIX_EN = {"","","","","","",""};
             PRAEFIX_DE={"unverwï¿½stliche","langlebige","fachmï¿½nnische","reparierende","großartiges","flotte","herausragende"}
             PRAEFIX_EN={"unbreakable","durable","skilled","repairing","flawless","agile","prominent"}
         elseif Str==9 then -- Sufe 10
-            PRAEFIX_DE={"unzerstï¿½rende","immerwï¿½hrende","perfekte","wiederherstellende","meisterliche","flinke","formvollendete"}
+            PRAEFIX_DE={"unzerstï¿½rende","immerwährende","perfekte","wiederherstellende","meisterliche","flinke","formvollendete"}
             PRAEFIX_EN={"indestructible","everlasting","perfect","restoring","masterly","quick","overly perfect"}
 		end
 	end

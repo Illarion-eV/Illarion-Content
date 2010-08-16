@@ -323,7 +323,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Die Geschichte beginnt in einem Haus, an dessen Feuer,\n In seinem Sessel versunken saï¿½ Brewyn, dem die Wahrheit nicht teuer.\n",0,5,7);
 			base.books.AddGermanBookText("Ich muss euch warnen, dies Geschichte ist nicht für zartes Gemï¿½t.\n Dieser Halbling kein gutes Leben fï¿½hrte, und das unverblï¿½mt.\n \n",0,5,7);
 			base.books.AddGermanBookText("In einem Stuhl saï¿½ er also, frei von Mï¿½h und Plagen,\n Als herein durch die Tï¿½r kam seine Frau Annie, ihn zu fragen,\n",0,5,7);
-			base.books.AddGermanBookText("an seine Seite zu treten, sich bei ihm zu beschwer'n\n zu nï¿½rgeln, wï¿½hrend er so tat als kï¿½nnte er nicht mehr hï¿½r'n.\n \n",0,5,7);
+			base.books.AddGermanBookText("an seine Seite zu treten, sich bei ihm zu beschwer'n\n zu nï¿½rgeln, während er so tat als kï¿½nnte er nicht mehr hï¿½r'n.\n \n",0,5,7);
 			base.books.AddGermanBookText("\"Die Ernte\" so schimpft sie \"ist nicht eingefahren.\"\n \"Und diese Mï¿½ntel\" bemerkt sie \"sind zu dï¿½nn sie zu tragen.\"\n",0,5,7);
 			base.books.AddGermanBookText("\"Dein Tagewerk hast du nicht verrichtet, schlimmes Schicksal uns droht.\n \"Und im Winter, sag ich dir, wirds uns fehlen an Brot!\"\n \n",0,5,7);
 			base.books.AddGermanBookText("Mit Geschrei und Gelï¿½chter, fing er an ihr zu gestehn.\n \"Oh, lustige Ehefrau! Diese Dinge waren lï¿½ngst schon versehn!\"\n",0,5,7);
@@ -336,7 +336,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Sie saï¿½en gemï¿½tlich bei Brot und bei Wein,\n lieï¿½en Arbeit und Erntemonat und Fï¿½nfe gerade sein.\n \n",0,5,7);
 			base.books.AddGermanBookText("Brewyn klopfte an ihr Tor, doch war er nirgends gern gesehn,\n niemand mag einen Lï¿½gner, niemand hï¿½rte sein Flehen.\n",0,5,7);
 			base.books.AddGermanBookText("Brewyn sank auf die Knie, die Augen mit Trï¿½nen gefï¿½llt.\n Als vom Himmel hinabflog eine Fee, sï¿½ï¿½e Stimme in ein Liedchen gehï¿½llt:\n \n",0,5,7);
-			base.books.AddGermanBookText("\"Bitte hï¿½r mich an Hï¿½bscher, wï¿½hrend ich dich umschwirr,\n als Fee, so schwï¿½r ich, zeig ich einen Weg dir aus deinem Gewirr.\"\n",0,5,7);
+			base.books.AddGermanBookText("\"Bitte hï¿½r mich an Hï¿½bscher, während ich dich umschwirr,\n als Fee, so schwï¿½r ich, zeig ich einen Weg dir aus deinem Gewirr.\"\n",0,5,7);
 			base.books.AddGermanBookText("\"Wenn mit Wahrheit du gibst Antwort, dann, so wirst du verschont.\"\n \"Wenn mir Lï¿½gen du erzï¿½hlst, wirst du alles and're als belohnt!\"\n \n",0,5,7);
 			base.books.AddGermanBookText("Und so fragte sie ihre Frage, sah ihn ganz genau an:\n \"Deine Arbeiten im nï¿½chsten Jahr du früher erledigst, darauf vertrauen ich kann?\"\n",0,5,7);
 			base.books.AddGermanBookText("Streng gab er sein Bestes, versuchte es zu schaffen,\n doch als Antwort nur Lï¿½gen aus seinem Mund herausklaffen.\n \n",0,5,7);

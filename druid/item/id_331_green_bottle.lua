@@ -104,7 +104,7 @@ function LookAtItem(User,Item)
         "You look at a sticker telling: \"Healing Potion \"" ) );
     else
         world:itemInform( User, Item, base.common.GetNLS( User,
-        "Du siehst ein Flaschenetikett mit der Aufschrift: \"Krï¿½utersud\"",
+        "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
         "You look at a sticker telling: \"Herbage Broth\"" ) );
     end
 end

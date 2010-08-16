@@ -21,7 +21,7 @@ function loadBook(toData)
     base.books.AddEnglishBookText("Sometimes, I hear, we live in Gynkese communities, or even Salkamaerian one. We work as servants, messengers, or merchants there. Sometimes, even as alchemists!",0,0,toData);
 
     base.books.AddGermanBookText("\n \n Das Volk der Goblins",0,0,toData);
-    base.books.AddGermanBookText("Wir, die Goblins, stehen in einer gewissen Beziehung zu Orks, glaube ich. Sicher, wir sind flinker und gewitzter. Wir haben große Augen, Ohren und Mï¿½nder. Unser ganzer Kï¿½rper ist mit einem Kurzhaarfell bedeckt.",0,0,toData);
+    base.books.AddGermanBookText("Wir, die Goblins, stehen in einer gewissen Beziehung zu Orks, glaube ich. Sicher, wir sind flinker und gewitzter. Wir haben große Augen, Ohren und Mï¿½nder. Unser ganzer Körper ist mit einem Kurzhaarfell bedeckt.",0,0,toData);
     base.books.AddGermanBookText("Unser Gesicht weist eine grï¿½ne lederartige Haut auf. Man sagt auch, wir besï¿½ï¿½en eine Fistelstimme. Ich wurde mal mit einem Sï¿½ugling verglichen, der heult, weil er seinen Schnuller verloren hat. Was soll's.",0,0,toData);
     base.books.AddGermanBookText("Wir sind etwas klein und nicht gerade sehr stark und leben in lockeren Familienbanden, deren Fï¿½hrung sich untereinander stark unterscheidet. Wir sind nicht bï¿½se, nein, aber auch nicht auf den Kopf gefallen und wir mï¿½gen keine langweiligen Religionen.",0,0,toData);
     base.books.AddGermanBookText("Man sagt, ich würde mich schrecklich kleiden und manchmal auch muffeln, aber das glaube ich nicht. Auch dass meine Essmanieren schlecht wï¿½ren, sagt man, und das was ich esse sei nicht schmackhaft - also ich finde es kï¿½stlich.",0,0,toData);

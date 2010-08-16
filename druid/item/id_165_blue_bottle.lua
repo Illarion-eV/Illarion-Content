@@ -51,7 +51,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
    elseif Character:getItemAt(6).id == Targetitem.id_id then 
       objectInHand = true
       objectPos= 6
-	--PflegeObjekt im Gï¿½rtel (fï¿½r Zweihï¿½ndige Gegenstï¿½nde)
+	--PflegeObjekt im Gürtel (fï¿½r Zweihï¿½ndige Gegenstï¿½nde)
 	elseif Character:getItemAt(12).id == Targetitem.id_id then
       objectInHand = true
       objectPos= 12
@@ -147,7 +147,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 --
   else
   base.common.InformNLS( Character,
-            "Paste in der Hand mit einem Objekt in anderer Hand oder im Gï¿½rtel benutzen.",
+            "Paste in der Hand mit einem Objekt in anderer Hand oder im Gürtel benutzen.",
             "Paste in your hand has to be used with an object in the other hand or in the belt.");
   end
 end  -- function DoDruidism

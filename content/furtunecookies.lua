@@ -20,7 +20,7 @@ function cookie(User)
         germText="Strebe nicht an, was Du meinst erreichen zu können, sondern was Du wirklich willst!";
         englText="Anything worth doing can be done.";
     elseif (luck==6) then
-        germText="Erfolg hat nur, wer etwas tut, wï¿½hrend er auf den Erfolg wartet.";
+        germText="Erfolg hat nur, wer etwas tut, während er auf den Erfolg wartet.";
         englText="Love is like paint,...it makes things beautiful when you spread it,...but it will dry up if you don't use it.";
     elseif (luck==7) then
         germText="Das Schicksal meint es gut mit Dir.";

@@ -9,7 +9,7 @@ function loadBook(toData)
     
     base.books.AddGermanBookText("\n \n    ~Drei maï¿½gebliche Wahrheiten~ \n \n        von Brer Beothach",0,0,toData); 
     base.books.AddGermanBookText(" \n \n \n    Vorwort",0,65,toData); 
-    base.books.AddGermanBookText("Dieses Buch entstand, wï¿½hrend ich in der Wildnis Gobaiths lebte.",0,65,toData); 
+    base.books.AddGermanBookText("Dieses Buch entstand, während ich in der Wildnis Gobaiths lebte.",0,65,toData); 
     base.books.AddGermanBookText("Nachdem ich mich als Geldwechsler verdingt hatte und versuchte, der Stadt unter der Herrschaft des Gouverneurs Stephen Rothman als Magistrat zu dienen (wenn auch mehr schlecht als recht),",0,65,toData); 
     base.books.AddGermanBookText("beschloï¿½ ich, daï¿½ es das Beste wï¿½re, mich meinem Schicksal zu fï¿½gen, das durch die Flucht meines Bruders nach Gobaith besiegelt schien.",0,65,toData); 
     base.books.AddGermanBookText("Wenn man einige Zeit fernab der Zivilisation (vor allem solcher, die man nicht gerade schï¿½tzt)gelebt hat, wird man ein Gefï¿½hl von unbï¿½ndiger Freiheit spï¿½ren.",0,65,toData); 
@@ -24,7 +24,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Um die anderen beiden Grundsï¿½tze zu verstehen, ist es nï¿½tig, zuerst den Grund des Leidens zu kennen. Er ist der Grundstock, welcher den anderen ihren Sinn verleiht.",0,65,toData);
     base.books.AddGermanBookText("Tatsï¿½chlich ist er, von allen aus dem Leiden entstandenen Dingen, am schwersten zu erklï¿½ren. Ich musste die Grundlage für meine anderen Theorien definieren, wodurch dies, vor allem anderen, natürlich den grï¿½ï¿½ten Teil meiner ï¿½berlegungen in Anspruch nahm.",0,65,toData);
     base.books.AddGermanBookText("Um den Grund für das Leiden zu begreifen, muss man zuerst die Manigfaltigkeit der Welt erkennen, denn die Welt ist voll von unterschiedlichen Sitten und Persï¿½nlichkeiten, die es zu umfassen gilt. ",0,65,toData);
-    base.books.AddGermanBookText("Ob diese falsch sind, muss ein jeder für sich selbst entscheiden und wï¿½hrend ich große Reden darï¿½ber schwingen kï¿½nnte, wie die Welt ein viel besserer Ort sein kï¿½nnte, spare ich mir dies für ein weiteres Werk.",0,65,toData);
+    base.books.AddGermanBookText("Ob diese falsch sind, muss ein jeder für sich selbst entscheiden und während ich große Reden darï¿½ber schwingen kï¿½nnte, wie die Welt ein viel besserer Ort sein kï¿½nnte, spare ich mir dies für ein weiteres Werk.",0,65,toData);
     base.books.AddGermanBookText("Selbstverstï¿½ndlich werden meine Theorien Einiges aufwï¿½hlen, denn Stolz ist eine Sache die Konflikte hervorruft.",0,65,toData);
     base.books.AddGermanBookText("Obwohl diese Vielfalt nicht der Grund des Leidens ist, so ist sie doch ein Teil der Erklï¿½rung von selbigem.",0,65,toData);
     base.books.AddGermanBookText("Alleine durch unterschiedliche Brï¿½uche, würden die Leute sich nicht davon abbringen lassen, ihr eigenes Leben zu fï¿½hren und Konflikten aus dem Weg zu gehen.",0,65,toData);

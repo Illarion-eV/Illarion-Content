@@ -114,7 +114,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 if ( math.random(1,40) == 2 or not Effect:findValue("poison") ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 40 Sekunden )
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
-                        "Du fühlst wie dein Körper von innen heraus geschwï¿½cht wird.",
+                        "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
                         "You feel how your body becomes weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
@@ -252,7 +252,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     end
                 elseif ( ( Foodvalue < 1000 ) and ( Foodvalue > 100 ) ) then -- Noch 16 Minuten bis zum verhungern
                     if ( math.random(1,36) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 3 Minuten )
-                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein gut hï¿½rbares Magenknurren ist zu vernehmen.");
+                        Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein gut hörbares Magenknurren ist zu vernehmen.");
                         Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles quite audibly.");
                     end
                 elseif ( Foodvalue < 100 ) then -- Noch 1 Minute 16 Sekunden bis zum verhungern
@@ -277,7 +277,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     Foodvalue   = base.common.Limit( Foodvalue,   0, maxFoodvalue  ); -- Nahrungspunkte
     -----------------------OVERLOAD SCHUTZ FERTIG-----------------------------
 
-    --------------ï¿½NDERUNGEN PRï¿½FEN UND DURCHFï¿½HREN ANFANG--------------------
+    --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN ANFANG--------------------
     if ( getWounds( Char, Effect ) == 0 ) then
         ChangeAttrib( Char, "hitpoints", Hitpoints );
     end
@@ -287,7 +287,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     ChangeAttrib( Char, "foodlevel", Foodvalue );
 
-    --------------ï¿½NDERUNGEN PRï¿½FEN UND DURCHFï¿½HREN FERTIG--------------------
+    --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN FERTIG--------------------
 
     return leaveSavely( Effect );
 end
@@ -347,12 +347,12 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenï¿½berzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
+        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
 
-        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorï¿½ber. Die Götter gewï¿½hren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
+        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         factionValues=BF_get_Faction(Char); --reading the faction values

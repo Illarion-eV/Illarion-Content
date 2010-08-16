@@ -133,7 +133,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
 			base.books.AddGermanBookText("Viele Leute werden Dir bereitwillig Zutaten heranschaffen, wenn Du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
 			base.books.AddGermanBookText("Ein Wort der Weisheit: Verkaufe deine Gerichte nie unter Preis. Es ist schwer genug sie anzurichten.",0,0,3);
-			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da Du sonst schuften muï¿½t, wï¿½hrend die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
+			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da Du sonst schuften muï¿½t, während die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
 			base.books.AddGermanBookText("Im Folgenden nun einige meiner Lieblingsgerichte. Die angegebenen Preise in Kupfer sind nur ein Vorschlag.",0,0,3);
 
 
@@ -145,7 +145,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
 			base.books.AddGermanBookText("Fischfilet\n Grundzutaten: Forellenfilets, Kohl, Tomaten \n Einfach, 25 Kupfer.",2459,0,3); -- ### fish filet dish ###
 			base.books.AddGermanBookText("Hacke zwei Handvoll Kohl klein und koche ihn mit einem Glas Weiï¿½wein. ",0,0,3);
-			base.books.AddGermanBookText("Wï¿½rfel zwei Tomaten und fï¿½ge sie zum Kohl hinzu. Verfeinere es noch mit Krï¿½utern; ich liebe Sandbeeren mit Forelle! Lass es kï¿½cheln, bis der Kohl gar ist.",2459,0,3); -- ### fish filet dish ###
+			base.books.AddGermanBookText("Wï¿½rfel zwei Tomaten und fï¿½ge sie zum Kohl hinzu. Verfeinere es noch mit Kräutern; ich liebe Sandbeeren mit Forelle! Lass es kï¿½cheln, bis der Kohl gar ist.",2459,0,3); -- ### fish filet dish ###
 			base.books.AddGermanBookText("Nimm nun eine gute, frische Forelle und filetier sie sorgsam. Leg die Filets mit der Haut nach oben zeigend auf das kï¿½chelnde Gemï¿½se.",0,0,3);
 			base.books.AddGermanBookText("Bedecke es nun und lass es ein paar Minuten kochen, bis sich die Haut vom Filet zu lï¿½sen beginnt. ",73,0,3); -- ### trout ###
 			base.books.AddGermanBookText("Sofort servieren. Begleitend zu diesem Gericht passt ein Kelch 'Banes Claret' oder ein leicht gekï¿½hlter greenbriarscher Met.",2497,0,3); -- ### bottle of mead ###

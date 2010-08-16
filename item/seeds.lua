@@ -41,7 +41,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     if seedList == nil then
         seedList = {  };
 		
-		-- ID der Pflanze, Skill für 3 Pflanzen, Skill für 2 Pflanze, Skill für 1 Pflanze, anbaubar in {spring,summer,fall,winter}, Regionale Einschrï¿½nkung x-Koord., Regionale Einschrï¿½nkung Y-Koord.		
+		-- ID der Pflanze, Skill für 3 Pflanzen, Skill für 2 Pflanze, Skill für 1 Pflanze, anbaubar in {spring,summer,fall,winter}, Regionale Einschränkung x-Koord., Regionale Einschränkung Y-Koord.		
         
         seedList[  259 ] = { 
           246,50,30,10,              -- Getreide: -V247 -V248 (sense) -V249 ( Skript dreschen )- 246
@@ -61,7 +61,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
         seedList[ 2494 ] = {
           2490,45,20,10,
           {false,true,true ,false},
-          {nil,nil},{nil,nil} };     -- Karotten: 2490 - 2491 - 2492 - 2493( fertige Mï¿½hren )
+          {nil,nil},{nil,nil} };     -- Karotten: 2490 - 2491 - 2492 - 2493( fertige Möhren )
           
         seedList[ 2917 ] = { 
           538,10, 3, 0,
@@ -102,7 +102,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
 
     if ( SourceItem:getType() < 4 ) then
         base.common.InformNLS( User,
-        "Du brauchst dazu Saatgut im Gï¿½rtel oder in der Hand.",
+        "Du brauchst dazu Saatgut im Gürtel oder in der Hand.",
         "You'd better carry some seed in your belt or in your hands." );
         return
     end
@@ -133,7 +133,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     if (seed[6][1] ~= nil) then
         if ((TargetPos.x < seed[6][1]) or (TargetPos.x > seed[6][2])) then
             base.common.InformNLS(User,
-            "Das wï¿½chst hier nicht.",
+            "Das wächst hier nicht.",
             "This doesn't grow here.");
             return
         end
@@ -142,7 +142,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
     if (seed[7][1] ~= nil) then
         if ((TargetPos.y < seed[7][1]) or (TargetPos.y > seed[7][2])) then
             base.common.InformNLS(User,
-            "Das wï¿½chst hier nicht.",
+            "Das wächst hier nicht.",
             "This doesn't grow here.");
             return
         end
