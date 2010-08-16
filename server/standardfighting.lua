@@ -193,15 +193,15 @@ function onAttack_debug( Attacker, Defender, AttackPos )
     AddDebugText( "Showed GFX", 3, Attacker.Char );
 --]]
 
-    -- Check if the Attacked character has to be killed by a coup de grï¿½ce
+    -- Check if the Attacked character has to be killed by a coup de grace
     if CoupDeGrace( Attacker, Defender ) then
 ---[[DEBUG
-        AddDebugText( "Attack ended due Coup de grï¿½ce", 3, Attacker.Char );
+        AddDebugText( "Attack ended due Coup de gráce", 3, Attacker.Char );
 --]]
         return true;
     end
 ---[[DEBUG
-    AddDebugText( "No Coup de grï¿½ce was done", 3, Attacker.Char );
+    AddDebugText( "No Coup de gráce was done", 3, Attacker.Char );
 --]]
 
     -- generate modificators for the Attacker
@@ -211,7 +211,7 @@ function onAttack_debug( Attacker, Defender, AttackPos )
     AddDebugText( "APMod="..base.common.Round( Attacker.APMod, 2 ), 2, Attacker.Char );
 --]]
 
-    -- Generate Stiffness Mod of the armor for the Attacker
+    -- Generate Stiffness Mod of the armour for the Attacker
     Attacker = GenStiffnessMod( Attacker );
 ---[[DEBUG
     AddDebugText( "StiffnessMod="..math.floor(Attacker.StiffnessMod*100)/100, 3, Attacker.Char );
@@ -236,7 +236,7 @@ function onAttack_debug( Attacker, Defender, AttackPos )
     AddDebugText( "PositionMod="..base.common.Round( Globals.PositionMod, 2 ), 3, Attacker.Char );
 --]]
 
-    -- Generate Stiffness Mod of the armor for the Defender
+    -- Generate Stiffness Mod of the armour for the Defender
     Defender = GenStiffnessMod( Defender );
 ---[[DEBUG
     AddDebugText( "StiffnessMod="..base.common.Round( Defender.StiffnessMod, 2 ), 3, Attacker.Char );
@@ -334,10 +334,10 @@ function onAttack_debug( Attacker, Defender, AttackPos )
     AddDebugText( "Damage calculated: "..Globals.Damage, 3, Attacker.Char );
 --]]
 
-    -- deal some damage to the armor of the defender
-    BreakArmor( Defender, Globals );
+    -- deal some damage to the armour of the defender
+    Breakarmour( Defender, Globals );
 ---[[DEBUG
-    AddDebugText( "Armor damaged", 3, Attacker.Char );
+    AddDebugText( "armour damaged", 3, Attacker.Char );
 --]]
 
     -- Perform passive item effects
@@ -812,11 +812,11 @@ function SpecialGM( Attacker, Defender )
 end
 
 --[[
-    Checks if a coup de grï¿½ce is performed on the attacked character and kills the char if needed
+    Checks if a coup de gráce is performed on the attacked character and kills the char if needed
 
     @param  CharacterTable  The table of the attacking character
     @param  CharacterTable  The table of the attacked character
-    @return boolean  true if a coup de grï¿½ce was done
+    @return boolean  true if a coup de gráce was done
 ]]
 function CoupDeGrace( Attacker, Defender )
     if ( Attacker.Char:get_type() ~= 0 ) then
@@ -830,8 +830,8 @@ function CoupDeGrace( Attacker, Defender )
             gText = "ihrem";
             eText = "her";
         end
-        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me gibt "..gText.." Gegner den Gnadenstoï¿½." );
-        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.english, "#me gives "..eText.." enemy the coup de grï¿½ce." );
+        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me gibt "..gText.." Gegner den Gnadenstoß." );
+        Attacker.Char:talkLanguage( CCharacter.say, CPlayer.english, "#me gives "..eText.." enemy the coup de gráce." );
 
         Defender.Char:increaseAttrib("hitpoints",-1);
         for x=-1,1 do
@@ -913,7 +913,7 @@ end
 
 --[[
     Generate the Stiffness Modificator for the Character
-    Related to the stiffness of the armor this modificator has values between 1.2 and 0.9
+    Related to the stiffness of the armour this modificator has values between 1.2 and 0.9
     The noDodge value is set in case the stiffness is in sum greater then 100
 
     @param  CharacterTable  The table of the character the mod shall be calculated for
@@ -1077,7 +1077,7 @@ function Dodge( Attacker, Defender, Globals )
 
     if Defender.noDodge then
 ---[[DEBUG
-        AddDebugText( "no dodge, heavy armor", 3, Attacker.Char );
+        AddDebugText( "no dodge, heavy armour", 3, Attacker.Char );
 --]]
         return false;
     end
@@ -1441,76 +1441,76 @@ function Damage( Attacker, Defender, Globals )
         AttackerTry = AttackerTry * base.common.Scale( 0.3, 1.8, GetWrestlingAttack( Attacker.Race ) / 2 );
     end
 
-    local ArmorValue = 0;
-    local ArmorAbsorb = 0;
+    local armourValue = 0;
+    local armourAbsorb = 0;
 
     local HittedItem=Defender.Char:getItemAt(Globals.HittedArea);
-    local Armorfound,Armor=world:getArmorStruct(HittedItem.id);
+    local armourfound,armour=world:getarmourStruct(HittedItem.id);
 
-    if Armorfound then
+    if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
-            ArmorValue=Armor.ThrustArmor;
+            armourValue=armour.Thrustarmour;
         elseif (Attacker.AttackKind==1) then --slashing
-            ArmorValue=Armor.StrokeArmor;
+            armourValue=armour.Strokearmour;
         elseif (Attacker.AttackKind==2) then --concussion
-            ArmorValue=Armor.ThrustArmor;
+            armourValue=armour.Thrustarmour;
         elseif (Attacker.AttackKind==3) then --puncture
-            ArmorValue=Armor.PunctureArmor;
+            armourValue=armour.Puncturearmour;
         elseif (Attacker.AttackKind==4) then --distance
-            ArmorValue=Armor.PunctureArmor;
+            armourValue=armour.Puncturearmour;
         end
-        ArmorAbsorb = Armor.Absorb;
+        armourAbsorb = armour.Absorb;
         if (Defender.Char:get_type()~=1) then
             local qualMod = GetQualityEffect(HittedItem.quality);
-            ArmorValue  = ArmorValue  * qualMod;
-            ArmorAbsorb = ArmorAbsorb * qualMod;
+            armourValue  = armourValue  * qualMod;
+            armourAbsorb = armourAbsorb * qualMod;
         end
     end
 
     if (Globals.HittedArea == CCharacter.breast) then
         HittedItem=Defender.Char:getItemAt(CCharacter.coat);
-        Armorfound,Armor=world:getArmorStruct(HittedItem.id);
-        local addArmorValue = 0;
-        local addArmorAbsorb = 0;
-        if Armorfound then
+        armourfound,armour=world:getarmourStruct(HittedItem.id);
+        local addarmourValue = 0;
+        local addarmourAbsorb = 0;
+        if armourfound then
             if (Attacker.AttackKind==0) then --wrestling
-                addArmorValue = Armor.ThrustArmor;
+                addarmourValue = armour.Thrustarmour;
             elseif (Attacker.AttackKind==1) then --slashing
-                addArmorValue= Armor.StrokeArmor;
+                addarmourValue= armour.Strokearmour;
             elseif (Attacker.AttackKind==2) then --concussion
-                addArmorValue= Armor.ThrustArmor;
+                addarmourValue= armour.Thrustarmour;
             elseif (Attacker.AttackKind==3) then --puncture
-                addArmorValue= Armor.PunctureArmor;
+                addarmourValue= armour.Puncturearmour;
             elseif (Attacker.AttackKind==4) then --distance
-                addArmorValue= Armor.PunctureArmor;
+                addarmourValue= armour.Puncturearmour;
             end
-            addArmorAbsorb = Armor.Absorb;
+            addarmourAbsorb = armour.Absorb;
             if (Defender.Char:get_type()~=1) then
                 local qualMod = GetQualityEffect(HittedItem.quality);
-                addArmorValue  = addArmorValue  * qualMod;
-                addArmorAbsorb = addArmorAbsorb * qualMod;
+                addarmourValue  = addarmourValue  * qualMod;
+                addarmourAbsorb = addarmourAbsorb * qualMod;
             end
-            ArmorValue = ArmorValue + addArmorValue;
-            ArmorAbsorb = ArmorAbsorb + addArmorAbsorb;
+            armourValue = armourValue + addarmourValue;
+            armourAbsorb = armourAbsorb + addarmourAbsorb;
         end
     end
 
-    Armorfound,Armor=world:getNaturalArmor( Defender.Race );
-    if Armorfound then
+    armourfound,armour=world:getNaturalarmour( Defender.Race );
+    if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
-            ArmorValue=ArmorValue+Armor.thrustArmor;
+            armourValue=armourValue+armour.thrustarmour;
         elseif (Attacker.AttackKind==1) then --slashing
-            ArmorValue=ArmorValue+Armor.strokeArmor;
+            armourValue=armourValue+armour.strokearmour;
         elseif (Attacker.AttackKind==2) then --concussion
-            ArmorValue=ArmorValue+Armor.thrustArmor;
+            armourValue=armourValue+armour.thrustarmour;
         elseif (Attacker.AttackKind==3) then --puncture
-            ArmorValue=ArmorValue+Armor.punctureArmor;
+            armourValue=armourValue+armour.puncturearmour;
         elseif (Attacker.AttackKind==4) then --distance
-            ArmorValue=ArmorValue+Armor.punctureArmor;
+            armourValue=armourValue+armour.puncturearmour;
         end
     end
 
-    local DefenderTry = ArmorValue / 2;
+    local DefenderTry = armourValue / 2;
     Globals["Damage"] = base.common.Limit( base.common.Scale( 300, 4000, AttackerTry ) * base.common.Scale( 1, 0.3, DefenderTry ), 100, 4000 );
     --Globals.Damage = Globals.Damage * Attacker.APMod;
     if Globals.criticalHit then
@@ -1521,20 +1521,20 @@ function Damage( Attacker, Defender, Globals )
     AddDebugText( "Damage(Attacker-Defender) "..math.floor(AttackerTry).." - "..math.floor(DefenderTry).." = "..math.floor(Globals.Damage).."HP", 2, Attacker.Char );
 --]]
 
-    Globals.Damage = Globals.Damage - ArmorAbsorb;
+    Globals.Damage = Globals.Damage - armourAbsorb;
     Globals.Damage = Globals.Damage / base.common.ScaleUnlimited( 0.5, 1.5, Defender.constitution * 5 );
 
     return Globals;
 end
 
 --[[
-    Destroy the armor of a character
+    Destroy the armour of a character
 
-    @param  CharacterTable  Table of the character whos armor should be damaged
+    @param  CharacterTable  Table of the character whos armour should be damaged
     @param  GlobalsTable    Table of the global values
     @return boolean true at all times
 ]]
-function BreakArmor( CharStruct, Globals )
+function Breakarmour( CharStruct, Globals )
     if (CharStruct.Char:get_type()==1) then
         return true;
     end
@@ -1550,7 +1550,7 @@ function BreakArmor( CharStruct, Globals )
             ItemDura = ItemDura - 1;
             if (ItemDura<1) then
                 CharStruct.Char:increaseAtPos(HittedItem.itempos,-1);
-                base.common.InformNLS(CharStruct.Char,"Ein Rï¿½stungsteil ist zerbrochen.","A part of your armor just broke.");
+                base.common.InformNLS(CharStruct.Char,"Ein Rüstungsteil ist zerbrochen.","A part of your armour just broke.");
             else
                 HittedItem.quality = ( ItemQual*100 ) + ItemDura;
                 world:changeItem( HittedItem );
@@ -1570,7 +1570,7 @@ function BreakArmor( CharStruct, Globals )
                 ItemDura = ItemDura - 1;
                 if (ItemDura<1) then
                     CharStruct.Char:increaseAtPos(HittedItem.itempos,-1);
-                    base.common.InformNLS(CharStruct.Char,"Ein Rï¿½stungsteil ist zerbrochen.","A part of your armor just broke.");
+                    base.common.InformNLS(CharStruct.Char,"Ein Rüstungsteil ist zerbrochen.","A part of your armour just broke.");
                 else
                     HittedItem.quality = ( ItemQual*100 ) + ItemDura;
                     world:changeItem( HittedItem );
@@ -1786,7 +1786,7 @@ function CauseDamage( Attacker, Defender, Globals )
         local newPos = position( Defender.Char.pos.x + CharOffsetX, Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z );
         Defender.Char:warp( newPos );
 
-        Defender.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me stolpert zurï¿½ck und geht zu Boden." );
+        Defender.Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me stolpert zurück und geht zu Boden." );
         Defender.Char:talkLanguage( CCharacter.say, CPlayer.english, "#me stumbles back and falls to the ground." );
 
         base.common.ParalyseCharacter(Defender.Char, 7, false, true);
@@ -2052,7 +2052,7 @@ function CheckTying( Attacker, Defender )
 		end
 	elseif Defender.effects:find(26) then
 		if Defender:increaseAttrib("hitpoints",0) < 2500 then
-			Defender:talkLanguage(CCharacter.say, CPlayer.german, "#me kann das Seil nicht mehr halten und lï¿½sst los.");
+			Defender:talkLanguage(CCharacter.say, CPlayer.german, "#me kann das Seil nicht mehr halten und lässt los.");
 			Defender:talkLanguage(CCharacter.say, CPlayer.english, "#me can't hold the rope any longer and looses it.");
 			Defender.effects:removeEffect(26);
 		end

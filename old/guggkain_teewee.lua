@@ -80,25 +80,25 @@ function initializeNpc()
     AddAdditionalTrigger("[Bb]e [Ww]ell");
     AddAdditionalText("Jodele. Farewell. You are welcome to come back.");
     AddTraderTrigger("[hH]elp","'List your wares', 'I want to buy <number> <wares>', 'I want to buy a <ware>', 'I want to sell <number|a> <wares>', 'Price of ...','What do you pay for ...', 'What wares do you buy?'");
-    AddTraderTrigger("[Gg]rï¿½[ï¿½s]+e","Grï¿½se. Was wollt Ihr? Jodele");
+    AddTraderTrigger("[Gg]rü[ßs]+e","Grüße. Was wollt Ihr? Jodele");
     AddAdditionalTrigger("[Hh]allo");
-    AddAdditionalText("Grï¿½ssse. Habt ihr Interessse an meinen Waren? Jodele");
+    AddAdditionalText("Grüssse. Habt ihr Interessse an meinen Waren? Jodele");
     AddTraderTrigger("[Ww]as.+kauf","Jodele. Ich handle mit rohen und geschliffenen Edelsteinen. Und Staub. Lasst Euch meine Liste zeigen.");
     AddTraderTrigger("[Ww]as.+[Ee]delstein","Was auch immer du brauchst: Rubine, Smaragde, Topaz, Diamant - alles da!  Lasst Euch meine Liste zeigen.");
     AddTraderTrigger("[Ww]as.+[Ss]taub","Besseres Mineralpulver werdet Ihr nirgendwo im Land bekommen. Lasst Euch meine Liste zeigen. Jodele!");
     AddTraderTrigger("[Aa]uf [Bb]ald","Auf bald. Irgendwer segne euch. Jodele.");
     AddAdditionalTrigger("[Bb]is [Bb]ald");
     AddAdditionalTrigger("[Mm]ach es [Gg]ut");
-    AddAdditionalText("Jodele. Bis bald. Ihr kï¿½nnt gern wieder kommen.");
-    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft Ihr', 'Ich mï¿½chte <Anzahl> <Ware> kaufen', 'Ich mï¿½chte <Ware> kaufen', 'Ich mï¿½chte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
+    AddAdditionalText("Jodele. Bis bald. Ihr könnt gern wieder kommen.");
+    AddTraderTrigger("[Hh]ilfe","'Welche Waren verkauft Ihr', 'Ich möchte <Anzahl> <Ware> kaufen', 'Ich möchte <Ware> kaufen', 'Ich möchte <Anzahl> <Ware> verkaufen', 'Was ist der Preis von <Ware>','Was zahlt ihr für <Ware>', 'Was kauft ihr?'");
     
-    AddCycleText("#me kaut auf einem dicken Kï¿½fer herum.","#me chews of a large beetle.");
+    AddCycleText("#me kaut auf einem dicken Käfer herum.","#me chews of a large beetle.");
     AddCycleText("#me schaut sich nach Kunden um.","#me looks around for customers.");
-    AddCycleText("#me lï¿½sst seine Zunge hin und her schnalzen","#me clicks his tongue.");
-    AddCycleText("#me zï¿½hlt einige Mï¿½nzen.","#me counts some coins");
+    AddCycleText("#me lässt seine Zunge hin und her schnalzen","#me clicks his tongue.");
+    AddCycleText("#me zählt einige Münzen.","#me counts some coins");
     AddCycleText("Den besten Edelsteinstaub verkauf ich! Zum besten Preis.","Best gem dust for the best price, that's what I sell.");
 
-    TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stï¿½cke","pieces"};
+    TraderLang={"Gold","gold","Silber", "silver","Kupfer","copper","stücke","pieces"};
     TraderMonths={"Elos","Tanos","Zhas","Ushos","Siros","Ronas","Bras","Eldas","Irmas","Malas","Findos","Olos","Adras","Naras","Chos","Mas"};
 
     RefreshTime={10000,40000};
@@ -144,7 +144,7 @@ function receiveText(texttype, message, originator)
 
             ----------------------------EDIT BELOW HERE-----------------------------------
             if (Status==1) then -- Verkauf von mehreren Items erfolgreich // Selling of multible items succeed
-                gText="Ihr mï¿½chtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText="Ihr möchtet "..Values[1].." "..world:getItemName(Values[2],0).." kaufen? Bitte sehr, das macht"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
                 eText="You want "..Values[1].." "..world:getItemName(Values[2],1).."? Here you are, that makes"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==2) then -- Item kann wegen Platzmangel nicht erstellt werden // Item can't created, cause of lag of space
                 gText="Tut mir leid, aber Ihr habt nicht genug Platz in Eurem Beutel.";
@@ -165,7 +165,7 @@ function receiveText(texttype, message, originator)
                 gText=GenusSel(Values[1],"Ein","Eine","Ein").." "..world:getItemName(Values[1],0).." kostet"..MoneyText(0,Values[2],Values[3],Values[4],TraderLang)..".";
                 eText="The "..world:getItemName(Values[1],1).." costs"..MoneyText(1,Values[2],Values[3],Values[4],TraderLang)..".";
             elseif (Status==8) then -- Einkaufspreis Ansage für ein Item // buying price announcement for an item
-                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wï¿½re mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
+                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." wäre mir"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang).." wert.";
                 eText="I would pay"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang).." for "..Values[1]..world:getItemName(Values[2],1);
             elseif (Status==9) then -- Einkauf von mehreren Items erfolgreich // Buying of multible items succeed
                 gText="Ihr wollt "..Values[1].." "..world:getItemName(Values[2],0).." verkaufen? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
@@ -173,14 +173,14 @@ function receiveText(texttype, message, originator)
             elseif (Status==10) then -- Item das gekauft werden soll nicht vorhanden // item that should be buyed is not aviable
                 gText="Kommt wieder wenn ihr das habt!";
                 eText="Come back when you have that!";
-            elseif (Status==11) then -- Hï¿½ndler hat nicht genug Geld // trader don't have enougth money
+            elseif (Status==11) then -- Händler hat nicht genug Geld // trader don't have enougth money
                 gText="Tut mir leid. Ich kann das nicht kaufen. Ich habe nicht genug Geld.";
                 eText="Sorry, I cannot buy that. I do not have enough money.";
-            elseif (Status==12) then -- Hï¿½ndler kauft das Item nicht // trader didn't buy the item
+            elseif (Status==12) then -- Händler kauft das Item nicht // trader didn't buy the item
                 gText="Ssso etwasss kaufe ich nicht. Tut mir leid.";
                 eText="Sssorry, I do not buy that item.";
             elseif (Status==13) then -- Einkauf eines einzelnen Items erfolgreich // Buying of a single item succeed
-                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist esss, was ihr verkaufen mï¿½chtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
+                gText=GenusSel(Values[2],"Ein","Eine","Ein").." "..world:getItemName(Values[2],0).." ist esss, was ihr verkaufen möchtet? Ich gebe euch"..MoneyText(0,Values[3],Values[4],Values[5],TraderLang)..".";
                 eText="You want to sell a "..world:getItemName(Values[2],1).."? I give you"..MoneyText(1,Values[3],Values[4],Values[5],TraderLang)..".";
             elseif (Status==14) then -- Liste der Waren die der NPC verkauft ist nicht leer // List of the wares the NPC sells, is not empty
                 gText="Ich verkaufe Edelsteine und Edelsteinstaub";
