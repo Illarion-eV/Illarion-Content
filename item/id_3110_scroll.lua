@@ -238,7 +238,7 @@ function summonCreature( Caster, Item )
     elseif (faceto== 6) then 	--west
 	CreaturePos  = position(Caster.pos.x-1,Caster.pos.y,Caster.pos.z);
     else
-    	Caster:inform("moep->Faceto nicht mï¿½glich, weil "..faceto.." ist Blickrichtung.");
+    	Caster:inform("moep->Faceto nicht möglich, weil "..faceto.." ist Blickrichtung.");
     end
 
     if world:isCharacterOnField( CreaturePos ) then

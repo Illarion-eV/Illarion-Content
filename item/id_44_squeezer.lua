@@ -1,6 +1,6 @@
 -- Presse
 
--- Distel(141) zu ï¿½l (390)
+-- Distel(141) zu Öl (390)
 -- Arbeitscyclus: 3s
 
 -- UPDATE common SET com_script='item.id_44_squeezer' WHERE com_itemid IN (44);
@@ -11,10 +11,10 @@ module("item.id_44_squeezer", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.ResetInterruption( User, ltstate );
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert beim arbeiten.",
-        "Your armor disturbes while working." );
+        "Deine Rüstung behindert beim Arbeiten.",
+        "Your armour disturbes while working." );
         return
     end
 
@@ -23,7 +23,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 
     if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nï¿½tig
+        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
     end
 
     if not base.common.FitForWork( User ) then -- Kein Hunger
@@ -62,7 +62,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         end
         User:eraseItem(141,2);
         local notCreated = User:createItem(390,1,333,0);
-        if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
+        if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
             world:createItemFromId( 390, notCreated, User.pos, true, 333 ,0);
             base.common.InformNLS(User,
             "Du kannst nichts mehr halten.",

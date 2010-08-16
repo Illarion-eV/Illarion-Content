@@ -24,9 +24,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         GemList[257]={45,198}; --Topas
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert dabei Edelsteine zu schleifen.",
+        "Deine Rüstung behindert dabei Edelsteine zu schleifen.",
         "Your armor disturbes you grinding gems." );
         return
     end

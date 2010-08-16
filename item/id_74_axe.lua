@@ -1,5 +1,5 @@
 -----------------------------------
------------ HOLZ Fï¿½LLEN -----------
+----------- HOLZ FÄLLEN -----------
 -----------------------------------
 
 -- UPDATE common SET com_script='item.id_74_axe' WHERE com_itemid IN (74,2946);
@@ -100,7 +100,7 @@ function CheckAndHit(TargetPos)
     if world:isCharacterOnField(TargetPos) then
         local Char=world:getCharacterOnField(TargetPos);
         base.common.InformNLS( Char,
-        "Der Baum fï¿½llt und trifft dich hart",
+        "Der Baum fällt und trifft dich hart",
         "The tree falls and hits you hard");
         Char:increaseAttrib("hitpoints",-7000);
     end
@@ -118,7 +118,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     initLists(  );
     if (SourceItem:getType() ~= 4) then
         base.common.InformNLS( User,
-        "Zum Bäume fï¿½llen musst du die Axt in die Hand nehmen.",
+        "Zum Bäume fällen musst du die Axt in die Hand nehmen.",
         "To chop a tree you need to take the axe in your hands." );
         return
     end

@@ -105,7 +105,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
         "Deine Rüstung behindert beim Farben herstellen.",
         "Your armor disturbes you while creating dyes." );

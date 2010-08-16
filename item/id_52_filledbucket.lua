@@ -22,7 +22,7 @@ if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is u
 	end
 end
 	
-    -- Wasserflasche auffï¿½llen
+    -- Wasserflasche auffüllen
 if( TargetItem.id == 2498 ) then
     if(TargetItem.number > 1) then
 		base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");

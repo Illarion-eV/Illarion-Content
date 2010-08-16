@@ -390,7 +390,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Es war ein Wolf, dessen Körper jedoch auch eine junge Frau barg. Sie freundeten sich an, tollten herum, wenn sie Tier war, sprachen stundenlang, wenn sie Mensch war.",0,55,3);
             base.books.AddGermanBookText("Sie bewegte ihn zur Einsicht und er erbittete seiner Geliebsten Gnade.",0,55,3);
             base.books.AddGermanBookText("Kurz wï¿½hrte die neu entflammte Leidenschaft, denn das Wolfsmï¿½dchen hatte den Genuss aus des Bauern Geist gekehrt, nur hauste sie selbst nun dort und immerfort.",0,55,3);
-            base.books.AddGermanBookText("Sie zu vergessen war nicht mï¿½glich, sie umgab ihn so oft und wenn sie nicht da war, suchte er ihre Nï¿½he. ",0,55,3);
+            base.books.AddGermanBookText("Sie zu vergessen war nicht möglich, sie umgab ihn so oft und wenn sie nicht da war, suchte er ihre Nï¿½he. ",0,55,3);
             base.books.AddGermanBookText("In ihrer Unschuld erkannte sie die Zeichen nicht und des Bauern Qual wuchs.",0,55,3);
             base.books.AddGermanBookText("Von der Geliebten flï¿½chtend, wann immer sie seine Liebe brauchte, brachen sie wieder. Er hatte sich zu den Druiden zurückgezogen, um Wein, Bier und Kraut und vor allem der Liebe zu entsagen. ",0,55,3);
             base.books.AddGermanBookText("Doch es zerfraï¿½ sein Herz, als das Wolfsmï¿½dchen verschwand und schlieï¿½lich auch die Zauberin aus seinem Leben schied...",0,55,3);
@@ -523,7 +523,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Die Wirkung ist vergleichbar mit der eines Manatrankes.",0,25,4);
 			base.books.AddGermanBookText("Wegen ihrer Macht für Magier und ihrer Seltenheit sind sie oft umkï¿½mpfte Objekte. Da sie aber auch magische und unnatürliche Kreaturen instinktiv anlocken gibt es auf Illarion viele von ihnen die, von",0,25,4);
 			base.books.AddGermanBookText("Herrscharen von Monstern bewacht, in Vergessenheit gerieten. Die grï¿½ï¿½te und mï¿½chtigste aller bekannten Manaquellen findet man, wie sollte es anders sein, in Lor Angur.",0,25,4);
-			base.books.AddGermanBookText("Nur durch sie ist es mï¿½glich die mï¿½chtigen Schutzzauber der Stadt aufrecht erhalten zu können.",0,25,4);
+			base.books.AddGermanBookText("Nur durch sie ist es möglich die mï¿½chtigen Schutzzauber der Stadt aufrecht erhalten zu können.",0,25,4);
 			base.books.AddGermanBookText("4.2 Manastrï¿½me",0,25,4);
 			base.books.AddGermanBookText("Wie erwï¿½hnt besitzt alles was existiert eine arkane Struktur, bestehend aus vielen kleinen, verschlungenen Bahnen. Auch unsere Heimatebene Illarion besitzt als ganzes eine solche Struktur die sie",0,25,4);
 			base.books.AddGermanBookText("die sie zusammenhï¿½lt. Die einzelnen Bahne dieser Arkanen Struktur sind so riesig, das sie uns als Manastrï¿½me bekannt sind.",0,25,4);
@@ -542,7 +542,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Runen sind charakteristische arkane Strukturen, die in der arkanen Struktur ihres Trï¿½gers, gewoben werden und ihm dadurch einen spezifischen, raschen Zugang auf Magie ermï¿½glichen indem sie bei ihrer",0,25,4);
 			base.books.AddGermanBookText("Anrufung die gespeicherte Manaenergie in speziellen Bahnen lenken. Runen sind die einzigen arkanen Strukturen, die sich gleichen. So weist die Rune RA bei jedem Magier die gleiche arkane Struktur auf.",0,25,4);
 			base.books.AddGermanBookText("Wir kennen 28 verschiedene Runen, jede hat eine bestimmte Bedeutung, die ï¿½bersetzung vom Antik. Aus der Kombination der Runen ergibt sich dann eine Wortkette, die in ihrem Sinn dem arkanem Effekt nahe",0,25,4);
-			base.books.AddGermanBookText("kommt. So ist es mï¿½glich einen Spruch den man nur hï¿½rt und dessen Effekt man nicht sieht selbst dann in seinem Wirken zu deuten, wenn man ihn nicht kennt.",0,25,4);
+			base.books.AddGermanBookText("kommt. So ist es möglich einen Spruch den man nur hï¿½rt und dessen Effekt man nicht sieht selbst dann in seinem Wirken zu deuten, wenn man ihn nicht kennt.",0,25,4);
         
 			-----------------------
 			base.books.AddLanguage("common language",5); 

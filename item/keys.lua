@@ -74,8 +74,8 @@ function LookAtItem(User,Item)
         specialnames[3001]={"Zwergenschlüssel","dwarven key"};
         specialnames[3002]={"Zwergenschlüssel","dwarven key"};
         specialnames[4080]={"Garons Schmieden Schlüssel","Garons goldsmith workshop key"};
-        specialnames[4036]={"Gefï¿½ngnissschlüssel #1","Prisonkey #1"};
-        specialnames[4037]={"Gefï¿½ngnissschlüssel #2","Prisonkey #2"};
+        specialnames[4036]={"Gefängnissschlüssel #1","Prisonkey #1"};
+        specialnames[4037]={"Gefängnissschlüssel #2","Prisonkey #2"};
         specialnames[4001]={"Stadttor Schlüssel","Towngate key"};
         specialnames[5014]={"Graue Zuflucht Schlüssel #1","Grey Refuge key #1"}
         specialnames[5015]={"Graue Zuflucht Schlüssel #2","Grey Refuge key #2"}

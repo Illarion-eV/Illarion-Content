@@ -19,9 +19,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Leatherlist[2586]=2547; --Fell in Leder
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert am Leder gerben.",
+        "Deine Rüstung behindert am Leder gerben.",
         "Your armor disturbes while tanning leather." );
         return
     end
