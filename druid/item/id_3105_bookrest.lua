@@ -55,7 +55,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("\nEine Einfï¿½hrung in die Alchemie",0,0,0);
         base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, kï¿½nnte man sagen.",0,0,0);
         base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Krï¿½utern und Substanzen, die für die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,0);
-        base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen wï¿½rde.",0,0,0);
+        base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,0);
         base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,0);
         base.books.AddGermanBookText("Und schlussendlich braucht man, wen wundert's, einen reichen Vorrat an Pflanzen.",0,0,0);
         base.books.AddGermanBookText("Wer nicht selbst hinausgeht und sich die Hï¿½nde schmutzig macht, der sollte beim Kauf auf Qualität achten. Aus schlechten Pflanzen wird selten ein guter Trank.",0,0,0);
@@ -63,7 +63,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Mit der leeren Flasche in der einen und einem benï¿½tigten Krï¿½utlein in der anderen Hand, sollte einem bei Benutzung des Kupferkessels bald ein erster Erfolg beschieden sein.",0,0,0);
         base.books.AddGermanBookText("Auch wenn man vielleicht anfangs nicht viel sieht, die erste Flasche mit Essenzen sollte auch noch eine Zeitlang mit Pflanzensï¿½ften gefï¿½llt werden, bald schon wird sich das erwartete Ereignis einstellen.",0,0,0);
         base.books.AddGermanBookText("Wer Geduld hat und fleiï¿½ig sein Flï¿½schlein fï¿½llt, den wird der Geist der Druiden bald umgeben, schau in dein Runenverzeichnis, jetzt bist du ein Mitglied im druidischen Zirkel.",0,0,0);
-        base.books.AddGermanBookText("Wer dort jedoch sieht, dass ihm die Gï¿½tter bereits Runen des Magiers, des Barden oder gar des Priesters geschenkt haben, dem bleiben die Pforten der Druiden verschlossen, vielleicht auf ewig.",0,0,0);
+        base.books.AddGermanBookText("Wer dort jedoch sieht, dass ihm die Götter bereits Runen des Magiers, des Barden oder gar des Priesters geschenkt haben, dem bleiben die Pforten der Druiden verschlossen, vielleicht auf ewig.",0,0,0);
         base.books.AddGermanBookText("\nDie erste Rune",0,0,0);
         base.books.AddGermanBookText("Was kann man nun aber mit der ersten druidischen Rune anstellen? Nun, mit ihr lassen sich Pflanzen nach ihren Inhaltsstoffen bestimmen. Nichts Spektakulï¿½res, wie etwa ein Unsichtbarkeitstrank, aber für die weitere Laufbahn als Druide sehr sehr nï¿½tzlich.",0,0,0);
         base.books.AddGermanBookText("Und so geht es nun weiter, nach einer Weile kann man die zweite Rune erlangen, mit ihr lï¿½sst sich immerhin schon eine Essenz bestimmen. Oder jedenfalls fast.",0,0,0);

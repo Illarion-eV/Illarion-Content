@@ -17,7 +17,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Jede Erfahrung muss gemacht werden, so hatten die meisten unserer Weisheiten und Traditionen einen hohen Preis, doch die Fehler, die geschahen, sollen uns auf alle Zeit eine Lehre sein. Von einigen will ich heute schreiben:",0,0,0);
             base.books.AddGermanBookText("Schira'thel - Tochter des Blutes",0,0,0);
             base.books.AddGermanBookText("Alles begann, damals vor ungezï¿½hlten Jahren, als die Elfen gerade begannen das Wirken der Magie zu verstehen.",0,0,0);
-            base.books.AddGermanBookText("Besser gesagt begannen sie es zu interpretieren, aber das allgemeine Selbstbewuï¿½tsein damals lieï¿½ uns glauben, wir wï¿½rden verstehen was wir noch nicht einmal erahnten.",0,0,0);
+            base.books.AddGermanBookText("Besser gesagt begannen sie es zu interpretieren, aber das allgemeine Selbstbewuï¿½tsein damals lieï¿½ uns glauben, wir würden verstehen was wir noch nicht einmal erahnten.",0,0,0);
             base.books.AddGermanBookText("Es geschah so, daï¿½ man im Laufe der Jahre zu vermuten begann, die Fï¿½higkeiten mit Magie umzugehen seien hauptsï¿½chlich eine Sache des elterlichen Blutes.",0,0,0);
             base.books.AddGermanBookText("Einige sehr fanatische Magier und Magierinnen kamen so auf die Idee, durch die Vermï¿½hlung des grï¿½ï¿½ten Magiers und der grï¿½ï¿½ten Magierin einen noch mï¿½chtigeren Spross zu erhalten.",0,0,0);
             base.books.AddGermanBookText("Selber besessen von dieser Idee lieï¿½en sich die von nun an Vermï¿½hlten auf die Verbindung ein.",0,0,0);
@@ -75,7 +75,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( "By that we conclude our small guidebook. Now grab a fishing rod and try your luck!", 0, 0, 1 );
             
             base.books.AddGermanBookText( "\n \n Ein Ratgeber für Angler", 0, 0, 1 );
-            base.books.AddGermanBookText( "Das Fischen ist eine Kunst für sich. Die Mï¿½glichkeit, verschiedene Fische unterschiedlicher Art und Grï¿½ï¿½e zu fangen, macht sie sehr interresant für den Angler.", 0, 0, 1 );
+            base.books.AddGermanBookText( "Das Fischen ist eine Kunst für sich. Die Mï¿½glichkeit, verschiedene Fische unterschiedlicher Art und Grüße zu fangen, macht sie sehr interresant für den Angler.", 0, 0, 1 );
             base.books.AddGermanBookText( "Jeder gefangene Fisch kann von einem Koch zu einem Fischgericht weiterverarbeitet werden. Man kann die Fische, die man fï¿½ngt, aber auch einfach nur ï¿½ber dem Feuer rï¿½sten oder sogar roh verzehren.", 0, 0, 1 );
             base.books.AddGermanBookText( "Werkzeuge\nDas einzige, was man zum Fischen braucht, ist eine Angelrute. Jede gekaufte Angel ist bereits mit einem Kï¿½der versehen. Die Angelruten sind so gemacht, dass das Fischen einfacher wird.", 72, 0, 1 );
             base.books.AddGermanBookText( "Wie man angelt.\nDer Vorgang des Angelns ist im Grunde genommen sehr simpel. Nimm die Rute nicht zu locker und nicht zu fest in beide Hï¿½nde, hol Schwung und wirf die Schnur ins Wasser.", 0, 0, 1 );
@@ -84,7 +84,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "Achtung\nHalte die Angel nicht zu locker. Durch das Wasser wird die Angelschnur schwerer. Besonders wenn ein Fisch anbeisst, ist es keine ï¿½berraschung, dass er die Angelrute mit sich reisst, wenn du sie nicht fest genug hï¿½ltst.", 0, 0, 1 );
             base.books.AddGermanBookText( "Wegen der hohen Belastung, kann die Angelschnur nach einiger Zeit reissen. Sei also vorsichtig.", 0, 0, 1 );
             base.books.AddGermanBookText( "Fische\nDie Forelle ist der Fisch, der in Gobaith's Gewï¿½ssern am meisten vorkommt. Er kann leicht gefunden und gefangen werden.", 73, 0, 1 );
-            base.books.AddGermanBookText( "Der Lachs ist eine andere Fischart, die du hier angeln kannst. Er ist ein wenig seltener, aber meistens grï¿½ï¿½er als die Forelle und sein Fleisch schmeckt zarter.", 355, 0, 1 );
+            base.books.AddGermanBookText( "Der Lachs ist eine andere Fischart, die du hier angeln kannst. Er ist ein wenig seltener, aber meistens Grüßer als die Forelle und sein Fleisch schmeckt zarter.", 355, 0, 1 );
             base.books.AddGermanBookText( "Hiermit beenden wir unsere Einfï¿½hrung in die Kunst des Fischens. Schnapp dir eine Angelrute und versuch dein Glï¿½ck!", 0, 0, 1 );
             
             -----------
@@ -211,32 +211,32 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "'Das Volk der Zwerge ist faul und fett geworden. Ich habe die Geschenke Irmorom gestohlen. Ich hab das Gold gestohlen, auf dass ihr für immer grabt und grabt und eure Hï¿½nde leer bleiben.", 0, 0, 2 );
             base.books.AddGermanBookText( " Ich habe das Land und die Bäume und die Sonne gestohlen, auf dass eure Feldfrï¿½chte verdorren. Ich habe die Tiere gestohlen, auf dass ihr Hunger leidet.", 0, 0, 2 );   
             base.books.AddGermanBookText( " Und ich habe den Wind gestohlen, auf dass ihr ohne den Geist Irmoroms leben mï¿½sst.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und bis einer von euch diese Geschenke zurï¿½ckgewinnen kann, werden die Zwerge in Not und Verzweiflung leben. Denn ich bin der Gierige Mann, und solcherart ist meine Natur.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Und bis einer von euch diese Geschenke zurückgewinnen kann, werden die Zwerge in Not und Verzweiflung leben. Denn ich bin der Gierige Mann, und solcherart ist meine Natur.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Und damit verschwand der Besudelte. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Die Zwerge berieten viele Tage und Nï¿½chte. Sie wussten, dass einer von ihnen die Geschenke Irmoroms zurï¿½ckholen musste, konnten sich aber nicht einigen, wer dies nun sein sollte.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Die Zwerge berieten viele Tage und Nï¿½chte. Sie wussten, dass einer von ihnen die Geschenke Irmoroms zurückholen musste, konnten sich aber nicht einigen, wer dies nun sein sollte.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Ich kann nicht gehen', sagte der Stammesï¿½lteste, 'denn ich muss bleiben, um die Zwerge zu fï¿½hren und unserem Volk zu sagen, was das Gesetz ist.' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " 'Ich kann nicht gehen', sagte der Krieger, 'denn ich muss die Zwerge beschï¿½tzen. Meine Axt wird für den Fall gebraucht, dass der Gierige Mann zurï¿½ckkehrt.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " 'Ich kann nicht gehen', sagte der Krieger, 'denn ich muss die Zwerge beschï¿½tzen. Meine Axt wird für den Fall gebraucht, dass der Gierige Mann zurückkehrt.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Ich kann nicht gehen', sagte der Schmied, 'denn das Volk braucht meine Waffen. Ich muss die Werkzeuge herstellen und mein Wissen weitergeben.'  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Da erhob ein junger Zwerg namens Thiron seine Stimme. Obwohl er noch kein Krieger der Zwerge war, besaï¿½ er krï¿½ftige Arme und schnelle Füße. ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Ich werde gehen', sagte Thiron. Die Zwerge lachten. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " 'Lasst mich ausreden', fuhr der Jï¿½ngling fort. 'Ich bin noch kein Krieger, also wird euch meine Axt nicht fehlen. Ich kann nicht Schmieden, also wird das Volk mich nicht nach Werkzeug und ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Waffen fragen. Und ich bin jung und in den Fragen des Gesetzes noch unkundig. Ich werde die Geschenke Irmoroms vom Gierigen Mann zurï¿½ckholen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Waffen fragen. Und ich bin jung und in den Fragen des Gesetzes noch unkundig. Ich werde die Geschenke Irmoroms vom Gierigen Mann zurückholen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Wenn mir das nicht gelingt, wird man mich nicht vermissen.' ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Die Zwerge dachten kurz darï¿½ber nach und beschlossen, Thiron gehen zu lassen. Er verlieï¿½ das Dorf am nï¿½chsten Morgen, um die Gaben zurï¿½ckzugewinnen.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Thiron nahm sich zuerst vor, das Geschenk des Goldes und der Edelsteine zurï¿½ckzuholen, also wanderte er zum hï¿½chsten Berg. Dort geschah es, dass Irmorom das erste Mal zu ihm sprach. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Die Zwerge dachten kurz darï¿½ber nach und beschlossen, Thiron gehen zu lassen. Er verlieï¿½ das Dorf am nï¿½chsten Morgen, um die Gaben zurückzugewinnen.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Thiron nahm sich zuerst vor, das Geschenk des Goldes und der Edelsteine zurückzuholen, also wanderte er zum hï¿½chsten Berg. Dort geschah es, dass Irmorom das erste Mal zu ihm sprach. ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Wandere nach Westen zum Fuï¿½ des Berges und folge dem Wanderer zur Urquelle aller Edelmetalle.' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Und so wanderte Thiron zurï¿½ck zum Fuï¿½ des Berges und dort war der Wanderer, ein Zwerg mit einem hohen Stock und einem grauen Mantel, von Irmorom entsandt. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und so wanderte Thiron zurück zum Fuï¿½ des Berges und dort war der Wanderer, ein Zwerg mit einem hohen Stock und einem grauen Mantel, von Irmorom entsandt. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Der Wanderer begann den Berg zu besteigen und stieg hï¿½her und dann noch hï¿½her. Doch Thiron war stark und blieb stets dicht hinter ihm.", 0, 0, 2 );
             base.books.AddGermanBookText( " Er folgte dem Wanderer in eine Hï¿½hle und stieg tiefer und tiefer in den Berg hinein, bis seine Lungen brannten und die Kraft seiner Gliedmaï¿½en schwand. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Schlieï¿½lich fand er eine Halle und dort, im Dunkeln, befand sich eine Ader von Gold im marmornen Boden. Er nahm seine letzte Kraft zusammen, ergriff das Gold und kehrte zurï¿½ck an den Fuï¿½ des Berges.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Als er zum Fuï¿½ des Berges zurï¿½ckkehrte, sprach Irmorom: 'Du hast das Geschenk des Goldes und der Edelsteine für die Zwerge zurï¿½ckgewonnen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Schlieï¿½lich fand er eine Halle und dort, im Dunkeln, befand sich eine Ader von Gold im marmornen Boden. Er nahm seine letzte Kraft zusammen, ergriff das Gold und kehrte zurück an den Fuï¿½ des Berges.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Als er zum Fuï¿½ des Berges zurückkehrte, sprach Irmorom: 'Du hast das Geschenk des Goldes und der Edelsteine für die Zwerge zurückgewonnen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Die Berge werden wieder gut gefï¿½llt sein, und euer Tatendrang wird gestillt werden.'", 0, 0, 2 );   
             base.books.AddGermanBookText( " Dann wanderte Thiron zum Erdstein, und dort sprach Irmorom erneut zu ihm. ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Betritt die Grotte der verborgenen Musik und lausche dem Lied der Erde.'", 0, 0, 2 );
             base.books.AddGermanBookText( " Also ging Thiron nach Norden und Osten zur Grotte der verborgenen Musik. Er fand sich in einer riesigen Hï¿½hle wieder, in der Felsen von der Decke hingen und selbst aus dem Boden wuchsen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Dort lauschte er und hï¿½rte das Lied der Erde, aber es war nur schwach. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Er nahm seine Spitzhacke und schlug die Felsen auf dem Boden im Rhythmus der Musik, und das Lied wurde lauter, bis es die Hï¿½hle und sein Herz erfï¿½llte. Dann kehrte er zum Erdstein zurï¿½ck.", 0, 0, 2 );
-            base.books.AddGermanBookText( " 'Das Geschenk der Erde ist wieder zu den Zwergen zurï¿½ckgekehrt', sagte Irmorom. 'Die Bï¿½den sind wieder reich und werden Leben hervorbringen.' ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Er nahm seine Spitzhacke und schlug die Felsen auf dem Boden im Rhythmus der Musik, und das Lied wurde lauter, bis es die Hï¿½hle und sein Herz erfï¿½llte. Dann kehrte er zum Erdstein zurück.", 0, 0, 2 );
+            base.books.AddGermanBookText( " 'Das Geschenk der Erde ist wieder zu den Zwergen zurückgekehrt', sagte Irmorom. 'Die Bï¿½den sind wieder reich und werden Leben hervorbringen.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Thiron war müde, denn in der glï¿½henden Sonne gab es keine Bäume, die ihm Schatten boten und keinen Wind, der ihn kï¿½hlte. Dennoch reiste er zum Tierstein und Irmorom sprach:  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Finde das Gute Tier und lindere sein Leiden.'", 0, 0, 2 );
             base.books.AddGermanBookText( " Thiron wanderte viele Stunden durch die Wï¿½lder von Malderan, bis er jenseits eines Hï¿½gels das Schmerzgebrï¿½ll eines Bï¿½ren vernahm. ", 0, 0, 2 );   
@@ -245,50 +245,50 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Als der Bï¿½r diese Worte vernahm, hï¿½rte er auf, sich zu winden und legte seinen Kopf Thiron zu Füßen. Thiron packte das Messer und zog es aus dem Hals des Bï¿½ren. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Mit dem Wenigen an Heilkunde, das er kannte, versorgte Thiron die Verletzung, obwohl es ihn seine letzte Kraft kostete. Als die Wunde des Bï¿½ren sich schloss, schlief Thiron ein.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Als er aufwachte, stand der Bï¿½r ï¿½ber ihm. Um ihn am Boden verstreut lagen die ï¿½berreste mehrerer Orks. Das Gute Tier hatte ihn wï¿½hrend der Nacht beschï¿½tzt. ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Er wanderte zurï¿½ck zum Tierstein, mit dem Bï¿½ren an seiner Seite, und Irmorom sprach wieder zu ihm. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " 'Du hast das Geschenk der Tiere zurï¿½ckgebracht. Nun werden die guten Tiere die Zwerge wieder ernï¿½hren, wenn sie hungrig sind, kleiden, wenn sie frieren.'  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Er wanderte zurück zum Tierstein, mit dem Bï¿½ren an seiner Seite, und Irmorom sprach wieder zu ihm. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " 'Du hast das Geschenk der Tiere zurückgebracht. Nun werden die guten Tiere die Zwerge wieder ernï¿½hren, wenn sie hungrig sind, kleiden, wenn sie frieren.'  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Inzwischen war Thiron wieder bei Krï¿½ften, und so wanderte er zum Baumstein. Das Gute Tier folgte ihm jedoch nicht. Als er dort ankam, sprach Irmorom zu ihm. ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Die Ersten Bäume sind fort und mï¿½ssen neu gepflanzt werden. Finde den Samen und pflanze den Ersten Baum.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Wieder wanderte Thiron durch den Hirstaang-Wald, auf der Suche nach den Samen des Ersten Baumes, aber er konnte keine finden. Da sprach er zu den Baumgeistern, den lebenden Bäumen.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Sie verrieten ihm, dass einer der Orks die Samen gestohlen hatte (denn die Orks sind Diener Moshrans), und dass dieser sie tief im Wald versteckt hatte, so dass niemand sie jemals finden wï¿½rde. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Sie verrieten ihm, dass einer der Orks die Samen gestohlen hatte (denn die Orks sind Diener Moshrans), und dass dieser sie tief im Wald versteckt hatte, so dass niemand sie jemals finden würde. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Thiron begab sich in die tiefsten Tiefen des Waldes. Dort fand er den bï¿½sen Ork, umringt von den Niederen Baumgeistern. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Thiron erkannte, dass die Geister in seinem Bann waren, und dass er die Magie der Samen benutzte und ihren geheimen Namen ausgesprochen hatte.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Thiron wusste, dass er gegen eine solche Macht nichts ausrichten konnte. Er wï¿½rde die Samen heimlich zurï¿½ckholen mï¿½ssen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Thiron wusste, dass er gegen eine solche Macht nichts ausrichten konnte. Er würde die Samen heimlich zurückholen mï¿½ssen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Thiron griff in seinen Beutel und holte einen Feuerstein heraus. Er sammelte Blï¿½tter und entzï¿½ndete auï¿½erhalb der Lichtung, in der sich der Ork und die behexten Geister befanden, ", 0, 0, 2 );   
             base.books.AddGermanBookText( " ein kleines Feuer. Alle Zwerge wissen, wie sehr die Geister das Feuer hassen, da seine Flammen die Bäume vernichten, denen sie dienen. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Die Natur der Geister gewann sofort die ï¿½berhand und sie stï¿½rmten los, um die Flammen zu ersticken. ", 0, 0, 2 );
             base.books.AddGermanBookText( " In dem Durcheinander schlich sich Thiron hinter den Ork, schnappte sich den Beutel mit den Samen und stahl sich davon, noch ehe das bï¿½se Wesen ihr Fehlen bemerkt hatte. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Als Thiron zum Baumstein zurï¿½ckkehrte, pflanzte er den Baum in den Boden, und Irmorom der Große Schï¿½pfer sprach zu ihm.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( "'Das Geschenk der Bäume ist zurï¿½ckgegeben. Die Bäume und Pflanzen werden wieder blï¿½hen und gedeihen und Nahrung und Schatten spenden.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Als Thiron zum Baumstein zurückkehrte, pflanzte er den Baum in den Boden, und Irmorom der Große Schï¿½pfer sprach zu ihm.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( "'Das Geschenk der Bäume ist zurückgegeben. Die Bäume und Pflanzen werden wieder blï¿½hen und gedeihen und Nahrung und Schatten spenden.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Thiron war erschöpft, da die Sonne unablï¿½ssig brannte und immer noch kein Wind wehte, um ihn zu kï¿½hlen, aber er rastete nur kurz im Schatten der Bäume. ", 0, 0, 2 );    
             base.books.AddGermanBookText( " Seine Beine waren müde und die Augen schwer, doch er setzte seinen Weg fort und wanderte zum Sonnenstein. Wieder sprach Irmorom.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Die sanfte Wï¿½rme der Sonne wurde gestohlen, so dass sie jetzt nur noch brennt. Befreie die Sonne aus den Hallen von Penumbra.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Und so wanderte Thiron nach Osten ï¿½ber das gefrorene Land, bis er die Hallen von Penumbra erreichte. Die Luft im Inneren war stickig und schwer, und er konnte die Hand vor Augen nicht sehen. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Dessen ungeachtet ertastete er sich seinen Weg entlang der Wï¿½nde, obwohl er das Schlurfen von Schritten hï¿½rte und wusste, dass an diesem Ort unheiligen Bestien wohnten, ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " die sein Fleisch zerreiï¿½en und seine Knochen verzehren wï¿½rden. Stundenlang arbeitete er sich vorwï¿½rts, bis er am Ende der Halle ein schwaches Leuchten erblickte. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " die sein Fleisch zerreiï¿½en und seine Knochen verzehren würden. Stundenlang arbeitete er sich vorwï¿½rts, bis er am Ende der Halle ein schwaches Leuchten erblickte. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Dort erstrahlte hinter einer Wand aus blankem Eis ein Licht, so hell, dass er die Augen schlieï¿½en musste, um nicht für immer zu erblinden. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Er schlug mit seiner Axt einer der unheiligen Bestien ihr flammendes Auge aus dem Schï¿½del und schleuderte es mit aller Kraft gegen die Eiswand.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Darin bildete sich ein schmaler Riss, der immer grï¿½ï¿½er wurde. Langsam kroch das Licht zwischen den Spalten hervor, vergrï¿½ï¿½erte sie, und lieï¿½ die Eiswand schlieï¿½lich zerbersten. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Darin bildete sich ein schmaler Riss, der immer Grüßer wurde. Langsam kroch das Licht zwischen den Spalten hervor, verGrüßerte sie, und lieï¿½ die Eiswand schlieï¿½lich zerbersten. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Mit einem ohrenbetï¿½ubenden Knall zerbrach die Wand in tausend Stï¿½cke, und Thiron und die Hallen wurden von Licht ï¿½berflutet. ", 0, 0, 2 );  
             base.books.AddGermanBookText( " Er hï¿½rte die schrillen Schreie der Unheiligen Bestien, die geblendet wurden und verbrannten. Er rannte aus den Hallen, dem Licht folgend, und brach drauï¿½en auf dem Boden zusammen.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Als er wieder in der Lage war aufzustehen, wï¿½rmte die Sonne ihn wieder und darï¿½ber war er froh. Er kehrte zurï¿½ck zum Sonnenstein, wo der Große Schï¿½pfer erneut zu ihm sprach. ", 0, 0, 2 );
-            base.books.AddGermanBookText( " 'Das Geschenk der Sonne ist zu den Zwergen zurï¿½ckgekehrt. Sie wird sie wï¿½rmen und ihnen Licht spenden.'", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Thiron musste jetzt nur noch eine letzte Gabe zurï¿½ckbringen, das Geschenk der Winde, und so reiste er zum Windstein, weit an der westlichen Kï¿½ste der Insel.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Als er wieder in der Lage war aufzustehen, wï¿½rmte die Sonne ihn wieder und darï¿½ber war er froh. Er kehrte zurück zum Sonnenstein, wo der Große Schï¿½pfer erneut zu ihm sprach. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " 'Das Geschenk der Sonne ist zu den Zwergen zurückgekehrt. Sie wird sie wï¿½rmen und ihnen Licht spenden.'", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Thiron musste jetzt nur noch eine letzte Gabe zurückbringen, das Geschenk der Winde, und so reiste er zum Windstein, weit an der westlichen Kï¿½ste der Insel.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Als er dort ankam, sprach Irmorom zu ihm und gab ihm seinen letzten Auftrag. ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Finde den Gierigen Mann und befreie den Wind aus seiner Gefangenschaft.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Also durchwanderte Thiron das Land auf der Suche nach dem Gierigen Mann. Er schaute in den Bäumen nach, aber dort war der Gierige Mann nicht verborgen.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Und auch nicht am Meeresufer oder in den tiefen Hï¿½hlen, und auch die Tiere hatten ihn in den dunklen Wï¿½ldern nicht gesehen. ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Schlieï¿½lich kam Thiron zu einem schiefen Haus und wusste, dass er den Gierigen Mann dort finden wï¿½rde. ", 0, 0, 2 );  
+            base.books.AddGermanBookText( " Schlieï¿½lich kam Thiron zu einem schiefen Haus und wusste, dass er den Gierigen Mann dort finden würde. ", 0, 0, 2 );  
             base.books.AddGermanBookText( " 'Wer bist du', rief der Gierige Mann, 'dass du zu meinem Haus kommst?'  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( "'Ich bin Thiron von den Zwergen', sagte Thiron. 'Ich bin weder Krieger noch Stammesï¿½ltester, noch Schmied. Wenn ich nicht zurï¿½ckkehre, wird man mich nicht vermissen. ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Aber ich habe das Meer, das Land, die Bäume, die Tiere und die Sonne zurï¿½ckgebracht und ich werde meinem Volk auch den Wind wiederbringen, auf dass wir den Geist des Großen ", 0, 0, 2 );   
+            base.books.AddGermanBookText( "'Ich bin Thiron von den Zwergen', sagte Thiron. 'Ich bin weder Krieger noch Stammesï¿½ltester, noch Schmied. Wenn ich nicht zurückkehre, wird man mich nicht vermissen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Aber ich habe das Meer, das Land, die Bäume, die Tiere und die Sonne zurückgebracht und ich werde meinem Volk auch den Wind wiederbringen, auf dass wir den Geist des Großen ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Schï¿½pfers wieder in unseren Seelen spï¿½ren mï¿½gen.'  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Und mit diesen Worten ergriff er den Beutel des Gierigen Mannes und riss ihn auf. Die Winde fegten mit der Macht eines Orkans aus dem Beutel, hoben den Gierigen Mann in die Luft und trugen ihn fort, ", 0, 0, 2 );
-            base.books.AddGermanBookText( " weit weg von der Insel. Thiron atmete den Wind ein und war froh. Er wanderte zurï¿½ck zum Windstein, wo Irmorom ein letztes Mal zu ihm sprach. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " 'Du hast deine Sache gut gemacht, Thiron. Du, der Geringste unter den Zwergen, hast ihnen meine Geschenke zurï¿½ckgebracht.  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " weit weg von der Insel. Thiron atmete den Wind ein und war froh. Er wanderte zurück zum Windstein, wo Irmorom ein letztes Mal zu ihm sprach. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " 'Du hast deine Sache gut gemacht, Thiron. Du, der Geringste unter den Zwergen, hast ihnen meine Geschenke zurückgebracht.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Der Gierige Mann ist erst einmal verschwunden und dï¿½rfte dein Volk wï¿½hrend deiner Lebenszeit nicht noch einmal belï¿½stigen. Ich bin sehr zufrieden. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Geh jetzt hin und lebe, wie es deiner Natur entspricht.' ", 0, 0, 2 );    
-            base.books.AddGermanBookText( " Und Thiron machte sich auf den Weg zurï¿½ck ins Dorf der Zwerge. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und Thiron machte sich auf den Weg zurück ins Dorf der Zwerge. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Doch statt ihn auf Hï¿½nden zu tragen dankten ihm die anderen nur spï¿½rlich, manche beklagten sich sogar das es so lange gedauert hatte und meinten das lieber sie hï¿½tten gehen sollen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Thiron war traurig und wandte sich wieder seiner Arbeit zu auf das er dies schnell vergessen mï¿½ge. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Als Irmorom das sah kochte die Wut im heiligen Schï¿½pfer und er nahm den Zwergen wieder all ihre Geschenke, nur einem lies er sie ... Thiron.  ", 0, 0, 2 );   
@@ -300,7 +300,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Beschï¿½hmt blickten die Zwerge sich um der heilige Vater hatte recht sie hatten Thiron unrecht getan. Doch Irmorom war noch nicht fertig mit seiner Ansprache:  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Und deshalb wird der geringste unter euch derjenige der sein Leben lang Weisheit, Mut und Geschick in sich vereinen soll ... unter meinem Schutz und mit meinem Segen wirst du Thorin ", 0, 0, 2 );
             base.books.AddGermanBookText( " der erste unter vielen, du sollst fortan mein Wort unter die Zwerge tragen, auf das nie wieder ein von Gier getriebenes Wesen die Lï¿½ndereien der Zwerge betreten soll.", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Gib dein Wissen an jene weiter die bereit sind ihr Leben in meine Dienste zu stellen auf das wir gemeinsam ï¿½ber das Volk der Zwerge wachen kï¿½nnen, Thorin ... Wahrer der Esse!'  ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Gib dein Wissen an jene weiter die bereit sind ihr Leben in meine Dienste zu stellen auf das wir gemeinsam ï¿½ber das Volk der Zwerge wachen können, Thorin ... Wahrer der Esse!'  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Eine Saga ï¿½bersetzt aus der Tempelbibliothek zu Silberbrand ", 0, 0, 2 );
             base.books.AddGermanBookText( " von Einkill Al'Ad Kï¿½zï¿½r Waffenknecht Irmoroms ", 0, 0, 2 );   
 
@@ -392,7 +392,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Kurz wï¿½hrte die neu entflammte Leidenschaft, denn das Wolfsmï¿½dchen hatte den Genuss aus des Bauern Geist gekehrt, nur hauste sie selbst nun dort und immerfort.",0,55,3);
             base.books.AddGermanBookText("Sie zu vergessen war nicht mï¿½glich, sie umgab ihn so oft und wenn sie nicht da war, suchte er ihre Nï¿½he. ",0,55,3);
             base.books.AddGermanBookText("In ihrer Unschuld erkannte sie die Zeichen nicht und des Bauern Qual wuchs.",0,55,3);
-            base.books.AddGermanBookText("Von der Geliebten flï¿½chtend, wann immer sie seine Liebe brauchte, brachen sie wieder. Er hatte sich zu den Druiden zurï¿½ckgezogen, um Wein, Bier und Kraut und vor allem der Liebe zu entsagen. ",0,55,3);
+            base.books.AddGermanBookText("Von der Geliebten flï¿½chtend, wann immer sie seine Liebe brauchte, brachen sie wieder. Er hatte sich zu den Druiden zurückgezogen, um Wein, Bier und Kraut und vor allem der Liebe zu entsagen. ",0,55,3);
             base.books.AddGermanBookText("Doch es zerfraï¿½ sein Herz, als das Wolfsmï¿½dchen verschwand und schlieï¿½lich auch die Zauberin aus seinem Leben schied...",0,55,3);
             
             ------
@@ -493,7 +493,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Damit ist klar was magische Effekte sind, das verï¿½ndern der arkanen Struktur. Formen wir einen Feuerball, so formen wir aus der arkanen Struktur der Luft beziehungsweise der Umgebung die eines ",0,25,4);
 			base.books.AddGermanBookText("Feuerball, so formen wir aus der arkanen Struktur der Luft beziehungsweise der Umgebung die eines Feuerballes.",0,25,4);
 			base.books.AddGermanBookText("3. Manaenergie",165,25,4); -- ### 165 mana potion (germ) ###
-			base.books.AddGermanBookText("Was der gemeine Tï¿½lpel hï¿½chstens mit einem Manatrank in Verbindung setzten wï¿½rde oder unwissend als Ausdauer eines Zauberers bezeichnet, ist wesentlich mehr als das. ",0,25,4);
+			base.books.AddGermanBookText("Was der gemeine Tï¿½lpel hï¿½chstens mit einem Manatrank in Verbindung setzten würde oder unwissend als Ausdauer eines Zauberers bezeichnet, ist wesentlich mehr als das. ",0,25,4);
 			base.books.AddGermanBookText("Manaenergie wird zum einen in den Bahnen arkaner Strukturen gespeichert, zum anderen ist es, in weitaus geringerer Konzentration, im freien Raum dazwischen zu finden. ",0,25,4);
 			base.books.AddGermanBookText("Wann immer wir die Elemente verï¿½ndern braucht dies eine Form von Energie. Fï¿½r uns am deutlichsten wird dies durch Muskelkraft. Das heben eines Steines erfordert Anstrengung, Energie.",0,25,4); -- ### 165 mana potion (engl) ###
 			base.books.AddGermanBookText("Auch wenn wir magische Effekte wirken wollen, also die arkane Struktur verï¿½ndern mï¿½chten, so erfordert dies Energie. Diese Energie nennen wir Manaenergie oder meist einfach nur Mana. ",0,25,4);
@@ -505,8 +505,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Dieses Mana verweilt nicht in der arkanen Struktur des Zielobjektes. Sie verteilt sich recht schnell wieder in die Umgebung der Zielstruktur bis diese wieder ihr normales Maï¿½ an Mana fasst.",0,25,4);
 			base.books.AddGermanBookText("Der Zauberer, der das Mana aus seiner arkanen Struktur gerade verloren hat, zieht neue Manaenergie wiederum aus der Umgebung seiner eigenen arkanen Struktur, bis auch diese wieder ihr normales Maï¿½",0,25,4);
 			base.books.AddGermanBookText("erreicht hat. Wobei anzumerken ist, das Mana deutlich lï¿½nger brauch um in eine arkane Struktur zu wandern als aus einer heraus.",0,25,4);
-			base.books.AddGermanBookText("Wie viel Manaenergie eine arkane Struktur fassen kann, ist von vielen Faktoren abhï¿½ngig, ihre Grï¿½ï¿½e und Form sind die wichtigsten zwei. Wobei anzumerken ist, dass durch die mï¿½gliche extrem enge und",0,25,4);
-			base.books.AddGermanBookText("verschlungene Faltung einer arkanen Struktur, die augenscheinliche Grï¿½ï¿½e eines Objektes kaum etwas ï¿½ber die Grï¿½ï¿½e seiner arkanen Struktur und damit ï¿½ber ihr Fassungsvermï¿½gen für Mana aussagt. ",0,25,4);
+			base.books.AddGermanBookText("Wie viel Manaenergie eine arkane Struktur fassen kann, ist von vielen Faktoren abhï¿½ngig, ihre Grüße und Form sind die wichtigsten zwei. Wobei anzumerken ist, dass durch die mï¿½gliche extrem enge und",0,25,4);
+			base.books.AddGermanBookText("verschlungene Faltung einer arkanen Struktur, die augenscheinliche Grüße eines Objektes kaum etwas ï¿½ber die Grüße seiner arkanen Struktur und damit ï¿½ber ihr Fassungsvermï¿½gen für Mana aussagt. ",0,25,4);
 			base.books.AddGermanBookText("Wie schon angedeutet geht Manaenergie nie verloren. Genauso wenig kann sie erschaffen werden. Davon sind mir auch keine Ausnahmen bekannt und den Berichten und Legenden, von denen von erschaffen oder ",0,25,4);
 			base.books.AddGermanBookText("Vernichten von Mana gesprochen wird, sind dies Fehldeutungen oder schlichtweg Mï¿½rchen. ",0,25,4);
 			base.books.AddGermanBookText("4. Besondere arkane Strukturen",0,25,4);
@@ -518,12 +518,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("die ein unwahrscheinlich großes Maï¿½ an Manaenergie speichern kann und diese, wenn sie vollkommen gefï¿½llt ist in die nï¿½here Umgebung abgibt. Die Sammelbahnen sind bis zu mehrere Meilen lange Fï¿½den ",0,25,4); -- ### 2079 fountain (engl) ###
 			base.books.AddGermanBookText("arkaner Struktur, die aus dem Zentrum der Quelle in alle Richtungen ragen. Sie ziehen Mana aus der weiten Umgebung der Quelle und transportieren es ins Zentrum.",0,25,4);
 			base.books.AddGermanBookText("In ihrer unmittelbaren Umgebung steht einem Magier ein hï¿½heres Maï¿½ an Manaenergie zur Verfï¿½gung, dies erleichtert vor allem rituelle Magie.",0,25,4);
-			base.books.AddGermanBookText("Manaquellen haben materiell Stark unterschiedliche Formen und Grï¿½ï¿½en. Felsen. Edelsteine, Bäume, Teiche oder andere kleine Gewï¿½sser sind die hï¿½ufigsten Erscheinungsformen. Handelt es sich bei der",0,25,4);
+			base.books.AddGermanBookText("Manaquellen haben materiell Stark unterschiedliche Formen und Grüßen. Felsen. Edelsteine, Bäume, Teiche oder andere kleine Gewï¿½sser sind die hï¿½ufigsten Erscheinungsformen. Handelt es sich bei der",0,25,4);
 			base.books.AddGermanBookText("Manaquelle um ein kleines Gewï¿½sser oder ein Pflanze, so regeneriert das Trinken von ihr beziehungsweise das Essen ihrer Frucht in raschem Maï¿½e die speicherbare Manaenergie des Konsumenten. ",0,25,4);
 			base.books.AddGermanBookText("Die Wirkung ist vergleichbar mit der eines Manatrankes.",0,25,4);
 			base.books.AddGermanBookText("Wegen ihrer Macht für Magier und ihrer Seltenheit sind sie oft umkï¿½mpfte Objekte. Da sie aber auch magische und unnatürliche Kreaturen instinktiv anlocken gibt es auf Illarion viele von ihnen die, von",0,25,4);
 			base.books.AddGermanBookText("Herrscharen von Monstern bewacht, in Vergessenheit gerieten. Die grï¿½ï¿½te und mï¿½chtigste aller bekannten Manaquellen findet man, wie sollte es anders sein, in Lor Angur.",0,25,4);
-			base.books.AddGermanBookText("Nur durch sie ist es mï¿½glich die mï¿½chtigen Schutzzauber der Stadt aufrecht erhalten zu kï¿½nnen.",0,25,4);
+			base.books.AddGermanBookText("Nur durch sie ist es mï¿½glich die mï¿½chtigen Schutzzauber der Stadt aufrecht erhalten zu können.",0,25,4);
 			base.books.AddGermanBookText("4.2 Manastrï¿½me",0,25,4);
 			base.books.AddGermanBookText("Wie erwï¿½hnt besitzt alles was existiert eine arkane Struktur, bestehend aus vielen kleinen, verschlungenen Bahnen. Auch unsere Heimatebene Illarion besitzt als ganzes eine solche Struktur die sie",0,25,4);
 			base.books.AddGermanBookText("die sie zusammenhï¿½lt. Die einzelnen Bahne dieser Arkanen Struktur sind so riesig, das sie uns als Manastrï¿½me bekannt sind.",0,25,4);

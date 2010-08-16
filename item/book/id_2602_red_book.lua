@@ -62,7 +62,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Ein Kurzschwert mit Namensgravur für Juroon.",0,0,3);
             base.books.AddGermanBookText("Ein leichter Metall-Kampfstab für Alatur.",0,0,3);
             base.books.AddGermanBookText("Ein Eisschwert für Welian.",0,0,3);
-            base.books.AddGermanBookText("Ein Langschwert mit der Gravur 'Lothlendar' für Erzmagier Liv. (Hat seinen Hut bei mir vergessen! - zurï¿½ckbringen)",0,0,3);
+            base.books.AddGermanBookText("Ein Langschwert mit der Gravur 'Lothlendar' für Erzmagier Liv. (Hat seinen Hut bei mir vergessen! - zurückbringen)",0,0,3);
             base.books.AddGermanBookText("Ein Kï¿½ltedolch für Murnan.",0,0,3);
             base.books.AddGermanBookText("Ein kï¿½lteresistenter Plattenpanzer für den Lord von Krotir.",0,0,3);
             base.books.AddGermanBookText("Ein Eisschwert für Urnon.",0,0,3);

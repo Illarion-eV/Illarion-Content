@@ -33,7 +33,7 @@ function loadBook(toData)
     
     base.books.AddGermanBookText( "Im Folgenden befindet sich eine Mitschrift einer Rede unseres großen Kï¿½nigs und Grï¿½nders von Silberbrand zur Grï¿½ndung von Silberbrand:", 0, 0,toData);   
     base.books.AddGermanBookText( "Wehrte Untertanen, Verbï¿½ndete und Freunde Silberbrands, ", 0, 0,toData);
-    base.books.AddGermanBookText( "Silberbrand wurde uns nicht von den Gï¿½ttern geschenkt, es ist das Ergebnis harter Arbeit der Grï¿½nderzwerge, ", 0, 0,toData);      
+    base.books.AddGermanBookText( "Silberbrand wurde uns nicht von den Göttern geschenkt, es ist das Ergebnis harter Arbeit der Grï¿½nderzwerge, ", 0, 0,toData);      
     base.books.AddGermanBookText( "die mit ihren eigenen Hï¿½nden die Tunnel in den Fels trieben, jeden Stein, jeden Amboss und jede Esse mit ihrem Gold bezahlten. In dieser Stadt steckt nach damals gï¿½ltigen Preisen der Gegenwert von ", 0, 0,toData);   
     base.books.AddGermanBookText( "weit ï¿½ber 10.000 Silberbarren die die Grï¿½nderzwerge aufbrachten. Von diesen Mengen an Silber haben weniger als zehn Zwerge drei viertel alleine aufgebracht, ich selbst habe den Gegenwert von ", 0, 0,toData);
     base.books.AddGermanBookText( "ï¿½ber 5.000 Barren aufgebracht. Rugosch, Bombor, Caranthir und Gandela jeweils alleine weit ï¿½ber 1.000 durch Silber oder Arbeit. Alle Grï¿½nderzwerge haben entschieden, das sie jeden Zwerg dieses ", 0, 0,toData);   

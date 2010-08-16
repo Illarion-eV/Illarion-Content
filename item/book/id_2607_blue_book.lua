@@ -35,25 +35,25 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Ronagan is the God of Thieves and Shadows. He stands for spreading wealth to the needed and does not agree with strict set of laws. He is said to help honorable thieves.",0,0,0); 
             base.books.AddEnglishBookText("Moshran is the God of Blood and Bones. The orcs were created with his anger and despair, for he was cursed after saving the land. Afterwards, his status of a great warrior was not as such.",0,0,0); 
             
-            base.books.AddGermanBookText("\n \n Illarions Gï¿½tterwelt",0,0,0); 
-            base.books.AddGermanBookText("Die Alten Gï¿½tter",0,0,0); 
+            base.books.AddGermanBookText("\n \n Illarions Götterwelt",0,0,0); 
+            base.books.AddGermanBookText("Die Alten Götter",0,0,0); 
             base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fï¿½nf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
             base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Gï¿½ldene. Er wird als stark, gerecht und großzï¿½gig beschrieben. ",0,0,0); 
             base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhï¿½nger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund für seine geringe Gefolgschaft.",0,0,0); 
             base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zustï¿½ndig für die Kunst. Auch ihre Anhï¿½nger sind dï¿½nn gesï¿½at, in aller Regel Wahrsager und Bï¿½nkelsï¿½nger.",0,0,0); 
-            base.books.AddGermanBookText("Tanora ist die alte Gï¿½ttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Gï¿½ttern, die mï¿½glicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
+            base.books.AddGermanBookText("Tanora ist die alte Gï¿½ttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Göttern, die mï¿½glicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
             base.books.AddGermanBookText("Die alte Gottheit Ushara wacht ï¿½ber die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
-            base.books.AddGermanBookText("Die Jï¿½ngeren Gï¿½tter",0,0,0); 
-            base.books.AddGermanBookText("Die Jï¿½ngeren unter den Gottheiten waren elf herausragende Bï¿½rgerliche, die, auserwï¿½hlt von den Alten, bestimmt wurden, zu Gï¿½ttern aufzusteigen.",0,0,0); 
+            base.books.AddGermanBookText("Die Jï¿½ngeren Götter",0,0,0); 
+            base.books.AddGermanBookText("Die Jï¿½ngeren unter den Gottheiten waren elf herausragende Bï¿½rgerliche, die, auserwï¿½hlt von den Alten, bestimmt wurden, zu Göttern aufzusteigen.",0,0,0); 
             base.books.AddGermanBookText("Elara ist die Gï¿½ttin des Wissens. Sie wird hauptsï¿½chlich von Zauberern und Gelehrten verehrt. Gerï¿½chteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als großgewachsene alterslose Frau.",0,0,0); 
             base.books.AddGermanBookText("Adrons ist der Gott der Feste. Man sagt von ihm, er erscheine als ansehnlicher Mann oder auch als Bettler mit Flasche. Er ist aufbrausend und bisweilen streitlustig.",0,0,0); 
             base.books.AddGermanBookText("Cherga is die Gï¿½ttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht für Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
             base.books.AddGermanBookText("Oldra is die Gï¿½ttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ï¿½ltere Frau auf. Viele Bauern, Mï¿½tter und Familien beten zu ihr.",0,0,0);
             base.books.AddGermanBookText("Nargï¿½n ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
-            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr wï¿½rdevoll, ernst und für gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
+            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr würdevoll, ernst und für gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
             base.books.AddGermanBookText("Irmorom ist der Gott des Handwerks und des Handels. Er liebt Wohlstand und Gerechtigkeit. Die, die ihn verehren, sind stolz auf ihre handwerklichen Begabungen und ihren Reichtum.",0,0,0);
             base.books.AddGermanBookText("Sirani ist die Gï¿½ttin der Liebe und des Vergnï¿½gens. Fï¿½r gewï¿½hnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
-            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzï¿½hlt, er wï¿½rde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hï¿½lt nichts von solchen Dingen.",0,0,0);
+            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzï¿½hlt, er würde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hï¿½lt nichts von solchen Dingen.",0,0,0);
             base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht für das Geben an Bedï¿½rftige und hï¿½lt nichts von strengen Gesetzen. Man erzï¿½hlt, er helfe ehrwï¿½rdigen Dieben.",0,0,0);
             base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als großer Krieger zerbrochen.",0,0,0);
 
@@ -83,7 +83,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("\n \n Kultur und Geschichte der Halblinge",0,0,1);
             base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fï¿½rdert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
             base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der grï¿½ï¿½te Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller ï¿½fentlichkeit prï¿½sentieren. Sie neigen dazu, ï¿½lter zu werden als die Menschen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hï¿½gel und Wï¿½lder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen kï¿½nnen diese Hï¿½hlen eine beachtliche Grï¿½ï¿½e erreichen.",0,0,1);
+            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hï¿½gel und Wï¿½lder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen können diese Hï¿½hlen eine beachtliche Grüße erreichen.",0,0,1);
             base.books.AddGermanBookText("Ihre Hï¿½user sind voller Mï¿½bel und anderer Besitztï¿½mer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
             base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanfï¿½hrer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
             base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dï¿½rfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gï¿½be im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
@@ -152,7 +152,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Als Ragnï¿½l und Heimdall die Szene beobachteten knieten sie nieder vor ihrem Schï¿½pfer und er sprach zu ihnen:", 0, 0, 2 );   
             base.books.AddGermanBookText( " 'Ihr die ihr reinen Herzens seit wisset diese Ringe als mein Geschenk, genau wie diese Mine. Auf das das Volk der Zwerge nie vergessen mï¿½ge wie wertvoll der Bund der Freundschaft ", 0, 0, 2 );   
             base.books.AddGermanBookText( " und der Liebe sind! Auf das nie mehr Zwerge der Gier wegen ihre Brï¿½der und Schwestern verraten!' ", 0, 0, 2 );
-            base.books.AddGermanBookText( " Und so lies er sie zurï¿½ck die neuen Herscher ï¿½ber das neue Reich der Zwerge!", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und so lies er sie zurück die neuen Herscher ï¿½ber das neue Reich der Zwerge!", 0, 0, 2 );   
             base.books.AddGermanBookText( " Seither feiern die Brï¿½der und Schwestern in den Winden des Siros ihren Bund der Liebe, und seither ist es Tradition das der fï¿½higste Schmied des Berges dem Paar ", 0, 0, 2 );   
             base.books.AddGermanBookText( " zwei prï¿½chtige Ringe schmiedet und nach der Zeremonie auf ewig verschmilzt auf das sie sich so wie die Zwerge nie mehr von einander trennen mï¿½gen! ", 0, 0, 2 );
             base.books.AddGermanBookText( " Diese heiligen Ringe sind das Zeichen der Bestï¿½ndigkeit, der Liebe eines Paares, die nur durch die Trinkfestigkeit und den Glauben der Zwerge noch in Konkurrenz gerï¿½t...", 0, 0, 2 );
@@ -190,7 +190,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
   function LookAtItem(User,Item) 
       if base.books.InitTitle() then 
         base.books.AddEnglishBookTitle("Book with the title \"Gods of Illarion\"",0); 
-        base.books.AddGermanBookTitle("Buch mit dem Titel \"Gï¿½tter Illarions\"",0); 
+        base.books.AddGermanBookTitle("Buch mit dem Titel \"Götter Illarions\"",0); 
           
         base.books.AddEnglishBookTitle("Book with the title \"Halfling Culture and History\"",1);
         base.books.AddGermanBookTitle("Buch mit dem Titel \"Halblinge - Kultur und Geschichte\"",1);

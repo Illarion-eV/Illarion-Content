@@ -17,7 +17,7 @@ function cookie(User)
         germText="Jetzt ist die Zeit gekommen den Verstand zu benutzen.";
         englText="You find beauty in ordinary things. Keep this trait.";
     elseif (luck==5) then
-        germText="Strebe nicht an, was Du meinst erreichen zu kï¿½nnen, sondern was Du wirklich willst!";
+        germText="Strebe nicht an, was Du meinst erreichen zu können, sondern was Du wirklich willst!";
         englText="Anything worth doing can be done.";
     elseif (luck==6) then
         germText="Erfolg hat nur, wer etwas tut, wï¿½hrend er auf den Erfolg wartet.";
@@ -62,7 +62,7 @@ function cookie(User)
         germText="Bist Du heute der, der Du einmal sein wolltest, als Du noch jung warst?";
         englText="Are you really the person you want to be as you where young?";
     elseif (luck==21) then
-        germText="Sie kï¿½nnen herausholen, was in Ihnen steckt.";
+        germText="Sie können herausholen, was in Ihnen steckt.";
         englText="The chief danger in life is that you may take too many precautions.";
     elseif (luck==22) then
         germText="Tu' nichts, woran deine Seele Schaden erleiden kï¿½nnte, auch wenn du die Welt gewinnen könntest.";

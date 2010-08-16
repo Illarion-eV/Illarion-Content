@@ -1,6 +1,6 @@
 module("content.lookat.unique", package.seeall)
 
--- Gibt den Suffix für das Item zurï¿½ck
+-- Gibt den Suffix für das Item zurück
 --
 -- @param: CharacterStruct - Der Char, der sich das Item ansieht
 -- @param: integer - ClassID des betrachteten Items
@@ -142,7 +142,7 @@ local SUFFIX_EN = {"","","","","","",""};
 	return Suffix
 end
 
--- Gibt den Prï¿½fix für das Item zurï¿½ck
+-- Gibt den Prï¿½fix für das Item zurück
 --
 -- @param: CharacterStruct - Der Char, der sich das Item ansieht
 -- @param: integer - ClassID des betrachteten Items
@@ -252,7 +252,7 @@ end
 
 
 
--- Gibt den String der betreffenden Itemklasse zurï¿½ck
+-- Gibt den String der betreffenden Itemklasse zurück
 --
 -- @param: CharacterStruct - Der Char, der sich das Item ansieht
 -- @param: integer - Class-ID des betrachteten Items
@@ -268,7 +268,7 @@ function writeClass(User,Class)
     return ItemCl
 end
 
--- Gibt den String des "eingesetzten Steins" zurï¿½ck
+-- Gibt den String des "eingesetzten Steins" zurück
 --
 -- @param: CharacterStruct - Der Char, der sich das Item ansieht
 -- @param: integer - 2te (bzw 4te beim 2ten Stein) Stelle des Datawertes des betrachteten Items
@@ -284,7 +284,7 @@ function writeGem(User, gem)
     return gemName
 end
 
--- Gibt den String der Stärke des "eingesetzten Steins" zurï¿½ck
+-- Gibt den String der Stärke des "eingesetzten Steins" zurück
 --
 -- @param: CharacterStruct - Der Char, der sich das Item ansieht
 -- @param: integer - 1te (bzw 3te beim 2ten Stein) Stelle des Datawertes des betrachteten Items

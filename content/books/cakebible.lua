@@ -33,7 +33,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Die Kuchenbibel",0,0,toData);
     base.books.AddGermanBookText("Inhaltsverzeichnung:\nWidmung Seite 3\nVorbereitung Seite 4-5\nRezepte Seite 5-15\nUnterformen Seite 16-20\nPhilosophisches Seite 21-22\nDanksagen, Seite",0,0,toData);
     base.books.AddGermanBookText("Widmung:\n\n An alle Freunde der sï¿½ï¿½en Leckereien\n\n\n Die Autoren Lana von Maibach und Cassandria",0,0,toData);
-    base.books.AddGermanBookText("Vorbereitung:\n Um losbacken zu kï¿½nnen, braucht man natürlich erstmal ganz viel Teig, ein Nudelholz, um den Teig auszuwï¿½llen, einen Ofenschieber und nï¿½tï¿½rlich die jeweigen Zutaten. Man lege sich dies",0,0,toData);
+    base.books.AddGermanBookText("Vorbereitung:\n Um losbacken zu können, braucht man natürlich erstmal ganz viel Teig, ein Nudelholz, um den Teig auszuwï¿½llen, einen Ofenschieber und nï¿½tï¿½rlich die jeweigen Zutaten. Man lege sich dies",0,0,toData);
     base.books.AddGermanBookText("alles zurecht und schon kann der Backspass beginnen.",0,0,toData);
     base.books.AddGermanBookText("Apfelhauch:\n\n Man nehme zwei Batzen Teig und fome daraus erstmal eine Runde Form. Dann schï¿½llt und entkern man die ï¿½pfel, aï¿½erbem muss man sie noch in Stï¿½ck schneiden. Man nimmt eine der rrunden",353,0,toData); -- ### Apfelkuchen ###
     base.books.AddGermanBookText("Teiformen und setze darauf vorsichtig die einzelnen Apfelscheiben je nach Geschmack nï¿½her oder weiter auseinander Dann denkt man den Kuchen mit der anderen Teigform zu und backt sie bei mittlerer",0,0,toData);

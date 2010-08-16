@@ -124,7 +124,7 @@ function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
                 "Its much to cold to plant this.");
             elseif (season == 4) then
                 base.common.InformNLS(User,
-                "Der Boden ist tief gefroren. Hier wirst du nichts anbauen kï¿½nnen.",
+                "Der Boden ist tief gefroren. Hier wirst du nichts anbauen können.",
                 "The ground is freezed deeply. You won't be able to plant anything here.");
             end
             return

@@ -43,13 +43,13 @@ function loadBook(toData)
     base.books.AddGermanBookText("Große Ork-Clans unterteilen sich in Unterstï¿½mme mit jeweils eigenen Anführern, meist der Krï¿½ftigste innerhalb des Rudels, wohingegen der Shamane meist der Geschickteste ist.",0,0,toData);
     base.books.AddGermanBookText("Die Wï¿½nsche des Schamanen werden gewï¿½hnlich dem Anführer unterbreitet, indem man ihn beeindruckt - oder indem man ihm sein Lieblingsbier braut.",0,0,toData);
     base.books.AddGermanBookText("Die meisten Orks sind ziemlich arm. ï¿½ber mehrere Jahrhunderte hinweg habe sie eine einfache Schrift entwickelt, die aus mehreren Zeichen und Symbolen besteht. In Kriegszeiten benutzen sie verschlüsselte Nachrichten.",0,0,toData);
-    base.books.AddGermanBookText("Die meisten Orksippen verehren mehrere Gï¿½tter. Oldra wird von vielen Stï¿½mmen im Frï¿½hjahr gehuldigt. Sie wird deshalb auch die \"Frï¿½hjahrsgï¿½ttin\" genannt. Im Sommer verehren sie dann Bragon als den \"Gott der Sonnenwiederkehr\".",0,0,toData);
+    base.books.AddGermanBookText("Die meisten Orksippen verehren mehrere Götter. Oldra wird von vielen Stï¿½mmen im Frï¿½hjahr gehuldigt. Sie wird deshalb auch die \"Frï¿½hjahrsgï¿½ttin\" genannt. Im Sommer verehren sie dann Bragon als den \"Gott der Sonnenwiederkehr\".",0,0,toData);
     base.books.AddGermanBookText("Der Sommer ist für viele Orkstï¿½mme die Zeit der Kriegsfï¿½hrung, einige beten zu Moshran, auch als \"Knochen-Kracher\" oder als der \"Blut-Herr\" bekannt. Der Kriegsgott einer Sippe ist entweder Moshran oder Malachin, bisweilen auch beide.",0,0,toData);
     base.books.AddGermanBookText("Ihre Kriege untereinander sind meist Gebietsstreitereien, bei denen es aber nicht zu vielen Todesopfern kommt und die oftmals eher als eine Art sportlicher Betï¿½tigung unter den Orks angesehen wird.",0,0,toData);
     base.books.AddGermanBookText("Solche Kriege schlieï¿½en auch Spionage ein, Viehdiebstahl und einige Schlachten dienen vor allem der ï¿½berprï¿½fung, welcher der rivalisierenden Clans der Stärkere ist.",0,0,toData);
     base.books.AddGermanBookText("Im Herbst wenden sich dann die meisten Sippen Malachin, dem \"Jï¿½ger\" zu, zugunsten einer erfolgreichen Jagdsaison im Hinblick auf die bevorstehende Winterzeit.",0,0,toData);
     base.books.AddGermanBookText("Wï¿½hrend der kalten Jahreszeit leben die Orks in ihren Winterquartieren und Cherga wird zur ehrenden Gottheit. Der Winter ist die Zeit des Todes, der Geister und der Ahnen. Die Schï¿½del einiger Ahnen werden in Schreinen aufbewahrt.",0,0,toData);
-    base.books.AddGermanBookText("Sie kï¿½nnen aber auch in den von Schamanen oder Hï¿½uptlingen bewohnten Hï¿½hlenabschnitten aufbewahrt werden, wo sie dann zu jenen im Schlafe sprechen.",0,0,toData);
+    base.books.AddGermanBookText("Sie können aber auch in den von Schamanen oder Hï¿½uptlingen bewohnten Hï¿½hlenabschnitten aufbewahrt werden, wo sie dann zu jenen im Schlafe sprechen.",0,0,toData);
 end;
 
 function loadTitle(toData)

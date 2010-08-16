@@ -340,7 +340,7 @@ end
 function ImpactRow2(User,dataZList)
   for i=1,8 do
      -- block
-     -- Wirkungen der Reihe 2 kï¿½nnen erst eingebaut werden, wenn wir Zeiteffekte haben.
+     -- Wirkungen der Reihe 2 können erst eingebaut werden, wenn wir Zeiteffekte haben.
   end
 end
 -- -------------------------------------------------------------------------------

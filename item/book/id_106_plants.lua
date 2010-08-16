@@ -15,14 +15,14 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
        base.books.AddGermanBookText("Die Wï¿½stenhimmelskapsel wird in Wï¿½sten gefunden. Sie wird dazu gebraucht, das Element Wind zu verwenden.",0,0,0);
        base.books.AddGermanBookText("Das Donfblatt wï¿½chst im Wald. Es wird angeblich benutzt, um irgend etwas zusammenzukleben.",0,0,0);
        base.books.AddGermanBookText("Sandbeeren verStärken den Effekt von Zaubertrï¿½nken. Man sagt, sie seien in der Wï¿½ste zu finden.",0,0,0);
-       base.books.AddGermanBookText("Wutbeeren kï¿½nnen in Hecken tief im Wald gefunden werden.",0,0,0);
+       base.books.AddGermanBookText("Wutbeeren können in Hecken tief im Wald gefunden werden.",0,0,0);
        base.books.AddGermanBookText("Wenn man eine Tanne pflanzen will, braucht man zuerst einen Tannensetzling.",0,0,0);
-       base.books.AddGermanBookText("Tannensetzlinge kï¿½nnen von Tannen abgeschnitten werden.",0,0,0);
+       base.books.AddGermanBookText("Tannensetzlinge können von Tannen abgeschnitten werden.",0,0,0);
        base.books.AddGermanBookText("ï¿½pfel verrotten nach eienr Weile. Wenn man sie gut wï¿½ssert, wï¿½chst daraus erneut ein Setzling.",0,0,0);
        base.books.AddGermanBookText("Beeren wachsen an Bï¿½schen im Wald.",0,0,0);
        base.books.AddGermanBookText("Zwiebeln gedeihen auf Ackerboden.",0,0,0);
        base.books.AddGermanBookText("Tomaten wachsen an Bï¿½schen, wenn man vorher die Erde beackert.",0,0,0);
-       base.books.AddGermanBookText("Kirschen verrotten nach einiger Zeit. Wï¿½ssert man sie stattdessen gut, kï¿½nnen daraus Setzlinge wachsen.",0,0,0);
+       base.books.AddGermanBookText("Kirschen verrotten nach einiger Zeit. Wï¿½ssert man sie stattdessen gut, können daraus Setzlinge wachsen.",0,0,0);
        base.books.AddGermanBookText("Wenn man die Wurzeln einer Tanne ausgrï¿½bt, kann man dort eine geheime Pflanze finden.",0,0,0);
        base.books.AddGermanBookText("Gutes Getreide braucht gute Samen und eine fruchtbare Erde.",0,0,0);
        base.books.AddGermanBookText("Der Blï¿½tterpilz findet sich in der Nï¿½he von Tannen.",0,0,0);

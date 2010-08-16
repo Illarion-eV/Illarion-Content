@@ -308,7 +308,7 @@ function getEffect_8(Character,Effect,Runde)
    if Runde -(math.floor(Runde/10)*10) == 0 then
       if math.random(6) == 6 then
          base.common.InformNLS(Character,
-			"#w Du hast das Gefï¿½hl, dein Organe wï¿½rden brennen.",
+			"#w Du hast das Gefï¿½hl, dein Organe würden brennen.",
 			"#w Your insides feel like burning.");
       end
       local L = {"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};

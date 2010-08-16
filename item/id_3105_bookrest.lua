@@ -41,7 +41,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		if (User:getSkill("ancient language") > 59) then
 		    if (SourceItem.pos.z == -6) then
 		        if (User:getPlayerLanguage()==0) then
-					User:inform("In deinen Hï¿½nden, Suchender, hï¿½lst du die erste Weisheit. Fest und bestï¿½ndig wie die Erde ist auch die Weisheit. Alles Leben entspringt ihr und alles Leben kehrt zu ihr zurï¿½ck.");
+					User:inform("In deinen Hï¿½nden, Suchender, hï¿½lst du die erste Weisheit. Fest und bestï¿½ndig wie die Erde ist auch die Weisheit. Alles Leben entspringt ihr und alles Leben kehrt zu ihr zurück.");
 					User:inform("Um die zweite Weisheit zu finden sucht sie beim alten Heiligtum Bragons und ihr werdet ihn finden am Fuï¿½e seiner hellsten Flamme.");
 				else
 					User:inform("In your hands, seeker, you hold the first wisdom. Solid and steady like the earth the wisdom is. All life arises from it and all life ends in it.");

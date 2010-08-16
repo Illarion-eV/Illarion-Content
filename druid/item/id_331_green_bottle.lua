@@ -34,7 +34,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     return;
                 else
                     base.common.InformNLS( User,
-                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum fï¿½hrt kein Weg zurï¿½ck.",
+                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum fï¿½hrt kein Weg zurück.",
                     "#b|0|1008|Attention! There is no way back from this path to druidism." );
                 end
                 Security[ User.id ] = true;

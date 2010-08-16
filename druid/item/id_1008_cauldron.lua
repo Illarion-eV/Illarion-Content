@@ -124,7 +124,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         	ds_skillgain(User);
         else
         base.common.InformNLS( User,
-                "Du musst schon Druide sein, um so etwas zu kï¿½nnen.",
+                "Du musst schon Druide sein, um so etwas zu können.",
                 "You need to be a druid to do such things."
             );
         end		

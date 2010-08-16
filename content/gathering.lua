@@ -40,7 +40,7 @@ function InitGathering()
 		honeygathering:AddInterruptMessage("Du wirst von etwas in dem Bienenstock gestochen. Was das wohl wahr?", "Something stings you inside the beehive. What could that be?");
 		honeygathering:AddInterruptMessage("Du wischst dir den Schweiï¿½ von der Stirn.", "You wipe sweat off your forehead.");
 		honeygathering:AddInterruptMessage("Du wirfst kurz einen Blick in den Bienenkorb um nach einer besseren Stelle für Honigwaben zu suchen.", "You decide to search deeper for honeycombs.");
-		honeygathering:AddInterruptMessage("Du greifst direkt in eine Stelle mit Honig und ziehst die Hand zurï¿½ck. Nun bleibt dir wohl nichts anderes ï¿½brig als dir die Finger abzulecken.", "You decide to take a short break to lick off honey from your hands");
+		honeygathering:AddInterruptMessage("Du greifst direkt in eine Stelle mit Honig und ziehst die Hand zurück. Nun bleibt dir wohl nichts anderes ï¿½brig als dir die Finger abzulecken.", "You decide to take a short break to lick off honey from your hands");
 		honeygathering:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlï¿½gst mit der Hand danach und versuchst es zu vertreiben.", "A curious bee buzzes around your head and you try to scare it away.");
 
 		 

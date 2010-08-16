@@ -303,7 +303,7 @@ function InitLibraries()
     "\"Seien Sie ein Mï¿½nch\", \"Barkï¿½pfige Kï¿½nige\", \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \", \"Brewyn der Lï¿½gner\"",
     "\"How To Be A Simple Monk\", \"Bareheaded Kings \", \"Cooking in Illarion, volume 1\n Fish and Meat\", \"Brewyn the Liar\"" );
   AddBookshelves( PositionsOneA, BooksOneA,
-    "Geschichte, Gï¿½tter, Religion, Feiertage",
+    "Geschichte, Götter, Religion, Feiertage",
     "History, Gods, Religions, Celebrations" );
   AddBookshelves( PositionsOneB, BooksOneB,
     "Kulturen: Menschen, Elfen, Zwerge, Halblinge, Echsenmenschen, Feen, Gnome, Orks, Goblins",

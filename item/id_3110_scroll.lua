@@ -46,7 +46,7 @@ function UseItemWithCharacter(User, SourceItem, Character, counter, param)
         --abarbeitung der Auftrï¿½ge
         fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
         if ( fnd ) then
-            --wenn funktion true zurï¿½ck gibt dann war es ein auftrag
+            --wenn funktion true zurück gibt dann war es ein auftrag
             --daher restliche funktion abbrechen
             if (ordernpc:checkOrder(SourceItem,User) ) then 
                 return;

@@ -16,18 +16,18 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Das Tagebuch von Noira Liv",0,0,0);
             base.books.AddGermanBookText("Dies sind die Aufzeichnungen von Noira Liv, hohe Priesterin Eldan's.",0,0,0);
             base.books.AddGermanBookText("Vorwort:",0,0,0);
-            base.books.AddGermanBookText("Das Zeitalter des Kampfes ist vorï¿½ber. Die alten Gï¿½tter verlassen uns. Sie gehen ï¿½ber das Meer. Ich bin die letzte hohe Priesterin Eldan's. Dies ist meine Geschichte.",0,0,0);
+            base.books.AddGermanBookText("Das Zeitalter des Kampfes ist vorï¿½ber. Die alten Götter verlassen uns. Sie gehen ï¿½ber das Meer. Ich bin die letzte hohe Priesterin Eldan's. Dies ist meine Geschichte.",0,0,0);
             base.books.AddGermanBookText("Mï¿½ge dieses Vermï¿½chtnis die Zeiten ï¿½berdauern, mï¿½gen die versiegelten Altï¿½re in Vergessenheit geraten: Eines Tages werden die Erben kommen.",0,0,0);
             base.books.AddGermanBookText("Die alten Bï¿½cher werden gefunden werden und alte Lehre wird sich mit neuer vermengen, denn das Wissen stirbt nicht solange wir leben, es schlï¿½ft nur. Und der Schlaf mag lange andauern. Sehr lange.",0,0,0);
             base.books.AddGermanBookText("Kapitel I: Auf der Suche nach Eldan:",0,0,0);
             base.books.AddGermanBookText("Heute begegnete ich einem Jï¿½nger Findaris. Er riet mir meine Wanderung nach Murinaa zu dokumentieren. Als Erinnerung.",0,0,0);
             base.books.AddGermanBookText("Murinaa: Noch liegt es wenige Tagesmï¿½rsche entfernt und doch ist die glanzvolle Stadt schon in der Ferne ï¿½ber dem glitzernden Sand zu erkennen.",0,0,0);
-            base.books.AddGermanBookText("Wie viele Anwï¿½rter auf die Priesterschaft zieht es mich nach Murinaa, die nï¿½chste grï¿½ï¿½ere Stadt in der sich Heiligtï¿½mer aller Gï¿½tter befinden.",0,0,0);
+            base.books.AddGermanBookText("Wie viele Anwï¿½rter auf die Priesterschaft zieht es mich nach Murinaa, die nï¿½chste Grüßere Stadt in der sich Heiligtï¿½mer aller Götter befinden.",0,0,0);
             base.books.AddGermanBookText("Je nï¿½her ich Murinaa komme desto mehr Anhï¿½nger Bragons, Usharas, Eldans, Tanoras und Findaris kreuzen meinen Weg. Es sind ihrer nicht hunderte aber dennoch einige Dutzend.",0,0,0);
             base.books.AddGermanBookText("Endlich in Murinaa: Die Bibliothek ist gigantisch. Ich habe das Buch der Priester Eldans gefunden und gelesen. Sehr rï¿½tselhaft.",0,0,0);
-            base.books.AddGermanBookText("Es scheint als wï¿½rde von mir erwartet werden das Gebet zur Weihe selber zu finden. Mein einziger Anhaltspunkt ist das Buch der Priester Eldans.",0,0,0);
+            base.books.AddGermanBookText("Es scheint als würde von mir erwartet werden das Gebet zur Weihe selber zu finden. Mein einziger Anhaltspunkt ist das Buch der Priester Eldans.",0,0,0);
             base.books.AddGermanBookText("Dieses Buch ist mir ein Rï¿½tsel. Und die Weihen rï¿½cken nï¿½her. Unaufhaltsam. Wie soll ich es nur deuten?!",0,0,0);
-            base.books.AddGermanBookText("Einer der Novizen bemerkte heute meine Mï¿½hen in der Bibliothek. Er hat gesagt dass es genau fï¿½nf Gï¿½tter seien - Als ob ich das nicht wï¿½sste.",0,0,0);
+            base.books.AddGermanBookText("Einer der Novizen bemerkte heute meine Mï¿½hen in der Bibliothek. Er hat gesagt dass es genau fï¿½nf Götter seien - Als ob ich das nicht wï¿½sste.",0,0,0);
             base.books.AddGermanBookText("Auï¿½erdem sprach er von einem Zyklus des Erschaffens. Offensichtlich wollte er mir einen Hinweis zukommen lassen. Was er wohl meinte?",0,0,0);
             base.books.AddGermanBookText("Ich habe eine interessante Beobachtung gemacht: Alle fï¿½nf Tage fï¿½llt das Licht durch einen Spalt in der Decke genau auf das Buch der Priester Eldans.",0,0,0);
             base.books.AddGermanBookText("Wie ich beobachten konnte gilt dies auch für die Bï¿½cher der anderen Priester der Fï¿½nf.",0,0,0);
@@ -35,7 +35,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Allerdings muss ich Eldan bei der Weihe ein Opfer darbringen. Der Ritualmeister wies mich darauf hin, dass ich Eldan etwas opfern muss was er mag.",0,0,0);
             base.books.AddGermanBookText("Das war der unglaublichste Tag in meinem Leben: Ich hielt die Flasche in der Hand und rief Eldan an das Opfer anzunehmen.",0,0,0);
             base.books.AddGermanBookText("Daraufhin erfasste mich ein gewaltigiger Sog und es zog mich weit in die Ferne. Ein unglaubliches Gefï¿½hl. Dort angekommen sah ich einen großen Altarraum vor mir.",0,0,0);
-            base.books.AddGermanBookText("Ich vermute es war ein geheimer Altarraum Eldans in Nabranoo, der Stadt der Gï¿½tter. Dieser Raum sah aus wie für die Ewigkeit geschaffen.",0,0,0);
+            base.books.AddGermanBookText("Ich vermute es war ein geheimer Altarraum Eldans in Nabranoo, der Stadt der Götter. Dieser Raum sah aus wie für die Ewigkeit geschaffen.",0,0,0);
             base.books.AddGermanBookText("Dort sprach ich, am Altar knieend, das Gebet und ich konnte Eldans Blick auf mir spï¿½ren als er mich zur Novizin berief.",0,0,0);
             base.books.AddGermanBookText("Kapitel II: Die Reise geht weiter:",0,0,0);
             base.books.AddGermanBookText("Du verstehst diese Sprache nicht.",0,0,0);
@@ -94,7 +94,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Mit diesen Waffen lassen sich heftige Angriffe ausfï¿½hren und geschickt gefï¿½hrt ersetzen sie jedes Schild.",0,0,1);
             base.books.AddGermanBookText("Zwergenaxt",2660,0,1); -- ### dwarvenaxe ###
             base.books.AddGermanBookText("Die meistgenutzte Axt der Zwerge, vereint alle Eigenschaften die eine wahre Zwergenwaffe brauch. Kraft, Schnelligkeit und Geschicklichkeit.",0,0,1);
-            base.books.AddGermanBookText("Kraft, mit der Zwergenaxt kï¿½nnen verheerende Angriffe ausgefï¿½hrt werden.",0,0,1);
+            base.books.AddGermanBookText("Kraft, mit der Zwergenaxt können verheerende Angriffe ausgefï¿½hrt werden.",0,0,1);
             base.books.AddGermanBookText("Schnelligkeit, durch ihre ausbalancierte Fertigung lï¿½sst sie sich leicht und schnell fï¿½hren.",0,0,1);
             base.books.AddGermanBookText("Geschicklichkeit, der schlank Griff und die schnittige Klinge geben der Axt eine prï¿½zise Handhabung. ",0,0,1);
             base.books.AddGermanBookText("Legenden zufolge soll es sogar magische Zwergenï¿½xte geben.",0,0,1);
@@ -105,7 +105,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Schlachtaxt",2629,0,1); -- ### battleaxe ###
             base.books.AddGermanBookText("Die Schlachtaxt an sich ist keine sehr gute Axt, von Zwergen wird sie allenfalls zum Trainieren genutzt da man mit ihr keinen großen Schaden anrichten kann.",0,0,1);
             base.books.AddGermanBookText("Doppelaxt",205,0,1); -- ### doubleaxe ###
-            base.books.AddGermanBookText("Durch Grï¿½ï¿½e und Masse ï¿½berzeugt die Doppelaxt, Treffer die mit dieser Axt angerichtet werden beenden unweigerlich Leben.",0,0,1);
+            base.books.AddGermanBookText("Durch Grüße und Masse ï¿½berzeugt die Doppelaxt, Treffer die mit dieser Axt angerichtet werden beenden unweigerlich Leben.",0,0,1);
             base.books.AddGermanBookText("Doch sind nur wenige in der Lage solch eine wuchtige Waffe, auch nach jahrelangem Training, richtig zu fï¿½hren.",0,0,1);
             base.books.AddGermanBookText("Geschrieben von\nBoindil Al'Ad Kï¿½zï¿½r\n1. Zhas im Jahre 24",0,0,1);
 
@@ -199,7 +199,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Lamm\n Grundzutaten: Lamm, Karotten, Tomaten, Zwiebeln\n Schwierig, 55 Kupfer.",559,0,3); -- ### lamb dish ###
 			base.books.AddGermanBookText("Koche etwa je zwei Handvoll gewï¿½rfelte Tomaten, Karotten und Zwiebeln mit einem Schluck Rotwein und einer Prise Lebenswurzpulver und stell es dann zur Seite.",0,0,3);
 			base.books.AddGermanBookText("Grill die Lammkoteletts ï¿½ber Flammen bis sie braun und saftig sind. Serviere sie mit dem Gemï¿½se und einem Muffin als Nachtisch.",2934,0,3); -- ### lamb meat ###
-			base.books.AddGermanBookText("Zu den Lammkoteletts wï¿½rde gut ein lebendiger, gereifter Wein oder ein sehr starker Met passen. ",2500,0,3); -- ### bottle of wine ###
+			base.books.AddGermanBookText("Zu den Lammkoteletts würde gut ein lebendiger, gereifter Wein oder ein sehr starker Met passen. ",2500,0,3); -- ### bottle of wine ###
 			base.books.AddGermanBookText("Als Randnotiz: Lammgerichte stellen mï¿½glicherweise das beste Preis / Leistungsverhï¿½ltnis dar.",559,0,3); -- ### lamb dish ###
 
 			base.books.AddEnglishBookText("Venison dish : venison (deer meat), onions, cabbages, berries \n very difficult, 75 cps. \nNote that the berries are not the blackberries used to make muffins.",554,0,3); -- ### venison dish ###

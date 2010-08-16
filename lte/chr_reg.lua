@@ -347,12 +347,12 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Gï¿½ttern in Chergas Reich der Toten gegenï¿½berzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
+        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenï¿½berzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
 
-        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorï¿½ber. Die Gï¿½tter gewï¿½hren dir eine weitere Chance auf die Ebene der Lebenden zurï¿½ckzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
+        base.common.TempInformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorï¿½ber. Die Götter gewï¿½hren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
         factionValues=BF_get_Faction(Char); --reading the faction values

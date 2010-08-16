@@ -97,7 +97,7 @@ function InitWegweiser()
     AddWeg({-478,-484,0},"Bï¿½se Spieler die nicht von allein lieb werden wollen, dort hinein.","Mean Players who don't become nice on their own, in there.",6,0);
     AddWeg({-476,-476,0},"Bï¿½se Spieler die gar nicht lieb werden wollten.","Mean Players who don't want to become nice.",6,0);
     AddWeg({-441,-490,0},"Treppe nach Troll's Bane","Ladder to Troll's Bane",6,0);
-    AddWeg({-248,-347,0},"Verschwindet und kommt niemals wieder zurï¿½ck!","Leave, and never come back!",6,0);
+    AddWeg({-248,-347,0},"Verschwindet und kommt niemals wieder zurück!","Leave, and never come back!",6,0);
     AddWeg({350,-36,0},"Hier!","Here!",6,0);
     
     
@@ -142,7 +142,7 @@ function InitWegweiser()
     
     --TB Osttor
     AddGrave({-65,-74,0},"Hier ruhe eine Elfe, deren Namen keiner kannte. Dahin gerafft vom Wahnsinn der Rothmans","Here rests a elfess, her name remains unknown. Killed by the insanity of the Rothmans.",1,0);
-    AddGrave({-65,-75,0},"Jack Lemmings ist nun im Himmel mit den Gï¿½ttern.","Jack Lemmings is now in the heavens with the gods",2,0);
+    AddGrave({-65,-75,0},"Jack Lemmings ist nun im Himmel mit den Göttern.","Jack Lemmings is now in the heavens with the gods",2,0);
     
     --TB Arena
     AddGrave({-35,-82,0},"Hier ruht Retlak, zumindest manchmal","Here rests Retlak, at least sometimes",2,0);
