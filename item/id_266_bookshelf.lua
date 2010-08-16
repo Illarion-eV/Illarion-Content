@@ -261,7 +261,7 @@ function InitLibraries()
     }
 
     BooksTen = {
-      {2619, 4}             --  Drachentrï¿½ume
+      {2619, 4}             --  Drachenträume
     }
     
     BooksEleven = {
@@ -300,7 +300,7 @@ function InitLibraries()
     }
 	--
   AddBookshelves( PositionsZero, BooksZero, 
-    "\"Seien Sie ein Mï¿½nch\", \"Barkï¿½pfige Kï¿½nige\", \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \", \"Brewyn der Lï¿½gner\"",
+    "\"Seien Sie ein Mönch\", \"Barköpfige Könige\", \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \", \"Brewyn der Lügner\"",
     "\"How To Be A Simple Monk\", \"Bareheaded Kings \", \"Cooking in Illarion, volume 1\n Fish and Meat\", \"Brewyn the Liar\"" );
   AddBookshelves( PositionsOneA, BooksOneA,
     "Geschichte, Götter, Religion, Feiertage",
@@ -309,7 +309,7 @@ function InitLibraries()
     "Kulturen: Menschen, Elfen, Zwerge, Halblinge, Echsenmenschen, Feen, Gnome, Orks, Goblins",
     "Cultures: Human, Elven, Dwarven, Halfling,  Lizardmen, Faery, Gnomish, Orcish, Goblin" );
   AddBookshelves( PositionsTwo, BooksTwo,
-    "Tagebuch von Noira Liv, Priester Eldans, Tochter des Blutes, \"Brewyn der Lï¿½gner\"",
+    "Tagebuch von Noira Liv, Priester Eldans, Tochter des Blutes, \"Brewyn der Lügner\"",
     "Diary of Noira Liv, Priests of Eldan, Daughter of Blood, \"Brewyn the Liar\"" );
   AddBookshelves( PositionsThree, BooksThree,
     "Three Guiding Truths, verlorenen Chroniken von Manrok,  \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \"",
@@ -327,7 +327,7 @@ function InitLibraries()
     "Der Alte Mann, Buch 1 4",
     "the Old Man's Tales Book 4" );
   AddBookshelves( PositionsFive, BooksFive,
-    "Von der Grï¿½ndung Silverbrands, Thiron Saga, Tialdins Gelï¿½bnis, Reden Kï¿½nig Tialdins, Die Geschichte Urubur, Gedichte",
+    "Von der Gründung Silverbrands, Thiron Saga, Tialdins Gelöbnis, Reden König Tialdins, Die Geschichte Urubur, Gedichte",
     "Founding of Silverbrand, Saga of Thiron, Tialdin's Oath, Tialdin's Speeches, Urubur's Story, Festival of Relationship, Poems" );
   AddBookshelves( PositionsSix, BooksSix,
     "Kriegshandbuch der Zwerge I",
@@ -348,8 +348,8 @@ function InitLibraries()
     "Gesammelte Werke",
     "Collected works" );
   AddBookshelves( PositionsEleven, BooksEleven,
-    "Die Kuchenbibel, Die Satzung Greenbriars, Kultur und Geschichte der Halblinge, Buch der Witze, Stammbaum der Blumfuï¿½ens, ï¿½ber die Menschen, \"Evergreen Halblinge\", \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \", \"Brewyn der Lï¿½gner\"",
-    "The Cake Bible, The Articles of Greenbriar, Halfling Culture and History, Book of the jokes, Chronicle of the Blumfuï¿½ens, About the Humans, \"Evergreen Halflings\", \"Cooking in Illarion, volume 1\n Fish and Meat\", \"Brewyn the Liar\"" );
+    "Die Kuchenbibel, Die Satzung Greenbriars, Kultur und Geschichte der Halblinge, Buch der Witze, Stammbaum der Blumfußens, Über die Menschen, \"Evergreen Halblinge\", \"Kochen auf Illarion, Band 1\n Fisch und Fleisch \", \"Brewyn der Lügner\"",
+    "The Cake Bible, The Articles of Greenbriar, Halfling Culture and History, Book of the jokes, Chronicle of the Blumfußens, About the Humans, \"Evergreen Halflings\", \"Cooking in Illarion, volume 1\n Fish and Meat\", \"Brewyn the Liar\"" );
   AddBookshelves( PositionsTwelve, BooksTwelve,
     "Geschichte, Feiertage",
     "History, Celebrations" );
@@ -363,7 +363,7 @@ function InitLibraries()
     "Tochter des Blutes",
     "Daughter of Blood" );
   AddBookshelves( PositionsSixteen, BooksSixteen,
-    "\"Brewyn der Lï¿½gner\"",
+    "\"Brewyn der Lügner\"",
     "\"Brewyn the Liar\"" );
 end
 
@@ -461,8 +461,8 @@ function LookAtItem(User,Item)
         for j = 1, table.getn( Libraries[i][1] ) do      
             if ( BookshelvesEqual( Libraries[i][1][j], Item.pos ) ) then
                 if (User:getPlayerLanguage()==0) then
-                    --world:itemInform(User,Item, "Bï¿½cherregal (" .. Libraries[i][3] .. ")" );
-                    User:inform( "Du siehst verschiedene Bï¿½cher ï¿½ber " .. Libraries[i][3] );
+                    --world:itemInform(User,Item, "Bücherregal (" .. Libraries[i][3] .. ")" );
+                    User:inform( "Du siehst verschiedene Bücher über " .. Libraries[i][3] );
                 else
                     --world:itemInform(User,Item, "Bookshelf (" .. Libraries[i][5] .. ")" );
                     User:inform( "There are books about " .. Libraries[i][4] );
@@ -478,7 +478,7 @@ function LookAtItem(User,Item)
         world:itemInform(User,Item,"You see "..world:getItemName(Item.id,1)) 
     end        
 end
----- Bï¿½cherregal
+---- Bücherregal
 --
 --function InitLibraries()
 --    LibPos={};

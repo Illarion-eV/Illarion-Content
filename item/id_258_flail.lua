@@ -1,6 +1,6 @@
 -- Dreschflegel ( 258 )
 
--- Getreidebï¿½ndel  --> Getreidekï¿½rner
+-- Getreidebündel  --> Getreidekörner
 
 -- Arbeitscyclus: 0.5s - 4s
 
@@ -47,7 +47,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if (User:countItemAt("belt",249)==0) then -- Getreidebï¿½ndel im Gürtel
+    if (User:countItemAt("belt",249)==0) then -- Getreidebündel im Gürtel
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
             "Was willst du mich dem Dreschflegel bearbeiten? Dich selbst?", 
@@ -67,11 +67,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         local selectMessage = math.random(1,5);
         if ( selectMessage == 1 ) then
             base.common.InformNLS(User,
-            "Du wischst dir den Schweiï¿½ von der Stirn.",
+            "Du wischst dir den Schweiß von der Stirn.",
             "You wipe sweat off your forehead.");
         elseif ( selectMessage == 2 ) then
             base.common.InformNLS(User,
-            "Die Dreschstange des Flegels lï¿½st sich und du musst sie erneut festbinden.",
+            "Die Dreschstange des Flegels löst sich und du musst sie erneut festbinden.",
             "The flail's chain appears to be stuck, it takes you some time to fix it.");
         elseif ( selectMessage == 3 ) then
             base.common.InformNLS(User,
@@ -83,7 +83,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             "You sweep the husk into a pile and carry it away.");
         else
             base.common.InformNLS(User,
-            "Deine Hï¿½nde brennen wie Feuer, deshalb machst du eine kurze Pause. Hoffentlich gibt das keine Blase...",
+            "Deine Hände brennen wie Feuer, deshalb machst du eine kurze Pause. Hoffentlich gibt das keine Blase...",
             "Your arms appear to be getting very tired, you decide on a short break.");
         end
         return
@@ -96,20 +96,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
                  
-    User:eraseItem( 249, 1 ); -- Getreidebï¿½ndel wegnehmen
+    User:eraseItem( 249, 1 ); -- Getreidebündel wegnehmen
     amount = GenAmount(User);                
-    local notCreated = User:createItem( 259, amount, 333 ,0); -- Getreidekï¿½rner erstellen
+    local notCreated = User:createItem( 259, amount, 333 ,0); -- Getreidekörner erstellen
 		if ( amount==0) then
 			base.common.InformNLS(User,
-			"Du verschï¿½ttest etwas Getreide.",
+			"Du verschüttest etwas Getreide.",
 			"You spill some grain.");
 		else
-    		if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char ï¿½berladen
+    		if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
         		world:createItemFromId( 259, notCreated, User.pos, true, 333 ,0);
         		base.common.InformNLS(User,
         		"Du kannst nichts mehr halten.",
         		"You can't carry any more.");
-    		else -- Nicht ï¿½berladen -> Neue aktion Starten
+    		else -- Nicht überladen -> Neue aktion Starten
         		User:startAction( GenWorkTime(User), 0, 0, 0, 0);
     		end      
     end              
