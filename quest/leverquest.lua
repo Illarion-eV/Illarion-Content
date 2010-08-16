@@ -1,4 +1,5 @@
 require("base.class")
+require("item.lever") -- this is needed so that we can access the quest-class object we created there.
 
 module("quest.leverquest", package.seeall)
 
