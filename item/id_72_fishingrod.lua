@@ -52,7 +52,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
     end
 	
     if (world:getField(TargetPos):tile() ~= 6) then
-        BC_InformNLS(User,
+        base.common.InformNLS(User,
         "Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
         "The chance to catch a fish is much higher in the water than on the land.");
         return
