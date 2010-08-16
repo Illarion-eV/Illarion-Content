@@ -31,7 +31,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
         return
     end
 	
-	-- Angeln unterirdisch nicht mï¿½glich
+	-- Angeln unterirdisch nicht möglich
     if (TargetPos.z < 0) then
     	base.common.InformNLS(User, "In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.", "Fishing in underground waterholes wouldn't be successful.");
 		return
@@ -58,11 +58,11 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
         return
     end
 	
-	if not base.common.IsLookingAt(User, TargetPos) then -- Drehen wenn nï¿½tig
+	if not base.common.IsLookingAt(User, TargetPos) then -- Drehen wenn nötig
         base.common.TurnTo(User, TargetPos);
     end
 	
-	if (ltstate == Action.none) then -- Untï¿½tig: Starte Angeln!
+	if (ltstate == Action.none) then -- Untätig: Starte Angeln!
         User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt zu fischen.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts fishing.");
@@ -75,7 +75,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	
 	-- Spieler fischt bereits
 	local chance = math.random(10)
-	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 30% für Lachs
+	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 30% für Lachs
 		local notcreated = User:createItem(73, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(73, notcreated, User.pos, true, 333, 0);
@@ -83,7 +83,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 			return false
 		end
 		User:learn(2, "fishing", 2, 100);
-	elseif(chance <= 8) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance betrï¿½gt 60% für Forelle
+	elseif(chance <= 8) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60% für Forelle
 		local notcreated = User:createItem(355, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(355, notcreated, User.pos, true, 333, 0);
@@ -99,7 +99,7 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	world:gfx(11,TargetPos);
     world:makeSound(9,TargetPos);
 	
-	if base.common.ToolBreaks(User, SourceItem, true) then -- Angel beschï¿½digen
+	if base.common.ToolBreaks(User, SourceItem, true) then -- Angel beschädigen
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me lässt die Angel aus den Händen rutschen und die Angel sinkt auf den Grund.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me lets the fishing rod slip out of the hands and it sinks to the ground.");
         return
