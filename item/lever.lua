@@ -119,6 +119,10 @@ function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
     end
 end
 
+function LookAtItem(User, Item)
+    
+end
+
 function AddToLevers(myLever)
     if (world:isItemOnField(myLever.pos)==true) then    -- item on field?
         itemID=world:getItemOnField(myLever.pos).id;
