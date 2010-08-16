@@ -39,8 +39,6 @@ function GCraft:new(gc)
     gc = gc or {};
     setmetatable(gc, self);
     self.__index = self;
-    gc.RandomItems = {};
-    gc.InterruptMsg = {};
     return gc;
 end
 
@@ -154,7 +152,7 @@ function GCraft:FindRandomItem(User)
 	if(table.maxn(self.RandomItems) > 0) then
 		local p = math.random(100000);
 		for it = 1, table.maxn(self.RandomItems), 1 do
-			User:inform("rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
+			User:inform("id: "..self.RandomItems[it].ID.." rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
 			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
 				if (self.RandomItems[it].MessageDE ~= nil) and (self.RandomItems[it].MessageEN ~= nil) then
 					base.common.InformNLS(User, self.RandomItems[it].MessageDE, self.RandomItems[it].MessageEN);
