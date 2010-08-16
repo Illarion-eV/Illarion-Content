@@ -16,10 +16,15 @@ function LeverRiddleAClass:execute()        -- this function gets called when a 
         questA=quest.leverquest.LeverQuest();   -- at the first execution, create an object of that class.
     end
     
-    if self.quest==nil then     -- only create ONE object of the quest to make sure that every lever uses the same quest-string.
+    if self.theQuest==nil then     -- only create ONE object of the quest to make sure that every lever uses the same quest-string.
         plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
         for i, player in pairs(plyList) do
-            player:inform("self.quest unbekannt!");      -- replace this with the true consequence
+            player:inform("self.theQuest unbekannt!");      -- replace this with the true consequence
+        end
+    else
+        plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
+        for i, player in pairs(plyList) do
+            player:inform("self.theQuest bekannt!");      -- replace this with the true consequence
         end
     end
     
