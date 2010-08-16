@@ -105,18 +105,18 @@ end
 
 function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
     User:inform("debug1");
-   -- if (initi==nil) then
-   --     myLevers=init();
-   --     User:inform("initialize");
-   --     initi=1;
-   -- end
-   -- User:inform("debug2");
-   -- key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
-   -- if leverList[key]~=nil then
-   --     leverList[key]:switchLever(User);
-   -- else
-   --     User:inform("Does not work!");
-   -- end
+    if (initi==nil) then
+        myLevers=init();
+        User:inform("initialize");
+        initi=1;
+    end
+    User:inform("debug2");
+    key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
+    if leverList[key]~=nil then
+        leverList[key]:switchLever(User);
+    else
+        User:inform("Does not work!");
+    end
 end
 
 --function LookAtItem(User, Item)
