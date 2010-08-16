@@ -7,13 +7,13 @@ module("item.id_3110_scroll", package.seeall)
 -- UPDATE common SET com_script = 'item.id_3110_scroll' WHERE com_itemid = 3110;
 
 function LookAtItem(User,Item)
-    --abarbeitung der Auftrï¿½ge
+    --abarbeitung der Aufträge
     local order = Order:fromItem(Item);
     if ( order ~= nil ) then
         world:itemInform(User,Item,order:lookAt(User));
         return;
     end
-    --ende der auftrï¿½ge
+    --ende der Aufträge
     local spell = Item.quality;
     if (spell == 101) then -- teleport
         
@@ -43,7 +43,7 @@ function UseItemWithCharacter(User, SourceItem, Character, counter, param)
     User:inform("useitemwitchchar start");
     if ( Character:get_type() == CCharacter.npc ) then
         User:inform("useitemwitchchar npc");
-        --abarbeitung der Auftrï¿½ge
+        --abarbeitung der Aufträge
         fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
         if ( fnd ) then
             --wenn funktion true zurück gibt dann war es ein auftrag
@@ -52,7 +52,7 @@ function UseItemWithCharacter(User, SourceItem, Character, counter, param)
                 return;
             end
         end
-        --ende der auftrï¿½ge
+        --ende der Aufträge
     end
     User:inform("useitemwitchchar end");
 end
@@ -94,7 +94,7 @@ function teleportLookAt( User, Item )
     dz = dat - math.floor(dat/1024)*1024 - 500 - User.pos.z;
     
     if ( math.abs(dz) > 15) then
-        return base.common.GetNLS( User, "Die Pergamentrolle glï¿½ht blï¿½ulich.", "The scroll of parchment glows blueish." );
+        return base.common.GetNLS( User, "Die Pergamentrolle glüht bläulich.", "The scroll of parchment glows blueish." );
     end;
     
     dat = math.floor(dat / 1024);

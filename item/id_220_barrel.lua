@@ -58,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     if (User:countItemAt("body",2781)==0) then -- Schere
         base.common.InformNLS( User,
-        "Du benï¿½tigst einen Fï¿½rberstab um Stoffe zu fï¿½rben oder zu bleichen.",
+        "Du benötigst einen Fï¿½rberstab um Stoffe zu fï¿½rben oder zu bleichen.",
         "You need dyers wand to dye or white clothes." );
         return
     end
@@ -68,7 +68,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
 
-    if base.common.ToolBreaks( User, Tool, true ) then -- Rï¿½hrstab beschï¿½digen
+    if base.common.ToolBreaks( User, Tool, true ) then -- Rï¿½hrstab beschädigen
         base.common.InformNLS( User,
         "Der Fï¿½rberstab zerbricht.",
         "The dyers wand breaks." );

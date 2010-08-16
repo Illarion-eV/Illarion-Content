@@ -3,7 +3,7 @@
 -- Erz  --> Barren
 
 -- Arbeitscyclus: 1s - 7s
--- Zusï¿½tzliches Werkzeug: Zange mit Tiegel ( 2751 )
+-- Zusätzliches Werkzeug: Zange mit Tiegel ( 2751 )
 
 -- UPDATE common SET com_script='item.id_2836_forge' WHERE com_itemid IN (2835,2836);
 -- UPDATE common SET com_objectafterrot=2836 WHERE com_itemid = 2835;
@@ -53,7 +53,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",2751)==0) then -- Zange mit Tiegel
         base.common.InformNLS( User,
-        "Du benï¿½tigst eine Zange mit Tiegel um Metal zu schmelzen.",
+        "Du benötigst eine Zange mit Tiegel um Metal zu schmelzen.",
         "You need pincers with crucible to melt the ores." );
         return
     end
@@ -63,7 +63,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool ) then -- Zange beschï¿½digen
+    if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
         base.common.InformNLS( User, 
         "Die Zange geht zu Bruch.", 
         "The pincers break." );
@@ -88,7 +88,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
        (User:countItemAt("belt",234) == 0) and (User:countItemAt("belt",2534) == 0)) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS(User,
-            "Du benï¿½tigst Eisen, Kupfer oder Golderz um an der Esse zu arbeiten.",
+            "Du benötigst Eisen, Kupfer oder Golderz um an der Esse zu arbeiten.",
             "You need iron, copper or gold ores to work with the furnace.");
         end            
         if (SourceItem.id == 2835) then
@@ -101,7 +101,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("belt",21) == 0) then
         base.common.InformNLS(User,
-        "Du benï¿½tigst Kohle um an der Esse zu arbeiten",
+        "Du benötigst Kohle um an der Esse zu arbeiten",
         "You need some coal to work with the furnace");
         if (SourceItem.id == 2835) then
            SourceItem.wear = 255;
@@ -131,19 +131,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local selectMessage = math.random(1,4);
         if ( selectMessage == 1 ) then
             base.common.InformNLS(User,
-            "Du wischst dir den Schweiï¿½ von der Stirn.",
+            "Du wischst dir den Schweiß von der Stirn.",
             "You wipe sweat off your forehead.");
         elseif ( selectMessage == 2 ) then
             base.common.InformNLS(User,
-            "Der fertige Barren klemmt in der Form. Du klopfst sehr stark auf die Rï¿½ckseite der Form bis er endlich heraus fï¿½llt.",
+            "Der fertige Barren klemmt in der Form. Du klopfst sehr stark auf die Rückseite der Form bis er endlich herausfällt.",
             "The iron ingot gets stuck in the mould, it takes you a few tries to force it out.");
         elseif ( selectMessage == 3 ) then
             base.common.InformNLS(User,
-            "Die Wï¿½rme der schmelze lï¿½sst kurz nach. Du eilst zum Blasebalg um die Glut neu anzufachen.",
+            "Die Wärme der Schmelze lässt kurz nach. Du eilst zum Blasebalg um die Glut neu anzufachen.",
             "The furnace's fire appears to be too weak, you take the bellows in your hand and breathe new life into it.");
         else
             base.common.InformNLS(User,
-            "Du schï¿½pfst kurz die Schlacke von der Schmelze ab um die Qualität des Metalls zu steigern.",
+            "Du schöpfst kurz die Schlacke von der Schmelze ab um die Qualität des Metalls zu steigern.",
             "You draw the slag away to increase the quality of the metal.");
         end        
         if (SourceItem.id == 2835) then

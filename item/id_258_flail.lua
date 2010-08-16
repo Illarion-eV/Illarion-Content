@@ -89,7 +89,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
     
-    if base.common.ToolBreaks( User, SourceItem, true ) then -- Dreschflegen beschï¿½digen
+    if base.common.ToolBreaks( User, SourceItem, true ) then -- Dreschflegen beschädigen
         base.common.InformNLS(User,
         "Dein alter Dreschflegel zerbricht.",
         "Your old flail breaks.");

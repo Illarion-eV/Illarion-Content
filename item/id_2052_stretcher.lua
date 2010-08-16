@@ -36,7 +36,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     if (User:countItemAt("body",2746)==0) then -- Rasiermesser
         base.common.InformNLS( User,
-        "Du benï¿½tigst ein Rasiermesser um das Leder zu gerben.",
+        "Du benötigst ein Rasiermesser um das Leder zu gerben.",
         "You need a razor blade to tan the leather." );
         return
     end
@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
 
-    if base.common.ToolBreaks( User, Tool, true ) then -- Rasiermesser beschï¿½digen
+    if base.common.ToolBreaks( User, Tool, true ) then -- Rasiermesser beschädigen
         base.common.InformNLS( User,
         "Das Rasiermesser wird stumpf.",
         "The razor blade wents blunt" );

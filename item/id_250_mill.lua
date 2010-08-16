@@ -56,7 +56,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",312)==0) then -- Holzkelle
         base.common.InformNLS( User,
-        "Du benï¿½tigst eine Holzkelle um das Getreide in die Mï¿½hle zu bekommen.",
+        "Du benötigst eine Holzkelle um das Getreide in die Mï¿½hle zu bekommen.",
         "You need a wooden shovel to get the grain into the mill." );
         return
     end
@@ -66,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool ) then -- Holzkelle beschï¿½digen
+    if base.common.ToolBreaks( User, Tool ) then -- Holzkelle beschädigen
         base.common.InformNLS( User, 
         "Die Holzkelle zerbricht.", 
         "The wooden shovel breaks." );
