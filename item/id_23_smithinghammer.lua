@@ -20,7 +20,7 @@ function InitCraftingTool( )
                             };
 
         smithing:AddTool( 172 ); -- Amboss
-        smithing:AddActiveTool( 172, 13 ); -- Amboss mit glï¿½hendem Metall
+        smithing:AddActiveTool( 172, 13 ); -- Amboss mit glühendem Metall
 
         smithing:AddInterruptMessage(
         "Du wischst dir den Schweiß von der Stirn.",

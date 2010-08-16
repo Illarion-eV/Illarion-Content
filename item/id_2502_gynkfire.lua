@@ -13,9 +13,9 @@ end;
 function Drop(User,Item)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
         Explode(Item);
-        User:talkLanguage(CCharacter.say,CPlayer.german,"#me lï¿½sst eine Flasche fallen, welche explodiert.");
+        User:talkLanguage(CCharacter.say,CPlayer.german,"#me lässt eine Flasche fallen, welche explodiert.");
         User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
-        InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Hï¿½nden und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of you feets.");
+        InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Händen und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of you feets.");
     end;
 end;
 
@@ -59,12 +59,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     local lang=User:getPlayerLanguage();
     if (math.floor(SourceItem.quality/100)==2) then
         InformChar(User,
-        "Du lï¿½schst das Gynkesische Feuer.",
+        "Du löschst das Gynkesische Feuer.",
         "You put the Gynkese Fire out.");
         SourceItem.quality=300+(SourceItem.quality-(math.floor(SourceItem.quality/100)*100));
     else
         InformChar(User,
-        "Du zï¿½ndest das Gynkesische Feuer an. Vorsicht damit.",
+        "Du zündest das Gynkesische Feuer an. Vorsichtig damit!",
         "You light the Gynkese Fire up. Be careful with it.");
         SourceItem.quality=200+(SourceItem.quality-(math.floor(SourceItem.quality/100)*100));        
     end;
