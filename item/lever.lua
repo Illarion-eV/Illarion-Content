@@ -29,18 +29,25 @@ function init()
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
       ]]--
-    
+
+    -- THIS IS THE DOCUMENTATION FOR FAL-FAL'S LEVER QUEST
+    -- IT IS DONE WITH OOP LUA CODING, WHICH MIGHT BE CONFUSING AT A FIRST SIGHT
+    -- BUT TURNS OUT TO BE RATHER SIMPLE AND FOLLOWS A CLEAR CONCEPT.
+  
     questA=quest.leverquest.LeverQuest();   -- at the first execution, create an object of that class.
+                                            -- The LeverQuest class holds all the information that is unique for
+                                            -- the LeverQuest, such as the position of the levers, the condition
+                                            -- when it is sucessfully finished and the actual state of the
+                                            -- pressed levers.
+                                            -- Here, there is only one single object, questA, created for the LeverQuest-class!
     
-    riddleLever1 = base.lever.Lever(questA.levPos1,true);
-    riddleLever2 = base.lever.Lever(questA.levPos2,true);
-    riddleLever3 = base.lever.Lever(questA.levPos3,true);
+    riddleLever1 = base.lever.Lever(questA.levPos1,true);       -- initialize the lever positions with the usual
+    riddleLever2 = base.lever.Lever(questA.levPos2,true);       -- Lever-initialization. Use the positions as
+    riddleLever3 = base.lever.Lever(questA.levPos3,true);       -- stored in the LeverQuest class
     riddleLever4 = base.lever.Lever(questA.levPos4,true);
     riddleLever5 = base.lever.Lever(questA.levPos5,true);
     
     -- theQuest = quest.leverRiddleA.LeverRiddleAClass();
-    
-    
     
     riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1"));
     riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2"));
