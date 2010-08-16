@@ -50,7 +50,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         return
     end
     foodLevel = User:increaseAttrib("foodlevel",0) + food[1]; -- Foodlevel anheben
-    world:makeSound(12,User.pos); -- Trink gerï¿½usch machen
+    world:makeSound(12,User.pos); -- Trinkgeräuusch machen
     if ( math.random( 50 ) <= 1 ) then -- 1/50 das die Flasche zerbricht
         world:erase(SourceItem,1);
         base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
@@ -132,8 +132,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         User.effects:addEffect(alcEffect); -- Effekt an User senden
         -- Alkohol Abhandlung fertig
     end
-    if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prï¿½fen ob Nahrungspunkte geï¿½ndert wurden
-        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- ï¿½nderung durchfï¿½hren
+    if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
+        User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
     end
 end
 

@@ -183,7 +183,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				"Dein Magen schmerzt noch immer vor Hunger.",
 				"Your stomach still hurts because of your hunger.");
 			end
-			-- Glï¿½ckskeks!
+			-- Glückskeks!
 			--
 			if (SourceItem.id == 453) then
                 if (math.random(1,100)==1) then
