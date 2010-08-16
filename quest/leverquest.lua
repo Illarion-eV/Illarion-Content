@@ -16,6 +16,9 @@ LeverQuest = base.class.class(function(lvQst)   -- this is the constructor
     lvQst.levTyp4=434;
     lvQst.levPos5=position(220,743,0);
     lvQst.levTyp5=434;
+    
+    lvQst.corrOrder={1,2,3,4,5};
+    
 end);
 
 function LeverQuest:addToString(char)                   -- This is called by the execute-command of the lever handler.
