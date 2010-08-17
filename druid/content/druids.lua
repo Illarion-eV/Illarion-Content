@@ -48,7 +48,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Wenn Ihr keine Trï¿½nke herstellen kï¿½nnt, backt einen Erdbeerkuchen.",0,0,toData);
     
     base.books.AddGermanBookText("\nEine Einfï¿½hrung in die Alchemie",0,0,toData);
-    base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, kï¿½nnte man sagen.",0,0,toData);
+    base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, könnte man sagen.",0,0,toData);
     base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Kräutern und Substanzen, die für die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,toData);
     base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,toData);
     base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,toData);

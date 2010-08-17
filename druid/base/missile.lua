@@ -631,7 +631,7 @@ end
 --Eine Steigerung wï¿½re dann ein Dummy, der den Gegner angreift.
 
 --Zu Wettereffekten: Jeweils ein Effekt für je eine Wetterï¿½nderung: also 1 Wurfbombe für Nebel, eine für Regen etc. Dauer gemï¿½ï¿½ Quality des Trankes (LTE)
---Man kï¿½nnte auch die Intensitï¿½t ï¿½ber quality steuern, zb aquality = 345 ==> Intensitï¿½t = 3 (1-9) und Dauer = 45 (11-99)
+--Man könnte auch die Intensitï¿½t ï¿½ber quality steuern, zb aquality = 345 ==> Intensitï¿½t = 3 (1-9) und Dauer = 45 (11-99)
 
 --Zur Aufhebung der Matschbarriere folgen noch Vorschlï¿½ge
 ]]

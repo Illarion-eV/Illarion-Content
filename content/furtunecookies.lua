@@ -65,7 +65,7 @@ function cookie(User)
         germText="Sie können herausholen, was in Ihnen steckt.";
         englText="The chief danger in life is that you may take too many precautions.";
     elseif (luck==22) then
-        germText="Tu' nichts, woran deine Seele Schaden erleiden kï¿½nnte, auch wenn du die Welt gewinnen könntest.";
+        germText="Tu' nichts, woran deine Seele Schaden erleiden könnte, auch wenn du die Welt gewinnen könntest.";
         englText="If you don't care where you are, then you ain't lost.";
     elseif (luck==23) then
         germText="Wenn Du die Nacht erwartest, wird auch ein nï¿½chster morgen kommen.";

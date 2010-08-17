@@ -364,7 +364,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Ihr war die Sache unangenehm, er jedoch, ein toleranter Geist, erleichterte ihre Scham. Von da an herschte Freundschaft zwischen ihnen.",0,55,3);
             base.books.AddGermanBookText("Das dritte Mal trafen sie beide aufeinander, doch dieses Mal war es nicht der Bauer, den Sorgen umwogen. ",0,55,3);
             base.books.AddGermanBookText("Die Zauberin hatte von einem Schï¿½ler ihres Geliebten gehï¿½rt, der diesen in seinen Bann schlug. ",0,55,3);
-            base.books.AddGermanBookText("Dass ein Mann einen anderen ihr vorziehen kï¿½nnte, brach ihren Stolz entzwei. Mit viel Mï¿½he gelang es dem Bauern, sie zu beruhigen.",0,55,3);
+            base.books.AddGermanBookText("Dass ein Mann einen anderen ihr vorziehen könnte, brach ihren Stolz entzwei. Mit viel Mï¿½he gelang es dem Bauern, sie zu beruhigen.",0,55,3);
             base.books.AddGermanBookText("Das vierte Mal trafen sie beide aufeinander, als der Bauer wieder einmal in der Schenke saï¿½. ",0,55,3);
             base.books.AddGermanBookText("Die Zauberin, in Trï¿½nen aufgelï¿½st, gesellte sich zu ihm und ertrank ihre Sorgen bestmï¿½glich in billigem Wein. ",0,55,3);
             base.books.AddGermanBookText("Mit viel Mï¿½he gelang es dem Bauern, sie zu beruhigen und zu ihrem Geliebten zu schicken, um die missliche Sache zu klï¿½ren.",0,55,3);
@@ -658,7 +658,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Am 13. Eldas d. 13. Jahres waren es allerdings nurnoch 7, nachdem verschollene oder lange abwesende Mitglieder von den Listen gestrichen wurden. Der reformierten Zirkel bestand aus Brendam Mason,",0,17,5); 
 			base.books.AddGermanBookText("Ezorock Roughfoot und Hermie. Andere Mitglieder waren Burlow Boinclod, Molbo Flourfern, Rosa Smallburrow und Toby Ripplewater. Obwohl von diesen versucht wurde, die Idee der Evergreen Halblinge neu",0,17,5); 
 			base.books.AddGermanBookText("zu beleben scheint dieses Unterfangen unweigerlich gescheitert zu sein. Im Eldas d. 13. Jahres verlieren sich die Spuren der Evergreen Halblinge, was den endgï¿½ltigen Niedergang der Gilde einlï¿½utet.",0,17,5); 
-			base.books.AddGermanBookText("Innerhalb von 5 Jahren konnte ein inspirierender Halbling wie Crosis Smallburrows eine stï¿½ndig wechselnde Schar von insgesammt ï¿½ber 30 verschiedenen Halblingen, die lï¿½nger oder kï¿½rzer ein Stï¿½ck des",0,17,5); 
+			base.books.AddGermanBookText("Innerhalb von 5 Jahren konnte ein inspirierender Halbling wie Crosis Smallburrows eine stï¿½ndig wechselnde Schar von insgesammt ï¿½ber 30 verschiedenen Halblingen, die lï¿½nger oder kï¿½rzer ein Stück des",0,17,5); 
 			base.books.AddGermanBookText("Weges gemeinsam mit ihm gingen, für seine Idee einer Halblingssiedlung begeistern. Nach 3 Jahren der Planung, harter Arbeit und Mï¿½hen konnte dieser Plan in die Tat umgesetzt werden. Weitere 2 Jahre",0,17,5); 
 			base.books.AddGermanBookText("wurde dieser Traum gelebt, von den Evergreen Halblingen in ihrem Greenbriar. Auch wenn ihre Mitglieder nun zerstreut sind, in Vergessenheit ist ihre Geschichte nicht geraten.",0,17,5); 
 			base.books.AddGermanBookText("Dieses Buch soll für immer dafür Sorge tragen, dass der Name Evergreen Halblinge mit Bewunderung ausgesprochen wird.",0,17,5);

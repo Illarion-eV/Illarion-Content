@@ -175,10 +175,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Roast some good pork sausages. The pork from Varshikar is the leanest and the best tasting.",3051,0,3); -- ### sausage ###
 			base.books.AddEnglishBookText("Serve the hot sausages in a slitted bread roll, adding the grated vegetables on top. Accompany this popular dish with a mug of light beer or some root beer from Tol Vanima.",2501,0,3); -- ### bottle of dark beer ###
 
-			base.books.AddGermanBookText("Wï¿½rstchen mit Beilage\n Grundzutaten: Wï¿½rste, Kohl, Karotten\n Mittel, 40 Kupfer.",2922,0,3); -- ### sausage dish ###
+			base.books.AddGermanBookText("Würstchen mit Beilage\n Grundzutaten: Wï¿½rste, Kohl, Karotten\n Mittel, 40 Kupfer.",2922,0,3); -- ### sausage dish ###
 			base.books.AddGermanBookText("Schneide oder hacke etwa 2 Karotten und den Kohl in Streifen. Fï¿½ge schwarze Vogelbeeren, einen Spritzer Weinessig und Meersalz hinzu. Mixe es sehr gut und stell es für circa zwei Stunden an einen kï¿½hlen Platz.",753,0,3); -- ### blue birdsberry ###
 			base.books.AddGermanBookText("Rï¿½ste einige Wï¿½rste aus Schweinefleisch. Varshikarisches Schweinefleisch ist das magerste und wohlschmeckendste.",3051,0,3); -- ### sausage ###
-			base.books.AddGermanBookText("Serviere die heiï¿½en wï¿½rste in einem aufgeschnittenem Brï¿½tchen, belege es mit ein wenig des Gemï¿½sesalates. Passend zu diesem beliebten Gericht ist ein Krug leichten Bieres oder Rootbeer aus Tol Vanima.",2501,0,3); -- ### bottle of dark beer ###
+			base.books.AddGermanBookText("Serviere die heiï¿½en wï¿½rste in einem aufgeschnittenem Brötchen, belege es mit ein wenig des Gemï¿½sesalates. Passend zu diesem beliebten Gericht ist ein Krug leichten Bieres oder Rootbeer aus Tol Vanima.",2501,0,3); -- ### bottle of dark beer ###
 
 			base.books.AddEnglishBookText("Rabbit dish\n Basic ingredients: rabbit, carrots, tomatoes, cabbage\n Medium difficult, 45 cps.",555,0,3); -- ### rabbit dish ###
 			base.books.AddEnglishBookText("Make a stew of tomatoes, carrots and cabbages (about 2 cups of each). Let simmer a nice saddle of rabbit in that stew, until the bones fall to the bottom of the pot. ",553,0,3); -- ### rabbit meat ###
@@ -186,7 +186,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Serve the rabbit pie with a salad of meadow rhubarb. Accompany this country dish with some cider from the Union orchard.",2499,0,3); -- ### bottle of cider ###
 
 			base.books.AddGermanBookText("Hase\n Grundzutaten: Hasenfleisch, Karotten, Tomaten, Kohl\n Mittleschwer, 45 Kupfer.",555,0,3); -- ### rabbit dish ###
-			base.books.AddGermanBookText("Mach aus je zwei Handvoll Tomaten, Karotten und Kohl einen Eintopf. Lass dann ein gutes Stï¿½ck Hasenrï¿½cken in dem Eintopf kï¿½cheln, bis die Knochen vom Hasenfleisch abfallen und zum Topfboden sinken.",553,0,3); -- ### rabbit meat###
+			base.books.AddGermanBookText("Mach aus je zwei Handvoll Tomaten, Karotten und Kohl einen Eintopf. Lass dann ein gutes Stück Hasenrï¿½cken in dem Eintopf kï¿½cheln, bis die Knochen vom Hasenfleisch abfallen und zum Topfboden sinken.",553,0,3); -- ### rabbit meat###
 			base.books.AddGermanBookText("Leg nun Fleisch, Gemï¿½se und ein Teil der Flï¿½ssigkeit auf ein Kuchenblech, ummantele es mit etwas Teig und lass es in einem heiï¿½en Ofen backen, bis die Flï¿½ssigkeit verdampft ist.",555,0,3); -- ### rabbit dish ###
 			base.books.AddGermanBookText("Serviere dieses Gericht mit einem Wiesenrhabarbersalat. Cidre aus den Fï¿½ssern der Bauernunion passt zu diesem lï¿½ndlichen Gericht ausgezeichnet.",2499,0,3); -- ### bottle of cider ###
 

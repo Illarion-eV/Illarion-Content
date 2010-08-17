@@ -79,7 +79,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Doch ich sprach stramm und gut,\nlieï¿½ vergieï¿½en Feindes Blut.\nLieï¿½ schlachten Weib und Kind,",0,20,1);
 			base.books.AddGermanBookText("schlachten wie des Bauerns Rind.\nLieï¿½ verbrennen hilflos Feindes Stï¿½dte,\nden Grund zu suchen ich verschmï¿½hte.",0,20,1);
 			base.books.AddGermanBookText("Doch in tiefster schwarzer Nacht,\ndu weiter ï¿½ber mich gewacht.\nIn meinen Trï¿½umen ich dich sah,",0,20,1);
-			base.books.AddGermanBookText("dort zeigtest du mir was ich war.\nHast mich Stï¿½ck für Stï¿½ck,\naus dunklem Schatten gerï¿½ckt.",0,20,1);
+			base.books.AddGermanBookText("dort zeigtest du mir was ich war.\nHast mich Stück für Stück,\naus dunklem Schatten gerï¿½ckt.",0,20,1);
 			base.books.AddGermanBookText("Und wieder hast mich sanft berï¿½hrt,\nund wieder hast mich sanft verfï¿½hrt.\nHast mir die Weisheit geschenkt,",0,20,1);
 			base.books.AddGermanBookText("Weisheit die mein Handeln lenkt.\nMein Denken gabst du mir,\nund dafür dank ich dir.",0,20,1);
 			
