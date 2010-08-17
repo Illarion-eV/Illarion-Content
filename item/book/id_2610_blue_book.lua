@@ -85,7 +85,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "Wegen der hohen Belastung, kann die Angelschnur nach einiger Zeit reissen. Sei also vorsichtig.", 0, 0, 1 );
             base.books.AddGermanBookText( "Fische\nDie Forelle ist der Fisch, der in Gobaith's Gewï¿½ssern am meisten vorkommt. Er kann leicht gefunden und gefangen werden.", 73, 0, 1 );
             base.books.AddGermanBookText( "Der Lachs ist eine andere Fischart, die du hier angeln kannst. Er ist ein wenig seltener, aber meistens Grüßer als die Forelle und sein Fleisch schmeckt zarter.", 355, 0, 1 );
-            base.books.AddGermanBookText( "Hiermit beenden wir unsere Einfï¿½hrung in die Kunst des Fischens. Schnapp dir eine Angelrute und versuch dein Glï¿½ck!", 0, 0, 1 );
+            base.books.AddGermanBookText( "Hiermit beenden wir unsere Einfï¿½hrung in die Kunst des Fischens. Schnapp dir eine Angelrute und versuch dein Glück!", 0, 0, 1 );
             
             -----------
             

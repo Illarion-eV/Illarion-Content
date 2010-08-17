@@ -204,7 +204,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Wie auch immer, manchmal lï¿½sst es sich nicht vermeiden, dass so'n Trupp von Mistfliegen dich umringt. Dann isses abba gut zu wissen, dass man sich quasi aus jedem Winkel heraus wehren kann!",2617,0,2); 
             base.books.AddGermanBookText("Eine gute Art, sich zu wehren, ist es dabei, so'n Kerl zum Duell aufzufordern. Wenn er sich dann mit dir beschï¿½ftigt, wendest du dich von der Knalltï¿½te ab und versuchst, nur noch seine Schlï¿½ge abzublocken. Du wirst dir Beulen holen, aber das ist die Sache wert.",2617,0,2); 
             base.books.AddGermanBookText("Wenn du erstmal deine Sinne am Summen der Klingen geschï¿½rft hast, kannste dich auf die Suche nach den Schï¿½tzen dieses Landes machen, Neues entdecken und dich von all den Nulpen um dich für deine Kampfeskunst beneiden lassen.",2617,0,2); 
-            base.books.AddGermanBookText("Tihgorac wï¿½nscht dir Glï¿½ck, auch weil Tihgorac selbst nie welches hatte! Schluchz",2617,0,2); 
+            base.books.AddGermanBookText("Tihgorac wï¿½nscht dir Glück, auch weil Tihgorac selbst nie welches hatte! Schluchz",2617,0,2); 
             
             ----------
             
@@ -314,7 +314,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("-- Eigentum an Grund und Boden / Gebï¿½uden, erhï¿½lt die Sippe der Halblinge als Gesamtheit.",0,0, 4);
 			base.books.AddGermanBookText("- Nutzungsrechte an Gebï¿½uden können sowohl von Sippenmitgliedern als auch Ehrenbï¿½rgern gemietet, gepachtet oder ihnen verliehen werden.\nï¿½ber die Verleihung entscheidet das Familienoberhaupt.",0,0, 4);
 			base.books.AddGermanBookText("-- Die Mï¿½glichkeiten, wie man sich's mit den Halblingen verscherzen kann, sodass man guckt als hï¿½tte man saure Milch getrunken, werden in einem eigenen Verbotskatalog aufgelistet.",0,0, 4);
-			base.books.AddGermanBookText("- Verdiente Halblinge, die sich um den Weiler bemï¿½ht haben, können mit dem Titel \"Ehrenwerter Halbling\" bedacht werden.\nVerdienten Nicht-Halblingen kann der Titel \"Freund der Halblinge\" verliehen",0,0, 4);
+			base.books.AddGermanBookText("- Verdiente Halblinge, die sich um den Weiler bemüht haben, können mit dem Titel \"Ehrenwerter Halbling\" bedacht werden.\nVerdienten Nicht-Halblingen kann der Titel \"Freund der Halblinge\" verliehen",0,0, 4);
 			base.books.AddGermanBookText("werden, sollte besonderer Einsatz dies rechtfertigen.\nJedem Familienmitglied steht es frei, jemanden für diese Titel vorzuschlagen. Sollte die Familie einstimmig den Vorschlag akzeptieren,",0,0, 4);
 			base.books.AddGermanBookText("wird der Titel verliehen.\nEs steht auch dem Familienoberhaupt zu, Halblinge und Nicht-Halblinge zu ehren.",0,0, 4);
 			base.books.AddGermanBookText("Artikel 4 - ï¿½bergangsbestimmungen",0,0, 4);
