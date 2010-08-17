@@ -72,7 +72,7 @@ function InitWegweiser()
     AddWeg({-282,23,0},"Zum Hafen","To the Harbour",4,0);
     AddWeg({-95,-107,0},"Zur Taverne Fluffy Sheep","To the tavern Fluffy Sheep",4,0);
     AddWeg({-72,-141,0},"Zu Eliza's Shop","To Eliza's Shop",4,0);
-    AddWeg({-81,-66,0},"Süden - Die sï¿½dlichen Wï¿½lder. Achtung gefï¿½hrliche Kreaturen!","South - The southern Forests, Be careful, dangerous creatures!",4,0);
+    AddWeg({-81,-66,0},"Süden - Die sï¿½dlichen Wälder. Achtung gefï¿½hrliche Kreaturen!","South - The southern Forests, Be careful, dangerous creatures!",4,0);
     AddWeg({60,-186,0},"Süden - Nach Troll's Bane","South -To Troll's Bane",4,0);
     AddWeg({-118,-101,0},"Das Hospital","The Hospital",4,0);
     AddWeg({-419,39,0},"Willkommen in Greenbriar","Welcome to Green Briar",4,0);

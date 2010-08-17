@@ -223,7 +223,7 @@ local PRAEFIX_EN = {"","","","","","",""};
             PRAEFIX_DE={"robuste","lebensverlï¿½ngernde","geï¿½bte","restaurierende","verbesserte","gewandte","verbessernde"}
             PRAEFIX_EN={"robust","life prolonging","trained","refurbishing","enhanced","brisk","enhancing"}
         elseif Str==7 then -- Sufe 8
-            PRAEFIX_DE={"stabile","bestï¿½ndige","geschickte","instandsetzende","hervorragende","schnelle","auï¿½ergewï¿½hnliche"}
+            PRAEFIX_DE={"stabile","bestï¿½ndige","geschickte","instandsetzende","hervorragende","schnelle","auï¿½ergewöhnliche"}
             PRAEFIX_EN={"stable","constant","skilled","repairing","outstanding","quick","exceptional"}
         elseif Str==8 then -- Sufe 9
             PRAEFIX_DE={"unverwï¿½stliche","langlebige","fachmï¿½nnische","reparierende","großartiges","flotte","herausragende"}

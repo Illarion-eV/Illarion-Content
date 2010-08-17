@@ -18,8 +18,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Schira'thel - Tochter des Blutes",0,0,0);
             base.books.AddGermanBookText("Alles begann, damals vor ungezï¿½hlten Jahren, als die Elfen gerade begannen das Wirken der Magie zu verstehen.",0,0,0);
             base.books.AddGermanBookText("Besser gesagt begannen sie es zu interpretieren, aber das allgemeine Selbstbewuï¿½tsein damals lieï¿½ uns glauben, wir würden verstehen was wir noch nicht einmal erahnten.",0,0,0);
-            base.books.AddGermanBookText("Es geschah so, daï¿½ man im Laufe der Jahre zu vermuten begann, die Fï¿½higkeiten mit Magie umzugehen seien hauptsï¿½chlich eine Sache des elterlichen Blutes.",0,0,0);
-            base.books.AddGermanBookText("Einige sehr fanatische Magier und Magierinnen kamen so auf die Idee, durch die Vermï¿½hlung des grï¿½ï¿½ten Magiers und der grï¿½ï¿½ten Magierin einen noch mï¿½chtigeren Spross zu erhalten.",0,0,0);
+            base.books.AddGermanBookText("Es geschah so, daï¿½ man im Laufe der Jahre zu vermuten begann, die Fï¿½higkeiten mit Magie umzugehen seien hauptsächlich eine Sache des elterlichen Blutes.",0,0,0);
+            base.books.AddGermanBookText("Einige sehr fanatische Magier und Magierinnen kamen so auf die Idee, durch die Vermï¿½hlung des größten Magiers und der größten Magierin einen noch mï¿½chtigeren Spross zu erhalten.",0,0,0);
             base.books.AddGermanBookText("Selber besessen von dieser Idee lieï¿½en sich die von nun an Vermï¿½hlten auf die Verbindung ein.",0,0,0);
             base.books.AddGermanBookText("Doch das Kind, das geboren werden sollte, weckte nicht nur Neugierde und Hoffnung, auch Angst und Neid sollte sollte sie verbreiten, noch ehe sie geboren ward.",0,0,0);
             base.books.AddGermanBookText("Es wurde ein Mï¿½dchen, Schira'thel mit Namen, doch wie sie geboren war begann ihr Weg des Leidens.",0,0,0);
@@ -239,8 +239,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " 'Das Geschenk der Erde ist wieder zu den Zwergen zurückgekehrt', sagte Irmorom. 'Die Bï¿½den sind wieder reich und werden Leben hervorbringen.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Thiron war müde, denn in der glï¿½henden Sonne gab es keine Bäume, die ihm Schatten boten und keinen Wind, der ihn kï¿½hlte. Dennoch reiste er zum Tierstein und Irmorom sprach:  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Finde das Gute Tier und lindere sein Leiden.'", 0, 0, 2 );
-            base.books.AddGermanBookText( " Thiron wanderte viele Stunden durch die Wï¿½lder von Malderan, bis er jenseits eines Hï¿½gels das Schmerzgebrï¿½ll eines Bï¿½ren vernahm. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Als er den Hï¿½gel erklommen hatte, sah er den Bï¿½ren, in dessen Hals das Messer eines Orks steckte. Er suchte den Wald nach Orks ab und als er keinen entdeckte ging er auf das Tier zu. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Thiron wanderte viele Stunden durch die Wälder von Malderan, bis er jenseits eines Hügels das Schmerzgebrï¿½ll eines Bï¿½ren vernahm. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Als er den Hügel erklommen hatte, sah er den Bï¿½ren, in dessen Hals das Messer eines Orks steckte. Er suchte den Wald nach Orks ab und als er keinen entdeckte ging er auf das Tier zu. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Er sprach beruhigende Worte und nï¿½herte sich ihm langsam mit den Worten 'Gutes Tier, ich will dir nichts tun. Irmorom hat mich gesandt, dein Leid zu lindern.'", 0, 0, 2 );
             base.books.AddGermanBookText( " Als der Bï¿½r diese Worte vernahm, hï¿½rte er auf, sich zu winden und legte seinen Kopf Thiron zu Füßen. Thiron packte das Messer und zog es aus dem Hals des Bï¿½ren. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Mit dem Wenigen an Heilkunde, das er kannte, versorgte Thiron die Verletzung, obwohl es ihn seine letzte Kraft kostete. Als die Wunde des Bï¿½ren sich schloss, schlief Thiron ein.  ", 0, 0, 2 );   
@@ -277,7 +277,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Als er dort ankam, sprach Irmorom zu ihm und gab ihm seinen letzten Auftrag. ", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Finde den Gierigen Mann und befreie den Wind aus seiner Gefangenschaft.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Also durchwanderte Thiron das Land auf der Suche nach dem Gierigen Mann. Er schaute in den Bäumen nach, aber dort war der Gierige Mann nicht verborgen.  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und auch nicht am Meeresufer oder in den tiefen Hï¿½hlen, und auch die Tiere hatten ihn in den dunklen Wï¿½ldern nicht gesehen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Und auch nicht am Meeresufer oder in den tiefen Höhlen, und auch die Tiere hatten ihn in den dunklen Wäldern nicht gesehen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Schlieï¿½lich kam Thiron zu einem schiefen Haus und wusste, dass er den Gierigen Mann dort finden würde. ", 0, 0, 2 );  
             base.books.AddGermanBookText( " 'Wer bist du', rief der Gierige Mann, 'dass du zu meinem Haus kommst?'  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Ich bin Thiron von den Zwergen', sagte Thiron. 'Ich bin weder Krieger noch Stammesï¿½ltester, noch Schmied. Wenn ich nicht zurückkehre, wird man mich nicht vermissen. ", 0, 0, 2 );
@@ -354,7 +354,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             
             base.books.AddGermanBookText("Dies ist die Geschichte der Zauberin und des Bauern. \n",0,55,3);
             base.books.AddGermanBookText("Sie beginnt mit einer kurzen Einfï¿½hrung unserer beiden Helden:",0,55,3);
-            base.books.AddGermanBookText("Die Zauberin, von adeligem Geschlecht und unsagbar anziehendem ï¿½uï¿½eren bewohnte das grï¿½ï¿½te Haus in der grï¿½ï¿½ten Stadt auf der kleinsten Insel, die man sich wohl vorstellen kann.",0,55,3);
+            base.books.AddGermanBookText("Die Zauberin, von adeligem Geschlecht und unsagbar anziehendem ï¿½uï¿½eren bewohnte das größte Haus in der größten Stadt auf der kleinsten Insel, die man sich wohl vorstellen kann.",0,55,3);
             base.books.AddGermanBookText("Der Bauer, einer Fischersfamilie entsprungen und mit krankem Bein, bewohnte jeden Unterschlupf und jedes Bett, dass sich ihm bot.",0,55,3);
             base.books.AddGermanBookText("Das erste Mal trafen sie beide aufeinander in der verruchten Schenke eines Zwergen, der Bauer hatte sich dem Wegspï¿½len seiner Sorgen gewidmet, ...",0,55,3);
             base.books.AddGermanBookText("...die Zauberin war auf ihrem Rundgang. Sie hatte es sich zur Aufgabe gemacht, das Bï¿½se zu bekï¿½mpfen, wo sie es antraf.\n",0,55,3);
@@ -501,7 +501,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Strahlen aus der arkanen Struktur des Magiers schieï¿½t und in (meist bogenfï¿½rmigen) Flugbahnen auf die arkane Struktur des Zielobjektes trifft. Durch das plï¿½tzliche Eindringen der Manaenergie in die",0,25,4);
 			base.books.AddGermanBookText("Zielstruktur verï¿½ndert diese ihre Form, je nach dem wie die Strahlen aus Manaenergie auf sie eintreffen, beziehungsweise sie aus dem Magier heraus schossen, in spezifischer Art und Weise.",0,25,4);
 			base.books.AddGermanBookText("Bei diesem Prozess geht Manaenergie keinesfalls verloren. Sie dringt lediglich in die Zielstruktur ein. Jeder, der schon einmal direktes Ziel eines Zaubers war , kennt das Gefï¿½hl eines Kribbelns im ",0,25,4);
-			base.books.AddGermanBookText("ganzen Körper. Ein Zeichen dafür, dass die eigene Arkane Struktur für den Moment mehr Manaenergie speichert als für gewï¿½hnlich.",0,25,4);
+			base.books.AddGermanBookText("ganzen Körper. Ein Zeichen dafür, dass die eigene Arkane Struktur für den Moment mehr Manaenergie speichert als für gewöhnlich.",0,25,4);
 			base.books.AddGermanBookText("Dieses Mana verweilt nicht in der arkanen Struktur des Zielobjektes. Sie verteilt sich recht schnell wieder in die Umgebung der Zielstruktur bis diese wieder ihr normales Maï¿½ an Mana fasst.",0,25,4);
 			base.books.AddGermanBookText("Der Zauberer, der das Mana aus seiner arkanen Struktur gerade verloren hat, zieht neue Manaenergie wiederum aus der Umgebung seiner eigenen arkanen Struktur, bis auch diese wieder ihr normales Maï¿½",0,25,4);
 			base.books.AddGermanBookText("erreicht hat. Wobei anzumerken ist, das Mana deutlich lï¿½nger brauch um in eine arkane Struktur zu wandern als aus einer heraus.",0,25,4);
@@ -522,7 +522,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Manaquelle um ein kleines Gewï¿½sser oder ein Pflanze, so regeneriert das Trinken von ihr beziehungsweise das Essen ihrer Frucht in raschem Maï¿½e die speicherbare Manaenergie des Konsumenten. ",0,25,4);
 			base.books.AddGermanBookText("Die Wirkung ist vergleichbar mit der eines Manatrankes.",0,25,4);
 			base.books.AddGermanBookText("Wegen ihrer Macht für Magier und ihrer Seltenheit sind sie oft umkï¿½mpfte Objekte. Da sie aber auch magische und unnatürliche Kreaturen instinktiv anlocken gibt es auf Illarion viele von ihnen die, von",0,25,4);
-			base.books.AddGermanBookText("Herrscharen von Monstern bewacht, in Vergessenheit gerieten. Die grï¿½ï¿½te und mï¿½chtigste aller bekannten Manaquellen findet man, wie sollte es anders sein, in Lor Angur.",0,25,4);
+			base.books.AddGermanBookText("Herrscharen von Monstern bewacht, in Vergessenheit gerieten. Die größte und mï¿½chtigste aller bekannten Manaquellen findet man, wie sollte es anders sein, in Lor Angur.",0,25,4);
 			base.books.AddGermanBookText("Nur durch sie ist es möglich die mï¿½chtigen Schutzzauber der Stadt aufrecht erhalten zu können.",0,25,4);
 			base.books.AddGermanBookText("4.2 Manastrï¿½me",0,25,4);
 			base.books.AddGermanBookText("Wie erwï¿½hnt besitzt alles was existiert eine arkane Struktur, bestehend aus vielen kleinen, verschlungenen Bahnen. Auch unsere Heimatebene Illarion besitzt als ganzes eine solche Struktur die sie",0,25,4);
@@ -636,7 +636,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Mit 1. Tanos d. 10.Jahres treten Ganidor, Brumba, Dromar Mugworth und Frodo Scarlett den Evergreen Halfers bei. 18 Halblinge zï¿½hlen die Evergreen Halblinge zu ",0,17,5); 
 			base.books.AddGermanBookText("diesem Zeitpunkt. Am 10. Ronas d. 10.Jahres findet das 6. Treffen der Evergreen Halblinge statt. Thema ist weitgehend die Einlagerung von Nahrungsmitteln und Wasser aufgrund der durch Darlok",0,17,5); 
 			base.books.AddGermanBookText("heraufbeschworenen Dï¿½rre die die gesamte Insel getroffen hat. Am 19. Eldas d. 10.Jahres findet das 7. Treffen der Evergreen Halblinge statt. Trotz der schweren Situation scheint die Stimmung",0,17,5); 
-			base.books.AddGermanBookText("hervorragend gewesen zu sein, und die Evergreen Halblinge selbst in Zeiten grï¿½ï¿½ter Not nicht verzweifelt zu sein. Sie fanden sogar die Zeit am 2. Tanzturnier Gobaiths am 10. Malas d. 10.Jahres",0,17,5); 
+			base.books.AddGermanBookText("hervorragend gewesen zu sein, und die Evergreen Halblinge selbst in Zeiten größter Not nicht verzweifelt zu sein. Sie fanden sogar die Zeit am 2. Tanzturnier Gobaiths am 10. Malas d. 10.Jahres",0,17,5); 
 			base.books.AddGermanBookText("teilzunehmen und in der Kategorie Gruppentanz zu gewinnen. Auch spirituell sind sie beim \"Nie-endenden Gebet\" geleitet von der Elfe Elaralith am Ushara Schrein vertreten, so geschehen",0,17,5); 
 			base.books.AddGermanBookText("im Findos d. 10. Jahres. Das 10. Jahr ist also mitunter ein turbulentes, aber auch kriegerisches Jahr für die Evergreen Halblinge.",0,17,5); 
 			base.books.AddGermanBookText("Ein Allianzgesuch eines Sess'sth, Waffenmeister des Fire Seer Clans, bezeugt den Einfluss und Ruf den die wehrhaften Evergreen Halblinge besitzen. Im Zuge des Konflikts mit Darlok und",0,17,5); 

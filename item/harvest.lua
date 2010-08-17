@@ -159,7 +159,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             if( not success )then
                 if( boden == 1 ) then
                     base.common.InformNLS( User,
-                    "Deine Hï¿½nde graben durch die Erde, aber Du findest nichts.",
+                    "Deine Hände graben durch die Erde, aber Du findest nichts.",
                     "Your hands muckrake through the dirt, but you do not find anything." );
                 elseif( boden == 2 ) then
                     base.common.InformNLS( User,
@@ -167,11 +167,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     "Dry leaves are all you find." );
                 elseif( boden == 3 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er trockenem Sand.",
+                    "Du findest nichts außer trockenem Sand.",
                     "You find nothing but dry sand" );
                 elseif( boden == 4 ) then
                     base.common.InformNLS( User,
-                    "Du findest nichts auï¿½er Unkraut und Gras.",
+                    "Du findest nichts außer Unkraut und Gras.",
                     "You find nothing but weed and grass." );
                 else
                     base.common.InformNLS( User,

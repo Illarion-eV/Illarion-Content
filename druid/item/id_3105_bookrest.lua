@@ -25,7 +25,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Ein Druide ist immer freundlich, was sich in seiner liebenswï¿½rdigen Art ausdrï¿½ckt.",0,0,0);
         base.books.AddGermanBookText("Einen Druiden zu bedrohen, kann große Gefahr auslï¿½sen. Gewï¿½hnlich friedfertig, wissen Druiden nicht nur zu heilen, sondern kennen auch die Kunst der Zerstörung.",0,0,0);
         base.books.AddGermanBookText("Sich in einem immerwährenden Fluss befindend, versammelt, verschmilzt und zerfliesst die Welt stï¿½ndig.",0,0,0);
-        base.books.AddGermanBookText("In der Anfangszeit des Druidenzirkels der Wï¿½lder musste er die Ignoranten zï¿½geln, die sich weigerten an ein friedfertiges Leben zu glauben.",0,0,0);
+        base.books.AddGermanBookText("In der Anfangszeit des Druidenzirkels der Wälder musste er die Ignoranten zï¿½geln, die sich weigerten an ein friedfertiges Leben zu glauben.",0,0,0);
         base.books.AddGermanBookText("Druiden sind oft auch Alchemisten!",0,0,0);
         base.books.AddGermanBookText("Um Tinte zu machen, braucht man eine mineralische Komponente, eine verdï¿½nnende und eine botanische Komponente.",0,0,0);
         base.books.AddGermanBookText("Tinte ist eine Mischung die in einem Mï¿½rser hergestellt wird.",0,0,0);

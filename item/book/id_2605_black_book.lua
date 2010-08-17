@@ -200,7 +200,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Koche etwa je zwei Handvoll gewï¿½rfelte Tomaten, Karotten und Zwiebeln mit einem Schluck Rotwein und einer Prise Lebenswurzpulver und stell es dann zur Seite.",0,0,3);
 			base.books.AddGermanBookText("Grill die Lammkoteletts ï¿½ber Flammen bis sie braun und saftig sind. Serviere sie mit dem Gemï¿½se und einem Muffin als Nachtisch.",2934,0,3); -- ### lamb meat ###
 			base.books.AddGermanBookText("Zu den Lammkoteletts würde gut ein lebendiger, gereifter Wein oder ein sehr starker Met passen. ",2500,0,3); -- ### bottle of wine ###
-			base.books.AddGermanBookText("Als Randnotiz: Lammgerichte stellen mï¿½glicherweise das beste Preis / Leistungsverhï¿½ltnis dar.",559,0,3); -- ### lamb dish ###
+			base.books.AddGermanBookText("Als Randnotiz: Lammgerichte stellen möglicherweise das beste Preis / Leistungsverhï¿½ltnis dar.",559,0,3); -- ### lamb dish ###
 
 			base.books.AddEnglishBookText("Venison dish : venison (deer meat), onions, cabbages, berries \n very difficult, 75 cps. \nNote that the berries are not the blackberries used to make muffins.",554,0,3); -- ### venison dish ###
 			base.books.AddEnglishBookText("Marinate some onions and cabbage thickly sliced into 1 part sea salt, 1 part wine vinegar and 1 part sweet mead. Add the wood berries. It should be ready in about 10 days.",81,0,3); -- ### berries ###

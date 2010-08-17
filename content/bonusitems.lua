@@ -29,7 +29,7 @@ function initBonus()
     preTitle[1][18] = "";           postTitle[1][18] = "Eldans";    preTitle[2][18] = "";         postTitle[2][18] = "of Eldan";
     preTitle[1][19] = "";           postTitle[1][19] = "Tanoras";   preTitle[2][19] = "";         postTitle[2][19] = "of Tanora";
     preTitle[1][20] = "";           postTitle[1][20] = "Findaris";  preTitle[2][20] = "";         postTitle[2][20] = "of Findari";
-    preTitle[1][21] = "";           postTitle[1][21] = "Nargï¿½ns";   preTitle[2][21] = "";         postTitle[2][21] = "of Nargï¿½n";
+    preTitle[1][21] = "";           postTitle[1][21] = "Nargúns";   preTitle[2][21] = "";         postTitle[2][21] = "of Nargún";
     preTitle[1][22] = "";           postTitle[1][22] = "Elaras";    preTitle[2][22] = "";         postTitle[2][22] = "of Elara";
     preTitle[1][23] = "";           postTitle[1][23] = "Adrons";    preTitle[2][23] = "";         postTitle[2][23] = "of Adron";
     preTitle[1][24] = "";           postTitle[1][24] = "Oldras";    preTitle[2][24] = "";         postTitle[2][24] = "of Oldra";

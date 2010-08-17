@@ -27,7 +27,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Adrons is the God of Festivities. He is said to appear as an attractive man or an old begger witha bottle. He is very impulsive and can be aggressive at times.",0,0,0); 
             base.books.AddEnglishBookText("Cherga is the Goddess of Death and Souls. She is very neutral and proud. She is for justice and takes pride in such things.",0,0,0); 
             base.books.AddEnglishBookText("Oldra is the Goddess of Life and Fertility. She often appears as an elder woman. Many farmers, mothers, and families pray to her.",0,0,0); 
-            base.books.AddEnglishBookText("Nargï¿½n is the God of Chaos. He loves playing tricks and inacting a cunning revenge. His humor is very dark and his true form is often kept hidden from mortals.",0,0,0); 
+            base.books.AddEnglishBookText("Nargún is the God of Chaos. He loves playing tricks and inacting a cunning revenge. His humor is very dark and his true form is often kept hidden from mortals.",0,0,0); 
             base.books.AddEnglishBookText("Malachin is the God of Hunting and Battle. He is very dignified and serious, usually neutral on subjects. He is said to appear as a strong knight or a clothed ranger. Many follow this honorable God.",0,0,0); 
             base.books.AddEnglishBookText("Irmorom is the God of Crafts and Trade. He loves wealth and Justice. Those who worship him take pride in their excellent crafts and monetary wealth.",0,0,0); 
             base.books.AddEnglishBookText("Sirani is the Goddess of Love and Pleasure. She usually appears as an attractive female. She is very amiable and intelligent, as well as sympathetic.",0,0,0); 
@@ -37,24 +37,24 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             
             base.books.AddGermanBookText("\n \n Illarions Götterwelt",0,0,0); 
             base.books.AddGermanBookText("Die Alten Götter",0,0,0); 
-            base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fï¿½nf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
-            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Gï¿½ldene. Er wird als stark, gerecht und großzï¿½gig beschrieben. ",0,0,0); 
-            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhï¿½nger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund für seine geringe Gefolgschaft.",0,0,0); 
-            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zustï¿½ndig für die Kunst. Auch ihre Anhï¿½nger sind dï¿½nn gesï¿½at, in aller Regel Wahrsager und Bï¿½nkelsï¿½nger.",0,0,0); 
-            base.books.AddGermanBookText("Tanora ist die alte Gï¿½ttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Göttern, die mï¿½glicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
-            base.books.AddGermanBookText("Die alte Gottheit Ushara wacht ï¿½ber die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
-            base.books.AddGermanBookText("Die Jï¿½ngeren Götter",0,0,0); 
-            base.books.AddGermanBookText("Die Jï¿½ngeren unter den Gottheiten waren elf herausragende Bï¿½rgerliche, die, auserwï¿½hlt von den Alten, bestimmt wurden, zu Göttern aufzusteigen.",0,0,0); 
-            base.books.AddGermanBookText("Elara ist die Göttin des Wissens. Sie wird hauptsï¿½chlich von Zauberern und Gelehrten verehrt. Gerï¿½chteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als großgewachsene alterslose Frau.",0,0,0); 
+            base.books.AddGermanBookText("Die Alten Gottheiten bestanden aus fünf Erscheinungen, die gemeinsam die Welt erschufen. Warum sie das taten - das wird ihr Geheimnis bleiben.",0,0,0); 
+            base.books.AddGermanBookText("Bragon ist der alte Feuergott. Von ihm sagt man, er sei verschwenderisch und liebe alles Goldene. Er wird als stark, gerecht und großzügig beschrieben. ",0,0,0); 
+            base.books.AddGermanBookText("Eldan ist der alte Gott des Geistes. Man sagt von ihm, er sei sehr weise und habe nur wenige Anhänger. Er hatte nie viel Kontakt zu den Lebenden, vielleicht eine Grund für seine geringe Gefolgschaft.",0,0,0); 
+            base.books.AddGermanBookText("Der alten Gott der Luft ist Findari. Sie ist sehr einfallsreich und von daher auch zuständig für die Kunst. Auch ihre Anhänger sind dünn gesäht, in aller Regel Wahrsager und Bänkelsänger.",0,0,0); 
+            base.books.AddGermanBookText("Tanora ist die alte Göttin des Wassers. Sie gilt als die Mutter der Echsenmenschen und wird von ihnen Zelphia genannt. Sie ist die einzige unter den alten Göttern, die möglicherweise heute noch unter den Lebenden in Erscheinung tritt.",0,0,0);
+            base.books.AddGermanBookText("Die alte Gottheit Ushara wacht über die Erde. Von ihr sagt man, sie lehne jede Form von Prunk ab, weshalb ihr Altar auch die Erde selbst sei.",0,0,0); 
+            base.books.AddGermanBookText("Die Jüngeren Götter",0,0,0); 
+            base.books.AddGermanBookText("Die Jüngeren unter den Gottheiten waren elf herausragende Bürgerliche, die, auserwählt von den Alten, bestimmt wurden, zu Göttern aufzusteigen.",0,0,0); 
+            base.books.AddGermanBookText("Elara ist die Göttin des Wissens. Sie wird hauptsächlich von Zauberern und Gelehrten verehrt. Gerüchteweise soll sie das Leben des Einsiedlers bevorzugen, manchmal erscheine sie auch als großgewachsene alterslose Frau.",0,0,0); 
             base.books.AddGermanBookText("Adrons ist der Gott der Feste. Man sagt von ihm, er erscheine als ansehnlicher Mann oder auch als Bettler mit Flasche. Er ist aufbrausend und bisweilen streitlustig.",0,0,0); 
             base.books.AddGermanBookText("Cherga is die Göttin der Toten und der Seelen. Sie ist sehr ausgeglichen und stolz. Sie steht für Gerechtigkeit und nimmt solche Dinge sehr ernst.",0,0,0); 
-            base.books.AddGermanBookText("Oldra is die Göttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ï¿½ltere Frau auf. Viele Bauern, Mï¿½tter und Familien beten zu ihr.",0,0,0);
-            base.books.AddGermanBookText("Nargï¿½n ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
-            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr würdevoll, ernst und für gewï¿½hnlich neutral. Man sagt, er erscheint als starker Krieger oder verhï¿½llter Waldlï¿½ufer. Viele glauben an diesen ehrwï¿½rdigen Gott.",0,0,0);
+            base.books.AddGermanBookText("Oldra is die Göttin des Lebens und der Fruchtbarkeit. Sie tritt meist als ältere Frau auf. Viele Bauern, Mütter und Familien beten zu ihr.",0,0,0);
+            base.books.AddGermanBookText("Nargún ist der Gott des Chaos. Er liebt es, Streiche zu spielen und gerissen Rache zu nehmen. Sein Humor ist dunkel und seine wahre Form ist Sterblichen meist verborgen.",0,0,0);
+            base.books.AddGermanBookText("Malachin ist der Gott der Jagd und des Kampfes. Er ist sehr würdevoll, ernst und für gewöhnlich neutral. Man sagt, er erscheint als starker Krieger oder verhüllter Waldläufer. Viele glauben an diesen ehrwürdigen Gott.",0,0,0);
             base.books.AddGermanBookText("Irmorom ist der Gott des Handwerks und des Handels. Er liebt Wohlstand und Gerechtigkeit. Die, die ihn verehren, sind stolz auf ihre handwerklichen Begabungen und ihren Reichtum.",0,0,0);
-            base.books.AddGermanBookText("Sirani ist die Göttin der Liebe und des Vergnï¿½gens. Fï¿½r gewï¿½hnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
-            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzï¿½hlt, er würde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hï¿½lt nichts von solchen Dingen.",0,0,0);
-            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht für das Geben an Bedï¿½rftige und hï¿½lt nichts von strengen Gesetzen. Man erzï¿½hlt, er helfe ehrwï¿½rdigen Dieben.",0,0,0);
+            base.books.AddGermanBookText("Sirani ist die Göttin der Liebe und des Vergnügens. Für gewöhnlich erscheint Sirani als gut aussehende Frau. Sie ist sehr aufmerksam und intelligent, so wie auch sympathisch.",0,0,0);
+            base.books.AddGermanBookText("Zhambra ist der Gott der Freundschaft und der Treue. Man erzählt, er würde als junger Edelmann erscheinen, welcher sympathisch ist, solange man ihn nicht hintergeht. Er hält nichts von solchen Dingen.",0,0,0);
+            base.books.AddGermanBookText("Ronagan ist der Gott der Diebe und Schatten. Er steht für das Geben an Bedürftige und hält nichts von strengen Gesetzen. Man erzählt, er helfe ehrwürdigen Dieben.",0,0,0);
             base.books.AddGermanBookText("Moshran ist der Gott des Blutes und der Knochen. Die Orks wurden durch seine Wut und Verzweiflung wegen des, ihm auferlegten, Fluches nachdem er das Land rettete, geschaffen. Danach war sein Ruf als großer Krieger zerbrochen.",0,0,0);
 
             ---------------
@@ -81,15 +81,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Because halflings are not well in magic, it would be wise to give a practitioner room incase his spell has unwanted effects.",0,0,1);
 
             base.books.AddGermanBookText("\n \n Kultur und Geschichte der Halblinge",0,0,1);
-            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fï¿½rdert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
-            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der grï¿½ï¿½te Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller ï¿½fentlichkeit prï¿½sentieren. Sie neigen dazu, ï¿½lter zu werden als die Menschen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hï¿½gel und Wï¿½lder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen können diese Hï¿½hlen eine beachtliche Grüße erreichen.",0,0,1);
-            base.books.AddGermanBookText("Ihre Hï¿½user sind voller Mï¿½bel und anderer Besitztï¿½mer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
-            base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanfï¿½hrer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
-            base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dï¿½rfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gï¿½be im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
-            base.books.AddGermanBookText("Und zwar Frï¿½hstï¿½ck, Mittagessen und Abendbrot!",0,0,1);
-            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermï¿½uler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag ï¿½ber die Kochkï¿½nste hï¿½lt.",0,0,1);
-            base.books.AddGermanBookText("Es ist nicht unï¿½blich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschï¿½ftigen.",0,0,1);
+            base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fördert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
+            base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der größte Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller Öffentlichkeit präsentieren. Sie neigen dazu, älter zu werden als die Menschen.",0,0,1);
+            base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hügel und Wälder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen können diese Höhlen eine beachtliche Grüße erreichen.",0,0,1);
+            base.books.AddGermanBookText("Ihre Hï¿½user sind voller Möbel und anderer Besitztümer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
+            base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanführer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
+            base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dürfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gäbe im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
+            base.books.AddGermanBookText("Und zwar Frühstück, Mittagessen und Abendbrot!",0,0,1);
+            base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermäuler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag über die Kochkünste hält.",0,0,1);
+            base.books.AddGermanBookText("Es ist nicht unüblich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschäftigen.",0,0,1);
             base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Kräutersammler.",0,0,1);
             base.books.AddGermanBookText("In den Dï¿½rfern findet man hï¿½ufig kleine Oldra-Schreine. Tatsï¿½chlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
             base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne für Diebstï¿½hle genutzt.",0,0,1);
