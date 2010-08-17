@@ -37,7 +37,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Die Legende berichtet Bragon habe den Ork erschaffen als Geschenk für Moshran. Damit wollte er dessen Leiden lindern, indem er die Orks mit Moshrans Wut ausstattete.",0,0,toData);
     base.books.AddGermanBookText("Orks sind etwas kleiner als Menschen, haben eine grï¿½nliche Haut und oftmals ragt ihr unterer Kieferknochen hervor.",0,0,toData);
     base.books.AddGermanBookText("Ihr Zusammenleben wirkt ungeordnet, tatsï¿½chlich besteht es aus verschiedenen Stï¿½mmen. Die meisten dieser Stï¿½mme leben als Nomade und Weide-Hirten. Schweine und Schafe sind ihre Haupteinnahmequelle.",0,0,toData);
-    base.books.AddGermanBookText("Orks bauen keine Hï¿½user, sondern ziehen es vor, in Höhlen zu hausen. Das Stammesgebiet umfasst hï¿½ufig mehrere Höhlen, natürliche wie auch solche, die von den Stï¿½mmen ausgebaut und erweitert wurden.",0,0,toData);
+    base.books.AddGermanBookText("Orks bauen keine Häuser, sondern ziehen es vor, in Höhlen zu hausen. Das Stammesgebiet umfasst häufig mehrere Höhlen, natürliche wie auch solche, die von den Stï¿½mmen ausgebaut und erweitert wurden.",0,0,toData);
     base.books.AddGermanBookText("Entsprechend der Ausdehnung dieser Höhlen, haben sich viele Orks auf den Kohle- und Erzbergbau verlegt. Manchmal stoï¿½en sie auch auf Edelsteine und wertvolle Metalle.",0,0,toData);
     base.books.AddGermanBookText("Mit dem Wandel der Jahreszeiten wechseln die Orks ihre Höhlen. Sonderlinge, wie die Schamanen, leben jedoch das ganze Jahr ï¿½ber in der gleichen Unterkunft.",0,0,toData);
     base.books.AddGermanBookText("Große Ork-Clans unterteilen sich in Unterstï¿½mme mit jeweils eigenen Anführern, meist der Krï¿½ftigste innerhalb des Rudels, wohingegen der Shamane meist der Geschickteste ist.",0,0,toData);
@@ -47,7 +47,7 @@ function loadBook(toData)
     base.books.AddGermanBookText("Der Sommer ist für viele Orkstï¿½mme die Zeit der Kriegsfï¿½hrung, einige beten zu Moshran, auch als \"Knochen-Kracher\" oder als der \"Blut-Herr\" bekannt. Der Kriegsgott einer Sippe ist entweder Moshran oder Malachin, bisweilen auch beide.",0,0,toData);
     base.books.AddGermanBookText("Ihre Kriege untereinander sind meist Gebietsstreitereien, bei denen es aber nicht zu vielen Todesopfern kommt und die oftmals eher als eine Art sportlicher Betï¿½tigung unter den Orks angesehen wird.",0,0,toData);
     base.books.AddGermanBookText("Solche Kriege schlieï¿½en auch Spionage ein, Viehdiebstahl und einige Schlachten dienen vor allem der ï¿½berprï¿½fung, welcher der rivalisierenden Clans der Stärkere ist.",0,0,toData);
-    base.books.AddGermanBookText("Im Herbst wenden sich dann die meisten Sippen Malachin, dem \"Jï¿½ger\" zu, zugunsten einer erfolgreichen Jagdsaison im Hinblick auf die bevorstehende Winterzeit.",0,0,toData);
+    base.books.AddGermanBookText("Im Herbst wenden sich dann die meisten Sippen Malachin, dem \"Jäger\" zu, zugunsten einer erfolgreichen Jagdsaison im Hinblick auf die bevorstehende Winterzeit.",0,0,toData);
     base.books.AddGermanBookText("Wï¿½hrend der kalten Jahreszeit leben die Orks in ihren Winterquartieren und Cherga wird zur ehrenden Gottheit. Der Winter ist die Zeit des Todes, der Geister und der Ahnen. Die Schï¿½del einiger Ahnen werden in Schreinen aufbewahrt.",0,0,toData);
     base.books.AddGermanBookText("Sie können aber auch in den von Schamanen oder Hï¿½uptlingen bewohnten Höhlenabschnitten aufbewahrt werden, wo sie dann zu jenen im Schlafe sprechen.",0,0,toData);
 end;

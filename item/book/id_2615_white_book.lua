@@ -15,7 +15,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         
              base.books.AddGermanBookText("\n \nAlbar's Lektion",0,0,0); 
              base.books.AddGermanBookText("Vor langer Zeit ereignete sich eine Gegebenheit in der Stadt Albar, zur Mittagszeit an einem Spï¿½tsommertag hin. Die Sonne stand hoch und wand sich hinter vielen Wolken und einem blauen Himmel. Die",0,50,0); 
-             base.books.AddGermanBookText("Wï¿½rme war deutlich zu spï¿½ren, wenn nicht gerade ein kï¿½hler Wind durch die Gassen und Hï¿½user blies. Auf dem Markt herrschte reges Treiben, wo ein Jeder versuchte, seine Waren feilzubieten und die",0,50,0); 
+             base.books.AddGermanBookText("Wï¿½rme war deutlich zu spï¿½ren, wenn nicht gerade ein kï¿½hler Wind durch die Gassen und Häuser blies. Auf dem Markt herrschte reges Treiben, wo ein Jeder versuchte, seine Waren feilzubieten und die",0,50,0); 
              base.books.AddGermanBookText("Marktschreier sich lauthals Gehï¿½r verschafften. Hier und da waren Stadtwachen, die sich mit strengen Blicken autorithï¿½t verschafften und aufpassten, dass mï¿½glichst niemand auf dumme Gedanken kï¿½me.",0,50,0); 
              base.books.AddGermanBookText("In dieser Masse bemerkte sicherlich niemand den alten Blinden, der, auf seine Krï¿½cke gestï¿½tzt, durch die Straï¿½en wanderte und seinen Umhang enger um den Hals schlug, als sei ihm entweder kalt, oder er",0,50,0); 
              base.books.AddGermanBookText("würde versuchen, seine Scham zu verbergen, dass er in einem solch jï¿½mmerlichen Zustand war: seine Kleidung war alt, und sie stank. Bis auf die schmutzige Augenbinde, war nicht viel von seiner Mimik",0,50,0); 

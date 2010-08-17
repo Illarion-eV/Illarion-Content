@@ -16,7 +16,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         base.books.AddLanguage("common language",0);
 
         base.books.AddGermanBookText("Werte Druiden des Waldes,\n",0,0,0);     
-        base.books.AddGermanBookText("Ich wende mich voller Ehrfurcht und Respekt an die ehrenwerte Gesellschaft der Druiden des Waldes und hoffe, dass dieser Brief in die Hï¿½nde der Richtigen gelange.",0,0,0);
+        base.books.AddGermanBookText("Ich wende mich voller Ehrfurcht und Respekt an die ehrenwerte Gesellschaft der Druiden des Waldes und hoffe, dass dieser Brief in die Hände der Richtigen gelange.",0,0,0);
         base.books.AddGermanBookText("Es liegt nun einige Jahre zurück, als das Kloster Eldan auf Gobaith im Rahmen einer kriegerischen Auseinandersetzung angegriffen, geplï¿½ndert und gebrandschatzt wurde.",0,0,0);
         base.books.AddGermanBookText("Ich war damals noch ein junger Mann, erst wenige Monate zuvor der Bruderschaft beigetreten und ohne viel Wissen um die uns in dieser Welt umgebenden Krï¿½fte.",0,0,0);
         base.books.AddGermanBookText("Der Abt des Klosters, Falk vom Wald, erkannte wohl, dass die wenigen Mï¿½nche einem massiven Angriff nicht würden standhalten können. Deshalb schickte uns der Alte weg, zwang uns zur Flucht und dazu, ihn alleine zurückzulassen. Widerwillig haben wir uns damals gefï¿½gt und in alle Winde zerstreut. Mich fï¿½hrte das Schicksal an die Gestade des Festlandes, wo ich in aller zurückgezogenheit eine geraume Zeit lebte.",0,0,0);

@@ -39,8 +39,8 @@ function loadBook(toData)
     base.books.AddGermanBookText( "ï¿½ber 5.000 Barren aufgebracht. Rugosch, Bombor, Caranthir und Gandela jeweils alleine weit ï¿½ber 1.000 durch Silber oder Arbeit. Alle Grï¿½nderzwerge haben entschieden, das sie jeden Zwerg dieses ", 0, 0,toData);   
     base.books.AddGermanBookText( "Kï¿½nigreich Heimat nennen lassen, der bereit ist den Treueeid abzulegen. Diese Zwerge deren Bauten ihr so selbstverstï¿½ndlich hinnehmt und nutzt haben mich zum Kï¿½nig erklï¿½rt. Bombor schmiedete meine ", 0, 0,toData);   
     base.books.AddGermanBookText( "Krone mit seinen eigenen Hï¿½nden, Rugosch als hï¿½chster Vertreter Irmoroms in diesen Landen setzte sie mir in einer feierlichen Zeremonie auf. Alle Zwerge die sich am Bau beteiligt hatten leisteten ", 0, 0,toData);
-    base.books.AddGermanBookText( "mir ihren Treueeid und erklï¿½rten mich damit auf Lebenszeit zum Verwalter ihres Vermï¿½gens, zum Herrn und Hï¿½ter ï¿½ber ihrer Hï¿½nde Arbeit. Irmoroms Stimme selbst erschallte am Tage der Krï¿½nung im ", 0, 0,toData);   
-    base.books.AddGermanBookText( "Tempel und segnete unser Kï¿½nigreich unserer Hï¿½nde Arbeit. ", 0, 0,toData);   
+    base.books.AddGermanBookText( "mir ihren Treueeid und erklï¿½rten mich damit auf Lebenszeit zum Verwalter ihres Vermï¿½gens, zum Herrn und Hï¿½ter ï¿½ber ihrer Hände Arbeit. Irmoroms Stimme selbst erschallte am Tage der Krï¿½nung im ", 0, 0,toData);   
+    base.books.AddGermanBookText( "Tempel und segnete unser Kï¿½nigreich unserer Hände Arbeit. ", 0, 0,toData);   
     base.books.AddGermanBookText( "Ich erwarte Respekt von jenen die die Gaben der Grï¿½nderzwerge nutzen von jenen die in Silberbrand leben. Einzig die Elfen haben es uns gleichgetan und ein ï¿½hnlich eindrucksvolles Reich auf ihrer ", 0, 0,toData);
     base.books.AddGermanBookText( "Insel geschaffen. Dennoch waren wir Zwerge es die als erste ein eigenes Reich hatten und das darf niemals vergessen werden. ", 0, 0,toData);   
     base.books.AddGermanBookText( "Um dem Vergessen Einhalt zu gebieten hï¿½ret meine Stimme und lest meine Worte. ", 0, 0,toData);   

@@ -29,9 +29,9 @@ function loadBook(toData)
     base.books.AddGermanBookText("Bisweilen werden wir eingefangen und von Ork-Horden versklavt, deshalb versuchen wir, ihnen aus dem Weg zu gehen. Wir erschrecken uns leicht, natürlich nicht vor Halblingen, die sind ja auch gar nicht schrecklich. Nicht so wie diese riesigen Elben.",0,0,toData);
     base.books.AddGermanBookText("Geruch und Geschmack sind bei uns stark ausgeprï¿½gt, und wir sind sehr geschickt mit den Hï¿½nden. Wir geben gute Alchemisten ab oder Handwerker, sogar Diebe. Aber ich bin natürlich keiner, das schwï¿½re ich.",0,0,toData);
     base.books.AddGermanBookText("Wir mï¿½gen keine Magie, aber einige von uns haben wohl Talent dazu. Ich habe von diesem weisen <highlor-angurian> zauberer gehï¿½rt. Wer weiï¿½, vielleicht nur ein Gerï¿½cht!",0,0,toData);
-    base.books.AddGermanBookText("Wir leben nicht in Dï¿½rfern, sondern in kleinen Lagern. Manche Leute finden solche Lager bedrohlich, ich verstehe gar nicht, warum. Auf jemanden mit einer Schleuder einen Stein zu werfen, ist doch nicht wirklich schlimm!",0,0,toData);
+    base.books.AddGermanBookText("Wir leben nicht in Dörfern, sondern in kleinen Lagern. Manche Leute finden solche Lager bedrohlich, ich verstehe gar nicht, warum. Auf jemanden mit einer Schleuder einen Stein zu werfen, ist doch nicht wirklich schlimm!",0,0,toData);
     base.books.AddGermanBookText("In Albar, werden wir Goblins zum Kampf mit Tieren gezwungen. manchmal werden wir auch einfach als Sklaven gehalten, arme Goblins.",0,0,toData);
-    base.books.AddGermanBookText("Manche von uns, so habe ich gehï¿½rt, leben in Dï¿½rfern in Gynkese oder sogar Salkamaeria. Dort arbeiten sie als Diener, Boten oder Kaufleute. Einige sogar als Alchemisten!",0,0,toData);
+    base.books.AddGermanBookText("Manche von uns, so habe ich gehï¿½rt, leben in Dörfern in Gynkese oder sogar Salkamaeria. Dort arbeiten sie als Diener, Boten oder Kaufleute. Einige sogar als Alchemisten!",0,0,toData);
 end;
 
 function loadTitle(toData)

@@ -84,21 +84,21 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Allen Unwissenden sei gesagt: Halblinge sehen aus wie Menschenkinder und natürlich fördert ihre ganze Erscheinung solche Vorstellungen.",0,0,1);
             base.books.AddGermanBookText("Neben ihrem geringen Wuchs liegt jedoch der größte Unterschied zu menschen in ihren großen und haarigen Füßen, die sie stolz in aller Öffentlichkeit präsentieren. Sie neigen dazu, älter zu werden als die Menschen.",0,0,1);
             base.books.AddGermanBookText("Halblinge bevorzugen Gegenden, in denen Hügel und Wälder das Bild bestimmen, wo sie ihre Heimstï¿½tten in die Erde eingraben. Im Laufe von Generationen können diese Höhlen eine beachtliche Grüße erreichen.",0,0,1);
-            base.books.AddGermanBookText("Ihre Hï¿½user sind voller Möbel und anderer Besitztümer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
+            base.books.AddGermanBookText("Ihre Häuser sind voller Möbel und anderer Besitztümer,zumal Halblinge kaum einmal etwas wegwerfen. Auch neigen sie dazu, andere Heime als die ihren als ungemï¿½tlich zu empfinden.",0,0,1);
             base.books.AddGermanBookText("Zuhause leben sie in Großfamilien, denen ein Clanführer vorsteht. Das ist jedoch eher ein Ehrentitel als eine echte Machtposition. Die Aufgabe liegt vor allem darin, Familienfeste zu veranstalten.",0,0,1);
             base.books.AddGermanBookText("Halblinge kreuzen gerne unerwartet zum Essen auf und dürfen erst wieder gehen, wenn sie pappsatt sind, alles andere gï¿½lte als unhï¿½flich. Bï¿½se Zungen behaupten, es gäbe im Leben der Halblinge nur drei wichtige Dinge:",0,0,1);
             base.books.AddGermanBookText("Und zwar Frühstück, Mittagessen und Abendbrot!",0,0,1);
             base.books.AddGermanBookText("Auch zeigen sie starkes Interesse für Essen und Trinken. Sie sind als Schleckermäuler verschrien. Man mag sie oftmals dabei antreffen, wie ihnen ein Halbling einen Vortrag über die Kochkünste hält.",0,0,1);
             base.books.AddGermanBookText("Es ist nicht unüblich, dass Kneipen damit prahlen, einen Halbling als Koch zu beschäftigen.",0,0,1);
-            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hï¿½nde Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jï¿½ger und Kräutersammler.",0,0,1);
-            base.books.AddGermanBookText("In den Dï¿½rfern findet man hï¿½ufig kleine Oldra-Schreine. Tatsï¿½chlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
-            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fï¿½higkeiten gerne für Diebstï¿½hle genutzt.",0,0,1);
+            base.books.AddGermanBookText("Halblinge ziehen es vor, von der eigenen Hände Arbeit zu leben. Es gibt Einige, die weltberï¿½hmt wurden für ihre meisterlichen Handarbeiten, aber in erster Linie sind sie Bauern, Jäger und Kräutersammler.",0,0,1);
+            base.books.AddGermanBookText("In den Dörfern findet man häufig kleine Oldra-Schreine. Tatsächlich ist das Erntefest der wichtigste Feiertag des gesamten Jahres.",0,0,1);
+            base.books.AddGermanBookText("Da sie so naturverbunden sind, haben sie einen hohen Sinn dafür entwickelt, sich flink und gerï¿½uscharm fortzubewegen. Auch wenn das viele nicht zugeben wollen,werden einige dieser Fähigkeiten gerne für Diebstähle genutzt.",0,0,1);
             base.books.AddGermanBookText("Es ist ratsam, Halblinge im Auge zu behalten, die mit dem Zeichen Ronagans geschmï¿½ckt sind, sie kï¿½nnten Bï¿½ses im Schilde fï¿½hren.",0,0,1);
             base.books.AddGermanBookText("Halblinge haben zum Leben eine recht simple Einstellung. Sie sorgen sich selten um die Zukunft und ihr Auskommen, stattdessen bevorzugen sie Entspannung und einen anhaltenden Plausch mit guten Freunden.",0,0,1);
             base.books.AddGermanBookText("Sie haben keinen Sinn für Hierachien, halten aber Familie und Freundschaften für unverzichtbar. Das kann man auch an ihrer lockeren Gesellschaftsstruktur ablesen.",0,0,1);
             base.books.AddGermanBookText("Ihre kindhafte Erscheinung  mag als Wehrlosigkeit missverstanden werden. Sie sind sehr schwer in Wallung zu bringen, vorausgesetzt, man spielt nicht gerade mit ihrem Essen.",0,0,1);
             base.books.AddGermanBookText("Sie sind auch sehr zielstrebig und man sollte einem halbling nicht in die Quere kommen, wenn er sich erst einmal etwas in den Kopf gesetzt hat. Orks wie Menschen mussten das auf die harte Tour lernen.",0,0,1);
-            base.books.AddGermanBookText("Weil Halblinge keine großartigen Magier sind, empfiehlt es sich, einem ï¿½benden aus dem Weg zu gehen, für den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
+            base.books.AddGermanBookText("Weil Halblinge keine großartigen Magier sind, empfiehlt es sich, einem Übenden aus dem Weg zu gehen, für den Fall, sein Zauber zeigt unerwartete Effekte.",0,0,1);
             
             ----------
             
@@ -134,7 +134,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Die Zwerge wurden einsam und so kam es, dass bald das Band zwischen den einzelnen Stï¿½mmen, die in verschiedenen Bergen hausten, zerriss und sie mehr für sich als für einander waren. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Doch Irmorom sah was seinen Geschï¿½pfen wiederfahren war und so lockte er den großen Schmied Ragnï¿½l Erik's Sohn und die große Kriegerin Heimdal Rallas Tochter, ", 0, 0, 2 );
             base.books.AddGermanBookText( " die beiden verschiedene Stï¿½mme fï¿½hrten mit Hilfe einer List in ein entlegenes Bergwerk das schon seit langem verlassen war. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Und kaum das die beiden für sich waren freundeten sie sich an und trafen sich immer hï¿½ufiger in der besagten Mine. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Und kaum das die beiden für sich waren freundeten sie sich an und trafen sich immer häufiger in der besagten Mine. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Eines Tages beschloï¿½en sie einander zu heiraten und sie wollten die Hochzeit an jenem Ort feiern an dem sie sich so zufï¿½llig getroffen hatten. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Doch die Zwerge waren misstrauisch geworden und engstirnig so das sie nicht einsahen das sie in Zukunft teilen sollten mit den anderen so taten sich die ï¿½ltestenrï¿½te ", 0, 0, 2 );     
             base.books.AddGermanBookText( " beider Seiten zusammen und sprachen zu dem Paar: 'Es sei euch genehmigt zu heiraten und die Stï¿½mme zu vereinen, an dem Tage an dem das Bergwerk das ihr so sehr mï¿½gt wieder ", 0, 0, 2 );

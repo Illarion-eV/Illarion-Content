@@ -44,7 +44,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Die Sandbeere verstï¿½rkt den Effekt eines Trankes. Man soll sie in der Wï¿½ste finden.",0,0,0); 
         base.books.AddGermanBookText("Das Rotkï¿½pfchen ist ein wohlschmeckender Pilz, der im Wald vorzufinden ist.",0,0,0); 
         base.books.AddGermanBookText("Den Fliegenpilz kann man in der Nï¿½he von Tannenbï¿½umen finden.",0,0,0); 
-        base.books.AddGermanBookText("Firnisblï¿½ten kommen sehr hï¿½ufig auf Wiesen in der Nï¿½he eines Bï¿½chleins vor.",0,0,0); 
+        base.books.AddGermanBookText("Firnisblï¿½ten kommen sehr häufig auf Wiesen in der Nï¿½he eines Bï¿½chleins vor.",0,0,0); 
         base.books.AddGermanBookText("Manche nehmen sie nur für Kuchen: Die Erdbeere verbirgt einige ihrer Geheimnisse.",0,0,0); 
         base.books.AddGermanBookText("Knollenschwammpilze sind nicht so nutzlos, wie viele Leute glauben.",0,0,0); 
         base.books.AddGermanBookText("Es gibt mehr Geheimnise als dieses Buch preisgeben kann.",0,0,0); 
@@ -58,7 +58,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,0);
         base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,0);
         base.books.AddGermanBookText("Und schlussendlich braucht man, wen wundert's, einen reichen Vorrat an Pflanzen.",0,0,0);
-        base.books.AddGermanBookText("Wer nicht selbst hinausgeht und sich die Hï¿½nde schmutzig macht, der sollte beim Kauf auf Qualität achten. Aus schlechten Pflanzen wird selten ein guter Trank.",0,0,0);
+        base.books.AddGermanBookText("Wer nicht selbst hinausgeht und sich die Hände schmutzig macht, der sollte beim Kauf auf Qualität achten. Aus schlechten Pflanzen wird selten ein guter Trank.",0,0,0);
         base.books.AddGermanBookText("Hat man seine sieben Sachen beieinander, kanns endlich losgehen. Jetzt heiï¿½t es, Geduld bewahren.",0,0,0);
         base.books.AddGermanBookText("Mit der leeren Flasche in der einen und einem benï¿½tigten Krï¿½utlein in der anderen Hand, sollte einem bei Benutzung des Kupferkessels bald ein erster Erfolg beschieden sein.",0,0,0);
         base.books.AddGermanBookText("Auch wenn man vielleicht anfangs nicht viel sieht, die erste Flasche mit Essenzen sollte auch noch eine Zeitlang mit Pflanzensï¿½ften gefï¿½llt werden, bald schon wird sich das erwartete Ereignis einstellen.",0,0,0);
