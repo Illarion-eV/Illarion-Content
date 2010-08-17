@@ -120,6 +120,12 @@ function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
 end
 
 function LookAtItem(User, Item)
+    User:inform("debug1");
+    if (initi==nil) then
+        myLevers=init();
+        User:inform("initialize");
+        initi=1;
+    end
     User:inform(questA:getLeverHint(Item.pos));
 end
 
