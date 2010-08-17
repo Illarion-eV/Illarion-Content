@@ -21,11 +21,8 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
         if not find3 then
            Character:inform("Error in 328.2 - please call dev")
         else
-			local codeList = {16159738,49134362,37568889,15363356,3635548,14791859,85568351,76359585};
+			local codeList = {16159738,49134362,37568889,15363356,82655747,14791859,85568351,76359585};
 			local potionData = SourceItem.data;
-			if diagnose == 5 then
-				potionData = math.mod(SourceItem.data,10000000);
-			end
 			if potionData == codeList[diagnose] then
 --            Feststellung, ob die Qualität des Heiltrankes ï¿½ber der Schwere der Krankheit liegt 
 --            Je hï¿½her die Krankheit in der Ordnungsnummer (1-8) liegt, umso hï¿½her sind die Anforderungen an den Heiltrank                    
@@ -125,7 +122,7 @@ function LookAtItem(User,Item)
      Etikett ="Trolio Caethineb Meddyginiaeth"
   elseif Item.id_data == 15363356 then
      Etikett ="Corrach Rhithdyb Gwrthwenwyn"
-  elseif Item.data == 3635548 then
+  elseif Item.data == 82655747 then
      Etikett ="Rhag Vein-Syndrome Meddyginiaeth"
   elseif Item.data == 14791859 then
      Etikett ="Draig Brech Moddion"
