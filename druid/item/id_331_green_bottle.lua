@@ -7,7 +7,7 @@
 -- include base.common for additional functions
 require("base.common")
 
-module("druid.item.id_331_green_bottle", package.seeall)
+module("druid.item.id_331_green_bottle", package.seeall, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_331_green_bottle' WHERE com_itemid = 331;
 
