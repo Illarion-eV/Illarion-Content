@@ -119,13 +119,13 @@ function LookAtItem(User,Item)
 
   if Item.data == 16159738 then
      Etikett ="Rhag Anghenfil Twymyn"
-  elseif item.data == 49134362 then
+  elseif Item.data == 49134362 then
      Etikett ="Rhag Morfa Cwlwm Gwythi"
   elseif Item.data == 37568889 then
      Etikett ="Trolio Caethineb Meddyginiaeth"
   elseif Item.id_data == 15363356 then
      Etikett ="Corrach Rhithdyb Gwrthwenwyn"
-  elseif math.mod(item.id_data,10000000) == 3635548 then
+  elseif Item.data == 3635548 then
      Etikett ="Rhag Vein-Syndrome Meddyginiaeth"
   elseif Item.data == 14791859 then
      Etikett ="Draig Brech Moddion"
