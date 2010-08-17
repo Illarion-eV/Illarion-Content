@@ -61,7 +61,7 @@ GOD_DE = {
     [GOD_ZHAMBRA]  = "Zhambra",
     [GOD_RONAGAN]  = "Ronagan",
     [GOD_MOSHRAN]  = "Moshran",
-    [GOD_THEFIVE]  = "Fï¿½nf",
+    [GOD_THEFIVE]  = "Fünf",
     [GOD_THEDEVS]  = "Entwickler",
 }
 
@@ -73,8 +73,8 @@ PRAYER_CONVERSION = {
 }
 
 PRAYER_MASS = {
-	[GOD_NARGUN]   = {gText = "preiset narg[uï¿½]n, gott des chaos",
-						eText = "praise narg[uï¿½]n, god of chaos"},
+	[GOD_NARGUN]   = {gText = "preiset narg[uú]n, gott des chaos",
+						eText = "praise narg[uú]n, god of chaos"},
     [GOD_ELARA]    = {gText = "preiset",
 						eText = "praise"},
     [GOD_ADRON]    = {gText = "preiset",
