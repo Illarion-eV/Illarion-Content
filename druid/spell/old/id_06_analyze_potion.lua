@@ -311,7 +311,7 @@ function ds_analyse_329(Caster,Item)
       EtikettDe = "ein Gestaltenwandler-Trunk 'Rotwurm'"
       EtikettEn = "Shape Shifter Potion 'Redworm'"
   elseif Item.data == 99992352 then
-      EtikettDe = "ein Gestaltenwandler-Trunk 'Großer Dï¿½mon'"
+      EtikettDe = "ein Gestaltenwandler-Trunk 'Großer Dämon'"
       EtikettEn = "Shape Shifter Potion 'Big Demon'"
   elseif Item.data == 38114786 then
       EtikettDe = "ein Gestaltenwandler-Trunk 'Skorpion'"
@@ -353,7 +353,7 @@ function ds_analyse_329(Caster,Item)
       EtikettDe = "ein Gestaltenwandler-Trunk 'Drow-Frau'"
       EtikettEn = "Shape Shifter Potion Female 'Drow'"
   elseif Item.data == 11695753 then
-      EtikettDe = "ein Gestaltenwandler-Trunk 'Kleiner Dï¿½mon'"
+      EtikettDe = "ein Gestaltenwandler-Trunk 'Kleiner Dämon'"
       EtikettEn = "Shape Shifter Potion 'Lower Demon'"
   elseif Item.data == 62545579 then
       EtikettDe = "ein Gestaltenwandler-Trunk 'Kuh'"

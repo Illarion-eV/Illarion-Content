@@ -101,7 +101,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Stellung des ï¿½aus dem Weg Gerï¿½umtenï¿½ einzunehmen, bestehen diese Kulte zumeist nur wenige Jahre. Spï¿½testens wenn die ï¿½ffentlichkeit oder die ï¿½rtlichen Gerichtsbarkeiten von ihrem Tun erfahren,",0,30,1);
             base.books.AddGermanBookText("bedeutet dies das Ende ihrer Machenschaften und auch ihres Lebens.\n Die Schï¿½pfungsgeschichte ist ihnen vollkommen egal. Nur der Stärkere wird letzten Endes siegen, und das ist zweifellos Moshran",0,30,1);
             base.books.AddGermanBookText("oder einer seiner drei Unsterblichen. Daher zï¿½hlt die Vergangenheit nicht. Sie glauben, daï¿½ sie nach dem Tode in die Armeen Moshrans aufgenommen werden ï¿½ wer zu Lebzeiten listig, verschlagen und",0,30,1);
-            base.books.AddGermanBookText("unnachgiebig war, wird mit hohen Ehren belohnt oder gar ein wandelnder Leichnahm oder Dï¿½mon werden, wer im Leben versagt hat, wird ohne Rang und Ruhm in der ersten Schlachtreihe eines nutzlosen",0,30,1);
+            base.books.AddGermanBookText("unnachgiebig war, wird mit hohen Ehren belohnt oder gar ein wandelnder Leichnahm oder Dämon werden, wer im Leben versagt hat, wird ohne Rang und Ruhm in der ersten Schlachtreihe eines nutzlosen",0,30,1);
             base.books.AddGermanBookText("Konfliktes fallen oder könnte als dienstbarer Geist eines trunksï¿½chtigen Goblins enden.\n \n~Zwerge~\nVerehrte Götter\n Irmorom\n ushara\n Cherga\n \n Die Volksreligion der Zwerge spiegelt die",0,30,1);
             base.books.AddGermanBookText("Zwergischen Traditionen wider. Zwar glauben die Zwerge an die Existenz anderer Götter und sie kommen auch in ihren Mythologien vor, doch kommt es extrem selten vor, daï¿½ ein Zwerg seine Erziehung",0,30,1);
             base.books.AddGermanBookText("vergiï¿½t und zu einem anderen Gott als Irmorom, Ushara oder Cherga betet. Die anderen Götter haben mit Zwergen nichts zu tun, sie haben ï¿½ natürlich mit Irmoroms Hilfe ï¿½ die anderen Vï¿½lker erschaffen.",0,30,1);
@@ -511,7 +511,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Im Licht glï¿½nzten stï¿½hlern die Rï¿½sten,\nDie am Leibe sie trugen,\nSich ihrer noblen Herkunft zu brï¿½sten,\nWenn sie mit Feinden sich schlugen.",0,5,3);
             base.books.AddGermanBookText("Als zum Felde sie gelangten,\nEmpfingen brï¿½llend sie Drachen,\nDie Bï¿½sen um ihr Leben bangten,\nStarrend in des Todes Rachen.",0,5,3);
             base.books.AddGermanBookText("Bald hï¿½rte man die Klingen scharren,\nDie Pfeile zischten von den Sehnen,\nDie Feinde mochten nicht verharren,\nNur rasch das Ende sich ersehnen.",0,5,3);
-            base.books.AddGermanBookText("Der Sieg war nicht mehr weit,\nDa brach plï¿½tzlich aus der Erde,\nGegen jedes ehernï¿½ Schwert gefeit,\nEine zorn'ge untotï¿½ Herde.",0,5,3);
+            base.books.AddGermanBookText("Der Sieg war nicht mehr weit,\nDa brach plötzlich aus der Erde,\nGegen jedes ehernï¿½ Schwert gefeit,\nEine zorn'ge untotï¿½ Herde.",0,5,3);
             base.books.AddGermanBookText("Die Graue Rose vom schroffen Stein\nWand sich wild im Winde,\nDer Sieg wï¿½rd' doch noch ihrer sein,\nDass der Feind Triumph nicht finde.",0,5,3);
             base.books.AddGermanBookText("Sie bestritten jede Fuï¿½esbreite\nWurden bald zur Brï¿½cke schon gedrï¿½ngt,\nNicht einer suchtï¿½ das Weite,\nUnd wie der Wolf den Hasen fï¿½ngt,",0,5,3);
             base.books.AddGermanBookText("Lockten sie Feinde in die Falle,\nVersperrten rasch den Rï¿½ckweg ihnen,\nDer Drache streckte gleich die Kralle,\nMï¿½chtig gar die Ritter schienen.",0,5,3);
@@ -520,7 +520,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Ein lauer Wind fuhr durch die ï¿½hren,\nKaum ein Opfer zu beklagen,\nDie Grauen wï¿½nschten zurückzukehren,\nNachdem die Schlacht geschlagen.",0,5,3);
             base.books.AddGermanBookText("Gehobï¿½ner Hï¿½upter brachen sie auf,\nDie Klingen in den Scheiden,\nFolgten erschöpft der Straï¿½e Lauf,\nDie Rï¿½uber wï¿½rdï¿½n sie meiden.",0,5,3);
             base.books.AddGermanBookText("Wenn dereinst Ihr vor der Feste steht,\nUnd frierend um Einlass ihr bittet,\nEine steife Brise drauï¿½en weht,\nSo verhaltet Euch gesittet.",0,5,3);
-            base.books.AddGermanBookText("Tretet ein Ihr in die Hallen,\nDann singet laut und guter Dinge,\nLasst dieses kï¿½hne Lied erschallen,\nAuf dass es ï¿½berall erklinge.",0,5,3);
+            base.books.AddGermanBookText("Tretet ein Ihr in die Hallen,\nDann singet laut und guter Dinge,\nLasst dieses kï¿½hne Lied erschallen,\nAuf dass es überall erklinge.",0,5,3);
             
             --------------------------------------
             
@@ -762,7 +762,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("\"Jetzt kostets vier Goldmï¿½nzen.\" Johlt der Kaptï¿½n. \"Silberbrand liegt nï¿½mlich stromaufwï¿½rts.\"",0,7,6); 
 			base.books.AddGermanBookText("30.\nWieviel Elfen braucht man um eine Kuh zu tï¿½ten?\n\n\n\n\n10! 9 Elfen heben die Kuh hoch und der 10. frisst ihr das Gras weg.",0,7,6); 
 			base.books.AddGermanBookText("31.\nWie verwandelt man einen Zwerg in einen Elfen?\n\n\n\n\nWaschen, rasieren, Streckbank ...",0,7,6); 
-			base.books.AddGermanBookText("32.\nWarum friï¿½t ein Wolf plï¿½tzlich ï¿½pfel?\n\n\n\n\nEr hat vor einer Stunde einen Ork gebissen und kriegt den Geschmack nicht mehr aus dem Maul.",0,7,6); 
+			base.books.AddGermanBookText("32.\nWarum friï¿½t ein Wolf plötzlich ï¿½pfel?\n\n\n\n\nEr hat vor einer Stunde einen Ork gebissen und kriegt den Geschmack nicht mehr aus dem Maul.",0,7,6); 
 			base.books.AddGermanBookText("33.\nEin Zwerg, ein Elf und ein Goblin werden von einem Ogerstamm gefangen. Die Oger fragen den Goblin, ob er noch einen letzten Wunsch hat. \"Ja, Hunger...Fleisch!!\" Der Goblin bekommt eine alte Keule",0,7,6); 
 			base.books.AddGermanBookText("mit einigen Fleischresten und nagt sie ab. Dann schlagen ihm die Oger den Schï¿½del ein, fressen ihn in einem Gelage auf und bespannen mit seiner Haut eine Trommel.",0,7,6); 
 			base.books.AddGermanBookText("Die Oger fragen den Elf, ob er noch einen letzten Wunsch hat. \"Ja, ich will noch mal ein Lied singen!\" Der Elf ergreift seine Harfe und singt sein Lied voll sï¿½ï¿½em Schmelz und zarter Poesie.",0,7,6); 

@@ -185,25 +185,25 @@ function getEffect_4(Character,Runde)
 
 			paranoiaList[1][1] = "Vor deinem inneren Auge erscheint eine grï¿½ssliche Kreatur, in der sich alles Bï¿½se zu vereinen scheint.";
 			paranoiaList[2][1] = "With your inner eye you envision a horrible creature that seems to be made up of all the evil in the world.";
-			paranoiaList[1][2] = "Schlangen erscheinen von ï¿½berall her vor dir, sie kommen aus jeder Ritze, aus jedem Loch. Unmengen! Flucht ist das Einzige, was dir noch in den Sinn kommt.";
+			paranoiaList[1][2] = "Schlangen erscheinen von überall her vor dir, sie kommen aus jeder Ritze, aus jedem Loch. Unmengen! Flucht ist das Einzige, was dir noch in den Sinn kommt.";
 			paranoiaList[2][2] = "Snakes appear all around you, they are coming out of every chasm, out of every hole. To run away is the only thing which leaps into your mind.";
-			paranoiaList[1][3] = "Ein Panther springt plï¿½tzlich von der Seite in dein Sichtfeld. Lauf, sonst bohrt er seine Krallen in deine Haut und zerbeiï¿½t dir den Schï¿½del!";
+			paranoiaList[1][3] = "Ein Panther springt plötzlich von der Seite in dein Sichtfeld. Lauf, sonst bohrt er seine Krallen in deine Haut und zerbeiï¿½t dir den Schï¿½del!";
 			paranoiaList[2][3] = "A panther jumps suddenly in front of you. Run, otherwise he is going to rip off your flesh with his claws and crack your skull in it's maw.";
-			paranoiaList[1][4] = "Aus der Luft bildet sich eine Nebelgestalt. Grob erkennst du ihn. Ein alter Mann. Seine stumpfen Augen starren dich an. Warum starrt er dich an? Was will er? Du weiï¿½t es nicht. Du weiï¿½t nur, du musst hier weg.";
+			paranoiaList[1][4] = "Aus der Luft bildet sich eine Nebelgestalt. Grob erkennst du ihn. Ein alter Mann. Seine stumpfen Augen starren dich an. Warum starrt er dich an? Was will er? Du weißt es nicht. Du weißt nur, du musst hier weg.";
 			paranoiaList[2][4] = "An image of a man made out of fog appears from out of thin air. You struggle to see his features: An old man. His dull eyes are staring at you. Why is he staring at you? What does he want? You only know that you must get away. ";
 			paranoiaList[1][5] = "Diese Hitze. Vulkanausbruch! Der Lavastrom flieï¿½t auf dich zu. Hinfort mit dir!";
 			paranoiaList[2][5] = "A burst of incredible heat! Volcanic eruption! The stream of lava is flowing towards you. Run away!";
 			paranoiaList[1][6] = "Warum beobachtet er dich? Dieses paar Augen, welche nur von dem vermummten Gesicht zu sehen sind. Ein Rï¿½uber! Er will dein Geld, schlimmer, dein Leben! Doch dazu muss er dich erstmal fangen.";
 			paranoiaList[2][6] = "Why is he spying on you? You only see his eyes in the shadow of his hood. A thief! He wants your money! Worse! He's a murderer!! Run before he catches you.";
-			paranoiaList[1][7] = "Eine dunkle Wolke bildet sich direkt ï¿½ber deinen Kopf. Spannung liegt in der Luft. Mit einem Mal schieï¿½en Blitze aus der Wolke und treffen den Boden um dich herum. Flieh, bevor du zu Asche wirst!";
+			paranoiaList[1][7] = "Eine dunkle Wolke bildet sich direkt über deinem Kopf. Spannung liegt in der Luft. Mit einem Mal schießen Blitze aus der Wolke und treffen den Boden um dich herum. Flieh, bevor du zu Asche wirst!";
 			paranoiaList[2][7] = "A dark cloud forms over your head. The air is unsettling. Lightning strikes from above all around you! Flee, before you turn to ash.";
-			paranoiaList[1][8] = "Dieser riesige Baum, welcher in die Wolken ragt, warum fiel er dir nie auf? Er schwankt. Am Fuï¿½e steht ein Mann mit einem Beil. Der Baum fï¿½llt genau in deine Richtung. Lauf, lauf oder er wird dich zermalmen.";
+			paranoiaList[1][8] = "Dieser riesige Baum, welcher in die Wolken ragt, warum fiel er dir nie auf? Er schwankt. Am Fuï¿½e steht ein Mann mit einem Beil. Der Baum fällt genau in deine Richtung. Lauf, lauf oder er wird dich zermalmen.";
 			paranoiaList[2][8] = "You see a tree so tall it's branches are lost in the clouds. Why didn't you notice it before? Suddenly the tree shakes. You hear someone yell 'timber!' as the tree begins to crash in your direction! Run!";
-			paranoiaList[1][9] = "Du ï¿½ffnest deine Augen und findest dich in einer schwarzen Hï¿½hle wieder. Was machst du hier? Wie kamst du her? ROOOOOOOAR! Was war das?! Hinter dir scheint trï¿½be das Tageslicht. Der Ausgang.";
+			paranoiaList[1][9] = "Du öffnest deine Augen und findest dich in einer schwarzen Hï¿½hle wieder. Was machst du hier? Wie kamst du her? ROOOOOOOAR! Was war das?! Hinter dir scheint trübe das Tageslicht. Der Ausgang.";
 			paranoiaList[2][9] = "You open your eyes to discover yourself in a black cave. What are you doing here? How did you get here? ROOOOOOOAR! What was that?! Behind you the light of day flares. Make your escape.";
-			paranoiaList[1][10] = "Du siehst eine Armee von Goblins. Sie haben Bï¿½gen, Speere, Messer ï¿½ und einer hï¿½lt den Kopf eines %RACETEXT in der Hand. Der Hï¿½uptling zeigt mit dem Stab auf dich. Sie jagen dich!";
+			paranoiaList[1][10] = "Du siehst eine Armee von Goblins. Sie haben Bögen, Speere, Messer und einer hält den Kopf eines %RACETEXT in der Hand. Der Häuptling zeigt mit dem Stab auf dich. Sie jagen dich!";
 			paranoiaList[2][10] = "You see an army of goblins armed to the teeth. One of them holds a decapitated %RACETEXT head in his hand. The goblin chieftain points at you with his staff. They are about to hunt you!";
-			paranoiaList[1][11] = "Der Boden bricht auf. Flammen schieï¿½en aus dem Boden und mit ihnen steigt eine Kreatur mir roter Haut, blutigen Klauen und einer abscheulichen Fratze hervor. Ein Dï¿½mon, da hilft nur die Flucht!";
+			paranoiaList[1][11] = "Der Boden bricht auf. Flammen schießen aus dem Boden und mit ihnen steigt eine Kreatur mir roter Haut, blutigen Klauen und einer abscheulichen Fratze hervor. Ein Dämon, da hilft nur die Flucht!";
 			paranoiaList[2][11] = "The ground trembles and cracks open. Flames shoot up from the cracks and with them a creature with red skin, bloody claws and hideous grimace arises: a demon.";
 		end
 		local chance = math.random(1,table.getn(paranoiaList[1]));

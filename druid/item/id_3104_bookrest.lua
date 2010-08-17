@@ -58,7 +58,7 @@ function init()
 	rKey[38] = 51464953; rNameDE[38] = "Drache";          rNameEN[38] = "Dragon";
 	rKey[39] = 97171535; rNameDE[39] = "Drow";            rNameEN[39] = "Drow";
 	rKey[40] = 77577615; rNameDE[40] = "Drow-Frau";       rNameEN[40] = "Female Drow";
-	rKey[41] = 11695753; rNameDE[41] = "Kleiner Dï¿½mon";   rNameEN[41] = "Lower Demon";
+	rKey[41] = 11695753; rNameDE[41] = "Kleiner Dämon";   rNameEN[41] = "Lower Demon";
 	rKey[42] = 62545579; rNameDE[42] = "Kuh";             rNameEN[42] = "Cow";
 	rKey[43] = 81519773; rNameDE[43] = "Hirsch";          rNameEN[43] = "Deer";
 	rKey[44] = 95153618; rNameDE[44] = "Wolf";            rNameEN[44] = "Wolve";
