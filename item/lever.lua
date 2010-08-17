@@ -44,11 +44,11 @@ function init()
                                             -- one instance, otherwise we would compile several different
                                             -- QuestStrings...)
     
-    riddleLever1 = base.lever.Lever(questA.levPos1,true);       -- initialize the lever positions with the usual
-    riddleLever2 = base.lever.Lever(questA.levPos2,true);       -- Lever-initialization. Use the positions as
-    riddleLever3 = base.lever.Lever(questA.levPos3,true);       -- stored in the LeverQuest class
-    riddleLever4 = base.lever.Lever(questA.levPos4,true);
-    riddleLever5 = base.lever.Lever(questA.levPos5,true);
+    riddleLever1 = base.lever.Lever(questA.levPos[1],true);       -- initialize the lever positions with the usual
+    riddleLever2 = base.lever.Lever(questA.levPos[2],true);       -- Lever-initialization. Use the positions as
+    riddleLever3 = base.lever.Lever(questA.levPos[3],true);       -- stored in the LeverQuest class
+    riddleLever4 = base.lever.Lever(questA.levPos[4],true);
+    riddleLever5 = base.lever.Lever(questA.levPos[5],true);
         
     riddleLever1:bind(1,quest.leverRiddleA.LeverRiddleAClass("1",questA));     -- bind the action that is executed when moving
     riddleLever2:bind(1,quest.leverRiddleA.LeverRiddleAClass("2",questA));     -- a lever and set the string that should be
@@ -119,9 +119,9 @@ function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
     end
 end
 
---function LookAtItem(User, Item)
-    
---end
+function LookAtItem(User, Item)
+    User:inform(questA:getLeverHint(Item.pos));
+end
 
 function AddToLevers(myLever)
     if (world:isItemOnField(myLever.pos)==true) then    -- item on field?
