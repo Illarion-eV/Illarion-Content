@@ -1,6 +1,6 @@
 require("base.common")
 require("base.factions");
-module("npc.base.orders", package.seeall)
+module("base.orders", package.seeall)
 
 --Welches Item ist ein Auftrag (Schriftrolle)
 OrderItem = 3110;
