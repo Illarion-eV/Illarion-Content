@@ -15,7 +15,7 @@ module("druid.item.id_331_green_bottle", package.seeall)
 Security = {};
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    if (Sourceitem.id_data == 0) then
+    if (SourceItem.data == 0) then
         -- Keine Wirkung
         return
     end
