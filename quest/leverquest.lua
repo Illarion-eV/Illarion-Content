@@ -17,7 +17,7 @@ LeverQuest = base.class.class(function(lvQst)   -- this is the constructor
     lvQst.levPos5=position(220,743,0);
     lvQst.levTyp5=434;
     
-    lvQst.corrSequence={1,2,3,4,5};
+    lvQst.corrSequence={1,2,3,4,5}; 
     
 end);
 
