@@ -53,8 +53,9 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
         end
      end
    end
+   world:erase(SourceItem,1);
    base.common.InformNLS(Character,
-	"#w Du trinkst die Flï¿½ssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
+	"#w Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
 	"#w You drink the liquid but it doesn't seem to have any effect on you.");
 end
 
