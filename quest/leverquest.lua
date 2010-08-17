@@ -27,7 +27,7 @@ function LeverQuest:addToString(char)                   -- This is called by the
     end
     
     if (string.len(self.theString)==5)then
-        self:checkSuccess();
+        self:checkSuccess(); 
     end
     
     plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
