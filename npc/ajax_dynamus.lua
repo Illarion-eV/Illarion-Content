@@ -158,7 +158,16 @@ function nextCycle()
         init();
     end
     if ( myOrderNPC ~=nil) then
-        myOrderNPC:nextCycle();
+--[[
+Wed Aug 18 00:33:33 2010: ...usr/share/servers/testserver/scripts/base/orders.lua:1277: bad argument #1 to 'ipairs' (table expected, got nil)
+#1 called by: [C]:-1(global ipairs)
+#2 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:1277(upvalue chanceToNumber)
+#3 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:1330(method generateOrder)
+#4 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:382(method createOrder)
+#5 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:405(method nextCycle)
+#6 called by: ...hare/servers/testserver/scripts/npc/ajax_dynamus.lua:161
+]]
+        -- myOrderNPC:nextCycle();
     end
    
 end
