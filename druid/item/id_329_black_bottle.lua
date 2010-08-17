@@ -123,10 +123,10 @@ function LookAtItem(User,Item)
     elseif  Item.data == 32699619 then
         EtikettDe = "Gestaltenwandler Halbling"
         EtikettEn = "Shape Shifter Potion Halfling"
-    elseif item.data == 54876565 then
+    elseif Item.data == 54876565 then
         EtikettDe = "Gestaltenwandler Elb"
         EtikettEn = "Shape Shifter Potion Elf"
-    elseif item.data == 61348438 then
+    elseif Item.data == 61348438 then
         EtikettDe = "Gestaltenwandler Ork"
         EtikettEn = "Shape Shifter Potion Orc"
     elseif Item.data == 71378653 then

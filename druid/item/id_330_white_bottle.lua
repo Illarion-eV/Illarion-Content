@@ -245,40 +245,40 @@ end
 
 function LookAtItem(User,Item)
 
-    if item.data ==  0 then
+    if Item.data ==  0 then
         EtikettDe = "Schafsmilch"
         EtikettEn = "Sheep Milk"
     elseif item.id_data ==  1 then
         EtikettDe = "Orun-Milch"
         EtikettEn = "Orun milk"
-	elseif item.data ==  45942235 then
+	elseif Item.data ==  45942235 then
         EtikettDe = "Menschensprache"
         EtikettEn = "Human Language Potion"
-    elseif  item.data == 62483256 then
+    elseif  Item.data == 62483256 then
         EtikettDe = "Zwergensprache"
         EtikettEn = "Dwarfen Language Potion"
-    elseif  item.data == 32529515 then
+    elseif  Item.data == 32529515 then
         EtikettDe = "Elfensprache"
         EtikettEn = "Elbian Language Potion"
-    elseif item.data == 15751754 then
+    elseif Item.data == 15751754 then
         EtikettDe = "Echsensprache"
         EtikettEn = "Lizard Language Potion"
-    elseif item.data == 82897532 then
+    elseif Item.data == 82897532 then
         EtikettDe = "Orksprache"
         EtikettEn = "Orcish Language Potion"
-    elseif item.data == 63296636 then
+    elseif Item.data == 63296636 then
         EtikettDe = "Halblingssprache"
         EtikettEn = "Halfling Language Potion"
-    elseif item.data == 49582625 then
+    elseif Item.data == 49582625 then
         EtikettDe = "Feensprache"
         EtikettEn = "Fairy Language Potion"
-    elseif item.data == 95738184 then
+    elseif Item.data == 95738184 then
         EtikettDe = "Gnomsprache"
         EtikettEn = "Gnomish Language Potion"
-    elseif item.data == 53261566 then
+    elseif Item.data == 53261566 then
         EtikettDe = "Goblinsprache"
         EtikettEn = "Goblin Language Potion"
-    elseif item.data == 93538334 then
+    elseif Item.data == 93538334 then
         EtikettDe = "Alten Sprache"
         EtikettEn = "Ancient Language Potion"
     else

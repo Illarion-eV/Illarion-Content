@@ -181,21 +181,21 @@ end
 
 function LookAtItem(User,Item)
 
-  if item.data == 83795161 then
+  if Item.data == 83795161 then
      Etikett ="Gwenwyn Anghenfil Twymyn"
-  elseif item.data == 26343194 then
+  elseif Item.data == 26343194 then
      Etikett ="Gwenwyn Morfa Cwlwm Gwythi"
   elseif item.id_data == 98886573 then
      Etikett ="Gwenwyn Trolio Caethineb"
-  elseif item.data == 65336351 then
+  elseif Item.data == 65336351 then
      Etikett ="Gwenwyn Corrach Rhithdyb"
   elseif math.mod(item.id_data,10000000) == 8455363 then
      Etikett ="Gwenwyn Rhag Vein-Syndrome"
-  elseif item.data == 95819741 then
+  elseif Item.data == 95819741 then
      Etikett ="Gwenwyn Draig Brech Moddion"
-  elseif item.data == 15386558 then
+  elseif Item.data == 15386558 then
      Etikett ="Gwenwyn Sgorpion Epidemig"
-  elseif item.data == 58595367 then
+  elseif Item.data == 58595367 then
      Etikett ="Gwenwyn Blaidd Haint"
   else
      Etikett ="Siwgr Dwfr"
