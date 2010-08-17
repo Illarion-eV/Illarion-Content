@@ -38,7 +38,7 @@ end
 
 function ds_analyse_059(Caster,Item)
 --rote Flasche
---Primï¿½rattribute
+--Primärattribute
 --Caster:inform("rote Flasche")
   if Item.data == 0 then
     EtikettDe ="Heil- und StÃ¤rkungstrank"

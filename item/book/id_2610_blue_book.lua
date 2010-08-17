@@ -608,7 +608,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Die Geschichte der Evergreen Halblinge\n\n\"May your crops grow tall and straight with Oldra's aid!\"\nZusammengetragen und verfasst von Pancho Lindenbrook Littlethorn.",0,17,5); 
 			base.books.AddGermanBookText("Quellen: Dieses Buch entstand nach langem, gewissenhaften Studium der Stadtchroniken von Trollsbane und den aufbewahrten Abschriften der Stadtbretter der Jahre 7 - 14.",0,17,5); 
 			base.books.AddGermanBookText("Es stï¿½tzt sich weiters auf Gesprï¿½che mit Zeugen, die einige der Evergreen Halblinge noch selbst gekannt haben.",0,17,5); 
-			base.books.AddGermanBookText("Einen großen Glï¿½cksfall stellte weiters die Entdeckung von Abschriften der Evergreens, gefunden unter losen Dielen der Taverne dar. Durch Abgleich dieser Abschriften mit den Archiven der Bibliothek",0,17,5); 
+			base.books.AddGermanBookText("Einen großen Glücksfall stellte weiters die Entdeckung von Abschriften der Evergreens, gefunden unter losen Dielen der Taverne dar. Durch Abgleich dieser Abschriften mit den Archiven der Bibliothek",0,17,5); 
 			base.books.AddGermanBookText("Trollsbanes konnten diese Dokumente und die enthaltenen Informationen zweifellos als echt und authentisch Festgestellt werden.",0,17,5); 
 			base.books.AddGermanBookText("Fï¿½r die Echtheit der Informationen zeichnet der Verfasser verantwortlich.",0,17,5); 
 			base.books.AddGermanBookText("Alles beginnt im Findos d. 8.Jahres, als sich eine Gruppe Halblinge unter dem Namen \"Hobbiteers\" zusammenschlieï¿½t. Dieses loose Bï¿½ndnis wirbt erstmals in einer Schrift vom 18.Findos für sich selbst",0,17,5); 

@@ -14,7 +14,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
     return true;
 end
 
-function callEffect(Effect,Character)               -- Effect wird ausgefï¿½hrt
+function callEffect(Effect,Character)               -- Effekt wird ausgeführt
     find, cntEffects = Effect:findValue("effects");
     if not find or cntEffects == 0 then
         return false;

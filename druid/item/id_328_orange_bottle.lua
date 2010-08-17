@@ -34,7 +34,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 			  local seriousness = illness_seriousness[diagnose] - (math.random(30)<const and 1 or 0);
 			  if math.random(111,illness_seriousness[diagnose] * 111) < Sourceitem.id_quality then
                 
---               Die Wirkung erfolgt indirekt durch das Herabsetzen des Rundenzï¿½hlers.
+--               Die Wirkung erfolgt indirekt durch das Herabsetzen des Rundezählers.
                  -- CONST may raise the probability for a good effect
 				 local bottom = math.max(111,math.floor(Sourceitem.id_quality*const/30));
 				 zaehler = zaehler - math.random(bottom,Sourceitem.id_quality)

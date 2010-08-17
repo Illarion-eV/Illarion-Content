@@ -11,17 +11,17 @@ module("druid.spell.id_06_analyze_potion", package.seeall(druid.base.alchemy))
 
 function ds_codices()
   if firsttime == nil then
-    --Fï¿½r Flasche 059,166
-    LVDe={"Ende","Hï¿½lle","Hï¿½hle","Kerker","Ruhe","Quelle","Orden","Tempel","Siegel"}
+    --Für Flasche 059,166
+    LVDe={"Ende","Hölle","Höhle","Kerker","Ruhe","Quelle","Orden","Tempel","Siegel"}
     PADe={" der Kraft"," des Willens"," der Sinne"," des Wissens"," des Fleisches"," des Windes"," des Diebes"," des Geistes"}
-    SADe={" des Lebens"," des Riesen"," der Quellen"," des Glï¿½cks"," der Qualen"," des Ethos"," des Fleiï¿½es"," des Zaubers"}
+    SADe={" des Lebens"," des Riesen"," der Quellen"," des Glücks"," der Qualen"," des Ethos"," des Fleißes"," des Zaubers"}
     LVEn={"end of ","hell of ","cave of ","dungeon of ","silence of ","spring of ","order of ","temple of ","seal of "}
     PAEn={"power","will","senses","intelligence","constitution","the wind","the thief","spirit"}
     SAEn={"life","giants","springs","luck","pain","ethos","diligence","magic"}
     -- für Flasche 165
     WVDe={"","","","","","","","",""}
     WVEn={"","","","","","","","",""}
-    WMDe={"Metallpaste","Vitalstoff","Lederfett","Edelstein-Creme","Edelmetall-ï¿½l","Holzpolitur","Stoffpflegemittel","Hornfett"}
+    WMDe={"Metallpaste","Vitalstoff","Lederfett","Edelstein-Creme","Edelmetall-Öl","Holzpolitur","Stoffpflegemittel","Hornfett"}
     WMEn={"metal","food","leather","gemstones","noble metal","wood","textile","horn"}
 
     firsttime = 1
@@ -37,11 +37,11 @@ end
 
 function ds_analyse_059(Caster,Item)
 --rote Flasche
---Primï¿½rattribute
+--Primärattribute
 --Caster:inform("rote Flasche")
   if Item.data == 0 then
-    EtikettDe ="Heil- und Stï¿½rkungstrank"
-    EtikettEn ="Healing- And Refreshment-Potion"
+    EtikettDe ="Heil- und Stärkungstrank"
+    EtikettEn ="Healing- and Refreshment-Potion"
   else
     ds_codices()
     dataZList = ds_analyseDATA(Caster,Item)
@@ -66,7 +66,7 @@ function ds_analyse_165(Caster,Item)
 --Pasten
 --Caster:inform("hellblaue Flasche")
   if Item.data == 0 then
-    EtikettDe ="ein Pflegemittel,ein ï¿½l oder eine Politur"
+    EtikettDe ="ein Pflegemittel, ein Öl oder eine Politur"
     EtikettEn ="A Care Product, Maybe An Oil Or A Polish"
   else
     ds_codices()
@@ -90,10 +90,10 @@ end
 
 function ds_analyse_166(Caster,Item)
 --lila Flasche
---Sekundï¿½rattribute
+--Sekundärattribute
 --Caster:inform("lila Flasche")
   if Item.data == 0 then
-    EtikettDe ="ein Heil- oder Stï¿½rkungstrank"
+    EtikettDe ="ein Heil- oder Stärkungstrank"
     EtikettEn ="a healing- or refreshment-potion"
   else
     ds_codices()
@@ -160,7 +160,7 @@ end
 
 function ds_analyse_327(Caster,Item)
 --dunkelblaue Flasche
---Wurfkï¿½rper ua
+--Wurfkörper ua
 --Caster:inform("dunkelblaue Flasche")
   if Item.data == 93531588 then
     EtikettDe ="Wurfbombe".."\n"
@@ -190,7 +190,7 @@ function ds_analyse_327(Caster,Item)
     EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rüstungen auf 9er Feld
     EtikettEn ="Rusttrap"
   elseif Item.data == 64175321 then
-    EtikettDe ="Holzkï¿½fer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
+    EtikettDe ="Holzkäfer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
     EtikettEn =""
   elseif Item.data == 15516428 then
     EtikettDe ="Schwertgrab" --Halbarkeitsschaden für Waffen auf 9er Feld
@@ -323,7 +323,7 @@ function ds_analyse_329(Caster,Item)
       EtikettDe = "ein Gestaltenwandler-Trunk 'Luft'"
       EtikettEn = "Shape Shifter Potion 'Air'"
   elseif Item.data == 87611881 then
-      EtikettDe = "ein Gestaltenwandler-Trunk 'Schï¿½del'"
+      EtikettDe = "ein Gestaltenwandler-Trunk 'Schädel'"
       EtikettEn = "Shape Shifter Potion 'Skull'"
   elseif Item.data == 31231973 then
       EtikettDe = "ein Gestaltenwandler-Trunk 'Wespe'"
@@ -381,9 +381,9 @@ function ds_analyse_329(Caster,Item)
 end
 
 function ds_analyse_330(Caster,Item)
---weiï¿½e Flasche
+--weiße Flasche
 --Sprache
---Caster:inform("weiï¿½e Flasche")
+--Caster:inform("weiße Flasche")
   if Item.data ==  45942235 then
       EtikettDe = "ein Trank des menschlichen Verstehens"
       EtikettEn = "a Potion Of Human Understanding"
@@ -473,7 +473,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
         textDE, textEN = ds_analyse_329(Caster,TargetItem)
 				break
 			elseif i == 8 then
-			--weiï¿½e Flasche
+			--weiße Flasche
         textDE, textEN = ds_analyse_330(Caster,TargetItem)
 			end
 
