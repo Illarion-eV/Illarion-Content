@@ -3,6 +3,7 @@ require("base.class")
 module("quest.leverquest", package.seeall)
 
 -- This should be the base class for the leverquest; it should hopefully serve as an example how to do quests.
+
 LeverQuest = base.class.class(function(lvQst)   -- this is the constructor
     lvQst.theString="";                         -- this initializes the string that is produced by the levers and the sequence they were pulled.
     lvQst.levPos={};
@@ -77,11 +78,12 @@ function LeverQuest:checkSuccess()          -- checks, if the sequence is right
     if (self.theString==correctString) then       -- replace this by the true condition
         plyList=world:getPlayersInRangeOf(position(221,739,0), 20);
         for i, player in pairs(plyList) do
-            player:inform("GEWONNEN");      -- replace this with the true consequence
+            player:inform("GEWONNEN. Ich würfle die Hebel jetzt neu aus...");      -- replace this with the true consequence
         end
+        self:shuffleSequence()
     end
     self.theString="";                      -- add the reset of levers here.
-    self:shuffleSequence()
+
     self:resetLevers();
 end
 
