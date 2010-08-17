@@ -24,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	"Du hast nicht das Gef�hl, als ob irgend etwas passiert sei.",
 	"You don't feel anything happend at all." );
 
-    if (Sourceitem.id_data == 55555555) then
+    if (SourceItem.data == 55555555) then
         if (User:getMagicType( ) ~= 3) then -- user is not a druid
             if not Security[ User.id ] then
                 if ( ( User:getSkill( "commotio" ) + User:getSkill( "desicio" ) + User:getSkill( "pervestigatio" )+User:getSkill( "transformo" )+User:getSkill( "transfreto" ) ) > 40 ) then
@@ -69,10 +69,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	world:makeSound(12,User.pos);
 	world:gfx(1,User.pos);
 
-	if (Sourceitem.id_number == 1) then
-    	Sourceitem.id_id = 164;
-    	Sourceitem.id_quality = 111;
-    	Sourceitem.id_data = 0;
+	if (SourceItem.number == 1) then
+    	SourceItem.id = 164;
+    	SourceItem.quality = 111;
+    	SourceItem.data = 0;
     	world:changeItem( SourceItem );
     else
         world:erase( SourceItem, 1 );
@@ -94,7 +94,7 @@ function killSkill( User, Skillgroup, Skillname )
 end
 
 function LookAtItem(User,Item)
-    if (item.id_data == 55555555) then
+    if (item.data == 55555555) then
         world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Druidentrunk\"",
         "You look at a sticker telling: \"Druids drink \"" ) );
