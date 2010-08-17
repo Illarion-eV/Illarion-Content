@@ -1,5 +1,5 @@
-require("base.common")
 require("base.orders")
+require("base.common")
 require("base.factions")
 
 module("item.id_3110_scroll", package.seeall)
