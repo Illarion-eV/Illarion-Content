@@ -1,0 +1,3 @@
+    base.books.AddGermanBookText("\n \n    ~Drei ma�gebliche Wahrheiten~ \n \n        von Brer Beothach",0,0,toData); 
+    base.books.AddGermanBookText("Wenn auch vage, so wu�te ich doch dass diese Begegnung mehr war als es den Anschein hatte. Also unterwarf ich mich dieser herrschenden Gottheit und folgte ihr mit Beginn des Monats Elos im neunzehnten Jahr.",0,65,toData); 
+    base.books.AddGermanBookText("Diese Ausf�hrungen werden versuchen die drei Wahrheiten zu definieren die n�tig sind, um solche Dinge wie das Leben zu verstehen. Mit diesem Buch glaube ich die Dinge verst�ndlich zu machen, zumindest so wie ich sie interpretiere.",0,65,toData); 
