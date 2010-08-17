@@ -4,7 +4,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_329_black_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_329_black_bottle", package.seeall, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
@@ -27,7 +27,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
   end
   old_race = Character:get_race()
   for i=1,table.getn(ListCodecs) do
-     if Sourceitem.id_data == ListCodecs[i] then
+     if SourceItem.data == ListCodecs[i] then
 
 --      Hier kommt die Sache mit dem Langzeiteffekt:
         find, myEffect = Character.effects:find(329);
@@ -63,7 +63,7 @@ end
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschÃ¼ttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
@@ -76,7 +76,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
     end
 
     if Character.attackmode then
-        base.common.InformNLS(Character, "Du kannst nichts trinken wÃ¤hrend du kÃ¤mpfst.", "You can't drink something while fighting.");
+        base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
 		return
 	end
 	
@@ -87,9 +87,9 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
         return
     end
 
-	if Sourceitem.id_data == 0 then
+	if SourceItem.data == 0 then
 		return; -- vermutlich Tinte
-	elseif Sourceitem.id_data == 71796337 then -- Unsichtbarkeitstrank
+	elseif SourceItem.data == 71796337 then -- Unsichtbarkeitstrank
 		Character:inform("Deactivated due to technical issues.");
 		return;
 	else
@@ -114,119 +114,119 @@ end
 --
 function LookAtItem(User,Item)
 
-    if item.id_data == 77744151 then
+    if item.data == 77744151 then
         EtikettDe = "Gestaltenwandler Mensch"
         EtikettEn = "Shape Shifter Potion Human"
-    elseif  item.id_data == 18784522 then
+    elseif  item.data == 18784522 then
         EtikettDe = "Gestaltenwandler Zwerg"
         EtikettEn = "Shape Shifter Potion Dwarf"
-    elseif  item.id_data == 32699619 then
+    elseif  item.data == 32699619 then
         EtikettDe = "Gestaltenwandler Halbling"
         EtikettEn = "Shape Shifter Potion Halfling"
-    elseif item.id_data == 54876565 then
+    elseif item.data == 54876565 then
         EtikettDe = "Gestaltenwandler Elb"
         EtikettEn = "Shape Shifter Potion Elf"
-    elseif item.id_data == 61348438 then
+    elseif item.data == 61348438 then
         EtikettDe = "Gestaltenwandler Ork"
         EtikettEn = "Shape Shifter Potion Orc"
-    elseif item.id_data == 71378653 then
+    elseif item.data == 71378653 then
         EtikettDe = "Gestaltenwandler Echse"
         EtikettEn = "Shape Shifter Potion Lizard"
-    elseif item.id_data == 58548893 then
+    elseif item.data == 58548893 then
         EtikettDe = "Gestaltenwandler Gnom"
         EtikettEn = "Shape Shifter Potion Gnom"
-    elseif item.id_data == 45634355 then
+    elseif item.data == 45634355 then
         EtikettDe = "Gestaltenwandler Oger"
         EtikettEn = "Shape Shifter Potion Ogre"
-    elseif item.id_data == 75529399 then
+    elseif item.data == 75529399 then
         EtikettDe = "Gestaltenwandler Mumie"
         EtikettEn = "Shape Shifter Potion Mummy"
-    elseif item.id_data == 44554428 then
+    elseif item.data == 44554428 then
         EtikettDe = "Gestaltenwandler Skelett"
         EtikettEn = "Shape Shifter Potion Skeleton"
-    elseif  item.id_data == 18861363 then
+    elseif  item.data == 18861363 then
         EtikettDe = "Gestaltenwandler Beholder"
         EtikettEn = "Shape Shifter Potion Beholder"
-    elseif  item.id_data == 26562174 then
+    elseif  item.data == 26562174 then
         EtikettDe = "Gestaltenwandler Fliege"
         EtikettEn = "Shape Shifter Potion Fly"
-    elseif item.id_data == 47418515 then
+    elseif item.data == 47418515 then
         EtikettDe = "Gestaltenwandler Schaf"
         EtikettEn = "Shape Shifter Potion Sheep"
-    elseif item.id_data == 58151138 then
+    elseif item.data == 58151138 then
         EtikettDe = "Gestaltenwandler Spinne"
         EtikettEn = "Shape Shifter Potion Spider"
-    elseif item.id_data == 22551786 then
+    elseif item.data == 22551786 then
         EtikettDe = "Gestaltenwandler Rotes Skelett"
         EtikettEn = "Shape Shifter Potion Red Skeleton"
-    elseif item.id_data == 72225438 then
+    elseif item.data == 72225438 then
         EtikettDe = "Gestaltenwandler Rotwurm"
         EtikettEn = "Shape Shifter Potion Redworm"
-    elseif item.id_data == 99992352 then
+    elseif item.data == 99992352 then
         EtikettDe = "Gestaltenwandler Großer Dämon"
         EtikettEn = "Shape Shifter Potion Big Demon"
-    elseif item.id_data == 38114786 then
+    elseif item.data == 38114786 then
         EtikettDe = "Gestaltenwandler Skorpion"
         EtikettEn = "Shape Shifter Potion Scorpion"
-    elseif item.id_data == 95371655 then
+    elseif item.data == 95371655 then
         EtikettDe = "Gestaltenwandler Schwein"
         EtikettEn = "Shape Shifter Potion Pig"
-    elseif item.id_data == 71796337 then
+    elseif item.data == 71796337 then
         EtikettDe = "Gestaltenwandler Luft"
         EtikettEn = "Shape Shifter Potion Air"
-    elseif item.id_data == 87611881 then
+    elseif item.data == 87611881 then
         EtikettDe = "Gestaltenwandler Schï¿½del"
         EtikettEn = "Shape Shifter Potion Skull"
-    elseif item.id_data == 31231973 then
+    elseif item.data == 31231973 then
         EtikettDe = "Gestaltenwandler Wespe"
         EtikettEn = "Shape Shifter Potion Wasp"
-    elseif item.id_data == 14523375 then
+    elseif item.data == 14523375 then
         EtikettDe = "Gestaltenwandler Waldtroll"
         EtikettEn = "Shape Shifter Potion Forest Troll"
-    elseif item.id_data == 46852135 then
+    elseif item.data == 46852135 then
         EtikettDe = "Gestaltenwandler Geister-Skelett"
         EtikettEn = "Shape Shifter Potion Shadow Skeleton"
-    elseif item.id_data == 37531813 then
+    elseif item.data == 37531813 then
         EtikettDe = "Gestaltenwandler Stein-Golem"
         EtikettEn = "Shape Shifter Potion Stone-Golem"
-    elseif item.id_data == 85293266 then
+    elseif item.data == 85293266 then
         EtikettDe = "Gestaltenwandler Goblin"
         EtikettEn = "Shape Shifter Potion Goblin"
-    elseif item.id_data == 86659455 then
+    elseif item.data == 86659455 then
         EtikettDe = "Gestaltenwandler Gnoll"
         EtikettEn = "Shape Shifter Potion Gnoll"
-    elseif item.id_data == 51464953 then
+    elseif item.data == 51464953 then
         EtikettDe = "Gestaltenwandler Drache"
         EtikettEn = "Shape Shifter Potion Dragon"
-    elseif item.id_data == 97171535 then
+    elseif item.data == 97171535 then
         EtikettDe = "Gestaltenwandler Drow"
         EtikettEn = "Shape Shifter Potion Drow"
-    elseif item.id_data == 77577615 then
+    elseif item.data == 77577615 then
         EtikettDe = "Gestaltenwandler Drow-Frau"
         EtikettEn = "Shape Shifter Potion Female Drow"
-    elseif item.id_data == 11695753 then
+    elseif item.data == 11695753 then
         EtikettDe = "Gestaltenwandler Kleiner Dämon"
         EtikettEn = "Shape Shifter Potion Lower Demon"
-    elseif item.id_data == 62545579 then
+    elseif item.data == 62545579 then
         EtikettDe = "Gestaltenwandler Kuh"
         EtikettEn = "Shape Shifter Potion Cow"
-    elseif item.id_data == 81519773 then
+    elseif item.data == 81519773 then
         EtikettDe = "Gestaltenwandler Hirsch"
         EtikettEn = "Shape Shifter Potion Deer"
-    elseif item.id_data == 95153618 then
+    elseif item.data == 95153618 then
         EtikettDe = "Gestaltenwandler Wolf"
         EtikettEn = "Shape Shifter Potion Wolve"
-    elseif item.id_data == 52728756 then
+    elseif item.data == 52728756 then
         EtikettDe = "Gestaltenwandler Panther"
         EtikettEn = "Shape Shifter Potion Panther"
-    elseif item.id_data == 91986793 then
+    elseif item.data == 91986793 then
         EtikettDe = "Gestaltenwandler Hase"
         EtikettEn = "Shape Shifter Potion Rabbit"
-    elseif item.id_data == 19831914 then
+    elseif item.data == 19831914 then
         EtikettDe = "Gestaltenwandler Gnom"
         EtikettEn = "Shape Shifter Potion gnome"
     else
-      if item.id_data == 0 then
+      if item.data == 0 then
         EtikettDe = "Tinte"
         EtikettEn = "Ink"
       else

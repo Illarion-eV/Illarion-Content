@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_166_pink_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_166_pink_bottle", package.seeall, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
@@ -20,15 +20,15 @@ taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
 	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tr√§nken hat wohl dazu gef√ºhrt, dass Tr√§nke vorr√ºbergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
+		base.common.InformNLS(Character, "Dein exzessives Trinken von Tr‰nken hat wohl dazu gef‰hrt, dass Tr‰nke vorr¸bergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
 		return;
 	end
 
-	local dataZList = SplitBottleData(Character,Sourceitem.id_data);
+	local dataZList = SplitBottleData(Character,SourceItem.data);
 
     for i=1,8 do
     	  --Trankwirkung
-    	  local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(Sourceitem.id_quality/100) * 11 );
+    	  local Val = (dataZList[i]-5) * (topBorder[i]/5) * base.common.Scale( 0.5, 1, math.floor(SourceItem.quality/100) * 11 );
     	  --Character:inform(""..Val)
     	  if ( attribList[i] == "poisonvalue" ) then
             Val = base.common.Limit( (Character:getPoisonValue() + Val) , 0, 10000 ); 
@@ -50,10 +50,10 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 	Character:inform(generateTasteMessage(Character:getPlayerLanguage(),dataZList));
 
     -- Dieser Abschnitt wurde von 3.Seite eingebaut und gehÔøΩrt nicht in das DS
-    if Sourceitem.id_data == 75357464 and Character.effects:find(28) then
+    if SourceItem.data == 75357464 and Character.effects:find(28) then
         Character.effects:removeEffect(28);
         return;
-    elseif Sourceitem.id_data == 75676578 and Character.effects:find(29) then
+    elseif SourceItem.data == 75676578 and Character.effects:find(29) then
         Character.effects:removeEffect(29);
         return;
     end
@@ -64,7 +64,7 @@ end
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me versch√ºttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me versch¸ttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
@@ -77,7 +77,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
     end
 
     if Character.attackmode then
-        base.common.InformNLS(Character, "Du kannst nichts trinken w√§hrend du k√§mpfst.", "You can't drink something while fighting.");
+        base.common.InformNLS(Character, "Du kannst nichts trinken w‰hrend du k‰mpfst.", "You can't drink something while fighting.");
 		return
 	end
 	
@@ -89,7 +89,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
     end
 	
 	-- Hier verweisen wir auf die Wirkung
-    if Sourceitem.id_data==0 then
+    if SourceItem.data==0 then
 		--keine Wirkungen
     else
 		DoDruidism(Character,SourceItem,TargetItem,Counter,Param)

@@ -34,7 +34,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                     return;
                 else
                     base.common.InformNLS( User,
-                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum fï¿½hrt kein Weg zurück.",
+                    "#b|0|1008|Vorsicht! Von diesem Schritt ins Druidentum führt kein Weg zurück.",
                     "#b|0|1008|Attention! There is no way back from this path to druidism." );
                 end
                 Security[ User.id ] = true;
@@ -55,7 +55,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 killSkill( User, 3, "transfreto" );
 
                 msg = base.common.GetNLS( User,
-            	"Du hast das Gefï¿½hl etwas ist passiert. Du bist nun ein Druide.",
+            	"Du hast das Gefühl etwas ist passiert. Du bist nun ein Druide.",
             	"You have the feeling something happend. You are now a druid." );
 
             	Security[ User.id ] = nil;
@@ -63,7 +63,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end
 
-    User:talkLanguage(CCharacter.say, CPlayer.german, "#me trinkt den grï¿½nen dickflï¿½ssigen Sud.");
+    User:talkLanguage(CCharacter.say, CPlayer.german, "#me trinkt den grünen dickflüssigen Sud.");
     User:talkLanguage(CCharacter.say, CPlayer.english, "#me drinks the green viscous broth.");
 
 	world:makeSound(12,User.pos);

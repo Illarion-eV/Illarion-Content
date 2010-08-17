@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_165_blue_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_165_blue_bottle", package.seeall, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_165_blue_bottle' WHERE com_itemid = 165;
 
@@ -28,110 +28,110 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
     initLists()
     firsttime = 1
   end    
-   workdata = Sourceitem.id_data
+   workdata = SourceItem.data
    dataZList = {}
    dataZList = SplitBottleData(Character,workdata)
    abweichung = {}
   
 -- Flasche in der Hand
    bottleInHand = false
-   if Character:getItemAt(5).id == Sourceitem.id_id then
+   if Character:getItemAt(5).id == SourceItem.id then
       bottleInHand = true
       bottlePos= 5     
-   elseif Character:getItemAt(6).id == Sourceitem.id_id then 
+   elseif Character:getItemAt(6).id == SourceItem.id then 
       bottleInHand = true
       bottlePos= 6
    end   
 
 -- PflegeObjekt in der Hand
    objectInHand = false
-   if Character:getItemAt(5).id == Targetitem.id_id then
+   if Character:getItemAt(5).id == TargetItem.id then
       objectInHand = true
       objectPos= 5     
-   elseif Character:getItemAt(6).id == Targetitem.id_id then 
+   elseif Character:getItemAt(6).id == TargetItem.id then 
       objectInHand = true
       objectPos= 6
 	--PflegeObjekt im Gürtel (fï¿½r Zweihï¿½ndige Gegenstï¿½nde)
-	elseif Character:getItemAt(12).id == Targetitem.id_id then
+	elseif Character:getItemAt(12).id == TargetItem.id then
       objectInHand = true
       objectPos= 12
     elseif Character:getItemAt(13).id == Targetitem.id_id then
       objectInHand = true
       objectPos= 13
-    elseif Character:getItemAt(14).id == Targetitem.id_id then
+    elseif Character:getItemAt(14).id == TargetItem.id then
       objectInHand = true
       objectPos= 14
-    elseif Character:getItemAt(15).id == Targetitem.id_id then
+    elseif Character:getItemAt(15).id == TargetItem.id then
       objectInHand = true
       objectPos= 15
-    elseif Character:getItemAt(16).id == Targetitem.id_id then
+    elseif Character:getItemAt(16).id == TargetItem.id then
       objectInHand = true
       objectPos= 16
-	elseif Character:getItemAt(17).id == Targetitem.id_id then
+	elseif Character:getItemAt(17).id == TargetItem.id then
       objectInHand = true
       objectPos= 17
   end 
   
   if bottleInHand  == true and objectInHand == true then
 --   Dura-Wert ermitteln
-     qual = math.floor(Targetitem.id_quality/100)
-     dura = Targetitem.id_quality - qual*100
+     qual = math.floor(TargetItem.quality/100)
+     dura = TargetItem.quality - qual*100
      
 --   Effekte für Metall:
      for zaehler = 1,table.getn(ListeObjMetall) do
-         if ListeObjMetall[zaehler]==Targetitem.id_id then
+         if ListeObjMetall[zaehler]==TargetItem.id then
             wert = dataZList[1] -5  
-            dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(Sourceitem.id_quality/10))/100)) 
+            dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(SourceItem.quality/10))/100)) 
          end    
      end
 --   Effekte für Nahrung:
      for zaehler = 1,table.getn(ListeObjNahrung) do
-         if ListeObjNahrung[zaehler]==Targetitem.id_id then    
+         if ListeObjNahrung[zaehler]==TargetItem.id then    
             wert = dataZList[2] -5
-            dura = dura + (wert*25*((Character:getSkill("cooking")+math.floor(Sourceitem.id_quality/10))/100))                
+            dura = dura + (wert*25*((Character:getSkill("cooking")+math.floor(SourceItem.quality/10))/100))                
          end    
      end     
 --   Effekte für Leder:
      for zaehler = 1,table.getn(ListeObjLeder) do
-         if ListeObjLeder[zaehler]==Targetitem.id_id then       
+         if ListeObjLeder[zaehler]==TargetItem.id then       
             wert = dataZList[3] -5   
-            dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(Sourceitem.id_quality/10))/100))        
+            dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))        
          end    
      end
 --   Effekte für Edelsteine:
      for zaehler = 1,table.getn(ListeObjEdelstein) do
-         if ListeObjEdelstein[zaehler]==Targetitem.id_id then         
+         if ListeObjEdelstein[zaehler]==TargetItem.id then         
             wert = dataZList[4] -5
-                   dura = dura + (wert*25*((Character:getSkill("goldsmithing")+math.floor(Sourceitem.id_quality/10))/100))     
+                   dura = dura + (wert*25*((Character:getSkill("goldsmithing")+math.floor(SourceItem.quality/10))/100))     
          end    
      end 
 --   Effekte für Edelmetalle:
      for zaehler = 1,table.getn(ListeObjEdelMet) do
-         if ListeObjEdelMet[zaehler]==Targetitem.id_id then         
+         if ListeObjEdelMet[zaehler]==TargetItem.id then         
             wert = dataZList[5] -5  
-                   dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(Sourceitem.id_quality/10))/100))  
+                   dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(SourceItem.quality/10))/100))  
          end    
      end              
 --   Effekte für Holz:
      for zaehler = 1,table.getn(ListeObjHolz) do
-         if ListeObjHolz[zaehler]==Targetitem.id_id then
+         if ListeObjHolz[zaehler]==TargetItem.id then
             wert = dataZList[6] -5
-                   dura = dura + (wert*25*((Character:getSkill("carpentry")+math.floor(Sourceitem.id_quality/10))/100))    
+                   dura = dura + (wert*25*((Character:getSkill("carpentry")+math.floor(SourceItem.quality/10))/100))    
          end    
      end
 --   Effekte für Stoff:
      for zaehler = 1,table.getn(ListeObjStoff) do
-         if ListeObjStoff[zaehler]==Targetitem.id_id then          
+         if ListeObjStoff[zaehler]==TargetItem.id then          
             wert = dataZList[7] -5 
-                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(Sourceitem.id_quality/10))/100))     
+                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))     
          end    
      end
 --     
 --   Effekte für Sonstige:
      for zaehler = 1,table.getn(ListeObjHorn) do
-         if ListeObjHorn[zaehler]==Targetitem.id_id then
+         if ListeObjHorn[zaehler]==TargetItem.id then
             wert = dataZList[8] -5
-                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(Sourceitem.id_quality/10))/100))       
+                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))       
          end    
      end 
 --   
@@ -142,7 +142,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
         dura = 0
      end
 --         
-     Targetitem.id_quality = qual*100 + dura  
+     TargetItem.quality = qual*100 + dura  
      world:changeItem(TargetItem)          
 --
   else
@@ -153,7 +153,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 end  -- function DoDruidism
 --  
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
-  if Sourceitem.id_data == 0 then
+  if SourceItem.data == 0 then
 	-- Keine Wirkung
   else
     -- NEUE FASSUNG MIT DRUIDENSYSTEM
@@ -162,9 +162,9 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
        DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
        
        world:erase(SourceItem,1);
-       world:makeSound(10,Targetitem.id_pos);
-       world:gfx(1,Targetitem.id_pos)
-       world:makeSound(13,Targetitem.id_pos);    
+       world:makeSound(10,TargetItem.pos);
+       world:gfx(1,TargetItem.id_pos)
+       world:makeSound(13,Targetitem.pos);    
        if( math.random( 20 ) <= 1 ) then
          base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
        else
@@ -174,7 +174,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
        Character.movepoints=Character.movepoints-50;
          
     else
-      base.common.InformNLS(Character,"Du kannst die Paste nicht benutzen wÃ¤hrend du kÃ¤mpfst.", "You can't use the paste something while fighting.");
+      base.common.InformNLS(Character,"Du kannst die Paste nicht benutzen während du kämpfst.", "You can't use the paste something while fighting.");
     end
   end  
 end

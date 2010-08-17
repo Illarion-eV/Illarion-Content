@@ -32,7 +32,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
 
   for i=1,table.getn(ListCodecs) do
-    if Sourceitem.id_data == ListCodecs[i] then
+    if SourceItem.data == ListCodecs[i] then
 
       find, myEffect = Character.effects:find(330);
       if not find then
@@ -76,27 +76,27 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
   end
     
   --Weitere Einzelwirkungen
-  if Sourceitem.id_data == 55555551 then
+  if SourceItem.data == 55555551 then
     --Ende des LTE 1 / alcohol
     if Character.effects:find(1) then 
 		  Character.effects:removeEffect(1)
     end
-  elseif Sourceitem.id_data == 55555552 then
+  elseif SourceItem.data == 55555552 then
     --Ende des LTE 2 /char_reg
     if Character.effects:find(2) then 
 		  Character.effects:removeEffect(2)
     end
-  elseif  Sourceitem.id_data == 55555553 then
+  elseif  SourceItem.data == 55555553 then
     --Ende des LTE 3 /cold
     if Character.effects:find(3) then 
 		  Character.effects:removeEffect(3)
     end 
-  elseif  Sourceitem.id_data == 55555515 then
+  elseif  SourceItem.data == 55555515 then
     --Ende des LTE 15 /illnes1
     if Character.effects:find(15) then 
 		  Character.effects:removeEffect(15)
     end 
-  elseif  Sourceitem.id_data == 55555518 then
+  elseif  SourceItem.data == 55555518 then
     --Ende des LTE 18 /smell
     if Character.effects:find(18) then 
 		  Character.effects:removeEffect(18)
@@ -106,7 +106,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
     if Character.effects:find(28) then 
 		  Character.effects:removeEffect(28)
     end 
-  elseif  Sourceitem.id_data == 55555529 then
+  elseif  SourceItem.data == 55555529 then
     --Ende des LTE 29 / gnomwahn 
     if Character.effects:find(29) then 
 		  Character.effects:removeEffect(29)
@@ -116,12 +116,12 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 end
 
 function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
-  if Sourceitem.id_data == 0 then
+  if SourceItem.data == 0 then
 	world:erase(SourceItem,1);
 	world:makeSound(12,Character.pos);
 	return;
     -- Sheep Milk
-  elseif Sourceitem.id_data == 1 then     -- special Cow Milk
+  elseif SourceItem.data == 1 then     -- special Cow Milk
 	User = getCharForId(Character.id);  --create a save copy of the char struct
 	world:erase(SourceItem,1);
 	world:makeSound(12,Character.pos);
@@ -245,40 +245,40 @@ end
 
 function LookAtItem(User,Item)
 
-    if item.id_data ==  0 then
+    if item.data ==  0 then
         EtikettDe = "Schafsmilch"
         EtikettEn = "Sheep Milk"
     elseif item.id_data ==  1 then
         EtikettDe = "Orun-Milch"
         EtikettEn = "Orun milk"
-	elseif item.id_data ==  45942235 then
+	elseif item.data ==  45942235 then
         EtikettDe = "Menschensprache"
         EtikettEn = "Human Language Potion"
-    elseif  item.id_data == 62483256 then
+    elseif  item.data == 62483256 then
         EtikettDe = "Zwergensprache"
         EtikettEn = "Dwarfen Language Potion"
-    elseif  item.id_data == 32529515 then
+    elseif  item.data == 32529515 then
         EtikettDe = "Elfensprache"
         EtikettEn = "Elbian Language Potion"
-    elseif item.id_data == 15751754 then
+    elseif item.data == 15751754 then
         EtikettDe = "Echsensprache"
         EtikettEn = "Lizard Language Potion"
-    elseif item.id_data == 82897532 then
+    elseif item.data == 82897532 then
         EtikettDe = "Orksprache"
         EtikettEn = "Orcish Language Potion"
-    elseif item.id_data == 63296636 then
+    elseif item.data == 63296636 then
         EtikettDe = "Halblingssprache"
         EtikettEn = "Halfling Language Potion"
-    elseif item.id_data == 49582625 then
+    elseif item.data == 49582625 then
         EtikettDe = "Feensprache"
         EtikettEn = "Fairy Language Potion"
-    elseif item.id_data == 95738184 then
+    elseif item.data == 95738184 then
         EtikettDe = "Gnomsprache"
         EtikettEn = "Gnomish Language Potion"
-    elseif item.id_data == 53261566 then
+    elseif item.data == 53261566 then
         EtikettDe = "Goblinsprache"
         EtikettEn = "Goblin Language Potion"
-    elseif item.id_data == 93538334 then
+    elseif item.data == 93538334 then
         EtikettDe = "Alten Sprache"
         EtikettEn = "Ancient Language Potion"
     else
