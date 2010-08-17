@@ -12,7 +12,7 @@ function unitDecleration()
   if firsttime == nil then
     ListDE = {}
     ListEN = {}
-    ListDE ={"marode", "schlechte", "mäßige", "unauffï¿½llige", "brauchbare", "gute", "sehr gute", "hervorragende", "ï¿½berragende"}
+    ListDE ={"marode", "schlechte", "mäßige", "unauffï¿½llige", "brauchbare", "gute", "sehr gute", "hervorragende", "überragende"}
     ListEN ={"ramshackle","bad","undistinguished","modest","usable","good", "very good","excellent","superior" }
     firsttime = 1
   end
