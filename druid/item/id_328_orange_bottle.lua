@@ -4,7 +4,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_328_orange_bottle", package.seeall(druid.base.alchemy))
+module("druid.item.id_328_orange_bottle", package.seeall, package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_328_orange_bottle' WHERE com_itemid = 328;
 
@@ -22,9 +22,9 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
            Character:inform("Error in 328.2 - please call dev")
         else
 			local codeList = {16159738,49134362,37568889,15363356,3635548,14791859,85568351,76359585};
-			local potionData = Sourceitem.id_data;
+			local potionData = SourceItem.data;
 			if diagnose == 5 then
-				potionData = math.mod(Sourceitem.id_data,10000000);
+				potionData = math.mod(SourceItem.data,10000000);
 			end
 			if potionData == codeList[diagnose] then
 --            Feststellung, ob die Qualität des Heiltrankes ï¿½ber der Schwere der Krankheit liegt 
@@ -32,12 +32,12 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
               -- CONST may reduce the needed quality
 			  local const = math.min(25,Character:increaseAttrib("constitution",0));
 			  local seriousness = illness_seriousness[diagnose] - (math.random(30)<const and 1 or 0);
-			  if math.random(111,illness_seriousness[diagnose] * 111) < Sourceitem.id_quality then
+			  if math.random(111,illness_seriousness[diagnose] * 111) < SourceItem.quality then
                 
 --               Die Wirkung erfolgt indirekt durch das Herabsetzen des Rundezählers.
                  -- CONST may raise the probability for a good effect
-				 local bottom = math.max(111,math.floor(Sourceitem.id_quality*const/30));
-				 zaehler = zaehler - math.random(bottom,Sourceitem.id_quality)
+				 local bottom = math.max(111,math.floor(SourceItem.quality*const/30));
+				 zaehler = zaehler - math.random(bottom,SourceItem.quality)
                  world:gfx(52,Character.pos)                 
                  if zaehler <1 then 
                     zaehler = 1 
@@ -64,7 +64,7 @@ end
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschÃ¼ttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
@@ -77,7 +77,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
     end
 
     if Character.attackmode then
-        base.common.InformNLS(Character, "Du kannst nichts trinken wÃ¤hrend du kÃ¤mpfst.", "You can't drink something while fighting.");
+        base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
 	end
 	
     if (ltstate == Action.none) then
@@ -117,21 +117,21 @@ end
 
 function LookAtItem(User,Item)
 
-  if item.id_data == 16159738 then
+  if Item.data == 16159738 then
      Etikett ="Rhag Anghenfil Twymyn"
-  elseif item.id_data == 49134362 then
+  elseif item.data == 49134362 then
      Etikett ="Rhag Morfa Cwlwm Gwythi"
-  elseif item.id_data == 37568889 then
+  elseif Item.data == 37568889 then
      Etikett ="Trolio Caethineb Meddyginiaeth"
-  elseif item.id_data == 15363356 then
+  elseif Item.id_data == 15363356 then
      Etikett ="Corrach Rhithdyb Gwrthwenwyn"
   elseif math.mod(item.id_data,10000000) == 3635548 then
      Etikett ="Rhag Vein-Syndrome Meddyginiaeth"
-  elseif item.id_data == 14791859 then
+  elseif Item.data == 14791859 then
      Etikett ="Draig Brech Moddion"
-  elseif item.id_data == 85568351 then
+  elseif Item.data == 85568351 then
      Etikett ="Gwrthwenwyn Rhag Sgorpion Epidemig"
-  elseif item.id_data == 76359585 then
+  elseif Item.data == 76359585 then
      Etikett ="Blaidd Haint Meddyginiaeth"
   else
      Etikett ="Cyffur"
