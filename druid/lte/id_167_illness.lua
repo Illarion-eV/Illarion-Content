@@ -56,7 +56,7 @@ function getEffect_1(Character,Runde)
 		end
 		if curItem.id > 0 then
 			base.common.InformNLS(Character,
-				"#w Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reiï¿½en",
+				"#w Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reißen",
 				"#w You feel a painful heat emerging and you have to put off some clothes");
 			world:createItemFromItem(curItem,Character.pos,true);
 			world:erase(curItem,1);
@@ -68,12 +68,12 @@ end
 
 function getEffect_2(Character,Runde)
 -- Character:inform("Sumpfkrampf/bog-attack")
--- Erbrechen, Char dreht sich ,rp-kotzen, foodl halbieren, Rï¿½ckgang von hp
+-- Erbrechen, Char dreht sich ,rp-kotzen, foodl halbieren, Rückgang von hp
 -- Jede 25. Runde:
    if Runde -(math.floor(Runde/25)*25) == 0 then
 
 --    Enstprechender RP-Text
-      base.common.InformNLS(Character,"#w Dir wird urplï¿½tzlich schlecht, Dein Magen rebelliert und Du musst Dich ï¿½bergeben.",
+      base.common.InformNLS(Character,"#w Dir wird urplötzlich schlecht, Dein Magen rebelliert und Du musst Dich übergeben.",
                            "#w You feel sick, your stomache strikes back and you need to puke")
 
 --    Spieler dreht sich ab
@@ -98,15 +98,15 @@ function getEffect_2(Character,Runde)
 
       Character:setAttrib("faceto",richtung)
 --    Grafik für Erbrochenes?
---    Wï¿½rge-Sound wï¿½re nicht schlecht
-      Character:talkLanguage(CCharacter.say,CPlayer.german,"#me muss sich ï¿½bergeben");
-	  Character:talkLanguage(CCharacter.say,CPlayer.english,"#me has to vomit");
+--    Würge-Sound wäre nicht schlecht
+      Character:talkLanguage(CCharacter.say,CPlayer.german,"#me muss sich übergeben.");
+	  Character:talkLanguage(CCharacter.say,CPlayer.english,"#me has to vomit.");
       world:makeSound(23,Character.pos)
 
 --    Foodlevel halbieren
       setFood(Character,Character:increaseAttrib("foodlevel",0)/2);
 
---    HP Rï¿½ckgang um 26-constitution %
+--    HP Rückgang um 26-constitution %
       local const = math.min(25,Character:increaseAttrib("constitution",0));
 	  Character:increaseAttrib("hitpoints",math.floor(Character:increaseAttrib("hitpoints",0) * -(26-const)/100) )
 
@@ -117,7 +117,7 @@ end
 
 function getEffect_3(Character,Effect,Runde)
 --Character:inform("Trollsucht/Troll's rash")
--- Verlust der Sprachfï¿½higkeiten (language skills, vielleicht Leseskill oa)
+-- Verlust der Sprachfähigkeiten (language skills, vielleicht Leseskill oa)
 -- da der Verlust der Sprachskills am Anfang des LTE steht, ist hier nur die Zeit abzuwarten
 
 -- Krankheit verbreiten:
@@ -183,23 +183,23 @@ function getEffect_4(Character,Runde)
 			paranoiaList[1] = {};
 			paranoiaList[2] = {};
 
-			paranoiaList[1][1] = "Vor deinem inneren Auge erscheint eine grï¿½ssliche Kreatur, in der sich alles Bï¿½se zu vereinen scheint.";
+			paranoiaList[1][1] = "Vor deinem inneren Auge erscheint eine grässliche Kreatur, in der sich alles Böse zu vereinen scheint.";
 			paranoiaList[2][1] = "With your inner eye you envision a horrible creature that seems to be made up of all the evil in the world.";
 			paranoiaList[1][2] = "Schlangen erscheinen von überall her vor dir, sie kommen aus jeder Ritze, aus jedem Loch. Unmengen! Flucht ist das Einzige, was dir noch in den Sinn kommt.";
 			paranoiaList[2][2] = "Snakes appear all around you, they are coming out of every chasm, out of every hole. To run away is the only thing which leaps into your mind.";
-			paranoiaList[1][3] = "Ein Panther springt plötzlich von der Seite in dein Sichtfeld. Lauf, sonst bohrt er seine Krallen in deine Haut und zerbeiï¿½t dir den Schï¿½del!";
+			paranoiaList[1][3] = "Ein Panther springt plötzlich von der Seite in dein Sichtfeld. Lauf, sonst bohrt er seine Krallen in deine Haut und zerbeißt dir den Schädel!";
 			paranoiaList[2][3] = "A panther jumps suddenly in front of you. Run, otherwise he is going to rip off your flesh with his claws and crack your skull in it's maw.";
 			paranoiaList[1][4] = "Aus der Luft bildet sich eine Nebelgestalt. Grob erkennst du ihn. Ein alter Mann. Seine stumpfen Augen starren dich an. Warum starrt er dich an? Was will er? Du weißt es nicht. Du weißt nur, du musst hier weg.";
 			paranoiaList[2][4] = "An image of a man made out of fog appears from out of thin air. You struggle to see his features: An old man. His dull eyes are staring at you. Why is he staring at you? What does he want? You only know that you must get away. ";
-			paranoiaList[1][5] = "Diese Hitze. Vulkanausbruch! Der Lavastrom flieï¿½t auf dich zu. Hinfort mit dir!";
+			paranoiaList[1][5] = "Diese Hitze. Vulkanausbruch! Der Lavastrom fließt auf dich zu. Hinfort mit dir!";
 			paranoiaList[2][5] = "A burst of incredible heat! Volcanic eruption! The stream of lava is flowing towards you. Run away!";
-			paranoiaList[1][6] = "Warum beobachtet er dich? Dieses paar Augen, welche nur von dem vermummten Gesicht zu sehen sind. Ein Rï¿½uber! Er will dein Geld, schlimmer, dein Leben! Doch dazu muss er dich erstmal fangen.";
+			paranoiaList[1][6] = "Warum beobachtet er dich? Dieses paar Augen, welche nur von dem vermummten Gesicht zu sehen sind. Ein Räuber! Er will dein Geld, schlimmer, dein Leben! Doch dazu muss er dich erstmal fangen.";
 			paranoiaList[2][6] = "Why is he spying on you? You only see his eyes in the shadow of his hood. A thief! He wants your money! Worse! He's a murderer!! Run before he catches you.";
 			paranoiaList[1][7] = "Eine dunkle Wolke bildet sich direkt über deinem Kopf. Spannung liegt in der Luft. Mit einem Mal schießen Blitze aus der Wolke und treffen den Boden um dich herum. Flieh, bevor du zu Asche wirst!";
 			paranoiaList[2][7] = "A dark cloud forms over your head. The air is unsettling. Lightning strikes from above all around you! Flee, before you turn to ash.";
-			paranoiaList[1][8] = "Dieser riesige Baum, welcher in die Wolken ragt, warum fiel er dir nie auf? Er schwankt. Am Fuï¿½e steht ein Mann mit einem Beil. Der Baum fällt genau in deine Richtung. Lauf, lauf oder er wird dich zermalmen.";
+			paranoiaList[1][8] = "Dieser riesige Baum, welcher in die Wolken ragt, warum fiel er dir nie auf? Er schwankt. Am Fuße steht ein Mann mit einem Beil. Der Baum fällt genau in deine Richtung. Lauf, lauf oder er wird dich zermalmen.";
 			paranoiaList[2][8] = "You see a tree so tall it's branches are lost in the clouds. Why didn't you notice it before? Suddenly the tree shakes. You hear someone yell 'timber!' as the tree begins to crash in your direction! Run!";
-			paranoiaList[1][9] = "Du öffnest deine Augen und findest dich in einer schwarzen Hï¿½hle wieder. Was machst du hier? Wie kamst du her? ROOOOOOOAR! Was war das?! Hinter dir scheint trübe das Tageslicht. Der Ausgang.";
+			paranoiaList[1][9] = "Du öffnest deine Augen und findest dich in einer schwarzen Höhle wieder. Was machst du hier? Wie kamst du her? ROOOOOOOAR! Was war das?! Hinter dir scheint trübe das Tageslicht. Der Ausgang.";
 			paranoiaList[2][9] = "You open your eyes to discover yourself in a black cave. What are you doing here? How did you get here? ROOOOOOOAR! What was that?! Behind you the light of day flares. Make your escape.";
 			paranoiaList[1][10] = "Du siehst eine Armee von Goblins. Sie haben Bögen, Speere, Messer und einer hält den Kopf eines %RACETEXT in der Hand. Der Häuptling zeigt mit dem Stab auf dich. Sie jagen dich!";
 			paranoiaList[2][10] = "You see an army of goblins armed to the teeth. One of them holds a decapitated %RACETEXT head in his hand. The goblin chieftain points at you with his staff. They are about to hunt you!";
@@ -237,7 +237,7 @@ function getEffect_5(Character,Effect,Runde)
 	end
 	allergy = math.min(math.max(1,allergy),3);
 --    Feststellen, ob solche Kleidung getragen wird
---    Kleidungsstï¿½ck fallenlassen
+--    Kleidungsstück fallenlassen
 	for i,pos in pairs(posList) do
 		thisItem = Character:getItemAt(pos)
 		if thisItem.id ~= 0 then
@@ -261,7 +261,7 @@ end
 
 function getEffect_6(Character,Runde)
 --Character:inform("Drachenpocken/dragon's pox")
---Schmerzhafte Warzen an den Hï¿½nden, man kann praktisch nichts mehr in den Hï¿½nden halten
+--Schmerzhafte Warzen an den Händen, man kann praktisch nichts mehr in den Händen halten
 
 	local doInform = false;
 	local posList = {4,5,6};
@@ -275,7 +275,7 @@ function getEffect_6(Character,Runde)
 	end
 	if doInform or Runde-(math.floor(Runde/60)*60) == 0 then
 		base.common.InformNLS(Character,
-			"#w An deinen Hï¿½nden haben sich grï¿½nlich schimmernde schmerzhafte eitrige Dornwarzen gebildet."..(doInform and " Du musst alles in deinen Hï¿½nden fallen lassen." or ""),
+			"#w An deinen Händen haben sich grünlich schimmernde schmerzhafte eitrige Dornwarzen gebildet."..(doInform and " Du musst alles in deinen Händen fallen lassen." or ""),
 			"#w Your hands are covered with greenish glimmering painful mucopurulent plantar warts."..(doInform and " You have to drop everything you hold in your hands." or ""));
 	end
 -- Krankheit verbreiten:
@@ -293,7 +293,7 @@ function getEffect_7(Character,Runde)
       Character.movepoints = Character.movepoints -50
 	  if Runde-(math.floor(Runde/30)*30) == 0 then
 		base.common.InformNLS(Character,
-			"#w Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glï¿½nzt kalter Schweiï¿½.",
+			"#w Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glänzt kalter Schweiß.",
 			"#w You feel febrile, your pulse is low, at your frown cold sweat is shining.");
 	  end
    end
@@ -303,12 +303,12 @@ end
 
 function getEffect_8(Character,Effect,Runde)
 --Character:inform("Wolfspest/wolves pest")
---Verlust von Primï¿½rattributen
+--Verlust von Primärattributen
 -- Standard: jede 10. Runde:
    if Runde -(math.floor(Runde/10)*10) == 0 then
       if math.random(6) == 6 then
          base.common.InformNLS(Character,
-			"#w Du hast das Gefï¿½hl, dein Organe würden brennen.",
+			"#w Du hast das Gefühl, deine Organe würden brennen.",
 			"#w Your insides feel like burning.");
       end
       local L = {"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
@@ -386,7 +386,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 			if immunityEffect:findValue("immunity_"..illness) then
 
 				base.common.InformNLS(Character,
-					"#w Du spï¿½rst wie die Krankheit von dir Besitz ergreifen will, doch dein Körper wehrt sich erfolgreich.",
+					"#w Du spürst wie die Krankheit von dir Besitz ergreifen will, doch dein Körper wehrt sich erfolgreich.",
 					"#w You feel the illness trying to take control over you, but your body can resist.");
 				Character.effects:removeEffect(167);
 				return;
@@ -423,7 +423,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 			--     Evtl. noch library research ua nullen
 		end
 
-		--  Alle Primï¿½rattribute sichern
+		--  Alle Primärattribute sichern
 	    Effect:addValue("strength",Character:increaseAttrib("strength",0))
 	    Effect:addValue("willpower",Character:increaseAttrib("willpower",0))
 	    Effect:addValue("perception",Character:increaseAttrib("perception",0))
@@ -432,7 +432,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 	    Effect:addValue("agility",Character:increaseAttrib("agility",0))
 	    Effect:addValue("dexterity",Character:increaseAttrib("dexterity",0))
 	    Effect:addValue("essence",Character:increaseAttrib("essence",0))
-		--  Alle Sekundï¿½rattribute sichern
+		--  Alle Sekundärattribute sichern
 	    Effect:addValue("hitpoints",Character:increaseAttrib("hitpoints",0))
 	    Effect:addValue("foodlevel",Character:increaseAttrib("foodlevel",0))
 	    Effect:addValue("mana",Character:increaseAttrib("mana",0))
@@ -444,16 +444,16 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 	end
 end
 
-function callEffect(Effect,Character)               -- Effect wird ausgefï¿½hrt
+function callEffect(Effect,Character)               -- Effect wird ausgeführt
 
---Erst einmal kommt der Rundenzï¿½hler
+--Erst einmal kommt der Rundenzähler
   find,zaehler = Effect:findValue("zaehler")
   if find then
 --  Character:inform("debug func callEffect 167-0 Runde "..zaehler)
      zaehler = zaehler -1  -- maximal 999 Runden
      Effect:addValue("zaehler", zaehler)
 
-     Effect.nextCalled = 10  -- nï¿½chster Aufruf in 1 Sekunde
+     Effect.nextCalled = 10  -- nächster Aufruf in 1 Sekunde
 
      if not getAction(Character,Effect,zaehler) then
 		return false;
@@ -494,7 +494,7 @@ function removeEffect(Effect,Character)
 	-- if illness is removed as usual and not due to immunity, then inform player and create gfx
 	if not foundImmunity then
 		base.common.InformNLS(Character,
-			"#w Du spï¿½rst wie die Krankheit aus deinem Körper weicht und du neue Kraft bekommst.",
+			"#w Du spürst wie die Krankheit aus deinem Körper weicht und du neue Kraft bekommst.",
 			"#w You feel the illness withdrawing from your body and you regain your strength.");
 		world:gfx(45,Character.pos);
 	end

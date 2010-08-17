@@ -14,7 +14,7 @@ function addEffect(Effect, Character)               -- Nur beim ersten Aufruf
 --Character:inform("debug func addEffect") 
 end
 
-function callEffect(Effect,Character)                  -- Effect wird ausgefï¿½hrt
+function callEffect(Effect,Character)                  -- Effect wird ausgeführt
 	
 	local foundImmunity, immunity, retVal = nil,nil,false;
 	for i=1,8 do
