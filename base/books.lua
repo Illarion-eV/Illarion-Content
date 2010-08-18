@@ -52,9 +52,9 @@ end
 function SendBookPage(User,Item,DataVal,Counter)
     local BookTexts=nil;
     if (User:getPlayerLanguage()==0) then
-        BookTexts=gBookText[Item][DataVal];
+        BookTexts=gBookText[DataVal];
     else
-        BookTexts=eBookText[Item][DataVal];
+        BookTexts=eBookText[DataVal];
     end
     if (BookTexts == nil) then
         User:inform("#b|1|0| ");
