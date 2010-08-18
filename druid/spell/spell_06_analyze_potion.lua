@@ -13,16 +13,16 @@ module("druid.spell.spell_05_analyze_potion", package.seeall(druid.base.alchemy)
 function ds_codices()
   if firsttime == nil then
     --FÃ¼r Flasche 059,166
-    LVDe={"Ende","HÃ¶lle","HÃ¶hle","Kerker","Ruhe","Quelle","Orden","Tempel","Siegel"}
+    LVDe={"Ende","Hölle","Höhle","Kerker","Ruhe","Quelle","Orden","Tempel","Siegel"}
     PADe={" der Kraft"," des Willens"," der Sinne"," des Wissens"," des Fleisches"," des Windes"," des Diebes"," des Geistes"}
-    SADe={" des Lebens"," des Riesen"," der Quellen"," des GlÃ¼cks"," der Qualen"," des Ethos"," des FleiÃŸes"," des Zaubers"}
+    SADe={" des Lebens"," des Riesen"," der Quellen"," des Glücks"," der Qualen"," des Ethos"," des Fleißes"," des Zaubers"}
     LVEn={"end of ","hell of ","cave of ","dungeon of ","silence of ","spring of ","order of ","temple of ","seal of "}
     PAEn={"power","will","senses","intelligence","constitution","the wind","the thief","spirit"}
     SAEn={"life","giants","springs","luck","pain","ethos","diligence","magic"}
     -- fÃ¼r Flasche 165
     WVDe={"","","","","","","","",""}
     WVEn={"","","","","","","","",""}
-    WMDe={"Metallpaste","Vitalstoff","Lederfett","Edelstein-Creme","Edelmetall-Ã–l","Holzpolitur","Stoffpflegemittel","Hornfett"}
+    WMDe={"Metallpaste","Vitalstoff","Lederfett","Edelstein-Creme","Edelmetall-Öl","Holzpolitur","Stoffpflegemittel","Hornfett"}
     WMEn={"metal","food","leather","gemstones","noble metal","wood","textile","horn"}
 
     firsttime = 1
@@ -41,21 +41,21 @@ function ds_analyse_059(Caster,Item)
 --Primärattribute
 --Caster:inform("rote Flasche")
   if Item.data == 0 then
-    EtikettDe ="Heil- und StÃ¤rkungstrank"
+    EtikettDe ="Heil- und Stärkungstrank"
     EtikettEn ="Healing- And Refreshment-Potion"
   else
     ds_codices()
     dataZList = ds_analyseDATA(Caster,Item)
 
-    EtikettDe = "eine Mischung aus \n\n"..LVDe[dataZList[1]]..PADe[1].."\n"
+    EtikettDe = "eine Mischung aus "..LVDe[dataZList[1]]..PADe[1]..", "
     for i = 2,7 do
-      EtikettDe = EtikettDe..LVDe[dataZList[i]]..PADe[i].."\n"
+      EtikettDe = EtikettDe..LVDe[dataZList[i]]..PADe[i]..", "
     end
     EtikettDe = EtikettDe.." und "..LVDe[dataZList[8]]..PADe[8]
 
-    EtikettEn = "a mixture of \n"..LVEn[dataZList[1]]..PAEn[1].."\n"
+    EtikettEn = "a mixture of "..LVEn[dataZList[1]]..PAEn[1]..", "
     for i = 2,7 do
-      EtikettEn = EtikettEn..LVEn[dataZList[i]]..PAEn[i].."\n"
+      EtikettEn = EtikettEn..LVEn[dataZList[i]]..PAEn[i]..", "
     end
     EtikettEn = EtikettEn.." and "..LVEn[dataZList[8]]..PAEn[8]
   end
@@ -67,14 +67,14 @@ function ds_analyse_165(Caster,Item)
 --Pasten
 --Caster:inform("hellblaue Flasche")
   if Item.data == 0 then
-    EtikettDe ="ein Pflegemittel, ein Ã–l oder eine Politur."
+    EtikettDe ="ein Pflegemittel, ein Öl oder eine Politur."
     EtikettEn ="A care product, maybe an oil or a polish."
   else
     ds_codices()
     dataZList = ds_analyseDATA(Caster,Item)
 
-    EtikettDe = "eine Mischung aus \n\n"
-    EtikettEn = "a mixture of \n"
+    EtikettDe = "eine Mischung aus "
+    EtikettEn = "a mixture of "
     for i = 1,7 do
       if dataZList[i] ~= 5 then
         EtikettDe = EtikettDe..WVDe[dataZList[i]]..WMDe[i]
@@ -91,24 +91,24 @@ end
 
 function ds_analyse_166(Caster,Item)
 --lila Flasche
---Sekundï¿½rattribute
+--Sekundärattribute
 --Caster:inform("lila Flasche")
   if Item.data == 0 then
-    EtikettDe ="ein Heil- oder StÃ¤rkungstrank"
+    EtikettDe ="ein Heil- oder Stärkungstrank"
     EtikettEn ="a healing- or refreshment-potion"
   else
     ds_codices()
     dataZList = ds_analyseDATA(Caster,Item)
 
-    EtikettDe = "eine Mischung aus \n\n"..LVDe[dataZList[1]]..SADe[1].."\n"
+    EtikettDe = "eine Mischung aus "..LVDe[dataZList[1]]..SADe[1]..", "
     for i = 2,7 do
-      EtikettDe = EtikettDe..LVDe[dataZList[i]]..SADe[i].."\n"
+      EtikettDe = EtikettDe..LVDe[dataZList[i]]..SADe[i]..", "
     end
     EtikettDe = EtikettDe.." und "..LVDe[dataZList[8]]..SADe[8]
 
-    EtikettEn = "a mixture of \n"..LVEn[dataZList[1]]..SAEn[1].."\n"
+    EtikettEn = "a mixture of "..LVEn[dataZList[1]]..SAEn[1]..", "
     for i = 2,7 do
-      EtikettEn = EtikettEn..LVEn[dataZList[i]]..SAEn[i].."\n"
+      EtikettEn = EtikettEn..LVEn[dataZList[i]]..SAEn[i]..", "
     end
     EtikettEn = EtikettEn.." and "..LVEn[dataZList[8]]..SAEn[8]
   end
@@ -121,36 +121,36 @@ function ds_analyse_167(Caster,Item)
 --Caster:inform("gelbe Flasche")
   if Item.data == 83795161 then
     Etikett ="Gwenwyn Anghenfil Twymyn"
-    EtikettDe ="ein Erreger von "..illness[1][1].."\n"
-    EtikettEn =illness[2][1].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][1]
+    EtikettEn =illness[2][1].." pathogens"
   elseif Item.data == 26343194 then
     Etikett ="Gwenwyn Morfa Cwlwm Gwythi"
-    EtikettDe ="ein Erreger von "..illness[1][2].."\n"
-    EtikettEn =illness[2][2].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][2]
+    EtikettEn =illness[2][2].." pathogens"
   elseif Item.data == 98886573 then
     Etikett ="Gwenwyn Trolio Caethineb"
-    EtikettDe ="ein Erreger von "..illness[1][3].."\n"
-    EtikettEn =illness[2][3].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][3]
+    EtikettEn =illness[2][3].." pathogens"
   elseif Item.data == 65336351 then
     Etikett ="Gwenwyn Corrach Rhithdyb"
-    EtikettDe ="ein Erreger von "..illness[1][4].."\n"
-    EtikettEn =illness[2][4].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][4]
+    EtikettEn =illness[2][4].." pathogens"
   elseif Item.data == 28455363 then
     Etikett ="Gwenwyn Rhag Vein-Syndrome"
-    EtikettDe ="ein Erreger von "..illness[1][5].."\n"
-    EtikettEn =illness[2][5].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][5]
+    EtikettEn =illness[2][5].." pathogens"
   elseif Item.data == 95819741 then
     Etikett ="Gwenwyn Draig Brech Moddion"
-    EtikettDe ="ein Erreger von "..illness[1][6].."\n"
-    EtikettEn =illness[2][6].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][6]
+    EtikettEn =illness[2][6].." pathogens"
   elseif Item.data == 15386558 then
     Etikett ="Gwenwyn Sgorpion Epidemig"
-    EtikettDe ="ein Erreger von "..illness[1][7].."\n"
-    EtikettEn =illness[2][7].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][7]
+    EtikettEn =illness[2][7].." pathogens"
   elseif Item.data == 58595367 then
     Etikett ="Gwenwyn Blaidd Haint"
-    EtikettDe ="ein Erreger von "..illness[1][8].."\n"
-    EtikettEn =illness[2][8].." pathogens".."\n"
+    EtikettDe ="ein Erreger von "..illness[1][8]
+    EtikettEn =illness[2][8].." pathogens"
   else
     Etikett ="Siwgr Dwfr"
     EtikettDe ="ein Virus-Erreger"
@@ -164,29 +164,29 @@ function ds_analyse_327(Caster,Item)
 --Wurfkï¿½rper ua
 --Caster:inform("dunkelblaue Flasche")
   if Item.data == 93531588 then
-    EtikettDe ="Wurfbombe".."\n"
-    EtikettEn ="".."\n"
+    EtikettDe ="Wurfbombe"
+    EtikettEn =""
   elseif Item.data == 25269755 then
-    EtikettDe ="".."\n" --noch nicht belegt
-    EtikettEn ="".."\n"
+    EtikettDe ="" --noch nicht belegt
+    EtikettEn =""
   elseif Item.data == 58731981 then
-    EtikettDe ="".."\n" --noch nicht belegt
-    EtikettEn ="".."\n"
+    EtikettDe ="" --noch nicht belegt
+    EtikettEn =""
   elseif Item.data == 84613666 then
-    EtikettDe ="Hasenplage".."\n"
-    EtikettEn ="Rabbit Menace".."\n"
+    EtikettDe ="Hasenplage"
+    EtikettEn ="Rabbit Menace"
   elseif Item.data == 59595521 then
-    EtikettDe ="Schlammfeld".."\n"
-    EtikettEn ="Bogfield".."\n"
+    EtikettDe ="Schlammfeld"
+    EtikettEn ="Bogfield"
   elseif Item.data == 42718255 then
-    EtikettDe ="".."\n" --noch nicht belegt
-    EtikettEn ="".."\n"
+    EtikettDe ="" --noch nicht belegt
+    EtikettEn =""
   elseif Item.data == 16359531 then
-    EtikettDe ="Schwarzes Loch".."\n" --Mana-Entzug auf 9er Feld
-    EtikettEn ="Black Hole".."\n"
+    EtikettDe ="Schwarzes Loch" --Mana-Entzug auf 9er Feld
+    EtikettEn ="Black Hole"
   elseif Item.data == 21915579 then
-    EtikettDe ="Sattmacher".."\n" --Sattmacher (noch in Arbeit)
-    EtikettEn ="".."\n"
+    EtikettDe ="Sattmacher" --Sattmacher (noch in Arbeit)
+    EtikettEn =""
   elseif Item.data == 43245354 then
     EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rüstungen auf 9er Feld
     EtikettEn ="Rusttrap"
@@ -424,20 +424,19 @@ end
 
 
 function CastMagic(Caster,counter,param,ltstate)
---Caster:inform("debug #06.1")
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
---Caster:inform("debug #06.2")
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
---Caster:inform("debug #06.3")
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
---Caster:inform("debug #06.4")
---Analyse eines Trankes auf Inhalt(data)
+	--Analyse eines Trankes auf Inhalt(data)
 	pList={59,165,166,167,327,328,329,330};
 	local textDE = nil;
 	local textEN = nil;
@@ -478,18 +477,13 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
         textDE, textEN = ds_analyse_330(Caster,TargetItem)
 			end
 
-  	Caster:learn(6,"exquirere",3,100)
+		Caster:learn(6,"exquirere",3,100)
 
 		end
 	end
 	if textDE then
-    if Caster:getPlayerLanguage() == 0 then
-		  Caster:inform("#b|0|0|".."In der Flasche befindet sich "..textDE)
-	  else
-	    Caster:inform("#b|0|0|".."The bottle contains "..textEN)
-    end
-  else
- 	  base.common.InformNLS(Caster,"Das ist kein Druiden-Trank","This is not a potion");
+		base.common.InformNLS(Caster, "In der Flasche befindet sich "..textDE, "The bottle contains "..textEN);
+	else
+		base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 	end
-
 end

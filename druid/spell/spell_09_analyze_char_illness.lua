@@ -9,11 +9,11 @@ module("druid.spell.spell_09_analyze_char_illness", package.seeall)
 -- INSERT INTO spells VALUES (2^9,3,'druid.spell.spell_09_analyze_char_illness');
 
 function CastMagic(Caster,counter,param,ltstate)
---Caster:inform("debug #32.1")  
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Charakter benutzen.", "You have to use this analyzing spell with a character.");
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
---Caster:inform("debug #32.2")
+	--Caster:inform("debug #32.2")
 	if Caster:getSkill("exquirere")>50 then	 
 		--Analyse TargetChar auf Viruskrankheiten  
 	  if ft == nil then
@@ -81,9 +81,9 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
---Caster:inform("debug #32.3")    
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Charakter benutzen.", "You have to use this analyzing spell with a character.");
 end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
---Caster:inform("debug #32.4")    
+	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Charakter benutzen.", "You have to use this analyzing spell with a character.");
 end
