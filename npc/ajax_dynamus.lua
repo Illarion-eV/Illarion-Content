@@ -193,12 +193,11 @@ function Price(id)
 
 	local myitem = world:getItemStatsFromId(id);
 
-	return myitem.worth;
---[[	if (myitem.id == nil) then
+	if (myitem.id == nil) then
 	    return 0;
 	else
 		return myitem.Worth;
-	end ]]--
+	end
 
 end
 
