@@ -193,13 +193,12 @@ function Price(id)
 
 	local myitem = world:getItemStatsFromId(id);
 
-    thisNPC:talk(CCharacter.say,"Item has the id"..myitem.id);
-
-	if (myitem.Worth == nil) then
+	return myitem.worth;
+--[[	if (myitem.id == nil) then
 	    return 0;
 	else
 		return myitem.Worth;
-	end
+	end ]]--
 
 end
 
