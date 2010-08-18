@@ -191,12 +191,18 @@ end
 
 function Price(id)
 
-	local myitem = world:getItemStatsFromId(id);
+	myitem = world:getItemStatsFromId(id);
 
-	if (myitem.id == nil) then
+	if  not Initialized then
+	    Initialized = true;
+	    thisNPC:talk(CCharacter.say,"item verlangt "..id);
+	    thisNPC:talk(CCharacter.say,"item bekommen "..myitem.id);
+	end
+
+	if (myitem.worth == nil) then
 	    return 0;
 	else
-		return myitem.Worth;
+		return myitem.worth;
 	end
 
 end
