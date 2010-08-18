@@ -8,7 +8,7 @@ module("item.id_3110_scroll", package.seeall)
 
 function LookAtItem(User,Item)
     --abarbeitung der Aufträge
-    local order = Order:fromItem(Item);
+    local order = base.orders.Order:fromItem(Item);
     if ( order ~= nil ) then
         world:itemInform(User,Item,order:lookAt(User));
         return;
