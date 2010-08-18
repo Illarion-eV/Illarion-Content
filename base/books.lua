@@ -16,7 +16,7 @@ end
 function InitTitle()
     if (gBookTitle==nil) then
         gBookTitle={{}};
-        eBookTitle={{}};
+        eBookTitle={};
         return true
     else
         return false
@@ -83,10 +83,12 @@ end
 
 function GetBookItemInform(User,Item)
     if (User:getPlayerLanguage()==0) then
-        if (gBookTitle == Item.id) then
+        if (gBookTitle[Item.data] == nil) then
         	world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0));
+
         else
         	world:itemInform(User,Item,"Du siehst "..gBookTitle);
+
         end
     else
         if (eBookTitle[Item.data] == nil) then
