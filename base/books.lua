@@ -83,7 +83,7 @@ end
 
 function GetBookItemInform(User,Item)
     if (User:getPlayerLanguage()==0) then
-        if (gBookTitle[Item.id][Item.data] == nil) then
+        if (gBookTitle[ItemID][DataValue] == nil) then
         	world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0));
 
         else
