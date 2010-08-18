@@ -128,7 +128,6 @@ function GCraft:FindRandomItem(User)
 	
 	if (self.Treasure > 0) then
 		local rand = math.random(10000);
-		User:inform("Treasure rand: "..rand.."|"..self.Treasure);
 		if(rand < self.Treasure) and base.treasure.createMap(User) then
 			base.common.InformNLS(User, self.TreasureMsg[1], self.TreasureMsg[2]);
 			return false
@@ -138,7 +137,6 @@ function GCraft:FindRandomItem(User)
 	if (table.maxn(self.Monsters) > 0) then
 		local ra = math.random(table.maxn(self.Monsters));
 		local pa = math.random(10000);
-		User:inform("chosen monster: "..ra.." (id: " .. self.Monsters[ra].MonsterID .. ") rand: "..pa.."/"..self.Monsters[ra].Probability);
 		if(pa < self.Monsters[ra].Probability) then
 			local TargetPos = base.common.GetFrontPosition(User);
 			world:createMonster(self.Monsters[ra].MonsterID, TargetPos, 20);
@@ -156,7 +154,6 @@ function GCraft:FindRandomItem(User)
 	if(table.maxn(self.RandomItems) > 0) then
 		local p = math.random(100000);
 		for it = 1, table.maxn(self.RandomItems), 1 do
-			User:inform("id: "..self.RandomItems[it].ID.." rand: "..p.." min: "..self.RandomItems[it].MinProb.." max: "..self.RandomItems[it].MaxProb);
 			if(p >= self.RandomItems[it].MinProb and p <= self.RandomItems[it].MaxProb) then
 				if (self.RandomItems[it].MessageDE ~= nil) and (self.RandomItems[it].MessageEN ~= nil) then
 					base.common.InformNLS(User, self.RandomItems[it].MessageDE, self.RandomItems[it].MessageEN);
