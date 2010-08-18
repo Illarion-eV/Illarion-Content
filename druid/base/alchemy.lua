@@ -2,22 +2,48 @@
 
 -- PFLANZENLISTE:
 
--- 133 Sonnenkraut                15 / 9001 / 81 "Einblï¿½ttrige Vierbeere" / "oneleaved fourberry"
--- 134 Vierblï¿½ttrige Einbeere     16 / 9002 / 72 "Blaue Vogelbeere" / "blue birdsberry"
--- 135 Gelbkraut                  17 / 9003 / 63 "Schwefelkraut" / "sulfur weed"
--- 136 Wutbeere                   18 / 9004 / 48 "Frommbeere" / "pious berry"
--- 137 Flamkelchblï¿½te             25 / 9005 / 53 "Wasserblï¿½te" / "water blossom"
+-- 133 Sonnenkraut / sun herb						15				
+-- 134 Vierblättrige Einbeere / fourleafed oneberry	16		
+-- 135 Gelbkraut / yellow weed						17											
+-- 136 Wutbeere / anger berry						18											
+-- 137 Flammenkelchblüte / flamegoblet blossom		25					
+-- 138 Nachtengelsblüte / night angels blossom		26					
+-- 140 Donfblatt / donf blade						27											
+-- 141 Schwarze Distel / black thistle				28								
+-- 142 Sandbeere / sandberry						35											
+-- 144 Jungfernkraut / virgins weed					37									
+-- 145 Heideblüte / heath flower					38										
+-- 146 Wüstenhimmelskapsel / desert sky capsule		45				
+-- 148 Firnisblüte / firnis blossom					47										
+-- 152 Lebenswurz / life root						51											
+-- 153 Fussblatt / foot leaf						52												
+-- 156 Steppenfarn / steppe fern					61							
+
+-- 158 Knollenschwammpilz / bulbsponge mushroom		82	
+-- 159 Fliegenpilz / toadstool							
+-- 160 Rotköpfchen / red head							
+-- 161 Hirtenpilz / herders mushroom					
+-- 162 Geburtspilz / birth mushroom						
+			
+-- 752 Alraune / mandrake							74						
+-- 753 Blaue Vogelbeere / blue birdsberry			72							
+-- 754 einblättrige Vierbeere / oneleaved fourberry	81				
+-- 755 Feuerwurz / fire root						62												
+-- 756 Frommbeere / pious berry						48																	
+-- 757 Gottesblume / godsflower						84											
+				
+-- 760 Rauchblatt / reek leave						71											
+-- 761 Regenkraut	/ rainweed						83											
+-- 762 Schwefelgras / sulfur weed					63										
+-- 763 Sumpfblume / marsh flower										
+-- 767 Wasserblume / water blossom					53									
+-- 768 Wolfsfarn / wolverine fern                   54
+
+
 -- 138 Nachtengelsblï¿½te           26 / 9006 / 64 "Tagteufel" / "daydevil"
--- 140 Donfblatt                  27 / 9007 / 71 "Rauchblatt" / "reek leave"
 -- 141 Schwarze Distel            28 / 9008 / 73 "Graue Distel" / "grey thistle"
--- 142 Sandbeere                  35 / 9009 / 82 "Wï¿½stenbeere" / "desert berry"
--- 144 Jungfernkraut              37 / 9010 / 74 "Altweiberkraut" / "gossamer weed"
--- 145 Heideblï¿½te                 38 / 9011 / 83 "Regenkraut" / "rain weed"
--- 146 Wï¿½stenhimmelskapsel        45 / 9012 / 84 "Gottesblume" / "godsflower"
 -- 148 Firnisblï¿½te                47 / 9014 / 46 "Trugblï¿½te" / "con blossom"
--- 152 Lebenswurz                 51 / 9013 / 62 "Feuerwurz" / "Fire root"
 -- 153 Fussblatt                  52 / 9016 / 36 "Wiesen-Rhabarber" / "meadow rhabarb"
--- 156 Steppenfarn                61 / 9015 / 54 "Wolfsfarn" / "wolverine fern"
 
 module("druid.base.alchemy", package.seeall)
 
