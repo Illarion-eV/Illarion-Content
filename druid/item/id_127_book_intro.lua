@@ -93,8 +93,8 @@ end
 function LookAtItem( User, Item )
 --User:inform("debug 127-4")
 	if base.books.InitTitle() then
-      base.books.AddGermanBookTitle("Buch mit dem Titel \"Druiden-Almanach Band 2\"",127,0);
-      base.books.AddEnglishBookTitle("Book with the title \"Alchemy 2\"",127,0);
+      base.books.AddGermanBookTitle("Buch mit dem Titel \"Druiden-Almanach Band 1\"",127,0);
+      base.books.AddEnglishBookTitle("Book with the title \"Alchemy 1\"",127,0);
 	end
 	base.books.GetBookItemInform(User,Item);
 end
