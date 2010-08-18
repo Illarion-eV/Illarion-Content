@@ -95,15 +95,15 @@ end
 
 function LookAtItem(User,Item)
     if (Item.data == 55555555) then
-        world:ItemInform( User, Item, base.common.GetNLS( User,
+        world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Druidentrunk\"",
         "You look at a sticker telling: \"Druids drink \"" ) );
     elseif (Item.data == 0) then
-        world:ItemInform( User, Item, base.common.GetNLS( User,
+        world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Heiltrank\"",
         "You look at a sticker telling: \"Healing Potion \"" ) );
     else
-        world:ItemInform( User, Item, base.common.GetNLS( User,
+        world:itemInform( User, Item, base.common.GetNLS( User,
         "Du siehst ein Flaschenetikett mit der Aufschrift: \"Kräutersud\"",
         "You look at a sticker telling: \"Herbage Broth\"" ) );
     end
