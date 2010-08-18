@@ -23,11 +23,11 @@ function InitTitle()
     end
 end
 
-function AddGermanBookTitle(Title,DataValue)
+function AddGermanBookTitle(Item,Title,DataValue)
     gBookTitle[Item][DataValue] = Title;
 end
 
-function AddEnglishBookTitle(Title,DataValue)
+function AddEnglishBookTitle(Item,Title,DataValue)
     eBookTitle[Item][DataValue] = Title;
 end
 
