@@ -89,7 +89,7 @@ function GetBookItemInform(User,Item)
         	    world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0));
         	end
         else
-        	world:itemInform(User,Item,"Du siehst "..gBookTitle[Item.id][Item.data]);
+        	world:itemInform(User,Item,"Du siehst "..gBookTitle);
 
         end
     else
