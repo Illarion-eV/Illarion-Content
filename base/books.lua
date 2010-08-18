@@ -24,23 +24,23 @@ function InitTitle()
 end
 
 function AddGermanBookTitle(Title,DataValue)
-    gBookTitle[DataValue] = Title;
+    gBookTitle[Item][DataValue] = Title;
 end
 
 function AddEnglishBookTitle(Title,DataValue)
-    eBookTitle[DataValue] = Title;
+    eBookTitle[Item][DataValue] = Title;
 end
 
 function AddGermanBookText(Text,ItemID,Diff,DataValue)
-    if (gBookText[DataValue] == nil) then
-        gBookText[DataValue] = {};
+    if (gBookText[Item][DataValue] == nil) then
+        gBookText[Item][DataValue] = {};
     end
-    AddToTable(gBookText[DataValue],Text,ItemID,Diff)
+    AddToTable(gBookText[Item][DataValue],Text,ItemID,Diff)
 end
 
 function AddEnglishBookText(Text,ItemID,Diff,DataValue)
-    if (eBookText[DataValue] == nil) then
-        eBookText[DataValue] = {};
+    if (eBookText[Item][DataValue] == nil) then
+        eBookText[Item][DataValue] = {};
     end
     AddToTable(eBookText[DataValue],Text,ItemID,Diff)
 end
@@ -52,9 +52,9 @@ end
 function SendBookPage(User,DataVal,Counter)
     local BookTexts=nil;
     if (User:getPlayerLanguage()==0) then
-        BookTexts=gBookText[DataVal];
+        BookTexts=gBookText[Item][DataVal];
     else
-        BookTexts=eBookText[DataVal];
+        BookTexts=eBookText[Item][DataVal];
     end
     if (BookTexts == nil) then
         User:inform("#b|1|0| ");
