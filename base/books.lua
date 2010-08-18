@@ -23,24 +23,24 @@ function InitTitle()
     end
 end
 
-function AddGermanBookTitle(Item,Title,DataValue)
-    gBookTitle[Item][DataValue] = Title;
+function AddGermanBookTitle(Title,DataValue)
+    gBookTitle[DataValue] = Title;
 end
 
-function AddEnglishBookTitle(Item,Title,DataValue)
-    eBookTitle[Item][DataValue] = Title;
+function AddEnglishBookTitle(Title,DataValue)
+    eBookTitle[DataValue] = Title;
 end
 
 function AddGermanBookText(Text,ItemID,Diff,DataValue)
-    if (gBookText[Item][DataValue] == nil) then
-        gBookText[Item][DataValue] = {};
+    if (gBookText[DataValue] == nil) then
+        gBookText[DataValue] = {};
     end
     AddToTable(gBookText[DataValue],Text,ItemID,Diff)
 end
 
 function AddEnglishBookText(Text,ItemID,Diff,DataValue)
-    if (eBookText[Item][DataValue] == nil) then
-        eBookText[Item][DataValue] = {};
+    if (eBookText[DataValue] == nil) then
+        eBookText[DataValue] = {};
     end
     AddToTable(eBookText[DataValue],Text,ItemID,Diff)
 end
@@ -49,7 +49,7 @@ function AddLanguage(Skillname,BookID)
     BookLang[BookID] = Skillname;
 end
 
-function SendBookPage(User,Item,DataVal,Counter)
+function SendBookPage(User,DataVal,Counter)
     local BookTexts=nil;
     if (User:getPlayerLanguage()==0) then
         BookTexts=gBookText[DataVal];
