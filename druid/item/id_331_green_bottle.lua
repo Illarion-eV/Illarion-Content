@@ -21,7 +21,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     local msg = base.common.GetNLS( User,
-	"Du hast nicht das Gefï¿½hl, als ob irgend etwas passiert sei.",
+	"Du hast nicht das Gefühl, als ob irgend etwas passiert sei.",
 	"You don't feel anything happend at all." );
 
     if (SourceItem.data == 55555555) then
