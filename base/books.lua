@@ -19,9 +19,9 @@ function InitTitle(ItemID)
         eBookTitle={};
 		return true
 	end
-	if(gBookTitle[ItemID] == nil) then
-		gBookTitle[ItemID] = {};
-		eBookTitle[ItemID] = {};
+	if(gBookTitle[Item.id][Item.data] == nil) then
+		gBookTitle[Item.id][Item.data] = {};
+		eBookTitle[Item.id][Item.data] = {};
 	end
 end
 
