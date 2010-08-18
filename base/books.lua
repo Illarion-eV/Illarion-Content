@@ -13,14 +13,16 @@ function InitBook()
     end
 end
 
-function InitTitle()
+function InitTitle(ItemID)
     if (gBookTitle==nil) then
-        gBookTitle={{}};
+        gBookTitle={};
         eBookTitle={};
-        return true
-    else
-        return false
-    end
+		return true
+	end
+	if(gBookTitle[ItemID] == nil) then
+		gBookTitle[ItemID] = {};
+		eBookTitle[ItemID] = {};
+	end
 end
 
 function AddGermanBookTitle(Title,ItemID,DataValue)
@@ -28,7 +30,7 @@ function AddGermanBookTitle(Title,ItemID,DataValue)
 end
 
 function AddEnglishBookTitle(Title,ItemID,DataValue)
-    eBookTitle[DataValue] = Title;
+    eBookTitle[ItemID][DataValue] = Title;
 end
 
 function AddGermanBookText(Text,ItemID,Diff,DataValue)
@@ -87,11 +89,11 @@ function GetBookItemInform(User,Item)
         	world:itemInform(User,Item,"Du siehst "..world:getItemName(Item.id,0));
 
         else
-        	world:itemInform(User,Item,"Du siehst "..gBookTitle);
+        	world:itemInform(User,Item,"Du siehst "..gBookTitle[Item.id][Item.data]);
 
         end
     else
-        if (eBookTitle[Item.data] == nil) then
+        if (eBookTitle[Item.id][Item.data] == nil) then
             world:itemInform(User,Item,"You see "..world:getItemName(Item.id,1));
         else
             world:itemInform(User,Item,"You see "..eBookTitle[Item.id][Item.data]);
