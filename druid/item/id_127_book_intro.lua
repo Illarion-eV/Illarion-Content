@@ -12,7 +12,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 --User:inform("debug 127-1")
    if base.books.InitBook() then
  base.books.AddLanguage("common language",0);
-      base.books.AddGermanBookText("Druiden-Almanach\n\nBuch 1\n\nEinfï¿½hrung in das Druidentum",0,0,0);
+      base.books.AddGermanBookText("Druiden-Almanach\n\nBuch 1\n\nEinführung in das Druidentum",0,0,0);
       base.books.AddGermanBookText("Vorwort\n\nMein halbes Leben lang habe ich mich der Erforschung der Geheimnisse des Druidentums gewidmet. Zahllose Nï¿½chte verbrachte ich ï¿½ber uralten Formeln, experimentierte mit weitgehend bekannten und unbekannten Substanzen und suchte nach den Formeln und Regeln, nach denen die gï¿½ttliche Natur die Bausteine des Lebens und Wirkens zusammensetzt.",0,0,0);
       base.books.AddGermanBookText("In diesen Bï¿½chern, die zusammengenommen den Druiden-Almanach darstellen, habe ich mein Wissen niedergelegt, auf das kommende Generationen ihren Nutzen daraus ziehen und die hohe Kunst der Alten aufs Neue beleben werden. Und obwohl ich am Ende meiner Tage angelangt, auf ein durchaus beachtliches Wissen zurückblicke, bleiben manche Dinge im Dunkeln, schemenhaft und vage.",0,0,0);
       base.books.AddGermanBookText("Man mag mir verzeihen, wenn ich eingestehe:\nIch weiï¿½ alles - ich weiï¿½ nichts!",0,0,0);
@@ -93,8 +93,8 @@ end
 function LookAtItem( User, Item )
 --User:inform("debug 127-4")
 	if base.books.InitTitle() then
-      base.books.AddGermanBookTitle("Buch mit dem Titel \"Druiden-Almanach Band 2\"",0);
-      base.books.AddEnglishBookTitle("Book with the title \"Alchemy 2\"",0);
+      base.books.AddGermanBookTitle("Buch mit dem Titel \"Druiden-Almanach Band 2\"",127,0);
+      base.books.AddEnglishBookTitle("Book with the title \"Alchemy 2\"",127,0);
 	end
 	base.books.GetBookItemInform(User,Item);
 end
