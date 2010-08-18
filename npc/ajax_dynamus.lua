@@ -175,7 +175,10 @@ end
 
 function receiveText(texttype, message, originator)
     if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-    	myOrderNPC:receiveText(originator,message);
+		if (string.find(message, "hammertime")) then
+		    Price(23); --lookup price of hammer
+		end
+		myOrderNPC:receiveText(originator,message);
         npc.base.autonpcfunctions.TellSmallTalk(message,originator);
 	end  
 end
