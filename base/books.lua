@@ -32,15 +32,15 @@ function AddEnglishBookTitle(Title,DataValue)
 end
 
 function AddGermanBookText(Text,ItemID,Diff,DataValue)
-    if (gBookText[DataValue] == nil) then
-        gBookText[DataValue] = {};
+    if (gBookText[Item][DataValue] == nil) then
+        gBookText[Item][DataValue] = {};
     end
     AddToTable(gBookText[DataValue],Text,ItemID,Diff)
 end
 
 function AddEnglishBookText(Text,ItemID,Diff,DataValue)
-    if (eBookText[DataValue] == nil) then
-        eBookText[DataValue] = {};
+    if (eBookText[Item][DataValue] == nil) then
+        eBookText[Item][DataValue] = {};
     end
     AddToTable(eBookText[DataValue],Text,ItemID,Diff)
 end
