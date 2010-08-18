@@ -1,14 +1,13 @@
--- spell_xx_combine_gem.lua / Rune 6
+-- spell_10_combine_gem.lua / Rune 6
 -- Druidensystem
 -- Blay09
--- TODO: RunenID festlegen
 
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.spell.spell_xx_combine_gem", package.seeall(druid.base.alchemy))
+module("druid.spell.spell_10_combine_gem", package.seeall(druid.base.alchemy))
 
--- INSERT INTO spells VALUES (2^x,3,'druid.spell.spell_xx_combine_gem');
+-- INSERT INTO spells VALUES (2^10,3,'druid.spell.spell_10_combine_gem');
 
 function CastMagic(Caster,counter,param,ltstate)
 	base.common.InformNLS(Caster, "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.", "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.");
