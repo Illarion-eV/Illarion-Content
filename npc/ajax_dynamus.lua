@@ -166,8 +166,8 @@ Wed Aug 18 00:33:33 2010: ...usr/share/servers/testserver/scripts/base/orders.lu
 #4 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:382(method createOrder)
 #5 called by: ...usr/share/servers/testserver/scripts/base/orders.lua:405(method nextCycle)
 #6 called by: ...hare/servers/testserver/scripts/npc/ajax_dynamus.lua:161
-]]
-        -- myOrderNPC:nextCycle();
+]] --
+        myOrderNPC:nextCycle();
     end
    
 end
@@ -806,6 +806,6 @@ end
 
 function AddItemToPool(pool,myOrderNPC,nid,ntime,nchance,nmincount,nmaxcount)
    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-	myOrderNPC.orderPool:addItemToPool(pool,npc.base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
+	myOrderNPC.orderPool:addItemToPool(pool,base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
 	return;   
 end

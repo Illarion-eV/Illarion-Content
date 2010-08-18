@@ -790,6 +790,6 @@ end
 
 function AddItemToPool(pool,myOrderNPC,nid,ntime,nchance,nmincount,nmaxcount)
    --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
-	myOrderNPC.orderPool:addItemToPool(pool,npc.base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
+	myOrderNPC.orderPool:addItemToPool(pool,base.orders.OrderPoolItem(nid, 1,0.25*Price(nid),ntime,nchance,nmincount,nmaxcount,0.05*Price(nid)));
 	return;   
 end
