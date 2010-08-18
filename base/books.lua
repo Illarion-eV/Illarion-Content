@@ -13,15 +13,13 @@ function InitBook()
     end
 end
 
-function InitTitle(ItemID)
+function InitTitle()
     if (gBookTitle==nil) then
         gBookTitle={};
         eBookTitle={};
 		return true
-	end
-	if(gBookTitle[Item.id][Item.data] == nil) then
-		gBookTitle[Item.id][Item.data] = {};
-		eBookTitle[Item.id][Item.data] = {};
+	else
+		return false
 	end
 end
 
