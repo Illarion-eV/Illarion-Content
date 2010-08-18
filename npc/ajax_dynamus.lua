@@ -200,12 +200,12 @@ function Price(id)
 	myitem = world:getItemStatsFromId(id);
 
 	thisNPC:talk(CCharacter.say,"item verlangt "..id);
-	thisNPC:talk(CCharacter.say,"item wert "..myitem.worth);
+	thisNPC:talk(CCharacter.say,"item wert "..myitem.Worth);
 
-	if (myitem.worth == nil) then
+	if (myitem.Worth == nil) then
 	    return 0;
 	else
-		return myitem.worth;
+		return myitem.Worth;
 	end
 
 end
