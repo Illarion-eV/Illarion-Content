@@ -654,7 +654,8 @@ function receiveText(texttype, message, speaker)
     else
 		if not (mainNPC:receiveText(speaker, message)) then --look whether the received message got handled by the default npc responses,
 															--if not, lookup in the order script for further responses
-			myOrderNPC:receiveText(originator,message);
+			myOrderNPC:receiveText(speaker,message);
+			speaker:inform("in order receive");
 		end
 	end
  end
