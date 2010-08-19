@@ -686,6 +686,7 @@ function receiveText(texttype, message, speaker)
 	or string.find(message,"[Dd]eliver.+[Ww]ares")~=nil then
     	myOrderNPC:checkOrder(speaker);
     else
+		   mainNPC:receiveText(speaker, message);
 		myOrderNPC:receiveText(speaker,message);
 	end
  end
