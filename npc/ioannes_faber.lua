@@ -686,11 +686,7 @@ function receiveText(texttype, message, speaker)
 	or string.find(message,"[Dd]eliver.+[Ww]ares")~=nil then
     	myOrderNPC:checkOrder(speaker);
     else
-		if not (mainNPC:receiveText(speaker, message)) then --look whether the received message got handled by the default npc responses,
-															--if not, lookup in the order script for further responses
-			myOrderNPC:receiveText(speaker,message);
-			speaker:inform("in order receive");
-		end
+		myOrderNPC:receiveText(speaker,message);
 	end
  end
  
