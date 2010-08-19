@@ -90,6 +90,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		else
 			User:inform("file not found");
 		end
+	elseif (string.find(User.lastSpokenText,"attack2")~=nil) then
+	    User:performAnimation(6); -- 6, 7(bow), 
+	elseif (string.find(User.lastSpokenText,"attack")~=nil) then
+	    User:performAnimation(5); -- 6, 7(bow), 
+	elseif (string.find(User.lastSpokenText,"bow")~=nil) then
+	    User:performAnimation(7); -- 6, 7(bow), 
+	elseif (string.find(User.lastSpokenText,"cast")~=nil) then
+	    User:performAnimation(11); -- 6, 7(bow), 
+	elseif (string.find(User.lastSpokenText,"smith")~=nil) then
+	    User:performAnimation(14);
 	else
         for i,value in pairs(Location) do
             if (string.find(User.lastSpokenText,value))~=nil then
