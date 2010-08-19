@@ -295,10 +295,6 @@ function OrderNPC:receiveText(who,text)
         end
     end
     
-    if (string.find(text,"[Hh]elp") or string.find(text,"[Hh]ilfe") ) then
-        base.common.InformNLS(who,"#w [Spielhilfe] 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.", "#w [Game Help] 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'.");
-	end
-    
     local number = -1;
     for i, ttext in pairs(self.triggerGetOrder) do
         if ( string.find(text,ttext) ) then

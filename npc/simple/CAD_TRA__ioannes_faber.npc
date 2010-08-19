@@ -37,8 +37,8 @@ radius = 0
 -- Dialogues by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer.")
+"Help" -> inform("#w [Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'.")
+"Hilfe" -> inform("#w [Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Hail and may Malachin bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
@@ -58,7 +58,7 @@ radius = 0
 "what sell", "what buy", "list wares", "price of" -> "I'm not a trader, I am the royal treasurere. If you obey the orders of the queen, you might get a reward."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer. Wenn ihr den Befehlen der Königin gehorcht, dann werdet ihr vielleicht entlohnt."
 "tell something" -> "Let me tell you something: A whip can make people work. But a crown makes them obey."
-"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krone bringt sie dazu, zu gehorchen."
+"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohbbn 78t87z6tdf4r5gtb fr u8ik,ikjhn6tzbnjmujmdgtbn 08976´ß0ne bringt sie dazu, zu gehorchen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "treasurer", "treasury" -> "The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber."

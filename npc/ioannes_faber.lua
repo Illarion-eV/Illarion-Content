@@ -30,6 +30,40 @@ function initOrders()
     myOrderNPC = base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
     myOrderNPC.generationTime={min=1,max=3}; --every 1-10 minutes a new order gets created
+
+
+
+	myOrderNPC.textOrderSay = { {ger="Kommt her, ich habe einen Auftrag ihrer Majestät, den es zu erfüllen gilt.",eng="Come over here. I have one order of her majesty that has to be fulfilled."},{ger="Kommt her, ich habe %d Aufträge ihrer Majestät, die es zu erfüllen gilt.",eng="Come over here. I have %d orders of her majesty that have to be fulfilled."} };
+	myOrderNPC.timeOrderSay = {min=5,max=15};
+	myOrderNPC.timeOrderCycle = -1;
+	myOrderNPC.textFalseNPC.ger = "Lasst mich mit den Aufträgen anderer in Frieden. Ich kümmere mich nur um die Schatzkammer Cadomyrs.";
+	myOrderNPC.textFalseNPC.eng = "Leave me alone with orders of others. I only take care of the treasury of Cadomyr.";
+	myOrderNPC.textNoItems.ger = "Ihr kommt zu mir mit leeren Händen. Würdet ihr es wagen, so der Königin gegenüberzutreten?";
+	myOrderNPC.textNoItems.eng = "You come to me with bare hands. Would you dare to face the queen like this?";
+	myOrderNPC.textSomeItems.ger = "Steter Tropfen höhlt den Stein - aber euer Auftrag ist noch nicht erledigt.";
+	myOrderNPC.textGetSomeItems.ger = "Ah, gut, die Königin wird erfreut sein. Aber nun hurtig, es fehlt noch etwas.";
+	myOrderNPC.textGetSomeItems.eng = "Ah, good, the queen will be pleased. But hurry now, some things are lacking.";
+	myOrderNPC.textSomeItems.eng = "Constant  dripping  wears  away  the  stone. But the order is not fulfilled yet.";
+	myOrderNPC.textQualityLess.ger = "Ihr wagt es, diese Schund anzuschleppen? Hier, nehmt %d Goldstücke, %d Silberstücke und %d Kupferstücke. Aus meinen Augen!";
+	myOrderNPC.textQualityLess.eng = "You dare to bring this scrap to me? Here, have %d gold coins, %d silver coins and %d copper coins. Out of my sight!";
+	myOrderNPC.textTimeOver.ger = "Was wagt ihr es, bei einem Auftrag der Königin zu trödeln! Ich kann euch bei solch flegelhaften Verhalten nur %d Goldstücke, %d Silberstücke und %d Kupferstücke geben.";
+	myOrderNPC.textTimeOver.eng = "How dare you to dawdle during an order of the queen! With such a behaviour, I can only give you %d gold coins, %d silver coins and %d copper coins.";
+	myOrderNPC.textBoth.ger = "Ich bin außer mir! Ihr bringt mir Schund, wohlmöglich noch aus Galmair, und das lange nachdem es der Königin recht wäre. Hier, %d Goldstücke, %d Silberstücke und %d Kupferstücke und lasst euch hier nicht so bald wieder blicken.";
+	myOrderNPC.textBoth.eng = "I am furious! You bring gewgaw, probably from Galmair, and that later than the queen was demanding. Here, %d gold coins, %d silver coins and %d copper coins. Get lost!";
+	myOrderNPC.textNotOk.ger = "So recht zufrienstellen konntet ihr mich und die Königin nicht, aber kein Grund, euch nicht zu entlohnen.";
+	myOrderNPC.textNotOk.eng = "You could not quite please me and the queen, but that is not a reason not to reward you.";
+	myOrderNPC.textOk.ger = "Großartig! Die Königin wird erfreut sein. Ich kann euch großzügig entlohnen.";
+	myOrderNPC.textOk.eng = "Great! The queen will be amused. I can reward you generously.";
+	myOrderNPC.textGetOrder.ger = "Nehmt diesen Befehl und beeilt euch mit dem Zusammentragen der Waren.";
+	myOrderNPC.textGetOrder.eng = "Take this order and hurry while gathering the goods.";
+	myOrderNPC.textRetentionPeriod.ger = "Mir wurde zugetragen, dass ihr nicht integer genug seit, um mit einem Auftrag ihrer Majestät betraut zu werden."
+	myOrderNPC.textRetentionPeriod.eng = "I was told that your integrity is not sufficient to be entrusted with an order of her majesty.";
+	myOrderNPC.textNotThrustworthy.ger = "Schlechter Leumund eilt euch vorraus. Ich denke nicht, dass ich euch einen Auftrag der Königin anvertrauen kann.";
+	myOrderNPC.textNotThrustworthy.eng = "The bad reputation of yours came here in advance. I doubt I can entrust you an order of the queen.";
+	myOrderNPC.textBoni.ger = "Die Königin hat mich autorisiert, euch ein kleines Zubrot für ergebene Dienste zuzuteilen.";
+	myOrderNPC.textBoni.eng = "The queen authorised me to grant you a small extra income for your good services.";
+
+
     --npc.base.orders.OrderPoolItem(nid,nnumber,nprice,ntime,nchance,nmincount,nmaxcount,nmincoins)
 
 
@@ -118,13 +152,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("#w [Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keyphrases: Be greeted, treasurer, 'Do you have any orders for me?', 'I want to see order <number>', 'I want to get order <number>'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("#w [Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
