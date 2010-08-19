@@ -682,6 +682,7 @@ function receiveText(texttype, message, speaker)
  if (thisNPC:isInRange(speaker, 2)) then -- first look whether the player is within range and wants to deliver parts of the delivery
     if string.find(message,"[Gg]egenstände.+liefern")~=nil or string.find(message,"[Dd]eliver.+[Ii]tems")~=nil
 	or string.find(message,"[Dd]eliver.+good")~=nil or string.find(message, "[Ww]are.+[Ll]iefer")~=nil
+	or string.find(message,"[Dd]elivery")~=nil or string.find(message, "[Ll]ieferung")~=nil
 	or string.find(message,"[Ww]are.+abgeben")~=nil or string.find(message,"[Gg]egenstände.+abgeben")~=nil
 	or string.find(message,"[Dd]eliver.+[Ww]ares")~=nil then
     	myOrderNPC:checkOrder(speaker);
