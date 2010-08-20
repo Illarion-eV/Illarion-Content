@@ -105,7 +105,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    if world:isCharacterOnField(position(134,590,0)) then
 	        User:inform("now assigning hemad");
             theNPC=world:getCharacterOnField(position(134,590,0));
-            theNPC:createAtPos(3,815);
+            theNPC:createAtPos(3,815,1);
             User:inform("done");
 	    end
 	else
