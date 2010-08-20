@@ -102,76 +102,99 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:performAnimation(14);
 	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
 	    -- equip NPC
-	        body={4, 101, 180, 181, 182, 2402, 2360};
-            feet={52, 369, 326};
-            legs={183, 459, 460, 461, 825, 2111};
-            head={7,16, 94, 187, 357, 358};
-            hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626};
-            hand2={17, 96};
-            coat={55, 193, 194, 195, 196, 368, 2377, 2416, 2421};
+        body={4, 101, 180, 181, 182, 2402, 2360};
+        feet={52, 369, 326};
+        legs={183, 459, 460, 461, 825, 2111};
+        head={7,16, 94, 187, 357, 358};
+        hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626};
+        hand2={17, 96};
+        coat={55, 193, 194, 195, 196, 368, 2377, 2416, 2421};
 
-  posList={};
+        posList={position(790,5,0),position(44,63,97),position(780,5,0),position(720,10,0),position(730,10,0),
+                 position(725,10,0),position(720,15,0),position(700,10,0),position(700,5,0),position(710,15,0),
+                 position(700,15,0),position(800,10,0),position(760,10,0),position(765,10,0),position(780,10,0),
+                 position(795,10,0),position(750,10,0),position(790,10,0),position(785,10,0),position(770,10,0),
+                 position(775,10,0),position(720,5,0),position(715,10,0),position(755,10,0),position(705,5,0),
+                 position(710,5,0),position(710,10,0),position(795,5,0),position(800,5,0),position(735,10,0),
+                 position(43,34,50),position(785,5,0),position(10,6,30),position(-371,74,0),position(38,21,100),
+                 position(37,81,100),position(48,96,100),position(66,36,101),position(42,49,100),
+                 position(120,103,100),position(168,19,100),position(169,108,100),position(68,62,100),
+                 position(49,49,100),position(112,63,100),position(110,103,100),position(120,160,100),
+                 position(112,171,100),position(715,5,0),position(775,5,0),position(745,10,0),position(725,15,0),
+                 position(75,80,100),position(44,67,50),position(-489,-488,-40),position(119,601,0),position(124,581,0),
+                 position(123,549,0),position(404,263,1),position(705,10,0),position(133,581,0),position(119,594,0),
+                 position(110,574,0),position(134,590,0),position(113,599,0),position(112,596,0),position(439,359,0),
+                 position(392,160,-3),position(920,659,0),position(791,798,0),position(832,107,0),position(359,692,0),
+                 position(783,462,0),position(46,686,0),position(108,585,0),position(131,585,0),position(740,400,0),
+                 position(403,282,0),position(500,505,0),position(720,175,0),position(892,761,0),position(401,242,1),
+                 position(900,768,0),position(787,795,0),position(374,216,0),position(126,575,0),position(119,590,0),
+                 position(387,261,0),position(388,336,0),position(375,251,0),position(707,484,0),position(642,456,0),
+                 position(130,624,0),position(912,813,1),position(907,804,0),position(907,794,1),position(358,235,0),
+                 position(898,775,2),position(883,634,0),position(893,799,1),position(897,794,1),position(896,816,1),
+                 position(911,798,1),position(377,266,0),position(784,772,0),position(136,625,0)};
 	    
-	    if world:isCharacterOnField(position(134,590,0)) then
-
-	        User:inform("now assigning stuff");
-	        bodyIt=body[math.random(# body)]
-	        feetIt=feet[math.random(# feet)]
-	        legIt=legs[math.random(# legs)]
-	        if math.random(10)<4 then
-	            headIt=head[math.random(# head)];
-	        end
-	        if math.random(10)<4 then
-	            hand1It=hand1[math.random(# hand1)];
-	        end
-	        if math.random(10)<4 then
-	            hand2It=hand2[math.random(# hand2)];
-	        end
-	        if math.random(10)<4 then
-	            coatIt=coat[math.random(# coat)];
-	        end
-
-            theNPC=world:getCharacterOnField(position(134,590,0));
-            
-            theNPC:increaseAtPos(1,-1);
-            theNPC:increaseAtPos(5,-1);
-            theNPC:increaseAtPos(6,-1);
-            theNPC:increaseAtPos(11,-1);
-            theNPC:increaseAtPos(3,-1);
-            theNPC:increaseAtPos(10,-1);
-            theNPC:increaseAtPos(9,-1);
-     
-            if headIt~=nil then
-                theNPC:createAtPos(1,headIt,1);
-                world:changeItem(theNPC:getItemAt(1));
-            end
+	    for i, npcPos in pairs(posList) do
+    	    if world:isCharacterOnField(npcPos) then
+    
+    	        User:inform("now assigning stuff");
+    	        bodyIt=body[math.random(# body)]
+    	        feetIt=feet[math.random(# feet)]
+    	        legIt=legs[math.random(# legs)]
+    	        if math.random(10)<4 then
+    	            headIt=head[math.random(# head)];
+    	        end
+    	        if math.random(10)<4 then
+    	            hand1It=hand1[math.random(# hand1)];
+    	        end
+    	        if math.random(10)<4 then
+    	            hand2It=hand2[math.random(# hand2)];
+    	        end
+    	        if math.random(10)<4 then
+    	            coatIt=coat[math.random(# coat)];
+    	        end
+    
+                theNPC=world:getCharacterOnField(npcPos);
                 
-            if hand1It~=nil then
-                theNPC:createAtPos(5,hand1It,1);
-                world:changeItem(theNPC:getItemAt(5));
-            end
-            if hand2It~=nil then
-                theNPC:createAtPos(6,hand2It,1);
-                world:changeItem(theNPC:getItemAt(6));
-            end
-            if coatIt~=nil then
-                theNPC:createAtPos(11,coatIt,1);
+                theNPC:increaseAtPos(1,-1);
+                theNPC:increaseAtPos(5,-1);
+                theNPC:increaseAtPos(6,-1);
+                theNPC:increaseAtPos(11,-1);
+                theNPC:increaseAtPos(3,-1);
+                theNPC:increaseAtPos(10,-1);
+                theNPC:increaseAtPos(9,-1);
+         
+                if headIt~=nil then
+                    theNPC:createAtPos(1,headIt,1);
+                    world:changeItem(theNPC:getItemAt(1));
+                end
+                    
+                if hand1It~=nil then
+                    theNPC:createAtPos(5,hand1It,1);
+                    world:changeItem(theNPC:getItemAt(5));
+                end
+                if hand2It~=nil then
+                    theNPC:createAtPos(6,hand2It,1);
+                    world:changeItem(theNPC:getItemAt(6));
+                end
+                if coatIt~=nil then
+                    theNPC:createAtPos(11,coatIt,1);
+                    world:changeItem(theNPC:getItemAt(11));
+                end
+                
+                theNPC:createAtPos(3,bodyIt,1);
+                theNPC:createAtPos(10,feetIt,1);
+                theNPC:createAtPos(9,legIt,1);
+                
                 world:changeItem(theNPC:getItemAt(11));
-            end
-            
-            theNPC:createAtPos(3,bodyIt,1);
-            theNPC:createAtPos(10,feetIt,1);
-            theNPC:createAtPos(9,legIt,1);
-            
-            world:changeItem(theNPC:getItemAt(11));
-            world:changeItem(theNPC:getItemAt(6));
-            world:changeItem(theNPC:getItemAt(5));
-            world:changeItem(theNPC:getItemAt(1));
-            world:changeItem(theNPC:getItemAt(3));
-            world:changeItem(theNPC:getItemAt(10));
-            world:changeItem(theNPC:getItemAt(9));
-
-	    end
+                world:changeItem(theNPC:getItemAt(6));
+                world:changeItem(theNPC:getItemAt(5));
+                world:changeItem(theNPC:getItemAt(1));
+                world:changeItem(theNPC:getItemAt(3));
+                world:changeItem(theNPC:getItemAt(10));
+                world:changeItem(theNPC:getItemAt(9));
+    
+    	    end
+    	end
 	else
         for i,value in pairs(Location) do
             if (string.find(User.lastSpokenText,value))~=nil then
