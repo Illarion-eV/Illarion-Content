@@ -140,17 +140,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 theNPC=world:getCharacterOnField(npcPos);
                 
                 if theNPC:increaseAttrib("sex",0)==1 then
-                    body=bodyF;
+                    bodyIt=bodyF[math.random(# bodyF)]
                 else
-                    body=bodyM;
-                end
-                
-                if npcPos.x==126 then 
-                    User:inform("hab sie. "..theNPC:increaseAttrib("sex",0));
+                    bodyIt=bodyM[math.random(# bodyM)]
                 end
                 
     	       -- User:inform("now assigning stuff");
-    	        bodyIt=body[math.random(# body)]
+    	        --bodyIt=body[math.random(# body)]
     	        feetIt=feet[math.random(# feet)]
     	        legIt=legs[math.random(# legs)]
 
