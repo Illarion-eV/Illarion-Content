@@ -110,6 +110,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             User:inform("done");
             if theNPC:getItemAt(1).id~=nil then
                 User:inform("ID on head: "..theNPC:getItemAt(1).id);
+                world:changeItem(theNPC:getItemAt(1));
+                User:inform("changed");
             end
 	    end
 	else
