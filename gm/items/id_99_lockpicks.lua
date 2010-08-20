@@ -108,6 +108,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             theNPC:createAtPos(1,832,1);
             theNPC:createAtPos(3,815,1);
             User:inform("done");
+            if theNPC:getItemAt(1).id~=nil then
+                User:inform("ID on head: "..theNPC:getItemAt(1).id);
+            end
 	    end
 	else
         for i,value in pairs(Location) do
