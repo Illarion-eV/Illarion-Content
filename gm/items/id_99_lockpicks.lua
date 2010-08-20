@@ -102,13 +102,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:performAnimation(14);
 	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
 	    -- equip NPC
-        body={4, 101, 180, 181, 182, 2402, 2360};
-        feet={52, 369, 326};
-        legs={183, 459, 460, 461, 825, 2111};
+	    
+        bodyM={4, 101, 180, 181, 182, 2402, 2360, 457, 458, 807, 808, 809, 810, 811, 812, 813, 814,815,816,817,818,819,820};
+        bodyF={4, 101, 180, 181, 182, 2402, 2360, 457, 458, 807, 808, 809, 810, 811, 812, 813, 814,815,816,817,818,819,820 ,385,800,801,802,803,804,805,806,833,834,835,836,837,838,845,846,847,848,849,850,851,852};
+        feet={52, 369, 326, 699};
+        legs={183, 459, 460, 461, 825, 2111,366};
         head={7,16, 94, 187, 357, 358};
-        hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626};
-        hand2={17, 96};
-        coat={55, 193, 194, 195, 196, 368, 2377, 2416, 2421};
+        hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626, 24,39};
+        hand2={17, 96,15,21};
+        coat={55, 193, 194, 195, 196, 368, 2377, 2416,2419, 2421, 547, 548, 558, };
 
         posList={position(790,5,0),position(44,63,97),position(780,5,0),position(720,10,0),position(730,10,0),
                  position(725,10,0),position(720,15,0),position(700,10,0),position(700,5,0),position(710,15,0),
@@ -135,14 +137,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    
 	    for i, npcPos in pairs(posList) do
     	    if world:isCharacterOnField(npcPos) then
-    
-    	        User:inform("now assigning stuff");
+                theNPC=world:getCharacterOnField(npcPos);
+                
+                if theNPC:increaseAttrib("sex",0)==1 then
+                    body=bodyF;
+                else
+                    body=bodyM;
+                end
+                
+    	       -- User:inform("now assigning stuff");
     	        bodyIt=body[math.random(# body)]
     	        feetIt=feet[math.random(# feet)]
     	        legIt=legs[math.random(# legs)]
 
     
-                theNPC=world:getCharacterOnField(npcPos);
+                
                 
                 theNPC:increaseAtPos(1,-1);
                 theNPC:increaseAtPos(5,-1);
