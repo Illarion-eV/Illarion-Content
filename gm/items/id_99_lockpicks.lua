@@ -132,21 +132,30 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        
             theNPC=world:getCharacterOnField(position(134,590,0));
             if headIt~=nil then
+                theNPC:increaseAtPos(1,-1);
                 theNPC:createAtPos(1,headIt,1);
                 world:changeItem(theNPC:getItemAt(1));
             end
             if hand1It~=nil then
+                theNPC:increaseAtPos(5,-1);
                 theNPC:createAtPos(5,hand1It,1);
                 world:changeItem(theNPC:getItemAt(5));
             end
             if hand2It~=nil then
+                theNPC:increaseAtPos(6,-1);
                 theNPC:createAtPos(6,hand2It,1);
                 world:changeItem(theNPC:getItemAt(6));
             end
             if coatIt~=nil then
+                theNPC:increaseAtPos(11,-1);
                 theNPC:createAtPos(11,coatIt,1);
                 world:changeItem(theNPC:getItemAt(11));
             end
+            
+            theNPC:increaseAtPos(3,-1);
+            theNPC:increaseAtPos(10,-1);
+            theNPC:increaseAtPos(9,-1);
+            
             theNPC:createAtPos(3,bodyIt,1);
             theNPC:createAtPos(10,feetIt,1);
             theNPC:createAtPos(9,legIt,1);
