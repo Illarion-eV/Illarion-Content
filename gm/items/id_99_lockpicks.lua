@@ -100,6 +100,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:performAnimation(11); -- 6, 7(bow), 
 	elseif (string.find(User.lastSpokenText,"smith")~=nil) then
 	    User:performAnimation(14);
+	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
+	    -- equip NPC
+	    if world:isCharacterOnField(position(134,590,0)) then
+            theNPC=world:getCharacterOnField(position(134,590,0));
+            theNPC:createAtPos(3,815);
+	    end
 	else
         for i,value in pairs(Location) do
             if (string.find(User.lastSpokenText,value))~=nil then
