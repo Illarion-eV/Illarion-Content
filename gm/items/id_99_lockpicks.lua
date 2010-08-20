@@ -140,18 +140,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     	        bodyIt=body[math.random(# body)]
     	        feetIt=feet[math.random(# feet)]
     	        legIt=legs[math.random(# legs)]
-    	        if math.random(10)<4 then
-    	            headIt=head[math.random(# head)];
-    	        end
-    	        if math.random(10)<4 then
-    	            hand1It=hand1[math.random(# hand1)];
-    	        end
-    	        if math.random(10)<4 then
-    	            hand2It=hand2[math.random(# hand2)];
-    	        end
-    	        if math.random(10)<4 then
-    	            coatIt=coat[math.random(# coat)];
-    	        end
+
     
                 theNPC=world:getCharacterOnField(npcPos);
                 
@@ -163,23 +152,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 theNPC:increaseAtPos(10,-1);
                 theNPC:increaseAtPos(9,-1);
          
-                if headIt~=nil then
-                    theNPC:createAtPos(1,headIt,1);
-                    --world:changeItem(theNPC:getItemAt(1));
-                end
-                    
-                if hand1It~=nil then
-                    theNPC:createAtPos(5,hand1It,1);
-                    --world:changeItem(theNPC:getItemAt(5));
-                end
-                if hand2It~=nil then
-                    theNPC:createAtPos(6,hand2It,1);
-                    --world:changeItem(theNPC:getItemAt(6));
-                end
-                if coatIt~=nil then
-                    theNPC:createAtPos(11,coatIt,1);
-                   -- world:changeItem(theNPC:getItemAt(11));
-                end
+                if math.random(10)<4 then
+    	            headIt=head[math.random(# head)];
+    	            theNPC:createAtPos(1,headIt,1);
+    	        end
+    	        if math.random(10)<4 then
+    	            hand1It=hand1[math.random(# hand1)];
+    	            theNPC:createAtPos(5,hand1It,1);
+    	        end
+    	        if math.random(10)<4 then
+    	            hand2It=hand2[math.random(# hand2)];
+    	            theNPC:createAtPos(6,hand2It,1);
+    	        end
+    	        if math.random(10)<4 then
+    	            coatIt=coat[math.random(# coat)];
+    	            theNPC:createAtPos(11,coatIt,1);
+    	        end
+         
+                
                 
                 theNPC:createAtPos(3,bodyIt,1);
                 theNPC:createAtPos(10,feetIt,1);
