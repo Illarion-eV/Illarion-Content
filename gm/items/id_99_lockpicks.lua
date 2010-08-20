@@ -161,6 +161,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             theNPC:createAtPos(3,bodyIt,1);
             theNPC:createAtPos(10,feetIt,1);
             theNPC:createAtPos(9,legIt,1);
+            
+            world:changeItem(theNPC:getItemAt(11));
+            world:changeItem(theNPC:getItemAt(6));
+            world:changeItem(theNPC:getItemAt(5));
+            world:changeItem(theNPC:getItemAt(1));
             world:changeItem(theNPC:getItemAt(3));
             world:changeItem(theNPC:getItemAt(10));
             world:changeItem(theNPC:getItemAt(9));
