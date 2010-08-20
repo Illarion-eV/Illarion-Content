@@ -141,6 +141,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 
                 if theNPC:increaseAttrib("sex",0)==1 then
                     bodyIt=bodyF[math.random(# bodyF)]
+                    User:inform("have found "..theNPC.pos.x.." and selected "..bodyIt);
                 else
                     bodyIt=bodyM[math.random(# bodyM)]
                 end
