@@ -102,17 +102,58 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:performAnimation(14);
 	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
 	    -- equip NPC
+	        body={4, 101, 180, 181, 182, 2402, 2360};
+            feet={52, 369, 326};
+            legs={183, 459, 460, 461, 825, 2111};
+            head={7,16, 94, 187, 357, 358};
+            hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626};
+            hand2={17, 96};
+            coat={55, 193, 194, 195, 196, 368, 2377, 2416, 2421};
+	    
 	    if world:isCharacterOnField(position(134,590,0)) then
-	        User:inform("now assigning hemad");
+   
+	        User:inform("now assigning stuff");
+	        bodyIt=body[math.random(# body)]
+	        feetIt=feet[math.random(# feet)]
+	        legIt=legs[math.random(# legs)]
+	        if math.random(10)<4 then
+	            headIt=head[math.random(# head)];
+	        end
+	        if math.random(10)<4 then
+	            hand1It=hand1[math.random(# hand1)];
+	        end
+	        if math.random(10)<4 then
+	            hand2It=hand2[math.random(# hand2)];
+	        end
+	        if math.random(10)<4 then
+	            coatIt=coat[math.random(# coat)];
+	        end
+	        
+	        
             theNPC=world:getCharacterOnField(position(134,590,0));
-            theNPC:createAtPos(1,832,1);
-            theNPC:createAtPos(3,815,1);
-            User:inform("done");
-            if theNPC:getItemAt(1).id~=nil then
-                User:inform("ID on head: "..theNPC:getItemAt(1).id);
+            if headIt~=nil then
+                theNPC:createAtPos(1,headIt,1);
                 world:changeItem(theNPC:getItemAt(1));
-                User:inform("changed");
             end
+            if hand1It~=nil then
+                theNPC:createAtPos(5,hand1It,1);
+                world:changeItem(theNPC:getItemAt(5));
+            end
+            if hand2It~=nil then
+                theNPC:createAtPos(6,hand2It,1);
+                world:changeItem(theNPC:getItemAt(6));
+            end
+            if coatIt~=nil then
+                theNPC:createAtPos(11,coatIt,1);
+                world:changeItem(theNPC:getItemAt(11));
+            end
+            theNPC:createAtPos(3,bodyIt,1);
+            theNPC:createAtPos(10,feetIt,1);
+            theNPC:createAtPos(9,legIt,1);
+            world:changeItem(theNPC:getItemAt(3));
+            world:changeItem(theNPC:getItemAt(10));
+            world:changeItem(theNPC:getItemAt(9));
+
 	    end
 	else
         for i,value in pairs(Location) do
