@@ -103,8 +103,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
 	    -- equip NPC
 	    if world:isCharacterOnField(position(134,590,0)) then
+	        User:inform("now assigning hemad");
             theNPC=world:getCharacterOnField(position(134,590,0));
             theNPC:createAtPos(3,815);
+            User:inform("done");
 	    end
 	else
         for i,value in pairs(Location) do
