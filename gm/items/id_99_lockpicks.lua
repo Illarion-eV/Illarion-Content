@@ -165,33 +165,35 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
          
                 if headIt~=nil then
                     theNPC:createAtPos(1,headIt,1);
-                    world:changeItem(theNPC:getItemAt(1));
+                    --world:changeItem(theNPC:getItemAt(1));
                 end
                     
                 if hand1It~=nil then
                     theNPC:createAtPos(5,hand1It,1);
-                    world:changeItem(theNPC:getItemAt(5));
+                    --world:changeItem(theNPC:getItemAt(5));
                 end
                 if hand2It~=nil then
                     theNPC:createAtPos(6,hand2It,1);
-                    world:changeItem(theNPC:getItemAt(6));
+                    --world:changeItem(theNPC:getItemAt(6));
                 end
                 if coatIt~=nil then
                     theNPC:createAtPos(11,coatIt,1);
-                    world:changeItem(theNPC:getItemAt(11));
+                   -- world:changeItem(theNPC:getItemAt(11));
                 end
                 
                 theNPC:createAtPos(3,bodyIt,1);
                 theNPC:createAtPos(10,feetIt,1);
                 theNPC:createAtPos(9,legIt,1);
                 
-                world:changeItem(theNPC:getItemAt(11));
-                world:changeItem(theNPC:getItemAt(6));
-                world:changeItem(theNPC:getItemAt(5));
-                world:changeItem(theNPC:getItemAt(1));
-                world:changeItem(theNPC:getItemAt(3));
-                world:changeItem(theNPC:getItemAt(10));
-                world:changeItem(theNPC:getItemAt(9));
+                theNPC:updateAppearance();
+                
+                --world:changeItem(theNPC:getItemAt(11));
+                --world:changeItem(theNPC:getItemAt(6));
+                --world:changeItem(theNPC:getItemAt(5));
+                --world:changeItem(theNPC:getItemAt(1));
+                --world:changeItem(theNPC:getItemAt(3));
+                --world:changeItem(theNPC:getItemAt(10));
+                --world:changeItem(theNPC:getItemAt(9));
     
     	    end
     	end
