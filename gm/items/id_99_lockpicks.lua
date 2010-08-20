@@ -145,6 +145,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                     body=bodyM;
                 end
                 
+                if npcPos.x==126 then 
+                    User:inform("hab sie. "..theNPC:increaseAttrib("sex",0));
+                end
+                
     	       -- User:inform("now assigning stuff");
     	        bodyIt=body[math.random(# body)]
     	        feetIt=feet[math.random(# feet)]
