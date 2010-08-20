@@ -151,8 +151,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     	        feetIt=feet[math.random(# feet)]
     	        legIt=legs[math.random(# legs)]
 
-    
-                
+                if theNPC:increaseAttrib("sex",0)==1 then
+                    
+                    User:inform("FRAU");
+                end                
                 
                 theNPC:increaseAtPos(1,-1);
                 theNPC:increaseAtPos(5,-1);
