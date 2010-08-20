@@ -134,14 +134,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                  position(130,624,0),position(912,813,1),position(907,804,0),position(907,794,1),position(358,235,0),
                  position(898,775,2),position(883,634,0),position(893,799,1),position(897,794,1),position(896,816,1),
                  position(911,798,1),position(377,266,0),position(784,772,0),position(136,625,0)};
+
 	    
 	    for i, npcPos in pairs(posList) do
     	    if world:isCharacterOnField(npcPos) then
                 theNPC=world:getCharacterOnField(npcPos);
                 
-                if theNPC:increaseAttrib("sex",0)==1 then
+                if string.find(theNPC.name,"a ")~=nil then
                     bodyIt=bodyF[math.random(# bodyF)]
-                    User:inform("have found "..theNPC.pos.x.." and selected "..bodyIt);
                 else
                     bodyIt=bodyM[math.random(# bodyM)]
                 end
@@ -152,7 +152,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     	        legIt=legs[math.random(# legs)]
                 
                 if theNPC.pos.x==126 then
- 
                     User:inform("FRAU "..theNPC:increaseAttrib("sex",0));
                 end                
                 
