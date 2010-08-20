@@ -112,13 +112,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    
 	    if world:isCharacterOnField(position(134,590,0)) then
    
-            theNPC:increaseAtPos(1,-1);
-            theNPC:increaseAtPos(5,-1);
-            theNPC:increaseAtPos(6,-1);
-            theNPC:increaseAtPos(11,-1);
-            theNPC:increaseAtPos(3,-1);
-            theNPC:increaseAtPos(10,-1);
-            theNPC:increaseAtPos(9,-1);
+
             
 	        User:inform("now assigning stuff");
 	        bodyIt=body[math.random(# body)]
@@ -136,9 +130,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	        if math.random(10)<4 then
 	            coatIt=coat[math.random(# coat)];
 	        end
-	        
-	        
+
             theNPC=world:getCharacterOnField(position(134,590,0));
+            
+            theNPC:increaseAtPos(1,-1);
+            theNPC:increaseAtPos(5,-1);
+            theNPC:increaseAtPos(6,-1);
+            theNPC:increaseAtPos(11,-1);
+            theNPC:increaseAtPos(3,-1);
+            theNPC:increaseAtPos(10,-1);
+            theNPC:increaseAtPos(9,-1);
+            
             if headIt~=nil then
                 theNPC:createAtPos(1,headIt,1);
                 world:changeItem(theNPC:getItemAt(1));
