@@ -109,11 +109,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             hand1={1, 65, 74, 76, 122, 74, 124, 192, 296, 2626};
             hand2={17, 96};
             coat={55, 193, 194, 195, 196, 368, 2377, 2416, 2421};
+
+  posList={};
 	    
 	    if world:isCharacterOnField(position(134,590,0)) then
-   
 
-            
 	        User:inform("now assigning stuff");
 	        bodyIt=body[math.random(# body)]
 	        feetIt=feet[math.random(# feet)]
@@ -140,12 +140,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             theNPC:increaseAtPos(3,-1);
             theNPC:increaseAtPos(10,-1);
             theNPC:increaseAtPos(9,-1);
-            
-            theNPC:createAtPos(1,0,1);
-            theNPC:createAtPos(5,0,1);
-            theNPC:createAtPos(6,0,1);
-            theNPC:createAtPos(11,0,1);
-            
+     
             if headIt~=nil then
                 theNPC:createAtPos(1,headIt,1);
                 world:changeItem(theNPC:getItemAt(1));
