@@ -2,7 +2,7 @@
 -- NPC Name: Hagar Wernson                                               None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  426, 316, -3           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   not set                                                          --
@@ -13,7 +13,7 @@
 name = "Hagar Wernson"
 race = human
 sex = male
-position = 0, 0, 0
+position = 426, 316, -3
 direction = west
 affiliation = "None"
 job = "none"
