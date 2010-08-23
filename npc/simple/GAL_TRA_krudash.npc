@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Krudash                                                     None --
--- NPC Job:  Trader                                                           --
+-- NPC Job:  trader                                                            --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  371, 258, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: northwest              --
 --                                                                            --
--- Author:   Rincewind                                                        --
+-- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: August 23, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
 race = orc
 sex = female
 position = 371, 258, 0
-direction = north
-affiliation = "None"
-job = "Trader"
+direction = northwest
+affiliation = "Galmair"
+job = "trader"
 
 language = common
 language = orc
@@ -25,19 +25,17 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
-useMsgDE = "Fass mich nicht an!"
+lookatDE = "Eine sinnliche Orkfrau mit wilden schwarzen Haaren. Sie hat ein süßes Näschen und spitze kleine Hauer. Achtsam überblickt sie den Marktplatz."
+lookatUS = "A voluptous orcess qith wild black hair. She have a cute nose and pointy little tusks. Observantly she glances the marketplace."
+useMsgDE = "Fass mich nicht an! Oder ich mach disch Kebab! Alda!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+
+-- Galmair
 
 -- NPC by Rincewind
--- Krudash ist inhaberin des Hack'n Sack Shops. Handelt mit allen Dingen die ein anstendiger Ork für einen ordentlichen Hack'n Sack-Trip braucht.
--- Queststatus Overview (kein quest)
-
--- language: orc
--- language: common
 
 -- Trader------------------------------------------------------------
 -- Tools (Blacksmith): 23, 2697, 2710, 2748, 2751
@@ -53,174 +51,49 @@ wrongLangUS = "#me looks at you confused."
 -- Metal ingots: 104, 236, 2550, 2535, 2571
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
 
--- Kauft: Verfluchter Schild (917)
--- "Für Schild, mir gibt XXX Münz." ~ "For schield me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Mirr nix mag. Schild unheimelig." ~ "Mes nub like. Shield be scary."
-
--- Kauft: Stahlhandschuhe (325)
--- "Für Handschütza, mir gibt XXX Münz." ~ "For golve me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Handschütza ist Handschütza. Du nix fragen so dummig." ~ "Glove be Glove is. Nub ask such stupid."
-
--- Kauft: Kettenhemd (101)
--- "Für Kettenrüsta, mir gibt XXX Münz." ~ "For chainarmor me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Ketten leicht sind. Aber nix schütze stark." ~ "Chain be light. But nub strong defend."
-
--- Kauft: Kurzschwert (2776)
--- "Für Schwert, mir gibt XXX Münz." ~ "For sword me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Kleine schwert. Für kleine Ork. Große Schwert für große Ork." ~ "Littl sword for littl orc. Big sword for big orc."
-
--- Kauft: Doppelaxt (205)
--- "Für Axt, mir gibt XXX Münz." ~ "For axe me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Har! Axt gutt Waffe. Mirr mag Geräusch wen trifft Knochn! 'Krack!' Har har." ~ "Har! Axe good weapon. Mes like sound if hit bone! 'Krack!' Har har."
-
--- Kauft: Kriegshammer (226)
--- "Für Hammer, mir gibt XXX Münz." ~ "For hammer me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Hammer machen große Beule! Hurr hurr." ~ "Hammer make big bump! Hurr hurr."
-
--- Kauft: Volle Lederrüstung (262)
--- "Für Leda-Rüsta, mir gibt XXX Münz." ~ "For leather armor me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Gutte Rüsta. Hurr hurr." ~ "Good armor. Hurr Hurr."
-
--- Kauft: Nachtharnisch (2363)
--- "Für schwarze Rüsta, mir gibt XXX Münz." ~ "For balck armor me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Gutte Rüsta. Schwarz ist. Feind nix sieht glänzig. Yubba." ~ "Good armor. Black is. enemy not see shiny. Yubba."
-
--- Kauft: leichte Söldnerrüstung (2359)
--- "Für Söldna Rüsta, mir gibt XXX Münz." ~ "For mercenary armor me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Gutte Rüsta. Söldna mag. Es mit Kette und Platte." ~ "Good armor. Mercenary like. It with chain and shell."
-
--- Kauft: Schattenharnisch (2357)
--- "Für Schatten-Rüsta, mir gibt XXX Münz." ~ "For shadow armor me give XXX coin."
--- "Hurr. Hirr dein Münz ist."~ "Allrigthy. Her's youb coin."
--- "Komm wieder wenn, haben das!" ~ "Come agin, if have that!"
--- erzähle über... "Sehr gutte Rüsta. Beindruckend ist. Mächtig." ~ "Very good armor. Impressive. Migthy!"
-
--- -------------------verkauft------------------------------------
--- Verkauft: Orkaxt (2642)
--- "Axt kosten XXX Münz!" ~ "Axe cost XXX coin!"
--- "Du nimmst eine von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Hurr. Gutt Axt für Ork ist. Beste Axt für Ork ist. Yubba." ~ "Hurr. Good axe for orc is. Best axe is. Yubba."
-
--- Verkauft: gehörnter Helm (7)
--- "Helm kosten XXX Münz!" ~ "Helmet cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Helm für Ork is. Hat Horns. Horns gutt." ~ "Helmet for orc is. Have honrs. Horns good."
-
--- Verkauft: Orkhelm (16)
--- "schwere Helm kosten XXX Münz!" ~ "Heavy helm cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Schwere Helm mit Angst machend wilde Horn. Yubba." ~ "Heavy helmet with scary wild horns. Yubba."
-
--- Verkauft: Flammenhelm (2286)
--- "Flammig Helm kosten XXX Münz!" ~ "Flamed helmet cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Geflammter Helm für Orks, die kämpf mit heilige Waffen, von Götta!" ~ "Flamed Helmet for orc, wich bear holy weapons of Gods!"
-
--- Verkauft: Krummsäbel (2757)
--- "Säbl kosten XXX Münz!" ~ "Scimitar cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Gute Spalta ist. Gute Waffe für Ork ist." ~ "Good Slasher is. Good weapon for orc is."
-
--- Verkauft: Streitkolben (230)
--- "Smasher kosten XXX Münz!" ~ "Smasher cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Hurr. Smasher haut alles in klein Stück! Damit du shlagen Unsinn aus Kopf von Langohr! Und alle andere Zeug auch. Hehe!" ~ "Hurr. Smasher smash all thing in littl. With that you smash the humbug out of longears head. And all other stuff as well! Hehe."
-
--- Verkauft: Roter Dolch (2740)
--- "Dolch kosten XXX Münz!" ~ "Dagga cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Dolch ist Dolch. Nix waffe für Krieg. Aber gut, du hast immer in Gürtel." ~ "Dagga be dagga. Nub weapon for war. But good to have in belt all time."
-
--- Verkauft: Nachtharnisch (2363)
--- "Schwarze Rüsta kosten XXX Münz!" ~ "Black armor cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
-
--- Verkauft: leichte Söldnerrüstung (2359)
--- "Söldna Rüsta kosten XXX Münz!" ~ "Mercenary armor cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
-
--- Verkauft: Metallrundschild (186)
--- "Eisnschild kosten XXX Münz!" ~ "Oreshield cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Gute Schild ist. Krudash nur verkauft gute zeug!" ~ "Good Shield is. Krudash only sell good stuff!"
-
--- Verkauft: Holzschild (17)
--- "Holzschild kosten XXX Münz!" ~ "Woodhield cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Gute Schild ist. Krudash nur verkauft gute zeug!" ~ "Good Shield is. Krudash only sell good stuff!"
-
--- Verkauft: Lederhandschuhe (48)
--- "Handschütza kosten XXX Münz!" ~ "Gloves cost XXX coin!"
--- "Du nimmst eina von diese hier!"~ "Take one ob these!"
--- "Wo dein Münz? Du nix genug hast!" ~ "Where you coin? Youbba not enough hav!"
--- erzähle über... "Handschütza aus beste Leda von Schwein. Hurr hurr." ~ "Gloves maked from best leatha of pig. Hurr hurr."
-
--- generall
-"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "Greebas.", "Hurr!", "Hurr. %NPCNAME verkauft alles, du brauchst für machen gutes hacken 'nd plündarn! Hehe!"
-"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Greebas.", "Hurr!", "Hurr. %NPCNAME sell all you need. For good hack'n sack trip! Hehe!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greebas.", "Hurr!", "Hurr. %NPCNAME sell all you need. For good Hack'n Sack-Trip! Hehe!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Greebas.", "Hurr!", "Hurr. %NPCNAME verkauft alles, du brauchst für machen gutes Hacken und Plündarn! Hehe!"
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Mirr sein %NPCNAME ist. Und dars mein Laden. 'Hack'n Sack' - Hackn 'nd Plündern. Verkauf alles du brauchst fürr guttes Hackn 'nd plündarn."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farebas. Hab a good sack'n!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Farebas. Hast gutt Plünderung!"
-"Ciao", "Adieu", "Au revoir", "Fareba", english -> "Farebas. Hab a good hack'n."
-"Ciao", "Adieu", "Au revoir", "Fareba", german -> "farebas. Hast gutt Hacken!"
-"How are you", "How feel", "How do you do" -> "Hurr. Mes allrighty! Good shop. Good husband. Good whelps.", "Uh! Mes rich and migthy orc! Lot of slave me have."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Hurr. Mirr alles gutt. Hab gutt Laden. Gutt Mann. Gutt welpen.", "Uh! Mirr reich und mächtig Ork. Viele sklaven mirr hat."
-"your name", "who are you", "who art thou" -> "I be %NPCNAME is. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip."
-"I am", "I'm" -> "Hurr, hurr. You like to buy?"
-"Ich bin" -> "Hurr, hurr. Du kaufn willst?"
-
 -- Help
-"hilfe" -> "%NPCNAME 'verkaufen' und 'kaufen' viel Zeugs.", state = 0
-"helfen" -> "%NPCNAME 'verkaufen' und 'kaufen' viel Zeugs.", state = 0
-"help" -> "%NPCNAME 'sell' and 'buy' lots of stuff.", state = 0
+"hilfe" -> "Ich, %NPCNAME 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0
+"helfen" -> "Ich, %NPCNAME 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0
+"help" -> "Me, %NPCNAME 'sell' and 'buy' lots of stuff! Taghta?", state = 0
 
--- smalltalk
-"jag", german -> "Hurr! Jag mächtig ist viel! Nahe bei Chief 'nd Warlord!", "Hurr... Jag seine mächtige Redskull! Und Kampfmeista von derr Klan. Wenn du lerne wolle, zerhauen Zeug? Gehe zu Jag!", "Jag zermatscht alle Oomies bei große Turnier, wie Würma. hehe!", "Bruddha Jag? Hurr... Mirr erinnere Tag von Green-Growl! Uh! Vatha gemocht das hat! Wirr sollte feiern diese Tag.", "#me hält sich den Kopf: ' Du nix hammern dein Schädl gegen Jags Keule!'", "Jag hart lustig Sammlung. Har-har! DU fragst Jag.", "Jag mag Fleisch. Er imma hunger. hehe!", "Jag schnelle, strak Kriega! Für Vatha, für Klan!", "Jag? Hurr! Mir denkt er suchen neue Spitzohren tut.", "Jag? Hurr! Du nix spreche schlecht uber Murgo, wenn er hört. Sonst er zermatsch dein Fresse! Har."
-"jag", english -> "Hurr! Jag berreh mighte beh! Almost like dah Chiefeh and dah Warlord!", "Hurr... Jag be mighte Red Skull and Drillmasta ob dha Clan! Ib yoo want learn smashing stuff, ask Jag!", "Jag smashed all dah Ommies in dah big tournamant, dhus Jag beh First Smasha!", "Broddha Jag? Hurr... Meh get dah Day ob Green Growl in mind. Dhat beh slaughta beh! Hurr! Dha Faddha like dhat! Yoo should celebrate dhat day!", "#me holds his head: 'Avoid to feel Jag's maces at yoor head!'", "Jag hub berreh nice collection, hurr!", "Look for meat and bring dhat Jag! Jag beh alwaehs hungreh.", "Jag beh proud and honorfull redskull, hurr!", "Jag beh fast and strong warrior for dah Fadha and dha Clan!", "Jag? Hurr! Mee thinks Jag beh looking for nuw Longears!", "Jag? Hurr! Nub speak bad about dah Lok'uhm Murgo in front ob Jag. Jag smash yoor fais odhawise!"
-"krazen", german -> "Hurr, Krazen nix klügster Ork ist. 'r geschmissn aus alte Stamm, alsgezündet Mantel von Chief, mit Feua!", "Krazen? Er diese dumme Feua-macha, yubba?", "Hur hur... du gehört? Krazen nix darf in Borgates Taverne mehr gehn. Er Verbot.", "Yubba, Krazen EIN Freund hat. Ist Grimghor.", "Du sollten Fragn, Krazen tanzt furr dirr. Ist große Spass, sehen dars!", "Yub.. er gross, tragen verdammtes gutt Helm, schmutzig grün Robe. Uh? yubba.. er stinken.", "Krazen nie gewesen gutte Kriega. Aba Kopf imma stecken überall drin...", "Krazen gutte Ork ist, mir galubt. Du nur nix blicken in seine Augen. NIx starren ihn an."
-"krazen", english -> "Hurr, Krazen nub da smartest orc meh see...'e was kick'd frum his own tribe-set the chiefess clothes on fire!", "Krazen? He beh dat stoopid firestarter, yubba?", "Hur hur...y'hear? Krazen nub allowed in Borgate's tavern no more...", "Yubba, Krazen hab a friend named Grimghor. Meh fink it's his only one.", "Yub! You shuld ask Krazen to do a dance fer ya! Funny as hell!", "Yub...he's tall, wears dis damn awful metal hat, dirty green robe...Yar, dat's right, he smells too.", "Krazen neber be gud warrior...always getting his head stuck in beehives...", "Krazen friendly enough, meh fink. Jus' don't make eye contact."
-"murgo", german -> "Yubba, Murgo viel Stolz auf seine Töchta ist. Er'hja 'nd Ol'hja. Stark klugg Weibs sind.", " Murgo mit Krudash ist. Sie sein Weibs sein. Sie Mama von Er'hja 'nd Ol'hja.", "Murgo beste freund ist Jag.", "Mancha Orks witzig, sagen Murgo sein Blumens. Vleicht war. Aber jetzt er stampft zer alle Blumens!", "Murrgo - dar Name von grosse Kriega, mit grosse Axt. Aber er nix bester in denken. er Blumenork war. Aber jetzt er zerstampfen all Blumens! Harr, harrrr!", "Murgo, hurr hurr! Er Ork mit meißte Ehre ist. erster gewesen, der Trommel hatt.", "Murgo verdammte Ass ist. Jede OrK wolle sein wie er sein."
-"murgo", english -> "Hurr, Murgo hired mes. Like most ob tha othas 'ere. All way from Kroch'gurak!", "Murgo, hurr hurr! 'eh honrorables Orc is. Was first played drum. Yubba.", " Murgo 's damn ace is! Ebbry orc wanna like he be.", "Yubba. Murgo very proud ob 'is doughtas is... Er'hja 'nd Ol'hja. Be stong 'n smart females are.", "Murgo be with Krudash. She 'is female. She be mum ob Er'hja 'nd Ol'hja.", "Murgo best friend be Jag.", "Sum Orc joke Murgo, be Flower. Maybe was. But nuw 'eh stump all flowas!", " Murrrgo - dis beh name ob great warriar with great axe! But mes think he nub well in thinking. He be flowery flower orc was! Hurr! But nuw he stomps ob flowry! Harr, harrrr!"
-"erhja", german -> "Er'hja glücklich sich schätzen kann. Hatt sein klugg von Mama. Sein Ass von Papa. Krudash 'nd Murgo sind.", "Er'hja gelernt hat bei MO'rurt. Und Jag. Tapfere, mutig Mädchen. Yubba!", "Er'hja 'nd Ol'hja Schwesta sind. Yubba, auseehn beinahe wie gleich.", "Jede Mann hoffen bekomm Er'hja oda Ol'hja zu Weibs. Sie gutte Weibs sind! Yubba.", "#me lacht heiser: 'Ha-hr. Welpen wie Er'hja 'nd Ol'hja machen vieles Sorge für Mama 'nd Papa.'", "Lustig geschicht... Er'hjas Papa Murgo züchtn Hounds. Aba Er'hja fürchten diese wie Hasal!", "Uh, nix mirr frag. Er'hja, sie lieben Rabe! Sagen sie klugg sind. wasimma, mir sagt. Rabn Vogl sind. Vogl dummig."
-"erhja", english -> "Er'hja could lucky be. Got tha smart ob 'er mom 'nd ace ob papy. Krudash 'nd Murgo are.", "Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!", "Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look tha same.", "Each Male hope to get Er'hja or Ol'hja as'n female! They good females! Yubba.", "#me chukles hoarsely: 'Ha-hr. Whelps like Er'hja 'nd Ol'hja cuase musch trouble for tha mum and papy.'", "Funny tale... Er'hjas papy Murgo breeds hounds. But she fear those like rabbitz!", "Uh, nub ask mes. Er'hja, she love corbie! Mean they smart. Whubebba, mes say. Corbie be bird. Bird stupid."
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas.", "Hurr!", "Hurr. Me, %NPCNAME sell all you need. For good hack'n sack trip! Hehe!", "Latha math!"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Greebas.", "Hurr!", "Hurr. Ich, %NPCNAME verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math!"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greebas.", "Hurr!", "Hurr. %NPCNAME sell all you need. For good hack'n sack trip! Hehe!", "Latha math!"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Greebas.", "Hurr!", "Hurr. Ich, %NPCNAME verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math!"
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! - So sagens wir. Tagtha?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Farebas. Ne Gute Plünderung wünsch ich noch!", "Slàn leibhslàn! - So sagens wir. Tagtha?"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! - So sagens wir. Tagtha?"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farebas. Ne Gute Plünderung wünsch ich noch!", "Slàn leibhslàn! - So sagens wir. Tagtha?"
+"How are you", "How feel", "How do you do" -> "Hurr. Mes allrighty! Good shop. Good husband. Good whelps.", "Uh! I'm a rich and migthy orc! Lot's of snagas are mine!", "Hrmpf!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
+"your name", "who are you", "who art thou" -> "I am %NPCNAME. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin %NPCNAME. Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
--- ------------------
-"ali[czs]", german -> "Alize, Gnarh. Sie jammernd Kind bei Schmieda. Sie Krudashs Sklave ist. Sie schmelzn Erz, muss.", "Du nix sein schwuach mit diesa jammernde Slkave. Sie lernen muss, zu sein STARK! Machen den Besitza Ehre. Yubba.", "Har! Krudash gefangen auf eine Harfen. jetzt ALize, Sklave ist. Aber Jammern viel tut."
-"ali[czs]", english -> "Alize, Gnarh. This bis thus weepy girl at forge. She be Krudash slave is. She hav to smelt you ore.", "Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honor! Yubba.", "Har! Krudash sacked her 'n sum harbour. Now she be her slave is. But weak weepy one."
-"krudash", "Hacksack", german -> "Hurr Hurr. Wie geht?"
-"krudash", "Hacksack", english -> "Hurr Hurr. How goin?"
-"morurt", german -> "Mo'rurt. Er bester Jäga von KLan ist. erimma draußn ist. Jagt.", "Mo'rurt schießt Pfeile, schnell wie wind. Stark wie Meer.", "Mo'rurt Besitza von Stout ist. Stout sehr ehrenhaftiga Sklave ist. Yubba. Hat bekommen Armbrust und geht jagen mit Mo'rurt.", "Har-ar. Mo'rurt stur wie Esel. Abar mirr sagt, is gutt. Alle in alles, er gerechter Meister ist.", "Mo'rurt kommen von einsam Land. Wenig gelebt dort. Murgo ihn gefunden hatt als Mo' nach Kroch'gurak gekommen für den Winta."
+-- Catching typical NPC phrases
+"tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the lizard Eliza? She sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
+"erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' die Echse Eliza? Sie verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm the arms dealer in this town! And all those Snagas follow my command! Groch!"
+"beruf" -> "Ich bin der Waffenhändler in dieser Stadt! Und alle diese Snagas tun, was ich sag! Groch!"
+"job", english -> "I'm the arms dealer in this town! And all those Snagas follow my command! Groch!"
+"job" -> "Ich bin der Waffenhändler in dieser Stadt! Und alle diese Snagas tun, was ich sag! Groch!"
+"Gobaith", "Gobiath", english -> "Hrmpf!"
+"Gobaith", "Gobiath" -> "Hrmpf!"
+"I am", "my name" -> "Hurr, hurr. What do you buy?"
+"Ich bin", "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
+
+-- More small talk; add at least five triggers
+"murgo", german -> "Yubba, Murgo ist sehr Stolz auf seine Töchta! Er'hja 'nd Ol'hja. Stark und kluge Weibs sind sie Yb-Yb.", " Murgo ist mit Krudash. Ich bin sein Weib und Mutter von Er'hja 'nd Ol'hja.", "Murrgo - dies ist der Name vom grossen Krieger, mit grosser Axt."
+"murgo", english -> "Murgo, hurr hurr! 'eh honrorables Orc is. Was first played drum. Yubba.", " Murgo 's damn ace is! Ebbry orc wanna like he be.", "Yubba. Murgo very proud ob 'is doughtas is... Er'hja 'nd Ol'hja. Be stong 'n smart females are.", "Murgo be with Krudash. I'm his female, be the mother of Er'hja 'nd Ol'hja.", " Murrrgo - dis beh name ob great warrior with great axe! But mes think he nub well in thinking."
+"erhja", german -> "Er'hja kann sich glücklich schätzen. Hatt den Kopf von Mama und das Gâsh von Papa. Krudash und Murgo sinds, yubba.", "Er'hja hat gelernt bei Mo'rurt. Und Jag. Tapferes, mutiges Mädchen. Yubba!", "Er'hja 'nd Ol'hja sind Schwestern. Yubba, auseehn tun sie beinahe gleich.", "Jeder Mann hofft, das er Er'hja oder Ol'hja zum Weib bekommt. Sie gutte Weibs sind! Yubba.", "#me lacht heiser: 'Ha-hr. Welpen wie Er'hja 'nd Ol'hja machen für Mama und Papa viele Sorgen...'", "Lustige Geschichte... Er'hjas Papa Murgo züchtet Hunde. Aber Er'hja fürchtet diese wie 'n Hase!", "Uh, frag mich nicht. Er'hja, sie liebt Raben! Sagt sie sind klug. Grütze! Raben sind Vögl. Vögl sind dumm."
+"eerhja", english -> "Er'hja should be lucky. Got the smartness ob 'er mom 'nd the gâsh ob papy. Krudash 'nd Murgo are.", "Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!", "Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look like same same.", "Each Male hope to get Er'hja or Ol'hja as'n female! They good females! Yubba.", "#me chukles hoarsely: 'Ha-hr. Whelps like Er'hja 'nd Ol'hja cuase musch trouble for tha mum and papy.'", "Funny tale... Er'hjas papy Murgo breeds hounds. But she fear those like rabbitz!", "Uh, nub ask mes. Er'hja, she love corbie! Mean they smart. Whubebba, mes say. Corbie is a bird. Birds are stupid."
+"ali[czs]", german -> "Alize, Gnarh. Sie jammerndes Kind bei Schmieda. Sie ist mein Snaga!. Sie schmelzn Erz, muss.", "Du nix sein schwuach mit diesa jammernde Slkave. Sie lernen muss, zu sein STARK! Machen den Besitza Ehre. Yubba.", "Har! Krudash gefangen auf eine Harfen. jetzt ALize, Sklave ist. Aber Jammern viel tut."
+"ali[czs]", english -> "Alize, Gnarh. This bis thus weepy girl at forge. She is my snaga!. She hav to smelt you ore.", "Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honor! Yubba.", "Har! Krudash sacked her 'n sum harbour. Now she be her slave is. But weak weepy one."
+"krudash", "Hacksack", german -> "Hurr Hurr. Ciamar a'seibh! Wie geht?"
+"krudash", "Hacksack", english -> "Hurr Hurr. Ciamar a'seibh! How goin?"
+"morurt", german -> "Mo'rurt. Er bester Jäga von Klan ist. Er imma draußn ist. Jagt.", "Mo'rurt schießt Pfeile, schnell wie wind. Stark wie Meer.", "Mo'rurt Besitza von Stout ist. Stout sehr ehrenhaftiga Sklave ist. Yubba. Hat bekommen Armbrust und geht jagen mit Mo'rurt.", "Har-ar. Mo'rurt stur wie Esel. Abar mirr sagt, is gutt. Alle in alles, er gerechter Meister ist.", "Mo'rurt kommen von einsam Land. Wenig gelebt dort. Murgo ihn gefunden hatt als Mo' nach Kroch'gurak gekommen für den Winta."
 "morurt", english -> "Mo'rurt. Hurr he be best archer of Clan be. He allway out ob cave huntin!", "Mo'rurt shoot 'is arrow fast like wind. Strong like Sea.", "Mo'rurt be owner ob Stout. Stout be honorable slave is. Yubba. Got crossbow and joins Mo'rurt on hunting.", "Har-ar. Mo'rurt is mulish. But 'e say he's just right. But all'nall he fair master is.", "Mo'rurt come frome sum lonly lands. Nub much lived there. Was picked up by Murgo, wehn he walked to Kroch'gurak for winta."
 "olokwa", german -> "uh, Olokwa! Er alte blind Ork ist. Aba viel klugg. Viel Weiß.", "Olokwa Seher ist. Yubba. Is beeindruckend... aba imma bisschen gruselig.", "Wenn mir getroffen Olokwa, erstes mal, er erraten mein Name! Er gesehen hat. Ahnen, es ihm geflüstert haben.", "Olokwa große Kraft von Wissenheit hatt. Von geistiges Aug. Er blindt. Aber sehen mehr als viele andere."
 "olokwa", english -> "Uh, Olokwa! He be old blind orc is. Very smart 'nd prudent.", "Olokwa be a seer. Yubba. As impressive is... it still kind ob scary.", "First tjem mes met Olokwa, 'e guessed mes Name. He saw it...Tha ancestors told 'im.", "Olokwa hab great powa ob wisdom. Ob ghostly eye. Altough he blind, he see more than most othas."
@@ -236,36 +109,67 @@ wrongLangUS = "#me looks at you confused."
 "brute", "boze", english -> "Bute Booze! Is name ob most famous orc adventurer! He big Travela. Hunta ob several cruel biests!", "Brute Booze, drunk Booze in each tavern ob Illarion, he promise! He slay tha giant Snake ob Gynk twice. An' took tha princess ob Khensarra as female!", " 'llrigthy. Brute 's one ob old heros. With feeling for tradition. An' dramatic ob tale!", "Uh, I wish I cuold be like Brute Booze. Ib mes wanna 'ere tale ob strange land, mes allways ask 'hm.", "They say Brute Booze know lot about strange lands. Surely he traveled trough all ob them."
 "grimlug", german -> "grumlug sein Schamane ist. Wissen viel üba Götta. Viel üba Ritus.", "Murgo getrofffen Grimlug, in Kroch#gruak. ist gutt, er jetzt hier ist.", "Grimlug erzählen lange. Reden Viel. Weiß viel."
 "grimlug", english -> "Grimlug be Shaman is. Know many bout gods. Many bout rite.", "Hurr. Murgo picked thus shaman up sumwhere 'n Kroch'gurak. Is good 'e here now.", "Grimlug talk much. Long tale. Know much."
-"nork", german -> "Nork Soldat ist. Von Ogretoe. er bekümmern Güta und Versorgung dort.", "Uh, d' Kriega von Lager Ogretoe wirklich sind tapfer! Mirr gehört, Oger ist mächtig Gegner.", "Uh, Ist Nork diese hässliche Ork, in Lager von Ogerland?"
+"nork", german -> "Nork Soldat ist. Von Ogretoe. er bekümmern Güta und Versorgung dort.", "Uh, d' Kriega von Lager Ogretoe wirklich sind tapfer! Mirr gehört, Oger ist mächtig Gegner.", "Uh, Ist Nork diese hässliche Mann, in Lager von Ogerland?"
 "nork", english -> "Nork be soldier ob Ogretoe. He take care ob Supply there.", "Uh, tha soldiers at Camp Ogretoe such brave! Mes 'ered tha Ogres be stong enemie.", "Uh, is Nork thus ugly one, at tha ogreland-camp?"
-"vigo", german -> "Captain Viggo! Mir so viel Glück, er und tapfere Kriega, beschütze unser Erz von verdammte Ogers.", "Captain Viggo ist Kommandierer von Lager Ogretoe. er imma braucht Kriega!", "Hurr. Ohne Viggo und 's Kriega, wirr nix würde bekommen Erz. Mir froh, Murgo gefunden ihn hatt!"
+"vigo", german -> "Captain Viggo! Mir so viel Glück, er und tapfere Kriega, beschütze unser Erz von verdammte Ogers.", "Captain Viggo ist der Kommandierer von Lager Ogretoe. er imma braucht Kriega!", "Hurr. Ohne Viggo und 's Kriega, wirr nix würde bekommen Erz. Mir froh, Murgo gefunden ihn hatt!"
 "vigo", english -> "Captain Viggo! Mes such glad, he 'nd s brave soldiers defend us ore from tha damn Ogres.", "Captain Viggo is commanda ob Camp Ogretoe. He allway hire soldiers!", "Hurr. Without Viggo 'nd his soldiers wes wouldn't abe to get ore. Mes glad Murgo pick'ed' hm up."
 "budva", german -> "Hurr. Budvar Buddler ist. er graben nach Erz. In Lager, Ogretoe."
 "budva", english -> "Hurr, Budvar be digger is. He digg for ore at tha Ogretoe."
 "olhja", german -> "Ol'hja ist Tochta von Murgo. Sie Kundschafta in Laga von Ogretoe. Hurr Hurr.", "Ol'hja ist eine von beste Kundschafta von Captain Viggos Kriegas.", "Er'hja 'nd Ol'hja Schwestas sind. Yubba, sie gleich aussehen. Nahezu."
-"olhja", english -> "Ol'hja's tha doughta ob Murgo. She be scout in tha ogretoe-camp. Hurr Hurr.", "Ol'hja s one ob most skilled scouts under Captain viggos soldiers.", "Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look tha same."
+"olhja", english -> "Ol'hja's tha doughta ob Murgo. She be scout in tha ogretoe-camp. Hurr Hurr.", "Ol'hja s one ob most skilled scouts under Captain viggos soldiers.", "Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look tha same same."
 "Yago", "helgi", german -> "Hurr. Yago 'nd Helgi sind tapfere Kriega! Yubba."
 "Yago", "helgi", english -> "Hurr. Yago 'nd Helgi be brave soldier. Yubba."
 
--- ------------------------
-"moshran", "god", german -> "Gosh! NIcht sagst diese Name! Bassa fragen Schamane über Vatha."
-"moshran", "god", english -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
-"cherga", "icy witch", "eis Hex", german -> "HUrr. Eisig Hexe, gottin von Ahnen ist. Du fragst Grimlug!"
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Ch-h! Astute wizard... Runewick rat!"
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ch-h! Der listige Zauberer... Runewickratte!"
+"Runewick", english -> "Gnarh! Those are loathsome ...*grunt*... Scheschnaks! Maggots shall eat their figgin!"
+"Runewick" -> "Gnarh! Das sind widerliche ...*grunzt*... Scheschnaks! Maden sollen ihren Wabbel fressen!"
+"Valerio", "Guilianni", "Don", english -> "Glushdâsh! He is a damn dwarf! But they are good for trading, isn't it, isn't it?"
+"Valerio", "Guilianni", "Don" -> "Glushdâsh! Er ist, 'n verdammter Zwerg! Aber mit denen ist gut handeln, nicht wahr, nicht wahr?"
+"Galmair", english -> "Why!? Gol-gol! Here, a ritch orcess is allowed to do whatever she want to do! And all snagas do what I order. Hurr."
+"Galmair" -> "Warrrum!? Gol-gol! Hier kann eine reiche Ork machen was sie will! Und alle Snagas tun was ich sage. Hurr."
+"rosaline", "königin", "queen", "edwards", english -> "Hroar! I heared, the queens guards are mokeys, wich got trousers! Har!"
+"rosaline", "königin", "queen", "edwards" -> "Hroar! Ich hab gehört, der Königin Leibgarde sind ein paar Affen denen man Hosen angezogen hat! Har!"
+"Cadomyr", english -> "They say, if pigs would able to walk on two legs... even the gods can't discern them from Cadomyrs folk. Gosch!"
+"Cadomyr" -> "Es heißt, würden Schweine aufrecht gehen... könnten nichtmal die Götter sie von den Cadomyrern unterscheiden. Gosch!"
+
+-- Main land factions
+"albar", english -> "Hurr. There are lots of Snagas. But only the humanz are allowed to order those Snails. Grot."
+"albar", german -> "Hurr. Dorts gibts ne Menge Snagas. Aber nur die dummen Menschenz dürfen sie zur Schneke machen. Grot."
+"gynk", "gync", english -> "Apart from Kroch'Gurak, Gynk is the best place for people. *grunts*... Altough the sun is hot there."
+"gync", "gynk", german -> "Abgesehen von Kroch'Gurak, ist Gynk der beste Platz für die Leute. *grunzt*... Auch wenn die Sonne dort heiß ist."
+"salkama", english -> "Scheschnaks. Those are all dirty scheschnak-monkeys. Gosch!"
+"salkama", german -> "Scheschnaks. Das sind alles dreckige Scheschnak-Affen. Gosch!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "The ancestors should praised, hâll. Praise my fathers."
+"Gott", "Götter" -> "Die Vorfahren sein gepriesen, hâll. Ehre meinen Vätern."
+"moshran", "god", german -> "Gosh! Du niemals sagst diesen Namen! Besser fragen Schamane über Vatha."
+"moshran", "god", english -> "Gosh! Nub say tha name! Better talk to Shaman about tha fatha."
+"cherga", "icy witch", "eis Hex", german -> "Hurr. Eisig Hexe, gottin von Ahnen ist. Du fragst Grimlug!"
 "cherga", "icy witch", "eis Hex", english -> "Hurr. Tha icy witch, be god ob ancestors. Ask Grimlug for!"
-"where com", "krochgurak", german -> "Kroch'gruak! Ist, wo meiße Orks von uns komme her von."
-"where com", "krochgurak", english -> "Kroch'gurak! Is where most ob us orcs come from."
-"ogetoe", german -> "Hurr. Captain Viggo, 'nd seine Kriega kämpfn dort furr unsa Erz!", "Hurr, ist Ort wo Erz ist. Aba alles voll mit wütende Ogers ist. Du gehst mit Kriega nur dorthin.", "Ogretoe sein Lager von Captain Viggo. Er beschützt Miene gegen Oger!"
+"where com", "krochgurak", german -> "Hrach. Ich komme aus Khensarra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
+"where com", "krochgurak", english -> "Hrach. I come frome Khensarra. But most orcs come frome Kroch'gurak. There is, where the Clans camp in winter."
+"ogetoe", german -> "Hurr. Captain Viggo und seine Kriega kämpfn dort furr unsa Erz!", "Hurr, ist der Ort wos Erz gibt. Aber es ist voll mit wütenden Ogern ist. Du gehst nur mit starken Kriegern dorthin!", "Ogretoe ist's Lager von Captain Viggo. Er beschützt die Miene gegen Oger!"
 "ogetoe", english -> "Hurr. Captain Viggo, 'nd his soldiers fight there for our ore!", "Hurr. Is Place where ore was found. But full ob angry ogre is. Take warrior with youb, to walk there.", "Ogretoe be tha camp ob Captain Viggo. It defend ore mine agins ogres!"
 
-------------------------------------------------------------------------------AC
+-- Catching quest triggers
+"quest", english -> "I trade... and my snagas do all the work. So there is nothing to do for a Maggot like you!"
+"quest", german -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
+"task", "adventure" -> "I trade... and my snagas do all the work. So there is nothing to do for a Maggot like you!"
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+".*", english, chance(20) -> "Taghta!", "Puny little Maggot.", "Uh-h?"
+".*", german, chance(20) -> "Taghta!", "Winzige kleine Made.", "Uh-h?"
+
 -- Cycle Texts - Messages spoken automatically in random intervals.
--- Every NPC should contain at least 10 of those messages.
--- Emotes are possible also starting with "#me ....".
 
 cycletext "#me leckt sich kurz über die Lippen. Dann streckt sie die Zunge heraus und berührt damit ihr hübsches Näschen.", "#me licks her lips. Then she shwos her tounge and taps her cute nose."
-cycletext "Hack'n Sack! Hier du alles kaufen kannst. Du brauchen für gutt Plünderei!", "Hack'n sack! here you buy all stuff for well sack trip."
-cycletext "Uh, mirr so stolz auf mein kleine Ol'hja und mein kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!"
-cycletext "Gnahrr! Wo mein faule Sack von Mann ist?", "Gnahrr! Where my lazy husband be is?"
+cycletext "Hack'n Sack! Hier Kannst du alles kaufen. Was 'ner wie du braucht für ne gutte Plünderei!", "Hack'n sack! here you buy all stuff for well sack trip."
+cycletext "Uh, ich bin so stolz auf meine kleine Ol'hja und meine kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!"
+cycletext "Gnahrr! Wo ist mein fauler Sack von Mann?", "Gnahrr! Where my lazy husband be is?"
 cycletext "#me stochert mit ihrem Finger an einem der beiden Kieferzähnen herum. ", "#me digs with one of his fingers between her tusks."
 cycletext "#me schnaubt ein wenig.", "#me snorts quietly."
 cycletext "#me rubbelt mit den Fingernägeln an einem rostendem Eisenteil. Doch der Rost scheint sich hartnäckig darauf zu halten.", "#me rubs with fingernails at a rusty pice of iron. But the rust hold it's stand."
