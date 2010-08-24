@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         base.books.AddGermanBookText("Wiesen-Rhabarber\n\nStandort:\nWiese\n\nHaupterntezeit:\nSommer\n\nenthï¿½lt:\nOrcanol,Fenolin",153,0,0);
         base.books.AddGermanBookText("Jungfernkraut\n\nStandort:\nWald,Blume\n\nHaupterntezeit:\nWinter\n\nenthï¿½lt:\nOrcanol,Caprazin",144,0,0);
         base.books.AddGermanBookText("Heideblï¿½te\n\nStandort:\nWiese,Gras\n\nHaupterntezeit:\nFrï¿½hjahr\n\nenthï¿½lt:\nOrcanol,Dracolin",145,0,0);
-        base.books.AddGermanBookText("Wï¿½stenhimmelskapsel\n\nStandort:\nSand\n\nHaupterntezeit:\nHerbst\n\nenthï¿½lt:\nIllidrium,Hyperborelium",146,0,0);
+        base.books.AddGermanBookText("Wüstenhimmelskapsel\n\nStandort:\nSand\n\nHaupterntezeit:\nHerbst\n\nenthï¿½lt:\nIllidrium,Hyperborelium",146,0,0);
         base.books.AddGermanBookText("Trugblï¿½te\n\nStandort:\nWald\n\nHaupterntezeit:\nSommer, Herbst\n\nenthï¿½lt:\nIllidrium,Fenolin",148,0,0);
         base.books.AddGermanBookText("Firnisblï¿½te\n\nStandort:\nFels,Blume\n\nHaupterntezeit:\nSommer\n\nenthï¿½lt:\nIllidrium,Caprazin",148,0,0);
         base.books.AddGermanBookText("Frommbeere\n\nStandort:\nDreck\n\nHaupterntezeit:\nHerbst,Winter\n\nenthï¿½lt:\nIllidrium,Dracolin",136,0,0);

@@ -15,12 +15,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddLanguage("common language",2);
             base.books.AddLanguage("common language",3);
 
-            base.books.AddGermanBookText("Die Hï¿½hle von Irundar muss hier irgendwo sein...Ein Waldlï¿½ufer hat genau diese Bucht beschrieben!",0,0,1);
-            base.books.AddGermanBookText("Diese Hï¿½hle ist recht enttï¿½uschend.",0,0,1);
+            base.books.AddGermanBookText("Die Höhle von Irundar muss hier irgendwo sein... Ein Waldläufer hat genau diese Bucht beschrieben!",0,0,1);
+            base.books.AddGermanBookText("Diese Höhle ist recht enttï¿½uschend.",0,0,1);
             base.books.AddGermanBookText("Wenn ich hier noch lï¿½nger suche werde ich bald den Verstand verlieren...",0,0,1);
-            base.books.AddGermanBookText("Ha! Jetzt ist mir alles klar. Dies ist nicht die Hï¿½hle von Irundar...dies ist nur eine Passage, ein Zugang.",0,0,1);
+            base.books.AddGermanBookText("Ha! Jetzt ist mir alles klar. Dies ist nicht die Höhle von Irundar...dies ist nur eine Passage, ein Zugang.",0,0,1);
             base.books.AddGermanBookText("Wahrscheinlich wurde der Zugang vor langer Zeit verschï¿½ttet verschï¿½ttet...obwohl...was wï¿½re wenn...",0,0,1);
-            base.books.AddGermanBookText("Endlich jenseits der Zugangshï¿½hle und nun: Die Hï¿½hle von Irundar...die Hï¿½hle ist Irundar, Irundar ist die Hï¿½hle. Dies ist einfach ï¿½berwï¿½ltigend!",0,0,1);
+            base.books.AddGermanBookText("Endlich jenseits der Zugangshï¿½hle und nun: Die Höhle von Irundar...die Höhle ist Irundar, Irundar ist die Höhle. Dies ist einfach ï¿½berwï¿½ltigend!",0,0,1);
 
             base.books.AddEnglishBookText("The Cave of Irundar must be somewhere near...A Ranger described exactly this bay!",0,0,1);
             base.books.AddEnglishBookText("This cave is really disappointing.",0,0,1);
@@ -29,7 +29,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("The entrance was properbly closed a long time ago...on the other hand...what if...",0,0,1);
             base.books.AddEnglishBookText("Finally I went passed the entrance cave and now: The Cave of Irundar...the cave is Irundar, Irundar is the cave. This is just amazing!",0,0,1);
 
-            base.books.AddGermanBookText("Endlich bin ich in Irundar, der verborgenen Stadt angelangt. Was ein Treiben auf dem Marktplatz! Ich hï¿½tte nicht gedacht dass hier jeder so beschï¿½ftigt ist.",0,0,2);
+            base.books.AddGermanBookText("Endlich bin ich in Irundar, der verborgenen Stadt angelangt. Was ein Treiben auf dem Marktplatz! Ich hï¿½tte nicht gedacht dass hier jeder so beschäftigt ist.",0,0,2);
             base.books.AddGermanBookText("Soeben habe ich bei Quartiermeister Solarin in Schloï¿½ Irundar vorgesprochen und ihm das Empfehlungsschreiben von Meister Delarod gezeigt. Ich kann in einer kleinen Wohnung mit Blick auf den Marktplatz wohnen.",0,0,2);
             base.books.AddGermanBookText("Viele Hï¿½ndler scheinen von auï¿½erhalb zu kommen, ich frage mich wie sie die Stadt erreichen; auf meinem Hinweg bin ich nicht vielen Leuten begegnet, bis auf den Torwï¿½chter am eher unscheinbaren Stadttor.",0,0,2);
             base.books.AddGermanBookText("Heute habe ich mich Großmeister Rinaad vorgestellt und ihm das Empfehlungsschreiben von Meister Delarod gezeigt.",0,0,2);

@@ -28,7 +28,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
             base.books.AddGermanBookText("\n \n Das Volk der Feen",0,0,0);
             base.books.AddGermanBookText("Wir, die Feen, werden schon seit einer ganzen Weile wahrgenommen, aber wir bleiben weiterhin gut versteckt. Man bekommt uns selten zu Gesicht, aber du kannst darauf wetten, dass wir auch dich irgendwann mal aufs Korn nehmen.",0,0,0);
-            base.books.AddGermanBookText("Wir sind sehr klein und können uns in Bï¿½schen und Bäumen verbergen, um von dortaus unseren Schabernack zu treiben.",0,0,0);
+            base.books.AddGermanBookText("Wir sind sehr klein und können uns in Büschen und Bäumen verbergen, um von dortaus unseren Schabernack zu treiben.",0,0,0);
             base.books.AddGermanBookText("Weibliche Feen haben bunte Flï¿½gel, ï¿½hnlich Schmetterlingen. Die Schwingen der mï¿½nnlichen Feen dagegen sind grï¿½nlich und durchsichtig.",0,0,0);
             base.books.AddGermanBookText("Unsere Flï¿½gel sind krï¿½ftig und sie schlagen rasend schnell. Dadurch können wir auch starken Stï¿½rmen trotzen. Dennoch sind wir letztlich recht zerbrechlich, was uns nicht gerade zu Kï¿½mpfern macht.",0,0,0);
             base.books.AddGermanBookText("Unsere abgeschnittenen oder verstï¿½mmelten Gliedmaï¿½en wachsen nach, insbesondere unsere Flï¿½gel, die binnen weniger Wochen regenerieren.",0,0,0);

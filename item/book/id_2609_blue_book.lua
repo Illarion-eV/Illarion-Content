@@ -113,7 +113,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			
 			base.books.AddGermanBookText("Die Stammbaumaufzeichnung der Blumfuï¿½ens.",0,11,2); 
 			base.books.AddGermanBookText("Lieber Leser, mein Name ist Willibald Blumfuï¿½ens, ich lebe in Firnismï¿½hle. Und ich bin nun in jenem Alter, wo sich ein Halbling zu fragen beginnt, wo er eigentlich herkommt und wer den seine Vorfahren",0,11,2); 
-			base.books.AddGermanBookText("waren. Ich brauche niemanden zu erzählen, dass es sich hierbei wohl um die aufregendsten Fragen handelt, mit denen man sich im Laufe seines Lebens beschï¿½ftigt. Viele meiner Verwandten und Bekannten",0,11,2); 
+			base.books.AddGermanBookText("waren. Ich brauche niemanden zu erzählen, dass es sich hierbei wohl um die aufregendsten Fragen handelt, mit denen man sich im Laufe seines Lebens beschäftigt. Viele meiner Verwandten und Bekannten",0,11,2); 
 			base.books.AddGermanBookText("mir großmï¿½tig geholfen und auch das eine oder andere Buch hergeliehen. Deshalb möchte ich, ihnen allen an dieser Stelle nochmalig von Herzen dafür danken.",0,11,2); 
 			base.books.AddGermanBookText("Nun die allerersten Spuren hat die Familie der Blumfuï¿½ens bereits vor sehr langer Zeit hinterlassen. Es ist natürlich besonders schwer so lang Vergangenes zu erforschen, doch es finden sich Zeichen",0,11,2); 
 			base.books.AddGermanBookText("dafür, dass Perigren Blumigfluss wohl der Erste unserer Reihe ist, von dem wir wissen. Er lebte bereits vor unvorstellbaren zweitausend Jahren in den Jahren der Jahrhundertkriege. Der Name muss sich",0,11,2); 

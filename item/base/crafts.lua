@@ -495,7 +495,7 @@ function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
     end
     if (ProduceItem.Difficulty[1] > self:ModifySkill(User,toolItem)) then
         base.common.TempInformNLS(User,
-        "Du bist nicht fï¿½hig genug um das zu tun.",
+        "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.");
         return
     end

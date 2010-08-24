@@ -532,7 +532,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Die junge Eisdrachin Scheylarichminduya hob ihren edel geformten Kopf an und wandte den Blick ihrer kristallin funkelnden Augen der Höhlendecke entgegen...etwas hatte sich verï¿½ndert...",0,30,4);
 			base.books.AddGermanBookText("Schaudernd schï¿½ttelte sie ihre eisblau funkelnden Schuppen...sie machte sich zu viele Gedanken...und dennoch...",0,30,4);
 			base.books.AddGermanBookText("Diese unheimliche Stille...es war nur die Ruhe vor dem Sturm, der kurz davor stand loszubrechen...",0,30,4);
-			base.books.AddGermanBookText("Lauter Flï¿½gelschlag unterbach sie in ihren Gedanken und hallte klar durch die eisgesï¿½umte Hï¿½hle, als ein weiterer Drache hinabglitt und ...",0,30,4);
+			base.books.AddGermanBookText("Lauter Flï¿½gelschlag unterbach sie in ihren Gedanken und hallte klar durch die eisgesï¿½umte Höhle, als ein weiterer Drache hinabglitt und ...",0,30,4);
 			base.books.AddGermanBookText("... mit einer eleganten Landung neben ihr auf dem kalten Stein des Höhlenbodens landete.",0,30,4);
 			base.books.AddGermanBookText("Die Eleganz der Bewegungen und auch die feminine Haltung des stolzen Kopfes machte schnell deutlich, dass es sich auch hierbei um einen weiblichen Drachen handelt.",0,30,4);
 			base.books.AddGermanBookText("Im Gegensatz zu den eisblauen Schuppen der Eisdrachin funkelten die Schuppen dieser Drachin jedoch in gefï¿½hrlich wirkenden Rottï¿½nen und ihr Atem hinterlies weiï¿½e Dampfwolken in der kalten Luft des Hortes.",0,30,4);

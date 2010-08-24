@@ -227,15 +227,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " 'Wandere nach Westen zum Fuï¿½ des Berges und folge dem Wanderer zur Urquelle aller Edelmetalle.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Und so wanderte Thiron zurück zum Fuï¿½ des Berges und dort war der Wanderer, ein Zwerg mit einem hohen Stock und einem grauen Mantel, von Irmorom entsandt. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Der Wanderer begann den Berg zu besteigen und stieg hï¿½her und dann noch hï¿½her. Doch Thiron war stark und blieb stets dicht hinter ihm.", 0, 0, 2 );
-            base.books.AddGermanBookText( " Er folgte dem Wanderer in eine Hï¿½hle und stieg tiefer und tiefer in den Berg hinein, bis seine Lungen brannten und die Kraft seiner Gliedmaï¿½en schwand. ", 0, 0, 2 );   
+            base.books.AddGermanBookText( " Er folgte dem Wanderer in eine Höhle und stieg tiefer und tiefer in den Berg hinein, bis seine Lungen brannten und die Kraft seiner Gliedmaï¿½en schwand. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Schlieï¿½lich fand er eine Halle und dort, im Dunkeln, befand sich eine Ader von Gold im marmornen Boden. Er nahm seine letzte Kraft zusammen, ergriff das Gold und kehrte zurück an den Fuï¿½ des Berges.  ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Als er zum Fuï¿½ des Berges zurückkehrte, sprach Irmorom: 'Du hast das Geschenk des Goldes und der Edelsteine für die Zwerge zurückgewonnen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Die Berge werden wieder gut gefï¿½llt sein, und euer Tatendrang wird gestillt werden.'", 0, 0, 2 );   
             base.books.AddGermanBookText( " Dann wanderte Thiron zum Erdstein, und dort sprach Irmorom erneut zu ihm. ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Betritt die Grotte der verborgenen Musik und lausche dem Lied der Erde.'", 0, 0, 2 );
-            base.books.AddGermanBookText( " Also ging Thiron nach Norden und Osten zur Grotte der verborgenen Musik. Er fand sich in einer riesigen Hï¿½hle wieder, in der Felsen von der Decke hingen und selbst aus dem Boden wuchsen. ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Also ging Thiron nach Norden und Osten zur Grotte der verborgenen Musik. Er fand sich in einer riesigen Höhle wieder, in der Felsen von der Decke hingen und selbst aus dem Boden wuchsen. ", 0, 0, 2 );
             base.books.AddGermanBookText( " Dort lauschte er und hï¿½rte das Lied der Erde, aber es war nur schwach. ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Er nahm seine Spitzhacke und schlug die Felsen auf dem Boden im Rhythmus der Musik, und das Lied wurde lauter, bis es die Hï¿½hle und sein Herz erfï¿½llte. Dann kehrte er zum Erdstein zurück.", 0, 0, 2 );
+            base.books.AddGermanBookText( " Er nahm seine Spitzhacke und schlug die Felsen auf dem Boden im Rhythmus der Musik, und das Lied wurde lauter, bis es die Höhle und sein Herz erfï¿½llte. Dann kehrte er zum Erdstein zurück.", 0, 0, 2 );
             base.books.AddGermanBookText( " 'Das Geschenk der Erde ist wieder zu den Zwergen zurückgekehrt', sagte Irmorom. 'Die Bï¿½den sind wieder reich und werden Leben hervorbringen.' ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Thiron war müde, denn in der glühenden Sonne gab es keine Bäume, die ihm Schatten boten und keinen Wind, der ihn kï¿½hlte. Dennoch reiste er zum Tierstein und Irmorom sprach:  ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Finde das Gute Tier und lindere sein Leiden.'", 0, 0, 2 );
@@ -475,7 +475,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Grundlagen der Magie \nTeil eins von Djironnymas Gesamtwerk der Magie",155,25,4); -- ### 155 sibanac leaf ###
 			base.books.AddGermanBookText("1. Vorbetrachtungen ~ Seite 3 \n2. Arkane Strukturen Seite 11 \n3. Manaenergie ~Seite 21 \n 4. Besondere arkane Strukturen ~Seite 38 \n 5. Runenmagie ~Seite 65",0,25,4); -- ### should be index, if space isnt enough use 1. page ###
 			base.books.AddGermanBookText("1. Vorbetrachtungen \nWas ist Magie? ",10,25,4); -- ### 10 starting point ###
-			base.books.AddGermanBookText("Diese Frage beschï¿½ftigt die Sterblichen seit dem Anbeginn der Zeit. Es gibt hierzu ungezï¿½hlte Ansichten, von fanatisch religiï¿½sen Irrglaube bis hin zu okkulten, an Wahnsinn grenzenden Theorien.",0,25,4);
+			base.books.AddGermanBookText("Diese Frage beschäftigt die Sterblichen seit dem Anbeginn der Zeit. Es gibt hierzu ungezï¿½hlte Ansichten, von fanatisch religiï¿½sen Irrglaube bis hin zu okkulten, an Wahnsinn grenzenden Theorien.",0,25,4);
 			base.books.AddGermanBookText("Letztendlich liegt die Wahrheit wohl irgendwo dazwischen.",0,25,4);
 			base.books.AddGermanBookText("Auch ich kann leider nicht behaupten, die endgï¿½ltige Antwort zu kennen. Ich kann lediglich meine Beobachtungen und Schlussfolgerungen wiedergeben, aus dem Studium der verbreitesten Theorien und meinen",0,25,4);
 			base.books.AddGermanBookText("eigenen Erfahrungen und Experimenten heraus. Es ist am Leser sich seine eigene Meinung darï¿½ber zu bilden.",0,25,4);
