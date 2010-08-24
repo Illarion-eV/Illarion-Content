@@ -107,7 +107,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "normalen Zeit von 50 Jahren das Vertrauen schenkt und anfï¿½ngt sie lieb zu gewinnen kann man sie schon zu Grabe tragen. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Halblinge die kleinen Brï¿½der der Menschen leben auch nicht viel lï¿½nger. Allerdings kann man mit ihnen feste Feste feiern weil sie Bier und gutes Essen genauso schï¿½tzen wie wir. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Ihr Fleiï¿½ und ihre Hingabe zum Anbau und zur Zubereitung von Essen kommt der Handwerkskunst der Zwerge nahezu gleich. Sie sind freundliche kleine Kerle, allerdings sollte man sie nicht allzu", 0, 0, 1 );
-            base.books.AddGermanBookText( "hart anfassen da Ihnen die Stabilitï¿½t von unsereins abgeht. ", 0, 0, 1 );
+            base.books.AddGermanBookText( "hart anfassen da Ihnen die Stabilität von unsereins abgeht. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Orks - Orks stinken sie sind Kreaturen Moshrans und damit in Irmoroms Schï¿½pfung nicht vorgesehen. Ihre Existenz ist eine Beleidigung für jeden Glï¿½ubigen. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Ferner lehnen sie jedwede Art von Ordnung ab. Ihre Verbï¿½nde sind unorganisiert und der mangelnde Respekt gegenï¿½ber hï¿½her Gestellten verhindert das sie auch nur Ansatzweise zum gesellschaftlichen", 0, 0, 1 );
             base.books.AddGermanBookText( "Umgang geeignet sein kï¿½nnten. Ihre Anführer kommen alleine durch Brutalitï¿½t nach oben. Weisheit, Alter und Erfahrung spielen bei Ihnen überhaupt keine Rolle.", 0, 0, 1 );

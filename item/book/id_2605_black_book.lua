@@ -96,7 +96,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Die meistgenutzte Axt der Zwerge, vereint alle Eigenschaften die eine wahre Zwergenwaffe brauch. Kraft, Schnelligkeit und Geschicklichkeit.",0,0,1);
             base.books.AddGermanBookText("Kraft, mit der Zwergenaxt können verheerende Angriffe ausgefï¿½hrt werden.",0,0,1);
             base.books.AddGermanBookText("Schnelligkeit, durch ihre ausbalancierte Fertigung lï¿½sst sie sich leicht und schnell fï¿½hren.",0,0,1);
-            base.books.AddGermanBookText("Geschicklichkeit, der schlank Griff und die schnittige Klinge geben der Axt eine prï¿½zise Handhabung. ",0,0,1);
+            base.books.AddGermanBookText("Geschicklichkeit, der schlank Griff und die schnittige Klinge geben der Axt eine präzise Handhabung. ",0,0,1);
             base.books.AddGermanBookText("Legenden zufolge soll es sogar magische Zwergenï¿½xte geben.",0,0,1);
             base.books.AddGermanBookText("Kriegsaxt",383,0,1); -- ### waraxe ###
             base.books.AddGermanBookText("Die Kriegsaxt eignet sich gut zum kï¿½mpfen auch sie vereint die wichtigen Werte einer Axt. ",0,0,1);
