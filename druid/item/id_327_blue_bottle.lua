@@ -11,7 +11,7 @@ module("druid.item.id_327_blue_bottle", package.seeall, package.seeall(druid.bas
 
 -- UPDATE common SET com_script='druid.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
--- Datawerte für Wurfkï¿½rper
+-- Datawerte für Wurfkörper
 -- Werte mï¿½ssen für optimierte Suche aufsteigend geordnet sein
 listWK = {12836431, 13245638, 13983419, 16359531, 19123643, 21915579, 24968253, 26372612, 29732752, 32185872, 32484266,
           32812622, 33421656, 35471525, 36557188, 36835636, 42218944, 43185342, 43245354, 47564545, 52761593, 55938556,
@@ -59,7 +59,7 @@ end
 
 function Explode(User,Item)
 
-    -- Effektname des Wurfkï¿½rpers ermitteln und dorthin verzweigen
+    -- Effektname des Wurfkörpers ermitteln und dorthin verzweigen
     if (Item.data == 12836431) then
         effect_12836431( User, Item );
     elseif (Item.data == 13245638) then
@@ -180,11 +180,11 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 	if Sourceitem.id_data == 0 then	
 	else	
     if not checkMissile(SourceItem.data) then
-        return; -- kein Wurfkï¿½rper
+        return; -- kein Wurfkörper
     end
 
     if (math.floor(SourceItem.quality/1000)==1) then
-        return; -- Wurfkï¿½rper gesichert
+        return; -- Wurfkörper gesichert
     end
 
     if (SourceItem:getType()~=4 or (SourceItem.pos~=5 and SourceItem.pos~=6)) then
@@ -210,11 +210,11 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	
 	else	
     if not checkMissile(SourceItem.data) then
-        return true; -- kein Wurfkï¿½rper
+        return true; -- kein Wurfkörper
     end
 
     if (math.floor(SourceItem.quality/1000)==1) then
-        return true; -- Wurfkï¿½rper gesichert
+        return true; -- Wurfkörper gesichert
     end
 
     if (TargetItem:getType()~=3) then
@@ -247,14 +247,14 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		if (SourceItem.data == 63321157) then --Windtrank
 			windtrank(User, SourceItem, TargetItem);
 
-		elseif checkMissile(SourceItem.data) then --das ist ein Wurfkï¿½rper
-			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkï¿½rper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
+		elseif checkMissile(SourceItem.data) then --das ist ein Wurfkörper
+			if (math.floor(SourceItem.quality/1000)==1) then -- Wurfkörper gesichert (qual: 1xxx) --> entsichern (qual: xxx)
             	base.common.TempInformNLS( User,
             	"Du entsicherst des Wurfkörper. Vorsicht damit.",
             	"You activate the missle. Careful with it.");
             	SourceItem.quality = math.mod( SourceItem.quality, 1000 );
             	world:changeItem( SourceItem );
-			else -- Wurfkï¿½rper entsichert --> sichern
+			else -- Wurfkörper entsichert --> sichern
 				base.common.TempInformNLS( User,
             	"Du sicherst den Wurfkörper.",
             	"You deactivate the missile.");
@@ -262,7 +262,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
             	world:changeItem( SourceItem );
         	end
     	else
-        	-- das ist weder ein Wurfkï¿½rper, noch eine Potion.
+        	-- das ist weder ein Wurfkörper, noch eine Potion.
     	end
 	end
 end

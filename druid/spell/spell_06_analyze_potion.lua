@@ -161,7 +161,7 @@ end
 
 function ds_analyse_327(Caster,Item)
 --dunkelblaue Flasche
---Wurfkï¿½rper ua
+--Wurfkörper ua
 --Caster:inform("dunkelblaue Flasche")
   if Item.data == 93531588 then
     EtikettDe ="Wurfbombe"

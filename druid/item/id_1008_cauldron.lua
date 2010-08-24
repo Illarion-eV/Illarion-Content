@@ -2,12 +2,12 @@
 -- Herstellung von Pflanzenextrakten
 -- Fixieren von Pflanzenextrakten zu Potions
 -- Neutralisieren von Pflanzenextrakten
--- Kessel 1008 (SourceItem) zur Herstellung von Pflanzensï¿½ften
+-- Kessel 1008 (SourceItem) zur Herstellung von Pflanzensäften
 -- by Falk
 
 -- Flasche 164(grau) oder 331(grï¿½n) in der Hand
 -- Pflanze,Mineral,Filtrat in der Hand
--- Auf Kessel auslï¿½sen
+-- Auf Kessel auslösen
 
 require("base.common")
 require("druid.base.alchemy")

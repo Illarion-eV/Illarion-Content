@@ -1,6 +1,6 @@
 -- ds_base_missile.lua
 -- Druidensystem
--- Effekte für Wurfkï¿½rper
+-- Effekte für Wurfkörper
 -- Falk & Nitram
 
 -- Liste der IDs mit Objekten aus Holz
@@ -38,7 +38,7 @@ end
 
 function createRabbits( targetArea )
     local rabbit;
-    -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt ï¿½ber die initiale Verwendung von Gift.
+    -- Bestimme lebenszeit der Hasen. Vernichtung Hasen erfolgt über die initiale Verwendung von Gift.
     -- Vergebene Giftpunkte werden Skaliert von 1000 (bei quality 100) bis 50 (bei quality 999)
     local lifeTime = base.common.Scale( 1000, 50, (Item.quality-100)*100/899 );
 
@@ -76,7 +76,7 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             end
             Schaden = 10 * qual;
 
-            -- Ermittle Summe der als schï¿½tzend angegebene Attribute
+            -- Ermittle Summe der als schützend angegebene Attribute
             AttribEffect = 0;
             for k, attrib in pairs(ShieldAttribs) do
                 AttribEffect = AttribEffect + Person:increaseAttrib( attrib, 0 );
@@ -85,11 +85,11 @@ function causeDamage( Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxid, sf
             -- 0 - 20
             AttribEffect = AttribEffect / table.getn( ShieldAttribs );
 
-            -- Schï¿½tzender Einfluss der Attribute besteht sich aus dem Quadrat des Mittelwertes * 2
+            -- Schützender Einfluss der Attribute besteht sich aus dem Quadrat des Mittelwertes * 2
             -- 0 - 800
             AttribEffect = ( AttribEffect * AttribEffect * 2 );
 
-            -- Schï¿½tzender AttributeEffekt vom Schaden abziehen
+            -- Schützender AttributeEffekt vom Schaden abziehen
             Schaden = Schaden - AttribEffect;
 
             -- Steifheit der Rüstung ermitteln. Je steifer die Rüstung deszo mehr wird der Schaden durch die Rüstung abgefangen
@@ -264,7 +264,7 @@ function checkHit( User, Item )
     return position( Item.pos.x + math.floor( modX ), Item.pos.y + math.floor( modY ), Item.pos.z );
 end
 
--- Zï¿½hle alle Charakter auf einem bestimmten Gebiet
+-- Zähle alle Charakter auf einem bestimmten Gebiet
 function countCharacters( targetPosis )
     local cnt = 0;
     for i, posi in pairs(targetPosis) do
@@ -275,7 +275,7 @@ function countCharacters( targetPosis )
     return cnt;
 end
 
--- Feststellen wo es Charaktere gibt und einen auswï¿½hlen
+-- Feststellen wo es Charaktere gibt und einen auswählen
 function selectCharacter( targetPosis )
     local finePosis = {};
     for i, posi in pairs(targetPosis) do
@@ -392,7 +392,7 @@ function effect_29732752(User,Item)
     createRabbits( fieldOfRadius2( checkHit( User, Item ) ) );
 end
 
----- SCHADEN AUF Rï¿½STUNGEN - HALTBARKEIT ----
+---- SCHADEN AUF RüSTUNGEN - HALTBARKEIT ----
 
 -- Voller Haltbarkeits-Schaden auf Rüstungen auf 1er Feld
 function effect_55938556(User,Item)
@@ -421,7 +421,7 @@ function effect_36557188(User,Item)
     damageItemDura( Item, hitArea, 4, 5, 1/countCharacters( hitArea ), "armor" );
 end
 
----- SCHADEN AUF Rï¿½STUNGEN - Qualität ----
+---- SCHADEN AUF RüSTUNGEN - Qualität ----
 
 --Voller Qualitäts-Schaden auf Rüstungen auf 1er Feld
 function effect_98538617(User,Item)
@@ -569,7 +569,7 @@ end
 
 
 --[[
-function effect_58731981(User,Item) --globale Wetterverï¿½nderung
+function effect_58731981(User,Item) --globale Wetterveränderung
     return true; -- Script nicht fertig, funktion sofort abbrechen
 
     m_Weather = world.weather;
@@ -590,10 +590,10 @@ end
 function effect_59595521(User,Item) --Matschbarriere auf 9er-Feld
     actionfield = fieldOfNine(Item)
     for i = 1,9 do
-        --Bodentiles ï¿½ndern
+        --Bodentiles ändern
         local field = world:getField(actionfield[i])
         local tileID= field.tile
-        if tileID == 11 then --Wiese     !!!! id prï¿½fen
+        if tileID == 11 then --Wiese     !!!! id prüfen
             world:changeTile(4,actionfield[i])  --Kontrolle: screen update?
             world:sendMapUpdate(actionfield[i],5)
             -- Dieser Effekt sollte nun umgebaut werden zu einem LTE 327 (Zeit vergeht, Effekt aufheben.)
@@ -605,7 +605,7 @@ end
 
 
 
-function effect_42718255(User,Item) --Einen Effekt vortï¿½uschen
+function effect_42718255(User,Item) --Einen Effekt vortäuschen
 
 end
 
@@ -621,17 +621,17 @@ end
 --das Ganze jeweils für 1er Feld
 --das Ganze jeweils für Quality
 
--- Die Effekt-Nummer kann willkï¿½rlich achtstellig sein (ohne Ziffer 0), die Anpassung erfolgt dann in ds_327_blaue_Flasache.lua
+-- Die Effekt-Nummer kann willkürlich achtstellig sein (ohne Ziffer 0), die Anpassung erfolgt dann in ds_327_blaue_Flasache.lua
 -- Datawerte aus Zufallsgenerator
 --
 --
 --
 
---Zum Vortï¿½uschen eines Effektes: Hier soll ein Dummy des Casters erscheinen, also ein Monster gleicher Rasse, das sich nach einer weile wieder selbst zerstï¿½rt. Sinn soll sein, einen Gegner zu verwirren, wen er jetzt angreifen muss.
---Eine Steigerung wï¿½re dann ein Dummy, der den Gegner angreift.
+--Zum Vortäuschen eines Effektes: Hier soll ein Dummy des Casters erscheinen, also ein Monster gleicher Rasse, das sich nach einer weile wieder selbst zerstört. Sinn soll sein, einen Gegner zu verwirren, wen er jetzt angreifen muss.
+--Eine Steigerung wäre dann ein Dummy, der den Gegner angreift.
 
---Zu Wettereffekten: Jeweils ein Effekt für je eine Wetterï¿½nderung: also 1 Wurfbombe für Nebel, eine für Regen etc. Dauer gemï¿½ï¿½ Quality des Trankes (LTE)
---Man könnte auch die Intensitï¿½t ï¿½ber quality steuern, zb aquality = 345 ==> Intensitï¿½t = 3 (1-9) und Dauer = 45 (11-99)
+--Zu Wettereffekten: Jeweils ein Effekt für je eine Wetteränderung: also 1 Wurfbombe für Nebel, eine für Regen etc. Dauer gemäß Quality des Trankes (LTE)
+--Man könnte auch die Intensität über quality steuern, zb aquality = 345 ==> Intensität = 3 (1-9) und Dauer = 45 (11-99)
 
---Zur Aufhebung der Matschbarriere folgen noch Vorschlï¿½ge
+--Zur Aufhebung der Matschbarriere folgen noch Vorschläge
 ]]
