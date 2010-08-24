@@ -2,17 +2,17 @@
 -- NPC Name: Krudash                                                  Galmair --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  371, 258, 0            --
+-- NPC Race: orc                        NPC Position:  374, 249, 0            --
 -- NPC Sex:  female                     NPC Direction: northwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 23, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 24, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 371, 258, 0, 7, 'Krudash', 'npc.krudash', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (4, 374, 249, 0, 7, 'Krudash', 'npc.krudash', 1, 2, 0, 47, 37, 10, 193, 201, 152);
 ---]]
 
 require("npc.base.basic")
@@ -281,6 +281,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("er hja");
 talkEntry:addTrigger("erhja");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Er'hja kann sich glücklich schätzen. Hatt den Kopf von Mama und das Gâsh von Papa. Krudash und Murgo sinds, yubba.");
@@ -294,7 +295,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("eerhja");
+talkEntry:addTrigger("er hja");
+talkEntry:addTrigger("erhja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Er'hja should be lucky. Got the smartness ob 'er mom 'nd the gâsh ob papy. Krudash 'nd Murgo are.");
 talkEntry:addResponse("Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!");
@@ -559,6 +561,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ol hja");
 talkEntry:addTrigger("olhja");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ol'hja ist Tochta von Murgo. Sie Kundschafta in Laga von Ogretoe. Hurr Hurr.");
@@ -568,6 +571,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ol hja");
 talkEntry:addTrigger("olhja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ol'hja's tha doughta ob Murgo. She be scout in tha ogretoe-camp. Hurr Hurr.");
@@ -860,9 +864,9 @@ talkEntry:addResponse("Uh-h?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me leckt sich kurz über die Lippen. Dann streckt sie die Zunge heraus und berührt damit ihr hübsches Näschen.", "#me licks her lips. Then she shwos her tounge and taps her cute nose.");
-talkingNPC:addCycleText("Hack'n Sack! Hier du alles kaufen kannst. Du brauchen für gutt Plünderei!", "Hack'n sack! here you buy all stuff for well sack trip.");
-talkingNPC:addCycleText("Uh, mirr so stolz auf mein kleine Ol'hja und mein kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!");
-talkingNPC:addCycleText("Gnahrr! Wo mein faule Sack von Mann ist?", "Gnahrr! Where my lazy husband be is?");
+talkingNPC:addCycleText("Hack'n Sack! Hier Kannst du alles kaufen. Was 'ner wie du braucht für ne gutte Plünderei!", "Hack'n sack! here you buy all stuff for well sack trip.");
+talkingNPC:addCycleText("Uh, ich bin so stolz auf meine kleine Ol'hja und meine kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!");
+talkingNPC:addCycleText("Gnahrr! Wo ist mein fauler Sack von Mann?", "Gnahrr! Where my lazy husband be is?");
 talkingNPC:addCycleText("#me stochert mit ihrem Finger an einem der beiden Kieferzähnen herum. ", "#me digs with one of his fingers between her tusks.");
 talkingNPC:addCycleText("#me schnaubt ein wenig.", "#me snorts quietly.");
 talkingNPC:addCycleText("#me rubbelt mit den Fingernägeln an einem rostendem Eisenteil. Doch der Rost scheint sich hartnäckig darauf zu halten.", "#me rubs with fingernails at a rusty pice of iron. But the rust hold it's stand.");
