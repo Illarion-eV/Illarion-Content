@@ -2,7 +2,7 @@
 -- NPC Name: Krudash                                                  Galmair --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  374, 249, 0            --
+-- NPC Race: orc                        NPC Position:  368, 260, 0            --
 -- NPC Sex:  female                     NPC Direction: northwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 374, 249, 0, 7, 'Krudash', 'npc.krudash', 1, 2, 0, 47, 37, 10, 193, 201, 152);
+VALUES (4, 368, 260, 0, 7, 'Krudash', 'npc.krudash', 1, 2, 0, 47, 37, 10, 193, 201, 152);
 ---]]
 
 require("npc.base.basic")
