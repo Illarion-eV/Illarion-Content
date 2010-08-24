@@ -12,7 +12,7 @@ function unitDecleration()
   if firsttime == nil then
     ListDE = {}
     ListEN = {}
-    ListDE ={"marode", "schlechte", "mäßige", "unauffï¿½llige", "brauchbare", "gute", "sehr gute", "hervorragende", "überragende"}
+    ListDE ={"marode", "schlechte", "mäßige", "unauffällige", "brauchbare", "gute", "sehr gute", "hervorragende", "überragende"}
     ListEN ={"ramshackle","bad","undistinguished","modest","usable","good", "very good","excellent","superior" }
     firsttime = 1
   end
@@ -36,6 +36,6 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
   unitDecleration()
   ergebnis = math.floor(TargetItem.quality/100)
   base.common.InformNLS( Caster,
-                "#b|0|0|die Prï¿½fung ergibt eine "..ListDE[ergebnis].." Qualität",
+                "#b|0|0|die Prüfung ergibt eine "..ListDE[ergebnis].." Qualität",
                 "#b|0|0|this inspection results a "..ListEN[ergebnis].." quality" )
 end

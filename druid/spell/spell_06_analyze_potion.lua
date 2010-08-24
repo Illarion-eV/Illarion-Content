@@ -191,7 +191,7 @@ function ds_analyse_327(Caster,Item)
     EtikettDe ="Rostschleuder" --Haltbarkeitsschaden für Rüstungen auf 9er Feld
     EtikettEn ="Rusttrap"
   elseif Item.data == 64175321 then
-    EtikettDe ="Holzkï¿½fer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
+    EtikettDe ="Holzkäfer" --Haltbarkeitsschaden für Holzwaren auf 9er Feld
     EtikettEn =""
   elseif Item.data == 15516428 then
     EtikettDe ="Schwertgrab" --Halbarkeitsschaden für Waffen auf 9er Feld
@@ -324,7 +324,7 @@ function ds_analyse_329(Caster,Item)
       EtikettDe = "ein Gestaltenwandler-Trunk 'Luft'"
       EtikettEn = "Shape Shifter Potion 'Air'"
   elseif Item.data == 87611881 then
-      EtikettDe = "ein Gestaltenwandler-Trunk 'Schï¿½del'"
+      EtikettDe = "ein Gestaltenwandler-Trunk 'Schädel'"
       EtikettEn = "Shape Shifter Potion 'Skull'"
   elseif Item.data == 31231973 then
       EtikettDe = "ein Gestaltenwandler-Trunk 'Wespe'"
@@ -382,9 +382,9 @@ function ds_analyse_329(Caster,Item)
 end
 
 function ds_analyse_330(Caster,Item)
---weiï¿½e Flasche
+--weiße Flasche
 --Sprache
---Caster:inform("weiï¿½e Flasche")
+--Caster:inform("weiße Flasche")
   if Item.data ==  45942235 then
       EtikettDe = "ein Trank des menschlichen Verstehens"
       EtikettEn = "a Potion Of Human Understanding"
@@ -473,7 +473,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
         textDE, textEN = ds_analyse_329(Caster,TargetItem)
 				break
 			elseif i == 8 then
-			--weiï¿½e Flasche
+			--weiße Flasche
         textDE, textEN = ds_analyse_330(Caster,TargetItem)
 			end
 
