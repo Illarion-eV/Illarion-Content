@@ -16,8 +16,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
             base.books.AddGermanBookText("Das Buch der Priester Eldans",0,0,0);
             base.books.AddGermanBookText("Der Novize:",0,0,0);
-            base.books.AddGermanBookText("Was du suchst sind Weisheit und Wissen. Doch vielleicht fï¿½hrt dein Weg zu sehr zu Hochmut und nicht zu Eldan.",0,0,0);
-            base.books.AddGermanBookText("Sei stark im Glauben. Eldan fï¿½hrt dich und er bringt dich deinem Ziel nï¿½her, die Spur zu finden - zur Weisheit.",0,0,0);
+            base.books.AddGermanBookText("Was du suchst sind Weisheit und Wissen. Doch vielleicht führt dein Weg zu sehr zu Hochmut und nicht zu Eldan.",0,0,0);
+            base.books.AddGermanBookText("Sei stark im Glauben. Eldan führt dich und er bringt dich deinem Ziel näher, die Spur zu finden - zur Weisheit.",0,0,0);
             base.books.AddGermanBookText("Sei stark in Taten. Zeige Eifer. Wie dir und mir Eldan den Zweifel nahm, den Hochmut, zeigt er den Weg.",0,0,0);
             base.books.AddGermanBookText("Sei stark im Mute. Ich sehe den Weg. Und werde er steinig oder steil, ihm sind wir bestimmt zu folgen.",0,0,0);
 
@@ -65,7 +65,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("sie den Göttinnen nicht dienen.\n Wenn eine Ama-Shoon-Kriegerin stirbt, so der Glaube, wird sie von Findari geprï¿½ft. Versagt sie oder hat sie im Leben versagt, muï¿½ sie den Speer abgeben und bei den ",0,30,1);
             base.books.AddGermanBookText("anderen Serinjah leben.\n \n~Salkamaerer\nVerehrte Götter\n Zhambra\n Oldra\n Elara\n Sirani\n Malachín\n Adron\n Cherga\n Irmorom\n Ronagan\n Nargún\n \n Die Salkamaerer verehren alle jï¿½ngeren",0,30,1);
             base.books.AddGermanBookText("Götter ï¿½ insbesondere Zhambra, Oldra, Elara, Sirani und Malachin ï¿½ bis auf Moshran, dessen Name nicht genannt werden darf, denn es bringt großes Unheil, diesen Namen auszusprechen.\n Jedes",0,30,1);
-            base.books.AddGermanBookText("Salkamaerische Adelshaus fï¿½hrt seinen Stammbaum auf einen der jï¿½ngeren Götter zurück. Die ï¿½lteren Götter sind unbekannt oder werden einfach ï¿½Elben- und Echsengï¿½tterï¿½ genannt, andere Religionen werden",0,30,1);
+            base.books.AddGermanBookText("Salkamaerische Adelshaus führt seinen Stammbaum auf einen der jï¿½ngeren Götter zurück. Die ï¿½lteren Götter sind unbekannt oder werden einfach ï¿½Elben- und Echsengï¿½tterï¿½ genannt, andere Religionen werden",0,30,1);
             base.books.AddGermanBookText("hï¿½flich toleriert.\n Der Schï¿½pfungsmythos der Salkamaerer besagt, daï¿½ die heiligen Götter selbst in der uralten Stadt Salkamar lebten, welche im Nichts schwebte und die damals noch einen Namen in der",0,30,1);
             base.books.AddGermanBookText("Sprache der Götter trug. Um das Nichts tobte elementares Chaos. Da erhob sich Nargún, der Herr des Chaos, und beschimpfte das Chaos und das Nichts, weil beides ihm nicht gefiel. Er ï¿½berredete die",0,30,1);
             base.books.AddGermanBookText("anderen Götter, eine ganze Welt zu erschaffen. Und so erschufen die Götter die Welt. Doch die Welt gefiel ihnen, und sie verlieï¿½en die Stadt und bauten weitere, kleinere Welten, jeder Gott seine",0,30,1);

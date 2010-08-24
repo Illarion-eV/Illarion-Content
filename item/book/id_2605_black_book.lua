@@ -23,10 +23,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Heute begegnete ich einem Jï¿½nger Findaris. Er riet mir meine Wanderung nach Murinaa zu dokumentieren. Als Erinnerung.",0,0,0);
             base.books.AddGermanBookText("Murinaa: Noch liegt es wenige Tagesmï¿½rsche entfernt und doch ist die glanzvolle Stadt schon in der Ferne ï¿½ber dem glitzernden Sand zu erkennen.",0,0,0);
             base.books.AddGermanBookText("Wie viele Anwï¿½rter auf die Priesterschaft zieht es mich nach Murinaa, die nï¿½chste Grüßere Stadt in der sich Heiligtï¿½mer aller Götter befinden.",0,0,0);
-            base.books.AddGermanBookText("Je nï¿½her ich Murinaa komme desto mehr Anhï¿½nger Bragons, Usharas, Eldans, Tanoras und Findaris kreuzen meinen Weg. Es sind ihrer nicht hunderte aber dennoch einige Dutzend.",0,0,0);
+            base.books.AddGermanBookText("Je näher ich Murinaa komme desto mehr Anhï¿½nger Bragons, Usharas, Eldans, Tanoras und Findaris kreuzen meinen Weg. Es sind ihrer nicht hunderte aber dennoch einige Dutzend.",0,0,0);
             base.books.AddGermanBookText("Endlich in Murinaa: Die Bibliothek ist gigantisch. Ich habe das Buch der Priester Eldans gefunden und gelesen. Sehr rï¿½tselhaft.",0,0,0);
             base.books.AddGermanBookText("Es scheint als würde von mir erwartet werden das Gebet zur Weihe selber zu finden. Mein einziger Anhaltspunkt ist das Buch der Priester Eldans.",0,0,0);
-            base.books.AddGermanBookText("Dieses Buch ist mir ein Rï¿½tsel. Und die Weihen rï¿½cken nï¿½her. Unaufhaltsam. Wie soll ich es nur deuten?!",0,0,0);
+            base.books.AddGermanBookText("Dieses Buch ist mir ein Rï¿½tsel. Und die Weihen rï¿½cken näher. Unaufhaltsam. Wie soll ich es nur deuten?!",0,0,0);
             base.books.AddGermanBookText("Einer der Novizen bemerkte heute meine Mï¿½hen in der Bibliothek. Er hat gesagt dass es genau fï¿½nf Götter seien - Als ob ich das nicht wï¿½sste.",0,0,0);
             base.books.AddGermanBookText("Auï¿½erdem sprach er von einem Zyklus des Erschaffens. Offensichtlich wollte er mir einen Hinweis zukommen lassen. Was er wohl meinte?",0,0,0);
             base.books.AddGermanBookText("Ich habe eine interessante Beobachtung gemacht: Alle fï¿½nf Tage fï¿½llt das Licht durch einen Spalt in der Decke genau auf das Buch der Priester Eldans.",0,0,0);

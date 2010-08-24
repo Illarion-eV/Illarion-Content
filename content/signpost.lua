@@ -116,7 +116,7 @@ function InitWegweiser()
 	
 	-- Noobia --
 	AddWeg({47,98,100},"Zur Sandlandschaft 'Doppelpalme'","To sand scape 'Double Palm'",2,0);
-	AddWeg({114,162,100},"Arax Ironheart - Schmied","Arax Ironheart - smith",2,0);
+	AddWeg({114,162,100},"Arax Ironheart - Schmied","Arax Ironheart - blacksmith",2,0);
 	AddWeg({113,164,100},"Nimbur Goldhand - Goldschmied","Nimbur Goldhand - goldsmith",4,0);
 	
 	
