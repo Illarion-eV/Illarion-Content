@@ -230,11 +230,11 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( " Translated from Bombor, Herald from Silverbrand ", 0, 0, 4 );
             base.books.AddGermanBookText( " \"Ich gelobe, dass ich meine Kraft und meinen Willen dem Wohl des Volkes von Silberbrand widmen, Schaden von ihm wenden,  ", 0, 0, 4 );   
             base.books.AddGermanBookText( " seinen Nutzen mehren und schï¿½tzen, meinen Pflichten gewissenhaft nachkommen und Gerechtigkeit gegen jedermann ï¿½ben werde. ", 0, 0, 4 );
-            base.books.AddGermanBookText( " Meine Macht endet an den Grenzen Silberbrands\" Tialdin, Kï¿½nig von Silberbrand ", 0, 0, 4 );   
-            base.books.AddGermanBookText( " Lange ersehnt ist es nun Vollbracht die Zwerge haben ihren Kï¿½nig bestimmt. Nunmehr gibt es einen der sie leitet, der für sie streitet. ", 0, 0, 4 );   
+            base.books.AddGermanBookText( " Meine Macht endet an den Grenzen Silberbrands\" Tialdin, König von Silberbrand ", 0, 0, 4 );   
+            base.books.AddGermanBookText( " Lange ersehnt ist es nun Vollbracht die Zwerge haben ihren König bestimmt. Nunmehr gibt es einen der sie leitet, der für sie streitet. ", 0, 0, 4 );   
             base.books.AddGermanBookText( " Somit soll nun und heute verkï¿½ndet sein, welche Zwerge des Weiteren in Amt und würden gestellt seien. ", 0, 0, 4 );
             base.books.AddGermanBookText( " Unser Mitzwerg Rugosch wird seinen Platz finden an der Seite des Kï¿½nigs, er stehe für Belange des Glaubens an Irmorom den Gott der Zwerge,  ", 0, 0, 4 );   
-            base.books.AddGermanBookText( " einem jeden der Rat suchet an der Seite, auch dem Kï¿½nig. ", 0, 0, 4 );   
+            base.books.AddGermanBookText( " einem jeden der Rat suchet an der Seite, auch dem König. ", 0, 0, 4 );   
             base.books.AddGermanBookText( " Fï¿½rderhin wird unser allseits bekannter und respektierter Mitzwerg Bombor in den Stand des Heroldes von Silberbrand bestellt. Er mï¿½ge im Krieg und im Frieden unser Unterhï¿½ndler sein. ", 0, 0, 4 );
             base.books.AddGermanBookText( " Seine Stimme wird den Willen des Kï¿½nigs allseits verkï¿½nden. Seine Stimme ist die Stimme des Kï¿½nigs. ", 0, 0, 4 );     
             base.books.AddGermanBookText( " Des Weiteren wird der Klan der Axt unter der Fï¿½hrung ihres Selbstbestimmten Hauptmannes die Aufgaben der Garde ï¿½bernehmen. Wenn die Diplomatie versage werde er die Faust sein die unsere ", 0, 0, 4 );    

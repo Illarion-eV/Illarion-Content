@@ -4,9 +4,9 @@ module("item.book.id_105_selfawareness", package.seeall)
 
 function InitRanks()
     AddRank("untaught","unwissend");
-    AddRank("unskilled","ungeï¿½bt");
-    AddRank("a beginner","ein Anfï¿½nger");    
-    AddRank("skilled","geï¿½bt");
+    AddRank("unskilled","ungeübt");
+    AddRank("a beginner","ein Anfänger");    
+    AddRank("skilled","geübt");
     AddRank("a assistant","ein Geselle");
     AddRank("a master","ein Meister");
     AddRank("a senior master","ein Altmeister");
@@ -21,7 +21,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddGermanBookText("\n \n Das Buch der \n Selbsterkenntniss",105,0);
             AddGermanBookText("\n   Geschrieben \n      von \n       Nitram",0,0);
             AddGermanBookText("\n \n        Wissen \n           der \n       Sprachen",0,0);
-            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der gemeinsammen Sprache aller Vï¿½lker",0,"common language");
+            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der gemeinsammen Sprache aller Völker",0,"common language");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Sprache der Menschen",0,"human language");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Sprache der Zwerge",0,"dwarf language");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Sprache der Elfen",0,"elf language");
@@ -41,7 +41,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Bergbaus",2763,"mining");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Kochens",227,"baking");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Anbauens",271,"peasantry");
-            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Holzfï¿½llens",74,"lumberjacking");
+            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Holzfällens",74,"lumberjacking");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Edelstein schleifens",270,"gemcutting");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Glasblasens",313,"glass blowing");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Angelns",72,"fishing");

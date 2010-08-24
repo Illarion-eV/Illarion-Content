@@ -32,13 +32,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Um Tinte zu bekommen, mï¿½ssen alle Komponeten in einem großen Zuber vermischt werden.",0,0,0);
         base.books.AddGermanBookText("Tinte wird in Flaschen abgefï¿½llt.",0,0,0);
         
-        base.books.AddGermanBookText("Lernt etwas ï¿½ber die Pflanzen, die Ihr für Trï¿½nke braucht.",0,0,0); 
+        base.books.AddGermanBookText("Lernt etwas ï¿½ber die Pflanzen, die Ihr für Tränke braucht.",0,0,0); 
         base.books.AddGermanBookText("Kein Analphabet folgte jemals dem Pfad des Druidentums.",0,0,0); 
         base.books.AddGermanBookText("Lesen und Schreiben ist das Geheimnis des Lernens.",0,0,0); 
         base.books.AddGermanBookText("Tragt all das Wissen zusammen und Ihr werdet Erfolg haben.",0,0,0); 
         base.books.AddGermanBookText("Die Tage der einfï¿½ltigen Druiden sind gezï¿½hlt.",0,0,0); 
         base.books.AddGermanBookText("Nicht jede Pflanze ist magisch.",0,0,0); 
-        base.books.AddGermanBookText("Trï¿½nke brauen ist nicht das einzige, das ein Druide lernen kann.",0,0,0); 
+        base.books.AddGermanBookText("Tränke brauen ist nicht das einzige, das ein Druide lernen kann.",0,0,0); 
         base.books.AddGermanBookText("Man findet die Wï¿½stenhimmelkapsel im Wï¿½stensand. Sie wird genutzt, um das Element des Windes freizusetzen.",0,0,0); 
         base.books.AddGermanBookText("Das Donfblatt ist eine Pflanze, die im Wald zu finden ist. Es wird genutzt, um etwas an etwas anderes zu leimen.",0,0,0); 
         base.books.AddGermanBookText("Die Sandbeere verstï¿½rkt den Effekt eines Trankes. Man soll sie in der Wï¿½ste finden.",0,0,0); 
@@ -50,11 +50,11 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         base.books.AddGermanBookText("Es gibt mehr Geheimnise als dieses Buch preisgeben kann.",0,0,0); 
         base.books.AddGermanBookText("Nicht jede Blume verbirgt ein Geheimnis.",0,0,0); 
         base.books.AddGermanBookText("Esst keine Fliegenpilze, sie schaden Eurer Gesundheit.",0,0,0); 
-        base.books.AddGermanBookText("Wenn Ihr keine Trï¿½nke herstellen kï¿½nnt, backt einen Erdbeerkuchen.",0,0,0);
+        base.books.AddGermanBookText("Wenn Ihr keine Tränke herstellen kï¿½nnt, backt einen Erdbeerkuchen.",0,0,0);
         
         base.books.AddGermanBookText("\nEine Einfï¿½hrung in die Alchemie",0,0,0);
         base.books.AddGermanBookText("Fï¿½r den angehenden Druiden bildet das Alchemiesystem den notwendigen Einstieg, ohne Alchemie kein Leben als Druide, könnte man sagen.",0,0,0);
-        base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Kräutern und Substanzen, die für die Verarbeitung zu Trï¿½nken, Pulvern und Essenzen benï¿½tigt werden.",0,0,0);
+        base.books.AddGermanBookText("Um sich in der Alchemie zu bewï¿½hren, benï¿½tigt man zunï¿½chst einmal ein fundiertes Wissen zu den einzelneen Kräutern und Substanzen, die für die Verarbeitung zu Tränken, Pulvern und Essenzen benï¿½tigt werden.",0,0,0);
         base.books.AddGermanBookText("Das wichtigste Requisit des Alchemisten ist ein guter Kupferkessel, jeder Druide besitzt seinen eigenen Kochtopf, von dem er sich nie, nie im Leben trennen würde.",0,0,0);
         base.books.AddGermanBookText("Dann braucht man natürlich etwas, um die Essenzen aus den Pflanzen aufzufangen - also jede Menge leerer Flaschen.",0,0,0);
         base.books.AddGermanBookText("Und schlussendlich braucht man, wen wundert's, einen reichen Vorrat an Pflanzen.",0,0,0);

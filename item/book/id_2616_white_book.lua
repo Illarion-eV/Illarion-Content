@@ -78,7 +78,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText( "Nevertheless there are some attributes said to be valid for all dwarves. If you are willing to serve them or not is up to yourself, however serving the stereotypes eases the worth of recognition. ", 0, 0, 1 );
             base.books.AddEnglishBookText( "Particularly as there are two levels within the dwarven game. On the one hand dwarves among themselves, on the other hand dwarves moving among all the other small lifestock.", 0, 0, 1 );
 
-            base.books.AddGermanBookText( "Was unser Kï¿½nig zum Thema Zwerg zu sein sagt: ", 0, 0, 1 );
+            base.books.AddGermanBookText( "Was unser König zum Thema Zwerg zu sein sagt: ", 0, 0, 1 );
             base.books.AddGermanBookText( "Im Folgenden einige Nachsagungen: ", 0, 0, 1 );
             base.books.AddGermanBookText( "Zusammenhalt; Zwerge zeichnen sich durch einen extremen Zusammenhalt aus. Ein Zwerg ist ganz einfach schon deswegen der Freund eines Zwerges weil er ein Zwerg ist. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Untereinander kann man sich immer aufeinander verlassen. Klopft ein Zwerg an und fragt einen anderen Zwergen um Rat oder Hilfe so wird er niemals abgewiesen. ", 0, 0, 1 );
@@ -87,7 +87,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( "Dummheit ist eine weit verbreitete zwergische Eigenschaft, so scheint es immer. Das ist allerdings ein vollkommen falsches Bild, gut einige verstehen viel langsamer. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Aber das macht nichts sie haben ja auch viel Zeit. Meist wird diese Langsamkeit im Verstehen durch eine erhebliche und nicht zu verachtende Schlagkraft ausgeglichen und diese ist erheblich schneller", 0, 0, 1 );
             base.books.AddGermanBookText( "als der Verstand. So soll es schon Zwerge gegeben haben die erst nach der Schlacht, nachdem sie durch die Linien gebrochen waren, innehielten und fragten: 'gegen wen geht's eigentlich? Und warum?'.", 0, 0, 1 );
-            base.books.AddGermanBookText( "Dies hat wohl dazu gefï¿½hrt das die Zwerge einen der Ihren zum Kï¿½nig gemacht haben. Der sollte dann einfach nur die Richtung angeben, damit klar ist wo draufgehauen wird.", 0, 0, 1 );
+            base.books.AddGermanBookText( "Dies hat wohl dazu gefï¿½hrt das die Zwerge einen der Ihren zum König gemacht haben. Der sollte dann einfach nur die Richtung angeben, damit klar ist wo draufgehauen wird.", 0, 0, 1 );
             base.books.AddGermanBookText( "Wohl in der Hoffnung das dieser schneller Versteht und schon weiï¿½ was richtig ist, nun ja und wenn er es auch nicht weiï¿½, nach der Schlacht beschwert sich eh keiner mehr, weil die Zwerge", 0, 0, 1 );
             base.books.AddGermanBookText( "hatten ihren Spaï¿½ und der Rest existiert nicht mehr. ", 0, 0, 1 );
             base.books.AddGermanBookText( "Streitlust, was ist schöner als ein Hammer der auf einem Kopf einschlï¿½gt oder ein zï¿½nftiges Streitgesprï¿½ch mit zahllosen Beleidigungen und Schmï¿½hungen? ", 0, 0, 1 );
@@ -147,13 +147,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Ronagan, der klï¿½gste Gott, selbst ist es der Eure Autoritï¿½t nun in Frage stellt! ",0,25,2);
 			base.books.AddGermanBookText("Woher nehmen sich gewöhnliche sterbliche Wesen die Atroganz einen goldenen Reif am Haupt zu tragen und anderen zu befehlen und nach willkï¿½hrlichen Gesetzten zu richten? ",0,25,2);
 			base.books.AddGermanBookText("Wir, die unter Schutze Ronagan stehenden, stehlen Euch den goldenen Reif von der Stirn, auf dass ihr Euch besinnt welch kï¿½mmerliche Wesen ihr seid!",0,25,2);
-			base.books.AddGermanBookText("Allen anderen steht es nun frei, sich slebst als Kï¿½nig zu versuchen, denn wir verkï¿½nden, mit diesigem Schreiben, die Versteigerung der goldenen Krone von Schurkin Friedwulfa,",0,25,2);
+			base.books.AddGermanBookText("Allen anderen steht es nun frei, sich slebst als König zu versuchen, denn wir verkï¿½nden, mit diesigem Schreiben, die Versteigerung der goldenen Krone von Schurkin Friedwulfa,",0,25,2);
 			base.books.AddGermanBookText("Herrscherin unter Irmoroms Thron, dem Reiche Silberbrand. Sollen die Unwï¿½rdigen die schöne Krone tragen und behaupten sie seinen ein Jemand von Wichtigkeit,",0,25,2);
 			base.books.AddGermanBookText("von Gottes gnaden erwï¿½hlt! Ronagan lacht ï¿½ber euch, aber bietet uns dennoch eine stolze Summe die eines Kï¿½nigs wï¿½rdig ist, per Taube.",0,25,2);
 			base.books.AddGermanBookText("Mit verabscheuendem aber heiteren Gruße,\ndas Volk der Schatten,\ndie Kinder Ronagans,\nder von gottes Schatten betuchte\nRufus der Langfinger.",0,25,2);
 			base.books.AddGermanBookText("Pergament 2:\nAn die barkï¿½pfigen Kï¿½nige der Zwerge unterm Thron des Irmorom.",0,25,2);
 			base.books.AddGermanBookText("Ungeachtet der Versteigerung Eures wertvollen goldenen Rades, verlangen die Schatttengeborenen von Euch!",0,25,2);
-			base.books.AddGermanBookText("Der Kï¿½nig der Stï¿½tte pilgert mit einem stinkenden Kï¿½rbis gekrï¿½hnt vom Zwergenlande zum Hafen der Insel Gobaith. Begelitet von dem nï¿½rrischen Gefolge Ihrer Majestï¿½t, im Schlafrocke gekleidet. ",0,25,2);
+			base.books.AddGermanBookText("Der König der Stï¿½tte pilgert mit einem stinkenden Kï¿½rbis gekrï¿½hnt vom Zwergenlande zum Hafen der Insel Gobaith. Begelitet von dem nï¿½rrischen Gefolge Ihrer Majestï¿½t, im Schlafrocke gekleidet. ",0,25,2);
 			base.books.AddGermanBookText("So sollen sie laut und falsch ihr Instrument spielend umherziehen, bis die goldene Krone zurückgereicht wird. ",0,25,2);
 			base.books.AddGermanBookText("Wer die Dummheit bekï¿½mpft erntet das Lï¿½cheln Ronagans, heiï¿½t es. So wollen wir euch im Alternativ lediglich um einen Gefallen bitten, so dass ihr dumm bleibt und wir nicht belï¿½chelt werden.",0,25,2);
 			base.books.AddGermanBookText("Schmiedet eine Krone, der die ihr misst, gleich in Gestalt und Form. Nicht zu unterscheiden darf sie sein!",0,25,2);
@@ -164,7 +164,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Pergament 3:\n\nAm Schweinepfuhle saï¿½ ich.\nUnbekï¿½mmert dem grunzen lauschend. Fraï¿½ ich.",0,25,2);
 			base.books.AddGermanBookText("ï¿½pfel. Indessen ein Galan zu mir tritt.\nDunkles Haar, weht im flotten Schritt.\nIm schattigen Gewand gehï¿½llt,spricht er, die Stimme von Kraft erfï¿½llt.",0,25,2);
 			base.books.AddGermanBookText("Errinere ich dich nun an, was du einst schriebst.\n Es ist auch nicht nï¿½tig das du mir die Krone gibst.\nIch nahm sie dir, also du gefressen Frucht.\nManch einem ist Stehlen Sucht. ",0,25,2);
-			base.books.AddGermanBookText("Er hebt den Reif. Zu krï¿½nen des Schweines Backe.\nDer Kï¿½nig der Zwergen ist ja nacke!\n\n\nRufus der Langfinger.",0,25,2);
+			base.books.AddGermanBookText("Er hebt den Reif. Zu krï¿½nen des Schweines Backe.\nDer König der Zwergen ist ja nacke!\n\n\nRufus der Langfinger.",0,25,2);
             --------------------------------------------------
 
 		  end
@@ -178,7 +178,7 @@ function LookAtItem(User,Item)
       base.books.AddGermanBookTitle("Buch mit dem Titel \"Das Volk der Feen\"",0);
       
       base.books.AddEnglishBookTitle( "Book with the title \"King Tialdin's Speeches\"", 1 );
-      base.books.AddGermanBookTitle( "Buch mit dem Titel \"Die Reden Kï¿½nig Tialdins\"", 1 );
+      base.books.AddGermanBookTitle( "Buch mit dem Titel \"Die Reden König Tialdins\"", 1 );
       
       base.books.AddEnglishBookTitle("Book with the title \"Bareheaded Kings \"",2); 
 	  base.books.AddGermanBookTitle("Buch mit dem Titel \"Barkï¿½pfige Kï¿½nige \"",2);

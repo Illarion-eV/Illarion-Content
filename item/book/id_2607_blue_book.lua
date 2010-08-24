@@ -143,7 +143,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText( " Kaum das der edle Schmied dies gesagt hatte blitzte die Gier in den Augen der ï¿½ltesten und ohne auch nur ï¿½ber die Hochzeit zu reden machten sie sich auf in die Minen um all das ", 0, 0, 2 );
             base.books.AddGermanBookText( " Gold und die Edelsteinen hinfortzutragen. Das erzï¿½rnte Irmorom so sehr das er persï¿½nlich vom heiligen Berg des Ursprungs herunterkam und als der Langbart, als den man ihn ", 0, 0, 2 );   
             base.books.AddGermanBookText( " schon oft gesehen hatte, unter die Zwerge trat. Er sprach zu den ï¿½ltesten: 'Seht euch an ihr die ihr euch die Weisen und edlen nennt ihr solltet euch schï¿½men der  ", 0, 0, 2 );   
-            base.books.AddGermanBookText( " Gier zu frï¿½nen während euer neuer Kï¿½nig nach der Liebe einer Kriegernï¿½n trachtet die all eure Probleme lï¿½sen kï¿½nnte.' ", 0, 0, 2 );
+            base.books.AddGermanBookText( " Gier zu frï¿½nen während euer neuer König nach der Liebe einer Kriegernï¿½n trachtet die all eure Probleme lï¿½sen kï¿½nnte.' ", 0, 0, 2 );
             base.books.AddGermanBookText( " Doch sie lauschten ihm nicht denn die Gier hatte sie Blind und taub gleichermaï¿½en gemacht und so erkannten sie ihn auch nicht. ", 0, 0, 2 );   
             base.books.AddGermanBookText( " Und als er sie weiterhin behelligte und sie ermahnte da hoben sie alle ihre Finger und zeigten ihre Ringe die bewiesen das sie die ï¿½ltesten waren und sprachen voller ï¿½bermut zu ihm: ", 0, 0, 2 );   
             base.books.AddGermanBookText( "'Wir sind die Ohren und Mï¿½nder Irmoroms und was wir sagen ist Gesetz ein einfacher wie du sollte sich nicht mit uns messen!' ", 0, 0, 2 );

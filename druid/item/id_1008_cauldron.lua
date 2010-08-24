@@ -5,7 +5,7 @@
 -- Kessel 1008 (SourceItem) zur Herstellung von Pflanzensäften
 -- by Falk
 
--- Flasche 164(grau) oder 331(grï¿½n) in der Hand
+-- Flasche 164(grau) oder 331(grün) in der Hand
 -- Pflanze,Mineral,Filtrat in der Hand
 -- Auf Kessel auslösen
 
@@ -19,9 +19,9 @@ module("druid.item.id_1008_cauldron", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   --User:inform("debug ds_pflanzensud.lua") 
-  -- prï¿½fe ob der User eine Planze in der Hand hat
+  -- prüfe ob der User eine Planze in der Hand hat
     local plantInHand = druid.base.alchemy.CheckIfPlantInHand(User);  
-    -- prï¿½fe ob eine Flasche in der Hand ist
+    -- prüfe ob eine Flasche in der Hand ist
     local bottleInHand = druid.base.alchemy.CheckIfBottleInHand(User);  
 		-- check auf mehrere Flaschen(Stapelbug)
 		if User:countItemAt("body",164)>1 or User:countItemAt("body",331)>1 then
@@ -38,7 +38,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             );
             return;
         end     
-        -- Flasche und Planze wurden gefunden. Also spalten wir den Wert auf der die Effektinformationen enthï¿½lt
+        -- Flasche und Planze wurden gefunden. Also spalten wir den Wert auf der die Effektinformationen enthält
 
 		-- Manche Pflanzen haben Doppelfunktionen und bekommen eine neue ID
         if plantInHand.data >9000 and plantInHand.data < 9017 then
@@ -52,17 +52,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local bottleData = ( bottleInHand.id == 164 and 55555555 or bottleInHand.data );
         local bottleQual = ( bottleInHand.id == 164 and 999 or bottleInHand.quality );
         
-        -- Und wir generieren eine Liste die jeden Eintrag des Datawertes einzeln enthï¿½lt
+        -- Und wir generieren eine Liste die jeden Eintrag des Datawertes einzeln enthält
         local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
-        -- Abhï¿½ngig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
+        -- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
         dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
         dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
         
         -- Aus den modifizierten Daten erstellen wir den neuen Datawert.
         bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
         
-        -- die Pflanze lï¿½schen
+        -- die Pflanze löschen
         User:increaseAtPos(plantInHand.itempos,-1);
         
         -- Das Flascheitem wird entsprechend aller Daten modifiziert
@@ -100,7 +100,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         --Mineralstaub und Flasche sind da. Beides wird eingelesen.
         --local bottleInHand = User:getItemAt( bottleInHand );
         
-        --Mit Mineralstaub werden Trï¿½nke fixiert. Wenn die Flasche leer ist, ist das sinnlos
+        --Mit Mineralstaub werden Tränke fixiert. Wenn die Flasche leer ist, ist das sinnlos
         if( bottleInHand.id == 164 )then
             -- Und sie ist leer! Der User soll um seinen Fehler wissen:
             base.common.InformNLS( User,
@@ -110,7 +110,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             return;
         end
         
-        --alles ist in Ordnung. Der Mineralstaub wird gelï¿½scht und die Flasche geï¿½ndert
+        --alles ist in Ordnung. Der Mineralstaub wird gelöscht und die Flasche geändert
         
 --[[  aber nur, wenn der Char ein Druide ist !!!
       ansonsten ein text, der ihm das mitteilt
@@ -160,7 +160,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Datawert der Flasche aufspalten
         local dataZList = SplitBottleData(User,bottleInHand.data);
         
-        -- Und alle Werte um 1 dem Mittelwert annï¿½hern
+        -- Und alle Werte um 1 dem Mittelwert annähern
         for i=1,8 do
             if (dataZList[i] > 5) then
                 dataZList[i] = dataZList[i] - 1
@@ -178,16 +178,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
  
     base.common.InformNLS( User,
-        "Du musst eine Sud-Pflanze in die Hand nehmen",
-        "You need to carry a broth plant in your hands"
+        "Du musst eine Sud-Pflanze in die Hand nehmen.",
+        "You need to carry a broth plant in your hands."
     );
 end
 
 
 function LookAtItem(User,Item)
     if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst einen Kupferkessel")
+        world:itemInform(User,Item,"Du siehst einen Kupferkessel.")
     else
-        world:itemInform(User,Item,"You look at a copper kettle")        
+        world:itemInform(User,Item,"You look at a copper kettle.")        
     end
 end
