@@ -1,6 +1,6 @@
 --ds_327_blaue_flasche.lua
 --Druidensystem
---Nicht-Temporï¿½re Einzelwirkungen
+--Nicht-Temporäre Einzelwirkungen
 --Falk
 
 require("base.common")

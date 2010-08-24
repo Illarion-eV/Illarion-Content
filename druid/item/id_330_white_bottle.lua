@@ -1,6 +1,6 @@
 --ds_330_weisse_flasche_neu.lua
 --Druidensystem in Arbeit
---Temporï¿½re Einzelwirkungen
+--Temporäre Einzelwirkungen
 --Falk
 require("base.common")
 require("druid.base.alchemy")
@@ -17,7 +17,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 	end
 
 -- Grundwerte, Listen einlesen:
--- Sprachverstï¿½ndnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
+-- Sprachverständnis (man kann eine Zeitlang fremde Sprachen verstehen/lesen)
 	if firsttime == nil then
 		ListCodecs = {}
 		ListLanguages  = {}
@@ -66,7 +66,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
       	Character:increaseSkill(ListSkillGroup[i],ListLanguages[i],newSkill)
  			--Character:inform(ListCodecs[i].." / "..ListLanguages[i].." / "..Character:getSkill(ListLanguages[i]))
 
---      Verwandlung ausfï¿½hren
+--      Verwandlung ausführen
         world:gfx(5,Character.pos)
 
 --      Effekt an Char binden
@@ -130,7 +130,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
         -- ALTE FASSUNG ALS HEILTRANK
         if (ltstate == Action.abort) then
 
-            User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschÃ¼ttet die Milch.");
+            User:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet die Milch.");
             User:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the milk.");
 
             world:erase( SourceItem, 1 );
@@ -148,7 +148,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 
         if User.attackmode then
             base.common.InformNLS( User,
-            "Du kannst nichts trinken während du kï¿½mpfst.",
+            "Du kannst nichts trinken während du kämpfst.",
             "You can't drink something while fighting." );
             return
         end
@@ -194,7 +194,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
             "You are stuffed.");
         else
             base.common.InformNLS( User,
-            "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchstrï¿½mt.",
+            "Du trinkst die Flasche aus und fühlst wie neue Stärke dich durchströmt.",
             "You drink up the bottle, and you feel the new strength that flows through your body.");
         end
 
@@ -203,7 +203,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
     
   else
 		if (ltstate == Action.abort) then
-			Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschÃ¼ttet den Trank.");
+			Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
 			Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
 			world:erase(SourceItem,1);
 			-- Chance for a new bottle 19/20
@@ -216,7 +216,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 		end
 
 		if Character.attackmode then
-			base.common.InformNLS(Character, "Du kannst nichts trinken wÃ¤hrend du kÃ¤mpfst.", "You can't drink something while fighting.");
+			base.common.InformNLS(Character, "Du kannst nichts trinken während du kämpfst.", "You can't drink something while fighting.");
 		end
 		
 		if (ltstate == Action.none) then
