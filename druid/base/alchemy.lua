@@ -57,7 +57,7 @@ for i,plant in pairs(plantList) do
 end
 
 --Qualitätsbezeichnungen
-qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","groÃŸartige","hervorragende"};
+qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
 bottleList = { 164,331 }
