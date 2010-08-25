@@ -57,7 +57,7 @@ for i,plant in pairs(plantList) do
 end
 
 --Qualitätsbezeichnungen
-qListDe={"fÃ¼rchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","groÃŸartige","hervorragende"};
+qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","groÃŸartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
 bottleList = { 164,331 }
@@ -434,7 +434,7 @@ end
 function ds_skillgain(User)
 	--Alchemieskill erhÃ¶hen
 	User:learn(6,"alchemy",3,100)
-	--Auf Runengewinn prÃ¼fen
+	--Auf Runengewinn prüfen
 	if(User:getMagicType() == 3) then
 		local alcskill = User:getSkill("alchemy");
 		if(alcskill >= 10 and alcskill <= 20) then

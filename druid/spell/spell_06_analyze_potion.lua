@@ -12,14 +12,14 @@ module("druid.spell.spell_05_analyze_potion", package.seeall(druid.base.alchemy)
 
 function ds_codices()
   if firsttime == nil then
-    --FÃ¼r Flasche 059,166
+    --Für Flasche 059,166
     LVDe={"Ende","Hölle","Höhle","Kerker","Ruhe","Quelle","Orden","Tempel","Siegel"}
     PADe={" der Kraft"," des Willens"," der Sinne"," des Wissens"," des Fleisches"," des Windes"," des Diebes"," des Geistes"}
     SADe={" des Lebens"," des Riesen"," der Quellen"," des Glücks"," der Qualen"," des Ethos"," des Fleißes"," des Zaubers"}
     LVEn={"end of ","hell of ","cave of ","dungeon of ","silence of ","spring of ","order of ","temple of ","seal of "}
     PAEn={"power","will","senses","intelligence","constitution","the wind","the thief","spirit"}
     SAEn={"life","giants","springs","luck","pain","ethos","diligence","magic"}
-    -- fÃ¼r Flasche 165
+    -- für Flasche 165
     WVDe={"","","","","","","","",""}
     WVEn={"","","","","","","","",""}
     WMDe={"Metallpaste","Vitalstoff","Lederfett","Edelstein-Creme","Edelmetall-Öl","Holzpolitur","Stoffpflegemittel","Hornfett"}

@@ -126,7 +126,7 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 
     if (mode == 1) then
         if (TargetCharacter:getPlayerLanguage() == 0) then
-            TargetCharacter:inform( "#w Du fÃ¼hlst dich beobachtet." );
+            TargetCharacter:inform( "#w Du fühlst dich beobachtet." );
             if base.common.IsLookingAt( TargetCharacter, SourceCharacter.pos ) then
                 if ( SourceCharacter:increaseAttrib( "sex", 0 ) == 0 ) then
                     TargetCharacter:sendCharDescription( SourceCharacter.id , "Er scheint dich anzustarren." );
@@ -248,9 +248,9 @@ function getText( identifier, language )
         textModule[1]["genus_2"]="a ";
         textModule[0]["below_coat"]="und darunter ";
         textModule[1]["below_coat"]="and under it ";
-        textModule[0]["intro_belt"]="am GÃ¼rtel ";
+        textModule[0]["intro_belt"]="am Gürtel ";
         textModule[1]["intro_belt"]="at the belt ";
-        textModule[0]["money_found"]="ein MÃ¼nzbeutel";
+        textModule[0]["money_found"]="ein Münzbeutel";
         textModule[1]["money_found"]="a moneybag";
         textModule[0]["nacked_breast"]="nichts auf dem OberkÃ¶rper";
         textModule[1]["nacked_breast"]="nothing at the upper part of the body";
