@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  832, 107, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -16,17 +16,17 @@ sex = male
 position = 832, 107, 0
 direction = west
 affiliation = "None"
-job = "none"
+job = "Hermit"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Einsiedler Raban."
+lookatUS = "This NPC is the hermit Raban."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
