@@ -232,13 +232,13 @@ function getText( identifier, language )
         textModule[1]["outro_attrib"]="";
         textModule[0]["strength_1"]="ziemlich schwach";
         textModule[1]["strength_1"]="rather weak";
-        textModule[0]["strength_2"]="durchschnittlich krÃ¤ftig";
+        textModule[0]["strength_2"]="durchschnittlich kräftig";
         textModule[1]["strength_2"]="average strong";
         textModule[0]["strength_3"]="ziemlich stark";
         textModule[1]["strength_3"]="rather strong";
         textModule[0]["strength_4"]="sehr stark";
         textModule[1]["strength_4"]="really strong";
-        textModule[0]["intro_items"]="trÃ¤gt ";
+        textModule[0]["intro_items"]="trägt ";
         textModule[1]["intro_items"]="wears ";
         textModule[0]["genus_0"]="einen ";
         textModule[1]["genus_0"]="a ";
@@ -252,7 +252,7 @@ function getText( identifier, language )
         textModule[1]["intro_belt"]="at the belt ";
         textModule[0]["money_found"]="ein Münzbeutel";
         textModule[1]["money_found"]="a moneybag";
-        textModule[0]["nacked_breast"]="nichts auf dem OberkÃ¶rper";
+        textModule[0]["nacked_breast"]="nichts auf dem Oberkörper";
         textModule[1]["nacked_breast"]="nothing at the upper part of the body";
         textModule[0]["and"]=" und ";
         textModule[1]["and"]=" and ";
@@ -500,9 +500,9 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 					customText = ( lang == 0 and "Am Gürtel hat er " or "At the belt he has " )
 				else
 					if Item.itempos == 5 or Item.itempos == 6 then
-						customText = ( lang == 0 and "In den HÃ¤nden hat er " or "In his hands he has " );
+						customText = ( lang == 0 and "In den Händen hat er " or "In his hands he has " );
 					else
-						customText = ( lang == 0 and "Er trÃ¤gt " or "He wears " );
+						customText = ( lang == 0 and "Er trägt " or "He wears " );
 					end
 				end
 			else

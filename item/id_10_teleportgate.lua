@@ -491,7 +491,7 @@ if (Item.data==20) then
 end;
 
 if (Item.data==21) then
-	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Bloodskull HÃ¶hle", "Magical gate to the Bloodskull Cave" ) );
+	 world:itemInform( User, Item, base.common.GetNLS( User, "Magisches Portal zur Bloodskull Höhle", "Magical gate to the Bloodskull Cave" ) );
 end;
 
 if (Item.data==22) then

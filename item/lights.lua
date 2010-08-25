@@ -219,7 +219,7 @@ function LookAtItem(User, Item)
 	elseif (TimeLeftI == 0) then
 		TimeLeft = base.common.GetNLS(User, "sofort", "immediatly");
 	elseif (TimeLeftI == 1) then
-		TimeLeft = base.common.GetNLS(User, "demn√§chst", "anytime soon");
+		TimeLeft = base.common.GetNLS(User, "demn‰chst", "anytime soon");
 	elseif (TimeLeftI == 2) then
 		TimeLeft = base.common.GetNLS(User, "bald", "soon");	
 	elseif (TimeLeftI <= 4) then

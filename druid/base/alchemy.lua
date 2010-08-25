@@ -88,8 +88,8 @@ wirkstoff[6] = "Fenolin";
 wirkstoff[7] = "Caprazin";
 wirkstoff[8] = "Dracolin";
 
-wirkung_de[1] = "gesÃ¤ttigte Anreicherung von";
-wirkung_de[2] = "eine sehr ausgeprÃ¤gte Menge";
+wirkung_de[1] = "gesättigte Anreicherung von";
+wirkung_de[2] = "eine sehr ausgeprägte Menge";
 wirkung_de[3] = "merklich";
 wirkung_de[4] = "schwache Konzentration an";
 wirkung_de[5] = "kein";
@@ -432,7 +432,7 @@ function generateTasteMessage(lang,dataZList)
 end
 
 function ds_skillgain(User)
-	--Alchemieskill erhÃ¶hen
+	--Alchemieskill erhöhen
 	User:learn(6,"alchemy",3,100)
 	--Auf Runengewinn prüfen
 	if(User:getMagicType() == 3) then

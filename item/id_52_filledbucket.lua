@@ -105,7 +105,7 @@ function MakeSprout( User, SourceItem, TargetItem )
 
         else
         base.common.InformNLS( User, 
-            "#w Der Boden ist an dieser Stelle zu ausgelaugt, als das BÃ¤ume wachsen kÃ¶nnten. Der Setzling geht ein.", 
+            "#w Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.", 
             "#w The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
         end    
         User:learn( 2, "peasantry", 1, 100 )

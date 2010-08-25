@@ -98,7 +98,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 		world:gfx(5,Character.pos);
 
 		-- Hier verweisen wir auf die Wirkung
-		-- Korrektur von Nitram, erst Flasche lÃ¶schen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
+		-- Korrektur von Nitram, erst Flasche löschen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
 		DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
 		if( math.random( 20 ) <= 1 ) then
