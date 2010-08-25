@@ -61,61 +61,61 @@ radius = 10
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. SchlÃ¼sselwÃ¶rter: Hallo, Quest, Sichel, KrÃ¤uter.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Einsiedler Raban. Schlüsselwörter: Hallo, Quest, Sichel, Kräuter.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
-"GrÃ¼ÃŸe", "GruÃŸ", "Seid gegrÃ¼ÃŸt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
-"TschÃ¼ÃŸ", "TschÃ¼ss", "Wiedersehen", "Gehabt euch wohl" -> "MÃ¶ge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mÃ¶gt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "Ciao", "Adieu", "Au revoir", english -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
-"Ciao", "Adieu", "Au revoir", german -> "MÃ¶ge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mÃ¶gt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"Ciao", "Adieu", "Au revoir", german -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "How are you", "How feel", "How do you do" -> "I always feel pacified when surrounded by plants and trees.", "I'd feel much better if everyone honors the woods. Aren't those trees lovely?", "I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday."
-"Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen" -> "Umgeben von Pflanzen und BÃ¤umen fÃ¼hle ich mich immer beruhigt.", "Es wÃ¼rde mir weit besser gehen, wenn ein Jeder die WÃ¤lder achten wÃ¼rde. Sind diese BÃ¤ume nicht wunderbar?", "Ich kann mich nicht beklagen. Meine BÃ¤ume wachsen wunderbar und der kleine dort ist gerade zehn geworden. Ich erinnere mich, wie ich ihn gepflanzt habe, als wenn es gestern wÃ¤re."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Umgeben von Pflanzen und Bäumen fühle ich mich immer beruhigt.", "Es würde mir weit besser gehen, wenn ein Jeder die Wälder achten würde. Sind diese Bäume nicht wunderbar?", "Ich kann mich nicht beklagen. Meine Bäume wachsen wunderbar und der kleine dort ist gerade zehn geworden. Ich erinnere mich, wie ich ihn gepflanzt habe, als wenn es gestern wäre."
 "your name", "who are you", "who art thou" -> "They used to call me Raban when people still came here.", "Raban.", "I am an old man without an use for a name. The trees and plants have their own word for me. You may call me Raban."
-"dein name", "wer bist du", "wer seid ihr", "wie heiÃŸt" -> "Sie haben mich Raban genannt, damals, als noch von Zeit zu Zeit Leute hierher kamen.", "Raban.", "Ich bin ein alter Mann, ohne Bedarf fÃ¼r einen Namen. Die BÃ¤ume und Pflanzen haben ihre eigene Bezeichnung fÃ¼r mich. Du kannst mich hingegen Raban nennen."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Sie haben mich Raban genannt, damals, als noch von Zeit zu Zeit Leute hierher kamen.", "Raban.", "Ich bin ein alter Mann, ohne Bedarf für einen Namen. Die Bäume und Pflanzen haben ihre eigene Bezeichnung für mich. Du kannst mich hingegen Raban nennen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Is money all that matters for you? I abstain from it since decades and never missed it a single day.", "I have no use for money. So I do not trade.", "I am not a trader. Maybe you want to help me in a quest?"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ist denn Gold alles, was fÃ¼r euch zÃ¤hlt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermiÃŸt.", "Ich brauche kein Gold, also handele ich auch nicht.", "Ich bin kein HÃ¤ndler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.", "Ich brauche kein Gold, also handele ich auch nicht.", "Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
 "tell something" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.", "I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.", "Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
-"erzÃ¤hl was", "erzÃ¤hl etwas" -> "Einst, zu einer Zeit, als die es die Erde dÃ¼rstete, kamen die VÃ¶lker an diesem Ort zusammen und beteten um ErlÃ¶sung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen LÃ¤ndern zu berichten."
+"erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "hermit", "forester", "ranger", "gardener", "hippie" -> "Nature can offer much more joy to me than any place, made of cold stone.", "I plant trees and watch them grow. Can you imagine anything more... relaxing?", "I enjoy the silence here. A branch in the wind can sing wonderful songs."
-"Einsiedler", "FÃ¶rster", "WaldhÃ¼ter", "WildhÃ¼ter", "GÃ¤rtner", "hippie" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze BÃ¤ume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieÃŸe die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
+"Einsiedler", "Förster", "Waldhüter", "Wildhüter", "Gärtner", "hippie" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
 "shrine", "grove" -> "Isn't this a lovely place? Most trees, I planted myself.", "Honor Ushara for this site is her gift.", "Welcome to the place where nature embraces you."
-"Schrein", "Hain" -> "Ist dies nicht ein bewundernswerter Ort? Die meisten BÃ¤ume habe ich selbst gepflanzt.", "Ehret Ushara, denn all dies ist ihr Geschenk.", "Willkommen an dem Ort, wo die Natur dich umarmt."
-"DÃ¼rre" -> "Einst, zu einer Zeit, als die es die Erde dÃ¼rstete, kamen die VÃ¶lker an diesem Ort zusammen und beteten um ErlÃ¶sung."
+"Schrein", "Hain" -> "Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.", "Ehret Ushara, denn all dies ist ihr Geschenk.", "Willkommen an dem Ort, wo die Natur dich umarmt."
+"Dürre" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung."
 "drought" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation."
 "oasis" -> "At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?"
 "oase" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
 "Rutrus", english -> "At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?"
 "Rutrus", german -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
-"Ushara", german -> "Ehret die GÃ¶ttin!"
+"Ushara", german -> "Ehret die Göttin!"
 "Ushara", english -> "Honor the goddess!"
 "Oldra", german -> "Oldra... I am sure I saw her one day, dancing during dawn on the grass.", "Oldra now takes care of all the wonders Ushara has left on the land."
 "Oldra", english -> "Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.", "Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
-"Bruno", german -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergiÃŸt man Namen mit der Zeit."
+"Bruno", german -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
 "Bruno", english -> "That name sounds familiar, but living in solitude, I forgot about names with time."
-"Gobaith", german -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "DarÃ¼ber mÃ¶chte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
+"Gobaith", german -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
 "Gobaith", english -> "I've been to Gobaith, but that is long ago.", "I do not want to talk about this with you, I hope you respect that."
 
 -- Factions
 "Runewick", german -> "Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor."
 "Runewick", english -> "The only place where you can find peace is Runewick. But I still prefer the forest."
-"Galmair", german -> "Galmair? Ein SÃ¼ndenpfuhl ist das!"
+"Galmair", german -> "Galmair? Ein Sündenpfuhl ist das!"
 "Galmair", english -> "Galmair? A pool of sins, it is!"
-"Cadomyr", german -> "Cadomyr ist ein wÃ¼ster Ort im SÃ¼den. Ich frage mich, wie Rutrus es dort aushÃ¤lt."
+"Cadomyr", german -> "Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält."
 "Cadomyr", english -> "Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place."
 
 -- Tool hints
 "sickle", queststatus(66) = 0 -> "With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task."
-"Sichel", queststatus(66) = 0 -> "Mit einer Sichel kÃ¶nnt ihr Fichtensetzlinge schneiden um neue BÃ¤ume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
+"Sichel", queststatus(66) = 0 -> "Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
 "sickle" -> "In case you need a new sickle, ask for Wilhelminus in Runewick. If he is still alive after all those years we didn't meet."
-"Sichel" -> "Wenn du einen neue Sichel benÃ¶tigst, fragt nach Wilhelminus in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
+"Sichel" -> "Wenn du einen neue Sichel benötigst, fragt nach Wilhelminus in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 40cp.
 "quest", "mission", queststatus(66) = 0, english -> inform("[New quest] Raban's Grove I"), "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.", item(126, 1, 399, 0), queststatus(66) = 1
@@ -126,74 +126,74 @@ radius = 10
 "quest", "mission", queststatus(66) = 1, german -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
 "task", "adventure", queststatus(66) = 1 -> "So, how is progress in finding ten fir tree seedlings?"
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 1 -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
-".+", queststatus(66) = 1, item(149, all) > 9, german -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 50 KupferstÃ¼cke und deine KrÃ¤uterkundefertigkeit steigt."), "Habt besten Dank fÃ¼r die Fichtensetzlinge. Nehmt diese glÃ¤nzenden Scheiben, ich habe keinen Bedarf an ihnen.", rune(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
+".+", queststatus(66) = 1, item(149, all) > 9, german -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.", rune(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
 ".+", queststatus(66) = 1, item(149, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."), "Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.", rune(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
 ".+", queststatus(66) = 1, item(149, all) < 10, german -> "Bringt mir doch bitte die zehn Fichtensetzlinge, um die ich gebeten habe."
 ".+", queststatus(66) = 1, item(149, all) < 10, english -> "Please bring me the ten fir tree seedlings I asked for."
 
 -- 2nd quest: Gather 20 different raw materials for 80cp.
 "quest", "mission", queststatus(66) = 2, english -> inform("[New quest] Raban's Grove II"), "How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?", queststatus(66) = 3
-"quest", "mission", queststatus(66) = 2, german -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. KÃ¶nntet ihr so nett sein und zwanzig Brombeeren sammeln, sÃ¼ÃŸe Geschenke der Oldra?", queststatus(66) = 3
+"quest", "mission", queststatus(66) = 2, german -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?", queststatus(66) = 3
 "task", "adventure", queststatus(66) = 2 -> inform("[New quest] Raban's Grove II"), "How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?", queststatus(66) = 3
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 2 -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. KÃ¶nntet ihr so nett sein und zwanzig Brombeeren sammeln, sÃ¼ÃŸe Geschenke der Oldra?", queststatus(66) = 3
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 2 -> inform("[Neues Quest] Rabans Hain II"), "Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?", queststatus(66) = 3
 "quest", "mission", queststatus(66) = 3, english -> "You can find the twenty black berries I ask for in the hedge over there."
-"quest", "mission", queststatus(66) = 3, german -> "Ihr kÃ¶nnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drÃ¼ben finden."
+"quest", "mission", queststatus(66) = 3, german -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
 "task", "adventure", queststatus(66) = 3 -> "You can find the twenty black berries I ask for in the hedge over there."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 3 -> "Ihr kÃ¶nnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drÃ¼ben finden."
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 3 -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
 ".+", queststatus(66) = 3, item(147, all) > 19, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "I am grateful for the twenty black berries you brought me. Have this small reward.", rune(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
-".+", queststatus(66) = 3, item(147, all) > 19, english -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine KrÃ¤uterkundefertigkeit steigt."), "Ich bin dankbar fÃ¼r die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.", rune(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
+".+", queststatus(66) = 3, item(147, all) > 19, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.", rune(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
 ".+", queststatus(66) = 3, item(147, all) < 20, german -> "I see you don't have twenty black berries yet. I'd love to taste them, could you hurry?"
-".+", queststatus(66) = 3, item(147, all) < 20, english -> "Wie ich sehe, habt ihr noch keine zwanzig Brombeeren. Ich wÃ¼rde sie gerne kosten, kÃ¶nntet ihr eilen?"
+".+", queststatus(66) = 3, item(147, all) < 20, english -> "Wie ich sehe, habt ihr noch keine zwanzig Brombeeren. Ich würde sie gerne kosten, könntet ihr eilen?"
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
 "quest", "mission", queststatus(66) = 4, english -> inform("[New quest] Raban's Grove III"), "It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.", queststatus(66) = 5
-"quest", "mission", queststatus(66) = 4, german -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der GÃ¶ttin erneut helfen wollt. Nun benÃ¶tige ich fÃ¼nf Geburtspilze, um Leben auf dem Erdboden zu sÃ¤hen.", queststatus(66) = 5
+"quest", "mission", queststatus(66) = 4, german -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.", queststatus(66) = 5
 "task", "adventure", queststatus(66) = 4 -> inform("[New quest] Raban's Grove III"), "It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.", queststatus(66) = 5
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 4 -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der GÃ¶ttin erneut helfen wollt. Nun benÃ¶tige ich fÃ¼nf Geburtspilze, um Leben auf dem Erdboden zu sÃ¤hen.", queststatus(66) = 5
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 4 -> inform("[Neues Quest] Rabans Hain III"), "Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.", queststatus(66) = 5
 "quest", "mission", queststatus(66) = 5, english -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
-"quest", "mission", queststatus(66) = 5, german -> "Sucht nach den fÃ¼nf Geburtspilzen in den Pilskreisen, die ihr nahe der BÃ¤ume findet."
+"quest", "mission", queststatus(66) = 5, german -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
 "task", "adventure", queststatus(66) = 5 -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 5 -> "Sucht nach den fÃ¼nf Geburtspilzen in den Pilskreisen, die ihr nahe der BÃ¤ume findet."
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 5 -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
 ".+", queststatus(66) = 5, item(162, all) > 4, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.", rune(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
-".+", queststatus(66) = 5, item(162, all) > 4, english -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 100 KupferstÃ¼cke und deine KrÃ¤uterkundefertigkeit steigt."), "Ah, ihr habt die fÃ¼nf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.", rune(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
-".+", queststatus(66) = 5, item(162, all) < 5, german -> "Schade, dass ihr die fÃ¼nf Geburtspilze noch nicht bei den Pilzkreisen pflÃ¼cken konntet."
+".+", queststatus(66) = 5, item(162, all) > 4, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.", rune(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
+".+", queststatus(66) = 5, item(162, all) < 5, german -> "Schade, dass ihr die fünf Geburtspilze noch nicht bei den Pilzkreisen pflücken konntet."
 ".+", queststatus(66) = 5, item(162, all) < 5, english -> "What a pity you didn't find the time yet to pick five birth mushrooms from the mushroom circles."
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
 "quest", "mission", queststatus(66) = 6, english -> inform("[New quest] Raban's Grove IV"), "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?", queststatus(66) = 7
-"quest", "mission", queststatus(66) = 6, german -> inform("[Neues Quest] Rabans Hain IV"), "Nun benÃ¶tige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen kÃ¶nnen. Ich benÃ¶tige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
+"quest", "mission", queststatus(66) = 6, german -> inform("[Neues Quest] Rabans Hain IV"), "Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
 "task", "adventure", queststatus(66) = 6 -> inform("[New quest] Raban's Grove IV"), "Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?", queststatus(66) = 7
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 6 -> inform("[Neues Quest] Rabans Hain IV"), "Nun benÃ¶tige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen kÃ¶nnen. Ich benÃ¶tige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 6 -> inform("[Neues Quest] Rabans Hain IV"), "Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.", queststatus(66) = 7
 "quest", "mission", queststatus(66) = 7, english -> "Head for the Oasis of Stars in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea."
-"quest", "mission", queststatus(66) = 7, german -> "Geht zur Sternenoase um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nÃ¶rdlicher Richtung auf den Weg macht und euch dann Ã¶stlich haltet, wenn ihr zum Meer kommt."
+"quest", "mission", queststatus(66) = 7, german -> "Geht zur Sternenoase um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
 "task", "adventure", queststatus(66) = 7 -> "Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea."
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 7 -> "Geht zur Oase der Offnung um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nÃ¶rdlicher Richtung auf den Weg macht und euch dann Ã¶stlich haltet, wenn ihr zum Meer kommt."
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 7 -> "Geht zur Oase der Offnung um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
 ".+", queststatus(66) = 7, item(726, all) > 9, german -> inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."), "I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.", rune(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
-".+", queststatus(66) = 7, item(726, all) > 9, english -> inform("[Quest gelÃ¶st] Du erhÃ¤ltst 200 KupferstÃ¼cke und deine KrÃ¤uterkundefertigkeit steigt."), "Ich danke euch vielmals fÃ¼r die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung fÃ¼r den groben Sand.", rune(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
+".+", queststatus(66) = 7, item(726, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.", rune(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
 ".+", queststatus(66) = 7, item(726, all) < 10, german -> "I still need ten shovels of coarse sand. I will reward you, that's for sure."
 ".+", queststatus(66) = 7, item(726, all) < 10, english -> "Ich brauche weiterhin zehn Schaufeln voll groben Sand. Ich werde euch entlohnen, soviel ist sicher."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(66) = 8, english -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
-"quest", "mission", queststatus(66) = 8, german -> "Es gibt nichts, was ihr noch fÃ¼r mich tun kÃ¶nntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
+"quest", "mission", queststatus(66) = 8, german -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
 "task", "adventure", queststatus(66) = 8 -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
-"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch fÃ¼r mich tun kÃ¶nntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
+"Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
 
 -- Information about herb lore
 "herbs" -> "You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury."
-"KrÃ¤uter" -> "Ihr kÃ¶nnt KrÃ¤uter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plÃ¼ndert."
+"Kräuter" -> "Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert."
 
 -- Easteregg
 "Darlok", english -> "Could you please not mention that name in front of me?"
-"Darlok", german -> "MÃ¶gt ihr diesen Namen bitte nicht in meiner Gegenwart erwÃ¤hnen?"
+"Darlok", german -> "Mögt ihr diesen Namen bitte nicht in meiner Gegenwart erwähnen?"
 "Falkner", english -> "What did you say?", "That's not my name... anymore."
-"Falkner", german -> "Wie bitte?", "So heiÃŸe ich nicht... mehr."
+"Falkner", german -> "Wie bitte?", "So heiße ich nicht... mehr."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Yes?", "Probably.", "I thought so.", "Are you sure?", "Maybe.", "What makes you so sure about this?", "Definitely.", "Whatever..."
 "Ja" -> "Ja?", "Wahrscheinlich.", "Hab ich mir gedacht.", "Seid ihr sicher?", "Vielleicht.", "Was macht euch so sicher?", "Sicherlich.", "Wie auch immer..."
 "No" -> "No?", "But on the other hand...", "Well...", "Maybe you reconsider about this?", "Is that all you have to say about this?", "I disagree."
-"Nein" -> "Nein?", "Aber andererseits...", "Nun...", "Vielleicht Ã¤ndert ihr eure Meinung noch einmal?", "Ist das alles, was ihr dazu sagen wollt?", "Ich muss widersprechen."
+"Nein" -> "Nein?", "Aber andererseits...", "Nun...", "Vielleicht ändert ihr eure Meinung noch einmal?", "Ist das alles, was ihr dazu sagen wollt?", "Ich muss widersprechen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -204,8 +204,8 @@ radius = 10
 
 cycletext "#me klopft die Erde um einen frisch gepflanzten Setzling glatt.", "#me smoothes the soil around a newly planted seedling."
 cycletext "Wachst und gedeiht, meine Kinder.", "Grow and prosper, my children."
-cycletext "#me streicht sachte Ã¼ber die BlÃ¤tter eines Strauches und seufzt.", "#me strokes gently the leaves of a bush and sighs."
-cycletext "#me flÃ¼stert kaum hÃ¶rbar zu einer Fichte. Man kann sich einbilden, die Ã„ste des Baumes wÃ¼rden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response."
-cycletext "Waren wir noch lÃ¤ngst nicht geboren, saht ihr auf alles herab. Sind wir lÃ¤ngst gegangen, gehÃ¶rt euch das Land erneut.", "When we weren't even born, you already beheld all. When we are long gone, the land will be yours again."
-cycletext "Ich habe etwas gehÃ¶rt.", "I heard something."
-cycletext "Shh! Wenn ihr ganz still seid, kÃ¶nnt ihr dem Klang der Stille lauschen.", "Shh! If you're quiet, you can listen to the sound of silence."
+cycletext "#me streicht sachte über die Blätter eines Strauches und seufzt.", "#me strokes gently the leaves of a bush and sighs."
+cycletext "#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Ã„ste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response."
+cycletext "Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.", "When we weren't even born, you already beheld all. When we are long gone, the land will be yours again."
+cycletext "Ich habe etwas gehört.", "I heard something."
+cycletext "Shh! Wenn ihr ganz still seid, könnt ihr dem Klang der Stille lauschen.", "Shh! If you're quiet, you can listen to the sound of silence."
