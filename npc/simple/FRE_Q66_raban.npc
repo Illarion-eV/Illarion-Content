@@ -126,8 +126,8 @@ radius = 10
 "quest", "mission", queststatus(66) = 1, german -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
 "task", "adventure", queststatus(66) = 1 -> "So, how is progress in finding ten fir tree seedlings?"
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 1 -> "Und, wie kommt ihr voran mit dem Finden von zehn Fichtensetzlingen?"
-".+", queststatus(66) = 1, item(149, all) > 9, german -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.", rune(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
-".+", queststatus(66) = 1, item(149, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."), "Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.", rune(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
+".+", queststatus(66) = 1, item(149, all) > 9, german -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.", skill(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
+".+", queststatus(66) = 1, item(149, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."), "Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.", skill(herb lore) + 1, money + 50, deleteItem(149, 10), queststatus(66) = 2
 ".+", queststatus(66) = 1, item(149, all) < 10, german -> "Bringt mir doch bitte die zehn Fichtensetzlinge, um die ich gebeten habe."
 ".+", queststatus(66) = 1, item(149, all) < 10, english -> "Please bring me the ten fir tree seedlings I asked for."
 
@@ -140,8 +140,8 @@ radius = 10
 "quest", "mission", queststatus(66) = 3, german -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
 "task", "adventure", queststatus(66) = 3 -> "You can find the twenty black berries I ask for in the hedge over there."
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 3 -> "Ihr könnt die zwanzig Brombeeren, die ich erbat, an der Hecke dort drüben finden."
-".+", queststatus(66) = 3, item(147, all) > 19, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "I am grateful for the twenty black berries you brought me. Have this small reward.", rune(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
-".+", queststatus(66) = 3, item(147, all) > 19, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.", rune(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
+".+", queststatus(66) = 3, item(147, all) > 19, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "I am grateful for the twenty black berries you brought me. Have this small reward.", skill(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
+".+", queststatus(66) = 3, item(147, all) > 19, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.", skill(herb lore) + 1, money + 100, deleteItem(147, 20), queststatus(66) = 4
 ".+", queststatus(66) = 3, item(147, all) < 20, german -> "I see you don't have twenty black berries yet. I'd love to taste them, could you hurry?"
 ".+", queststatus(66) = 3, item(147, all) < 20, english -> "Wie ich sehe, habt ihr noch keine zwanzig Brombeeren. Ich würde sie gerne kosten, könntet ihr eilen?"
 
@@ -154,8 +154,8 @@ radius = 10
 "quest", "mission", queststatus(66) = 5, german -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
 "task", "adventure", queststatus(66) = 5 -> "Search for the five birth mushrooms at the mushroom circles you may find close to the trees."
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 5 -> "Sucht nach den fünf Geburtspilzen in den Pilskreisen, die ihr nahe der Bäume findet."
-".+", queststatus(66) = 5, item(162, all) > 4, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.", rune(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
-".+", queststatus(66) = 5, item(162, all) > 4, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.", rune(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
+".+", queststatus(66) = 5, item(162, all) > 4, german -> inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."), "Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.", skill(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
+".+", queststatus(66) = 5, item(162, all) > 4, english -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.", skill(herb lore) + 1, money + 100, deleteItem(162, 5), queststatus(66) = 6
 ".+", queststatus(66) = 5, item(162, all) < 5, german -> "Schade, dass ihr die fünf Geburtspilze noch nicht bei den Pilzkreisen pflücken konntet."
 ".+", queststatus(66) = 5, item(162, all) < 5, english -> "What a pity you didn't find the time yet to pick five birth mushrooms from the mushroom circles."
 
@@ -168,8 +168,8 @@ radius = 10
 "quest", "mission", queststatus(66) = 7, german -> "Geht zur Sternenoase um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
 "task", "adventure", queststatus(66) = 7 -> "Head for the Oasis of Hope in order to find ten shovels of coarse sand. You get there when you head north and turn east when you reach the sea."
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 7 -> "Geht zur Oase der Offnung um zehn Schaufeln voll groben Sand zu finden. Ihr gelangt dorthin, indem ihr euch in nördlicher Richtung auf den Weg macht und euch dann östlich haltet, wenn ihr zum Meer kommt."
-".+", queststatus(66) = 7, item(726, all) > 9, german -> inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."), "I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.", rune(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
-".+", queststatus(66) = 7, item(726, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.", rune(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
+".+", queststatus(66) = 7, item(726, all) > 9, german -> inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."), "I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.", skill(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
+".+", queststatus(66) = 7, item(726, all) > 9, english -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt."), "Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.", skill(herb lore) + 1, money + 200, deleteItem(726, 10), queststatus(66) = 8
 ".+", queststatus(66) = 7, item(726, all) < 10, german -> "I still need ten shovels of coarse sand. I will reward you, that's for sure."
 ".+", queststatus(66) = 7, item(726, all) < 10, english -> "Ich brauche weiterhin zehn Schaufeln voll groben Sand. Ich werde euch entlohnen, soviel ist sicher."
 

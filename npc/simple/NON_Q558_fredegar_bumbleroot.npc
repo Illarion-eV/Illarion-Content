@@ -46,10 +46,10 @@ radius = 30
 "no", state = 1 -> "Sadly... but you tell me if you find it, yes? I have to go on searching...", state = 0, end
 "ring", state = 1, german -> "Ja... ein einfacher Goldring... Ich hab ihn verloren. Habt ihr ihn gesehen?"
 "ring", state = 1, english -> "Yes...a simple gold ring... I lost it. Did you saw it?"
-"ring", "ja", queststatus(558) = 1, item(335, belt) => 1, german -> "Ja wirklich! Das muss er sein! Ich danke euch. Hier, ich gebe euch mein Geheimrezept für Würstchen und ein paar Würstchen zum kosten!", rune(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
+"ring", "ja", queststatus(558) = 1, item(335, belt) => 1, german -> "Ja wirklich! Das muss er sein! Ich danke euch. Hier, ich gebe euch mein Geheimrezept für Würstchen und ein paar Würstchen zum kosten!", skill(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
 "ring", "ja", queststatus(558) = 1, german -> "Wo ist der Ring denn?"
 "nein", queststatus(558) = 1 -> "Schade", end
-"ring", "yes", queststatus(558) = 1, item(335, belt) => 1, english -> "Yes! Really! That has to be my ring! Thank you so much. Here, i give you me secret rezept for sausages and some sausages to taste it.", rune(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
+"ring", "yes", queststatus(558) = 1, item(335, belt) => 1, english -> "Yes! Really! That has to be my ring! Thank you so much. Here, i give you me secret rezept for sausages and some sausages to taste it.", skill(baking) + 5, deleteItem(335, 1), item(3051, 5, 333, 0), queststatus(558) = 2
 "ring", "yes", queststatus(558) = 1, english -> "Where is the ring?"
 "no", queststatus(558) = 1 -> "Sadly...", end
 "auf bald", "bis bald", "tschüss" -> "Bis bald!", end
