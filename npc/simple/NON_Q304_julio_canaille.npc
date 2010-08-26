@@ -1,7 +1,8 @@
 name="Julio Canaille"
-position=29,525,0 -pirate bay grave
+position=29,525,0 
+--pirate bay grave
 sex=male
-race=ghost
+race=human
 direction=west
 
 --Holzbein-Jack ~ Quest "Jacks Peg Leg"
