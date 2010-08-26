@@ -41,7 +41,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 					Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
 					     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints
 							
-					BF_put(TargetCharacter,Factionvalues); --save rankpoints
+					base.factions.BF_put(TargetCharacter,Factionvalues); --save rankpoints
 				--	LogGMAction(User,User.name.."("..User.id..") added "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..TargetCharacter.name.."("..TargetCharacter.id..")");
 			    	User:inform("Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." to the Player "..TargetCharacter.name);
 				end
@@ -427,7 +427,7 @@ function ChangeRankpoints(User, Counter, Increase,value)
 				Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
 		     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints
 				
-				BF_put(player_list[i],Factionvalues); --save rankpoints
+				base.factions.BF_put(player_list[i],Factionvalues); --save rankpoints
 		--		LogGMAction(User,User.name.."("..User.id..")"..text.." "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..player_list[i].name.."("..player_list[i].id..")");
 			 end
         	User:inform("Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." for the characters within "..Counter.." radius.");

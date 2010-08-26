@@ -442,7 +442,7 @@ function OrderNPC:payBoni(user,order)
 	Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]= 
 		     Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ] +5;--add 5 rankpoints for this town
 	
-	BF_put(user,Factionvalues);
+	base.factions.BF_put(user,Factionvalues);
 	------------------
     --user:inform("payboni end");
 end
