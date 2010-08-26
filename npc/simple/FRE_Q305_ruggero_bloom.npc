@@ -1,12 +1,13 @@
 name="Ruggero Bloom"
-position=5,556,0  --Pirate bay, guarding the bridge to tabaccofield.
+position=5,557,0  --Pirate bay, guarding the bridge to tabaccofield.
 sex=male
 race=human
 direction=north
 --questID not necessery, but this NPC is a important part of quest 305.
 
---warptile: 5,557,0 -> 5,553,0
---warpsprung auf 5,558,0
+--blockade: 6,558,0
+--warptile: 6,559,0 -> 6,556,0
+--warpsprung auf 6,560,0
 
 --NPC by Rincewind
 -- Ruggero guards the bridge to tobacco field in pirate Bay. When the Player is dressed like a pirate he is allowed to pass (warped on the bridge). There shall be warp-tile, so the Player is able to return in front of the NPC.
