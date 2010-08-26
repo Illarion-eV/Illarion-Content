@@ -1,142 +1,164 @@
-name="Julio Canaille"
-position=29,525,0 
---pirate bay grave
-sex=male
-race=human
-direction=west
+------------------------------------------------------------------------------AC
+-- NPC Name: Julio Canaille                                              None --
+-- NPC Job:  quester                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  29, 525, 0             --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Rincewind                                                          --
+--                                                                            --
+-- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+--------------------------------------------------------------------------------
 
---Holzbein-Jack ~ Quest "Jacks Peg Leg"
---QuestID=304
---queststatus Overview
---queststatus=1 Player got told that 'old Prandlin' stolen the pegleg.
---queststatus=2 Prandlin and peg leg dedected
---queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
---queststatus=4 the staff/pegleg is stolen
---queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 )
+name = "Julio Canaille"
+race = human
+sex = male
+position = 29, 525, 0
+direction = west
+affiliation = "None"
+job = "quester"
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
-"quest","job","problem",german,queststatus(304)=4,item(208,belt)->"Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht.  )
-"quest","job","problem",english,queststatus(304)=4,item(208,belt)->"xxx",queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
-"peg leg","task","adventure","mission","money","earn",queststatus(304)=4,item(208,belt)->"xxx",queststatus(304)=5,deleteitem(208,1),item(2675,1,999,43),inform( xxx )
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
-"quest","job","problem",german,queststatus(304)=4->"Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
-"quest","job","problem",english,queststatus(304)=4->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus(304)=4->"xxx"
+author = "not set"
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus(304)=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
-"quest","job","problem",german,queststatus(304)=5->"Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'Es ist nicht wichtig ob man gewinnt oder verliert, so lange das was man tut wirklich cool aussieht.'"
-"quest","job","problem",english,queststatus(304)=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
-"peg leg","task","adventure","mission","money","earn",queststatus(304)=5->"Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+lookatDE = "Ein zermoderter Geist, der unruhig über einem Grab schwebt."
+lookatUS = "ENGLISH"
+useMsgDE = "Ch-h! Fass mich nicht an!"
+useMsgUS = "Ch-h! Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus(304)>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
-"quest","job","problem",german,queststatus(304)>=2,item(208,belt)->"Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
-"quest","job","problem",english,queststatus(304)>=2,item(208,belt)->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus(304)>=2,item(208,belt)->"xxx"
+-- pirate bay grave
 
-"Holz","verdienen","aufgabe","abenteuer",queststatus(304)>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
-"quest","job","problem",german,queststatus(304)>=1->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
-"quest","job","problem",english,queststatus(304)>=1->"xxx"
-"peg leg","task","adventure","mission","money","earn",queststatus(304)>=1->"xxx"
+-- Holzbein-Jack ~ Quest "Jacks Peg Leg"
+-- QuestID=304
+-- queststatus Overview
+-- queststatus=1 Player got told that 'old Prandlin' stolen the pegleg.
+-- queststatus=2 Prandlin and peg leg dedected
+-- queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
+-- queststatus=4 the staff/pegleg is stolen
+-- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 )
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 4, item(208, belt) => 1 -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5
+"quest", "job", "problem", queststatus(304) = 4, item(208, belt) => 1, german -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5
+"quest", "job", "problem", queststatus(304) = 4, item(208, belt) => 1, english -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 4, item(208, belt) => 1 -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 4 -> "Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
+"quest", "job", "problem", queststatus(304) = 4, german -> "Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
+"quest", "job", "problem", queststatus(304) = 4, english -> "xxx"
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 4 -> "xxx"
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 5 -> "Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"quest", "job", "problem", queststatus(304) = 5, german -> "Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'Es ist nicht wichtig ob man gewinnt oder verliert, so lange das was man tut wirklich cool aussieht.'"
+"quest", "job", "problem", queststatus(304) = 5, english -> "Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 5 -> "Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) => 2, item(208, belt) => 1 -> "Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
+"quest", "job", "problem", queststatus(304) => 2, item(208, belt) => 1, german -> "Arr! Willste mich verscheißern!? Das is nich meen Holzbein! Ch! Ch! Ch!"
+"quest", "job", "problem", queststatus(304) => 2, item(208, belt) => 1, english -> "xxx"
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) => 2, item(208, belt) => 1 -> "xxx"
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) => 1 -> "Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
+"quest", "job", "problem", queststatus(304) => 1, german -> "Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!"
+"quest", "job", "problem", queststatus(304) => 1, english -> "xxx"
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) => 1 -> "xxx"
+"Holz", "verdienen", "aufgabe", "abenteuer" -> "Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!", queststatus(304) = 1
+"quest", "job", "problem", german -> "Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!", queststatus(304) = 1
+"quest", "job", "problem", english -> "xxx", queststatus(304) = 1
+"peg leg", "task", "adventure", "mission", "money", "earn" -> "xxx", queststatus(304) = 1
 
-"Holz","verdienen","aufgabe","abenteuer"->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus(304)=1
-"quest","job","problem",german->"Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!",queststatus(304)=1
-"quest","job","problem",english->"xxx",queststatus(304)=1
-"peg leg","task","adventure","mission","money","earn"->"xxx",queststatus(304)=1
+-- generall
+"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin" -> "Chhh.", "Grüsse!", "Aye!", "Arr!"
+"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Chhh.", "Greets!", "Aye!", "Arr!"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Chhh.", "Greets!", "Aye!", "Arr!"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Chhh.", "Grüsse!", "Aye!", "Arr!"
+"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?"
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Arr! Don't get bit by seadogs!", "Aye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Arr! lass dich nich von d'n Seehunden fressn!", "Aye."
+"Ciao", "Adieu", "Au revoir", english -> "Arr! Don't get bit by seadogs!", "Aye."
+"Ciao", "Adieu", "Au revoir", german -> "Arr! lass dich nich von d'n Seehunden fressn!", "Aye."
+"How are you", "How feel", "How do you do" -> "Aye, my missing leg hurts again!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Aye, men verlorenes Bein schmerzt wieder!"
+"your name", "who are you", "who art thou" -> "I'm %NPCNAME. Aye! But everyone yells Woodfoot-Jack! And you lubber have to call me Capt'n!"
+"I am", "I'm" -> "Arr! Heroical doings requires a well sounding name!"
+"Ich bin" -> "Arr! Heldenhafte Taten erfordern wohl klingende Namen!"
+"Jack", "Julio", "Canaille", german -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
+"Jack", "Julio", "Canaille", english -> "xxx"
+"K[aeä]ptn" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
+"Skipper", "Captn" -> "xxx"
+"prandlin", german -> "Aye, der alte Prandlin lebt irgendwo in Runewick und wartet darauf nicht mehr aufwachen zu müssen. Früher hatter Piratn gejagt... irgendwann ist er zu alt dafür gewordn. Aye, aber davor hatte er noch Zeit mich an den Galgen zu bringen."
+"prandlin", english -> "xxx"
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich handle nich.", "Ch... lass mich in Friedn."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "Aye... 'n rießiger Krake hat men Bein gefressn. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...", "Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...", "In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!"
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "Ich hab gehört um Gobaith stehts nicht gut. Naja. Iss sowieso n' Kaff. "
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Die Toten interessiern sich nich für Politik.", "Was kümmern mich diese Fleischklopse? Ch-h!"
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "Und irgendwann, ist auch Runewick nur noch 'n Name in einem staubigen Buch.", "#me klappert mit den Knochen. 'Runewick, Runewick, Runewick. Das sind doch alles verklemmte Stubenhocker dort.'"
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "Die Toten interessiern sich nich für Politik.", "Was kümmern mich diese Fleischklopse? Ch-h!"
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "Und irgendwann, ist auch Galmair nur noch 'n Name in einem staubigen Buch.", "#me klappert mit den Knochen. 'Galmair, Galmair, Galmair. Das sind doch alles geizige Halsabschneider dort.'"
+"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "königin", "queen", "edwards" -> "Die Toten interessiern sich nich für Politik.", "Was kümmern mich diese Fleischklopse? Ch-h!"
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "Und irgendwann, ist auch Cadomyr nur noch 'n Name in einem staubigen Buch.", "#me klappert mit den Knochen. 'Cadomyr, Cadomyr, Cadomyr. Das sind doch alles dumme Stiere dort.'"
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "Ich würd dich belügen, wenn ich's nicht besser wüsste. Einst zechte ich mit Adron persönlich im The Grumbler's Head. Oder hieß der typ Anton? Ch-ch..."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "Bragon, und seine Drachen. Ch-ch. Mit feuer ist nicht zu Spaßen."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "cherga! Warum, warum nur? warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "Besserwisserei und Klugscheißerei hab ich nie gebraucht. Die Göttin der Magier."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "Eldan? So ein älter kluger Gott. Aber fragt mich nicht darüber aus."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "Elfengöttin. Weiß ich nichts, kenn mich nicht aus. Cha-cha!"
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "Der gott der Geizkragen und Flauschbärte."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "Der Gott der Dummen und Starrköpfigen."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "Der Knochenlord. Besser ist's man hält sich davon fern."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "So ein netter Kerl! Ich glaub, einst hab ich ihn beim Kartenspiel das letzte Hemd ausgezogen. Oder hieß der Tyb Norbert? ch-ch,,,"
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "Oldra mach das die Bäume wachsen, sagt man. Ch."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "Aye, Ronagan ist immer mit mir gewesen. Beinahe glaub ich, er hatte all die Jahre über ein Auge auf mich. Ch."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "Hä, hä hä! Meine erste und dritte Frau waren Sirani Priesterinnen. Die wissen schon wo der Hammer hängt, wenn ich das ganz salopp sagen darf. Ch-ch!"
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "Tanora, aye! Gepriesen sei die See. Gepriesen sei Tanora... wenn nur diese ganzen Fischgesichter nicht währen."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "Wieder so eine Sache, warum ich die Elfen nicht verstehe."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "Der Gott der Brüder. Aye. Auf der See müssen alle zusammenhalten!"
 
---generall
-"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin"->"Chhh.","Grüsse!","Aye!","Arr!"
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Chhh.","Greets!","Aye!","Arr!"
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Chhh.","Greets!","Aye!","Arr!"
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Chhh.","Grüsse!","Aye!","Arr!"
-"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?"
-"Farewell","Good bye","Bye","Fare thee well"->"Arr! Don't get bit by seadogs!","Aye."
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Arr! lass dich nich von d'n Seehunden fressn!","Aye."
-"Ciao","Adieu","Au revoir",english->"Arr! Don't get bit by seadogs!","Aye."
-"Ciao","Adieu","Au revoir",german->"Arr! lass dich nich von d'n Seehunden fressn!","Aye."
-"How are you","How feel","How do you do"->"Aye, my missing leg hurts again!"
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"Aye, men verlorenes Bein schmerzt wieder!"
-"your name","who are you","who art thou"->"I'm %NPCNAME. Aye! But everyone yells Woodfoot-Jack! And you lubber have to call me Capt'n!"
-"I am","I'm"->"Arr! Heroical doings requires a well sounding name!"
-"Ich bin"->"Arr! Heldenhafte Taten erfordern wohl klingende Namen!"
+-- Help
+"hilfe" -> "Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!", state = 0
+"helfen" -> "Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!", state = 0
+"help" -> "ASk me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!", state = 0
 
-"Jack","Julio","Canaille",german->"Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
-"Jack","Julio","Canaille",english->"xxx"
-"K[aeä]ptn"->"Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
-"Skipper","Captn"->"xxx"
-"prandlin",german->"Aye, der alte Prandlin lebt irgendwo in Runewick und wartet darauf nicht mehr aufwachen zu müssen. Früher hatter Piratn gejagt... irgendwann ist er zu alt dafür gewordn. Aye, aber davor hatte er noch Zeit mich an den Galgen zu bringen."
-"prandlin",english->"xxx"
+-- smalltalk
 
-"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"was verkauf","was kauf","warenliste","preis von"->"Ich handle nich.","Ch... lass mich in Friedn."
-"tell something"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"erzähl was","erzähl etwas"->"Aye... 'n rießiger Krake hat men Bein gefressn. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...","Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...","In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!"
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
-"profession"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"beruf"->"Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
-"job",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"job"->"Ch-h. Ich bin ein Geist... was soll ich groß arbeitn?"
-"Gobaith","Gobiath",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Gobaith","Gobiath"->"Ich hab gehört um Gobaith stehts nicht gut. Naja. Iss sowieso n' Kaff. "
-
-"Elvaine","Morgan","archmage","Erzmagier",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Elvaine","Morgan","archmage","Erzmagier"->"Die Toten interessiern sich nich für Politik.","Was kümmern mich diese Fleischklopse? Ch-h!"
-"Runewick",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Runewick"->"Und irgendwann, ist auch Runewick nur noch 'n Name in einem staubigen Buch.","#me klappert mit den Knochen. 'Runewick, Runewick, Runewick. Das sind doch alles verklemmte Stubenhocker dort.'
-"Valerio","Guilianni","Don",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Valerio","Guilianni","Don"->"Die Toten interessiern sich nich für Politik.","Was kümmern mich diese Fleischklopse? Ch-h!"
-"Galmair",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Galmair"->"Und irgendwann, ist auch Galmair nur noch 'n Name in einem staubigen Buch.","#me klappert mit den Knochen. 'Galmair, Galmair, Galmair. Das sind doch alles geizige Halsabschneider dort.'
-"rosaline","königin","queen","edwards",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"rosaline","königin","queen","edwards"->"Die Toten interessiern sich nich für Politik.","Was kümmern mich diese Fleischklopse? Ch-h!"
-"Cadomyr",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Cadomyr"->"Und irgendwann, ist auch Cadomyr nur noch 'n Name in einem staubigen Buch.","#me klappert mit den Knochen. 'Cadomyr, Cadomyr, Cadomyr. Das sind doch alles dumme Stiere dort.'
-
-"Adron",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Adron"->"Ich würd dich belügen, wenn ich's nicht besser wüsste. Einst zechte ich mit Adron persönlich im The Grumbler's Head. Oder hieß der typ Anton? Ch-ch..."
-"Bragon","Brágon",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Bragon","Brágon"->"Bragon, und seine Drachen. Ch-ch. Mit feuer ist nicht zu Spaßen."
-"Cherga",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Cherga"->"cherga! Warum, warum nur? warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit."
-"Elara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Elara"->"Besserwisserei und Klugscheißerei hab ich nie gebraucht. Die Göttin der Magier."
-"Eldan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Eldan"->"Eldan? So ein älter kluger Gott. Aber fragt mich nicht darüber aus."
-"Findari",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Findari"->"Elfengöttin. Weiß ich nichts, kenn mich nicht aus. Cha-cha!"
-"Irmorom",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Irmorom"->"Der gott der Geizkragen und Flauschbärte.
-"Malachin","Malachín",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Malachin","Malachín"->"Der Gott der Dummen und Starrköpfigen."
-"Moshran",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Moshran"->"Der Knochenlord. Besser ist's man hält sich davon fern."
-"Nargun","Nargún","Nargùn",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Nargun","Nargún","Nargùn"->"So ein netter Kerl! Ich glaub, einst hab ich ihn beim Kartenspiel das letzte Hemd ausgezogen. Oder hieß der Tyb Norbert? ch-ch,,,"
-"Oldra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Oldra"->"Oldra mach das die Bäume wachsen, sagt man. Ch."
-"Ronagan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Ronagan"->"Aye, Ronagan ist immer mit mir gewesen. Beinahe glaub ich, er hatte all die Jahre über ein Auge auf mich. Ch."
-"Sirani",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Sirani"->"Hä, hä hä! Meine erste und dritte Frau waren Sirani Priesterinnen. Die wissen schon wo der Hammer hängt, wenn ich das ganz salopp sagen darf. Ch-ch!"
-"Tanora","Zelphia",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Tanora","Zelphia"->"Tanora, aye! Gepriesen sei die See. Gepriesen sei Tanora... wenn nur diese ganzen Fischgesichter nicht währen.
-"Ushara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Ushara"->"Wieder so eine Sache, warum ich die Elfen nicht verstehe."
-"Zhambra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"Zhambra"->"Der Gott der Brüder. Aye. Auf der See müssen alle zusammenhalten!"
-
---Help
-
-"hilfe"->"Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!",state=0
-"helfen"->"Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!",state=0
-"help"->"ASk me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!",state=0
-
---smalltalk
-
-cycletext "Aye, men verlorenes Bein schmerzt wieder!" , "Aye, my missing leg hurts again!"
-cycletext "Arr, verdammte Landratten!" , "Arr, damn lubbers!"
-cycletext "Booo! Har, har, har!" , "Booo! Har, har, har!"
-cycletext "#me klappert mit seinen schemenhaft vorhandenen Knochen." , "#me clatters with his apparitional bones."
-cycletext "#me pfeift eine schaurige Melodie." , "#me whistles a scary melody."
-cycletext "#me's Augen beginnen plötzlich in gruseligen sphärischen Blau zu glühen." , "xxx"
-cycletext "Zeit mit den Säbeln zu rasseln! Arr!" , "Time to buckle our swash! Arr!"
+cycletext "Aye, men verlorenes Bein schmerzt wieder!", "Aye, my missing leg hurts again!"
+cycletext "Arr, verdammte Landratten!", "Arr, damn lubbers!"
+cycletext "Booo! Har, har, har!", "Booo! Har, har, har!"
+cycletext "#me klappert mit seinen schemenhaft vorhandenen Knochen.", "#me clatters with his apparitional bones."
+cycletext "#me pfeift eine schaurige Melodie.", "#me whistles a scary melody."
+cycletext "#me's Augen beginnen plötzlich in gruseligen sphärischen Blau zu glühen.", "xxx"
+cycletext "Zeit mit den Säbeln zu rasseln! Arr!", "Time to buckle our swash! Arr!"
