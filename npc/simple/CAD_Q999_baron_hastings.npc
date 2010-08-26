@@ -81,7 +81,7 @@ radius = 3
 "Gobaith", "Gobiath", english -> "A tragedy, brought upon the isle by decadence and the lack of strong leadership.", "I could foresee troubles, that's what happens when you bring Salkamaerians to meddle in your affairs!"
 "Gobaith", "Gobiath" -> "Eine Tragödie, hervorgerufen durch Dekadenz und dem Mangel ein starken Herrschaft.", "Den Ärger hätte ich voraussagen können. Das passiert, wenn man Salkamaerianer dazu bewegt, sich in seine Angelegenheiten einzumischen."
 "I am", "my name" -> "I am 'Baron' Hastings. You would do well to remember that name."
-"Ich bin", "mein Name" -> "I am 'Baron' Hastings. Ihr würdet gut daran tun, Euch dessen zu erinnern."
+"Ich bin", "mein Name" -> "Ich bin 'Baron' Hastings. Ihr würdet gut daran tun, Euch dessen zu erinnern."
 
 -- More small talk; add at least five triggers
 "King Edwards" -> "#me grimaces. 'Do not mention that name! He was for a long time a good king. Then he grew weak and let that bitch-daughter of hers poison his mind against me, now I curse his memory!'"
