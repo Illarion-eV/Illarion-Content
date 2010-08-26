@@ -189,7 +189,7 @@ function Cow_NextCycle(User)
 
 				----------------give some rankpoints-----------------------
 				local PointsToGive = 20; --the amount of rankpoints the user earns for finishing this quest
-				Factionvalues = BF_get(User);
+				Factionvalues = base.factions.BF_get(User);
 				if Factionvalues.tid == 0 then --char has no hometown
 				    for i = 1, 3, 1 do   --give him 5 rankpoints in each town he is not banned
 				        if Factionvalues[DigitToIndex[RANK_OFFSET+i]] ~= 0 then
@@ -199,7 +199,7 @@ function Cow_NextCycle(User)
 				else
 					Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+Factionvalues.tid]] = Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+Factionvalues.tid]] +PointsToGive;
 				end
-				Factionvalues = BF_put(User,Factionvalues);
+				Factionvalues = base.factions.BF_put(User,Factionvalues);
 				-----------------------------------------------------------
 			else
 				base.common.TalkNLS(thisNPC, CCharacter.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting \"Mooooo!\"");

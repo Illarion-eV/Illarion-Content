@@ -437,7 +437,7 @@ function OrderNPC:payBoni(user,order)
    if NpcLocation[thisNPC.id] == nil then
    		base.factions.BF_setLocation(thisNPC);
    end
-   local Factionvalues = BF_get(user);
+   local Factionvalues = base.factions.BF_get(user);
    
 	Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ]= 
 		     Factionvalues[ DigitToIndex[NpcLocation[thisNPC.id]+RANKPOINTS_OFFSET] ] +5;--add 5 rankpoints for this town

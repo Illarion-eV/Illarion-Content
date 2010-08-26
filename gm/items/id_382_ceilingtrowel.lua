@@ -36,7 +36,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 					
 					if (string.find(User.lastSpokenText,"removepoints")~=nil) then value = -value; end
 					
-					Factionvalues = BF_get(TargetCharacter); --get rankpoints				
+					Factionvalues = base.factions.BF_get(TargetCharacter); --get rankpoints				
 						
 					Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
 					     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints
@@ -53,9 +53,9 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 				
 				local CheckTown = CheckTownTrigger(User);
 				if CheckTown > 0 then
-					Factionvalues = BF_get(TargetCharacter); --get Factionvalues
+					Factionvalues = base.factions.BF_get(TargetCharacter); --get Factionvalues
 				    Factionvalues.tid = CheckTown;
-				    BF_put(TargetCharacter,Factionvalues); --save changes
+				    base.factions.BF_put(TargetCharacter,Factionvalues); --save changes
 				
 				--	LogGMAction(User,User.name.."("..User.id..") made "..TargetCharacter.name.."("..TargetCharacter.id..") member of the Town "..TownNameGList[CheckTown][1]);
 					User:inform(TargetCharacter.name.." is now member of "..TownNameGList[CheckTown][1]);
@@ -66,9 +66,9 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			if (value<10 and value>-1) then
 				local CheckTown = CheckTownTrigger(User);
 				if CheckTown > 0 then
-					Factionvalues = BF_get(TargetCharacter); --get Rank
+					Factionvalues = base.factions.BF_get(TargetCharacter); --get Rank
 					Factionvalues[DigitToIndex[CheckTown+RANK_OFFSET]] = value; --set rank to value
-					Factionvalues = BF_put(TargetCharacter,Factionvalues); --write faction values
+					Factionvalues = base.factions.BF_put(TargetCharacter,Factionvalues); --write faction values
 					User:inform(TargetCharacter.name.." has now the rank "..value.." in "..TownNameGList[CheckTown][1]);
 				
 				--	LogGMAction(User,User.name.."("..User.id..") set the rank of "..TargetCharacter.name.."("..TargetCharacter.id..") to "..value.." in "..TownNameGList[CheckTown][1]);		
@@ -82,10 +82,10 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			if (guildid<11 or guildid>99) then User:inform("Failed changing guild rank: guildid out of range, 11-99 only"); return; end
 			
 			if (value<3 and value >-1) then
-				Factionvalues = BF_get(TargetCharacter);
+				Factionvalues = base.factions.BF_get(TargetCharacter);
 				Factionvalues.gid = guildid;
 				Factionvalues.rankGuild = value;
-				Factionvalues = BF_put(TargetCharacter,Factionvalues); --write faction values
+				Factionvalues = base.factions.BF_put(TargetCharacter,Factionvalues); --write faction values
 				
 				User:inform(TargetCharacter.name.." has now the rank "..value.." in the Guild "..GuildNameGList[guildid][1].."(ID: "..guildid..")");
 					
@@ -422,7 +422,7 @@ function ChangeRankpoints(User, Counter, Increase,value)
 		player_list=world:getPlayersInRangeOf(User.pos, Counter);
 		if player_list[1]~=nil then
 			 for i, player in pairs(player_list) do
-			    Factionvalues = BF_get(player_list[i]); --get rankpoints
+			    Factionvalues = base.factions.BF_get(player_list[i]); --get rankpoints
 				
 				Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
 		     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints

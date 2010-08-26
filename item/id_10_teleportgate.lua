@@ -336,7 +336,7 @@ function CharacterOnField( User )
 	            		User:eraseItem( ItemListe[i], amount);
 					end --items deleted;
 
-					local Faction = BF_get(User); -- lookup to which faction the Character belongs to
+					local Faction = base.factions.BF_get(User); -- lookup to which faction the Character belongs to
 					
 					if     Faction.tid == 1 then dest = position(140,630,0); --cadomyr
 					elseif Faction.tid == 2 then dest = position(788,826,0); --runewick

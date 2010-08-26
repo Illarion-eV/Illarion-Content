@@ -174,7 +174,7 @@ end
 
 
 function mainTask(texttype,message,originator)
-	Factionvalues = BF_get(originator);
+	Factionvalues = base.factions.BF_get(originator);
 
 	if 	(string.find(message,"[Dd]ekret.+kaufen.*")~=nil or string.find(message,"[Bb]uy.+decree.*")~=nil or
 		 string.find(message,"[Dd]ekret.+erwerben.*")~=nil) then
