@@ -1,5 +1,5 @@
 name="Prandlin"
-position=0,0,0 -- next at a ++chimney++ at Runewick!
+position=774,761,0
 sex=male
 race=halfling
 direction=northeast
