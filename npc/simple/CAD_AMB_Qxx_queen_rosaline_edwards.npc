@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: August 14, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 name = "Queen Rosaline Edwards"
@@ -27,10 +27,10 @@ autointroduce = on
 author = "Estralis Seborian"
 author = "Nitram"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
-useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
+lookatDE = "Dieser NPC ist Königin Rosaline Edwards von Cadomyr."
+lookatUS = "This NPC is Queen Rosaline Edwards of Cadomyr."
+useMsgDE = "Was fällt euch ein!"
+useMsgUS = "How you dare!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 hairID = 7

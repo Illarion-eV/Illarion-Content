@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: August 14, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1137,8 +1137,8 @@ talkingNPC:addCycleText("Wer hat da ein Licht auf Fenstersims entzündet? Was geh
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setLookat("Dieser NPC ist Königin Rosaline Edwards von Cadomyr.", "This NPC is Queen Rosaline Edwards of Cadomyr.");
+mainNPC:setUseMessage("Was fällt euch ein!", "How you dare!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 225);
 mainNPC:setEquipment(3, 833);
