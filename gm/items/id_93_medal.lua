@@ -6,6 +6,8 @@ module("gm.items.id_93_medal", package.seeall)
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     Counter=1 * string.format("%u",User.lastSpokenText);
     
+    User:inform("creating monster with ID "..Counter);
+    
     if (SourceItem.data==0) then
         world:createMonster(Counter,TargetPos,20);
     elseif (SourceItem.data==1) then
@@ -25,9 +27,9 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
-    Counter=1 * string.format("%u",User.lastSpokenText);
+    --Counter=1 * string.format("%u",User.lastSpokenText);
     
-        world:createMonster(Counter,position(User.pos.x+1, User.pos.y+1,User.pos.z),20);
+       -- world:createMonster(Counter,position(User.pos.x+1, User.pos.y+1,User.pos.z),20);
 
     if ((SourceItem.data==8) and ( (User.id==833275147) or User.id==666) ) then
         UndeadEvent(User.pos);
