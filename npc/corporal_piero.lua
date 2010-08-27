@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  39, 649, 0             --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,7 +35,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 6));
-talkEntry:addResponse("Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen.");
+talkEntry:addResponse("Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -50,7 +50,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Nochmals.. Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen.");
+talkEntry:addResponse("Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -105,7 +105,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der PIraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
+talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, 0));
 talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 6));
@@ -175,7 +175,7 @@ talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"));
-talkEntry:addResponse("My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.");
+talkEntry:addResponse("My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"));
-talkEntry:addResponse("My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His informations are very important fot the guard of Cadomyr. Good luck.");
+talkEntry:addResponse("My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,7 +218,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Is that a task or not? I should ask for more information..."));
-talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.");
+talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.");
 talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -230,7 +230,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Is that a task or not? I should ask for more information..."));
-talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich are very important for me. deliver this message to me.");
+talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.");
 talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -301,7 +301,7 @@ talkEntry:addTrigger("wie hei[sß]+t ihr");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer seid");
 talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Ich bin %NPCNAME. Diener der Königin von Cadomyr");
+talkEntry:addResponse("Ich bin Corporal Piero. Diener der Königin von Cadomyr");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am %NPCNAME. Servant of the queen in Cadomyr.");
+talkEntry:addResponse("I am Corporal Piero. Servant of the queen in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,14 +547,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Urgh. Runewick. Sounds to me like a place I nver want to go. It's filled with arrogant bookworms who claim to know it all.");
+talkEntry:addResponse("Urgh. Runewick. Sounds to me like a place I never want to go. It's filled with arrogant bookworms who claim to know it all.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("urgh. Runewick. Klingt für mich nach einem Ort wo ich nie hin gehen werde. Es ist voll mit arroganten Bücherwürmern, die glauben sie wüssten alles.");
+talkEntry:addResponse("urgh. Runewick. Klingt für mich nach einem Ort wo ich nie hin gehen werde. Es ist voll mit arroganten Bücherwürmern, die glauben sie wüßten alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,7 +563,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Don Valerio Guilianni is the richest man in whole Galmair. So I will say... he holds the politic in hands there like no otherone.");
+talkEntry:addResponse("Don Valerio Guilianni is the richest man in whole Galmair. So I will say... he holds the politic in hands there like no other one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +586,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ein kaotischs Moloch. Überfüllt mit Abschaum. reichtum ist dort alles was zählt. Dort hat man keine Ehre.");
+talkEntry:addResponse("Ein kaotischs Moloch. Überfüllt mit Abschaum. Reichtum ist dort alles was zählt. Dort hat man keine Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +606,7 @@ talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrschering unseres großartigen Landes. Das Blut der Könige fließt strak und rein in ihren Adern.");
+talkEntry:addResponse("Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrschering unseres großartigen Landes. Das Blut der Könige fließt stark und rein in ihren Adern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -651,7 +651,7 @@ talkingNPC:addCycleText("#me fasst sich mit der hand an die Seite: 'Ghn! Meine a
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Eine Wächter Cadomyrs. Er ist gut rasiert und blickt stolz in die Ferne.", "A guard of Cadomyr. He's well shaved and glances proud into the area.");
+mainNPC:setLookat("Ein Wächter Cadomyrs. Er ist gut rasiert und blickt stolz in die Ferne.", "A guard of Cadomyr. He's well shaved and glances proud into the area.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
