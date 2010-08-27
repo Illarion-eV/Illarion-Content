@@ -3,7 +3,7 @@
 -- NPC Job:  trader                                                            --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  368, 260, 0            --
--- NPC Sex:  female                     NPC Direction: northwest              --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                          --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Krudash"
 race = orc
 sex = female
-position = 368, 249, 0
-direction = northwest
+position = 368, 260, 0
+direction = north
 affiliation = "Galmair"
 job = "trader"
 
