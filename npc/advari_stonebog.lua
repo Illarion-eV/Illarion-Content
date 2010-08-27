@@ -2,17 +2,17 @@
 -- NPC Name: Advari Stonebog                                             None --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  359, 253, 0            --
+-- NPC Race: dwarf                      NPC Position:  261, 250, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 359, 253, 0, 2, 'Advari Stonebog', 'npc.advari_stonebog',  0, 1, 1, 189, 182, 164, 217, 154, 123);
+VALUES (1, 261,250,0, 2, 'Advari Stonebog', 'npc.advari_stonebog',  0, 1, 1, 189, 182, 164, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
@@ -454,7 +454,7 @@ talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das sagen!");
+talkEntry:addResponse("Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das Sagen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -519,7 +519,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-pöbel. Wenn ich nur dran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein.");
+talkEntry:addResponse("Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur dran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,7 +564,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Aye, ich opfere einen guten teil meiner Einkünfte dem Schattengott. So sorgt er dafür, das ich vom diebischen gesindel verschont bleibe! Arr.");
+talkEntry:addResponse("Aye, ich opfere einen guten teil meiner Einkünfte dem Schattengott. So sorgt er dafür, das ich vom diebischen Gesindel verschont bleibe! Arr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
