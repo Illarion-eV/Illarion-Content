@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  898, 799, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Flux                                                          --
 --                                                                            --
 -- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Flux"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
