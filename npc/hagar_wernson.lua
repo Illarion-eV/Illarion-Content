@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 23, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -154,7 +154,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.race.race(3));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Moin...Langohr");
+talkEntry:addResponse("Moin... Langohr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,7 +784,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut.");
+talkEntry:addResponse("Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut.");
+talkEntry:addResponse("Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -999,6 +999,26 @@ talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Aye!");
 talkEntry:addResponse("Was auch immer.");
 talkEntry:addResponse("Alles klar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("The gods may bless you.");
+talkEntry:addResponse("Have fun, in my tavern.");
+talkEntry:addResponse("Aye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Dann sag ich mal Prost.");
+talkEntry:addResponse("Viel Spass in meiner Taverne!");
+talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1800,6 +1820,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(9, 823);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
