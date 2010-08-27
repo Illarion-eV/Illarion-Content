@@ -482,26 +482,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
-talkEntry:addTrigger("my name");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("The Innkeeper gifts you a beer for free. Cheers!"));
-talkEntry:addResponse("You are new here, arn't you? Here you go! The first beer 's for free. Welcome at the Winged Sow tavern!");
-talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
-talkEntry:addTrigger("mein Name");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Der Wirt gibt dir ein Bier aus. Prost!"));
-talkEntry:addResponse("Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!");
-talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dragon");
 talkEntry:addResponse("Dragon's Pond. My old tavern. Sadly I had to leave it behind.");
 talkingNPC:addTalkingEntry(talkEntry);
