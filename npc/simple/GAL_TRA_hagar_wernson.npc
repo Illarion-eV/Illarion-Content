@@ -41,6 +41,7 @@ wrongLangUS = "#me looks at you confused."
 -- dank an Dariya fuer einige eklige ideen
 -- von kormkormsen fuer Illarion
 -- converted to new Illarion by Rincewind
+itemTrousers = 823
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern.")
@@ -180,8 +181,10 @@ wrongLangUS = "#me looks at you confused."
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
 
--- ".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
--- ".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+".*",english,chance(20)->"The gods may bless you.","Have fun, in my tavern.","Aye."
+".*",german,chance(20)->"Dann sag ich mal Prost.","Viel Spass in meiner Taverne!","Aye."
+
+
 "Was verkauft", sex = female -> "Ich hab Jungfernglück, den beliebten Apfelwein, nur sechs Kupfer fürn Kelch. Wär das nix fuer Euch? Oder Gnollgift, den guten Rotwein, nur acht Kupfer. Bärenfalle, den besten Met auch für acht. Und Nordburger Schädelbrecher, unser Bier. Der Krug zu lumpigen acht Kupfer"
 "Was kauft", "Was kaufst", sex = female -> "Ich kauf Kupferkelche zurück, meine Liebe. Ein'n Kupfer fürn Kelch. Und Bierkruege, auch für'n Kupfer. Für graue Flaschen zahl ich zwei."
 "what sell", sex = female -> "I got virgen's delight, our applewine, six copper the goblet. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our meade, both for eight copper the goblet. An' Northburger scullcracker, our beer, for eight copper the mug."
