@@ -25,7 +25,7 @@ autointroduce = on
 
 author = "not set"
 
-lookatDE = "Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine rauchwölchen umgeben ihn."
+lookatDE = "Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn."
 lookatUS = "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -134,7 +134,7 @@ radius = 0
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(20) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den bart. 'Na gut, ist ja gut.'", "Arr!"
+".*", german, chance(20) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
