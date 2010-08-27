@@ -1,14 +1,19 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Nik Nilo                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  377, 266, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  365, 260, 0            --
+-- NPC Sex:  male                       NPC Direction: northwest              --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Drathe                                                           --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 365, 260, 0, 7, 'Nik Nilo', 'npc.nik_nilo', 0, 1, 1, 153, 96, 28, 217, 154, 123);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
@@ -604,7 +609,7 @@ talkingNPC:addCycleText("Wie, wo, was, weiﬂ... Big Nik!", "How, where, what, kno
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt. Von Kohle und Steinen.", "A tall human. His hair are scummy and dusty by dust and coal.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
