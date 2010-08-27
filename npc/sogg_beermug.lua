@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 24, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is %NPCNAME the Alchemist. Keyphrases: usual Trading triggers"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: usual Trading triggers"));
 talkEntry:addResponse("Help? All ob us need help!...'hick'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -37,7 +37,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist %NPCNAME der Alchimist. Schlüsselwörter: übliche Handels-Trigger"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: übliche Handels-Trigger"));
 talkEntry:addResponse("Hilfe brauschn wir alle!...'hick'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -53,7 +53,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Greebas!");
-talkEntry:addResponse("Hurr!");
+talkEntry:addResponse("Hurr! Greetings.");
 talkEntry:addResponse("#me grunts and waves a mug of beer.");
 talkEntry:addResponse("Cheers! Come over 'ere and drink with Sogg!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -70,7 +70,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Greebas!");
-talkEntry:addResponse("Hurr!");
+talkEntry:addResponse("Hurr! Grüße.");
 talkEntry:addResponse("#me grunzt und winkt mit einem Krug Bier.");
 talkEntry:addResponse("Prost! Kommst du her, und trinkst mit Sogg!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -84,7 +84,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greebas!");
-talkEntry:addResponse("Hurr!");
+talkEntry:addResponse("Hurr! Greetings.");
 talkEntry:addResponse("#me grunts and waves a mug of beer.");
 talkEntry:addResponse("Skoal! Come over 'ere and drink with Sogg!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -98,7 +98,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Greebas!");
-talkEntry:addResponse("Hurr!");
+talkEntry:addResponse("Hurr! Grüße.");
 talkEntry:addResponse("#me grunzt und winkt mit einem Krug Bier.");
 talkEntry:addResponse("Prost! Kommst du her, und trinkst mit Sogg!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -164,7 +164,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm %NPCNAME. 'hick' Mes guarding tha barrel an' bottl! Uh!");
+talkEntry:addResponse("I'm Sogg Beermug. 'hick' Mes guarding tha barrel an' bottl! Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,7 +173,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Isch bin %NPCNAME. 'hick' Mirr bewacht all die Fässer und Flasch!");
+talkEntry:addResponse("Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,26 +196,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm %NPCNAME. 'hick' Mes guarding tha barrel an' bottl! Uh!");
+talkEntry:addResponse("I'm Sogg Beermug. 'hick' Mes guarding tha barrel an' bottl! Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Isch bin %NPCNAME. 'hick' Mirr bewacht all die Fässer und Flasch!");
+talkEntry:addResponse("Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm %NPCNAME. 'hick' Mes guarding tha barrel an' bottl! Uh!");
+talkEntry:addResponse("I'm Sogg Beermug. 'hick' Mes guarding tha barrel an' bottl! Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Isch bin %NPCNAME. 'hick' Mirr bewacht all die Fässer und Flasch!");
+talkEntry:addResponse("Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,14 +237,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("%CHARNAME, mes like you! Wanna booze?");
+talkEntry:addResponse("Yuu, mes like you! Wanna booze?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("%CHARNAME, mirr dich mögen! Willschte wa' zu saufn?");
+talkEntry:addResponse("Duhu, mirr dich mögen! Willschte wa' zu saufn?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,7 +403,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("moshran");
 talkEntry:addTrigger("god");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gosh! NIcht sagst diese Name! Bassa fragen Schamane über Vatha.");
+talkEntry:addResponse("Gosh! Nicht sagst diese Name! Bessa fragen einen Schamanen über Vatha.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,7 +450,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
+talkEntry:addTrigger("adron");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Honor to Adron, tha fat man with red nose! Yubba. May he help guard all those barrels 'nd bottle!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -495,7 +495,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Skoal!");
-talkEntry:addResponse("Hurr-hurr.");
+talkEntry:addResponse("Hurr-hurr. Should be good with me.");
 talkEntry:addResponse("Allrighty-right!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -503,7 +503,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Prost.");
-talkEntry:addResponse("Hurr-hurr.");
+talkEntry:addResponse("Hurr-hurr. Solls mir recht sein.");
 talkEntry:addResponse("Alles-klarklar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,7 +511,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Gosch!");
-talkEntry:addResponse("Skeschmat!");
+talkEntry:addResponse("Skeschmat! S' that your final answer?");
 talkEntry:addResponse("#me burps.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -519,7 +519,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Gosch!.");
-talkEntry:addResponse("Skeschmat!");
+talkEntry:addResponse("Skeschmat! Gneh... is das den letztes Wort?");
 talkEntry:addResponse("#me rülpst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
