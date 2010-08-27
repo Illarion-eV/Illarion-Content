@@ -4,6 +4,8 @@
 module("gm.items.id_93_medal", package.seeall)
 
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
+    Counter=1 * string.format("%u",User.lastSpokenText);
+    
     if (SourceItem.data==0) then
         world:createMonster(Counter,TargetPos,20);
     elseif (SourceItem.data==1) then
