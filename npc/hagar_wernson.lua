@@ -21,12 +21,14 @@ require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.money")
 require("npc.base.condition.number")
+require("npc.base.condition.quest")
 require("npc.base.condition.race")
 require("npc.base.condition.sex")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
+require("npc.base.consequence.queststatus")
 require("npc.base.talk")
 module("npc.hagar_wernson", package.seeall)
 
@@ -460,6 +462,42 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I am");
+talkEntry:addTrigger("my name");
+talkEntry:addCondition(npc.base.condition.quest.quest(306, "=>", 1));
+talkEntry:addResponse("No need for tell me again. I'm really good with names. I never forgott one. - What may I serve you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich bin");
+talkEntry:addTrigger("mein Name");
+talkEntry:addCondition(npc.base.condition.quest.quest(306, "=>", 1));
+talkEntry:addResponse("Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I am");
+talkEntry:addTrigger("my name");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("The Innkeeper gifts you a beer for free. Cheers!"));
+talkEntry:addResponse("You are new here, arn't you? Here you go! The first beer 's for free. Welcome at the Winged Sow tavern!");
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich bin");
+talkEntry:addTrigger("mein Name");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Der Wirt gibt dir ein Bier aus. Prost!"));
+talkEntry:addResponse("Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!");
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
