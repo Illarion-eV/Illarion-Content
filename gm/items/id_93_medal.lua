@@ -24,6 +24,11 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
+
+    Counter=1 * string.format("%u",User.lastSpokenText);
+    
+        world:createMonster(Counter,position(User.pos.x+1, User.pos.y+1,User.pos.z),20);
+
     if ((SourceItem.data==8) and ( (User.id==833275147) or User.id==666) ) then
         UndeadEvent(User.pos);
     else
