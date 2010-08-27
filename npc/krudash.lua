@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 24, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,21 +28,21 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hilfe");
-talkEntry:addResponse("Ich, %NPCNAME 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
+talkEntry:addResponse("Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("helfen");
-talkEntry:addResponse("Ich, %NPCNAME 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
+talkEntry:addResponse("Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addResponse("Me, %NPCNAME 'sell' and 'buy' lots of stuff! Taghta?");
+talkEntry:addResponse("Me, Krudash 'sell' and 'buy' lots of stuff! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -57,9 +57,9 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Greebas.");
-talkEntry:addResponse("Hurr!");
-talkEntry:addResponse("Hurr. Me, %NPCNAME sell all you need. For good hack'n sack trip! Hehe!");
-talkEntry:addResponse("Latha math!");
+talkEntry:addResponse("Hurr! Be greeted.");
+talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
+talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,9 +74,9 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Greebas.");
-talkEntry:addResponse("Hurr!");
-talkEntry:addResponse("Hurr. Ich, %NPCNAME verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
-talkEntry:addResponse("Latha math!");
+talkEntry:addResponse("Hurr! Sei gegrüßt.");
+talkEntry:addResponse("Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
+talkEntry:addResponse("Latha math! Grüße-Grüße, sag ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,9 +88,9 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greebas.");
-talkEntry:addResponse("Hurr!");
-talkEntry:addResponse("Hurr. %NPCNAME sell all you need. For good hack'n sack trip! Hehe!");
-talkEntry:addResponse("Latha math!");
+talkEntry:addResponse("Hurr! Be greeted.");
+talkEntry:addResponse("Hurr. Krudash sell all you need. For good hack'n sack trip! Hehe!");
+talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,9 +102,9 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Greebas.");
-talkEntry:addResponse("Hurr!");
-talkEntry:addResponse("Hurr. Ich, %NPCNAME verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
-talkEntry:addResponse("Latha math!");
+talkEntry:addResponse("Hurr! Sei gegrüßt.");
+talkEntry:addResponse("Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
+talkEntry:addResponse("Latha math! Grüße-Grüße, sag ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -114,7 +114,7 @@ talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare thee well");
 talkEntry:addResponse("Farebas. Have a good sackin'!");
-talkEntry:addResponse("Slàn leibhslàn! - So sagens wir. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! - Would say the orcs tounge. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,7 +124,7 @@ talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehabt euch wohl");
 talkEntry:addResponse("Farebas. Ne Gute Plünderung wünsch ich noch!");
-talkEntry:addResponse("Slàn leibhslàn! - So sagens wir. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! - So sagens wir Orks. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,7 +136,7 @@ talkEntry:addTrigger("Farebba");
 talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farebas. Have a good sackin'!");
-talkEntry:addResponse("Slàn leibhslàn! - So sagens wir. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! - Would say the orcs tounge. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +147,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebas. Ne Gute Plünderung wünsch ich noch!");
-talkEntry:addResponse("Slàn leibhslàn! - So sagens wir. Tagtha?");
+talkEntry:addResponse("Slàn leibhslàn! - So sagens wir Orks. Tagtha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -176,7 +176,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am %NPCNAME. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip.");
+talkEntry:addResponse("I am Krudash. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,7 +185,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin %NPCNAME. Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn.");
+talkEntry:addResponse("Ich bin %Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,14 +235,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hrmpf!");
+talkEntry:addResponse("Hrmpf! What should I say about?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Hrmpf!");
+talkEntry:addResponse("Hrmpf! Was gibts da zu sagn?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,6 +283,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("er hja");
 talkEntry:addTrigger("erhja");
+talkEntry:addTrigger("er'hja");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Er'hja kann sich glücklich schätzen. Hatt den Kopf von Mama und das Gâsh von Papa. Krudash und Murgo sinds, yubba.");
 talkEntry:addResponse("Er'hja hat gelernt bei Mo'rurt. Und Jag. Tapferes, mutiges Mädchen. Yubba!");
@@ -297,6 +298,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("er hja");
 talkEntry:addTrigger("erhja");
+talkEntry:addTrigger("er'hja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Er'hja should be lucky. Got the smartness ob 'er mom 'nd the gâsh ob papy. Krudash 'nd Murgo are.");
 talkEntry:addResponse("Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!");
@@ -310,6 +312,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ali[czs]");
+talkEntry:addTrigger("ali[czs]e");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Alize, Gnarh. Sie jammerndes Kind bei Schmieda. Sie ist mein Snaga!. Sie schmelzn Erz, muss.");
 talkEntry:addResponse("Du nix sein schwuach mit diesa jammernde Slkave. Sie lernen muss, zu sein STARK! Machen den Besitza Ehre. Yubba.");
@@ -319,6 +322,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ali[czs]");
+talkEntry:addTrigger("ali[czs]e");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Alize, Gnarh. This bis thus weepy girl at forge. She is my snaga!. She hav to smelt you ore.");
 talkEntry:addResponse("Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honor! Yubba.");
@@ -330,7 +334,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("krudash");
 talkEntry:addTrigger("Hacksack");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Hurr Hurr. Ciamar a'seibh! Wie geht?");
+talkEntry:addResponse("Hurr Hurr. Ciamar a'seibh! Wie geht's?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -845,6 +849,38 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Taghtha? Is good! Yes.");
+talkEntry:addResponse("There we go. Allrighty-right.");
+talkEntry:addResponse("Hurr, hurr. Wahtever you say.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Taghta? Iss gut! Ja-h.");
+talkEntry:addResponse("So machen wir's!");
+talkEntry:addResponse("Hurr, hurr. Alles was du sagst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("Grâth! Are you sure?");
+talkEntry:addResponse("Then... no, isn't it?");
+talkEntry:addResponse("#me chuckles. 'Is all right.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Grâth! Bisst du sicher?");
+talkEntry:addResponse("Dann nicht, nicht wahr?");
+talkEntry:addResponse("#me kichert. 'Ist gut, is' gu-ht.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
@@ -863,7 +899,7 @@ talkEntry:addResponse("Winzige kleine Made.");
 talkEntry:addResponse("Uh-h?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me leckt sich kurz über die Lippen. Dann streckt sie die Zunge heraus und berührt damit ihr hübsches Näschen.", "#me licks her lips. Then she shwos her tounge and taps her cute nose.");
+talkingNPC:addCycleText("#me leckt sich kurz über die Lippen. Dann streckt sie die Zunge heraus und berührt damit ihr hübsches Näschen.", "#me licks her lips. Then she shows her tounge and taps her cute nose.");
 talkingNPC:addCycleText("Hack'n Sack! Hier Kannst du alles kaufen. Was 'ner wie du braucht für ne gutte Plünderei!", "Hack'n sack! here you buy all stuff for well sack trip.");
 talkingNPC:addCycleText("Uh, ich bin so stolz auf meine kleine Ol'hja und meine kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!");
 talkingNPC:addCycleText("Gnahrr! Wo ist mein fauler Sack von Mann?", "Gnahrr! Where my lazy husband be is?");
@@ -873,7 +909,12 @@ talkingNPC:addCycleText("#me rubbelt mit den Fingernägeln an einem rostendem Eis
 talkingNPC:addCycleText("#me kichert und nuschelt: 'Snu-snu...'", "#me chukles and mumbles: 'Snu-Snu...'");
 talkingNPC:addCycleText("#me krazt sich knurrend am Kopf.", "#me scratches her head with a annoyed snarl.");
 talkingNPC:addCycleText("#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air.");
-talkingNPC:addCycleText("#me klappert in einem einfachen ansteckenden Rythmus auf einem Holzstück.", "#me chatters with an simple catching rythm on a piece of wood.");
+talkingNPC:addCycleText("#me klappert in einem einfachen ansteckenden Rythmus auf dem Holztisch.", "#me chatters with an simple catching rythm on the wooden table.");
+talkingNPC:addCycleText("Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armor at Krudash! I make you the best price...");
+talkingNPC:addCycleText("Schwerta! Äxte! Hämmer! Hossa, kauft ihr alles bei mir! Krudash!", "Sords! Axes! Hammers! Hossa, buy everything at Krudash's shop!");
+talkingNPC:addCycleText("Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in whole Galmair! Gosh!");
+talkingNPC:addCycleText("Schmiede, Eisenbieger... mit Krudash Werkzeug macht ihr die besten Stücke!", "Smiths, Ironbender... Krudash's tools make the best goods!");
+talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'Alize du dreckige kleine Snaga! Du sollst die Esse schürn! Taghta?'", "#me turns her head and yells at the forge. 'Alize, 'uh dirty little Snaga! Fan the fires! Taghta?'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
