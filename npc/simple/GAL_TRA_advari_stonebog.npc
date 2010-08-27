@@ -2,7 +2,7 @@
 -- NPC Name: Advari Stonebog                                             None --
 -- NPC Job:  trader                                                             --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  359, 253, 0            --
+-- NPC Race: dwarf                      NPC Position:  261,250,0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Rincewind                                                         --
@@ -13,7 +13,7 @@
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 359, 253, 0
+position = 261,250,0
 direction = east
 affiliation = "None"
 job = "trader"
@@ -100,7 +100,7 @@ radius = 0
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt seis Irmorom!"
 "rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das sagen!"
+"rosaline", "königin", "queen", "edwards" -> "Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das Sagen!"
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "Cadomyr? Die werden doch von so einer verzogenen Göre regiert. Wenn ihr mich fragt, hat die keine Ahnung von Geschäften. Bei uns Zwergen, jaja, da haben nur die klügsten Köpfe was zu sagen!"
 
@@ -110,7 +110,7 @@ radius = 0
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk", german -> "Gynk, jaja. Dort gibts Mienen! Natürlich nicht mit unseren zu vergleichen! Und alles voll mit Betrügern, aber was soll man von den menschen schon besseres erwarten?"
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-pöbel. Wenn ich nur dran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
+"salkama", german -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur dran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -118,7 +118,7 @@ radius = 0
 "Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Irmorom" -> "Hail Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen."
 "Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "Aye, ich opfere einen guten teil meiner Einkünfte dem Schattengott. So sorgt er dafür, das ich vom diebischen gesindel verschont bleibe! Arr."
+"Ronagan" -> "Aye, ich opfere einen guten teil meiner Einkünfte dem Schattengott. So sorgt er dafür, das ich vom diebischen Gesindel verschont bleibe! Arr."
 
 -- Catching quest triggers
 "quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
