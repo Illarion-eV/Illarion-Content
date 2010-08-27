@@ -2,10 +2,10 @@
 -- NPC Name: Nik Nilo                                                    None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  377, 266, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  365,260,0           --
+-- NPC Sex:  male                       NPC Direction: northwest                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Drathe                                                          --
 --                                                                            --
 -- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -13,20 +13,20 @@
 name = "Nik Nilo"
 race = human
 sex = male
-position = 377, 266, 0
-direction = west
+position = 365,260,0
+direction = northwest
 affiliation = "None"
-job = "none"
+job = "trader"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Drathe"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt. Von Kohle und Steinen."
+lookatUS = "A tall human. His hair are scummy and dusty by dust and coal."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
