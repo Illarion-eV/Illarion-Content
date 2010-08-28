@@ -65,7 +65,7 @@ function enemyOnSight(Monster,Enemy)
     end
     
     firstWP=firstWP+1;
-    if firstWP==20 then
+    if firstWP==4 then
         Enemy:inform("neuer durchlauf!");
         firstWP=1;
     end
