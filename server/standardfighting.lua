@@ -1183,7 +1183,7 @@ function Parry( Attacker, Defender, Globals )
     if ( Attacker.isWeapon ) then
         AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, Attacker.Weapon.Attack * Attacker.WeaponQualMod / 2 );
     else
-        AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, GetWrestlingAttack( Attacker.Race ) / 2 );
+        AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, content.fighting.GetWrestlingAttack( Attacker.Race ) / 2 );
     end
 
     local DefenderTry = ( Defender.parry*2 + Defender.tactics ) / 3 * Defender.AttribMod * Defender.HPMod * Defender.StiffnessMod;
