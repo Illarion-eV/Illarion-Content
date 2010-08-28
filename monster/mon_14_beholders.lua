@@ -49,26 +49,22 @@ function enemyOnSight(Monster,Enemy)
    
     
 
-    if (firstWP==nil) then
+    if (firstWP[Monster.id]==nil) then
         
         monsterPos=Monster.pos;
-        
-        lastPos=monsterPos;
-        
-        myPos=position(790,5,0);
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
-        firstWP=1;
+        firstWP[Monster.id]=1;
         Enemy:inform("habe firstWP gesetzt!");
     end
     
-    firstWP=firstWP+1;
-    if firstWP==4 then
-        Enemy:inform("neuer durchlauf!");
-        firstWP=1;
-    end
+    firstWP[Monster.id]=firstWP[Monster.id]+1;
+    --if firstWP[Monster.id]==4 then
+        Enemy:inform("neuer durchlauf! "..firstWP[Monster.id]);
+        --firstWP[Monster.id]=1;
+   -- end
     
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
