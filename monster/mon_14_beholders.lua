@@ -8,13 +8,13 @@ module("monster.mon_14_beholders")
 function ini(Monster)
 
 init=true;
-monster.base.quest.iniQuests();
-killer={}; --A list that keeps track of who attacked the monster last
+    monster.base.quest.iniQuests();
+    killer={}; --A list that keeps track of who attacked the monster last
 
---Random Messages
+    --Random Messages
 
-msgs = base.messages.Messages();
-msgs:addMessage("Dieses Monster wird mit NewIllarion abgeschafft. Bitte für Ersatz sorgen, um die Zahl der Bossmonster und die Balance der Monsterdrops beibehalten zu können!", "This monster will be discontinued with NewIllarion. Please create a replacement to maintain the number of boss monsters and the balance of drops!");
+    msgs = base.messages.Messages();
+    msgs:addMessage("Dieses Monster wird mit NewIllarion abgeschafft. Bitte für Ersatz sorgen, um die Zahl der Bossmonster und die Balance der Monsterdrops beibehalten zu können!", "This monster will be discontinued with NewIllarion. Please create a replacement to maintain the number of boss monsters and the balance of drops!");
 
 end
 
@@ -43,6 +43,25 @@ function enemyOnSight(Monster,Enemy)
     if init==nil then
         ini(Monster);
     end
+
+-- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
+
+    if (firstWP==nil) then
+    
+        Enemy:inform("bin auf route!");
+        monsterPos=Monster.pos;
+        
+        targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
+        
+        WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
+        
+        Monster.waypoints:addFromList(WPList);
+        
+        Monster:setOnRoute(true);
+        
+        firstWP=1;
+    end
+    
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
