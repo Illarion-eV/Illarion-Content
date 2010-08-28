@@ -1471,7 +1471,7 @@ function Damage( Attacker, Defender, Globals )
 
     if (Globals.HittedArea == CCharacter.breast) then
         HittedItem=Defender.Char:getItemAt(CCharacter.coat);
-        armourfound,armour=world:getarmourStruct(HittedItem.id);
+        armourfound,armour=world:getArmorStruct(HittedItem.id);
         local addarmourValue = 0;
         local addarmourAbsorb = 0;
         if armourfound then
@@ -1497,7 +1497,7 @@ function Damage( Attacker, Defender, Globals )
         end
     end
 
-    armourfound,armour=world:getNaturalarmour( Defender.Race );
+    armourfound,armour=world:getNaturalArmor( Defender.Race );
     if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
             armourValue=armourValue+armour.thrustarmour;
