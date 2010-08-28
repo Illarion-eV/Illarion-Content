@@ -1209,7 +1209,7 @@ function Parry( Attacker, Defender, Globals )
 
     local WeaponParry = 0;
     if (Attacker.AttackKind == 0) then
-        WeaponParry = GetWrestlingParry( Defender.Race );
+        WeaponParry = content.fighting.GetWrestlingParry( Defender.Race );
     else
         WeaponParry = ( math.max( LeftWeaponParry, RightWeaponParry )*2 + math.min( LeftWeaponParry, RightWeaponParry ) ) / 3;
     end
