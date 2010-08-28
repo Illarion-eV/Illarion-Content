@@ -854,7 +854,7 @@ end
 function ShowAttackGFX( Attacker, Defender )
     local PlayGfx = 0;
     if (Attacker.AttackKind == 0) then -- wrestling
-        world:gfx(GetWrestlingGFX( Attacker ),Attacker.Char.pos);
+        --world:gfx(GetWrestlingGFX( Attacker ),Attacker.Char.pos);
     elseif (Attacker.AttackKind == 1) then -- slashing
         world:gfx(17,Attacker.Char.pos);
     elseif (Attacker.AttackKind == 2) then -- concussion
