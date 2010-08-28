@@ -46,7 +46,7 @@ function enemyOnSight(Monster,Enemy)
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
 
-   
+   firstWP={};
     
 
     if (firstWP[Monster.id]==nil) then
