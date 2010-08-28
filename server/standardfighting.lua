@@ -1438,7 +1438,7 @@ function Damage( Attacker, Defender, Globals )
     if ( Attacker.isWeapon ) then
         AttackerTry = AttackerTry * base.common.Scale( 0.3, 1.8, Attacker.Weapon.Attack * Attacker.WeaponQualMod / 2 );
     else
-        AttackerTry = AttackerTry * base.common.Scale( 0.3, 1.8, GetWrestlingAttack( Attacker.Race ) / 2 );
+        AttackerTry = AttackerTry * base.common.Scale( 0.3, 1.8, content.fighting.GetWrestlingAttack( Attacker.Race ) / 2 );
     end
 
     local armourValue = 0;
