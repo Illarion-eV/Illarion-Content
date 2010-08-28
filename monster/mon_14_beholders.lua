@@ -60,6 +60,7 @@ function enemyOnSight(Monster,Enemy)
         Monster:setOnRoute(true);
         
         firstWP=1;
+        Enemy:inform("habe firstWP gesetzt!");
     end
     
 
