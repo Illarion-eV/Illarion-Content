@@ -1445,7 +1445,7 @@ function Damage( Attacker, Defender, Globals )
     local armourAbsorb = 0;
 
     local HittedItem=Defender.Char:getItemAt(Globals.HittedArea);
-    local armourfound,armour=world:getarmourStruct(HittedItem.id);
+    local armourfound,armour=world:getArmorStruct(HittedItem.id);
 
     if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
