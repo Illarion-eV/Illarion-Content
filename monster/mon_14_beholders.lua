@@ -20,7 +20,11 @@ end
 
 function enemyNear(Monster,Enemy)
 
-    if init==nil then
+    Enemy:inform("Ich bin dir nah!!");
+    
+    return true;
+end
+   --[[ if init==nil then
         ini(Monster);
     end
 
@@ -33,7 +37,7 @@ function enemyNear(Monster,Enemy)
         return false;
     end
 end
-
+--]]
 function enemyOnSight(Monster,Enemy)
 
     if init==nil then
