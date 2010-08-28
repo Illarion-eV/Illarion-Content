@@ -1449,7 +1449,9 @@ function Damage( Attacker, Defender, Globals )
 
     if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
-            armourValue=armour.Thrustarmour;
+            if armour.Thrustarmour~= nil then
+                armourValue=armour.Thrustarmour;
+            end
         elseif (Attacker.AttackKind==1) then --slashing
             armourValue=armour.Strokearmour;
         elseif (Attacker.AttackKind==2) then --concussion
