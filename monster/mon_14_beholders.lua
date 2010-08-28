@@ -50,15 +50,15 @@ function enemyOnSight(Monster,Enemy)
     
         Enemy:inform("bin auf route!");
         monsterPos=Monster.pos;
-        
+         Enemy:inform("1");
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
-        
+        Enemy:inform("2");
         WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
-        
+        Enemy:inform("3");
         Monster.waypoints:addFromList(WPList);
-        
+        Enemy:inform("4");
         Monster:setOnRoute(true);
-        
+        Enemy:inform("5");
         firstWP=1;
         Enemy:inform("habe firstWP gesetzt!");
     end
