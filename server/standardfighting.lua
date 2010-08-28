@@ -1087,7 +1087,7 @@ function Dodge( Attacker, Defender, Globals )
     if ( Attacker.isWeapon ) then
         AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, Attacker.Weapon.Accuracy * Attacker.WeaponQualMod );
     else
-        AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, GetWrestlingAccuracy( Attacker.Race ) );
+        AttackerTry = AttackerTry * base.common.Scale( 0.5, 1.5, content.fighting.GetWrestlingAccuracy( Attacker.Race ) );
     end
 
     local DefenderTry = ( Defender.dodge*2 + Defender.tactics ) / 3 * base.common.ScaleUnlimited( 0.3, 1.2, ( Defender.perception + Defender.dexterity + Defender.agility*2 ) * 1.25 );
