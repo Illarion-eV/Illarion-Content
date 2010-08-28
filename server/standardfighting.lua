@@ -1476,7 +1476,9 @@ function Damage( Attacker, Defender, Globals )
         local addarmourAbsorb = 0;
         if armourfound then
             if (Attacker.AttackKind==0) then --wrestling
-                addarmourValue = armour.Thrustarmour;
+                if armour.Thrustarmour ~= nil then
+                    addarmourValue = armour.Thrustarmour;
+                end
             elseif (Attacker.AttackKind==1) then --slashing
                 addarmourValue= armour.Strokearmour;
             elseif (Attacker.AttackKind==2) then --concussion
