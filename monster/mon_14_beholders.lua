@@ -46,22 +46,28 @@ function enemyOnSight(Monster,Enemy)
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
 
-    if (firstWP==nil) then
+   
     
-        Enemy:inform("bin auf route!");
+
+    if (firstWP==nil) then
+        
         monsterPos=Monster.pos;
+        
+        lastPos=monsterPos;
+        
         myPos=position(790,5,0);
-        Enemy:inform("1");
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
-        Enemy:inform("2");
         WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
-        Enemy:inform("3");
         Monster.waypoints:addFromList(WPList);
-        Enemy:inform("4");
         Monster:setOnRoute(true);
-        Enemy:inform("5");
         firstWP=1;
         Enemy:inform("habe firstWP gesetzt!");
+    end
+    
+    firstWP=firstWP+1;
+    if firstWP==20 then
+        Enemy:inform("neuer durchlauf!");
+        firstWP=1;
     end
     
 
