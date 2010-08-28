@@ -50,7 +50,7 @@ function enemyOnSight(Monster,Enemy)
     
         Enemy:inform("bin auf route!");
         monsterPos=Monster.pos;
-        myPos=position(1,2,3);
+        myPos=position(790,5,0);
         Enemy:inform("1");
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         Enemy:inform("2");
