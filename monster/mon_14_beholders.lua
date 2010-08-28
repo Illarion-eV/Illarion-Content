@@ -21,7 +21,7 @@ end
 function enemyNear(Monster,Enemy)
 
     Enemy:inform("Ich bin dir nah!!");
-    
+    Monster.movepoints=0;
     return true;
 end
    --[[ if init==nil then
