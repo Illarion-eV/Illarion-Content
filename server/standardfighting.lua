@@ -958,7 +958,7 @@ function HandleMovepoints( Attacker )
     if( Attacker.isWeapon )then
         weaponMovepoints = Attacker.Weapon.ActionPoints;
     else
-        weaponMovepoints = GetWrestlingMovepoints( Attacker.Race );
+        weaponMovepoints = content.fighting.GetWrestlingMovepoints( Attacker.Race );
     end
     local reduceMovepoints = weaponMovepoints * Attacker.APMod / Attacker.StiffnessMod / Attacker.HPMod * 0.7;
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor( reduceMovepoints );
