@@ -50,7 +50,8 @@ function enemyOnSight(Monster,Enemy)
     
         Enemy:inform("bin auf route!");
         monsterPos=Monster.pos;
-         Enemy:inform("1");
+        myPos=position(1,2,3);
+        Enemy:inform("1");
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         Enemy:inform("2");
         WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
