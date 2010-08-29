@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -50,7 +50,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Hiho, traveler.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Hail Irmorom.");
-talkEntry:addResponse("Gr'duzk.");
+talkEntry:addResponse("Gr'duzk. - would I say and means good day.");
 talkEntry:addResponse("H'druk g'har. This's my cottage. Do you like to buy something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -68,7 +68,7 @@ talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Hiho, Reisender.");
 talkEntry:addResponse("Wohlstand und profitable Geschäfte, mein Freund.");
 talkEntry:addResponse("Heil Irmorom.");
-talkEntry:addResponse("Gr'duzk.");
+talkEntry:addResponse("Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.");
 talkEntry:addResponse("H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -271,7 +271,7 @@ talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Aye, du Weichnase.");
 talkEntry:addResponse("Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.");
-talkEntry:addResponse("Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtniss. und ich werd's nicht vergessen wenn du versuchst mich übers Ohr zu haun!");
+talkEntry:addResponse("Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis	. und ich werd's nicht vergessen wenn du versuchst mich übers Ohr zu haun!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,6 +321,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("advari");
+talkEntry:addTrigger("stonebog");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beer");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
@@ -330,14 +338,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("zwerg");
-talkEntry:addResponse("Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflösende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtseten Poeten und Barden!");
+talkEntry:addResponse("Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflößende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtesten Poeten und Barden!");
 talkEntry:addResponse("Hey Zwerge, hey Zwerge - hey Zwerge ho! Hey Zwerge, hey Zwerge go-go-go!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("or[ck]");
-talkEntry:addResponse("Arr, der Don hat ganze zwei marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.");
+talkEntry:addResponse("Arr, der Don hat ganze zwei Marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.");
 talkEntry:addResponse("Siehste den Ork, gegenüber? J'uk, der lümmelt den ganzen Tag rum und säuft die eigene Wahre weg. Das Bier schmeckt wie Pisse, frag mich nicht wo er das her hat. jedenfalls nicht von uns Zwergen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -363,7 +371,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bier");
-talkEntry:addResponse("Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen hielender Trunk wär und mir ne Axt in der Schulter steckt!");
+talkEntry:addResponse("Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen heilender Trunk wär und mir ne Axt in der Schulter steckt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("advari");
+talkEntry:addTrigger("stonebog");
+talkEntry:addResponse("Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,7 +448,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt seis Irmorom!");
+talkEntry:addResponse("Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt sei's Irmorom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +469,7 @@ talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das Sagen!");
+talkEntry:addResponse("Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,7 +518,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gynk, jaja. Dort gibts Mienen! Natürlich nicht mit unseren zu vergleichen! Und alles voll mit Betrügern, aber was soll man von den menschen schon besseres erwarten?");
+talkEntry:addResponse("Gynk, jaja. Dort gibts Mienen! Natürlich nicht mit unseren zu vergleichen! Und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -549,7 +564,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Hail Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen.");
+talkEntry:addResponse("Heil Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +644,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("fein,fein.");
 talkEntry:addResponse("Wenn's ihr so wollt.");
-talkEntry:addResponse("Damit kann ich leben. Ich hoff, ihr auch.");
+talkEntry:addResponse("Damit kann ich leben. Ich hoffe, ihr auch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,7 +663,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Aye, ist das so? Das ist mir neu.");
-talkEntry:addResponse("#me lacht kehlig und streicht sich über den bart. 'Na gut, ist ja gut.'");
+talkEntry:addResponse("#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'");
 talkEntry:addResponse("Arr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -662,12 +677,12 @@ talkingNPC:addCycleText("Arr...", "Arr...");
 talkingNPC:addCycleText("Ich verkauf die schönsten Fälle zu den besten Preisen!", "ENGLISH.");
 talkingNPC:addCycleText("Frische Schafsmilch! Leute, kommt her und kauft bei mir ein!", "ENGLISH.");
 talkingNPC:addCycleText("Dort, edle Dame! Kauft mir leckere Früchte ab! Die Besten Früchte Galmairs verkaufe ich.", "ENGLISH.");
-talkingNPC:addCycleText("#me verängt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "ENGLISH.");
+talkingNPC:addCycleText("#me verengt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "ENGLISH.");
 talkingNPC:addCycleText("Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada! Arr.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine rauchwölchen umgeben ihn.", "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!");
+mainNPC:setLookat("Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn.", "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
