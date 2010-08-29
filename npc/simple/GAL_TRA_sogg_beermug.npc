@@ -121,7 +121,7 @@ radius = 0
 "Yes" -> "Skoal!", "Hurr-hurr. Should be good with me.", "Allrighty-right!"
 "Ja" -> "Prost.", "Hurr-hurr. Solls mir recht sein.", "Alles-klarklar!"
 "No" -> "Gosch!", "Skeschmat! S' that your final answer?", "#me burps."
-"Nein" -> "Gosch!.", "Skeschmat! Gneh... is das den letztes Wort?", "#me rülpst."
+"Nein" -> "Gosch!", "Skeschmat! Gneh... is das den letztes Wort?", "#me rülpst."
 ".*", english, chance(20) -> "Beer after Wine, is a no go. Better try Wine after Beer!", "Hehe! That's it.", "Daily special... Bean's Booze!"
 ".*", german, chance(20) -> "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Hehe! So ist's.", "Heut empfehl isch... Bohnenschnaps!"
 
