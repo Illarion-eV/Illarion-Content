@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -245,6 +245,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Duhu, mirr dich mögen! Willschte wa' zu saufn?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sogg");
+talkEntry:addTrigger("beermug");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hurr-hurr... want a beer, eh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sogg");
+talkEntry:addTrigger("beermug");
+talkEntry:addResponse("Hurr-hurr... wilscht n' Bier, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
