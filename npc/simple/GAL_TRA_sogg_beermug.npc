@@ -40,13 +40,10 @@ radius = 0
 -- NPC by Rincewind
 
 -- Tradersstuff--
--- Tools (Alchemist): 58, 1008
--- Tools (Cook/Baker): 51, 118, 121, 227, 2495
+-- Tools (Alchemist): 58, 164, 1008
 -- Tools (Brewer): 51, 227
 -- Beer: 1909
--- Dishes: 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
--- Baker's resources: 2, 5, 2529
--- Baked food: 49, 191, 303, 353, 354, 453, 454
+-- Milk: 330
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: usual Trading triggers"), "Help? All ob us need help!...'hick'", state = 0
