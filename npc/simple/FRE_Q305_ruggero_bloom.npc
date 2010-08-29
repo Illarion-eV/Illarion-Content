@@ -120,8 +120,8 @@ wrongLangUS = "#me looks at you confused."
 "open", "way", "entrance", "pas", "tobaco", "task", "adventure", "mission", "money", "earn", item(356, body) => 1, item(195, body) => 1 -> "Aye, You may pass matee!", state = 0
 
 -- Warp
-"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.", state + 1
-"quest", "job", "problem", german -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.", state + 1
+"zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
+"quest", "job", "problem", german -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
 "quest", "job", "problem", english -> inform("Such a rude person. Be carefull!"), "No entrance for people like you. Get rid or I will play drum with your face.", state + 1
 "open", "way", "entrance", "pas", "tobaco", "task", "adventure", "mission", "money", "earn" -> inform("Such a rude person. Be carefull!"), "No entrance for people like you. Get rid or I will play drum with your face.", state + 1
 
@@ -130,8 +130,8 @@ wrongLangUS = "#me looks at you confused."
 "good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME. Bei meinen wankenden Masten!"
-"your name", "who are you", "who art thou" -> "I am %NPCNAME. Siver me timbers!"
+"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Ruggero Bloom. Bei meinen wankenden Masten!"
+"your name", "who are you", "who art thou" -> "I am Ruggero Bloom. Siver me timbers!"
 "Farewel", "Good bye", "Bye", "Fare thee well" -> "Aye.", "Good wind."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Aye.", "Gut Wind."
 "Ciao", "Fareba", "Adieu", "Au revoir", english -> "Aye.", "Good wind."
@@ -163,8 +163,8 @@ wrongLangUS = "#me looks at you confused."
 "job", english -> "I bash people who wan'T to enter our tabaco fields. Are you willing to enter?"
 "Gobaith", english -> "Better don't annoy me...seadog.", state + 1
 "Gobaith", german -> "Besser ist's du gehst mir nich auf die Nerven.", state + 1
-".+", english -> "Listen... I won't talk to you. Get rid here, or I drill my boots into your butt. Got it?", "I won't tell you again. GET RID!", state + 1
-".+", german -> "Hör zu... ich will nich mit dir sprechen. Verschwinde hier, ode rich bohr die meine Stifel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!", state + 1
+".*", english -> "Listen... I won't talk to you. Get rid here, or I drill my boots into your butt. Got it?", "I won't tell you again. GET RID!", state + 1
+".*", german -> "Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!", state + 1
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
