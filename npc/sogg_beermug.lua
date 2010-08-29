@@ -264,6 +264,24 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Me sell all bottl and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hehe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
