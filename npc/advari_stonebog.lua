@@ -642,7 +642,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("fein,fein.");
+talkEntry:addResponse("Fein-fein.");
 talkEntry:addResponse("Wenn's ihr so wollt.");
 talkEntry:addResponse("Damit kann ich leben. Ich hoffe, ihr auch.");
 talkingNPC:addTalkingEntry(talkEntry);
