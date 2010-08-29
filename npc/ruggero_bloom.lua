@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -373,7 +373,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."));
-talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.");
+talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -384,7 +384,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."));
-talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel trommel auf deinem gesicht.");
+talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -489,7 +489,7 @@ talkEntry:addTrigger("wie hei[sß]+t ihr");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer seid");
 talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Ich bin %NPCNAME. Bei meinen wankenden Masten!");
+talkEntry:addResponse("Ich bin Ruggero Bloom. Bei meinen wankenden Masten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,7 +497,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am %NPCNAME. Siver me timbers!");
+talkEntry:addResponse("I am Ruggero Bloom. Siver me timbers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -716,7 +716,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Listen... I won't talk to you. Get rid here, or I drill my boots into your butt. Got it?");
 talkEntry:addResponse("I won't tell you again. GET RID!");
@@ -725,9 +725,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Hör zu... ich will nich mit dir sprechen. Verschwinde hier, ode rich bohr die meine Stifel ins Hinterteil.");
+talkEntry:addResponse("Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.");
 talkEntry:addResponse("Ich sags nicht nochmal. VERSCHWINDE!");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
