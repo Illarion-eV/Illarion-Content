@@ -75,15 +75,15 @@ wrongLangUS = "#me looks at you confused."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
 "Ciao", "Adieu", "Au revoir", english -> "Go with godspeed. And spread the old customs where you can."
 "Ciao", "Adieu", "Au revoir", german -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
-"How are you", "How feel", "How do you do" -> "I underestimated my enemy and I have payed for it, barely made it out alive. Will you continue my glorious deeds?"
+"How are you", "How feel", "How do you do" -> "I underestimated my enemy and I have paid for it, barely made it out alive. Will you continue with my glorious endeavours?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe meinen Feind unterschätzt und dafür bezahlt - ich bin froh, mit dem Leben davongekommen zu sein. Werdet ihr meine ehrbaren Taten vollenden?"
 "your name", "who are you", "who art thou" -> "My name is Arenius Batavius. I came to this land not too long ago, but only misfortune I have received. Please stranger, will you help me in my crusade?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Arenius Batavius. Ich weile erst seit kurzem in diesen Landen, aber nur Unglück ist mir widerfahren. Bitte, werdet ihr mir auf meinem Kreuzzug beiseite stehen?"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids to pursuit mudane wealth; thus, I do not trade things with you."
+"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln."
-"tale", "story", "tell something" -> "I have an interesting tale to tell; it is about an evil cult of blood mages. Seen my wounds? They tell the story."
+"tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
 "geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -104,10 +104,10 @@ wrongLangUS = "#me looks at you confused."
 "Wund" -> "Diener des Kultes der Salavesh fügten mir diese Wunden zu. Doch ich werde nicht klein bei geben; helft mir in meiner Mission für das die alten Sitten!"
 "sitte" -> "Die alten Sitten zu bewahren und zu schützen, das ist die Mission des Ordens der Silberdrachen."
 "Order", "silver dragon" -> "The Order of the Silver Dragon might be unknown in these lands; but in the realm of Albar, our name is feared."
-"Orc" -> "I saw some orcs prowling the vicinity of the cave what I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs."
-"Cult" -> "The cult I am fighting is the Cult of Salavesh, evil blood mages, they are. Its minions ambushed me on my way to their stronghold, rumours tell it is within a cave."
-"Dragon" -> "Dragons are majestic beings and I am proud of once seeing one. Rumours tell that the Cult of Salavesh hunts dragons."
-"blood magic", "blood mage", "necro" -> "Blood magic is pure sin. The old customs forbid even to consider such foul deeds."
+"Orc" -> "I saw some orcs prowling the vicinity of the cave which I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs."
+"Cult" -> "The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave."
+"Dragon" -> "Dragons are majestic beings and I am proud of once seeing one. Rumours say that the Cult of Salavesh hunts dragons."
+"blood magic", "blood mage", "necro" -> "Blood magic is pure sin. The old customs forbid even considering such foul deeds."
 "cave", "stronghold" -> "I am convinced that the stronghold of the Cult of Salavesh is a cave to the north east."
 "wound" -> "Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs."
 "custom" -> "To protect and preserve the old customs, that is the mission of the Order of the Silver Dragon."
@@ -129,7 +129,7 @@ wrongLangUS = "#me looks at you confused."
 -- Main land factions
 "albar", english -> "Well, what exactly don't you know about Albar? It is my home, so refrain from any words that might dishonour it."
 "albar" -> "Nun, was genau wollt ihr über Albar wissen? Es ist meine Heimat, daher verkneift euch unehrenhafte Worte."
-"gynk", "gync", english -> "Travellers reported evil things about Gynk. A pool of sins, it is. Time for some cleansing, I say!"
+"gynk", "gync", english -> "Travellers report evil things about Gynk. A pool of sin, it is. Time for some cleansing, I say!"
 "gync", "gynk" -> "Reisende berichteten mir schlimme Dinge über Gynk. Ein Sündenpfuhl soll es sein. Zeit, dort aufzuräumen!"
 "salkama", english -> "Oh, please, can't we talk about the weather instead?"
 "salkama" -> "Oh nein, lasst uns doch lieber über das Wetter reden."
@@ -137,8 +137,8 @@ wrongLangUS = "#me looks at you confused."
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
 "Moshran", english -> "Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'."
 "Moshran" -> "Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'."
-"Malachin", english -> "Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?"
-"Malachin" -> "Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?"
+"Malachin", "Malachín", english -> "Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?"
+"Malachin", "Malachín" -> "Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?"
 "Zhambra", english -> "Being loyal is more important than being right; that is Zhambra's doctrine."
 "Zhambra" -> "Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin."
 "Cherga", english -> "Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!"
@@ -161,29 +161,29 @@ wrongLangUS = "#me looks at you confused."
 ".+", queststatus(104) = 1, item(178, all) > 5 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke."), "Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.", money + 60, deleteItem(178, 6), queststatus(104) = 2
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) = 1, english -> "My wounds restarted to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
+"quest", "mission", queststatus(104) = 1, english -> "My wounds continue to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
 "quest", "mission", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Könntet ihr mir bitte ein halbes Dutzend weiße Stoffbahnen bringen, um sie zu versorgen?"
-"task", "adventure", queststatus(104) = 1 -> "My wounds restarted to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
+"task", "adventure", queststatus(104) = 1 -> "My wounds continue to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Könntet ihr mir bitte ein halbes Dutzend weiße Stoffbahnen bringen, um sie zu versorgen?"
 
 -- 2nd quest: Kill 6 mummies, provide 1 entrails
 
 -- Give out quest 2
-"quest", "mission", queststatus(104) = 2, english -> inform("[New quest] The Errant Crusade II"), "In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remaints for investigation.", queststatus(104) = 3
+"quest", "mission", queststatus(104) = 2, english -> inform("[New quest] The Errant Crusade II"), "In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remains for investigation.", queststatus(104) = 3
 "quest", "mission", queststatus(104) = 2 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug II"), "Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.", queststatus(104) = 3
-"task", "adventure", queststatus(104) = 2 -> inform("[New quest] The Errant Crusade II"), "In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remaints for investigation.", queststatus(104) = 3
+"task", "adventure", queststatus(104) = 2 -> inform("[New quest] The Errant Crusade II"), "In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remains for investigation.", queststatus(104) = 3
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 2 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug II"), "Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.", queststatus(104) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) > 2, queststatus(104) < 9, english -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remaints."
+"quest", "mission", queststatus(104) > 2, queststatus(104) < 9, english -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remains."
 "quest", "mission", queststatus(104) > 2, queststatus(104) < 9 -> "Bitte rächt meine Niederlage. Gehet zum Unterschlupf des Kultes der Salavesh und streckt ein halbes Dutzend ihrer Diener nieder. Kommt zu mit mir ihren Überresten."
-"task", "adventure", queststatus(104) > 2, queststatus(104) < 9 -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remaints."
+"task", "adventure", queststatus(104) > 2, queststatus(104) < 9 -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remains."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 2, queststatus(104) < 9 -> ""
 
 -- Too few items
-"quest", "mission", queststatus(104) = 9, item(63, all) < 1, english -> "You are back, alive! But I cannot see any remaints of the undead minions; most informations I can get from their entrails."
+"quest", "mission", queststatus(104) = 9, item(63, all) < 1, english -> "You are back, alive! But I cannot see any remains of the undead minions; I can gather much information from their entrails."
 "quest", "mission", queststatus(104) = 9, item(63, all) < 1 -> "Ihr seid zurück und am Leben! Aber ihr habt keine Überreste der untoten Diener dabei; die meisten Informationen kann ich aus ihren Eingeweiden ablesen."
-"task", "adventure", queststatus(104) = 9, item(63, all) < 1 -> "You are back, alive! But I cannot see any remaints of the undead minions; most informations I can get from their entrails."
+"task", "adventure", queststatus(104) = 9, item(63, all) < 1 -> "You are back, alive! But I cannot see any remains of the undead minions; I can gather much information from their entrails."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 9, item(63, all) < 1 -> "Ihr seid zurück und am Leben! Aber ihr habt keine Überreste der untoten Diener dabei; die meisten Informationen kann ich aus ihren Eingeweiden ablesen."
 
 -- Quest 2 solved, reward: mace (230), 60cp, 10 rankpoints if Cadomyr
@@ -201,15 +201,15 @@ wrongLangUS = "#me looks at you confused."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 10 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug III"), "Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.", queststatus(104) = 11
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) > 10, queststatus(104) < 23, english -> "Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"quest", "mission", queststatus(104) > 10, queststatus(104) < 23, english -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
 "quest", "mission", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
-"task", "adventure", queststatus(104) > 10, queststatus(104) < 23 -> "Lo! What are you waiting for. The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"task", "adventure", queststatus(104) > 10, queststatus(104) < 23 -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
 
 -- Quest 3 solved, reward: silvered longsword (98), 120cp, 10 rankpoints if Cadomyr
-".+", queststatus(104) = 23, english, town = Cadomyr -> inform("[Quest solved] You are awarded 120 copper coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour."), "I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25, rankpoints(Cadomyr) + 10
+".+", queststatus(104) = 23, english, town = Cadomyr -> inform("[Quest solved] You are awarded 120 copper coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour."), "I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25, rankpoints(Cadomyr) + 10
 ".+", queststatus(104) = 23, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25, rankpoints(Cadomyr) + 10
-".+", queststatus(104) = 23, english -> inform("[Quest solved] You are awarded 120 copper coins and silvered longsword."), "I hope you taught the cultists a lesson they won't forget anytime soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25
+".+", queststatus(104) = 23, english -> inform("[Quest solved] You are awarded 120 copper coins and silvered longsword."), "I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25
 ".+", queststatus(104) = 23 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert."), "Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25
 
 -- 4th quest: Kill 2 human necromancer
@@ -297,13 +297,13 @@ cycletext "#mes prunkvolle Rüstung zeigt das Wappen eines sich aufbäumenden Si
 cycletext "Nur durch einen gemeinen Hinterhalt konnte ich besiegt werden - denn auf den Schlachtfeldern der Ehre bin ich ungeschlagen.", "Only a sneaky ambush could defeat me - for I am unmatched on the battlefield of honour."
 cycletext "#me hebt vorsichtig einen Verband an seinem Arm mit schmerzverzerrtem Gesicht an.", "#me carefully lifts a bandage on his arm, grimacing with pain."
 cycletext "Nieder mit den Salavesh!", "Down with Salavesh!"
-cycletext "#me streicht sich verzweifelt durch das blutverkrustete Haar.", "#me combs desperately his blood stained hair,."
+cycletext "#me streicht sich verzweifelt durch das blutverkrustete Haar.", "#me combs his blood stained hair desperately."
 cycletext "Für die Ehre des Ordens der Silberdragon und die alten Sitten streite ich.", "I fight for the honour of the Order of the Silver Dragon and the old customs."
-cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten.", "It is not the time for speeches, but for deeds."
+cycletext "Es ist nicht die Zeit der Worte, sondern die der Taten.", "It is not the time for speech, but for deeds."
 cycletext "#me streicht über sein verletztes Bein.", "#me strokes his bruised leg."
 cycletext "Fremder, hättet ihr einen Augenblick Zeit...", "Stranger, please, a moment of your time..."
 cycletext "#me hält sein reich verziehrtes Schwert fest in der Hand und schwingt es durch die Luft.", "#me holds his ornate sword firmly with one hand, swinging it idly into the air."
 cycletext "#me schreibt einige Worte ein in Leder einbebundenes Buch und versteckt es hinterher sorgfältig unter seiner Robe.", "#me writes some words into a leather covered book, carefully tucking it under his robe afterwards."
 cycletext "Wir leben in merkwürdigen Zeiten...", "Strange times we live in..."
-cycletext "Verdammte Kultisten! Wenn ich nur...", "Blasted cultists... only if I weren't..."
+cycletext "Verdammte Kultisten! Wenn ich nur...", "Blasted cultists... if only I weren't..."
 cycletext "Bei Brágons heiligem Blut!", "By the holy blood of Brágon!"
