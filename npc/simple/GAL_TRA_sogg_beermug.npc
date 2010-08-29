@@ -76,6 +76,9 @@ radius = 0
 "Gobaith", "Gobiath" -> "Isch kenne keinen Gobiath! Aba mine Oma hiesch Gobthe. Ehj?"
 "I am", "my name" -> "Yuu, mes like you! Wanna booze?"
 "Ich bin", "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
+"sogg","beermug",english->"Hurr-hurr... want a beer, eh?"
+"sogg","beermug"->"Hurr-hurr... wilscht n' Bier, eh?"
+
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Uh! Mes bet, thus Longleg drops after two beer under the tesk. Bah-Gosch!"

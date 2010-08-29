@@ -48,8 +48,8 @@ radius = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen handels trigger.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk.", "H'druk g'har. This's my cottage. Do you like to buy something?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Abundance and Wealth, my friend.", "Arr."
@@ -73,7 +73,7 @@ radius = 0
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"
 "I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtniss. und ich werd's nicht vergessen wenn du versuchst mich übers Ohr zu haun!"
+"Ich bin", "mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis	. und ich werd's nicht vergessen wenn du versuchst mich übers Ohr zu haun!"
 
 -- More small talk; add at least five triggers
 "Dwar[vf]" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -81,13 +81,15 @@ radius = 0
 "name", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "hagar", "wernson", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gold", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"advari","stonebog",english->"ENGLISH"
 "beer" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.(the winged sow)"
-"zwerg" -> "Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflösende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtseten Poeten und Barden!", "Hey Zwerge, hey Zwerge - hey Zwerge ho! Hey Zwerge, hey Zwerge go-go-go!"
-"or[ck]" -> "Arr, der Don hat ganze zwei marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.", "Siehste den Ork, gegenüber? J'uk, der lümmelt den ganzen Tag rum und säuft die eigene Wahre weg. Das Bier schmeckt wie Pisse, frag mich nicht wo er das her hat. jedenfalls nicht von uns Zwergen."
+"zwerg" -> "Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflößende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtesten Poeten und Barden!", "Hey Zwerge, hey Zwerge - hey Zwerge ho! Hey Zwerge, hey Zwerge go-go-go!"
+"or[ck]" -> "Arr, der Don hat ganze zwei Marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.", "Siehste den Ork, gegenüber? J'uk, der lümmelt den ganzen Tag rum und säuft die eigene Wahre weg. Das Bier schmeckt wie Pisse, frag mich nicht wo er das her hat. jedenfalls nicht von uns Zwergen."
 "name" -> "N' ordentlicher Zwerg wie ich, isses nich so, der verrät seinen wahren Namen keinem. Das schützt uns Zwerge vor bösem Zauber-Firlefanz. Und so Schnik-Schnak, verstehste?"
 "hagar", "wernson" -> "Arr, Hager hat ne gute Taverne. Gut für ein Langbein, natürlich. Er wird von uns Zwergen mit Getränken beliefert. Glück für ihn, sonst würde wohl niemand beim ihm saufen!"
 "gold" -> "#me fängt mit kehliger tiefer Stimme an zu singen: 'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'"
-"Bier" -> "Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen hielender Trunk wär und mir ne Axt in der Schulter steckt!"
+"Bier" -> "Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen heilender Trunk wär und mir ne Axt in der Schulter steckt!"
+"advari","stonebog"->"Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -97,9 +99,9 @@ radius = 0
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "Aye, der Don ist das Gesetz hier. Leg dich besser nicht mit ihm an. Er ist der reichste Zwerg hier... könnte das letzte sein was ihr getan habt."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt seis Irmorom!"
+"Galmair" -> "Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt sei's Irmorom!"
 "rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Kra'gstuck! Wir zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Ein großer reicher Clan, der hat bei uns das Sagen!"
+"rosaline", "königin", "queen", "edwards" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "Cadomyr? Die werden doch von so einer verzogenen Göre regiert. Wenn ihr mich fragt, hat die keine Ahnung von Geschäften. Bei uns Zwergen, jaja, da haben nur die klügsten Köpfe was zu sagen!"
 
@@ -107,7 +109,7 @@ radius = 0
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "albar", german -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "Gynk, jaja. Dort gibts Mienen! Natürlich nicht mit unseren zu vergleichen! Und alles voll mit Betrügern, aber was soll man von den menschen schon besseres erwarten?"
+"gync", "gynk", german -> "Gynk, jaja. Dort gibts Mienen! Natürlich nicht mit unseren zu vergleichen! Und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "salkama", german -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur dran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
 
@@ -115,7 +117,7 @@ radius = 0
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "Irmorom, der Vater der Zwerge und ihr Ronagan, schützt mich vor langfingrigen Halblingen und betrügerischen Menschen."
 "Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "Hail Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen."
+"Irmorom" -> "Heil Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen."
 "Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "Aye, ich opfere einen guten teil meiner Einkünfte dem Schattengott. So sorgt er dafür, das ich vom diebischen Gesindel verschont bleibe! Arr."
 
@@ -129,7 +131,7 @@ radius = 0
 "Yes" -> "Aye.", "Arr.", "Aargk... - tell me."
 "Ja" -> "Aye.", "Arr.", "Aargk... - sprich was ist's?"
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "fein,fein.", "Wenn's ihr so wollt.", "Damit kann ich leben. Ich hoff, ihr auch."
+"Nein" -> "fein,fein.", "Wenn's ihr so wollt.", "Damit kann ich leben. Ich hoffe, ihr auch."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -152,5 +154,5 @@ cycletext "Arr...", "Arr..."
 cycletext "Ich verkauf die schönsten Fälle zu den besten Preisen!", "ENGLISH."
 cycletext "Frische Schafsmilch! Leute, kommt her und kauft bei mir ein!", "ENGLISH."
 cycletext "Dort, edle Dame! Kauft mir leckere Früchte ab! Die Besten Früchte Galmairs verkaufe ich.", "ENGLISH."
-cycletext "#me verängt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "ENGLISH."
+cycletext "#me verengt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "ENGLISH."
 cycletext "Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada! Arr."
