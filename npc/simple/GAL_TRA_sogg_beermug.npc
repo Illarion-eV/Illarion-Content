@@ -78,6 +78,8 @@ radius = 0
 "Ich bin", "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
 "sogg","beermug",english->"Hurr-hurr... want a beer, eh?"
 "sogg","beermug"->"Hurr-hurr... wilscht n' Bier, eh?"
+"what sell","what buy","list wares","price of"->"Me sell all bottl and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hehe." 
+"was verkauf","was kauf","warenliste","preis von"->"Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe." 
 
 
 -- Faction stuff
