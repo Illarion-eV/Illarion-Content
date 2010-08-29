@@ -518,7 +518,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Gosch!.");
+talkEntry:addResponse("Gosch!");
 talkEntry:addResponse("Skeschmat! Gneh... is das den letztes Wort?");
 talkEntry:addResponse("#me rülpst.");
 talkingNPC:addTalkingEntry(talkEntry);
