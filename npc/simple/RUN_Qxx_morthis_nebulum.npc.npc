@@ -15,22 +15,23 @@ race = human
 sex = male
 position = 898, 799, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "Mage"
 
 language = common
 language = human
+language = ancient
 defaultLanguage = common
 autointroduce = on
 
 author = "Flux"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatUS = "The cloaked figure stands, book in hand, watching you carefully from beneath his hood."
 useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
+useMsgUS = "Lay a finger on me again and I'll have you killed."
 wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+wrongLangUS = "How about you speak a real language?"
 radius = 0
 
 -- Note: ALWAYS add commentaries in an extra line!
@@ -55,7 +56,7 @@ radius = 0
 -- NPC by Flux
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Erzmagier, Blood.")
+"Help" -> inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Blood.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morthis Nebulum der Nekromant. Schlüsselwörter: Magie, Lor Angur, Nekromantie, Archmage, Erzmagier, Blut.")
 
 -- General speech
