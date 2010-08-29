@@ -1,0 +1,156 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Snorri                                                      None --
+-- NPC Job:  trader                                                             --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Rincewind                                                         --
+--                                                                            --
+-- Last parsing: August 28, 2010                         easyNPC Parser v1.01 --
+--------------------------------------------------------------------------------
+
+name = "Snorri"
+race = dwarf
+sex = male
+position = 352, 256, 0
+direction = south
+affiliation = "None"
+job = "trader"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+
+lookatDE = "Ein rothaariger Zwerg mit buschigen Bart und schiefer Nase."
+lookatUS = "ENGLISH"
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+
+-- Tradersstuff--
+--fish: 73, 355
+--fishertool: 50, 51, 72
+
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is <Insert Name> the <insert profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: übliche Handelstrigger")
+
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr? ", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hiho, wie kann ich Euch helfen? - Nein, sagt es nicht, ich weiß es schon, ihr wollt ein paar von meinen Fischen kaufen, nicht wahr? ", "Tach, tach. Wie geht's denn heute so? Ihr habt Euch ja ewig nich ansehen lassen. Neue Frisur? Steht euch gut zu Gesicht!", "Oh! Guten Tach! Ist mir eine Freude Euch zu Begrüßen."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf ein baldiges Wiedersehen.", "Gehabt Euch wohl und berichtet es Euren Freunden! 'Snorri verkauft die besten Fische, Galmairs!'", "Irmorom sei mit dir. Möge dir der Bart bis zum Boden wachsen."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Auf ein baldiges Wiedersehen.", "Gehabt Euch wohl und berichtet es Euren Freunden! 'Snorri verkauft die besten Fische, Galmairs!'", "Irmorom sei mit dir. Möge dir der Bart bis zum Boden wachsen."
+"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Oh, wie freundlich von Euch, das ihr mich danach fragt! Und ich will sagen, ja! Ja es geht mir ausgezeichnet.", "Ausgezeichnet. Danke das ihr Euch danach erkundigt habt.", "Gut, gut, ich will nun wirklich nichts beklagen."
+"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Snorri. Und der Griesgram, hinter mir heißt Morri. *lacht* Er ist mein Bruder, wußtet ihr das?"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "Aye, ich bekomm all die Fische jeden zweiten Tag, direkt vom Hafen.", "Morri und ich sind Brüder. Und wir teilen uns den Marktschuppen. Auch wenn er so finster drein schaut, er ist ein netter Kerl.", "Einmal, bekam ich einen Karren mit Fischen, vom Hafen, und ich schwöre bei meinem Bart, die Fische waren so frisch, ich musste sie mit Schnüren auf den Tisch fesseln, damit sie nicht weghüpfen konnten."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "Ich bin Fischhändler. Aber manches Mal, kitzelt es mir in der Nase, dann nehm ich die Angel und fische selbst ein wenig. Was ist Euer Beruf?"
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "Ich bin Fischhändler. Aber manches Mal, kitzelt es mir in der Nase, dann nehm ich die Angel und fische selbst ein wenig. Was ist Euer Beruf?"
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "Von Gobaith hört man nichts Gutes. Oder habt ihr etwas zu berichten?"
+"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ich bin", "mein Name" -> "Es ist mir eine Freude Euch kennen zu lernen. Welchen Fisch darf ich Euch denn verkaufen?", "Aye, wollt ihr Fisch kaufen?"
+
+-- More small talk; add at least five triggers
+"fish", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"morri", "brother", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"orc" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"dwarf" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"nose" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"snorri", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"snorri" -> "Aye. Welchen Fisch wollt ihr kaufen?"
+"fisch" -> "#me schnuppert demonstrativ: 'Hm-h. So muss Fisch riechen wenn er frisch ist. Riecht er anders, ist er verdorben.'", "Der frischeste Fisch in ganz Galmair. Sogar der Koch von Don Valerio Guillianni kauft bei Snorri seine Fische ein.", "Bei meinem Bart, heute ist mein Fisch wieder frisch! Aufgepaßt, heißt es nun! Sonst hüpfen sie direkt vor meiner Nase, auf die Straße und schnurstracks zurück ins Meer."
+"morri", "bruder" -> "Aye, Morri ist mir von all meinen Brüdern der Liebste.", "Es macht mich zutiefst glücklich, das Morri neben mir steht und wir den Marktstand gemeinsam betreiben.", "Morri, hat manche Tage schlechte Laune. Und da ist es meine Aufgabe, als älterer Bruder, ihn auf zu heitern. *lacht* Das ist nicht immer so leicht, wie ihr Euch vielleicht denken könnt."
+"ork" -> "Aye, diese Orks, haben sich mit zwei Marktständen hier eingenistet. Was solls, sag ich, man muss das nehmen so wie's kommt.", "Pfft. Über die Orks mache ich mir kaum Gedanken. So Irmorom will, geht ihnen Morgen das Geld aus, und der Don, setzt ihr grünes Hinterteil auf die Straße.", "In Galmair bestimmt das Geld. Und diese Orks gaunern anscheinend genug zusammen um dem Don die beiden Marktschuppen zu bezahlen."
+"zwerg" -> "Aye, ich bin sehr stolz ein Zwerg zu sein! Denn wir Zwerge sind das klügste Volk. Und in allen Künsten begabt.", "Einem Zwerg ist sein Klan das wichtigste. Möge mein Klan Reichtum und Wohlstand bis in alle Jahre erfahren!", "Gold, ja wir Zwerge lieben es. Und der gesamte Klan versucht es in tiefen Hallen zu häufen. Denn Einfluß und Macht gehen mit Wohlstand einher, das ist jedem bekannt."
+"nase" -> "#me reibt sich an der Nase. 'Aye, das stimmt. Ich hab sie mir einst beim Kampf mit einem Oger gebrochen. Jetzt ist sie krumm aber ich wette, einen Oger rieche ich noch etliche Längen gegen den Wind!'"
+
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Aye, ihr sprecht über diesen Zauberer nicht wahr? Elvaine Morgan. Ist der König in Runewick, hab ich mir sagen lassen. Oder wie war das? Naja, mit so etwas muss sich ein Fischhändler nicht abmühen."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "Runewick, darf man nicht vertrauen. Wer kann schon sagen welches Unheil man dort in den Türmen zusammen braut. Und irgendwann fällt uns der Himmel auf den Kopf. Mir soll's recht sein, die Spitzohren sind dann die Ersten die's erwischt."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "Aye, sagt's nicht weiter, aber mein Bruder Morri und ich, wir bezahlen nur Halb so viel für unseren Stand wie die anderen Händler. Da haben wir dem Don ein Schnippchen geschlagen, nicht wahr?"
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "Wer in Galmair ein Problem hat, dem seis geraten sich an den Don zu wenden. Valerio Guilianni! Wenn man allerdings ein Problem mit dem Don selbst hat... *räuspert sich* nun seht zu, dass ihr dem Don nicht in die Quere kommt."
+"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "königin", "queen", "edwards" -> "Sieh an, sieh an. Hat sich das Prinzeschen doch noch zur Königin gemaußert? Ich schätze mal, nun wird Cadomyrs Schatzkammer endgültig geleert."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "Cadomyr und seine Ehre. *lacht* Deren Schatzkammer ist seit Jahren leer! Wer kann die schon Ernst nehmen? In meinem kleinen Zeh, steckt mehr Handelsgeschick als ganz Cadomyr zusammen auf zu bringen vermag."
+
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar", german -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk", german -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama", german -> "Ach, über die Länder der Menschen weiß ich nur wenig. Mein Bruder und ich entstammen dem weit entfernten Ironsiege. Kennt ihr meine Heimat?"
+"Ironsiege",german ->"Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.","Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"
+"Ironsiege" ->"ENGLISH"
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "Last Euch sagen, Irmorom schuf einst die Zwerge aus einem Stück Felsen. Jenen hatte er von Ushara zum Geschenk bekommen. Und viel mehr möchte ich von den Göttern nicht wissen müssen. Außer...nun ja Adron sei's gedankt für Käse und Bier!"
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "Trinkt! Trinken wir auf Adron. Gepriesen sein Bier und Käse."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "Heil Irmorom. Schütze meinen Bruder und unseren Klan. Gedankt sei dir, denn du bist der Zwergen Schöpfer."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
+
+-- Catching quest triggers
+"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", german -> "Ich kann Euch nicht einstellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfältig riechen, seid Euch gewiss."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich kann Euch nicht antellen, aber sodar ihr wollt, kauf ich Euch allen Fisch ab den ihr mir bringt. Solange er frisch ist natürlich. Ich werd sorgfeltig riechen, seid Euch gewiss."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "Aye. Ist gut!", "D'kraga... in Ordnung.", "Fein-fein-fein, so soll alles sein."
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.","ENGLISH4"
+"Nein" -> "Solltet Ihr es Euch anders überlegen... ich bin hier.", "Damit muss ich mich wohl abfinden.", "Schade, schade.","Ah! Das dachte ich mir bereits."
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
+
+".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+".*",german,chance(20)->"Aye. Alles klar.","Hm-h? Ihr wollt den großen Fisch da?","Wenn ihr das sagt, will ich zustimmen. *lacht*"
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me fuchtelt mit einer hand über den Tresen, dutzende Fliegen schwirren summend auf. Jedoch nach wenigen Augenblicken hocken sie sich wieder auf die Fische.", "ENGLISH."
+cycletext "#me dreht sich um und klatscht Morri eine Forelle an die Schulter. 'Hör auf den Leuten zu sagen, mein Fisch ist gammelig!'", "ENGLISH."
+cycletext "Fisch! Frischer Fisch! Kommt ihr Leute und kauft frischen Fisch!", "ENGLISH."
+cycletext "Frischester, schmackhafter Fisch! Ich hab die größten und feinsten Fische in ganz Galmair!", "ENGLISH."
+cycletext "#me wirft einen Blick über die Schulter, im nächsten Moment wirft einen zerfledderten Fisch in Morris Richtung. 'Der geht auf's Haus, Morri!", "ENGLISH."
+cycletext "#me steckt einen Finger in den Bart und beginnt die Haare einzudrehen.", "ENGLISH."
+cycletext "#me beugt sich mit misstrauischem Gesichtsausdruck über einen Fisch und schnüffelt daran.", "ENGLISH."
+cycletext "#me wischt seine Hände an der Hose ab.", "ENGLISH."
+cycletext "Der Fisch ist frisch! Aufgepasst, dass er nicht davon hüpft.", "ENGLISH."
+cycletext "#me nickt dem anderen Zwerg zu. 'Aye, Morri!'", "ENGLISH."
