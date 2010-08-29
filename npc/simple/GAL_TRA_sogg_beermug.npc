@@ -43,7 +43,7 @@ radius = 0
 -- Tools (Alchemist): 58, 164, 1008
 -- Tools (Brewer): 51, 227
 -- Beer: 1909, 1908
--- Milk: 330
+
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: usual Trading triggers"), "Help? All ob us need help!...'hick'", state = 0
