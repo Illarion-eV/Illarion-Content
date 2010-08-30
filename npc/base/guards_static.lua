@@ -123,10 +123,17 @@ function CheckAdminCommand(guard, speaker, message)
 				mode = i;
 			end
 		end
-		speaker:inform("mode? ".. mode);
 		if mode == -1 then
 			speaker:inform("#w no proper mode found. Try passive, hostile or aggressive.");
 			return;
+		else
+			speaker:inform("mode ~= -1");
+		end
+		if FactionId then
+			speaker:inform("FactionId exists");
+			if FactionId[guard.id] then
+				speaker:inform("FactionId[guard.id] exists");
+			end
 		end
 		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
 		SetMode(FactionId[guard.id], faction, mode, speaker);
