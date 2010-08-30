@@ -23,7 +23,6 @@ require("npc.base.guards_static")
 module("npc.private_milenus", package.seeall)
 
 function initNpc()
---npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
@@ -916,7 +915,6 @@ mainNPC:setLookat("Ein stämmiger Mann, der die Uniform eines Soldaten von Cadomy
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
---npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 mainNPC:initDone();
 end;
 
@@ -924,7 +922,13 @@ function receiveText(texttype, message, speaker)
 	mainNPC:receiveText(speaker, message);
 	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
 end;
-function nextCycle() mainNPC:nextCycle(); end;
+function nextCycle()
+	mainNPC:nextCycle();
+	if not guards_init then
+		guards_init = 1;
+		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+	end
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
