@@ -11,11 +11,11 @@ FactionId = {};
 Radius = {};
 
 function Init(guard, factionId, warpPos, radius)
-	guard:talk("BEGIN guards_static.Init");
+	guard:talk(CCharacter.say,"BEGIN guards_static.Init");
 	WarpPos[guard.id] = warpPos;
 	FactionId[guard.id] = factionId;
 	Radius[guard.id] = radius;
-	guard:talk("END guards_static.Init");
+	guard:talk(CCharacter.say,"END guards_static.Init");
 end
 
 function HandleCharacterNear(guard, char)
