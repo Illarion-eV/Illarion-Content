@@ -276,6 +276,8 @@ itemTrousers = 823
 "%NUMBER orange flasche verkauf", "verkauf %NUMBER orange flasche", item(2497, all) < %NUMBER -> "Du hast ja garnich so viel!"
 "%NUMBER orange flasche verkauf", "verkauf %NUMBER orange flasche", item(2497, all) < %NUMBER -> "Hier is datt Geld!", money + expr( %NUMBER*12), deleteItem(2497, %NUMBER)
 
+"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
+"was verkauf","was kauf","warenliste","preis von"->"GERMAN1.","GERMAN2.","GERMAN3." 
 -- Cycletext
 
 ------------------------------------------------------------------------------AC
