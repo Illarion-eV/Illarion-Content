@@ -1,62 +1,62 @@
 Signpost NORTH:
 
 
-374;548;0;3081
-111;556;0;3081
-120;567;0;3081
-123;567;0;3081
-42;579;0;3081
-83;586;0;3081
-90;586;0;3081
-112;587;0;3081
-137;587;0;3081
-174;632;0;3081
-42;634;0;3081
-112;636;0;3081
-121;636;0;3081
-226;648;0;3081
-307;653;0;3081
-427;676;0;3081
-386;770;0;3081
+374;548;0;3081 - Thief Camp: Beware!
+109;556;0;3081 - The Sealed Tome
+DOESN'T EXIST - 120;567;0;3081 - Cadomyr Palace
+DOESN'T EXIST - 123;567;0;3081 - Cadomyr Palace
+DOESN'T EXIST - 42;579;0;3081 - Pirates Cove ahead, hold on to your rum 
+DOESN'T EXIST - 83;586;0;3081 - Four Blade Inn
+DOESN'T EXIST - 90;586;0;3081 - Four Blade Inn
+DOESN'T EXIST - 112;587;0;3081 - The Silver Drake 
+DOESN'T EXIST - 137;587;0;3081 - Cadomyr Smithy
+DOESN'T EXIST - 174;632;0;3081 - Cadomyr Mine, Wit's End, Lonely Mountains
+DOESN'T EXIST - 42;634;0;3081 - Advance at your own risk
+DOESN'T EXIST - 112;636;0;3081 - Cadomyr, the Glorious
+DOESN'T EXIST - 121;636;0;3081 - Cadomyr, the Glorious
+DOESN'T EXIST - 226;648;0;3081 - Old Ruins
+DOESN'T EXIST - 307;653;0;3081 - Slave Trader Camp
+DOESN'T EXIST - 427;676;0;3081 - The Shadowlands, Travellers beware!
+DOESN'T EXIST - 386;770;0;3081 - Oasis of Stars, Shadowland
 
 Signpost SOUTH:
 
 
-106;642;0;3082
-131;642;0;3082
-235;684;0;3082
-95;689;0;3082
-207;725;0;3082
+DOESN'T EXIST - 106;642;0;3082 - Cape Farewell, His Majesty's Tomb
+DOESN'T EXIST - 131;642;0;3082 - Cadomyr Mine
+DOESN'T EXIST - 235;684;0;3082 - Training Camp, Mt. Lemza
+DOESN'T EXIST - 95;689;0;3082 - Royal Tomb
+DOESN'T EXIST - 207;725;0;3082 - Mt. Lemza
 
 Signpost WEST:
 
 
-372;551;0;3083
-90;638;0;3083
-133;638;0;3083
-212;649;0;3083
-303;652;0;3083
-64;687;0;3083
-90;688;0;3083
-209;769;0;3083
-483;796;0;3083
+372;551;0;3083 - To Cadomyr
+DOESN'T EXIST - 90;638;0;3083 - The Abstruse Dwelling, Beware
+DOESN'T EXIST - 133;638;0;3083 - Cadomyr Gate
+DOESN'T EXIST - 212;649;0;3083 - To Cadomyr
+DOESN'T EXIST - 303;652;0;3083 - Arena, Training Camp, Cadomyr
+DOESN'T EXIST - 64;687;0;3083 - Cape Farewell
+DOESN'T EXIST - 90;688;0;3083 - To Cape Farewell
+DOESN'T EXIST - 209;769;0;3083 - Chapel
+DOESN'T EXIST - 483;796;0;3083 - To the Katanbi Desert, Cadomyr
 
 
 Signpost EAST:
 
 
-129;563;0;3084
-129;566;0;3084
-99;575;0;3084
-133;587;0;3084
-400;619;0;3084
-137;638;0;3084
-212;646;0;3084
-266;684;0;3084
-255;697;0;3084
-131;699;0;3084
-440;711;0;3084
-168;759;0;3084
-208;774;0;3084
-483;793;0;3084
-119;736;0;3084
+DOESN'T EXIST - 129;563;0;3084 - Malachín's Shrine
+DOESN'T EXIST - 129;566;0;3084 - Malachín's Shrine
+DOESN'T EXIST - 99;575;0;3084 - The Silver Drake
+DOESN'T EXIST - 133;587;0;3084 - Workshop
+DOESN'T EXIST - 400;619;0;3084 - The Shadowlands, Travellers beware!
+DOESN'T EXIST - 137;638;0;3084 - Katanbi Desert, Arena, Oasis of Stars
+DOESN'T EXIST - 212;646;0;3084 - Arena, Slave Trader Market, Oasis of Stars
+DOESN'T EXIST - 266;684;0;3084 - Oasis of Stars, Bandit Cave
+DOESN'T EXIST - 255;697;0;3084 - Desert Ruins
+DOESN'T EXIST - 131;699;0;3084 - Cadomyr Mine
+DOESN'T EXIST - 440;711;0;3084 - Cult Temple, Adventurers beware!
+DOESN'T EXIST - 168;759;0;3084 - Chapel
+DOESN'T EXIST - 208;774;0;3084 - Mt. Lemza
+DOESN'T EXIST - 483;793;0;3084 - Harrowed Mount, Ushara's Spire, Sentry Outpost
+DOESN'T EXIST - 119;736;0;3084 - Merchants' Folly
