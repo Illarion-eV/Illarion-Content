@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  429, 308, -4           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind/KormKormson                                                          --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: August 30, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
