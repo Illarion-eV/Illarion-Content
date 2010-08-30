@@ -864,7 +864,7 @@ function ShowAttackGFX( Attacker, Defender )
     elseif (Attacker.AttackKind == 4) then -- distance
         world:gfx(15,Attacker.Char.pos);
     end
-    Attacker:performAnimation(5);
+    Attacker.Char:performAnimation(5);
     return true;
 end
 
