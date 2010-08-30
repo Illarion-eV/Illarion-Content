@@ -920,7 +920,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function receiveText(texttype, message, speaker)
+	mainNPC:receiveText(speaker, message);
+	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+end;
 function nextCycle() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;

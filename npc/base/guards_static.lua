@@ -74,3 +74,56 @@ function Warp(guard, char)
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
 end
+
+--- checks if an admin wants to change the guard mode. Should be called in receiveText.
+-- @param guard The guard character struct
+-- @param speaker The speaker character struct
+-- @param message The message that the guard received
+function CheckAdminCommand(guard, speaker, message)
+	if guard.id == speaker.id then
+		return;
+	end
+	if not speaker:isAdmin() then
+		return;
+	end
+	if speaker:distanceMetric(guard) > 2 then
+		return;
+	end
+	local msg = string.lower(message);
+	if string.find(msg, "set .*mode") then
+		local faction = -1;
+		local factionString = {};
+		factionString[0] = "outcast";
+		factionString[1] = "cadomyr";
+		factionString[2] = "runewick";
+		factionString[3] = "galmair";
+		for i,s in pairs(factionString) do
+			if string.find(msg, s) then
+				faction = i;
+			end
+		end
+		if faction == -1 then
+			speaker:inform("#w no proper faction found. Try cadomyr, galmair, runewick or outcast.");
+			return;
+		end
+		
+		local mode = -1;
+		local modeString = {};
+		modeString[ACTION_NONE] = "passive";
+		modeString[ACTION_WARP] = "hostile";
+		modeString[ACTION_KILL] = "aggressive";
+		for i,s in pairs(modeString) do
+			if string.find(msg, s) then
+				mode = i;
+			end
+		end
+		if mode == -1 then
+			speaker:inform("#w no proper mode found. Try passive, hostile or aggressive.");
+			return;
+		end
+		SetMode(FactionId[guard.id], faction, mode);
+		speaker:inform("#w Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
+	elseif string.find("help") then
+		speaker:inform("#w You can set the mode for the guards by: set mode <faction> <mode>");
+	end
+end
