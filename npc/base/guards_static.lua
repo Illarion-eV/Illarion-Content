@@ -50,22 +50,28 @@ function GetMode(char, factionId)
 end
 
 function SetMode(thisFaction, otherFaction, newMode)
+	thisNPC:talk("SetMode. Parameters: ".. thisFaction ..";".. otherFaction ..";".. newMode);
 	-- get mode for all factions
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
+	thisNPC:talk("1");
 	if not found then
 		modeAll = 0;
 		oldMode = 0;
+		thisNPC:talk("2");
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = oldMode % (10^(otherFaction+1));
 		oldMode = math.floor(oldMode / 10^f);
+		thisNPC:talk("3");
 	end
 	-- subtract old mode
 	modeAll = modeAll - (oldMode * 10^(otherFaction+1));
 	-- add new mode
 	modeAll = modeAll + (newMode * 10^(otherFaction+1));
 	-- set ScriptVar again
+	thisNPC:talk("4");
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
+	thisNPC:talk("5");
 end
 
 function Warp(guard, char)
