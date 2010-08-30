@@ -123,7 +123,7 @@ function CheckAdminCommand(guard, speaker, message)
 				mode = i;
 			end
 		end
-		speaker:inform("mode?");
+		speaker:inform("mode? ".. mode);
 		if mode == -1 then
 			speaker:inform("#w no proper mode found. Try passive, hostile or aggressive.");
 			return;
