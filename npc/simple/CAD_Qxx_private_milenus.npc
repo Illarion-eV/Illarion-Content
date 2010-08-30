@@ -1,0 +1,166 @@
+--Note: ALWAYS add commentaries in an extra line!
+--This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.)
+name="Private Milenus"
+-- Replace to own liking
+sex=male
+--male/female
+race=human
+--human, elf, dwarf, lizardman, orc, halfling...
+position=118, 618, 0
+--Name the location
+direction=South
+--north, northeast, east, southeast, south, southwest, west, northwest
+radius=0
+--Keep radius=0 and the Npc won't walk around
+
+--NPC by pharse
+
+--Help
+
+"Help"->inform ( [Game Help] This NPC is a town guard of Cadomyr. Keyphrases: who are you, profession. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist ein Stadtwächter von Cadomyr. Schlüsselwörter: wer bist du, beruf. )
+
+--General speech
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening"->"Hello.","#me just gives a brief nod.","Greetings to you."
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir"->"Hallo.","#me nickt nur kurz.","Seid gegrüßt."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Hello.","#me just gives a brief nod.","Greetings to you."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","#me nickt nur kurz.","Seid gegrüßt."
+
+"Farewell","Good bye","Bye","Fare thee well"->"Farewell.","Good bye."
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Auf Wiedersehen.","Bis zum nächsten Mal."
+"Ciao","Adieu","Au revoir","Farebba","See you",english->"Farewell.","Good bye."
+"Ciao","Adieu","Au revoir","Farebba","See you"->"Auf Wiedersehen.","Bis zum nächsten Mal."
+"How are you","How feel","How do you do"->"I'm on duty. How should I feel?.","Everyday it's the same anyway."
+"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"Ich bin im Dienst. Wie soll es mir da gehen?.","Ist jeden Tag sowieso immer dasselbe."
+"your name","who are you","who art thou"->"My name is %NPCNAME. I am guarding this town entrance.","I am %NPCNAME, town guard of Cadomyr."
+"dein name","wer bist du","wer seid ihr","wie heißt"->"Mein Name ist %NPCNAME. Ich bewache diesen Eingang zur Stadt.","Ich bin %NPCNAME, Stadtwache von Cadomyr."
+
+--Catching typical NPC phrases
+
+"what sell","what buy","list wares","price of"->"I am no trader.","If you are looking for a trader, go to the market place."
+"was verkauf","was kauf","warenliste","preis von"->"Ich bin kein Händler.","Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
+"tell something"->"I'm on duty and I am not paid for small talk.","I am a town guard, not a story teller."
+"erzähl was","erzähl etwas"->"Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.","Ich bin eine Stadtwache und kein Geschichtenerzähler."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"profession"->"I am a town guard of Cadomyr.","I serve the noble Queen as a town guard."
+"beruf"->"Ich bin ein Stadtwächter von Cadomyr.","Ich diene der edlen Königin als ein Stadtwächter."
+"job",english->"I am a town guard of Cadomyr.","I serve the noble Queen as a town guard."
+"job"->"Ich bin ein Stadtwächter von Cadomyr.","Ich diene der edlen Königin als ein Stadtwächter."
+"Gobaith","Gobiath",english->"Gob...what?","I don't know Gobaith."
+"Gobaith","Gobiath"->"Gob...was?","Ich kenne kein Gobaith."
+
+"I am","my name"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ich bin","mein Name"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--More small talk; add at least five triggers
+
+"YOURTRIGGER1"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER2"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER3"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER4"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"YOURTRIGGER5"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+
+"DEINTRIGGER1"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER2"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER3"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER4"->"GERMAN1.","GERMAN2.","GERMAN3."
+"DEINTRIGGER5"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Faction stuff
+
+"Elvaine","Morgan","archmage","Erzmagier",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Elvaine","Morgan","archmage","Erzmagier"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Runewick",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Runewick"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Valerio","Guilianni","Don",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Valerio","Guilianni","Don"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Galmair",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Galmair"->"GERMAN1.","GERMAN2.","GERMAN3."
+"rosaline","königin","queen","edwards",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"rosaline","königin","queen","edwards"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cadomyr",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Cadomyr"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Main land factions
+
+"albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"albar",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"gync","gynk",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"salkama",german->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Gods - use the triggers of the god the NPC worships or fights
+
+"god"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Gott","Götter"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+"Adron",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Adron"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Bragon","Brágon",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Bragon","Brágon"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Cherga",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Cherga"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Elara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Elara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Eldan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Eldan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Findari",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Findari"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Irmorom",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Irmorom"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Malachin","Malachín",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Malachin","Malachín"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Moshran",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Moshran"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Nargun","Nargún","Nargùn",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nargun","Nargún","Nargùn"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Oldra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Oldra"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ronagan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ronagan"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Sirani",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Sirani"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Tanora","Zelphia",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Tanora","Zelphia"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Ushara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ushara"->"GERMAN1.","GERMAN2.","GERMAN3."
+"Zhambra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Zhambra"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Catching quest triggers
+
+"quest",english->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"quest",german->"GERMAN1.","GERMAN2.","GERMAN3."
+"task","adventure"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Auftrag","Aufgabe","Abenteuer"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Last catch: Think about keyphrases the player might say and that are not caught until here
+
+"Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Ja"->"GERMAN1.","GERMAN2.","GERMAN3."
+"No"->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"Nein"->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Absolutely last catch: Everything a player says and is not caught earlier
+--This response should give the player a hint about what to ask the NPC
+--Optional Trigger /  Response is only given 1/5 of the time
+
+--".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+--".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3."
+
+--Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
+cycletext "GERMAN.","ENGLISH."
