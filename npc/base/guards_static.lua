@@ -49,29 +49,29 @@ function GetMode(char, factionId)
 	return mode;]]
 end
 
-function SetMode(thisFaction, otherFaction, newMode, guard)
-	guard:talk("SetMode. Parameters: ".. thisFaction ..";".. otherFaction ..";".. newMode);
+function SetMode(thisFaction, otherFaction, newMode, speaker)
+	speaker:inform("SetMode. Parameters: ".. thisFaction ..";".. otherFaction ..";".. newMode);
 	-- get mode for all factions
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
-	guard:talk("1");
+	speaker:inform("1");
 	if not found then
 		modeAll = 0;
 		oldMode = 0;
-		guard:talk("2");
+		speaker:inform("2");
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = oldMode % (10^(otherFaction+1));
 		oldMode = math.floor(oldMode / 10^f);
-		guard:talk("3");
+		speaker:inform("3");
 	end
 	-- subtract old mode
 	modeAll = modeAll - (oldMode * 10^(otherFaction+1));
 	-- add new mode
 	modeAll = modeAll + (newMode * 10^(otherFaction+1));
 	-- set ScriptVar again
-	guard:talk("4");
+	speaker:inform("4");
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
-	guard:talk("5");
+	speaker:inform("5");
 end
 
 function Warp(guard, char)
@@ -128,7 +128,7 @@ function CheckAdminCommand(guard, speaker, message)
 			return;
 		end
 		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
-		SetMode(FactionId[guard.id], faction, mode, guard);
+		SetMode(FactionId[guard.id], faction, mode, speaker);
 		speaker:inform("#w Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
 	elseif string.find("help") then
 		speaker:inform("#w You can set the mode for the guards by: set mode <faction> <mode>");
