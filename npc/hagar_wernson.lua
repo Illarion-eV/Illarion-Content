@@ -28,7 +28,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.hagar_wernson", package.seeall)
 
@@ -487,7 +487,7 @@ talkEntry:addTrigger("my name");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The Innkeeper gifts you a beer for free. Cheers!"));
 talkEntry:addResponse("You are new here, arn't you? Here you go! The first beer 's for free. Welcome at the Winged Sow tavern!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(306, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,7 +497,7 @@ talkEntry:addTrigger("mein Name");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Der Wirt gibt dir ein Bier aus. Prost!"));
 talkEntry:addResponse("Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(306, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(306, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1799,6 +1799,28 @@ talkEntry:addCondition(npc.base.condition.item.item(2497, "all", "<", "%NUMBER")
 talkEntry:addResponse("Hier is datt Geld!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", function(number) return (number*12); end));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2497, "%NUMBER"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord....  In den Kesseln da faulte das Wassah...  da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!");
