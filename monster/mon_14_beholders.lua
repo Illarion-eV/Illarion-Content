@@ -52,7 +52,7 @@ function getTarget(monster, targetList)
 end
 
 function enemyOnSight(Monster,Enemy)
-
+Enemy:inform("enemyOnSight mit dir gecalled!");
     if init==nil then
         ini(Monster);
         firstWP={};
@@ -68,8 +68,8 @@ function enemyOnSight(Monster,Enemy)
         monsterPos=Monster.pos;
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         WPList={targetPos,monsterPos};
-        Monster.waypoints:addFromList(WPList);
-        Monster:setOnRoute(true);
+      --  Monster.waypoints:addFromList(WPList);
+      --  Monster:setOnRoute(true);
         firstWP[Monster.id]=1;
         Enemy:inform("habe firstWP gesetzt!");
     end
