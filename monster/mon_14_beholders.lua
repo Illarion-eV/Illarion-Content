@@ -42,8 +42,9 @@ end
 function getTarget(monster, targetList)
     targetIndex=0;
     for key,target in pairs(targetList) do
-        target:inform("Checking on you! Arrr...");
+        target:inform("Checking on you! Arrr... "..target.lastSpokenText);
         if string.find(target.lastSpokenText,"me")~=nil then
+            target:inform("now sending your key "..key);
             return key;
         end
     end
