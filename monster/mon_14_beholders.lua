@@ -80,18 +80,20 @@ Enemy:inform("enemyOnSight mit dir gecalled!");
         --firstWP[Monster.id]=1;
    -- end
     
-
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
-    local MonID=Monster:get_mon_type();
-    if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
-    elseif (MonID==144) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
-    else
-        return false
-    end
+return false
 end
+
+--    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+--
+--    local MonID=Monster:get_mon_type();
+--    if monster.base.drop.DefaultSlowdown( Monster ) then
+--        return true
+--    elseif (MonID==144) then
+--        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
+--    else
+--        return false
+--    end
+--end
 
 function onAttacked(Monster,Enemy)
 
