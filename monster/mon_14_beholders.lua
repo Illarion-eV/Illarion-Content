@@ -43,6 +43,9 @@ function getTarget(monster, targetList)
     targetIndex=0;
     for key,target in pairs(targetList) do
         target:inform("Checking on you! Arrr...");
+        if string.find(target.lastSpokenText,"stop"==nil) then
+            return key;
+        end
     end
     return targetIndex;
 end
@@ -63,7 +66,7 @@ function enemyOnSight(Monster,Enemy)
         
         monsterPos=Monster.pos;
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
-        WPList={targetPos,monsterPos,targetPos,monsterPos,targetPos,monsterPos};
+        WPList={targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
         firstWP[Monster.id]=1;
