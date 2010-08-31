@@ -38,15 +38,25 @@ end
     end
 end
 --]]
+
+function getTarget(monster, targetList)
+    targetIndex=0;
+    for key,target in pairs(targetList) do
+        target:inform("Checking on you! Arrr...");
+    end
+    return targetIndex;
+end
+
 function enemyOnSight(Monster,Enemy)
 
     if init==nil then
         ini(Monster);
+        firstWP={};
     end
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
 
-   firstWP={};
+   
     
 
     if (firstWP[Monster.id]==nil) then
