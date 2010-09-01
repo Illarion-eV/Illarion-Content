@@ -42,11 +42,12 @@ end
 function getTarget(Monster, targetList)
 
     for key,target in pairs(targetList) do                      -- search list for someone
+        target:inform("now checking...");
         if string.find(target.lastSpokenText,"me")~=nil then    -- who said ".*me.*"
             return key;
         end
     end
-    
+    target:inform("check done");
     if (firstWP[Monster.id]==nil) then                          -- if there was noone found
         monsterPos=Monster.pos;                                 -- let the monster have WP
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
@@ -54,7 +55,7 @@ function getTarget(Monster, targetList)
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
         firstWP[Monster.id]=1;
-        Enemy:inform("habe firstWP in getTarget gesetzt!");
+        target:inform("habe firstWP in getTarget gesetzt!");
     end
     return 0;
 end
