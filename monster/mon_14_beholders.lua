@@ -41,6 +41,11 @@ end
 
 function getTarget(Monster, targetList)
 
+    if ini==nil then 
+        firstWP={};
+        ini=1;
+    end
+
     for key,target in pairs(targetList) do                      -- search list for someone
         target:inform("now checking...");
         myTar=target;
@@ -65,7 +70,7 @@ function enemyOnSight(Monster,Enemy)
 Enemy:inform("enemyOnSight mit dir gecalled!");
     if init==nil then
         ini(Monster);
-        firstWP[Monster.id]={};
+        firstWP={};
     end
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
