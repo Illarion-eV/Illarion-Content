@@ -41,10 +41,6 @@ end
 
 function getTarget(Monster, targetList)
 
-    if ini==nil then 
-        firstWP={};
-        ini=1;
-    end
 
     for key,target in pairs(targetList) do                      -- search list for someone
         target:inform("now checking...");
@@ -54,13 +50,13 @@ function getTarget(Monster, targetList)
         end
     end
     myTar:inform("check done");
-    if (firstWP[Monster.id]==nil) then                          -- if there was noone found
+    if (firstWP==nil) then                          -- if there was noone found
         monsterPos=Monster.pos;                                 -- let the monster have WP
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         WPList={targetPos,monsterPos,targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
-        firstWP[Monster.id]=1;
+        firstWP=1;
         myTar:inform("habe firstWP in getTarget gesetzt!");
     end
     return 0;
