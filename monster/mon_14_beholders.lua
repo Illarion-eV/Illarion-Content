@@ -71,20 +71,20 @@ Enemy:inform("enemyOnSight mit dir gecalled!");
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
 
-    if (firstWP[Monster.id]==nil) then
+    if (firstWP==nil) then
         monsterPos=Monster.pos;
         targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
         WPList={targetPos,monsterPos,targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
-        firstWP[Monster.id]=1;
+        firstWP=1;
         Enemy:inform("habe firstWP gesetzt!");
     end
     
-    firstWP[Monster.id]=firstWP[Monster.id]+1;
-    --if firstWP[Monster.id]==4 then
+    firstWP=firstWP+1;
+    --if firstWP==4 then
         Enemy:inform("neuer durchlauf! "..firstWP[Monster.id]);
-        --firstWP[Monster.id]=1;
+        --firstWP=1;
    -- end
     
 return false
