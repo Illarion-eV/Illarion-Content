@@ -39,23 +39,31 @@ end
 end
 --]]
 
-function getTarget(monster, targetList)
-    targetIndex=0;
-    for key,target in pairs(targetList) do
-        --target:inform("Checking on you! Arrr... "..target.lastSpokenText);
-        if string.find(target.lastSpokenText,"me")~=nil then
-            --target:inform("now sending your key "..key);
+function getTarget(Monster, targetList)
+
+    for key,target in pairs(targetList) do                      -- search list for someone
+        if string.find(target.lastSpokenText,"me")~=nil then    -- who said ".*me.*"
             return key;
         end
     end
-    return targetIndex;
+    
+    if (firstWP[Monster.id]==nil) then                          -- if there was noone found
+        monsterPos=Monster.pos;                                 -- let the monster have WP
+        targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
+        WPList={targetPos,monsterPos,targetPos,monsterPos};
+        Monster.waypoints:addFromList(WPList);
+        Monster:setOnRoute(true);
+        firstWP[Monster.id]=1;
+        Enemy:inform("habe firstWP in getTarget gesetzt!");
+    end
+    return 0;
 end
 
 function enemyOnSight(Monster,Enemy)
 Enemy:inform("enemyOnSight mit dir gecalled!");
     if init==nil then
         ini(Monster);
-        firstWP={};
+        firstWP[Monster.id]={};
     end
 
 -- (MARTINS TEST) So, as soon as the monster sees someone, put it on route:
