@@ -2,7 +2,7 @@ require("base.books")
 
 module("content.books.magestones", package.seeall)
 
--- This file contains the book data for the book "Magic stones"
+-- This file contains the book data for the book "Magic gems"
 
 function loadBook(toData)
     base.books.AddLanguage("common language",toData);
@@ -17,25 +17,25 @@ function loadBook(toData)
     base.books.AddEnglishBookText("Axiomatically, an object can only store a certain amount of magic energy.",0,0,toData);
     base.books.AddEnglishBookText("Once transmitted, the magic energy of the stones cannot be removed from the object anymore, neither can it be superimposed by other energies.",0,0,toData);
     base.books.AddEnglishBookText("Axiomatically, weapons, armors, magic wands and tools can store the energies of two stones.",0,0,toData);
-    base.books.AddEnglishBookText("Trinkets, however, can only store the energies of one single stone.",0,0,toData);
+    base.books.AddEnglishBookText("Rings, however, can only store the energies of one single stone.",0,0,toData);
     base.books.AddEnglishBookText("Additionally, it may be that the energies of the magic stones have to match with stones embedded in the item.",0,0,toData);
 
 
     base.books.AddGermanBookText("Magische Steine und ihre Verwendung",0,0,toData);
     base.books.AddGermanBookText("Magische Steine sind die wohl am seltensten vorkommenden Edelsteine auf der Welt.",0,0,toData);
     base.books.AddGermanBookText("Je Stärker die magische Kraft eines solchen Steines ist, desto seltender und wertvoller ist er.",0,0,toData);
-    base.books.AddGermanBookText("Man kann magische Edelsteine am Alter eines der fï¿½nf alten Götter umwandeln. Dabei ergeben immer 3 Steine gleicher Stärke einen Stein von hï¿½herer Qualität.",0,0,toData);
-    base.books.AddGermanBookText("Das Umwandeln solcher Steine gelingt nicht immer. Je hï¿½her die Qualität ist, die erreicht werden soll, desto Grüßer ist die Gefahr dass der Umwandlungsversuch fehlschlï¿½gt.",0,0,toData);
-    base.books.AddGermanBookText("Steine mit magischen Eigenschaften können dazu genutzt werden um die ihnen innewohnenden Krï¿½fte auf bestimmte Gegenstï¿½nde zu ï¿½bertragen.",0,0,toData);
-    base.books.AddGermanBookText("Dies ist allerdings nur dann möglich, wenn der Gegenstand für solche Art von magischen Energien empfï¿½nglich ist.",0,0,toData);
-    base.books.AddGermanBookText("Grundsï¿½tzlich gilt, dass jeder Gegenstand nur eine gewisse Menge magischer Energie aufnehmen kann.",0,0,toData);
-    base.books.AddGermanBookText("Einmal ï¿½bertragen, kann die magische Energie der Steine nicht mehr aus dem Gegenstand entfernt oder oder mit anderen Energien ï¿½berlagert werden.",0,0,toData);
-    base.books.AddGermanBookText("Grundsï¿½tzlich lï¿½sst sich sagen, dass Waffen, Rüstungen, Magierstï¿½be und Werkzeuge die Engerien von zwei Steinen aufnehmen können.",0,0,toData);
-    base.books.AddGermanBookText("In Ringe hingegen kann lediglich die Energien eines Steines ï¿½bertragen werden.",0,0,toData);
+    base.books.AddGermanBookText("Man kann magische Edelsteine am Alter eines der fünf alten Götter umwandeln. Dabei ergeben immer 3 Steine gleicher Stärke einen Stein von höherer Qualität.",0,0,toData);
+    base.books.AddGermanBookText("Das Umwandeln solcher Steine gelingt nicht immer. Je höher die Qualität ist, die erreicht werden soll, desto Grüßer ist die Gefahr dass der Umwandlungsversuch fehlschlägt.",0,0,toData);
+    base.books.AddGermanBookText("Steine mit magischen Eigenschaften können dazu genutzt werden um die ihnen innewohnenden Kräfte auf bestimmte Gegenstände zu übertragen.",0,0,toData);
+    base.books.AddGermanBookText("Dies ist allerdings nur dann möglich, wenn der Gegenstand für solche Art von magischen Energien empfänglich ist.",0,0,toData);
+    base.books.AddGermanBookText("Grundsätzlich gilt, dass jeder Gegenstand nur eine gewisse Menge magischer Energie aufnehmen kann.",0,0,toData);
+    base.books.AddGermanBookText("Einmal übertragen, kann die magische Energie der Steine nicht mehr aus dem Gegenstand entfernt oder oder mit anderen Energien überlagert werden.",0,0,toData);
+    base.books.AddGermanBookText("Grundsätzlich lässt sich sagen, dass Waffen, Rüstungen, Magierstäbe und Werkzeuge die Engerien von zwei Steinen aufnehmen können.",0,0,toData);
+    base.books.AddGermanBookText("In Ringe hingegen kann lediglich die Energien eines Steines übertragen werden.",0,0,toData);
     base.books.AddGermanBookText("Zudem ist bei diesen auch zu beachten, dass sich die Energien der magischen Steine mit ggf. eingesetzten Steinen gleichen muss.",0,0,toData);
 end;
 
 function loadTitle(toData)
-    base.books.AddGermanBookTitle("Buch mit dem Titel \"Magische Steine\"",toData);
-    base.books.AddEnglishBookTitle("Book with the title \"Magic stones\"",toData);
+    base.books.AddGermanBookTitle("Buch mit dem Titel \"Magische Edelsteine\"",toData);
+    base.books.AddEnglishBookTitle("Book with the title \"Magic Gems\"",toData);
 end;
