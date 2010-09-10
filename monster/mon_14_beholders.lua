@@ -52,7 +52,7 @@ function getTarget(Monster, targetList)
     myTar:inform("check done");
     if (firstWP==nil) then                          -- if there was noone found
         monsterPos=Monster.pos;                                 -- let the monster have WP
-        targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
+        targetPos=position(monsterPos.x+40,monsterPos.y+40,monsterPos.z);
         WPList={targetPos,monsterPos,targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
