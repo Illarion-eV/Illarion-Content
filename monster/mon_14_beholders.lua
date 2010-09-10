@@ -73,7 +73,7 @@ Enemy:inform("enemyOnSight mit dir gecalled!");
 
     if (firstWP==nil) then
         monsterPos=Monster.pos;
-        targetPos=position(monsterPos.x+4,monsterPos.y+4,monsterPos.z);
+        targetPos=position(monsterPos.x+40,monsterPos.y+40,monsterPos.z);
         WPList={targetPos,monsterPos,targetPos,monsterPos};
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
