@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Lothar Piero                                                None --
--- NPC Job:  trader                                                            --
---                                                                            --
--- NPC Race: halfling                   NPC Position:  896, 816, 1            --
--- NPC Sex:  male                       NPC Direction: east                   --
---                                                                            --
--- Author:   not set                                                          --
---                                                                            --
--- Last parsing: September 12, 2010                         easyNPC Parser v1.00 --
---------------------------------------------------------------------------------
-
 name = "Lothar Piero"
 race = halfling
 sex = male
@@ -65,7 +53,7 @@ wrongLangUS = "#me looks at you confused."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja-ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weis das sie trozdem jeden neuen Tag am Himmel stehen wird.", "So Finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir Wilkommen am Markt von Runewick.", "Ich bin Lothar Piero und Handler mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir Wilkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
