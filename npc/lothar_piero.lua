@@ -179,7 +179,7 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich heiße Lothar Piero. Seid mir Wilkommen am Markt von Runewick.");
-talkEntry:addResponse("Ich bin Lothar Piero und Handler mit allerlei hölzernen Gut.");
+talkEntry:addResponse("Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.");
 talkEntry:addResponse("Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
