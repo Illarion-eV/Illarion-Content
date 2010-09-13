@@ -927,7 +927,7 @@ function nextCycle()
 	if not guards_init then
 		guards_init = 1;
 		thisNPC:talk(CCharacter.say,"test");
-		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+		--npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 	end
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;

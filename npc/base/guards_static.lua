@@ -111,7 +111,7 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		if faction == -1 then
-			speaker:inform("#w no proper faction found. Try cadomyr, galmair, runewick or outcast.");
+			speaker:inform("#w [Guard Help] no proper faction found. Try cadomyr, galmair, runewick or outcast.");
 			return;
 		end
 		
@@ -126,7 +126,7 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		if mode == -1 then
-			speaker:inform("#w no proper mode found. Try passive, hostile or aggressive.");
+			speaker:inform("#w [Guard Help] no proper mode found. Try passive, hostile or aggressive.");
 			return;
 		else
 			speaker:inform("mode ~= -1");
@@ -139,8 +139,12 @@ function CheckAdminCommand(guard, speaker, message)
 		end
 		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
 		SetMode(FactionId[guard.id], faction, mode, speaker);
-		speaker:inform("#w Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
+		speaker:inform("#w [Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
 	elseif string.find("help") then
-		speaker:inform("#w You can set the mode for the guards by: set mode <faction> <mode>");
+		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
+	elseif string.find("init") then
+		speaker:inform("init!");
+		npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
+		speaker:inform("init done");
 	end
 end
