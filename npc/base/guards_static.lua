@@ -37,6 +37,10 @@ end
 
 -- get the mode for this faction depending on the char's faction
 function GetMode(char, factionId)
+	if char:isAdmin() then
+		return ACTION_NONE;
+	end
+
 	--for testing: aggressive
 	return ACTION_KILL;
 	--[[
