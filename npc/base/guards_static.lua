@@ -36,37 +36,37 @@ function HandleCharacterNear(guard, char)
 end
 
 -- get the mode for this faction depending on the char's faction
-function GetMode(char, factionId)
+function GetMode(char, thisFaction)
 	if char:isAdmin() then
 		return ACTION_NONE;
 	end
 
-	local found, mode = ScriptVars:find("Mode_".. factionId);
 	local f = base.factions.BF_get_Faction(char).tid;
+	return GetModeByFaction(thisFaction, f);
+end
+
+function GetModeByFaction(thisFaction, otherFaction)
+	local found, mode = ScriptVars:find("Mode_".. thisFaction);
 	if not found then
-		SetMode(factionId, f, ACTION_NONE);
+		SetMode(thisFaction, otherFaction, ACTION_NONE);
 		return ACTION_NONE;
 	end
-	mode = mode % (10^(f+1));
-	mode = math.floor(mode / 10^f);
+	mode = mode % (10^(otherFaction+1));
+	mode = math.floor(mode / 10^otherFaction);
 	return mode;
 end
 
-function SetMode(thisFaction, otherFaction, newMode, speaker)
-	speaker:inform("SetMode. Parameters: ".. thisFaction ..";".. otherFaction ..";".. newMode);
+function SetMode(thisFaction, otherFaction, newMode)
 	-- get mode for all factions
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
 	local oldMode = 0;
-	speaker:inform("1");
 	if not found then
 		modeAll = 0;
 		oldMode = 0;
-		speaker:inform("2");
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = modeAll % (10^(otherFaction+1));
 		oldMode = math.floor(oldMode / 10^otherFaction);
-		speaker:inform("3");
 	end
 	-- subtract old mode
 	modeAll = modeAll - (oldMode * 10^(otherFaction));
@@ -74,9 +74,7 @@ function SetMode(thisFaction, otherFaction, newMode, speaker)
 	modeAll = modeAll + (newMode * 10^(otherFaction));
 	-- set ScriptVar again
 	modeAll = math.max(0,math.min(9999, modeAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
-	speaker:inform("4; modeAll: ".. modeAll);
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
-	speaker:inform("5");
 end
 
 function Warp(guard, char)
@@ -101,7 +99,7 @@ function CheckAdminCommand(guard, speaker, message)
 		return;
 	end
 	local msg = string.lower(message);
-	if string.find(msg, "set .*mode") then
+	if string.find(msg, "set .*mode") or string.find(msg, "check .*mode") then
 		local faction = -1;
 		local factionString = {};
 		factionString[0] = "outcast";
@@ -123,6 +121,14 @@ function CheckAdminCommand(guard, speaker, message)
 		modeString[ACTION_NONE] = "passive";
 		modeString[ACTION_WARP] = "hostile";
 		modeString[ACTION_KILL] = "aggressive";
+		
+		-- just print the mode if the admin wants to check a mode
+		if string.find(msg, "check .*mode") then
+			local mode = GetModeByFaction(FactionId[guard.id],faction);
+			speaker:inform("#w [Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode]);
+			return;
+		end
+		
 		for i,s in pairs(modeString) do
 			if string.find(msg, s) then
 				mode = i;
@@ -141,7 +147,7 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
-		SetMode(FactionId[guard.id], faction, mode, speaker);
+		SetMode(FactionId[guard.id], faction, mode);
 		speaker:inform("#w [Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
 	elseif string.find(msg, "help") then
 		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
