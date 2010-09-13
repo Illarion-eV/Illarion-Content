@@ -140,9 +140,9 @@ function CheckAdminCommand(guard, speaker, message)
 		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
 		SetMode(FactionId[guard.id], faction, mode, speaker);
 		speaker:inform("#w [Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
-	elseif string.find("help") then
+	elseif string.find(msg, "help") then
 		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
-	elseif string.find("init") then
+	elseif string.find(msg, "init") then
 		speaker:inform("init!");
 		npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
 		speaker:inform("init done");
