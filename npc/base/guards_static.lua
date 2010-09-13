@@ -56,6 +56,7 @@ function SetMode(thisFaction, otherFaction, newMode, speaker)
 	speaker:inform("SetMode. Parameters: ".. thisFaction ..";".. otherFaction ..";".. newMode);
 	-- get mode for all factions
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
+	local oldMode = 0;
 	speaker:inform("1");
 	if not found then
 		modeAll = 0;
@@ -64,7 +65,7 @@ function SetMode(thisFaction, otherFaction, newMode, speaker)
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = modeAll % (10^(otherFaction+1));
-		oldMode = math.floor(oldMode / 10^f);
+		oldMode = math.floor(oldMode / 10^otherFaction);
 		speaker:inform("3");
 	end
 	-- subtract old mode
