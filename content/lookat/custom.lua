@@ -38,15 +38,21 @@ function InitCustomLookAt()
 	addDescription(	180,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription( 181,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	182,	1,	"mit dem Wappen von Caelum auf der Rückseite", "with Caelum coat of arms on the back", false, false, false );
+	addDescription(	182,	2,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	193,	1,	"bestickt mit dem Wappen der Riverside Grovestrider", "embroidered with the Riverside Grovestrider coat of arms", false, false, false );
 	addDescription(	193,	2,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription( 193,	3,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
 	addDescription(	193,	4,	"königsblaue Robe mit dem Wappen Silberbrands, rechts auf der Brust", "royal blue robe with the crest of Silverbrand embroidered to the right, on the chest", false, true, false );
+	addDescription(	194,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	195,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	196,	1,	"grauer Mantel mit dem Wappen von Troll's Bane auf der Rückseite", "grey cloak with Troll's Bane coat of arms on the back", false, true, false );
 	addDescription(	196,	2,	"mit einer Stickerei eines großen, roten Diamanten auf der Rückseite", "with a large red diamond embroidered on the back", false, false, false );
 	addDescription(	196,	3,	"bestickt mit einer grauen Rose", "embroidered with a grey rose", false, false, false );
 	addDescription(	196,	4,	"mit goldenem Saum und dem Wappen der Grauen Rose auf der rechten Brust", "with a golden hemline including the Grey Rose coat of arms on the right chest", false, false, false );
+	addDescription(	196,	5,	"mit silbernem Saum und dem Wappen der Grauen Rose auf der rechten Brust", "with a silvern hemline including the Grey Rose coat of arms on the right chest", false, false, false );
+	addDescription(	196,	6,	"mit silbernem Saum, einigen Verzierungen und dem Wappen der Grauen Rose auf der rechten Brust", "with a silvern hemline, some ornaments and the Grey Rose coat of arms on the right chest", false, false, false );
+	addDescription(	196,	7,	"mit dem Wappen der Grauen Rose auf der rechten Brust", "with the Grey Rose coat of arms on the right chest", false, false, false );
+	addDescription(	196,	8,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	207,	1,	"Eichenstab mit den Symbolen der Naturelemente", "oak staff with the symbols of nature's elements", false, true, false );
 	addDescription(	208,	1,	"Stab des Geistes", "Staff of Spirit", false, true, false );
 	addDescription( 224,	1,	"Pokal für den 1. Platz", "1st place trophy", true, true, false );
@@ -104,6 +110,7 @@ function InitCustomLookAt()
 	addDescription(2384,	2,	"mit dem Abzeichen des Kommandanten der Troll's Bane Wache", "with the insignia of the Troll's Bane guard captain", false, false, false );
 	addDescription(2384,	3,	"mit dem Abzeichen des Leutnants der Troll's Bane Wache", "with the insignia of the Troll's Bane guard lieutenant", false, false, false );
 	addDescription(2384,	4,	"mit dem Wappen des Prinzen am Rücken", "bearing the crest of the prince on its back", false, false, false ); -- for Zot
+	addDescription(2384,	5,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(2390,	1,	"mit dem Wappen Silberbrands", "with the crest of Silverbrand", false, false, false );
 	addDescription(2400,	1,	"mit dem Emblem eines goldenen Löwenkopfes", "with the emblem of a golden lion head", false, false, false );
 	addDescription(2400,	2,	"Rüstung des Kriegsherrn", "Warlord's Plate", false, true, false );
