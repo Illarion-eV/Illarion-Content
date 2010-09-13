@@ -41,9 +41,6 @@ function GetMode(char, factionId)
 		return ACTION_NONE;
 	end
 
-	--for testing: aggressive
-	return ACTION_KILL;
-	--[[
 	local found, mode = ScriptVars:find("Mode_".. factionId);
 	local f = base.factions.BF_get_Faction(char).tid;
 	if not found then
@@ -52,7 +49,7 @@ function GetMode(char, factionId)
 	end
 	mode = mode % (10^(f+1));
 	mode = math.floor(mode / 10^f);
-	return mode;]]
+	return mode;
 end
 
 function SetMode(thisFaction, otherFaction, newMode, speaker)
@@ -82,7 +79,7 @@ end
 
 function Warp(guard, char)
 	char:warp(WarpPos[guard.id]);
-	base.common.TempInformNLS(Char,
+	base.common.TempInformNLS(char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
 end
