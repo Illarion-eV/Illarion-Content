@@ -936,6 +936,6 @@ initNpc();
 initNpc = nil;
 -- END
 
-function characterNear(Character)
-	npc.base.guards_static.HandleCharacterNear(thisNPC, Character);
+function characterOnSight(theNpc, character)
+	npc.base.guards_static.HandleCharacterNear(thisNPC, character);
 end

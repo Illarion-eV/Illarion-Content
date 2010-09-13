@@ -20,12 +20,10 @@ end
 
 function HandleCharacterNear(guard, char)
 	-- check if char is within radius at all
-	guard:talk(CCharacter.say,char.name .. " is near");
 	local dist = guard:distanceMetric(char);
 	if (dist > Radius[guard.id]) then
 		return;
 	end
-	guard:talk(CCharacter.say,char.name .. " is in range");
 	local mode = GetMode(char, FactionId[guard.id]);
 	if (mode == ACTION_WARP) then
 		-- warp
@@ -83,7 +81,6 @@ function SetMode(thisFaction, otherFaction, newMode, speaker)
 end
 
 function Warp(guard, char)
-	guard:talk(CCharacter.say,char.name .. " will be warped");
 	char:warp(WarpPos[guard.id]);
 	base.common.TempInformNLS(Char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
