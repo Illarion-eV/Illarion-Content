@@ -69,11 +69,13 @@ function SetMode(thisFaction, otherFaction, newMode, speaker)
 		speaker:inform("3");
 	end
 	-- subtract old mode
+	speaker:inform("modeAll: ".. modeAll .."; oldMode: ".. oldMode);
 	modeAll = modeAll - (oldMode * 10^(otherFaction+1));
 	-- add new mode
+	speaker:inform("modeAll: ".. modeAll .."; newMode: ".. newMode);
 	modeAll = modeAll + (newMode * 10^(otherFaction+1));
 	-- set ScriptVar again
-	speaker:inform("4");
+	speaker:inform("4; modeAll: ".. modeAll);
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
 	speaker:inform("5");
 end
