@@ -81,6 +81,7 @@ function GetItemDescription(User,Item,material,Weapon,Priest)
 	-- init custom lookat
 	if CustomLookAt == nil then
 		content.lookat.custom.InitCustomLookAt();
+		CustomLookAt = content.lookat.custom.CustomLookAt;
 	end
 
 	-- set default values for custom lookat
