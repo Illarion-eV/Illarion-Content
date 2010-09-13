@@ -6,6 +6,7 @@ require("base.factions")
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
+	Init();
 	if SourceItem.data==2 then --faction system trowel  
         if (string.find(User.lastSpokenText,"help")~=nil) then
 			Page = {};
@@ -26,7 +27,21 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
         end
 
 
-		if (string.find(User.lastSpokenText,"addpoints")~=nil or string.find(User.lastSpokenText,"removepoints")~=nil) then --add rankpoints to TargetChar
+		if string.find(User.lastSpokenText,"info") then
+			-- print some infos
+			local info = base.factions.BF_get_Faction(TargetCharacter);
+			local townName = "None";
+			if info.tid == 1 then
+				townName = "Cadomyr";
+			elseif info.tid == 2 then
+				townName = "Runewick";
+			elseif info.tid == 3 then
+				townName = "Galmair";
+			end
+			local txt = "#w Member of: ".. townName .." (".. info.tid .."); times changed: ".. info.towncnt .."; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
+			User:inform(txt);
+		
+		elseif (string.find(User.lastSpokenText,"addpoints")~=nil or string.find(User.lastSpokenText,"removepoints")~=nil) then --add rankpoints to TargetChar
             a,b,value = string.find(User.lastSpokenText,"(%d+)");
             value=value+1-1;
 			if (value<101 and value>-1) then	    	
@@ -150,6 +165,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     --    User:inform("data is ");--..SourceItem.data);
     --SourceItem.data = 1;
 
+	Init();
 	if SourceItem.data==3 then --blay's testitem
 		User:setAttrib("willpower", 30);
 		User:setAttrib("essence", 30);
@@ -446,4 +462,13 @@ function CheckTownTrigger(User)
 	    return 3;
 	end
 	return 0; --no townname
+end
+
+function Init()
+	if InitDone then
+		return;
+	end
+	InitDone = 1;
+	-- init faction variables
+	TownNameGList = base.factions.TownNameGList;
 end
