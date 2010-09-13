@@ -936,6 +936,6 @@ initNpc();
 initNpc = nil;
 -- END
 
-function CharacterNear(Character)
+function characterNear(Character)
 	npc.base.guards_static.HandleCharacterNear(thisNPC, Character);
 end
