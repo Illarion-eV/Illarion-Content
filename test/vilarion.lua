@@ -14,8 +14,3 @@ end
 function useNPC(User,counter,param)
     User:inform("Name: " .. thisNPC.name .. ", Id: " .. thisNPC.id);
 end
-
-function errorFunc(User)
-	local a = nil;
-	User:inform("test: ".. a);
-end
