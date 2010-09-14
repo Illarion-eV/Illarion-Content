@@ -23,6 +23,7 @@ require("npc.base.guards_static")
 module("npc.private_milenus", package.seeall)
 
 function initNpc()
+npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
@@ -916,7 +917,7 @@ mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
-npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+
 end;
 
 function receiveText(texttype, message, speaker)
