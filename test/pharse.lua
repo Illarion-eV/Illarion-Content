@@ -19,7 +19,7 @@ wMirror = false;
 testPos = position(0,0,0);
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-	if dowp then
+	--[[if dowp then
 		if User.lastSpokenText == "nowp" then
 			dowp = false;
 			User:inform("no wp, back to normal.");
@@ -103,7 +103,17 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			User:startAction(50,0,0,3,40);
 			User:startAction(40,0,0,5,21);
 		end
+	end]]
+	if string.find(User.lastSpokenText, "local") then
+		errorFunc(User);
+	elseif string.find(User.lastSpokenText, "extern") then
+		test.vilarion.errorFunc(User);
 	end
+end
+
+function errorFunc(User)
+	local a = nil;
+	User:inform("test: ".. a);
 end
 
 function writeWaypoint(wpFile,posFile,wpPos,wpArea,bridgePos,bridgeArea,bridgeWarp,door)
