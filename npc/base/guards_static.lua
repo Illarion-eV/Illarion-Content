@@ -113,8 +113,6 @@ function CheckAdminCommand(guard, speaker, message)
 	end
 	local msg = string.lower(message);
 	if string.find(msg, "set .*mode") or string.find(msg, "check .*mode") then
-		local a = nil;
-		b = a.test;
 		local faction = -1;
 		local factionString = {};
 		factionString[0] = "outcast";
