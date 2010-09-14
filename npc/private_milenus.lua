@@ -926,15 +926,14 @@ function nextCycle()
 	mainNPC:nextCycle();
 	if not guards_init then
 		guards_init = 10;
+		gCount = 0;
 	end
 	if guards_init == 0 then
-		guards_init = 1;
-		gCount = 0;
 		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 	else
 		guards_init = guards_init - 1;
 	end
-	if gCount == 4 then
+	if gCount == 4 and guards_init == 0 then
 		gCount = 0;
 		npc.base.guards_static.CheckForCharacters(thisNPC);
 	else
