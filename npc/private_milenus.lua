@@ -929,8 +929,9 @@ function nextCycle()
 		gCount = 0;
 	end
 	if guards_init == 0 then
+		guards_init = -1;
 		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
-	else
+	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
 	if gCount == 4 and guards_init == 0 then
