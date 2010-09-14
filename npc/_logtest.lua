@@ -10,12 +10,15 @@
 module("npc._logtest", package.seeall)
     
 function nextCycle()
-
+    if not logtestinit then
+        thisNPC:increaseSkill(1,"common language",100);
+        logtestinit = true;
+    end;
 end		
 
 function receiveText(texttype, message, originator)
-   if message=="top" then
-       a=4;
-   end;
-   thisNPC:talk(CCharacter.say,"works"); 
+    if message=="top" then
+        a=4;
+    end;
+    thisNPC:talk(CCharacter.say,"works"); 
 end
