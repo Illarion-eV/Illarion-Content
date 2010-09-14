@@ -916,6 +916,7 @@ mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
+npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 end;
 
 function receiveText(texttype, message, speaker)
@@ -925,12 +926,13 @@ end;
 function nextCycle()
 	mainNPC:nextCycle();
 	if not guards_init then
+		-- init after 10 cycles
 		guards_init = 10;
 		gCount = 0;
 	end
 	if guards_init == 0 then
 		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+		--npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
 	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
