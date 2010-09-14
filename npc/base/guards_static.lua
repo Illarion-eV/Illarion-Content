@@ -18,24 +18,27 @@ function Init(guard, factionId, warpPos, radius)
 	guard:talk(CCharacter.say,"END guards_static.Init");
 end
 
-function HandleCharacterNear(guard, char)
-	-- check if char is within radius at all
-	local dist = guard:distanceMetric(char);
-	if (dist > Radius[guard.id]) then
-		return;
-	end
-	local mode = GetMode(char, FactionId[guard.id]);
-	if (mode == ACTION_WARP) then
-		-- warp
-		Warp(guard, char);
-	elseif (mode == ACTION_KILL) then
-		-- spawn monster guards
-		-- for now: just warp
-		Warp(guard, char);
+--- Checks for chars in range and handles them (warp)
+-- @param guard The character struct of the guard NPC
+function CheckForCharacters(guard)
+	local charList = world:getPlayersInRangeOf(guard.pos, Radius[guard.id]);
+	
+	for i,char in pairs(charList) do
+		local mode = GetMode(char, FactionId[guard.id]);
+		if (mode == ACTION_WARP) then
+			-- warp
+			Warp(guard, char);
+		elseif (mode == ACTION_KILL) then
+			-- spawn monster guards
+			-- for now: just warp
+			Warp(guard, char);
+		end
 	end
 end
 
--- get the mode for this faction depending on the char's faction
+--- get the mode for this faction depending on the char's faction
+-- @param char The character whose faction is to be checked
+-- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
 	if char:isAdmin() then
 		return ACTION_NONE;
@@ -45,6 +48,9 @@ function GetMode(char, thisFaction)
 	return GetModeByFaction(thisFaction, f);
 end
 
+--- get the mode for this faction by the other (hostile) faction
+-- @param thisFaction The faction ID of the guard
+-- @param otherFaction The faction ID that is to be checked
 function GetModeByFaction(thisFaction, otherFaction)
 	local found, mode = ScriptVars:find("Mode_".. thisFaction);
 	if not found then
@@ -56,6 +62,10 @@ function GetModeByFaction(thisFaction, otherFaction)
 	return mode;
 end
 
+--- set the mode for all guards of this faction
+-- @param thisFaction The faction ID of the guard
+-- @param otherFaction The faction ID whose mode is to be changed
+-- @param newMode The new mode, e.g. ACTION_NONE
 function SetMode(thisFaction, otherFaction, newMode)
 	-- get mode for all factions
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
@@ -77,6 +87,9 @@ function SetMode(thisFaction, otherFaction, newMode)
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
 end
 
+--- warp the char to the defined warp position
+-- @param guard The guard that warps the char
+-- @param char The char that will be warped
 function Warp(guard, char)
 	char:warp(WarpPos[guard.id]);
 	base.common.TempInformNLS(char,
@@ -100,6 +113,8 @@ function CheckAdminCommand(guard, speaker, message)
 	end
 	local msg = string.lower(message);
 	if string.find(msg, "set .*mode") or string.find(msg, "check .*mode") then
+		local a = nil;
+		b = a.test;
 		local faction = -1;
 		local factionString = {};
 		factionString[0] = "outcast";
