@@ -22,7 +22,31 @@ function callEffect(VampEffect, User)
 		return true;
 	end
 	
-	local HealthPoints = User:increaseAttrib("hitpoints", -50);	
+	local foundProtection, Protection = VampEffect:findValue("protection");
+	if foundProtection then
+		Protection = Protection - 1;
+		if(Protection > 0) then
+			VampEffect:addValue("protection", Protection);
+		else
+			VampEffect:removeValue("protection");
+		end
+		return true;
+	end
+	
+	local rand = math.random(1000);
+	if (rand == 1) then
+		base.common.InformNLS(User,
+			"#w Du verspürst das Verlangen danach, jemanden zu töten...",
+			"#w You feel like killing someone...");
+	end
+	
+	local foundHealthPerCall, HealthPerCall = VampEffect:findValue("healthpercall");
+	if not foundHealthPerCall then
+		HealthPerCall = 50;
+		VampEffect:addValue("healthpercall", HealthPerCall);
+	end
+	
+	local HealthPoints = User:increaseAttrib("hitpoints", -HealthPerCall);	
 	if(HealthPoints <= 0) then
 		return false;
 	end

@@ -10,6 +10,30 @@ module("druid.item.id_328_orange_bottle", package.seeall, package.seeall(druid.b
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 --Heilmittel für 8 Virus-Erkrankungen
+
+	if (SourceItem.data == 12345678) then -- TODO: Assign Potion Data
+		-- Vampirism Desease Healing
+		local foundEffect, vampEffect = Character.effects:find(501);
+		if foundEffect then
+			local foundNPE, noPotionEffect = vampEffect:findValue("npe");
+			if foundNPE then
+				if noPotionEffect > 3 then
+					world:erase(SourceItem, 1);
+					base.common.InformNLS(Character,
+						"#w Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung mehr auf dich zu haben. Die Krankheit hat sich zu weit entwickelt.",
+						"#w You drink the liquid but it doesn't seem to have any effect on you. The desease seems to have developed too much.");
+					return;
+				end
+			end
+			world:erase(SourceItem, 1);
+			base.common.InformNLS(Character, 
+				"#w Nachdem du die Flüssigkeit getrunken hast, fühlst du dich leicht schwach, aber das Verlangen nach Blut scheint verschwunden.",
+				"#w After you drank the liquid, you felt a little weak, but the demand for blood seems to be gone.");
+			Character.effects:removeEffect(501);
+			return;
+		end
+	end
+
   find, myEffect = Character.effects:find(167);
   if find then 
      
