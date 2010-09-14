@@ -20,7 +20,7 @@ end
 function receiveText(texttype, message, originator)
     if message=="top" then
         thisNPC:talk(CCharacter.say,"Producing top level error...");
-        non_existant_function();
+        local a = non_existant_array[2];
     elseif message=="mod" then
         thisNPC:talk(CCharacter.say,"Producing module level error...");
         npc._logmodule.modError();
