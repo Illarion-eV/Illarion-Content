@@ -925,9 +925,20 @@ end;
 function nextCycle()
 	mainNPC:nextCycle();
 	if not guards_init then
+		guards_init = 10;
+	end
+	if guards_init == 0 then
 		guards_init = 1;
-		thisNPC:talk(CCharacter.say,"test");
+		gCount = 0;
 		npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+	else
+		guards_init = guards_init - 1;
+	end
+	if gCount == 4 then
+		gCount = 0;
+		npc.base.guards_static.CheckForCharacters(thisNPC);
+	else
+		gCount = gCount + 1;
 	end
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
@@ -935,7 +946,3 @@ function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
 initNpc = nil;
 -- END
-
-function characterOnSight(theNpc, character)
-	npc.base.guards_static.HandleCharacterNear(thisNPC, character);
-end
