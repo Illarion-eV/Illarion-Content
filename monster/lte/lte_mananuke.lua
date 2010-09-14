@@ -1,7 +1,7 @@
 require("base.common");
 module("monster.lte.mananuke", package.seeall);
 
--- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.potionspam');
+-- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.mananuke');
 
 function addEffect(manaNuke, User)
 	local magicResistance = User:getSkill("magic resistance");
