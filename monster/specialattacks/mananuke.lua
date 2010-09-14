@@ -7,7 +7,7 @@ function ManaNuke(Monster, Enemy)
 			world:gfx(32, Enemy.pos);
 			world:makeSound(1, Enemy.pos); -- TODO: Assign Sound ID
 			myEffect = CLongTimeEffect(500,5);
-			Character.effects:addEffect(myEffect, true);
+			Enemy.effects:addEffect(myEffect, true);
 		end
 	end
 end
