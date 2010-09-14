@@ -1,12 +1,12 @@
-function MGolem_Slam (monster,char)
--- Ground Slam - sends all chars around him flying in all directions, doing damage 
-CharList={};
-local position = monster.pos;
-CharList = world:getCharactersInRangeOf (position, 1);
-	if (table.getn(CharList) > 3) and (math.random(100)<= 30) then			--only gets activated when at least 3 chars are around the golem
-		
-		for i=0,table.getn(CharList) do 
-			MGolem_PowerFist (monster, CharList[i]);
+function MGolem_Shield (monster,char)
+--  Permanent Spell Shield - each time when casted upon, there is a chance of either shooting a spell back at the attacker (as reflection) or healing itself slightly. (onCasted)	
+	if (math.random(100)<= 25) then	
+		if (math.random(100)<= 70) then
+			monster:talk(CCharacter.say, "#me's merinium body absorbs the spell, soon to repell it back at the caster.");
+			char:increaseAttrib ("hitpoints",-3000);
+		else
+			monster:talk(CCharacter.say, "#me's merinium body absorbs the spell, seemingly energising the it with new strenght.");
+			monster:increaseAttrib ("hitpoints",1500);
 		end
 	else
 		return false;
