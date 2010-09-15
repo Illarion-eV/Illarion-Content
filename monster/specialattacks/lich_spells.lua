@@ -2,6 +2,7 @@
 -- Lich will also use SuddenWarp, CastParalyze,CastMonster(needs to be modified) and CastMonMagic
 -- Done by Grim
 
+module("monster.specialattacks.lich_spells", package.seeall)
 function Lich_MagicShield (monster, char)
 -- Magic shield: If the boss is being cast on, he casts back a massive spell of doom on a) the caster b) a random char around (to be used with onCasted function)
 	if (math.random(100)<= 10) then
