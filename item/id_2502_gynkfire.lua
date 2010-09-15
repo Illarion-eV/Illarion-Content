@@ -12,7 +12,7 @@ end;
 
 function Drop(User,Item)
     if (math.random(1,User:increaseAttrib("dexterity",0)+7)==1) then
-        Explode(Item);
+        Explode(User, Item);
         User:talkLanguage(CCharacter.say,CPlayer.german,"#me lässt eine Flasche fallen, welche explodiert.");
         User:talkLanguage(CCharacter.say,CPlayer.english,"#me drops a bottle and it explodes.");
         InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Händen und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of you feets.");
@@ -40,7 +40,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     if (math.floor(SourceItem.quality/100)==2) then
         if (SourceItem:getType()==4 and (SourceItem.itempos==5 or SourceItem.itempos==6)) then
             if (TargetItem:getType()==3) then
-                Explode(TargetItem);
+                Explode(User, TargetItem);
                 if not User:isAdmin() then
                     User:talkLanguage(CCharacter.say,CPlayer.german,"#me wirft eine Flasche, welche explodiert.");
                     User:talkLanguage(CCharacter.say,CPlayer.english,"#me throws a bottle and it explodes.");
@@ -71,13 +71,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     world:changeItem( SourceItem );
 end;
 
-function Explode(Item)    
+function Explode(Attacker, Item)    
     local Strength=Item.quality - (math.floor(Item.quality/100)*100);
-    CreateCircle( 1,Scale(  20, 100,Strength),Item.pos,3);
-    CreateCircle( 9,Scale( 100, 500,Strength),Item.pos,2);
-    CreateCircle(44,Scale(1000,3000,Strength),Item.pos,1);
+    CreateCircle( 1,Scale(  20, 100,Strength),Item.pos,3, Attacker);
+    CreateCircle( 9,Scale( 100, 500,Strength),Item.pos,2, Attacker);
+    CreateCircle(44,Scale(1000,3000,Strength),Item.pos,1, Attacker);
     world:gfx(36,Item.pos);
-    HitChar(Item.pos,Scale(3000,6000,Strength));
+    HitChar(Item.pos,Scale(3000,6000,Strength), Attacker);
     world:makeSound(5,Item.pos);
     world:erase(Item,1);
 end;
@@ -86,7 +86,7 @@ function InformChar(User,gText,eText)
     User:inform(User:getPlayerLanguage()==0 and gText or eText);
 end;
 
-function CreateCircle(gfxid,Damage,CenterPos,Radius)
+function CreateCircle(gfxid,Damage,CenterPos,Radius, Attacker)
     local irad = math.ceil(Radius);
     local dim = 2*(irad+1);
     local x;
@@ -104,14 +104,20 @@ function CreateCircle(gfxid,Damage,CenterPos,Radius)
                and( map[x][y] or   map[x-1][y] or  map[x][y-1] or  map[x-1][y-1] ) then
                 HitPos=position( CenterPos.x + x, CenterPos.y + y, CenterPos.z );
                 world:gfx(gfxid,HitPos);
-                HitChar(HitPos,Damage);
+                HitChar(HitPos,Damage, Attacker);
             end;
         end;
     end;
 end;
 
-function HitChar(Posi,Hitpoints)
-    if world:isCharacterOnField(Posi) then world:getCharacterOnField(Posi):increaseAttrib("hitpoints",-Hitpoints) end;
+function HitChar(Posi,Hitpoints, Attacker)
+    if world:isCharacterOnField(Posi) then
+		local Defender = world:getCharacterOnField(Posi);
+		local hp = Defender:increaseAttrib("hitpoints",-Hitpoints);
+		if (hp <= 0) and (hp + Hitpoints) > 0 then -- that character was killed by that gynk, so notify base.playerdeath
+			base.playerdeath.playerKilledByMagic(Defender, Attacker);
+		end
+	end;
 end;
 
 function Scale(ScBegin, ScEnd, value)
