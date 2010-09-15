@@ -28,7 +28,18 @@ msgs:addMessage("#me hebt seine imposanten Fäuste und stößt einen donnernden Kri
 end
 
 function enemyNear(Monster,Enemy)
-
+local MonID=Monster:get_mon_type();
+	if(MonID == 301) then
+		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (monster, char) then
+			return true;
+		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (monster,char) then
+			return true;
+		else
+			return false;
+		end
+			
+	end
+	
     if init==nil then
         ini(Monster);
     end
@@ -63,7 +74,15 @@ function onAttacked(Monster,Enemy)
 end
 
 function onCasted(Monster,Enemy)
-
+local MonID=Monster:get_mon_type();
+	if(MonID == 301) then
+		if monster.specialattacks.mgolem_spells.MGolem_Shield (monster,char) then
+			return true;
+		else 
+			return false;
+		end
+	end
+	
     if init==nil then
         ini(Monster);
     end
