@@ -1,6 +1,7 @@
 -- This is the script handeling the special attacks for the "Ancient Evil" demon.
 -- Done by Grim
 
+module("monster.specialattacks.demon_spells", package.seeall)
 function Demon_Pull (monster, char)
  --Pull - The demon pulls the weakest char to himself and gets a free hit on him
 	if (math.random(100)<= 10) then
