@@ -3,6 +3,7 @@
 
 require("base.common")
 require("base.factions")
+require("base.playerdeath")
 module("lte.chr_reg", package.seeall)
 
 crossPosition={};
@@ -89,6 +90,8 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     -------------- Meldungen fertig --------------------
                 end
             else -- Tod durch Hunger
+				-- Andere Scripts ggf. benachrichtigen
+				base.playerdeath.playerKilled(Char);
                 -------------- Meldungen ausgeben ------------------
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english, "#me clenches and falls to the ground.");
@@ -120,6 +123,9 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     Effect:addValue("poison",1);
                 end
             else -- Tod durch Gift
+				-- Andere Scripts ggf. benachrichtigen
+				base.playerdeath.playerKilled(Char);
+				
                 Poisonvalue = 0; -- Char Tod, Gift verfliegt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
                 Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me drips some saliva out of the mouth and falls to the ground.");

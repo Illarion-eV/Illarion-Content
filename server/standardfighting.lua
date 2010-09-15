@@ -5,6 +5,9 @@
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
+-- Hang in base.playerdeath in order to call it's death recognition functions
+require("base.playerdeath")
+
 -- Lists with static values of the fighting system
 require("content.fighting")
 
@@ -839,6 +842,10 @@ function CoupDeGrace( Attacker, Defender )
                 DropBlood(position(Defender.Char.pos.x+x,Defender.Char.pos.y+y,Defender.Char.pos.z),3101);
             end
         end
+		
+		-- Andere Scripts ggf. benachrichtigen
+		base.playerdeath.playerKilledByFighting(Defender.Char, Attacker.Char);
+		
         return true;
     end
     return false;
@@ -1814,6 +1821,9 @@ function CauseDamage( Attacker, Defender, Globals )
 
     if (Hitpoints - Globals.Damage <= 0) then
         Attacker.Char.movepoints=Attacker.Char.movepoints+12;
+		if(Defender.Char:get_type() ~= 0) then
+			base.playerdeath.monsterKilledByFighting(Defender.Char, Attacker.Char);
+		end
     end
 end
 
