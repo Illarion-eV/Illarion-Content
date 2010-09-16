@@ -98,7 +98,7 @@ end
 function onAttacked(Monster,Enemy)
 local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
-		if monster.specialattacks.Lich_Forcefield (monster, char) then
+		if monster.specialattacks.lich_spells.Lich_Forcefield (monster, char) then
 			return true;
 		else
 			return false;
@@ -114,7 +114,7 @@ end
 function onCasted(Monster,Enemy)
 local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
-		if monster.specialattacks.Lich_MagicShield (monster, char) then
+		if monster.specialattacks.lich_spells.Lich_MagicShield (monster, char) then
 			return true;
 		else
 			return false;
