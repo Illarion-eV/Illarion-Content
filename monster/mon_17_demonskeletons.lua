@@ -96,7 +96,14 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-
+local MonID=Monster:get_mon_type();
+	if(MonID == 301) then
+		if monster.specialattacks.Lich_Forcefield (monster, char) then
+			return true;
+		else
+			return false;
+		end
+	end	
     if init==nil then
         ini(Monster);
     end
@@ -105,11 +112,19 @@ function onAttacked(Monster,Enemy)
 end
 
 function onCasted(Monster,Enemy)
-
+local MonID=Monster:get_mon_type();
+	if(MonID == 301) then
+		if monster.specialattacks.Lich_MagicShield (monster, char) then
+			return true;
+		else
+			return false;
+		end
+	end	
+		
     if init==nil then
         ini(Monster);
     end
-
+	
     killer[Monster.id]=Enemy.id; --Keeps track who attacked the monster last
 end
 
