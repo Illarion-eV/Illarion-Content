@@ -30,7 +30,7 @@ end
 
 function Lich_Forcefield (monster, char)
 --  Forcefield: If the boss is attacked with weapons, the attacker gets a ray of energy in his face (to be used with onAttacked function)
-	if (math.random(100)<= 5) then
+	if (math.random(100)<= 70) then
 		monster:talk(CCharacter.say, "You want to destroy me..? You can not kill enthernity!");
 		char:increaseAttrib ("hitpoints",-3000);
 	else
