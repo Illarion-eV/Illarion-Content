@@ -39,7 +39,7 @@ end
 end
 --]]
 
-function getTarget(Monster, targetList)
+function setTarget(Monster, targetList)
 
 
     for key,target in pairs(targetList) do                      -- search list for someone
@@ -57,7 +57,7 @@ function getTarget(Monster, targetList)
         Monster.waypoints:addFromList(WPList);
         Monster:setOnRoute(true);
         firstWP=1;
-        myTar:inform("habe firstWP in getTarget gesetzt!");
+        myTar:inform("habe firstWP in setTarget gesetzt!");
     end
     return 0;
 end
