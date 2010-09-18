@@ -1,8 +1,8 @@
 -- This is the script handeling the special attacks for the "Merinium Golem".
 -- Done by Grim
 require("monster.base.drop")
-require("base.common")
-module("monster.specialattacks.mgolem_spells", package.seeall)
+require("base.common");
+module("monster.specialattacks.mgolem_spells", package.seeall);
 
 function MGolem_PowerFist (monster, char)
 -- Power Fist - big damage hit, sends char flying (to be used with EnemyNear function
