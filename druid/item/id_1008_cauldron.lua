@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         world:changeItem(bottleInHand);
         
         -- Und der Spieler soll noch was lernen
-        ds_skillgain(User);
+        druid.base.alchemy.ds_skillgain(User);
         return;
     end
     
@@ -116,12 +116,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       ansonsten ein text, der ihm das mitteilt
   ]]--    
 				if User:getMagicType() == 3 then
-        	bottleInHand.id = newBottle[gemInHand.id];
+        	bottleInHand.id = druid.base.alchemy.newBottle[gemInHand.id];
         	world:changeItem(bottleInHand);
 		    	User:increaseAtPos(gemInHand.itempos,-1);
         
         	-- Und lernen wollen wir auch noch was.
-        	ds_skillgain(User);
+        	druid.base.alchemy.ds_skillgain(User);
         else
         base.common.InformNLS( User,
                 "Du musst schon Druide sein, um so etwas zu können.",
