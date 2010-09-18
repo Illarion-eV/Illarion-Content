@@ -8,7 +8,6 @@ function MGolem_PowerFist (monster, char, distance)
 -- Power Fist - big damage hit, sends char flying (to be used with EnemyNear function
 	if (math.random(100)<= 75) then
 			if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
-		char:inform("Test");
 				base.common.TurnTo(monster, char.pos);
 			
 		if char.pos.x-monster.pos.x == 0 then
@@ -26,8 +25,8 @@ function MGolem_PowerFist (monster, char, distance)
 		else
 			local NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 		end
-				
-		local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
+	char:inform("Test");			
+	local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
 				
 				base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
 					if not tileFound then
