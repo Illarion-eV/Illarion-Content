@@ -1457,17 +1457,17 @@ function Damage( Attacker, Defender, Globals )
 
     if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
-            if armour.Thrustarmour~= nil then
-                armourValue=armour.Thrustarmour;
+            if armour.ThrustArmor~= nil then
+                armourValue=armour.ThrustArmor;
             end
         elseif (Attacker.AttackKind==1) then --slashing
-            armourValue=armour.Strokearmour;
+            armourValue=armour.StrokeArmor;
         elseif (Attacker.AttackKind==2) then --concussion
-            armourValue=armour.Thrustarmour;
+            armourValue=armour.ThrustArmor;
         elseif (Attacker.AttackKind==3) then --puncture
-            armourValue=armour.Puncturearmour;
+            armourValue=armour.PunctureArmor;
         elseif (Attacker.AttackKind==4) then --distance
-            armourValue=armour.Puncturearmour;
+            armourValue=armour.PunctureArmor;
         end
         armourAbsorb = armour.Absorb;
         if (Defender.Char:get_type()~=1) then
@@ -1484,17 +1484,17 @@ function Damage( Attacker, Defender, Globals )
         local addarmourAbsorb = 0;
         if armourfound then
             if (Attacker.AttackKind==0) then --wrestling
-                if armour.Thrustarmour ~= nil then
-                    addarmourValue = armour.Thrustarmour;
+                if armour.ThrustArmor ~= nil then
+                    addarmourValue = armour.ThrustArmor;
                 end
             elseif (Attacker.AttackKind==1) then --slashing
-                addarmourValue= armour.Strokearmour;
+                addarmourValue= armour.StrokeArmor;
             elseif (Attacker.AttackKind==2) then --concussion
-                addarmourValue= armour.Thrustarmour;
+                addarmourValue= armour.ThrustArmor;
             elseif (Attacker.AttackKind==3) then --puncture
-                addarmourValue= armour.Puncturearmour;
+                addarmourValue= armour.PunctureArmor;
             elseif (Attacker.AttackKind==4) then --distance
-                addarmourValue= armour.Puncturearmour;
+                addarmourValue= armour.PunctureArmor;
             end
             addarmourAbsorb = armour.Absorb;
             if (Defender.Char:get_type()~=1) then
