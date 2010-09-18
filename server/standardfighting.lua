@@ -11,7 +11,7 @@ require("base.playerdeath")
 -- Lists with static values of the fighting system
 require("content.fighting")
 
-module("server.standardfighting", package.seeall, package.seeall(content.fighting))
+module("server.standardfighting", package.seeall)
 
 --[[
     Main Attacking function
@@ -1689,13 +1689,13 @@ function SpecialActiveItemEffects( Attacker, Defender, Globals )
                     Globals.Damage = Globals.Damage + 200 * Attacker.WeaponQualMod;
                 end
             end
-        elseif IsMeriniumPlatedWeapon( Attacker.WeaponItem.id ) then
+        elseif content.fighting.IsMeriniumPlatedWeapon( Attacker.WeaponItem.id ) then
             Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessMerinium(Defender.Race);
-        elseif IsCopperPlatedWeapon( Attacker.WeaponItem.id ) then
+        elseif content.fighting.IsCopperPlatedWeapon( Attacker.WeaponItem.id ) then
             Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessCopper(Defender.Race);
-        elseif IsSilverPlatedWeapon( Attacker.WeaponItem.id ) then
+        elseif content.fighting.IsSilverPlatedWeapon( Attacker.WeaponItem.id ) then
             Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessSilver(Defender.Race);
-        elseif IsGoldPlatedWeapon( Attacker.WeaponItem.id ) then
+        elseif content.fighting.IsGoldPlatedWeapon( Attacker.WeaponItem.id ) then
             Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessGold(Defender.Race);
         end
     end
