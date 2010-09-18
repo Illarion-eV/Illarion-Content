@@ -4,26 +4,30 @@ require("monster.base.drop")
 require("base.common");
 module("monster.specialattacks.mgolem_spells", package.seeall);
 
-function MGolem_PowerFist (monster, char)
+function MGolem_PowerFist (monster, char, distance)
 -- Power Fist - big damage hit, sends char flying (to be used with EnemyNear function
 	if (math.random(100)<= 75) then
 			if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
 		char:inform("Test");
 				base.common.TurnTo(monster, char.pos);
+			
+		if char.pos.x-monster.pos.x == 0 then
+			NewCharPosX = char.pos.x;
+		elseif char.pos.x-monster.pos.x > 0 then
+			local NewCharPosX = char.pos.x + math.floor((distance*math.sqrt(2))/2);
+		else
+			local NewCharPosX = char.pos.x - math.floor((distance*math.sqrt(2))/2);
+		end
+			
+		if char.pos.y-monster.pos.y == 0 then
+			NewCharPosY = char.pos.y;
+		elseif char.pos.y-monster.pos.y > 0 then
+			local NewCharPosY = char.pos.y + math.floor((distance*math.sqrt(2))/2);
+		else
+			local NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
+		end
 				
-				if char.pos.x-monster.pos.x>=0 then
-					local NewCharPosX = char.pos.x + math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
-				else
-					local NewCharPosX = char.pos.x - math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
-				end
-				
-				if char.pos.x-monster.pos.x>=0 then
-					local NewCharPosY = char.pos.y + math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
-				else
-					local NewCharPosY = char.pos.y - math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
-				end
-				
-				local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
+		local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
 				
 				base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
 					if not tileFound then
