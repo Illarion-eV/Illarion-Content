@@ -6,7 +6,7 @@ module("monster.specialattacks.mgolem_spells", package.seeall);
 
 function MGolem_PowerFist (monster, char, distance)
 -- Power Fist - big damage hit, sends char flying (to be used with EnemyNear function
-	if (math.random(100)<= 1) then
+	if (math.random(100)<= 10) then
 			if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
 				base.common.TurnTo(monster, char.pos);
 		
@@ -71,10 +71,50 @@ function MGolem_Slam (monster,char,distance)
 CharList={};
 local position = monster.pos;
 CharList = world:getCharactersInRangeOf (position, 1);
-	if (table.getn(CharList) >= 2) and (math.random(100)<= 70) then			--only gets activated when at least 3 chars are around the golem
+	if (table.getn(CharList) >= 1) and (math.random(100)<= 70) then			--only gets activated when at least 3 chars are around the golem
 		
 		for i=0,table.getn(CharList) do 
-			MGolem_PowerFist (monster, CharList[i],distance);
+			
+			if (monster.pos.z == CharList[i].pos.z) and ((math.abs(monster.pos.x - CharList[i].pos.x) <= 1) and (math.abs(monster.pos.y - CharList[i].pos.y) <= 1)) then
+		
+			local NewCharPosX;		
+			if CharList[i].pos.x-monster.pos.x == 0 then
+				NewCharPosX = CharList[i].pos.x;
+			elseif CharList[i].pos.x-monster.pos.x > 0 then
+				NewCharPosX = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
+			else
+				NewCharPosX = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
+			end
+		
+			local NewCharPosY;
+			if CharList[i].pos.y-monster.pos.y == 0 then
+				NewCharPosY = CharList[i].pos.y;
+			elseif CharList[i].pos.y-monster.pos.y > 0 then
+				NewCharPosY = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
+			else
+				NewCharPosY = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
+			end
+				
+			local ThrowPosition = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
+				
+				base.common.CreateLine(ThrowPosition, CharList[i].pos, function(currPos)
+					if not tileFound then
+						if not world:isItemOnField(currPos) then
+							tilePos = currPos;
+							tileFound = true;
+						end
+					end
+				end );
+	
+				if tileFound then
+					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
+					CharList[i]:warp(tilePos);
+					CharList[i]:increaseAttrib("hitpoints", -3000);
+				return true;
+				end
+		else 
+			return false;
+		end				
 		end
 	else
 		return false;
