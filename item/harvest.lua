@@ -102,7 +102,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         		return
         	end
 			
-			if not fruitgathering:FindRandomItem(User) then
+			if not content.gathering.fruitgathering:FindRandomItem(User) then
 				return
 			end
 			
