@@ -1510,15 +1510,15 @@ function Damage( Attacker, Defender, Globals )
     armourfound,armour=world:getNaturalArmor( Defender.Race );
     if armourfound then
         if (Attacker.AttackKind==0) then --wrestling
-            armourValue=armourValue+armour.thrustarmour;
+            armourValue=armourValue+armour.ThrustArmor;
         elseif (Attacker.AttackKind==1) then --slashing
-            armourValue=armourValue+armour.strokearmour;
+            armourValue=armourValue+armour.StrokeArmor;
         elseif (Attacker.AttackKind==2) then --concussion
-            armourValue=armourValue+armour.thrustarmour;
+            armourValue=armourValue+armour.ThrustArmor;
         elseif (Attacker.AttackKind==3) then --puncture
-            armourValue=armourValue+armour.puncturearmour;
+            armourValue=armourValue+armour.PunctureArmor;
         elseif (Attacker.AttackKind==4) then --distance
-            armourValue=armourValue+armour.puncturearmour;
+            armourValue=armourValue+armour.PunctureArmor;
         end
     end
 
