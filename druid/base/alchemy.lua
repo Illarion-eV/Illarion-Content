@@ -438,25 +438,25 @@ function ds_skillgain(User)
 	if(User:getMagicType() == 3) then
 		local alcskill = User:getSkill("alchemy");
 		if(alcskill >= 10 and alcskill <= 20) then
-			User:teachmagic(3, 2^3); -- analyze stock
+			User:teachMagic(3, 2^3); -- analyze stock
 		elseif(alcskill <= 30) then
-			User:teachmagic(3, 2^3); -- analyze stock
-			User:teachmagic(3, 2^4); -- quality stock
+			User:teachMagic(3, 2^3); -- analyze stock
+			User:teachMagic(3, 2^4); -- quality stock
 		elseif(alcskill <= 40) then
-			User:teachmagic(3, 2^3); -- analyze stock
-			User:teachmagic(3, 2^4); -- quality stock
-			User:teachmagic(3, 2^5); -- analyze potion
+			User:teachMagic(3, 2^3); -- analyze stock
+			User:teachMagic(3, 2^4); -- quality stock
+			User:teachMagic(3, 2^5); -- analyze potion
 		elseif(alcskill <= 50) then
-			User:teachmagic(3, 2^3); -- analyze stock
-			User:teachmagic(3, 2^4); -- quality stock
-			User:teachmagic(3, 2^5); -- analyze potion
-			User:teachmagic(3, 2^6); -- quality potion
+			User:teachMagic(3, 2^3); -- analyze stock
+			User:teachMagic(3, 2^4); -- quality stock
+			User:teachMagic(3, 2^5); -- analyze potion
+			User:teachMagic(3, 2^6); -- quality potion
 		elseif(alcskill > 50) then
-			User:teachmagic(3, 2^3); -- analyze stock
-			User:teachmagic(3, 2^4); -- quality stock
-			User:teachmagic(3, 2^5); -- analyze potion
-			User:teachmagic(3, 2^6); -- quality potion
-			User:teachmagic(3, 2^9); -- analyze illness
+			User:teachMagic(3, 2^3); -- analyze stock
+			User:teachMagic(3, 2^4); -- quality stock
+			User:teachMagic(3, 2^5); -- analyze potion
+			User:teachMagic(3, 2^6); -- quality potion
+			User:teachMagic(3, 2^9); -- analyze illness
 		end
 	end
 end
