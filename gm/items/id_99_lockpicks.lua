@@ -91,8 +91,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:inform("file not found");
 		end
 	elseif (string.find(User.lastSpokenText,"book")~=nil) then
-		User:sendBook(0); -- testbook
-		User:inform("test");
+		User:sendBook(1); -- testbook
+		User:inform("testbook");
 	elseif (string.find(User.lastSpokenText,"attack2")~=nil) then
 	    User:performAnimation(6); -- 6, 7(bow), 
 	elseif (string.find(User.lastSpokenText,"attack")~=nil) then
