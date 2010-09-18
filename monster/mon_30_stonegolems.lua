@@ -34,8 +34,7 @@ local MonID=Monster:get_mon_type();
 	
 		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy, 10) then
 			return true;
-
-		elseif monster.specialattacks.mgolem_spells.MGolem_Shield (Monster,Enemy) then
+		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy) then
 			return true;
 		else
 			return false;
