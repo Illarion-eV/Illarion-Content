@@ -1690,13 +1690,13 @@ function SpecialActiveItemEffects( Attacker, Defender, Globals )
                 end
             end
         elseif content.fighting.IsMeriniumPlatedWeapon( Attacker.WeaponItem.id ) then
-            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessMerinium(Defender.Race);
+            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * content.fighting.GetWeaknessMerinium(Defender.Race);
         elseif content.fighting.IsCopperPlatedWeapon( Attacker.WeaponItem.id ) then
-            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessCopper(Defender.Race);
+            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * content.fighting.GetWeaknessCopper(Defender.Race);
         elseif content.fighting.IsSilverPlatedWeapon( Attacker.WeaponItem.id ) then
-            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessSilver(Defender.Race);
+            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * content.fighting.GetWeaknessSilver(Defender.Race);
         elseif content.fighting.IsGoldPlatedWeapon( Attacker.WeaponItem.id ) then
-            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * GetWeaknessGold(Defender.Race);
+            Globals.Damage = Globals.Damage + 100 * Attacker.WeaponQualMod * content.fighting.GetWeaknessGold(Defender.Race);
         end
     end
 
