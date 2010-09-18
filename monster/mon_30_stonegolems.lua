@@ -33,11 +33,11 @@ local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
 	
 		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (monster, char) then
-			return true
+			return true;
 		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (monster,char) then
-			return true
+			return true;
 		else
-			return false
+			return false;
 		end
 	else
 		return false;		
