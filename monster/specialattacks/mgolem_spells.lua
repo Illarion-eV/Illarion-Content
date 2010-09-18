@@ -9,21 +9,23 @@ function MGolem_PowerFist (monster, char, distance)
 	if (math.random(100)<= 75) then
 			if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
 				base.common.TurnTo(monster, char.pos);
-			
+		
+		local NewCharPosX;		
 		if char.pos.x-monster.pos.x == 0 then
 			NewCharPosX = char.pos.x;
 		elseif char.pos.x-monster.pos.x > 0 then
-			local NewCharPosX = char.pos.x + math.floor((distance*math.sqrt(2))/2);
+			 NewCharPosX = char.pos.x + math.floor((distance*math.sqrt(2))/2);
 		else
-			local NewCharPosX = char.pos.x - math.floor((distance*math.sqrt(2))/2);
+			 NewCharPosX = char.pos.x - math.floor((distance*math.sqrt(2))/2);
 		end
-			
+		
+		local NewCharPosY;
 		if char.pos.y-monster.pos.y == 0 then
 			NewCharPosY = char.pos.y;
 		elseif char.pos.y-monster.pos.y > 0 then
-			local NewCharPosY = char.pos.y + math.floor((distance*math.sqrt(2))/2);
+			 NewCharPosY = char.pos.y + math.floor((distance*math.sqrt(2))/2);
 		else
-			local NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
+			 NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 		end
 	char:inform("Test");			
 	local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
