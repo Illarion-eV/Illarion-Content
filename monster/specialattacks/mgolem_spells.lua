@@ -45,7 +45,7 @@ function MGolem_PowerFist (monster, char, distance)
 					
 					-- here we check if the char is wearing metal armor or not. If not, though luck, the golem's hard hit will hurt like hell.
 					Metallist = {4,696,2357,2359,2360,2363,2364,2365,2367,2369,2389,2390,2393,2395,2400,2402,2403,2407,};				
-					local armor = getItemAt (3);
+					local armor = char:getItemAt (3);
 					for i = 1,table.getn(Metallist) do			
 						if Metallist[i] == armor.id then
 							char:increaseAttrib("hitpoints", -2000);
