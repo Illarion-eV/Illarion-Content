@@ -68,7 +68,7 @@ end
 
 function MGolem_Slam (monster,char,distance)
 -- Ground Slam - sends all chars around him flying in all directions, doing damage 
-local CharList={};
+local CharList;
 local ThrowPosition = {};
 local NewCharPosX={};
 local NewCharPosY={};
