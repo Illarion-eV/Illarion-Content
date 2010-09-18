@@ -73,29 +73,29 @@ local position = monster.pos;
 CharList = world:getCharactersInRangeOf (position, 1);
 	if (table.getn(CharList) >= 1) and (math.random(100)<= 70) then			--only gets activated when at least 3 chars are around the golem
 		
-		for i=0,table.getn(CharList) do 
+		for i=1,table.getn(CharList) do 
 			
 			if (monster.pos.z == CharList[i].pos.z) and ((math.abs(monster.pos.x - CharList[i].pos.x) <= 1) and (math.abs(monster.pos.y - CharList[i].pos.y) <= 1)) then
 		
-			local NewCharPosX;		
-			if CharList[i].pos.x-monster.pos.x == 0 then
-				NewCharPosX = CharList[i].pos.x;
-			elseif CharList[i].pos.x-monster.pos.x > 0 then
-				NewCharPosX = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
-			else
-				NewCharPosX = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
-			end
+				local NewCharPosX;		
+				if CharList[i].pos.x-monster.pos.x == 0 then
+					NewCharPosX = CharList[i].pos.x;
+				elseif CharList[i].pos.x-monster.pos.x > 0 then
+					NewCharPosX = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
+				else
+					NewCharPosX = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
+				end
 		
-			local NewCharPosY;
-			if CharList[i].pos.y-monster.pos.y == 0 then
-				NewCharPosY = CharList[i].pos.y;
-			elseif CharList[i].pos.y-monster.pos.y > 0 then
-				NewCharPosY = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
-			else
-				NewCharPosY = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
-			end
+				local NewCharPosY;
+				if CharList[i].pos.y-monster.pos.y == 0 then
+					NewCharPosY = CharList[i].pos.y;
+				elseif CharList[i].pos.y-monster.pos.y > 0 then
+					NewCharPosY = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
+				else
+					NewCharPosY = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
+				end
 				
-			local ThrowPosition = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
+				local ThrowPosition = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
 				
 				base.common.CreateLine(ThrowPosition, CharList[i].pos, function(currPos)
 					if not tileFound then
@@ -112,9 +112,9 @@ CharList = world:getCharactersInRangeOf (position, 1);
 					CharList[i]:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
-		else 
-			return false;
-		end				
+			else 
+				return false;
+			end				
 		end
 	else
 		return false;
