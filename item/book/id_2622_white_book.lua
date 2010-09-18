@@ -12,10 +12,10 @@ function InitBook()
 		bookID = {}; -- The id of that book.
 		
 		-- Testbook (1)
-		bookTitleDE[1] = "Testbuch";
-		bookTitleEN[1] = "Testbook";	
+		bookTitleDE[1] = "Das Buch der Priester Eldans";
+		bookTitleEN[1] = "Book of the priests of Eldan";	
 		bookLanguage[1] = "common language";			
-		bookMinimumLanguage[1] = 10;			
+		bookMinimumLanguage[1] = 0;			
 		bookID[1] = 1;
 		
 		Init = true;
