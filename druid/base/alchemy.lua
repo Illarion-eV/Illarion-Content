@@ -159,6 +159,10 @@ attr_r2[6] ="willpower";
 attr_r2[7] ="constitution";
 attr_r2[8] ="agility";
 
+taste = {};
+taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
+taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
+
 
 -- --------------------------------------------------------------------
 function CheckIfRtbInHand(User)     -- Faulbaumrinde in der Hand ? (rotten tree bark)

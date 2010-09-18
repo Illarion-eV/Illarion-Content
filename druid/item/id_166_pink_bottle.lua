@@ -11,11 +11,9 @@ module("druid.item.id_166_pink_bottle", package.seeall)
 -- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
 bottomBorder = 2;
-taste = {};
 topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
-taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
-taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","sour"        ,"salty"  ,"hot"      ,"sweet"};
+
 
 function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
