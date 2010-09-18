@@ -75,7 +75,7 @@ local NewCharPosY={};
 local position = monster.pos;
 local tilePos={};
 CharList = world:getCharactersInRangeOf (position, 1);
-	if (table.getn(CharList) >= 1) and (math.random(100)<= 70) then			--only gets activated when at least 3 chars are around the golem
+	if (table.getn(CharList) >= 1) and (math.random(100)<= 99) then			--only gets activated when at least 3 chars are around the golem
 		
 		for i=1,table.getn(CharList) do 
 			
