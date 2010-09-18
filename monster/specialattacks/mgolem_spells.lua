@@ -27,7 +27,7 @@ function MGolem_PowerFist (monster, char, distance)
 		else
 			 NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 		end
-	char:inform("Test");			
+				
 	local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
 				
 				base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
