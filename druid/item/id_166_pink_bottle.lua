@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.item.id_166_pink_bottle", package.seeall, package.seeall(druid.base.alchemy))
+module("druid.item.id_166_pink_bottle", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_166_pink_bottle' WHERE com_itemid = 166;
 
@@ -24,7 +24,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 		return;
 	end
 
-	local dataZList = SplitBottleData(Character,SourceItem.data);
+	local dataZList = druid.base.alchemy.SplitBottleData(Character,SourceItem.data);
 
     for i=1,8 do
     	  --Trankwirkung
@@ -47,7 +47,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 
     end
 
-	Character:inform(generateTasteMessage(Character:getPlayerLanguage(),dataZList));
+	Character:inform(druid.base.alchemy.generateTasteMessage(Character:getPlayerLanguage(),dataZList));
 
     -- Dieser Abschnitt wurde von 3.Seite eingebaut und geh�rt nicht in das DS
     if SourceItem.data == 75357464 and Character.effects:find(28) then
