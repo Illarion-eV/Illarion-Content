@@ -74,7 +74,7 @@ CharList = world:getCharactersInRangeOf (position, 1);
 	if (table.getn(CharList) > 3) and (math.random(100)<= 30) then			--only gets activated when at least 3 chars are around the golem
 		
 		for i=0,table.getn(CharList) do 
-			MGolem_PowerFist (monster, CharList[i]);
+			MGolem_PowerFist (monster, CharList[i],10);
 		end
 	else
 		return false;
