@@ -11,13 +11,13 @@ function MGolem_PowerFist (monster, char)
 		char:inform("Test");
 				base.common.TurnTo(monster, char.pos);
 				
-				if char.pos.x-golem.pos.x>=0 then
+				if char.pos.x-monster.pos.x>=0 then
 					local NewCharPosX = char.pos.x + math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
 				else
 					local NewCharPosX = char.pos.x - math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
 				end
 				
-				if char.pos.x-golem.pos.x>=0 then
+				if char.pos.x-monster.pos.x>=0 then
 					local NewCharPosY = char.pos.y + math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
 				else
 					local NewCharPosY = char.pos.y - math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
