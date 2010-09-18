@@ -3,7 +3,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.specialattacks.mgolem_spells");
-module("monster.mon_30_stonegolems")
+module("monster.mon_30_stonegolems", package.seeall)
 
 
 function ini(Monster)
