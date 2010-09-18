@@ -46,9 +46,11 @@ function setTarget(Monster, targetList)
         target:inform("now checking...");
         myTar=target;
         if string.find(target.lastSpokenText,"me")~=nil then    -- who said ".*me.*"
+            target:inform("gotcha");
             return key;
         end
     end
+--[[
     myTar:inform("check done");
     if (firstWP==nil) then                          -- if there was noone found
         monsterPos=Monster.pos;                                 -- let the monster have WP
@@ -59,6 +61,7 @@ function setTarget(Monster, targetList)
         firstWP=1;
         myTar:inform("habe firstWP in setTarget gesetzt!");
     end
+--]]
     return 0;
 end
 
