@@ -7,10 +7,9 @@ module("monster.specialattacks.mgolem_spells", package.seeall);
 function MGolem_PowerFist (monster, char)
 -- Power Fist - big damage hit, sends char flying (to be used with EnemyNear function
 	if (math.random(100)<= 75) then
-	char:inform("Test");
-		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
-		
-				base.common.TurnTo(Monster, char.pos);
+			if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
+		char:inform("Test");
+				base.common.TurnTo(monster, char.pos);
 				
 				if char.pos.x-golem.pos.x>=0 then
 					local NewCharPosX = char.pos.x + math.round(10*math.cos(math.atan((char.pos.y-monster.pos.y)/(0.000000001+char.pos.x-monster.pos.x))));
