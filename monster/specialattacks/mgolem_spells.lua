@@ -68,8 +68,12 @@ end
 
 function MGolem_Slam (monster,char,distance)
 -- Ground Slam - sends all chars around him flying in all directions, doing damage 
-CharList={};
+local CharList={};
+local ThrowPosition = {};
+local NewCharPosX={};
+local NewCharPosY={};
 local position = monster.pos;
+local tilePos={};
 CharList = world:getCharactersInRangeOf (position, 1);
 	if (table.getn(CharList) >= 1) and (math.random(100)<= 70) then			--only gets activated when at least 3 chars are around the golem
 		
@@ -77,30 +81,30 @@ CharList = world:getCharactersInRangeOf (position, 1);
 			
 			if (monster.pos.z == CharList[i].pos.z) and ((math.abs(monster.pos.x - CharList[i].pos.x) <= 1) and (math.abs(monster.pos.y - CharList[i].pos.y) <= 1)) then
 		
-				local NewCharPosX;		
+					
 				if CharList[i].pos.x-monster.pos.x == 0 then
-					NewCharPosX = CharList[i].pos.x;
+					NewCharPosX[i] = CharList[i].pos.x;
 				elseif CharList[i].pos.x-monster.pos.x > 0 then
-					NewCharPosX = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
+					NewCharPosX[i] = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
 				else
-					NewCharPosX = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
+					NewCharPosX[i] = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
 				end
 		
-				local NewCharPosY;
+				
 				if CharList[i].pos.y-monster.pos.y == 0 then
-					NewCharPosY = CharList[i].pos.y;
+					NewCharPosY[i] = CharList[i].pos.y;
 				elseif CharList[i].pos.y-monster.pos.y > 0 then
-					NewCharPosY = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
+					NewCharPosY[i] = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
 				else
-					NewCharPosY = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
+					NewCharPosY[i] = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
 				end
 				
-				local ThrowPosition = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
+				ThrowPosition[i] = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
 				
-				base.common.CreateLine(ThrowPosition, CharList[i].pos, function(currPos)
+				base.common.CreateLine(ThrowPosition[i], CharList[i].pos, function(currPos)
 					if not tileFound then
 						if not world:isItemOnField(currPos) then
-							tilePos = currPos;
+							tilePos[i] = currPos;
 							tileFound = true;
 						end
 					end
@@ -108,7 +112,7 @@ CharList = world:getCharactersInRangeOf (position, 1);
 	
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
-					CharList[i]:warp(tilePos);
+					CharList[i]:warp(tilePos[i]);
 					CharList[i]:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
