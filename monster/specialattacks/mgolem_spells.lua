@@ -99,7 +99,7 @@ CharList = world:getCharactersInRangeOf (position, 1);
 					NewCharPosY[i] = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
 				end
 				
-				ThrowPosition[i] = position (NewCharPosX,NewCharPosY,CharList[i].pos.z);
+				ThrowPosition[i] = position (NewCharPosX[i],NewCharPosY[i],CharList[i].pos.z);
 				
 				base.common.CreateLine(ThrowPosition[i], CharList[i].pos, function(currPos)
 					if not tileFound then
