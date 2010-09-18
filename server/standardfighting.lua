@@ -826,7 +826,7 @@ function CoupDeGrace( Attacker, Defender )
         return false;
     end
     local Hitpoints = Defender.Char:increaseAttrib("hitpoints",0);
-    if (( Attacker.AttackKind ~= 4 ) and ( Hitpoints == 1 ) and not IsTrainingWeapon( Attacker.WeaponItem.id )) then
+    if (( Attacker.AttackKind ~= 4 ) and ( Hitpoints == 1 ) and not content.fighting.IsTrainingWeapon( Attacker.WeaponItem.id )) then
         local gText = "seinem";
         local eText = "his";
         if (Attacker.Char:increaseAttrib("sex",0) == 1) then
