@@ -32,9 +32,9 @@ function enemyNear(Monster,Enemy)
 local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
 	
-		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (monster, char) then
+		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy) then
 			return true;
-		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (monster,char) then
+		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy) then
 			return true;
 		else
 			return false;
