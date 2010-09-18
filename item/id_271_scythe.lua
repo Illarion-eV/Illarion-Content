@@ -16,8 +16,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
     if ((TargetItem == nil) or (TargetItem.id == 0)) then -- Anvisiertes Item Vorhanden
         TargetItem = base.common.GetFrontItem( User ); -- Wenn nicht Item in Blickrichtung nehmen
     end
-    
-    if (TargetItem.id ~= 248) then
+	
+    if (TargetItem == nil or TargetItem.id ~= 248) then
         return
     end
     
