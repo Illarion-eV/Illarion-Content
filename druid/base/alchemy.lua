@@ -465,8 +465,8 @@ function checkPotionSpam(Character)
 	-- Check ob der Begrenzungseffekt da ist
 	foundEffect, myEffect = Character.effects:find(331);
 	if not foundEffect then -- nicht da, also erstellen
-		myEffect=CLongTimeEffect(331,1440000); -- TODO: Assign LTE ID
-		Character.effects:addEffect(myEffect, true);
+		myEffect=CLongTimeEffect(331,1440000);
+		Character.effects:addEffect(myEffect);
 		myEffect:addValue("potioncount", 1);
 		return false;
 	else -- Effekt schon da, potioncount prüfen
