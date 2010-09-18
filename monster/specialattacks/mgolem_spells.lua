@@ -33,7 +33,7 @@ function MGolem_PowerFist (monster, char, distance)
 				base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
 					if not tileFound then
 						if not world:isItemOnField(currPos) then
-							local tilePos = currPos;
+							tilePos = currPos;
 							tileFound = true;
 						end
 					end
