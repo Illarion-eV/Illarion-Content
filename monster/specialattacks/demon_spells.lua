@@ -11,7 +11,7 @@ function Demon_Pull (monster, char)
 		monster:increaseSkill(1,"Common language",100);
 	end
 
-	if (math.random(100)<= 10) then
+	if (math.random(100)<= 90) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		CharList={};
 		posit = monster.pos;
