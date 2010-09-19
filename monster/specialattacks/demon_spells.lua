@@ -16,6 +16,7 @@ function Demon_Pull (monster, char)
 		CharList={};
 		position = monster.pos;
 		local CharList = world:getCharactersInRangeOf (position, 10);
+		local SearchArea;
 		
 		for i,v in pairs(CharList) do
 			if v:increaseAttrib ("hitpoints",0) > 3000 then
@@ -37,7 +38,7 @@ function Demon_Pull (monster, char)
 			else
 				for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 					for y = (monster.pos.y - 1),(monster.pos.y + 1) do
-					local SearchArea = position (x,y,monster.pos.z);
+					SearchArea = position (x,y,monster.pos.z);
 						if not world:isCharacterOnField (SearchArea) then 
 							v:inform ("You feel an unbeatable force pulling you towards the demon.");
 							v:warp (x,y,monster.pos.z);
