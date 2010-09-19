@@ -4,7 +4,6 @@ require("monster.base.quests")
 require("base.messages");
 require("monster.specialattacks.mgolem_spells");
 require("monster.specialattacks.demon_spells");
-require("monster.specialattacks.lich_spells");
 module("monster.mon_30_stonegolems", package.seeall)
 
 
@@ -39,10 +38,7 @@ local MonID=Monster:get_mon_type();
 			return true;
 		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
 			return true;
-		elseif monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
-			return true;
-		elseif monster.specialattacks.lich_spells.Lich_MagicShield (Monster, Enemy) then
-			return true;
+
 		else
 			return false;
 		end
@@ -60,7 +56,15 @@ local MonID=Monster:get_mon_type();
 end
 
 function enemyOnSight(Monster,Enemy)
-
+if(MonID == 301) then
+	if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
+		return true;
+	else
+		return false;
+	end
+else
+	return false;
+end
     if init==nil then
         ini(Monster);
     end
