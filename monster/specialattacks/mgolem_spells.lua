@@ -72,7 +72,7 @@ local CharList={};
 local posit = monster.pos;
 
 CharList = world:getCharactersInRangeOf (posit, 1);
-	if (table.getn(CharList) >= 1) and (math.random(100)<= 90) then			--only gets activated when at least 3 chars are around the golem
+	if (table.getn(CharList) >= 1) and (math.random(100)<= 1) then			--only gets activated when at least 3 chars are around the golem
 		
 		for i,v in pairs(CharList) do
 			
@@ -107,7 +107,6 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 					if not tileFound then
 							if not world:isItemOnField(currPos) then
 								local tilePos = currPos;
-								v:inform("Debug:tilePosX= "..tilePos.x);
 								tileFound = true;
 							end
 						end
