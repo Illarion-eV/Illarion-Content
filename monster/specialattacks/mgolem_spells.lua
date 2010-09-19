@@ -107,9 +107,8 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				ThrowPosition[i][2]=NewCharPosY[i]*1;
 				ThrowPosition[i][3]=v.pos.z;
 				
-				test=position (0,5,0);
 				
-				base.common.CreateLine(test, v.pos, function(currPos)
+				base.common.CreateLine(ThrowPosition[i][v], v.pos, function(currPos)
 					if not tileFound then
 						if not world:isItemOnField(currPos) then
 							tilePos[i] = currPos;
