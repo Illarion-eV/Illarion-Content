@@ -101,9 +101,9 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				
 				
 				CharList[i]:inform("Debug: Your position is "..CharList[i].pos.x..", "..CharList[i].pos.y..", "..CharList[i].pos.z);
-				CharList[i]:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..CharList[i].pos.z);
-				local test = CharList[i];		
-				ThrowPosition[i] = position (NewCharPosX[i],NewCharPosY[i],test.pos.z);
+				CharList[i]:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..CharList[i].pos.z);	
+				
+				ThrowPosition[i] = position(NewCharPosX[i],NewCharPosY[i],CharList[i].pos.z);
 				CharList[i]:inform("Debug: ThrowPosition "..ThrowPosition[i]);
 				base.common.CreateLine(ThrowPosition[i], CharList[i].pos, function(currPos)
 					if not tileFound then
