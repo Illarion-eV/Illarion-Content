@@ -107,15 +107,18 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				ThrowPosition[i][2]=NewCharPosY[i]*1;
 				ThrowPosition[i][3]=v.pos.z;
 				
-				
-				base.common.CreateLine(position(ThrowPosition[i][1], ThrowPosition[i][2], ThrowPosition[i][3]), v.pos, function(currPos)
+				local startPos = position(ThrowPosition[i][1], ThrowPosition[i][2], ThrowPosition[i][3]);
+				local endPos = v.pos;
+				local lineFunction = function(currPos) 
 					if not tileFound then
-						if not world:isItemOnField(currPos) then
-							tilePos[i] = currPos;
-							tileFound = true;
+							if not world:isItemOnField(currPos) then
+								tilePos[i] = currPos;
+								tileFound = true;
+							end
 						end
 					end
-				end );
+					
+				base.common.CreateLine(startPos, endPos, lineFunction);
 	
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
