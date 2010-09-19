@@ -12,7 +12,6 @@ function Demon_Pull (monster, char)
 	end
 
 	if (math.random(100)<= 90) then
-		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		CharList={};
 		posit = monster.pos;
 		local CharList = world:getCharactersInRangeOf (posit, 10);
@@ -25,9 +24,11 @@ function Demon_Pull (monster, char)
 				else
 					for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 						for y = (monster.pos.y - 1) ,(monster.pos.y + 1) do
+						SearchArea = position (SearchArea);
 							if not world:isCharacterOnField (x,y,monster.pos.z) then 
 								v:inform ("You feel an unbeatable force pulling you towards the demon.");
-								v:warp (x,y,monster.pos.z);
+								monster:talk(CCharacter.yell, "I'll tear your soul apart!");
+								v:warp (SearchArea);
 								v.movepoints = 0;
 								v:increaseAttrib ("hitpoints",-1000);
 								return true;
@@ -41,6 +42,7 @@ function Demon_Pull (monster, char)
 					SearchArea = position (x,y,monster.pos.z);
 						if not world:isCharacterOnField (SearchArea) then 
 							v:inform ("You feel an unbeatable force pulling you towards the demon.");
+							monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 							v:warp (SearchArea);
 							v.movepoints = 0;
 							v:increaseAttrib ("hitpoints",-1000);
