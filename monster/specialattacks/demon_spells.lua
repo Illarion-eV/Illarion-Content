@@ -43,7 +43,7 @@ function Demon_Pull (monster, char)
 							v:inform ("You feel an unbeatable force pulling you towards the demon.");
 							v:warp (SearchArea);
 							v.movepoints = 0;
-							v:increaseAttrib ("hitpoints",10000);
+							v:increaseAttrib ("hitpoints",-1000);
 							return true;
 						end
 					end
