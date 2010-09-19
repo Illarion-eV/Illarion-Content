@@ -69,7 +69,6 @@ end
 function MGolem_Slam (monster,char,distance)
 -- Ground Slam - sends all chars around him flying in all directions, doing damage 
 local CharList={};
-local ThrowPosition = {};
 local posit = monster.pos;
 
 CharList = world:getCharactersInRangeOf (posit, 1);
@@ -101,11 +100,8 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 				v:inform("Debug: Your position is "..v.pos.x..", "..v.pos.y..", "..v.pos.z);
 				v:inform("Debug: Throw position will be "..NewCharPosX..", "..NewCharPosY..", "..v.pos.z);	
 				
-				ThrowPosition[1]=NewCharPosX*1;
-				ThrowPosition[2]=NewCharPosY*1;
-				ThrowPosition[3]=v.pos.z;
 				
-				local startPos = position(ThrowPosition[1], ThrowPosition[2], ThrowPosition[3]);
+				local startPos = position(NewCharPosX*1, NewCharPosY*1, v.pos.z);
 				local endPos = v.pos;
 				local lineFunction = function(currPos) 
 					if not tileFound then
