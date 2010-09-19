@@ -125,6 +125,7 @@ function Cow_useNPC(User, Counter, Param)
 end
 
 function Cow_receiveText(texttype,message,originator)
+    --[[ Disabled by Nitram - Spams the error log. BasicNPCChecks is nil
  	if BasicNPCChecks(originator,3) then --3 tiles radius
 		if string.find(message,"lute")~=nil or string.find(message,"Laute")~=nil then --a char near the cow is playing lute
 
@@ -134,6 +135,7 @@ function Cow_receiveText(texttype,message,originator)
 			end
 		end
 	end
+	--]]
 end
 
 function Cow_NextCycle(User)
