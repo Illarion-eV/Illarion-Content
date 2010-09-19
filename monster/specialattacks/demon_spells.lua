@@ -12,24 +12,24 @@ function Demon_Pull (monster, char)
 	end
 local x={};
 local y={};
-	if (math.random(100)<= 5) then
+	if (math.random(100)<= 90) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
-		local CharList={};
+		CharList={};
 		position = monster.pos;
-		CharList = world:getCharactersInRangeOf (position, 10);
+		local CharList = world:getCharactersInRangeOf (position, 10);
 		
-		for i=1,table.getn(CharList) do
-			if CharList[i]:increaseAttrib ("hitpoints",0) > 3000 then
-				if CharList[i]:increaseAttrib ("constitution",0) > 5 then
+		for i,v in pairs(CharList) do
+			if v:increaseAttrib ("hitpoints",0) > 3000 then
+				if v:increaseAttrib ("constitution",0) > 5 then
 					return false;
 				else
 					for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 						for y = (monster.pos.y - 1) ,(monster.pos.y + 1) do
 							if not world:isCharacterOnField (x,y,monster.pos.z) then 
-								CharList[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
-								CharList[i]:warp (x,y,monster.pos.z);
-								CharList[i].movepoints = 0;
-								CharList[i]:increaseAttrib ("hitpoints",-1000);
+								v:inform ("You feel an unbeatable force pulling you towards the demon.");
+								v:warp (x,y,monster.pos.z);
+								v.movepoints = 0;
+								v:increaseAttrib ("hitpoints",-1000);
 								return true;
 							end
 						end
@@ -39,10 +39,10 @@ local y={};
 				for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 					for y = (monster.pos.y - 1),(monster.pos.y + 1) do
 						if not world:isCharacterOnField (x,y,monster.pos.z) then 
-							CharList[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
-							CharList[i]:warp (x,y,monster.pos.z);
-							CharList[i].movepoints = 0;
-							CharList[i]:increaseAttrib ("hitpoints",-1000);
+							v:inform ("You feel an unbeatable force pulling you towards the demon.");
+							v:warp (x,y,monster.pos.z);
+							v.movepoints = 0;
+							v:increaseAttrib ("hitpoints",-1000);
 							return true;
 						end
 					end
