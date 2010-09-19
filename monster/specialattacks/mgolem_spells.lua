@@ -116,7 +116,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 	
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
-					v:warp(lineFunction);
+					v:warp(tilePos);
 					v:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
