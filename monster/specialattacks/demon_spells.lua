@@ -18,7 +18,7 @@ function Demon_Pull (monster, char)
 		local SearchArea;
 		
 		for i,v in pairs(CharList) do
-			if v:increaseAttrib ("hitpoints",0) > 3000 then
+			if v:increaseAttrib ("hitpoints",0) > 5000 then
 				if v:increaseAttrib ("constitution",0) > 5 then
 					return false;
 				else
