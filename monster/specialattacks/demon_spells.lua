@@ -14,8 +14,8 @@ function Demon_Pull (monster, char)
 	if (math.random(100)<= 90) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		CharList={};
-		position = monster.pos;
-		local CharList = world:getCharactersInRangeOf (position, 10);
+		posit = monster.pos;
+		local CharList = world:getCharactersInRangeOf (posit, 10);
 		local SearchArea;
 		
 		for i,v in pairs(CharList) do
