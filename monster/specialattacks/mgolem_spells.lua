@@ -77,37 +77,37 @@ local tilePos={};
 CharList = world:getCharactersInRangeOf (position, 1);
 	if (table.getn(CharList) >= 1) and (math.random(100)<= 90) then			--only gets activated when at least 3 chars are around the golem
 		
-		for i=1,table.getn(CharList) do 
+		for i,v in pairs(CharList) do
 			
-			if (monster.pos.z == CharList[i].pos.z) and ((math.abs(monster.pos.x - CharList[i].pos.x) <= 1) and (math.abs(monster.pos.y - CharList[i].pos.y) <= 1)) then
-			CharList[i]:inform("Debug: Found you!");
+			if (monster.pos.z == v.pos.z) and ((math.abs(monster.pos.x - v.pos.x) <= 1) and (math.abs(monster.pos.y - v.pos.y) <= 1)) then
+			v:inform("Debug: Found you!");
 					
-				if CharList[i].pos.x-monster.pos.x == 0 then
-					NewCharPosX[i] = CharList[i].pos.x*1;
+				if v.pos.x-monster.pos.x == 0 then
+					NewCharPosX[i] = v.pos.x*1;
 				elseif CharList[i].pos.x-monster.pos.x > 0 then
-					NewCharPosX[i] = (CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosX[i] = (v.pos.x + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosX[i] = (CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosX[i] = (v.pos.x - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 		
 				
 				if CharList[i].pos.y-monster.pos.y == 0 then
-					NewCharPosY[i] = CharList[i].pos.y*1;
+					NewCharPosY[i] = v.pos.y*1;
 				elseif CharList[i].pos.y-monster.pos.y > 0 then
-					NewCharPosY[i] = (CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosY[i] = (v.pos.y + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosY[i] = (CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosY[i] = (v.pos.y - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 				
 				
-				CharList[i]:inform("Debug: Your position is "..CharList[i].pos.x..", "..CharList[i].pos.y..", "..CharList[i].pos.z);
-				CharList[i]:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..CharList[i].pos.z);	
+				v:inform("Debug: Your position is "..v.pos.x..", "..v.pos.y..", "..v.pos.z);
+				v:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..v.pos.z);	
 				testpos=CharList[i].pos;
-				CharList[i]:inform("Debug: testpos:"..testpos);
+				v:inform("Debug: testpos:"..testpos);
 				
 				ThrowPosition[i] = position(NewCharPosX[i],NewCharPosY[i],CharList[i].pos.z);
 				
-				CharList[i]:inform("Debug: ThrowPosition "..ThrowPosition[i]);
+				v:inform("Debug: ThrowPosition "..ThrowPosition[i]);
 				test=position (0,5,0);
 
 				
@@ -122,8 +122,8 @@ CharList = world:getCharactersInRangeOf (position, 1);
 	
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
-					CharList[i]:warp(tilePos[i]);
-					CharList[i]:increaseAttrib("hitpoints", -3000);
+					v:warp(tilePos[i]);
+					v:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
 			else 
