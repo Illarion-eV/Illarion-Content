@@ -10,7 +10,7 @@ function Demon_Pull (monster, char)
 		position = monster.pos;
 		CharList = world:getCharactersInRangeOf (position, 10);
 		
-		for i=0,table.getn(CharList) do
+		for i=1,table.getn(CharList) do
 			if char[i]:increaseAttrib ("hitpoints",0) > 3000 then
 				if char[i]:increaseAttrib ("constitution",0) > 5 then
 					return false;
