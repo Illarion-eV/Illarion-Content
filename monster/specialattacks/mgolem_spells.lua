@@ -107,6 +107,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 					if not tileFound then
 							if not world:isItemOnField(currPos) then
 								tilePos = currPos;
+								v:inform("Debug:tilePosX= "..tilePos.x);
 								tileFound = true;
 							end
 						end
