@@ -11,7 +11,7 @@ function Demon_Pull (monster, char)
 		monster:increaseSkill(1,"common language",100);
 	end
 
-	if (math.random(100)<= 90) then
+	if (math.random(100)<= 10) then
 		CharList={};
 		posit = monster.pos;
 		local CharList = world:getCharactersInRangeOf (posit, 10);
