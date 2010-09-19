@@ -80,7 +80,7 @@ CharList = world:getCharactersInRangeOf (position, 1);
 		for i=1,table.getn(CharList) do 
 			
 			if (monster.pos.z == CharList[i].pos.z) and ((math.abs(monster.pos.x - CharList[i].pos.x) <= 1) and (math.abs(monster.pos.y - CharList[i].pos.y) <= 1)) then
-		
+			CharList[i]:inform("Debug: Found you!");
 					
 				if CharList[i].pos.x-monster.pos.x == 0 then
 					NewCharPosX[i] = CharList[i].pos.x;
@@ -99,6 +99,9 @@ CharList = world:getCharactersInRangeOf (position, 1);
 					NewCharPosY[i] = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
 				end
 				
+				
+				CharList[i]:inform("Debug: Your position is "..CharList[i].pos.x..", "..CharList[i].pos.y..", "..CharList[i].pos.z);
+				CharList[i]:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..CharList[i].pos.z);
 				local test = CharList[i];		
 				ThrowPosition[i] = position (NewCharPosX[i],NewCharPosY[i],test.pos.z);
 				
