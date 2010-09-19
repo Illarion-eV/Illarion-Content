@@ -30,7 +30,7 @@ function Demon_Pull (monster, char)
 								v:inform ("You feel an unbeatable force pulling you towards the demon.");
 								v:warp (SearchArea);
 								v.movepoints = 0;
-								v:increaseAttrib ("hitpoints",-1000);
+								v:increaseAttrib ("hitpoints",-2000);
 								return true;
 							end
 						end
@@ -45,7 +45,7 @@ function Demon_Pull (monster, char)
 							monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 							v:warp (SearchArea);
 							v.movepoints = 0;
-							v:increaseAttrib ("hitpoints",-1000);
+							v:increaseAttrib ("hitpoints",-2000);
 							return true;
 						end
 					end
