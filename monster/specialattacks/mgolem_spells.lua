@@ -83,7 +83,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 					NewCharPosX = v.pos.x*1;
 				elseif CharList[i].pos.x-monster.pos.x > 0 then
 					NewCharPosX = (v.pos.x + math.floor((distance*math.sqrt(2))/2))*1;
-				else
+				elseif CharList[i].pos.x-monster.pos.x < 0 then
 					NewCharPosX = (v.pos.x - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 		
@@ -92,7 +92,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 					NewCharPosY = v.pos.y*1;
 				elseif CharList[i].pos.y-monster.pos.y > 0 then
 					NewCharPosY = (v.pos.y + math.floor((distance*math.sqrt(2))/2))*1;
-				else
+				elseif CharList[i].pos.y-monster.pos.y < 0 then
 					NewCharPosY = (v.pos.y - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 				
