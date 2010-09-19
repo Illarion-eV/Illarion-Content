@@ -83,20 +83,20 @@ CharList = world:getCharactersInRangeOf (position, 1);
 			CharList[i]:inform("Debug: Found you!");
 					
 				if CharList[i].pos.x-monster.pos.x == 0 then
-					NewCharPosX[i] = CharList[i].pos.x;
+					NewCharPosX[i] = CharList[i].pos.x*1;
 				elseif CharList[i].pos.x-monster.pos.x > 0 then
-					NewCharPosX[i] = CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2);
+					NewCharPosX[i] = (CharList[i].pos.x + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosX[i] = CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2);
+					NewCharPosX[i] = (CharList[i].pos.x - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 		
 				
 				if CharList[i].pos.y-monster.pos.y == 0 then
-					NewCharPosY[i] = CharList[i].pos.y;
+					NewCharPosY[i] = CharList[i].pos.y*1;
 				elseif CharList[i].pos.y-monster.pos.y > 0 then
-					NewCharPosY[i] = CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2);
+					NewCharPosY[i] = (CharList[i].pos.y + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosY[i] = CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2);
+					NewCharPosY[i] = (CharList[i].pos.y - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 				
 				
