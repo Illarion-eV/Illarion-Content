@@ -27,8 +27,10 @@ function MGolem_PowerFist (monster, char, distance)
 		else
 			 NewCharPosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 		end
-				
-	local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
+		
+			local tilePos;
+			tileFound = false;	
+			local ThrowPosition = position (NewCharPosX,NewCharPosY,char.pos.z);
 				
 				base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
 					if not tileFound then
@@ -76,8 +78,8 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 		
 		for i,v in pairs(CharList) do
 			
-			if (monster.pos.z == v.pos.z) and ((math.abs(monster.pos.x - v.pos.x) <= 1) and (math.abs(monster.pos.y - v.pos.y) <= 1)) then
-			v:inform("Debug: Found you!");
+			
+				v:inform("Debug: Found you!");
 					
 				if v.pos.x-monster.pos.x == 0 then
 					NewCharPosX = v.pos.x*1;
@@ -121,9 +123,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 					v:increaseAttrib("hitpoints", 3000);
 				return true;
 				end
-			else 
-				return false;
-			end				
+					
 		end
 	else
 		return false;
