@@ -75,7 +75,7 @@ local NewCharPosY={};
 local position = monster.pos;
 local tilePos={};
 CharList = world:getCharactersInRangeOf (position, 1);
-	if (table.getn(CharList) >= 1) and (math.random(100)<= 5) then			--only gets activated when at least 3 chars are around the golem
+	if (table.getn(CharList) >= 1) and (math.random(100)<= 90) then			--only gets activated when at least 3 chars are around the golem
 		
 		for i,v in pairs(CharList) do
 			
@@ -105,7 +105,7 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				testpos=v.pos;
 				v:inform("Debug: testpos:"..testpos.pos);
 				
-				ThrowPosition[i] = position(NewCharPosX[i],NewCharPosY[i],v.pos.z);
+				ThrowPosition[i] = position(NewCharPosX[i]*1,NewCharPosY[i]*1,v.pos.z);
 				
 				v:inform("Debug: ThrowPosition "..ThrowPosition[i].pos);
 				test=position (0,5,0);
