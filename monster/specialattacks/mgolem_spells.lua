@@ -120,7 +120,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
 					v:warp(tilePos);
-					v:increaseAttrib("hitpoints", 3000);
+					v:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
 					
@@ -138,7 +138,7 @@ function MGolem_Shield (monster,char)
 			char:increaseAttrib ("hitpoints",-3000);
 		else
 			monster:talk(CCharacter.say, "#me's merinium body absorbs the spell, seemingly energising the it with new strenght.");
-			monster:increaseAttrib ("hitpoints",1500);
+			monster:increaseAttrib ("hitpoints",-1500);
 		end
 	else
 		return false;
