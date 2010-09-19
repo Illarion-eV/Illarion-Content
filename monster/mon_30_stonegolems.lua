@@ -10,9 +10,6 @@ module("monster.mon_30_stonegolems", package.seeall)
 
 
 function ini(Monster)
-	if monster:getSkill("common language") < 100 then
-		monster:increaseSkill(1,"common language",100);
-	end
 
 init=true;
 monster.base.quest.iniQuests();
