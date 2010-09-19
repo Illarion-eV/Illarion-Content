@@ -12,7 +12,7 @@ function Demon_Pull (monster, char)
 	end
 local x={};
 local y={};
-	if (math.random(100)<= 90) then
+	if (math.random(100)<= 5) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		local CharList={};
 		position = monster.pos;
