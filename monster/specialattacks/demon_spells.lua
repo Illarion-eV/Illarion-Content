@@ -4,6 +4,9 @@
 module("monster.specialattacks.demon_spells", package.seeall)
 function Demon_Pull (monster, char)
  --Pull - The demon pulls the weakest char to himself and gets a free hit on him
+ if monster:getSkill("Common language") < 100 then
+	monster:increaseSkill(1,"Common language",100);
+end
 	if (math.random(100)<= 90) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		local CharList={};
