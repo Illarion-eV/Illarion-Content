@@ -68,12 +68,10 @@ end
 
 function MGolem_Slam (monster,char,distance)
 -- Ground Slam - sends all chars around him flying in all directions, doing damage 
-local CharList;
-local ThrowPosition = {{}};
-local NewCharPosX={};
-local NewCharPosY={};
+local CharList={};
+local ThrowPosition = {};
 local posit = monster.pos;
-local tilePos={};
+
 CharList = world:getCharactersInRangeOf (posit, 1);
 	if (table.getn(CharList) >= 1) and (math.random(100)<= 90) then			--only gets activated when at least 3 chars are around the golem
 		
@@ -83,36 +81,36 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 			v:inform("Debug: Found you!");
 					
 				if v.pos.x-monster.pos.x == 0 then
-					NewCharPosX[i] = v.pos.x*1;
+					NewCharPosX = v.pos.x*1;
 				elseif CharList[i].pos.x-monster.pos.x > 0 then
-					NewCharPosX[i] = (v.pos.x + math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosX = (v.pos.x + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosX[i] = (v.pos.x - math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosX = (v.pos.x - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 		
 				
 				if CharList[i].pos.y-monster.pos.y == 0 then
-					NewCharPosY[i] = v.pos.y*1;
+					NewCharPosY = v.pos.y*1;
 				elseif CharList[i].pos.y-monster.pos.y > 0 then
-					NewCharPosY[i] = (v.pos.y + math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosY = (v.pos.y + math.floor((distance*math.sqrt(2))/2))*1;
 				else
-					NewCharPosY[i] = (v.pos.y - math.floor((distance*math.sqrt(2))/2))*1;
+					NewCharPosY = (v.pos.y - math.floor((distance*math.sqrt(2))/2))*1;
 				end
 				
 				
 				v:inform("Debug: Your position is "..v.pos.x..", "..v.pos.y..", "..v.pos.z);
 				v:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..v.pos.z);	
 				
-				ThrowPosition[i][1]=NewCharPosX[i]*1;
-				ThrowPosition[i][2]=NewCharPosY[i]*1;
-				ThrowPosition[i][3]=v.pos.z;
+				ThrowPosition[1]=NewCharPosX*1;
+				ThrowPosition[2]=NewCharPosY*1;
+				ThrowPosition[3]=v.pos.z;
 				
-				local startPos = position(ThrowPosition[i][1], ThrowPosition[i][2], ThrowPosition[i][3]);
+				local startPos = position(ThrowPosition[1], ThrowPosition[2], ThrowPosition[3]);
 				local endPos = v.pos;
 				local lineFunction = function(currPos) 
 					if not tileFound then
 							if not world:isItemOnField(currPos) then
-								tilePos[i] = currPos;
+								tilePos = currPos;
 								tileFound = true;
 							end
 						end
@@ -122,7 +120,7 @@ CharList = world:getCharactersInRangeOf (posit, 1);
 	
 				if tileFound then
 					monster:talk(CCharacter.say, "#me slams his fist into the ground, creating a massive shockwave.");					
-					v:warp(tilePos[i]);
+					v:warp(tilePos);
 					v:increaseAttrib("hitpoints", -3000);
 				return true;
 				end
