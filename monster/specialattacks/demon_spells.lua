@@ -13,7 +13,7 @@ end
 local x={};
 local y={};
 	if (math.random(100)<= 90) then
-		monster:talk(CCharacter.say, "I'll tear your soul apart!");
+		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		local CharList={};
 		position = monster.pos;
 		CharList = world:getCharactersInRangeOf (position, 10);
