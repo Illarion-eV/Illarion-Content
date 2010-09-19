@@ -10,15 +10,16 @@ function Lich_MagicShield (monster, char)
 			monster:talk(CCharacter.say, "Your efforts are worthless, mortal.. Come, embrace death.");
 			char:increaseAttrib ("hitpoints",-4000);
 			char.movepoints = 0;
+			return true;
 		else
 			monster:talk(CCharacter.say, "You shouldn't toy with powers you cannot understand, mortal.");
 			CharList={};
-			local position = monster.pos;
-			CharList = world:getCharactersInRangeOf (position, 5);
+			local posit = monster.pos;
+			CharList = world:getCharactersInRangeOf (posit, 5);
 			x=0;
-			for i=0,table.getn(CharList) do
-				while x < 3 do
-					char[math.random(table.getn(CharList))]:increaseAttrib ("hitpoints",-2500);
+			for i,v in pairs(CharList) do
+				while x <= 3 do
+					CharList[math.random(table.getn(CharList))]:increaseAttrib ("hitpoints",-2500);
 					x = x +1;
 				end
 			end
@@ -33,6 +34,7 @@ function Lich_Forcefield (monster, char)
 	if (math.random(100)<= 70) then
 		monster:talk(CCharacter.say, "You want to destroy me..? You can not kill enthernity!");
 		char:increaseAttrib ("hitpoints",-3000);
+		return true;
 	else
 		return false;
 	end
