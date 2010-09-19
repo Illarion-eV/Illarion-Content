@@ -4,11 +4,15 @@ require("monster.base.quests")
 require("base.messages");
 require("monster.specialattacks.mgolem_spells");
 require("monster.specialattacks.demon_spells");
+require("monster.specialattacks.lich_spells");
 module("monster.mon_30_stonegolems", package.seeall)
 
 
 
 function ini(Monster)
+	if monster:getSkill("common language") < 100 then
+		monster:increaseSkill(1,"common language",100);
+	end
 
 init=true;
 monster.base.quest.iniQuests();
@@ -39,6 +43,8 @@ local MonID=Monster:get_mon_type();
 		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
 			return true;
 		elseif monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
+			return true;
+		elseif monster.specialattacks.lich_spells.Lich_MagicShield (Monster, Enemy) then
 			return true;
 		else
 			return false;
