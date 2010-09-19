@@ -17,12 +17,17 @@ function Lich_MagicShield (monster, char)
 			local posit = monster.pos;
 			CharList = world:getCharactersInRangeOf (posit, 5);
 			x=0;
+		if (table.getn(CharList)>=3) then
 			for i,v in pairs(CharList) do
 				while x <= 3 do
 					CharList[math.random(table.getn(CharList))]:increaseAttrib ("hitpoints",-2500);
 					x = x +1;
 				end
 			end
+		else
+		monster:talk(CCharacter.say, "Worked!");
+			return false;
+		end
 		end
 	else
 		return false;
