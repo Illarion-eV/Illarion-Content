@@ -10,8 +10,7 @@ function Demon_Pull (monster, char)
 	if monster:getSkill("Common language") < 100 then
 		monster:increaseSkill(1,"Common language",100);
 	end
-local x={};
-local y={};
+
 	if (math.random(100)<= 90) then
 		monster:talk(CCharacter.yell, "I'll tear your soul apart!");
 		CharList={};
@@ -38,7 +37,8 @@ local y={};
 			else
 				for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 					for y = (monster.pos.y - 1),(monster.pos.y + 1) do
-						if not world:isCharacterOnField (x,y,monster.pos.z) then 
+					local SearchArea = position (x,y,monster.pos.z);
+						if not world:isCharacterOnField (SearchArea) then 
 							v:inform ("You feel an unbeatable force pulling you towards the demon.");
 							v:warp (x,y,monster.pos.z);
 							v.movepoints = 0;
