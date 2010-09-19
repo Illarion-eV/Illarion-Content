@@ -5,7 +5,7 @@
 module("monster.specialattacks.lich_spells", package.seeall)
 function Lich_MagicShield (monster, char)
 -- Magic shield: If the boss is being cast on, he casts back a massive spell of doom on a) the caster b) a random char around (to be used with onCasted function)
-	if (math.random(100)<= 10) then
+	if (math.random(100)<= 90) then
 		if (math.random(100)<= 80) then
 			monster:talk(CCharacter.say, "Your efforts are worthless, mortal.. Come, embrace death.");
 			char:increaseAttrib ("hitpoints",-4000);
