@@ -105,13 +105,13 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				testpos=CharList[i].pos;
 				v:inform("Debug: testpos:"..testpos);
 				
-				ThrowPosition[i] = position(NewCharPosX[i],NewCharPosY[i],CharList[i].pos.z);
+				ThrowPosition[i] = position(NewCharPosX[i],NewCharPosY[i],v.pos.z);
 				
-				v:inform("Debug: ThrowPosition "..ThrowPosition[i]);
+				v:inform("Debug: ThrowPosition "..ThrowPosition[i].pos);
 				test=position (0,5,0);
 
 				
-				base.common.CreateLine(test, CharList[i].pos, function(currPos)
+				base.common.CreateLine(test, v.pos, function(currPos)
 					if not tileFound then
 						if not world:isItemOnField(currPos) then
 							tilePos[i] = currPos;
