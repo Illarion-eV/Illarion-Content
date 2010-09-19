@@ -107,7 +107,6 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				ThrowPosition[i][2]=NewCharPosY[i]*1;
 				ThrowPosition[i][3]=v.pos.z;
 				
-				v:inform("Debug: ThrowPosition "..ThrowPosition[i].pos);
 				test=position (0,5,0);
 				
 				base.common.CreateLine(test, v.pos, function(currPos)
