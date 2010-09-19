@@ -11,17 +11,17 @@ function Demon_Pull (monster, char)
 		CharList = world:getCharactersInRangeOf (position, 10);
 		
 		for i=1,table.getn(CharList) do
-			if char[i]:increaseAttrib ("hitpoints",0) > 3000 then
-				if char[i]:increaseAttrib ("constitution",0) > 5 then
+			if CharList[i]:increaseAttrib ("hitpoints",0) > 3000 then
+				if CharList[i]:increaseAttrib ("constitution",0) > 5 then
 					return false;
 				else
 					for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 						for y = (monster.pos.y - 1) ,(monster.pos.y + 1) do
 							if not world:isCharacterOnField (x,y,monster.pos.z) then 
-								char[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
-								char[i]:warp (x,y,monster.pos.z);
-								char[i].movepoints = 0;
-								char[i]:increaseAttrib ("hitpoints",-1000);
+								CharList[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
+								CharList[i]:warp (x,y,monster.pos.z);
+								CharList[i].movepoints = 0;
+								CharList[i]:increaseAttrib ("hitpoints",-1000);
 								return true;
 							end
 						end
@@ -31,10 +31,10 @@ function Demon_Pull (monster, char)
 				for x = (monster.pos.x - 1),(monster.pos.x + 1) do					--verify if free space next to demon
 					for y = (monster.pos.y - 1),(monster.pos.y + 1) do
 						if not world:isCharacterOnField (x,y,monster.pos.z) then 
-							char[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
-							char[i]:warp (x,y,monster.pos.z);
-							char[i].movepoints = 0;
-							char[i]:increaseAttrib ("hitpoints",-1000);
+							CharList[i]:inform ("You feel an unbeatable force pulling you towards the demon.");
+							CharList[i]:warp (x,y,monster.pos.z);
+							CharList[i].movepoints = 0;
+							CharList[i]:increaseAttrib ("hitpoints",-1000);
 							return true;
 						end
 					end
