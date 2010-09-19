@@ -102,8 +102,6 @@ CharList = world:getCharactersInRangeOf (position, 1);
 				
 				v:inform("Debug: Your position is "..v.pos.x..", "..v.pos.y..", "..v.pos.z);
 				v:inform("Debug: Throw position will be "..NewCharPosX[i]..", "..NewCharPosY[i]..", "..v.pos.z);	
-				testpos=v.pos;
-				v:inform("Debug: testpos:"..testpos.pos);
 				
 				ThrowPosition[i] = position(NewCharPosX[i]*1,NewCharPosY[i]*1,v.pos.z);
 				
