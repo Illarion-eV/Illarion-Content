@@ -41,7 +41,7 @@ local MonID=Monster:get_mon_type();
 			return true;
 		elseif monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
-		elseif monster.specialattacks.lich_spells.Lich_Forcefield (Monster, Enemy) then
+		elseif monster.specialattacks.lich_spells.Lich_MagicShield (Monster, Enemy) then
 			return true;
 		else
 			return false;
