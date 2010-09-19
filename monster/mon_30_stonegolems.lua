@@ -38,8 +38,7 @@ local MonID=Monster:get_mon_type();
 			return true;
 		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
 			return true;
-		elseif monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
-			return true;
+
 		else
 			return false;
 		end
@@ -57,7 +56,17 @@ local MonID=Monster:get_mon_type();
 end
 
 function enemyOnSight(Monster,Enemy)
-Enemy:inform("Spotted!");
+local MonID=Monster:get_mon_type();
+	if(MonID == 301) then
+		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
+			return true;
+		else
+			return false;
+		end
+	else
+		return false;
+	end
+
     if init==nil then
         ini(Monster);
     end
