@@ -1812,18 +1812,16 @@ function CauseDamage( Attacker, Defender, Globals )
 
         return true;
     else
+	
+		if (Hitpoints - Globals.Damage <= 0) then
+			base.playerdeath.monsterKilledByFighting(Defender.Char:get_mon_type(), Attacker.Char);
+		end
+	
         Defender.Char:increaseAttrib("hitpoints",-Globals.Damage);
         if ( Attacker.AttackKind == 4 ) then -- distanz angriff.
             Defender.Char.movepoints = Defender.Char.movepoints - 5;
             DropAmmo( Attacker, false, Defender.Char );
         end
-    end
-
-    if (Hitpoints - Globals.Damage <= 0) then
-        Attacker.Char.movepoints=Attacker.Char.movepoints+12;
-		if(Defender.Char:get_type() ~= 0) then
-			base.playerdeath.monsterKilledByFighting(Defender.Char, Attacker.Char);
-		end
     end
 end
 
