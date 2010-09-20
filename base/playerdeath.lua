@@ -16,6 +16,11 @@ function playerKilled(Player)
 end
 
 -- monster got killed by another player
-function monsterKilledByFighting(Monster, Killer)
+function monsterKilledByFighting(MonsterID, Killer)
+
+end
+
+-- player got killed by direct a magic spell (summoned flames are no direct magic spells)
+function monsterKilledByMagic(MonsterID, Killer)
 
 end
