@@ -11,9 +11,9 @@ function Demon_Pull (monster, char)
 		monster:increaseSkill(1,"common language",100);
 	end
 
-	if (math.random(100)<= 90) then
+	if (math.random(100)<= 10) then
 		CharList={};
-		posit = monster.pos;
+		local posit = monster.pos;
 		local CharList = world:getCharactersInRangeOf (posit, 10);
 		local SearchArea;
 		
@@ -27,7 +27,7 @@ function Demon_Pull (monster, char)
 						SearchArea = position (SearchArea);
 							if not world:isCharacterOnField (x,y,monster.pos.z) then 
 								monster:talk(CCharacter.yell, "I'll tear your soul apart!");							
-								v:inform ("You feel an unbeatable force pulling you towards the demon.");
+								v:inform ("#w You feel an unbeatable force pulling you towards the demon.");
 								v:warp (SearchArea);
 								v.movepoints = 0;
 								v:increaseAttrib ("hitpoints",-2000);
@@ -41,8 +41,8 @@ function Demon_Pull (monster, char)
 					for y = (monster.pos.y - 1),(monster.pos.y + 1) do
 					SearchArea = position (x,y,monster.pos.z);
 						if not world:isCharacterOnField (SearchArea) then 
-							v:inform ("You feel an unbeatable force pulling you towards the demon.");
 							monster:talk(CCharacter.yell, "I'll tear your soul apart!");
+							v:inform ("#w You feel an unbeatable force pulling you towards the demon.");
 							v:warp (SearchArea);
 							v.movepoints = 0;
 							v:increaseAttrib ("hitpoints",-2000);
