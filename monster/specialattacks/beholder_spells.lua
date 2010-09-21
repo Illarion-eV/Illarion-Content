@@ -7,7 +7,7 @@ module("monster.specialattacks.beholder_spells", package.seeall)
 function Death_Gaze (Monster, Enemy)
 --  Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
 	CharList={};
-	local posit = monster.pos;
+	local posit = Monster.pos;
 	local CharList = world:getCharactersInRangeOf (posit, 10);
 	local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444,}
 	
