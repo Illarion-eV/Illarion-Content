@@ -89,6 +89,15 @@ function onAttack(Attacker, Defender, AttackPos)
     
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
+    
+    -- Reduce the damage due the absorbtion of the armor
+    ArmorAbsorbtion(Defender, Globals);
+    
+    -- The effect of the constitution. After this the final damage is avaiable.
+    ConstitutionEffect(Defender, Globals);
+    
+    -- Cause the finally calculated damage to the player
+    CauseDamage(Attacker, Defender, Globals);
 end;
 
 --- Check if the character is on newbie island and reject the attack in that.
@@ -305,20 +314,23 @@ end;
 --                      load
 function LoadAttribsSkills(CharStruct, Offensive)
     if Offensive then
-        CharStruct["strength"]     = CharStruct.Char:increaseAttrib("strength", 0);
-        CharStruct["agility"]      = CharStruct.Char:increaseAttrib("agility", 0);
-        CharStruct["perception"]   = CharStruct.Char:increaseAttrib("perception", 0);
-        CharStruct["skill"]        = CharStruct.Char:getSkill( CharStruct.Skillname );
-        CharStruct["poison"]       = CharStruct.Char:getSkill("poisoning");
-        CharStruct["natpoison"]    = CharStruct.Char:getSkill("poisonstrength");
-        CharStruct["tactics"]      = CharStruct.Char:getSkill("tactics");
+        CharStruct["strength"] = CharStruct.Char:increaseAttrib("strength", 0);
+        CharStruct["agility"] = CharStruct.Char:increaseAttrib("agility", 0);
+        CharStruct["perception"]
+            = CharStruct.Char:increaseAttrib("perception", 0);
+        CharStruct["skill"] = CharStruct.Char:getSkill(CharStruct.Skillname);
+        CharStruct["poison"] = CharStruct.Char:getSkill("poisoning");
+        CharStruct["natpoison"] = CharStruct.Char:getSkill("poisonstrength");
+        CharStruct["tactics"] = CharStruct.Char:getSkill("tactics");
     else
-        CharStruct["dexterity"]    = CharStruct.Char:increaseAttrib("dexterity", 0);
-        CharStruct["constitution"] = CharStruct.Char:increaseAttrib("constitution", 0);
-        CharStruct["parry"]        = CharStruct.Char:getSkill("parry");
-        CharStruct["dodge"]        = CharStruct.Char:getSkill("dodge");
+        CharStruct["dexterity"]
+            = CharStruct.Char:increaseAttrib("dexterity", 0);
+        CharStruct["constitution"]
+            = CharStruct.Char:increaseAttrib("constitution", 0);
+        CharStruct["parry"] = CharStruct.Char:getSkill("parry");
+        CharStruct["dodge"] = CharStruct.Char:getSkill("dodge");
     end;
-    CharStruct["Race"]             = CharStruct.Char:get_race();
+    CharStruct["Race"] = CharStruct.Char:get_race();
 end;
 
 --- Show the attacking animation for the attacking character.
@@ -424,7 +436,8 @@ function HandleMovepoints(Attacker)
     if Attacker.isWeapont then
         weaponMovepoints = Attacker.Weapon.ActionPoints;
     else
-        weaponMovepoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
+        weaponMovepoints = content.fighting.GetWrestlingMovepoints(
+            Attacker.Race);
     end;
 
     local reduceMovepoints = (weaponMovepoints / 2)
@@ -459,9 +472,10 @@ function DropAmmo(Attacker, Defender, GroundOnly)
 
     if (math.random() > 0.3 ) then
         local AmmoItem;
-        if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
+        if (Attacker.Weapon.AmmunitionType
+            == Attacker.SecWeapon.WeaponType) then
             AmmoItem = Attacker.SecWeaponItem;
-        elseif (Attacker.Weapon.AmmunitionType==255) then
+        elseif (Attacker.Weapon.AmmunitionType == 255) then
             AmmoItem = Attacker.WeaponItem;
         else
             return false;
@@ -539,7 +553,8 @@ function ChanceToParry(Defender)
                     parryType = 2;
                     parryWeapon = Defender.RightWeapon;
                 end;
-            elseif (weaponType == 4) or (weaponType == 5) or (weaponType == 6) and (parryType <= 1) then
+            elseif ((weaponType == 4) or (weaponType == 5) or (weaponType == 6))
+                and (parryType <= 1) then
                 if (parryType == 1) then -- two hand weapon
                     if (parryWeapon.Defence < Defender.RightWeapon.Defence) then
                         parryWeapon = Defender.RightWeapon;
@@ -596,4 +611,135 @@ function CalculateDamage(Attacker, Globals)
     Globals["Damage"] = weaponDamage + (weaponDamage * ((Attacker.tactics/140
         + Attacker.strength/80 + Attacker.perception/120
         + Attacker.skill / 180)));
+end;
+
+--- Calculate the damage that is absorbed by the armor and reduce the stored
+-- armor value by this amount.
+-- @param Defender The table that stores the data of the defender
+-- @param Globals The table that stores the global values
+function ArmorAbsorbtion(Defender, Globals)
+    Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
+    
+    Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
+    local armourfound, armour;
+    if (Globals.HittedItem ~= nil and Globals.HittedItem.id > 0) then
+        armourfound, armour = world:getArmorStruct(Globals.HittedItem.id);
+    else
+        armorfound = false;
+    end;
+    
+    local armourValue = 0;
+    
+    if armourfound then
+        if (Attacker.AttackKind==0) then --wrestling
+            armourValue=armour.ThrustArmor;
+        elseif (Attacker.AttackKind==1) then --slashing
+            armourValue=armour.StrokeArmor;
+        elseif (Attacker.AttackKind==2) then --concussion
+            armourValue=armour.ThrustArmor;
+        elseif (Attacker.AttackKind==3) then --puncture
+            armourValue=armour.PunctureArmor;
+        elseif (Attacker.AttackKind==4) then --distance
+            armourValue=armour.PunctureArmor;
+        end;
+    end;
+    
+    armourfound, armour=world:getNaturalArmor(Defender.Race);
+    if armourfound then
+        if (Attacker.AttackKind==0) then --wrestling
+            armourValue=armourValue+armour.thrustArmor;
+        elseif (Attacker.AttackKind==1) then --slashing
+            armourValue=armourValue+armour.strokeArmor;
+        elseif (Attacker.AttackKind==2) then --concussion
+            armourValue=armourValue+armour.thrustArmor;
+        elseif (Attacker.AttackKind==3) then --puncture
+            armourValue=armourValue+armour.punctureArmor;
+        elseif (Attacker.AttackKind==4) then --distance
+            armourValue=armourValue+armour.punctureArmor;
+        end;
+    end;
+    
+    Globals.Damage = Globals.Damage - (Globals.Damage * armorValue / 250);
+    Globals.Damage = math.max(0, Globals.Damage);
+end;
+
+--- Calculate the effect of the constitution on the damage. Depending on the
+-- constitution this can raise or lower the damage.
+-- @param Defender The table that stores the data of the defender
+-- @param Globals The table that stores the global values
+function ConstitutionEffect(Defender, Globals)
+    if (Globals.Damage == 0) then
+        return;
+    end;
+    
+    Globals.Damage = Globals.Damage * Defender.Constitution / 14;
+end;
+
+--- Deform some final checks on the damage that would be caused and send it to
+-- the character. Also here the Coup de Gráce is done.
+-- @param Attacker The table of the attacking Character
+-- @param Defender The table of the attacked Character
+-- @param Globals The table of the global values
+function CauseDamage(Attacker, Defender, Globals)
+    if base.character.IsPlayer(Defender.Char) 
+        and base.character.WoundDie(Defender.Char, Globals.Damage + 1)
+        and (Attacker.AttackKind ~= 4)
+        and not base.character.AtBrinkOfDeath(Defender.Char) then
+        -- Character would die. Nearly killing him and moving him back in case
+        -- its possible
+        base.character.ToBrinkOfDeath(Defender.Char);
+
+        local CharOffsetX = Attacker.Char.pos.x - Defender.Char.pos.x;
+        local CharOffsetY = Attacker.Char.pos.y - Defender.Char.pos.y;
+
+        if (CharOffsetY > 0) then
+            CharOffsetY = (Attacker.Weapon.Range - math.abs(CharOffsetX) + 1)
+                * (-1);
+        elseif (CharOffsetY < 0) then
+            CharOffsetY = (Attacker.Weapon.Range - math.abs( CharOffsetX ) + 1);
+        end;
+
+        if (CharOffsetX > 0) then
+            CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1)
+                * (-1);
+        elseif (CharOffsetX < 0) then
+            CharOffsetX = (Attacker.Weapon.Range - math.abs(CharOffsetY) + 1);
+        end
+
+        local newPos = position(Defender.Char.pos.x + CharOffsetX,
+            Defender.Char.pos.y + CharOffsetY, Defender.Char.pos.z);
+        Defender.Char:warp(newPos);
+
+        Defender.Char:talkLanguage( CCharacter.say, CPlayer.german,
+            "#me stolpert zurück und geht zu Boden." );
+        Defender.Char:talkLanguage( CCharacter.say, CPlayer.english,
+            "#me stumbles back and falls to the ground." );
+
+        base.common.ParalyseCharacter(Defender.Char, 7, false, true);
+
+        local reg_found, reg_effect = Defender.Char.effects:find(2);
+        if not reg_found then
+            return true;
+        end;
+
+        reg_effect:addValue("no_reg", 20);
+
+        return true;
+    else
+
+        if not ChangeHP(Defender.Char, -Globals.Damage) then
+            if base.character.IsPlayer(Defender.Char) then
+                base.playerdeath.playerKilledByFighting(Defender.Char,
+                    Attacker.Char);
+            else
+                base.playerdeath.monsterKilledByFighting(
+                    Defender.Char:get_mon_type(), Attacker.Char);
+            end;
+        end;
+        
+        if (Attacker.AttackKind == 4) then -- distanz angriff.
+            Defender.Char.movepoints = Defender.Char.movepoints - 5;
+            DropAmmo(Attacker, Defender.Char, false);
+        end;
+    end;
 end;

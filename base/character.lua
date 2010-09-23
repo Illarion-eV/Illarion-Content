@@ -25,6 +25,13 @@ function AtBrinkOfDeath(User)
     return WouldDie(User, 1);
 end;
 
+--- Bring a character to the brink of death. Means that he has only one hitpoint
+-- left.
+-- @param User The character to bring to the brink of death
+function ToBrinkOfDeath(User)
+    ChangeHP(User, 1 - User:increaseAttrib("hitpoints", 0));
+end;
+
 --- Kill a character.
 -- @param User The character to kill
 -- @return true in case the player was killed successfully
@@ -47,4 +54,11 @@ end;
 --          fighting points do not seem to work on the current server
 function ChangeFightingpoints(User, Value)
     User.movepoints = User.movepoints + Value;
+end;
+
+--- Check if the character is a player character.
+-- @param User The character to check
+-- @return true in case the character is a player character
+function IsPlayer(User)
+    return User:get_type() == 0;
 end;

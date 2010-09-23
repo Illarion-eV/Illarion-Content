@@ -8,58 +8,8 @@ module("content.fighting")
     @return int attack value
 ]]
 function GetWrestlingAttack(Race)
-     if ( Race ==  0 ) then return 10; -- Human
-     elseif ( Race ==  1 ) then return 15; -- Dwarf
-     elseif ( Race ==  2 ) then return 5; -- Halfling
-     elseif ( Race ==  3 ) then return 10; -- Elf
-     elseif ( Race ==  4 ) then return 20; -- Orc
-     elseif ( Race ==  5 ) then return 20; -- Lizardman
-     elseif ( Race ==  6 ) then return 5; -- Gnome
-     elseif ( Race ==  7 ) then return 0; -- Fairy
-     elseif ( Race ==  8 ) then return 5; -- Goblin
-     elseif ( Race ==  9 ) then return 50; -- Troll
-     elseif ( Race ==  10 ) then return 5; -- Mummy
-     elseif ( Race ==  11 ) then return 15; -- Skeleton
-     elseif ( Race ==  12 ) then return 80; -- Beholder
-     elseif ( Race ==  13 ) then return 0; -- Ghost
-     elseif ( Race ==  14 ) then return 0; -- Cross
-     elseif ( Race ==  15 ) then return 10; -- buyer (human)
-     elseif ( Race ==  16 ) then return 20; -- seller (lizardman)
-     elseif ( Race ==  17 ) then return 5; -- insects
-     elseif ( Race ==  18 ) then return 5; -- sheep
-     elseif ( Race ==  19 ) then return 70; -- spider
-     elseif ( Race ==  20 ) then return 100; -- demonskeleton
-     elseif ( Race ==  21 ) then return 60; -- rotworm
-     elseif ( Race ==  22 ) then return 160; -- big demon
-     elseif ( Race ==  23 ) then return 5; -- scorpion
-     elseif ( Race ==  24 ) then return 5; -- pig
-     elseif ( Race ==  25 ) then return 0; -- invisible
-     elseif ( Race ==  26 ) then return 25; -- skull
-     elseif ( Race ==  27 ) then return 20; -- wasp
-     elseif ( Race ==  28 ) then return 30; -- forest troll
-     elseif ( Race ==  29 ) then return 20; -- shadow skeleton
-     elseif ( Race ==  30 ) then return 120; -- stone golem
-     elseif ( Race ==  31 ) then return 5; -- mgoblin
-     elseif ( Race ==  32 ) then return 40; -- gnoll
-     elseif ( Race ==  33 ) then return 180; -- dragon
-     elseif ( Race ==  34 ) then return 10; -- mdrow
-     elseif ( Race ==  35 ) then return 10; -- fdrow
-     elseif ( Race ==  36 ) then return 140; -- lesser demon
-     elseif ( Race ==  37 ) then return 20; -- cow
-     elseif ( Race ==  38 ) then return 10; -- deer
-     elseif ( Race ==  39 ) then return 30; -- wolf
-     elseif ( Race ==  40 ) then return 40; -- panther
-     elseif ( Race ==  41 ) then return 0; -- rabbit
-     elseif ( Race ==  42 ) then return 5; -- wgoblin
-     elseif ( Race ==  43 ) then return 0; -- fairy
-     elseif ( Race ==  44 ) then return 5; -- mgnome
-     elseif ( Race ==  45 ) then return 5; -- fgnome
-     elseif ( Race ==  46 ) then return 10; -- Fallen
-     elseif ( Race ==  50 ) then return 15; -- mule
-     elseif ( Race ==  53 ) then return 200; -- ice dragon
-     else return 10; -- Default
-     end
-end
+     return 10;
+end;
 
 --[[
     Returns the Movepoints of a race wrestling
@@ -68,58 +18,8 @@ end
     @return int movepoints
 ]]
 function GetWrestlingMovepoints( Race )
-     if ( Race ==  0 ) then return 25; -- Human
-     elseif ( Race ==  1 ) then return 25; -- Dwarf
-     elseif ( Race ==  2 ) then return 25; -- Halfling
-     elseif ( Race ==  3 ) then return 25; -- Elf
-     elseif ( Race ==  4 ) then return 25; -- Orc
-     elseif ( Race ==  5 ) then return 25; -- Lizardman
-     elseif ( Race ==  6 ) then return 25; -- Gnome
-     elseif ( Race ==  7 ) then return 25; -- Fairy
-     elseif ( Race ==  8 ) then return 25; -- Goblin
-     elseif ( Race ==  9 ) then return 25; -- Troll
-     elseif ( Race ==  10 ) then return 25; -- Mummy
-     elseif ( Race ==  11 ) then return 25; -- Skeleton
-     elseif ( Race ==  12 ) then return 25; -- Beholder
-     elseif ( Race ==  13 ) then return 25; -- Ghost
-     elseif ( Race ==  14 ) then return 25; -- Cross
-     elseif ( Race ==  15 ) then return 25; -- buyer (human)
-     elseif ( Race ==  16 ) then return 25; -- seller (lizardman)
-     elseif ( Race ==  17 ) then return 25; -- insects
-     elseif ( Race ==  18 ) then return 25; -- sheep
-     elseif ( Race ==  19 ) then return 25; -- spider
-     elseif ( Race ==  20 ) then return 25; -- demonskeleton
-     elseif ( Race ==  21 ) then return 25; -- rotworm
-     elseif ( Race ==  22 ) then return 25; -- big demon
-     elseif ( Race ==  23 ) then return 25; -- scorpion
-     elseif ( Race ==  24 ) then return 25; -- pig
-     elseif ( Race ==  25 ) then return 25; -- invisible
-     elseif ( Race ==  26 ) then return 25; -- skull
-     elseif ( Race ==  27 ) then return 25; -- wasp
-     elseif ( Race ==  28 ) then return 25; -- forest troll
-     elseif ( Race ==  29 ) then return 25; -- shadow skeleton
-     elseif ( Race ==  30 ) then return 25; -- stone golem
-     elseif ( Race ==  31 ) then return 25; -- mgoblin
-     elseif ( Race ==  32 ) then return 25; -- gnoll
-     elseif ( Race ==  33 ) then return 25; -- dragon
-     elseif ( Race ==  34 ) then return 25; -- mdrow
-     elseif ( Race ==  35 ) then return 25; -- fdrow
-     elseif ( Race ==  36 ) then return 25; -- lesser demon
-     elseif ( Race ==  37 ) then return 25; -- cow
-     elseif ( Race ==  38 ) then return 25; -- deer
-     elseif ( Race ==  39 ) then return 25; -- wolf
-     elseif ( Race ==  40 ) then return 25; -- panther
-     elseif ( Race ==  41 ) then return 25; -- rabbit
-     elseif ( Race ==  42 ) then return 25; -- wgoblin
-     elseif ( Race ==  43 ) then return 25; -- fairy
-     elseif ( Race ==  44 ) then return 25; -- mgnome
-     elseif ( Race ==  45 ) then return 25; -- fgnome
-     elseif ( Race ==  46 ) then return 25; -- Fallen
-     elseif ( Race ==  50 ) then return 25; -- mule
-     elseif ( Race ==  53 ) then return 25; -- ice dragon
-     else return 25; -- Default
-     end
-end
+     return 25;
+end;
 
 --[[
     Returns the parry value if the race is in a wrestling fight against another character
@@ -128,58 +28,8 @@ end
     @return int parry value
 ]]
 function GetWrestlingParry(Race)
-     if ( Race ==  0 ) then return 10; -- Human
-     elseif ( Race ==  1 ) then return 15; -- Dwarf
-     elseif ( Race ==  2 ) then return 5; -- Halfling
-     elseif ( Race ==  3 ) then return 10; -- Elf
-     elseif ( Race ==  4 ) then return 20; -- Orc
-     elseif ( Race ==  5 ) then return 20; -- Lizardman
-     elseif ( Race ==  6 ) then return 5; -- Gnome
-     elseif ( Race ==  7 ) then return 0; -- Fairy
-     elseif ( Race ==  8 ) then return 5; -- Goblin
-     elseif ( Race ==  9 ) then return 50; -- Troll
-     elseif ( Race ==  10 ) then return 5; -- Mummy
-     elseif ( Race ==  11 ) then return 15; -- Skeleton
-     elseif ( Race ==  12 ) then return 80; -- Beholder
-     elseif ( Race ==  13 ) then return 0; -- Ghost
-     elseif ( Race ==  14 ) then return 0; -- Cross
-     elseif ( Race ==  15 ) then return 10; -- buyer (human)
-     elseif ( Race ==  16 ) then return 20; -- seller (lizardman)
-     elseif ( Race ==  17 ) then return 5; -- insects
-     elseif ( Race ==  18 ) then return 5; -- sheep
-     elseif ( Race ==  19 ) then return 70; -- spider
-     elseif ( Race ==  20 ) then return 100; -- demonskeleton
-     elseif ( Race ==  21 ) then return 60; -- rotworm
-     elseif ( Race ==  22 ) then return 160; -- big demon
-     elseif ( Race ==  23 ) then return 5; -- scorpion
-     elseif ( Race ==  24 ) then return 5; -- pig
-     elseif ( Race ==  25 ) then return 0; -- invisible
-     elseif ( Race ==  26 ) then return 10; -- skull
-     elseif ( Race ==  27 ) then return 20; -- wasp
-     elseif ( Race ==  28 ) then return 30; -- forest troll
-     elseif ( Race ==  29 ) then return 20; -- shadow skeleton
-     elseif ( Race ==  30 ) then return 120; -- stone golem
-     elseif ( Race ==  31 ) then return 5; -- mgoblin
-     elseif ( Race ==  32 ) then return 40; -- gnoll
-     elseif ( Race ==  33 ) then return 180; -- dragon
-     elseif ( Race ==  34 ) then return 10; -- mdrow
-     elseif ( Race ==  35 ) then return 10; -- fdrow
-     elseif ( Race ==  36 ) then return 140; -- lesser demon
-     elseif ( Race ==  37 ) then return 20; -- cow
-     elseif ( Race ==  38 ) then return 10; -- deer
-     elseif ( Race ==  39 ) then return 30; -- wolf
-     elseif ( Race ==  40 ) then return 40; -- panther
-     elseif ( Race ==  41 ) then return 0; -- rabbit
-     elseif ( Race ==  42 ) then return 5; -- wgoblin
-     elseif ( Race ==  43 ) then return 0; -- fairy
-     elseif ( Race ==  44 ) then return 5; -- mgnome
-     elseif ( Race ==  45 ) then return 5; -- fgnome
-     elseif ( Race ==  46 ) then return 10; -- Fallen
-     elseif ( Race ==  50 ) then return 15; -- mule
-     elseif ( Race ==  53 ) then return 200; -- ice dragon
-     else return 10; -- Default
-     end
-end
+     return 10;
+end;
 
 --[[
     Returns the Accuracy of a race wrestling
@@ -188,57 +38,7 @@ end
     @return int accuracy
 ]]
 function GetWrestlingAccuracy( Race )
-     if ( Race ==  0 ) then return 50; -- Human
-     elseif ( Race ==  1 ) then return 50; -- Dwarf
-     elseif ( Race ==  2 ) then return 50; -- Halfling
-     elseif ( Race ==  3 ) then return 50; -- Elf
-     elseif ( Race ==  4 ) then return 50; -- Orc
-     elseif ( Race ==  5 ) then return 50; -- Lizardman
-     elseif ( Race ==  6 ) then return 50; -- Gnome
-     elseif ( Race ==  7 ) then return 50; -- Fairy
-     elseif ( Race ==  8 ) then return 50; -- Goblin
-     elseif ( Race ==  9 ) then return 50; -- Troll
-     elseif ( Race ==  10 ) then return 50; -- Mummy
-     elseif ( Race ==  11 ) then return 50; -- Skeleton
-     elseif ( Race ==  12 ) then return 50; -- Beholder
-     elseif ( Race ==  13 ) then return 50; -- Ghost
-     elseif ( Race ==  14 ) then return 50; -- Cross
-     elseif ( Race ==  15 ) then return 50; -- buyer (human)
-     elseif ( Race ==  16 ) then return 50; -- seller (lizardman)
-     elseif ( Race ==  17 ) then return 50; -- insects
-     elseif ( Race ==  18 ) then return 50; -- sheep
-     elseif ( Race ==  19 ) then return 50; -- spider
-     elseif ( Race ==  20 ) then return 50; -- demonskeleton
-     elseif ( Race ==  21 ) then return 50; -- rotworm
-     elseif ( Race ==  22 ) then return 50; -- big demon
-     elseif ( Race ==  23 ) then return 50; -- scorpion
-     elseif ( Race ==  24 ) then return 50; -- pig
-     elseif ( Race ==  25 ) then return 50; -- invisible
-     elseif ( Race ==  26 ) then return 50; -- skull
-     elseif ( Race ==  27 ) then return 50; -- wasp
-     elseif ( Race ==  28 ) then return 50; -- forest troll
-     elseif ( Race ==  29 ) then return 50; -- shadow skeleton
-     elseif ( Race ==  30 ) then return 50; -- stone golem
-     elseif ( Race ==  31 ) then return 50; -- mgoblin
-     elseif ( Race ==  32 ) then return 50; -- gnoll
-     elseif ( Race ==  33 ) then return 50; -- dragon
-     elseif ( Race ==  34 ) then return 50; -- mdrow
-     elseif ( Race ==  35 ) then return 50; -- fdrow
-     elseif ( Race ==  36 ) then return 50; -- lesser demon
-     elseif ( Race ==  37 ) then return 50; -- cow
-     elseif ( Race ==  38 ) then return 50; -- deer
-     elseif ( Race ==  39 ) then return 50; -- wolf
-     elseif ( Race ==  40 ) then return 50; -- panther
-     elseif ( Race ==  41 ) then return 50; -- rabbit
-     elseif ( Race ==  42 ) then return 50; -- wgoblin
-     elseif ( Race ==  43 ) then return 50; -- fairy
-     elseif ( Race ==  44 ) then return 50; -- mgnome
-     elseif ( Race ==  45 ) then return 50; -- fgnome
-     elseif ( Race ==  46 ) then return 50; -- Fallen
-     elseif ( Race ==  50 ) then return 50; -- mule
-     elseif ( Race ==  53 ) then return 50; -- ice dragon
-     else return 50; -- Default
-     end
+    return 50;
 end
 
 --[[
@@ -559,4 +359,23 @@ end
 ]]
 function IsTrainingWeapon( ItemID )
     return ( ItemID == 445 );
-end
+end;
+
+--- Get a area that is hit during a attack. Depending on the race the areas that
+-- can be hit can alter.
+-- @param Race the race of the character who receives the hit
+-- @return The area that is hit
+function GetHitArea(Race)
+    local randomValue = math.random( 100 );
+    if ( randomValue < 15 ) then
+        return CCharacter.head;
+    elseif ( randomValue < 55 ) then
+        return CCharacter.breast;
+    elseif ( randomValue < 68 ) then
+        return CCharacter.hands;
+    elseif ( randomValue < 88 ) then
+        return CCharacter.legs;
+    else
+        return CCharacter.feet;
+    end;
+end;
