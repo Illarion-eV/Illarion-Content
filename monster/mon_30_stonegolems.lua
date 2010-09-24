@@ -58,7 +58,11 @@ end
 function enemyOnSight(Monster,Enemy)
 local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
-	monster.specialattacks.beholder_spells.Death_Gaze (Monster, Enemy);
+	if monster.specialattacks.beholder_spells.Death_Gaze (Monster, Enemy) then
+		return true;
+	else
+		return false;
+	end
 		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
 		else
