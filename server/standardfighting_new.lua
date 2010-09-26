@@ -84,6 +84,9 @@ function onAttack(Attacker, Defender, AttackPos)
         -- Hit was parried
         LearnParry(Attacker, Defender);
         
+        -- Play the parry sound
+        PlayParrySound(Attacker, Defender);
+        
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return;
@@ -107,6 +110,12 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Teach the attacker the skill he earned for his success
     LearnSucess(Attacker, Defender)
 end;
+
+--------------------------------------------------------------------------------
+-- The following functions are support functions that are used to make the    --
+-- fighting system work in the way expected. They contain all the needed      --
+-- calculations to perform a proper fight.                                    --
+--------------------------------------------------------------------------------
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
 -- armor value by this amount.
@@ -782,6 +791,40 @@ function NewbieIsland(Attacker, Defender)
     return false;
 end;
 
+--- Play the sound of a successful parry.
+-- @param Attacker The table of the character who is attacking
+-- @param Defender The table of the character who is attacked
+function PlayParrySound(Attacker, Defender)
+    if not Attacker.IsWeapon then
+        world:makeSound(32,Attacker.Char.pos);
+        return true;
+    end;
+    
+    if not Defender.RightIsWeapon and not Defender.LeftIsWeapon then
+        world:makeSound(32,Attacker.Char.pos);
+        return true;
+    end;
+    
+    local DefenderWeapon = 0;
+    if Defender.RightIsWeapon then
+        DefenderWeapon = Defender.RightWeapon.WeaponType;
+    end;
+    
+    if Defender.LeftIsWeapon then
+        DefenderWeapon = math.max(DefenderWeapon,
+            Defender.LeftWeapon.WeaponType);
+    end;
+    if (Sounds[DefenderWeapon] ~= nil) then
+        if (Sounds[DefenderWeapon][Attacker.Weapon.WeaponType] ~= nil) then
+            world:makeSound(Sounds[DefenderWeapon][Attacker.Weapon.WeaponType],
+                Attacker.Char.pos);
+            return true;
+        end;
+    end;
+    world:makeSound(32, Attacker.Char.pos);
+    return true;
+end
+
 --- Show the attacking animation for the attacking character.
 -- @param Attacker The table that stores the attacker data
 function ShowAttackGFX(Attacker)
@@ -831,3 +874,17 @@ function ShowEffects(Attacker, Defender, Globals)
         world:makeSound(31,Defender.Char.pos);
     end;
 end;
+
+
+-- Parry sounds
+-- Line and column the item Types the attacker and the defender are
+-- using
+-- id of the sounds that shall be played at a parry
+Sounds={};
+Sounds[1]={32,32,32,32,32,32};
+Sounds[2]={32,42,43,42,42,44};
+Sounds[3]={32,43,41,42,40,41};
+Sounds[4]={32,42,42,42,42,44};
+Sounds[5]={32,42,40,42,42,44};
+Sounds[6]={32,44,41,44,44,41};
+Sounds[14]={32,43,41,42,40,41};
