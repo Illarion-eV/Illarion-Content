@@ -15,6 +15,8 @@ crossPosition[1]= position(0,1,0);       -- Cadomyr
 crossPosition[2]= position(1,0,0);       -- Runewick
 crossPosition[3]= position(1,1,0);       -- Galmair
 
+EffectID = 2;
+
 function addEffect( Effect, Character)
     -- it is needed to add at least value to make sure the effect does not get deleted right after
     -- the first call
@@ -395,6 +397,22 @@ function no_regeneration( Effect )
     end
     return true;
 end
+
+function stallRegeneration(Char, Loops)
+    local foundEffect, effect = Char.effects:find(EffectID);
+    
+    if not foundEffect then
+        return;
+    end;
+    
+    local foundValue, value = effect:findValue("no_reg");
+    
+    if foundValue and value >= Loops then
+        return;
+    end;
+
+    effect:addValue("no_reg", Loops);
+end;
 
 function ChangeAttrib( Char, name, newVal )
     if ( Char:increaseAttrib(name,0) ~= newVal ) then

@@ -83,7 +83,34 @@ function TalkNLS(User, method, textInDe, textInEN)
     if foundEN then
         User:talkLanguage(method, CPlayer.english, textInEN);
     end;
-end
+end;
+
+--- Get a text based on the gender of the character.
+-- @param User The character used to choose the text
+-- @param textMale The text returned in case the character is male
+-- @param textFemale The text returned in case the character is female
+-- @return textMale or textFemale, based on the gender of User
+function GetGenderText(User, textMale, textFemale)
+    return (User:increaseAttrib("sex", 0) == 1 and textFemale or textMale);
+end;
+
+--- This function uses the random value generator to produce a random chance.
+-- This function returns true in a specified amount of cases. The optional
+-- Base parameter is used to set the value of 100%. By default this value is 1.
+-- For example in case the value is set to 80 and the base is set to 100 the
+-- function will return true in 80% of the calls. The same result would be
+-- produced in case the value is set to 8 and the base is set to 10 or in case
+-- the Value is set to 0.8 and the base is not set, or set to 1.
+-- @param Value The chance value
+-- @param Base The value of 100% (optional)
+-- @return true in (Value/Base*100)% of the calls
+function Chance(Value, Base)
+    if (Base ~= nil) and (Base ~= 1) then
+        Value = Value / Base;
+    end;
+    
+    return (math.random() <= Value);
+end;
 
 --- Determine if a character is looking at a position or not
 -- @param User The character whos looking direction matters
