@@ -399,7 +399,7 @@ function ConstitutionEffect(Defender, Globals)
         return;
     end;
     
-    Globals.Damage = Globals.Damage * Defender.Constitution / 14;
+    Globals.Damage = Globals.Damage * 14 / Defender.Constitution;
 end;
 
 --- Checks if a coup de gr·ce is performed on the attacked character and kills
@@ -428,9 +428,9 @@ function CoupDeGrace(Attacker, Defender)
         local eText = base.common.GetGenderText(Attacker.Char, "his",
             "her");
         Attacker.Char:talkLanguage(CCharacter.say, CPlayer.german,
-            "#me gibt " .. gText .. " Gegner den Gnadenstoﬂ.");
+            string.format("#me gibt %s Gegner den Gnadenstoﬂ.", gText));
         Attacker.Char:talkLanguage(CCharacter.say, CPlayer.english,
-            "#me gives " .. eText .. " enemy the coup de gr·ce.");
+            string.format("#me gives %s enemy the coup de gr·ce.", eText));
         
         -- Kill character and notify other scripts about the death
         if not base.character.Kill(Defender.Char) then
