@@ -178,7 +178,7 @@ function CalculateDamage(Attacker, Globals)
     local BaseDamage = 500;
     local weaponDamage;
     
-    if Attacker.isWeapon then
+    if Attacker.IsWeapon then
         weaponDamage = BaseDamage + (Attacker.Weapon.Attack - 100) / 100
         * (BaseDamage / 2);
     else
@@ -612,7 +612,7 @@ end;
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker)
     local weaponMovepoints;
-    if Attacker.isWeapont then
+    if Attacker.IsWeapon then
         weaponMovepoints = Attacker.Weapon.ActionPoints;
     else
         weaponMovepoints = content.fighting.GetWrestlingMovepoints(
