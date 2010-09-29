@@ -883,7 +883,7 @@ end;
 -- Line and column the item Types the attacker and the defender are
 -- using
 -- id of the sounds that shall be played at a parry
-local Sounds={};
+Sounds={};
 Sounds[1]={32,32,32,32,32,32};
 Sounds[2]={32,42,43,42,42,44};
 Sounds[3]={32,43,41,42,40,41};
