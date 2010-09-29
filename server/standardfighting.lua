@@ -96,7 +96,7 @@ function onAttack(Attacker, Defender, AttackPos)
     CalculateDamage(Attacker, Globals);
     
     -- Reduce the damage due the absorbtion of the armor
-    ArmorAbsorbtion(Defender, Globals);
+    ArmorAbsorbtion(Attacker, Defender, Globals);
     
     -- The effect of the constitution. After this the final damage is avaiable.
     ConstitutionEffect(Defender, Globals);
@@ -119,9 +119,10 @@ end;
 
 --- Calculate the damage that is absorbed by the armor and reduce the stored
 -- armor value by this amount.
+-- @param Attacker The table that stores the data of the attacker
 -- @param Defender The table that stores the data of the defender
 -- @param Globals The table that stores the global values
-function ArmorAbsorbtion(Defender, Globals)
+function ArmorAbsorbtion(Attacker, Defender, Globals)
     Globals["HittedArea"] = content.fighting.GetHitArea(Defender.Race);
     Globals["HittedItem"] = Defender.Char:getItemAt(Globals.HittedArea);
     
