@@ -105,7 +105,7 @@ end;
 -- @param Base The value of 100% (optional)
 -- @return true in (Value/Base*100)% of the calls
 function Chance(Value, Base)
-    if (Value >= Base) then
+    if (Base ~= nil and Value >= Base) or (Base == nil and Value >= 1) then
         return true;
     end;
     if (Value <= 0) then
