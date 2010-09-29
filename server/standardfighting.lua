@@ -402,7 +402,7 @@ function ConstitutionEffect(Defender, Globals)
         return;
     end;
     
-    Globals.Damage = Globals.Damage * 14 / Defender.Constitution;
+    Globals.Damage = Globals.Damage * 14 / Defender.constitution;
 end;
 
 --- Checks if a coup de gráce is performed on the attacked character and kills
