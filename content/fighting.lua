@@ -1,4 +1,4 @@
-module("content.fighting")
+module("content.fighting", package.seeall)
 
 --[[
     Returns the attack value of a race wrestling
