@@ -237,7 +237,7 @@ function CauseDamage(Attacker, Defender, Globals)
 
         return true;
     else
-        if not ChangeHP(Defender.Char, -Globals.Damage) then
+        if not base.character.ChangeHP(Defender.Char, -Globals.Damage) then
             if base.character.IsPlayer(Defender.Char) then
                 base.playerdeath.playerKilledByFighting(Defender.Char,
                     Attacker.Char);
