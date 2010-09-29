@@ -163,7 +163,7 @@ function ArmorAbsorbtion(Defender, Globals)
         end;
     end;
 
-    Globals.Damage = Globals.Damage - (Globals.Damage * armorValue / 250);
+    Globals.Damage = Globals.Damage - (Globals.Damage * armourValue / 250);
     Globals.Damage = math.max(0, Globals.Damage);
 end;
 
