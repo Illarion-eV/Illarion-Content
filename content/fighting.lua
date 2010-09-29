@@ -1,4 +1,3 @@
-
 module("content.fighting")
 
 --[[
@@ -366,7 +365,7 @@ end;
 -- @param Race the race of the character who receives the hit
 -- @return The area that is hit
 function GetHitArea(Race)
-    local randomValue = math.random( 100 );
+    local randomValue = math.random(100);
     if ( randomValue < 15 ) then
         return CCharacter.head;
     elseif ( randomValue < 55 ) then
@@ -378,4 +377,18 @@ function GetHitArea(Race)
     else
         return CCharacter.feet;
     end;
+end;
+
+--- This function is supposed to calculate the bonus on the hit chance.
+-- @param Attacker The table of the attacker values
+-- @param Defender The table of the defender values
+function BonusHitChance(Attacker, Defender)
+    return 0;
+end;
+
+--- This function is supposed to calculate the bonus on the dodge chance.
+-- @param Attacker The table of the attacker values
+-- @param Defender The table of the defender values
+function BonusDodgeChance(Attacker, Defender)
+    return 0;
 end;
