@@ -199,7 +199,7 @@ end;
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
     if base.character.IsPlayer(Defender.Char) 
-        and base.character.WoundDie(Defender.Char, Globals.Damage + 1)
+        and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
         and not base.character.AtBrinkOfDeath(Defender.Char) then
         -- Character would die. Nearly killing him and moving him back in case
