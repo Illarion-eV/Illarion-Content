@@ -29,7 +29,7 @@ module("monster.specialattacks.beholder_spells", package.seeall)
 end
 	]]--
 
-function Mana_Burn (Monster)
+function Mana_Burn (Monster, Enemy)
 CharList={};
 local posit = Monster.pos;
 local CharList = world:getCharactersInRangeOf (posit, 10);
