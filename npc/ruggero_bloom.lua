@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: September 30, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -25,12 +25,13 @@ require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.ruggero_bloom", package.seeall)
 
+
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want see you again here!");
@@ -41,7 +42,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'");
@@ -52,7 +53,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state(">", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me becomes red like a tomato in his face and bashes you like written in schoolbook.");
@@ -63,7 +64,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
+talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state(">", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.");
@@ -668,7 +669,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
-talkEntry:addResponse("Mmeine Faust und dein gesicht, werden bald dicke Freunde, du Scherzbold.");
+talkEntry:addResponse("Meine Faust und dein Gesicht, werden bald dicke Freunde, du Scherzbold.");
 talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -695,7 +696,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I bash people who wan'T to enter our tabaco fields. Are you willing to enter?");
+talkEntry:addResponse("I bash people who wan't to enter our tabaco fields. Are you willing to enter?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -741,7 +742,7 @@ talkingNPC:addCycleText("#me puhlt sich mit einem Dolch Essensreste aus den Zahn
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Arr, das ist ein gestandener wilder Pirat! Nimm dich in Acht!", "Arr, thiss seems like a ugly wild pirate! Take care.");
+mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, thiss seems like a ugly wild pirate! Take care.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
