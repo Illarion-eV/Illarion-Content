@@ -61,7 +61,7 @@ local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
 		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
-		elseif monster.specialattacks.demon_spells.Mana_Burn (Monster) then
+		elseif monster.specialattacks.beholder_spells.Mana_Burn (Monster, Enemy) then
 			return true;
 		else			
 			return false;
