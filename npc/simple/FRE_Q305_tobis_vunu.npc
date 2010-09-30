@@ -25,7 +25,7 @@ autointroduce = on
 
 author = "not set"
 
-lookatDE = "Arr, das ist ein gestandener wilder Pirat! Nimm dich in Acht!"
+lookatDE = "Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!"
 lookatUS = "Arr, thiss seems like a ugly wild pirate! Take care."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -38,7 +38,7 @@ wrongLangUS = "#me looks at you confused."
 -- 1: Quest started. 'spy the pirates' - Player is sended into Pirate Bay. To search Tobis vunu.
 -- 2: Player is ordered to dress like a pirate and burn the tobacco field with a toarch.
 -- 3: Player burned the tabaco field
--- 4: Tobis vunu hands you 3 silver.
+-- 4: Tobis vunu hands you 3 silver.  rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
@@ -48,17 +48,15 @@ wrongLangUS = "#me looks at you confused."
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, german -> inform("Tobis Vunu reicht dir ein Bündel Gewand und einen Schlapphut. Du sollst alles anziehen und das Tabakfeld suchen um es mit einer Fackel unbemerkt zu zerstören."), "Aye. Piero schickt dich? Also gut, du ziehst jetzt dieses Zeug an. Nimmst eine Fackel und brennst das Tabakfeld der Piraten ab. Lass dich aber nicht dabei beobachten!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 1, english -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
 "Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 1 -> inform("Tobis Vunu hands you a bunch cloth and a slouch hat. Dress up and sneak at the tobaccofield to burn it."), "Aye. Piero sends you? Allright, get dressed with this stuff. Take the toarch and burn the pirates tabacco field. And do't let you catched, by doing it!", item(356, 1, 550, 0), item(180, 1, 550, 0), item(181, 1, 550, 0), item(391, 1, 550, 0), queststatus(305) = 2
-"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 3 -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seinen Nase in die luft und schnupert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4
 
--- add reputation
-"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 3, german -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seinen Nase in die luft und schnupert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4
--- add reputation
-"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 3, english -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4
--- add reputation
-"Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 3 -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4
--- add reputation
-"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 4 -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
-"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 4, german -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
+"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 3 -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
+"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 3, german -> inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."), "#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.", money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
+"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 3, english -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
+"Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 3 -> inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."), "#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ", money + 230, queststatus(305) = 4, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
+
+"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 4 -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
+
+"Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 4, german -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.", queststatus(305) = 5
 "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 4, english -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.", queststatus(305) = 5
 "Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 4 -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.", queststatus(305) = 5
 "Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 5 -> "Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen."
@@ -67,28 +65,28 @@ wrongLangUS = "#me looks at you confused."
 "Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 5 -> "Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now."
 
 -- shirtcheck
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?"
-"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?"
-"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2 -> inform("Du solltest am Besten ein Hemd anziehen und einen Schlapphut aufsetzen."), "Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!"
-"quest", "job", "problem", queststatus(305) = 2, german -> inform("Du solltest am Besten ein Hemd anziehen und einen Schlapphut aufsetzen."), "Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(182, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(181, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(457, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(180, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1 -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1, german -> "Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?"
+"quest", "job", "problem", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1, english -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"task", "adventure", "mission", "money", "earn", queststatus(305) = 2, item(356, body) => 1, item(195, body) => 1 -> "Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?"
+"verdienen", "aufgabe", "abenteuer", queststatus(305) = 2 -> inform("Du solltest am besten ein Hemd anziehen und einen Schlapphut aufsetzen."), "Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!"
+"quest", "job", "problem", queststatus(305) = 2, german -> inform("Du solltest am besten ein Hemd anziehen und einen Schlapphut aufsetzen."), "Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!"
 "quest", "job", "problem", queststatus(305) = 2, english -> inform("You should dress yourself with a shirt and a slouch hat."), "Arr, when not wearing the stuff, the guard won't let you pass. We pirates wearing shirts as usual. The hat you got is just they don't see how ugly you are. Har-har!"
 "task", "adventure", "mission", "money", "earn", queststatus(305) = 2 -> inform("You should dress yourself with a shirt and a slouch hat."), "Arr, when not wearing the stuff, the guard won't let you pass. We pirates wearing shirts as usual. The hat you got is just they don't see how ugly you are. Har-har!"
 "Botschaft", "verdienen", "aufgabe", "abenteuer" -> "Nimm dir 'n Messer und entführ ne Jungfrau! Arr. Und dann steckst du sie dir an den Ort wo die Sonne nich scheint! Verschwinde du Landratte."
@@ -101,8 +99,8 @@ wrongLangUS = "#me looks at you confused."
 "good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hej lubber!", "Aye.", "Always fair winds and following seas, Jack.", "Arr! Whats new?", "Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?", "Ahoy, me Hearties!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hej Landratte!", "Aye.", "Mast- und Schotbruch, Matrose!", "Arr! Was gibt's?", "Ahoi!"
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME. Bei meinen wankenden Masten!"
-"your name", "who are you", "who art thou" -> "I am %NPCNAME. Siver me timbers!"
+"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Tobis Vunu. Bei meinen wankenden Masten!"
+"your name", "who are you", "who art thou" -> "I am Tobis Vunu. Siver me timbers!"
 "Farewel", "Good bye", "Bye", "Fare thee well" -> "Don't get biten by seedogs!", "Aye.", "Good wind."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lass dich nich von Seehunden beissn!", "Aye.", "Gut Wind."
 "Ciao", "Fareba", "Adieu", "Au revoir", english -> "Don't get biten by seedogs!", "Aye.", "Good wind."
@@ -119,11 +117,11 @@ wrongLangUS = "#me looks at you confused."
 
 -- smalltalk
 "murgo", english -> "Also under the flags of us pirates is the orc Murgo well known. They say he is able to rip a tree out of the ground with his bare hands!"
-"murgo", german -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit sienen bloßen Händen entwurzeln!"
+"murgo", german -> "Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!"
 "what sell", "what buy", "list wares", "price of" -> "Har, Har! I'm a pirate! I don't BUY stuff! I take it! Aye?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Har, Har! Ich bin n' Piart! Ich KAUFE kein Zeug! Ich nehms mir einfach, klar?"
 "tell something" -> "Once, when we shipped over the sea I saw a ...you never guess what... a mermaid! Honestly."
-"erzähl was", "erzähl etwas" -> "Einmal..als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich."
+"erzähl was", "erzähl etwas" -> "Einmal... als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich."
 "profession" -> "I'm a scary Pirate! Arr!"
 "beruf" -> "Ich bin n' gefährlicher Pirat! Arr!"
 "job", german -> "Ich bin n' gefährlicher Pirat! Arr!"
@@ -135,15 +133,19 @@ wrongLangUS = "#me looks at you confused."
 "Runewick", english -> "Ye, ye! In Runewick are a lot of clever people. Or they think they are. A pirate have a hard stand there."
 "Runewick", german -> "Jaja! In Runewick gibts viele kluge Leute. Oder zumindest halten sie sich dafür. Als Pirat hat man's dort nicht leicht."
 "Valerio", "Guilianni", "Don", english -> "Do you know... there are people better not annoyed. Don Valerio Guilianni is one of those."
-"Valerio", "Guilianni", "Don", german -> "Wiesst du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genau so jemand wenn du mich fragst."
+"Valerio", "Guilianni", "Don", german -> "Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst."
 "Galmair", english -> "Galmair would be a nice place indeed, when ignored all the churlish dwarves there."
 "Galmair", german -> "Galmair wäre ja ein nettes Plätzchen. Wäre es dort bloß nicht voller knausriger Zwerge."
 "rosaline", "königin", "queen", "edwards", english -> "The guard of queen Rosaline makes it hard to live our pirate-life. But we'll Kkep our tails up!"
 "rosaline", "königin", "queen", "edwards", german -> "Die Wache von Königin Rosaline macht uns das Piratenleben schwer. Aber wir lassen uns nicht unterkriegen!"
 "Reginald", "king", english -> "Oh... good old King Reginald. I'm sad he's dead now."
-"Reginald", "king", german -> "Oh... guter alter König Reginald. Schade das er jetzt tot ist."
+"Reginald", "king", german -> "Oh... guter alter König Reginald. Schade, dass er jetzt tot ist."
 "Cadomyr", english -> "Her's not Cadomyr! Her's the pirate bay! Here we follow our own code! As long as the seadogs don't bite us!"
 "Cadomyr", german -> "Das hier ist nicht Cadomyr! Hier ist die Piratebay! Hier haben wir unseren eigenen Codex! Solang uns die Seehunde nich beissn!"
+"Piero", german -> "Ich kenne keinen Piero."
+"Piero", english -> "I don't know any Piero's."
+"ruggero","bloom", german -> "Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar."
+"ruggero","bloom", english -> "Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
