@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+	------------------------------------------------------------------------------AC
 -- NPC Name: Ruggero Bloom                                               None --
 -- NPC Job:  pirate                                                            --
 --                                                                            --
@@ -25,7 +25,7 @@ autointroduce = on
 
 author = "not set"
 
-lookatDE = "Arr, das ist ein gestandener wilder Pirat! Nimm dich in Acht!"
+lookatDE = "Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!"
 lookatUS = "Arr, thiss seems like a ugly wild pirate! Take care."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -54,10 +54,10 @@ wrongLangUS = "#me looks at you confused."
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
 -- language: human, common
-".+", state > 4, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want see you again here!", state + 1, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".+", state > 4, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state + 1, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".+", state > 6, english -> "#me becomes red like a tomato in his face and bashes you like written in schoolbook.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
-".+", state > 6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
+".*",state>4, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want see you again here!", state + 1, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
+".*",state>4, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state + 1, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
+".*",state>6, english -> "#me becomes red like a tomato in his face and bashes you like written in schoolbook.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
+".*",state>6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
 
 -- shirtcheck +++ warpsprung hinter den NPC +++place a waptile behind him.
 "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(182, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
@@ -156,11 +156,11 @@ wrongLangUS = "#me looks at you confused."
 "what sell", "what buy", "list wares", "price of" -> "Are you bullish or what? I told you to leave!", state + 1
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Biste ein Esel oder wie? Ich hab gesagt du sollt verschwinden!", state + 1
 "tell something" -> "My fist... and your face will be freinds soon, fool.", state + 1
-"erzähl was" -> "Mmeine Faust und dein gesicht, werden bald dicke Freunde, du Scherzbold.", state + 1
+"erzähl was" -> "Meine Faust und dein Gesicht, werden bald dicke Freunde, du Scherzbold.", state + 1
 "profession" -> "I bash people who wan'T to enter our tabaco fields. Are you willing to enter?"
 "beruf" -> "Ich verprügel Leute die zu unseren Tabakfeldern wollen. Willst du zu unseren Tabakfeldern?"
 "job", german -> "Ich verprügel Leute die zu unseren Tabakfeldern wollen. Willst du zu unseren Tabakfeldern?"
-"job", english -> "I bash people who wan'T to enter our tabaco fields. Are you willing to enter?"
+"job", english -> "I bash people who wan't to enter our tabaco fields. Are you willing to enter?"
 "Gobaith", english -> "Better don't annoy me...seadog.", state + 1
 "Gobaith", german -> "Besser ist's du gehst mir nich auf die Nerven.", state + 1
 ".*", english -> "Listen... I won't talk to you. Get rid here, or I drill my boots into your butt. Got it?", "I won't tell you again. GET RID!", state + 1
