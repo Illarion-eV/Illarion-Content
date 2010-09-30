@@ -4,6 +4,7 @@ require("monster.base.quests")
 require("base.messages");
 require("monster.specialattacks.mgolem_spells");
 require("monster.specialattacks.demon_spells");
+require("monster.specialattacks.beholder_spells");
 module("monster.mon_30_stonegolems", package.seeall)
 
 
@@ -60,7 +61,9 @@ local MonID=Monster:get_mon_type();
 	if(MonID == 301) then
 		if monster.specialattacks.demon_spells.Demon_Pull (Monster, Enemy) then
 			return true;
-		else
+		elseif monster.specialattacks.demon_spells.Mana_Burn (Monster) then
+			return true;
+		else			
 			return false;
 		end
 	else
