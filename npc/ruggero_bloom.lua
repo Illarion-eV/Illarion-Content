@@ -31,6 +31,23 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("good day");
+talkEntry:addTrigger("greetings");
+talkEntry:addTrigger("greets");
+talkEntry:addTrigger("hail");
+talkEntry:addTrigger("hello");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Good morning");
+talkEntry:addResponse("Hej lubber!");
+talkEntry:addResponse("Aye.");
+talkEntry:addResponse("Always fair winds and following seas, Jack.");
+talkEntry:addResponse("Arr! Whats new?");
+talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
+talkEntry:addResponse("Ahoy, me Hearties!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.state.state(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -433,23 +450,6 @@ talkEntry:addResponse("Aye.");
 talkEntry:addResponse("Mast- und Schotbruch, Matrose!");
 talkEntry:addResponse("Arr! Was gibt's?");
 talkEntry:addResponse("Ahoi!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("good day");
-talkEntry:addTrigger("greetings");
-talkEntry:addTrigger("greets");
-talkEntry:addTrigger("hail");
-talkEntry:addTrigger("hello");
-talkEntry:addTrigger("Be greeted");
-talkEntry:addTrigger("Good morning");
-talkEntry:addResponse("Hej lubber!");
-talkEntry:addResponse("Aye.");
-talkEntry:addResponse("Always fair winds and following seas, Jack.");
-talkEntry:addResponse("Arr! Whats new?");
-talkEntry:addResponse("Oi me matee! Ya wouldn' happen to 'ave a bottle o' rum on ya would yee?");
-talkEntry:addResponse("Ahoy, me Hearties!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
