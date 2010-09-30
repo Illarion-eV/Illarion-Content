@@ -7,22 +7,23 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: September 30, 2010                          easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 29, 525, 0, 6, 'Julio Canaille', 'npc.julio_canaille', 0, 0, 3, 255, 255, 255, 255, 255, 255);
+VALUES (0, 29, 525, 0, 6, 'Julio Canaille', 'npc.julio_canaille', 0, 0, 3, 255, 255, 255, 225, 218, 212);
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.julio_canaille", package.seeall)
@@ -32,6 +33,27 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hilfe");
+talkEntry:addResponse("Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("helfen");
+talkEntry:addResponse("Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("help");
+talkEntry:addResponse("ASk me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holz");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
@@ -39,10 +61,10 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(208, "belt", "=>", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."));
-talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
+talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -57,7 +79,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Ge
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,7 +94,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("xxx"));
 talkEntry:addResponse("xxx");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,7 +111,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("xxx"));
 talkEntry:addResponse("xxx");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +163,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 5));
-talkEntry:addResponse("Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'");
+talkEntry:addResponse("Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran, %CHARNAME: 'Es ist nicht wichtig ob man gewinnt oder verliert, solange das was man tut wirklich cool aussieht.\"");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -151,7 +173,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran: 'Es ist nicht wichtig ob man gewinnt oder verliert, so lange das was man tut wirklich cool aussieht.'");
+talkEntry:addResponse("Aye-ch. Viel Spaß mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran, %CHARNAME: 'Es ist nicht wichtig ob man gewinnt oder verliert, solange das was man tut wirklich cool aussieht.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +293,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,7 +303,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +313,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +325,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +394,7 @@ talkEntry:addTrigger("wie hei[sß]+t ihr");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer seid");
 talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Ich bin %NPCNAME. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?");
+talkEntry:addResponse("Ich bin Julio Canaille. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -381,7 +403,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Arr! Don't get bit by seadogs!");
+talkEntry:addResponse("Arr! Don't get bite by seadogs!");
 talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -722,7 +744,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Bragon, und seine Drachen. Ch-ch. Mit feuer ist nicht zu Spaßen.");
+talkEntry:addResponse("Bragon, und seine Drachen. Ch-ch. Mit Feuer ist nicht zu Spaßen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,7 +759,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("cherga! Warum, warum nur? warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit.");
+talkEntry:addResponse("Cherga! Warum, warum nur? warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,7 +789,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Eldan? So ein älter kluger Gott. Aber fragt mich nicht darüber aus.");
+talkEntry:addResponse("Eldan? So ein alter kluger Gott. Aber fragt mich nicht darüber aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +819,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Der gott der Geizkragen und Flauschbärte.");
+talkEntry:addResponse("Der Gott der Geizkragen, Flilzmaul und Flauschbärte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,7 +885,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra mach das die Bäume wachsen, sagt man. Ch.");
+talkEntry:addResponse("Oldra mach das die Bäume wachsen - behaupten zumindest die Halben. Ch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -945,23 +967,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hilfe");
-talkEntry:addResponse("Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Ch-h!");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("helfen");
-talkEntry:addResponse("Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Ch-h!");
+talkEntry:addResponse("Aye! Klar machen zum entern! Hä-hä-hä...");
+talkEntry:addResponse("Du sollst 'Ja, Kapitän!' sagen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("help");
-talkEntry:addResponse("ASk me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("No");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Sch-hade.");
+talkEntry:addResponse("Ja.. mich hab'n die Sorgen der Toten auch nie gekümmert.");
+talkEntry:addResponse("Argh-ha! Geh doch Flöte spielen...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Die Toten sin' tot. Das sollte überall so sein.");
+talkEntry:addResponse("Argh-ch...");
+talkEntry:addResponse("...Landratte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Aye, men verlorenes Bein schmerzt wieder!", "Aye, my missing leg hurts again!");
@@ -974,7 +1027,7 @@ talkingNPC:addCycleText("Zeit mit den Säbeln zu rasseln! Arr!", "Time to buckle 
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein zermoderter Geist, der unruhig über einem Grab schwebt.", "ENGLISH");
+mainNPC:setLookat("Ein modriger Geist, der unruhig über einem Grab schwebt.", "ENGLISH");
 mainNPC:setUseMessage("Ch-h! Fass mich nicht an!", "Ch-h! Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
