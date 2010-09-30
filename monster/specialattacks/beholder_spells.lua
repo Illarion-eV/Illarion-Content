@@ -35,7 +35,7 @@ local posit = Monster.pos;
 local CharList = world:getCharactersInRangeOf (posit, 10);
 
 	for i,v in pairs(CharList) do
-		if (v:get_magic_type() == 1) then
+		if v:increaseAttrib ("mana",0) > 0 then
 			if (math.random(100)<= 80) then
 				Monster:talk(CCharacter.say, "#me makes a terrifying sound, a stream of blue energy suddenly leaving the mage and dissipating into the air.");
 				v:increaseAttrib ("mana",-3000);
