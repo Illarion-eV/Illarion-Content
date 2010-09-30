@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: October 01, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,7 +22,8 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.tobis_vunu", package.seeall)
@@ -43,7 +44,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -62,7 +63,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,7 +82,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -99,7 +100,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(180, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(181, 1, 550, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 550, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -110,9 +111,12 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."));
-talkEntry:addResponse("#me hebt seinen Nase in die luft und schnupert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
+talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 230));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,9 +130,12 @@ talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast ein paar Münzen bekommen. Frage nun nach der geheimen Bootschaft die zu Corpotal Piero gebracht werden soll."));
-talkEntry:addResponse("#me hebt seinen Nase in die luft und schnupert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
+talkEntry:addResponse("#me hebt seine Nase in die Luft und schnuppert, er grinst breit. 'Aye, das riecht nach Erfolg. U-und du bist immer noch lebendig. Gut gemacht! Hier hast du n'paar Münzen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 230));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,7 +151,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."));
 talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 230));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,7 +169,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You earned some coins. Ask him about the secret information you shall deliver to Corporal Piero."));
 talkEntry:addResponse("#me rises his nose and sniffles, he gives a broad grin. 'Aye, that smells like success. A-and you are still alive. Well done. Here's a coin for you. ");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 230));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,8 +182,8 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 4));
-talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 5));
+talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,8 +196,8 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 5));
+talkEntry:addResponse("Oh ja, sicherlich. Bitte berichte Corporal Piero, die Piraten sind ziemlich sauer. Jemand hat ihr Tabak-Feld zerstört. *Er lacht amüsiert auf.* Nun müssen wir mit einem Racheakt rechnen.");
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -198,7 +211,7 @@ talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,7 +224,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 4));
 talkEntry:addResponse("Oh, yes, for sure. Please tell Corporal Piero the pirates are really pissed. Cause their tobacco field got destroyed. *He gives an amused laughter.* We have to await revenge now.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,7 +283,7 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(182, "body", "=>", 1));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +295,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(182, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -294,7 +307,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(182, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +320,7 @@ talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(182, "body", "=>", 1));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +331,7 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(181, "body", "=>", 1));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,7 +343,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(181, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +355,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(181, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,7 +368,7 @@ talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(181, "body", "=>", 1));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +379,7 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(457, "body", "=>", 1));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,7 +391,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(457, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,7 +403,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(457, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,7 +416,7 @@ talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(457, "body", "=>", 1));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,7 +427,7 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(180, "body", "=>", 1));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,7 +439,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(180, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,7 +451,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(180, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +464,7 @@ talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(180, "body", "=>", 1));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +475,7 @@ talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(195, "body", "=>", 1));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -474,7 +487,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(195, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld un brenn es mit ner Fackel ab. Aye?");
+talkEntry:addResponse("Aye. Jetzt siehste aus wie N' Pirat! Geh rüber zum Tabakfeld und brenn es mit ner Fackel ab. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +499,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(195, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -499,7 +512,7 @@ talkEntry:addTrigger("earn");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(356, "body", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(195, "body", "=>", 1));
-talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down qith the toarch. Aye?");
+talkEntry:addResponse("Aye, now you'r looking like a pirate! Make you way to the tobacco field and burn it down with the toarch. Aye?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -508,7 +521,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du solltest am Besten ein Hemd anziehen und einen Schlapphut aufsetzen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Du solltest am besten ein Hemd anziehen und einen Schlapphut aufsetzen."));
 talkEntry:addResponse("Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -519,7 +532,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Du solltest am Besten ein Hemd anziehen und einen Schlapphut aufsetzen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Du solltest am besten ein Hemd anziehen und einen Schlapphut aufsetzen."));
 talkEntry:addResponse("Arr, wenn du das Zeug nich anziehst, wird dich die Wache nicht durchlassen. Wir Piratn tragn nunmal Hemden. Den Hut musst nur du tragen, damit sie nich sehn wie hässlich du bist. Har-har!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -657,7 +670,7 @@ talkEntry:addTrigger("wie hei[sß]+t ihr");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer seid");
 talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Ich bin %NPCNAME. Bei meinen wankenden Masten!");
+talkEntry:addResponse("Ich bin Tobis Vunu. Bei meinen wankenden Masten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -665,7 +678,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am %NPCNAME. Siver me timbers!");
+talkEntry:addResponse("I am Tobis Vunu. Siver me timbers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -775,7 +788,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("murgo");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit sienen bloßen Händen entwurzeln!");
+talkEntry:addResponse("Auch unter den Falggen von uns Piraten ist der Ork Murgo bestens bekannt. Man sagt, er könne einen Baum mit seinen bloßen Händen entwurzeln!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +819,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Einmal..als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich.");
+talkEntry:addResponse("Einmal... als wir über die See reisten sah ich... ihr werdets nich glauben... ne Meerjungfrau! Ehrlich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +911,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Wiesst du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genau so jemand wenn du mich fragst.");
+talkEntry:addResponse("Weißt du.. es gibt Leute mit denen sollte man sich nicht anlegen. Don Valerio Guilianni ist wohl genauso jemand, wenn du mich fragst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -948,7 +961,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Reginald");
 talkEntry:addTrigger("king");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Oh... guter alter König Reginald. Schade das er jetzt tot ist.");
+talkEntry:addResponse("Oh... guter alter König Reginald. Schade, dass er jetzt tot ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,6 +978,36 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Das hier ist nicht Cadomyr! Hier ist die Piratebay! Hier haben wir unseren eigenen Codex! Solang uns die Seehunde nich beissn!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Piero");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich kenne keinen Piero.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Piero");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I don't know any Piero's.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruggero");
+talkEntry:addTrigger("bloom");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Aye, Ruggero ist ein guter Kumpel von mir. Leg dich lieber nicht mit ihm an, er ist leicht reizbar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ruggero");
+talkEntry:addTrigger("bloom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye Ruggero is my matee! Don't annoy him, he's kind of bullsish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me säuselt leise ein Lied. '...und ne Buddel voll Rum!'", "#me sings a quit song. '... and a bottle with rum!'");
 talkingNPC:addCycleText("#me zieht sein Säbel und hält es prüfend gegen das Licht.", "#me takes his sabre and examines it with narrowed eyes.");
 talkingNPC:addCycleText("Aye. Wassimma.", "Aye. Whatevva.");
@@ -976,7 +1019,7 @@ talkingNPC:addCycleText("Auf der See... da steht man sein' Mann. Oder ersäuft!",
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Arr, das ist ein gestandener wilder Pirat! Nimm dich in Acht!", "Arr, thiss seems like a ugly wild pirate! Take care.");
+mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, thiss seems like a ugly wild pirate! Take care.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
