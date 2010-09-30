@@ -4,7 +4,7 @@ require("monster.base.drop")
 require("base.common");
 module("monster.specialattacks.beholder_spells", package.seeall)
 
-function Death_Gaze (Monster, Enemy)
+--[[function Death_Gaze (Monster, Enemy)
 --  Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
 	CharList={};
 	local posit = Monster.pos;
@@ -27,4 +27,6 @@ function Death_Gaze (Monster, Enemy)
 		end
 	end
 end
-		
+	]]--
+
+	
