@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                          --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: October 01, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -20,7 +20,8 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.corporal_piero", package.seeall)
@@ -90,7 +91,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 5));
 talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -108,7 +112,10 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,7 +133,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.");
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +151,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 5));
 talkEntry:addResponse("Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.");
 talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 9));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "-", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,7 +210,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"));
 talkEntry:addResponse("In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -208,7 +221,7 @@ talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Soll das ein Auftrag sein? Besser, ich frage nach mehr Informationen...'"));
 talkEntry:addResponse("In der Tat. Ja, ja. Im Namen der Wächter Cadomyrs bin ich ermächtigt Euch einen Auftrag zu erteilen. Sucht Euren Weg in die Bucht der Piraten. Tobis Vunu hat Informationen für mich die ausgesprochen wichtig sind. Übergebt mir diese Botschaft.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,7 +232,7 @@ talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Is that a task or not? I should ask for more information..."));
 talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +244,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Is that a task or not? I should ask for more information..."));
 talkEntry:addResponse("Indeed. Yes,yes. In name of the guard Cadomyr, I am used to order you a task. Find a way into the Pirate Bay. Tobis Vunu holds information wich is very important for me. deliver this message to me.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(305, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.queststatus(305, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -540,7 +553,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Erzmagier Elvaine Morgan ist der Herrscher über Runewick. es heißt niemand wagt es ihm zu wiedersprechen. Aber nicht aus Angst, sondern weil es nimeanden gibt der es besser wüsste.");
+talkEntry:addResponse("Erzmagier Elvaine Morgan ist der Herrscher über Runewick. Es heißt niemand wagt es ihm zu widersprechen. Aber nicht aus Angst, sondern weil es niemanden gibt der es besser wüßte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,7 +567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("urgh. Runewick. Klingt für mich nach einem Ort wo ich nie hin gehen werde. Es ist voll mit arroganten Bücherwürmern, die glauben sie wüßten alles.");
+talkEntry:addResponse("Urgh. Runewick. Klingt für mich nach einem Ort wo ich nie hin gehen werde. Es ist voll mit arroganten Bücherwürmern, die glauben sie wüßten alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +599,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ein kaotischs Moloch. Überfüllt mit Abschaum. Reichtum ist dort alles was zählt. Dort hat man keine Ehre.");
+talkEntry:addResponse("Ein chaotisches Moloch. Überfüllt mit Abschaum. Reichtum ist dort alles was zählt. Dort kennt man keine Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +619,7 @@ talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrschering unseres großartigen Landes. Das Blut der Könige fließt stark und rein in ihren Adern.");
+talkEntry:addResponse("Gott schütze Königin Rosaline Edwards. Sie ist die absolute Herrscherin unseres großartigen Landes. Das Blut der Könige fließt stark und rein in ihren Adern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,7 +635,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Reginald");
 talkEntry:addTrigger("king");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Der König ist tot. Lang lebe die Königin. Als König Reginald Edwards verstab, war es Königin Rosaline möglich den Tron zu besteigen. Wider den Plänen von so manchen Adeligen.");
+talkEntry:addResponse("Der König ist tot. Lang lebe die Königin. Als König Reginald Edwards verstarb, war es Königin Rosaline möglich den Tron zu besteigen. Wider den Plänen von so manchen Adeligen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,10 +654,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Lang lebe Königin Rosaline Edwards.", "Long live queen Rosaline Edwards.");
 talkingNPC:addCycleText("#me kratzt sich am Nasenrücken.", "#me has a scratch at the back of his nose.");
-talkingNPC:addCycleText("#me hohlt ein Stück Brot aus der Tasche und steckt es sich in den Mund.", "#me takes a pice bread out of his bag and eat it.");
+talkingNPC:addCycleText("#me holt ein Stück Brot aus der Tasche und steckt es sich in den Mund.", "#me takes a pice bread out of his bag and eat it.");
 talkingNPC:addCycleText("#me nimmt einen kräftigen Schluck aus seinen Trinkschlauch.", "#me takes a nip out of his water bottle.");
 talkingNPC:addCycleText("#me blickt zur Seite. 'Halt! Wer da?...Hm. War wohl doch nur der Wind.'", "#me turns to side. 'Stop! Someone there?...Hm. Seems the wind tricked me again.'");
-talkingNPC:addCycleText("#me kratzt sich unaufällig am Hinterteil.", "#me has a inconspicuous short scratch at his butt.");
+talkingNPC:addCycleText("#me kratzt sich unauffällig am Hinterteil.", "#me has a inconspicuous short scratch at his butt.");
 talkingNPC:addCycleText("#me blickt leicht verträumt in den Himmel.", "#me glances the sky in a moony way.");
 talkingNPC:addCycleText("#me kaut nachdenklich an den Fingernägeln.", "#me noshes his fingernails, a thoughtful gaze in his face.");
 talkingNPC:addCycleText("#me fasst sich mit der hand an die Seite: 'Ghn! Meine alte Verletzung schmerzt...'", "#me grabs his side and moans: 'Ghn! My old lesion hurts again...'");
