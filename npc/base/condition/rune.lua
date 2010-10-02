@@ -1,4 +1,5 @@
-equire("base.class")
+-- $Id$
+require("base.class")
 require("npc.base.condition.condition")
 
 module("npc.base.condition.rune", package.seeall)

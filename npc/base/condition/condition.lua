@@ -1,3 +1,4 @@
+-- $Id$
 require("base.class")
 
 module("npc.base.condition.condition", package.seeall)

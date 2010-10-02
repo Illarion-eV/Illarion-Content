@@ -1,3 +1,4 @@
+-- $Id$
 require("base.class")
 require("base.treasure")
 require("npc.base.consequence.consequence")

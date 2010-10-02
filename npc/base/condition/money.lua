@@ -1,3 +1,4 @@
+-- $Id$
 require("base.class")
 require("base.money")
 require("npc.base.condition.condition")

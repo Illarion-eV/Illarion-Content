@@ -5,6 +5,7 @@
 -- one that requires regular from the actual NPC script.
 --
 -- Author: Martin Karing
+-- $Id$
 
 require("base.common")
 require("base.class")

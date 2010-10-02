@@ -3,6 +3,7 @@
 -- This script offers all functions needed to get NPCs to talk.
 --
 -- Author: Martin Karing
+-- $Id$
 
 require("base.common")
 require("base.messages")
