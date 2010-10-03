@@ -103,6 +103,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    User:performAnimation(11); -- 6, 7(bow), 
 	elseif (string.find(User.lastSpokenText,"smith")~=nil) then
 	    User:performAnimation(14);
+	elseif (string.find(User.lastSpokenText,"attributes")~=nil) then
+		User:inform("STR: "..User:increaseAttrib("strength", 0).." CONST: "..User:increaseAttrib("constitution", 0).." DEX: "..User:increaseAttrib("dexterity", 0).." AGI: "..User:increaseAttrib("agility", 0).." WIL: "..User:increaseAttrib("willpower", 0).." PERC: "..User:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0));
 	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
 	    -- equip NPC
 	    
