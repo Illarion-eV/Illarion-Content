@@ -249,9 +249,9 @@ function checkGemsOnItem(User,Item)
 	end
 	--User:inform("moep->O");
 	if gems~=nil then
-    itemList();
+    content.lookat.unique.itemList();
 	--User:inform("moep->X");
-		Class=ItemClass[Item.id];
+		Class=content.lookat.unique.ItemClass[Item.id];
 		ItemCl=content.lookat.unique.writeClass(User,Class);
 	--User:inform("moep");
 
