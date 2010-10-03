@@ -95,10 +95,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     -- 7 -> Schmuck
 
     content.lookat.unique.itemList();
-    if ItemClass[TargetItem.id] ~= nil then
-		if checkjewel(SourceItem, TargetItem,ItemClass[TargetItem.id]) then
+    if content.lookat.unique.ItemClass[TargetItem.id] ~= nil then
+		if checkjewel(SourceItem, TargetItem,content.lookat.unique.ItemClass[TargetItem.id]) then
 			if SourceItem.data >0 and SourceItem.data<11 then
-	    	    dataVal=generateData(SourceItem,TargetItem,ItemClass[TargetItem.id],User);
+	    	    dataVal=generateData(SourceItem,TargetItem,content.lookat.unique.ItemClass[TargetItem.id],User);
 	    	    if dataVal>0 then
 	    	        --User:inform("data. "..dataVal);
 	    	        TargetItem.data=dataVal;
