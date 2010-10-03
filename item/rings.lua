@@ -3,7 +3,7 @@
 require("item.general.jewel")
 require("content.jewelbonus")
 
-module("item.rings", package.seeall, package.seeall(item.general.jewel))
+module("item.rings", package.seeall)
 
 function MoveItemAfterMove( User, SourceItem, TargetItem )
     --User:inform("in move");
@@ -11,10 +11,18 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     --User:inform("bla");
     if stoneNr>0 then                                                   -- obviously a gem was inserted!
         if ((TargetItem.itempos==7) or (TargetItem.itempos==8)) then    -- put on a finger
-            content.jewelbonus.giveBonus(User,TargetItem);                                 -- now raise corresponding attribute(s) and start LTE
+			if ((SourceItem.itempos == 7) or (SourceItem.itempos==8)) then
+				-- no change
+			else
+				content.jewelbonus.giveBonus(User,TargetItem); -- now raise corresponding attribute(s) and start LTE
+			end
         elseif ((SourceItem.itempos==7) or (SourceItem.itempos==8)) then  -- taken off of a finger
-            content.jewelbonus.takeBonus(User,SourceItem,stoneNr,stoneStr);                -- now lower corresponding attribute(s) and remove/change LTE
+			content.jewelbonus.takeBonus(User,SourceItem,stoneNr,stoneStr);                -- now lower corresponding attribute(s) and remove/change LTE
         end
         --User:inform("blubb");
     end
+end
+
+function LookAtItem(User,Item)
+	item.general.jewel.LookAtItem(User,Item);
 end
