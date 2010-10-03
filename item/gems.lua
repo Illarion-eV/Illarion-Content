@@ -3,7 +3,7 @@ require("base.common")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
-module("item.gems", package.seeall, package.seeall(content.lookat.unique))
+module("item.gems", package.seeall)
 
 function initStones()
     stoneNumber={};
@@ -94,7 +94,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     -- 6 -> Werkzeuge
     -- 7 -> Schmuck
 
-    itemList();
+    content.lookat.unique.itemList();
     if ItemClass[TargetItem.id] ~= nil then
 		if checkjewel(SourceItem, TargetItem,ItemClass[TargetItem.id]) then
 			if SourceItem.data >0 and SourceItem.data<11 then
