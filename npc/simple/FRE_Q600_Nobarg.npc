@@ -1,0 +1,311 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Nobarg                                                      None --
+-- NPC Job:  Priest                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  200, 140, 0                --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                                            --
+-- Last parsing: September 14, 2010                      easyNPC Parser v1.01 --
+--------------------------------------------------------------------------------
+
+name = "Nobarg"
+race = human
+sex = male
+position = 200, 140, 0
+direction = east
+affiliation = "None"
+job = "Priest"
+
+language = common
+language = human
+language = ancient
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "#me kniet vor dem Altar und betet."
+lookatUS = "#me kneels infront of the altar and prais."
+useMsgDE = "Dein Feuer berühre und erleuchte mich!"
+useMsgUS = "Your fire touches and enlightens me!"
+wrongLangDE = "#me blickt verwirrt."
+wrongLangUS = "#me looks confused."
+
+hairID = 1
+beardID = 3
+
+itemHead = 358
+itemChest = 182
+itemCoat = 2419
+itemMainHand = 40
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 53
+
+-- queststatus(600) Overview
+-- QuestID=600
+--0: Sir Fludnar Yedno - No Quest taken
+--1: Sir Fludnar Yedno - Quest start
+--2: Sir Fludnar Yedno - Quest short question
+--3: Sir Fludnar Yedno - Quest taken - gather information about Bragon and orks
+--4: Sir Fludnar Yedno - Quest task is imparted to player
+--5: Nobarg - Quest task is imparted to player
+--6: Nobarg - Quest 1 taken - gather pure fire
+--7: Nobarg - Quest 1 player comes back
+--8: Nobarg - Quest 1 solved
+--9: Nobarg - Quest 2 task is imparted to player
+--10: Nobarg - Quest 2 taken - gather red priest robe
+--11: Nobarg - Quest 2 player comes back
+--12: Nobarg - Quest 2 solved
+--13: Nobarg - Quest 3 task is imparted to player
+--14: Nobarg - Quest 3 player comes back
+--15: Nobarg - Quest 3 solved
+--16: Nobarg - Quest question is asked
+--17: Nobarg - Quest answer is imparted to player
+--18: Sir Fludnar Yedno - Quest player is back with answer
+--19: Sir Fludnar Yedno - Quest solved
+--20: Sir Fludnar Yedno - Quest player wants compensation
+--21: Sir Fludnar Yedno - Quest done
+
+--Help
+
+"Help"->inform ( [Game Help] This NPC is the priest Nobarg. Keyphrases: Hello, quest, Bragon, gods. )
+"Hilfe"->inform ( [Spielhilfe] Dieser NPC ist der Priester Nobarg. Schlüsselwörter: Hallo, Quest, Bragon, Götter. )
+
+--General speech
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening"->"#me nods slighty and continous praying.","Hmm? Yes, yes.","Bragon with you."
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir"->"#me nickt leicht und betet weiter.","Hmm? Ja, ja.","Bragon mit euch."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"#me nods slighty and continous praying.","Hmm? Yes, yes.","Bragon with you."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"#me nickt leicht und betet weiter.","Hmm? Ja, ja.","Bragon mit euch."
+
+"Farewell","Good bye","Bye","Fare thee well"->"Farewell.","Good bye.","Bragon with you!"
+"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Lebt wohl.","Aufwiedersehen.","Bragon sei mit euch!"
+"Ciao","Adieu","Au revoir","Farebba","See you",english->"Farewell.","Good bye.","Bragon with you!"
+"Ciao","Adieu","Au revoir","Farebba","See you"->"Lebt wohl.","Aufwiedersehen.","Bragon sei mit euch!"
+"How are you","How feel","How do you do"->"If Bragon listens to me today, better.","Do you want pray with me?","Fine, Bragen to honour!"
+"Wie geht","Wie fühlst","Wie ist es ergangen","Wie Befinden"->"Wenn Bragon mich heute erhört, besser.","Möchtet ihr mit mir beten?","Gut, Bragon zu Ehren!"
+"your name","who are you","who art thou"->"Nobarg.","Nobarg, priest of Bragon"
+"dein name","wer bist du","wer seid ihr","wie heißt"->"Nobarg","Nobarg, Priester von Bragon"
+
+--Catching typical NPC phrases
+
+"what sell","what buy","list wares","price of"->"Do I look as I sell something?","I don't sell something.","I'm not a merchant, but priest."
+"was verkauf","was kauf","warenliste","preis von"->"Sehe ich aus als würde ich etwas verkaufen?","Ich verkaufe nichts.","Ich bin kein Händler, sondern Priester."
+"tell something"->"In Bragon I belive.","Another time maybe. Now I have to pray.","It is not the time for stories, yet."
+"erzähl was","erzähl etwas"->"An Bragon glaube ich.","Vielleicht ein andermal. Jetzt muss ich beten.","Nun ist nicht die Zeit um Geschichten zu erzählen."
+
+--Small talk: The talk here should focus on possible questions. Feel free to add more!
+
+"profession"->"Priest of Bragon of course.","Priest, are you not seeing it?","Bragon is my passion."
+"beruf"->"Priest von Bragon natürlich.","Priester, seht ihr das nicht?","Bragon ist meine Leidenschaft."
+"job",english->"Priest of Bragon of course.","Priest, are you not seeing it?","Bragon is my passion."
+"job"->"Priest von Bragon natürlich.","Priester, seht ihr das nicht?","Bragon ist meine Leidenschaft."
+"Gobaith","Gobiath",english->"A very misery place, wasn't it?","Many left this island, more returned, but in the end we had all to leave.","What a wonderful place it was, wasn't it? Bragon to honour."
+"Gobaith","Gobiath"->"Ein Leid überzogener Ort, oder?","Viele haben diese Insel verlassen, mehr sind zurück gekehrt, aber schlußendlich mussten wir alle gehen.","Welch wundervoller Ort es war. Bragon zu Ehre."
+
+"I am","my name"->"Do you pray to Bragon too?","Nice name, I like it.","Well, but let us pray to Bragon now."
+"Ich bin","mein Name"->"Betet ihr auch zu Bragon?","Schöner Name, gefällt mir.","Gut, aber nun kommt und lasst uns zu Bragon beten."
+
+--More small talk; add at least five triggers
+
+"Bearer" ->"They fight for the light and prodect the weak ones.","A very honourable community.","Fire be in them, that they carry the light as far as possible."
+"doom","extinction","collapse","fall"->"It was horrible!","Bragon be praised that he saved me!","Pray that it never happen again."
+"horrible"->"The fall ob Gobaith","The last days of Gobaith.","Yes, it was so...I don't have words to describe it."
+"died","death","what did happen","what happened"->"Yes, many died in those days.","Yes, but some could fly. I think you can find them here somewhere."
+
+"Träger" ->"Die kämpfen für das Licht und schützen die Schwachen.","Eine sehr ehrenhafte Gemeinschaft.","Das Feuer brenne in ihnen, dass sie das Lich weit tragen werden."
+"Untergang","Zerstörung"->"Es war furchtbar!","Bragon sei gepriesen, dass er mich rettete!","Bettet, dass es nie wieder passiert."
+"furchtbar"->"Der Untergang von Gobaith.","Die letzten Tage von Gobaith.","Ja, es war so...Ich habe keine Wörter um es besser zu beschreiben."
+"tot","gestorben","starben","was ist passiert","was ist geschehen"->"Ja, viele sind gestorben.","Ja, aber manche konnten fliehen. Ich denke ihr könnt sie hier irgendwo finden."
+
+--Faction stuff
+
+"Elvaine","Morgan","archmage","Erzmagier",english->"Does he belive in Bragon? Otherwise I do not care about him.","He rules Runewick as far as I know.","I think he knows many things about arcane magic."
+"Elvaine","Morgan","archmage","Erzmagier"->"Glaubt er an Bragon? Ansonsten interessiert er mich nicht.","Er regiert Runewick soweit ich weiß.","Ich denke er weiß viele Dinge über arkane Magie."
+"Runewick",english->"They are looking for wisdom.","They think, they are wise, but I don't know if I shall agree.","I can remember a blue and a red gate when you enter the town."
+"Runewick"->"Die suchen nach Weisheit.","Die denken, dass sie weise sind, aber ich weiß nicht ob ich darin zustimmen soll.","Ich kann mich an ein blaues und ein rotes Tor erinnern wenn man die Stadt betritt."
+"Valerio","Guilianni","Don",english->"Does he belive in Bragon? Otherwise I do not care about him.","He is the richest man in Galmair.","He is quite good with his daggers. In particular if he is comming from the backside."
+"Valerio","Guilianni","Don"->"Glaubt er an Bragon? Ansonsten interessiert er mich nicht.","Er ist der reichste Mann in Galmair.","Er kann ganz gut mit Dolchen umgehen. Vorallem wenn er von hinten kommt."
+"Galmair",english->"They are looking for coins.","Take care of your belongings if you are there.","Do not trust anyone there."
+"Galmair"->"Die sind auf Geld aus.","Achtet auf euer Hab und Gut wenn ihr dort seid.","Vertraut niemanden dort."
+"rosaline","königin","queen","edwards",english->"Does she belive in Bragon? Otherwise I do not care about her.","She is on a quick road to ruin Cadomyr.","Lovely face, but not more."
+"rosaline","königin","queen","edwards"->"Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.","Sie stürzt Cadomyr in den Ruin.","Nettes Gesicht, aber nicht mehr."
+"Cadomyr",english->"They are looking for honor.","A very sandy town.","I have no idea how do you get there."
+"Cadomyr"->"Die suchen nach Ehre.","Eine sehr sandige Stadt.","Ich habe keine Ahnung wie ihr dort hinkommt."
+
+--Main land factions
+
+"albar",english->"On of the big empires.","Who cares about this town?","Hmm...I don't know if they pray to Bragon."
+"albar",german->"Eines der großen Reiche.","Wer interessiert sich sohon für diese Stadt?","Ich weiß nicht, ob die zu Bragon beten."
+"gynk","gync",english->"On of the big empires.","Who cares about this town?","Hmm...I don't know if they pray to Bragon."
+"gync","gynk",german->"Eines der großen Reiche.","Wer interessiert sich sohon für diese Stadt?","Ich weiß nicht, ob die zu Bragon beten."
+"salkama",english->"On of the big empires.","Who cares about this town?","Hmm...I don't know if they pray to Bragon."
+"salkama",german->"Eines der großen Reiche.","Wer interessiert sich sohon für diese Stadt?","Ich weiß nicht, ob die zu Bragon beten."
+
+--Gods - use the triggers of the god the NPC worships or fights
+-- Pick 1-2 gods he likes, 1 he dislikes
+-- Use ONE other response for the other gods i.e. "I don't worship that good much"
+
+"god"->"Bragon, Bragon and again Bragon.","I pray to Bragon, join me.","I believe in Bragon and his fire."
+"Gott","Götter"->"Bragaon, Bragon und nochmals Bragon.","Ich bete zu Bragon, bete mit mir.","Ich glaube an Bragon und sein Feuer."
+
+"Adron",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Adron"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Bragon","Brágon",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Bragon","Brágon"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Cherga",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Cherga"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Elara",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Elara"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Eldan",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Eldan"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Findari",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Findari"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Irmorom",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Irmorom"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Malachin","Malachín",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Malachin","Malachín"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Moshran",english->"I don't talk about this god.","I heard about priests of this god, but I cannot remeber the name of the priest.","He stole mine god the dragons."
+"Moshran"->"Über diesen Gott spreche ich nicht.","Es gibt Gerüchte, dass der Tempel ihm folgt.","Er hat meinen Göttern die Drachen gestohlen."
+"Nargun","Nargún","Nargùn",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Nargun","Nargún","Nargùn"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Oldra",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Oldra"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Ronagan",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Ronagan"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Sirani",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Sirani"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Tanora","Zelphia",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Tanora","Zelphia"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Ushara",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Ushara"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+"Zhambra",english->"Yes, this god exists.","I heard about priests of this god, but I cannot remeber the name of the priest.","I believe in Bragon."
+"Zhambra"->"Ja, dieser Gotte exestiert.","I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Ich glaube an Bragon."
+
+--1st quest: Bring 1 pure fire.
+
+"task","adventure","know","question", queststatus(600) = 4->"You want to know something from me... Well, why should I answer such a question? Probably you can do something for me too. I could need something. To be honest, three things. But bring me a pure fire for the beginning. Are you able to do so?",queststatus(600) + 1
+"Auftrag","Aufgabe","Abenteuer","wissen","Frage",queststatus(600) = 4->"Du möchtest etwas von mir wissen... Warum sollte ich dir eine Antwort auf die Frage geben? Vielleicht kannst du auch etwas für mich tun. Ich könnte schon etwas brauchen. Drei Dinge eigentlich, aber bringe mir erstmal ein reines Feuer. Schafft ihr das?",queststatus(600) + 1
+"quest","mission", queststatus(600) = 4,english->"You want to know something from me... Well, why should I answer such a question? Probably you can do something for me too. I could need something. To be honest, three things. But bring me a pure fire for the beginning. Are you able to do so?",queststatus(600) + 1
+"quest","mission", queststatus(600) = 4->"Du möchtest etwas von mir wissen... Warum sollte ich dir eine Antwort auf die Frage geben? Vielleicht kannst du auch etwas für mich tun. Ich könnte schon etwas brauchen. Drei Dinge eigentlich, aber bringe mir erstmal ein reines Feuer. Schafft ihr das?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 5 -> "In this case, I will wait for you here to give you further introduction as soon as you brought the pure fire.",queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 5 -> "In diesem Falle werde ich auch euch hier warten um euch dann weitere Anweisungen zu geben wenn ihr das reine Feuer gebracht habt.",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 5, english -> "In this case, I will wait for you here to give you further introduction as soon as you brought the pure fire.",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 5 -> "In diesem Falle werde ich auch euch hier warten um euch dann weitere Anweisungen zu geben wenn ihr das reine Feuer gebracht habt.",queststatus(600) + 1
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening", queststatus(600) = 6 -> "Do you have the pure fire?",queststatus(600) + 1
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir", queststatus(600) = 6 -> "Habt ihr mir das reine Feuer mitgebracht?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 6, english -> "Do you have the pure fire?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 6 -> "Habt ihr mir das reine Feuer mitgebracht?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 7,item(2553,all)>0 -> "Well done, you are ready for the next task. Do you want to know more about it?",deleteitem(2553,1),queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 7,item(2553,all)>0 -> "Gut gemacht, du bist bereit für die nächste Aufgabe. Wollt ihr mehr darüber wissen?",deleteitem(2553,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 7,item(2553,all)>0, english -> "Well done, you are ready for the next task. Do you want to know more about it?",deleteitem(2553,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 7,item(2553,all)>0 -> "Gut gemacht, du bist bereit für die nächste Aufgabe. Wollt ihr mehr darüber wissen?",deleteitem(2553,1),queststatus(600) + 1
+"Yes","Sure","Of course", queststatus(600) = 7,item(2553,all)=0 -> "Please, do not interupt me until you got the pure fire!"
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 7,item(2553,all)=0 -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+"Yeah","Yubba", queststatus(600) = 7,item(2553,all)=0, english -> "Please, do not interupt me until you got the pure fire!"
+"Yeah","Yubba", queststatus(600) = 7,item(2553,all)=0 -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+
+--2st quest: Bring 1 red priest robe.
+
+"Yes","Sure","Of course", queststatus(600) = 8 -> "Well, look at my robe... It looks old. Please bring me a new one. Are you fine with that?",queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 8 -> "Nun, schaut auf meine Robe... Sie ist schon alt. Bitte bringt mir eine neue. Einverstanden?",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 8, english -> "Well, look at my robe... It looks old. Please bring me a new one. Are you fine with that?",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 8 -> "Nun, schaut auf meine Robe... Sie ist schon alt. Bitte bringt mir eine neue. Einverstanden?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 9 -> "Very good. I am looking forward for the new red priest robe.",queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 9 -> "Sehr gut. Ich freue mich schon auf die neue rote Priesterrobe",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 9, english -> "Very good. I am looking forward for the new red priest robe.",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 9 -> "Sehr gut. Ich freue mich schon auf die neue rote Priesterrobe",queststatus(600) + 1
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening", queststatus(600) = 10 -> "Do you have the red priest robe?",queststatus(600) + 1
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir", queststatus(600) = 10 -> "Habt ihr mir die rote Priesterrobe mitgebracht?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 10, english -> "Do you have the red priest robe?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 10 -> "Habt ihr mir die rote Priesterrobe mitgebracht?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 11,item(2419,all)>0 -> "Well done, you are ready for the next task. Do you want to know more about it?",deleteitem(2419,1),queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 11,item(2419,all)>0 -> "Gut gemacht, du bist bereit für die nächste Aufgabe. Wollt ihr mehr darüber wissen?",deleteitem(2419,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 11,item(2419,all)>0, english -> "Well done, you are ready for the next task. Do you want to know more about it?",deleteitem(2419,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 11,item(2419,all)>0 -> "Gut gemacht, du bist bereit für die nächste Aufgabe. Wollt ihr mehr darüber wissen?",deleteitem(2419,1),queststatus(600) + 1
+"Yes","Sure","Of course", queststatus(600) = 11,item(2419,all)=0 -> "Please, do not interupt me until you got the red priest robe!"
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 11,item(2419,all)=0 -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+"Yeah","Yubba", queststatus(600) = 11,item(2419,all)=0, english -> "Please, do not interupt me until you got the red priest robe!"
+"Yeah","Yubba", queststatus(600) = 11,item(2419,all)=0 -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+
+--3st quest: Bring 1 gold goblet.
+
+"Yes","Sure","Of course", queststatus(600) = 12 -> "I am also preparing a ritual for Bragon and I need a golden goblet. Could you bring me one?",queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 12 -> "Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Könnt ihr mir einen bringen?",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 12, english -> "I am also preparing a ritual for Bragon and I need a golden goblet. Could you bring me one?",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 12 -> "Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Könnt ihr mir einen bringen?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 13 -> "Perfect. But now run! Bragon is waiting",queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 13 -> "Perfekt. Aber lauft nun! Bragon wartet.",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 13, english -> "Perfect. But now run! Bragon is waiting",queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 13 -> "Perfekt. Aber lauft nun! Bragon wartet.",queststatus(600) + 1
+
+"Hello","Greetings","Be greeted","Greet","Hail","Good day","Good morning","Good evening", queststatus(600) = 14 -> "Do you have the golden goblet?",queststatus(600) + 1
+"Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin","mit dir", queststatus(600) = 14 -> "Habt ihr mir den Goldkelch mitgebracht?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 14, english -> "Do you have the golden goblet?",queststatus(600) + 1
+"Hiho","Hallo","Hey","Greebas","Greebs", queststatus(600) = 14 -> "Habt ihr mir den Goldkelch mitgebracht?",queststatus(600) + 1
+
+"Yes","Sure","Of course", queststatus(600) = 15,item(2419,all)>0 -> "You have done everything I asked you. What is your question now?",deleteitem(2419,1),queststatus(600) + 1
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 15,item(2419,all)>0 -> "Ihr habt alles getan, wss ich haben wollte. Was ist eure Frage nun?",deleteitem(2419,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 15,item(2419,all)>0, english -> "You have done everything I asked you. What is your question now?",deleteitem(2419,1),queststatus(600) + 1
+"Yeah","Yubba", queststatus(600) = 15,item(2419,all)>0 -> "Ihr habt alles getan, wss ich haben wollte. Was ist eure Frage nun?",deleteitem(2419,1),queststatus(600) + 1
+"Yes","Sure","Of course", queststatus(600) = 15,item(2419,all)=0 -> "Please, do not interupt me until you got the golden goblet!"
+"Ja","Klar","Sicher","Gerne","Jawohl", queststatus(600) = 15,item(2419,all)=0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
+"Yeah","Yubba", queststatus(600) = 15,item(2419,all)=0, english -> "Please, do not interupt me until you got the golden goblet!"
+"Yeah","Yubba", queststatus(600) = 15,item(2419,all)=0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
+
+--4st quest: Question.
+-- der Nachforschungen über Orks und die Rolle von Bragon für diese anstellt. Er ist dabei auf die Geschichte gestoßen, dass Bragon Moshran bei der Erschaffung der Orks geholfen hat und hat dazu 3 Fragen. Er bietet nun um Hilfe und schlägt vor einen Priester aufzusuchen. Dabei deutet er auf die Möglichkeit einen entsprechenden beim Altar des Feuers zu finden.
+
+"age", queststatus(600) = 16 -> "That is not difficult, of course. It was in the Age of Concord! *sings few lines to himselves* The world is perfect. You cannot improve her.La, la,....well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Zeitalter", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"support", queststatus(600) = 16 -> "That is not difficult, of course. Bragon had hope to comfort the Blootgod in his loneliness through the creation of the orks! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Unterstützung", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Bragon hatte die Hoffnung den Blutgott in seiner Einsamkeit zu trösten durch die Erschaffung der Orks! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"Purge",queststatus(600) = 16 -> "That is not difficult, of course. Bragon is the lifegiver, and purge of all impurity and weakness! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Vernichter",queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Bragon ist der Lebensspender und Vernichter alles Unreinen und Schwachen! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"realized","realised", queststatus(600) = 16 -> "That is not difficult, of course. It was in the Age of Discord! *sings few lines to himselves* Deep down, where loneliness and darkness reign. Deep down, where the soul consumes itself....well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"bemerkt hat","erkannt hat", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen. Tief unten, wo die Seele sich selbst verzehrt....nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"Sun",queststatus(600) = 16 -> "That is not difficult, of course. 'Daily sunmaker'! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Sonne",queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. 'Täglich Sonnenmacher'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"remedy", queststatus(600) = 16 -> "That is not difficult, of course. Dragons! He sent dragons into the battle...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Wiedergutmachung", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Drachen! Er sendete Drachen in die Schlacht...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"relationship","relate", queststatus(600) = 16,english -> "That is not difficult, of course. Fire! There is a fire in both you have never seen before I guess...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"verbindet","verbindung", queststatus(600) = 16,german -> "Das ist nicht schwierig, gewiss. Feuer! Da brennt ein Feuer in beiden, dass du bestimmt noch nicht gesehen hast wie ich annehme...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"Summer",queststatus(600) = 16 -> "That is not difficult, of course.`'Strong in summer'! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Sommer",queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. 'Stark im Sommer'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"pray","praying", queststatus(600) = 16 -> "That is not difficult, of course. The orcs see Bragon as the one who gives live! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"beten","gebet", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Die Orks sehen Bragon als denjenigen der das Leben schenkt! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+"Tribunal of Eternity", queststatus(600) = 16 -> "That is not difficult, of course. Among other things Bragon will discern whether they lived for the purpose of the Holy Flame or not! ...well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",queststatus(600) + 1
+"Tribunal der Ewigkeit", queststatus(600) = 16 -> "Das ist nicht schwierig, gewiss. Untereanderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",queststatus(600) + 1
+
+--Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+cycletext "#me kniet vor dem Alter.","#me kneels infront of the altar."
+cycletext "#me klopft gegen den Alter und ruft 'Heil dir Bragon!'","#me knocks against the altar and calls 'Hail Bragon!'"
+cycletext "#me poliert gedankenverloren seinen Goldring.","#me seems to be lost in thought while polishing a gold ring."
+cycletext "#me murmelt vor sich hin: 'Bragon, möchte uns dein Feuer leuchten.'","#me mumbles: 'Bragan, your fire shall be a light for us.'"
+cycletext "Bragon, er ist weise, stark, nobel, einfach wunderbar.","Bragon, he is wise, strong, noble and simple handsome."
+cycletext "Er belohnt manchmal Leute mit heilgen, wertvollen Dinge in diesem Temple.","He sometimes blesses people who sacrifice valuable things in his temple."
+cycletext "Malachin, nicht gerade wie Bragon!","Malachin, just not as Bragon!"
+cycletext "Hmm... wo kriege ich nur mehr Gold her?","Hmm... where do I get more gold?"
+cycletext "#me hält seinen Priesterstab gehn Himmel und ruft nach Bragon","#me holds his cleric's staff to heaven and calls for Bragon."
+cycletext "#me betrachtet seinen Rubin mit wohlwollen.","#me looks at his rubin with a satisfied glance in his face."
