@@ -13,6 +13,7 @@ require("handler.createeffect")
 require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
+require("handler.warpplayer");
 
 require("quest.leverRiddleA")       -- controlls the behaviour of the levers
 require("quest.leverquest")         -- main class for the whole quest
