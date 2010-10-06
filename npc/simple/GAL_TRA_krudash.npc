@@ -87,6 +87,32 @@ radius = 0
 "Ich bin", "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
 
 -- More small talk; add at least five triggers
+"murgo", german -> ""
+"murgo", english -> ""
+"er hja","erhja","er'hja", german -> ""
+"er hja","erhja","er'hja", english -> ""
+"ali[czs]","ali[czs]e", german -> ""
+"ali[czs]","ali[czs]e", english -> ""
+"krudash", "Hacksack", german -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?"
+"krudash", "Hacksack", english -> "Hurr Hurr. Ciamar a'seibh! How goin?"
+"morurt", german -> ""
+"morurt", english -> ""
+"olokwa", german -> ""
+"olokwa", english -> ""
+"sogg", german -> ""
+"sogg", english -> ""
+"stout", german -> ""
+"stout", english -> ""
+"tom", "berry", german -> ""
+"tom", "berry", english -> ""
+"thud", german -> ""
+"thud", english -> ""
+"brute", "boze", german -> ""
+"brute", "boze", english -> ""
+"grimlug", german -> ""
+"grimlug", english -> ""
+"ol hja","olhja", german -> ""
+"ol hja","olhja", english -> ""
 
 
 -- Faction stuff
