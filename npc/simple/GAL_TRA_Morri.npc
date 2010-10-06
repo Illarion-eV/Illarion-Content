@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Ein grimmiger Zwerg mit prächtigem schwarzem Bart und kahlem Kopf."
-lookatUS = "ENGLISH"
+lookatDE = "Ein grimmiger Zwerg mit einem prächtigen schwarzen Bart und einem kahlem Kopf."
+lookatUS = "A grimly dwarf with an impressive black beard and a bald head."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -39,102 +39,105 @@ radius = 0
 -- Baked food: 49, 191, 303, 353, 354, 453, 454
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Insert Name> the <insert profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: übliche Handelstrigger")
+"Help" -> inform("[Game Help] This NPC is Morri the cook. Keyphrases: profession, job, Gobaith, name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: Beruf, Job, Gobaith, Name.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hrm...Greetings. How can I help you?", "#me grumbles in a bad mood: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag'.", "Heil Irmorom. Wollt ihr was kaufen?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hrm...Greetings. How can I help you?", "#me grumbles in a bad mood: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Far thee well and come again soon!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Bye and enjoy your meal.", "Arr... See you soon.", "Far thee well and come again soon!"
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Arr, Snorris Fisch stinkt als wäre er vor hundert Jahren frisch gewesen! Wenn nur dieser Gestank nicht wäre!", "Was glaubt ihr denn? Hier stinkt's nach Fisch, ich kann kaum Atmen! - Ich hätte Ironsiege nie verlassen sollen...", "Fisch! Morgens, Fisch! Mittags, Fisch! Abends, Fisch! Ich kann schon keinen Fisch mehr sehn. UND riechen, Irmorom sei mit mir! Snorris Fisch stinkt zum Himmel! Drhg'hgin !"
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" -> "Arr, Snorris fish is stinking as it was fresh one hundred years ago! If only this stink would not be!", "What are you thinking? The fish is stinking, I cannot breath at all! - I shouldn't ever have left Ironsiege...","Fish! Fish in the morning! Fish at lunch time! Fish at evening! I cannot see any fish anymore. AND smelling, Irmoorom be with me! Snorris fish stinks to high heaven! Drhg'hgin!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Arr, Snorris Fisch stinkt als wäre er vor hundert Jahren frisch gewesen! Wenn nur dieser Gestank nicht wäre!", "Was glaubt ihr denn? Hier stinkt's nach Fisch, ich kann kaum Atmen! - Ich hätte Ironsiege nie verlassen sollen...", "Fisch! Morgens, Fisch! Mittags, Fisch! Abends, Fisch! Ich kann schon keinen Fisch mehr sehn. UND riechen, Irmorom sei mit mir! Snorris Fisch stinkt zum Himmel! Drhg'hgin!"
+"your name", "who are you", "who art thou" -> "I am Morri. And the one with the stinking fish next to me is Snorri my older broder."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri. Und der, mit dem stinkenden Fisch, neben mir, ist Snorri, mein älterer Bruder."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"what sell", "what buy", "list wares", "price of" -> "I am selling different meals. And in opposition to all the fish of my broder it is really fresh. My nose is still in order."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedenstes Essen. Und im Gegensatz zu den Fischen meines Bruders ist es tatsächlich frisch. Meine Nase ist nämlich noch in Ordnung."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"tell something" -> "I would spend half of my belongings, if Snorri would mend his irritated nose. But he is too stubborn. On the other hand, I cannot find someone who has knowledge to help him in this issue.", "Snorri is a brave dwarf. I know, he is impation to prove himselves in a fight, but we are up to our ears with work, that I can hire a mercenary soldier.", "I have said to Snorri, he should become a stonecutter. But he is the older one and he has to decide therefore. - I wish he has became a stonecutter."
 "erzähl was", "erzähl etwas" -> "Ich würde mein halbes Vermögen geben, damit Snorri seine kaputte Nase richten lässt. Aber er ist eben ein Sturkopf. Auf der anderen Seite finde ich auch kaum einen Heiler der sich damit auskennt.", "Snorri ist ein tapferer Zwerg. Ich weiß, er brennt darauf sich im Kampf zu beweißen, aber mit diesem Marktstand haben wir zu viel um die Ohren, als das wir als Söldner anheuern könnten.", "Ich hab Snorri gesagt, er soll Steinmetz werden. Aber er ist der Ältere also muss er das entscheiden. - Ich wünschte er wäre Steinmetz geworden."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "Eigentlich bin ich Koch. Hab einige Jahre groß und fein in meines Vettern Taverne gekocht. Nun, handle ich mit allerlei Essbarem hier in Galmair. Was ist Euer Tagwerk?"
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"profession" -> "Actually, I am a cook. Since few years I have cooked at my vetters tavern. But now I am dealing with all kinds of edible materials here in Galmair. What is your daily task?"
+"beruf" -> "Eigentlich bin ich Koch. Hab einige Jahre groß und fein in meines Vettern Taverne gekocht. Nun handle ich mit allerlei Essbarem hier in Galmair. Was ist Euer Tagwerk?"
+"job", english -> "Actually, I am a cook. Since few years I have cooked at my vetters tavern. But now I am dealing with all kinds of edible materials here in Galmair. What is your daily task?"
 "job" -> "Eigentlich bin ich Koch. Hab einige Jahre groß und fein in meines Vettern Taverne gekocht. Nun, handle ich mit allerlei Essbarem hier in Galmair. Was ist Euer Tagwerk?"
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath", english -> "There are only bad news existing about Gobaith. What do you have to say to that issue?"
 "Gobaith", "Gobiath" -> "Über Gobaith gibts immer nur schlechte Nachricht. Was habt ihr darüber zu sagen?"
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"I am", "my name" -> "Well, what can I sell you?", "Arr. Do you like to buy some food?"
 "Ich bin", "mein Name" -> "Is' recht. Was darf ich Euch verkaufen?", "Arr. Wollt ihr Essen einkaufen?"
 
 -- More small talk; add at least five triggers
-"fish", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"snorri", "brother", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"orc" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dwarf" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"nose" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"morri", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"fish" -> "J'uk! Stop talking about fish! It stinks to high heaven, but Snorri cannot smell anything, because his nose is irritated!", "If this damn fish is fresh, I am a pignose. And do I look like a pignose? - No!", "#me wrinkles his nose. 'Do you smell that? Is is the fish from my brother. But he belives it smells like flowers, because his nose is irritated'."
+"snorri", english -> "Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.", "Snorri took my on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.", "Do not underrate Snorri. He is a serious competitor if it comes to business. He even defied the Don in negoations. Aye!"
+"brother" -> "Arr... You are probably thinking I don't like my brother. But you are wrong in this case. He is my dearest one. The point is that I don't like his fish.", "Snorri took my on a long journey some years ago. Away from Ironsiege. Mother cried like a child. Nevertheless she is very proud of us.", "Do not underrate Snorri. He is a serious competitor if it comes to business. He even defied the Don in negoations. Aye!"
+"orc" -> "Arr. Those greennoses are annyoing. - Nothing else. Actually, merchants as us have to hold togehter. It is all about business!", "These orcs are smarter as you assume. In particular Krudash! But Sogg, I haven't ever seen him sober.", "Arrr.... I don't know. I think it looks like that all that orc pack here in Galmair is belonging to the same clan. But on the other hand, well... that has nothing to say."
+"dwarf" -> "What is important to a dwarf? Gold, business and sin-...no. Relatives. Therefore, the clan.", "What has a dwarf to like? His craft, his wife and his beer.", "We dwarfs are a proud folk. I have to warn you, never insult a dwarf! He will remember even if his sons are already grown up."
+"nose" -> "Arr, Snorris nose! He broke his nose when we were coming home from the tavern. Although he thinks it was a Oger, honestly, he ran against a pillar. His nose is irritated now and he has serious problems to smell as someone should be able to do."
+"morri", english -> "Arr. Bura'zak-ka! - What meal do you like to buy?"
 "fisch" -> "J'uk! Hört mir auf mit dem Fisch! Der stinkt zum Himmel, aber Snorri kann nichts reichen, weil seine Nase hin ist!", "Wenn der verdammte Fisch frisch ist, dann bin ich eine Schweineschnauze. Und, seh ich aus wie eine Schweineschnauze? - Nein!", "#me rümpft seine Nase. 'Riecht ihr das? Das ist der Fisch, den mein Bruder verkauft. Aber der glaubt es riecht hier nach Blumen, weil seine Nase kaputt ist.'"
-"snorri", "bruder" -> "Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.","Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.","Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar den Don hat er beim Verhandeln die Stirn geboten. Aye!"
+"snorri" -> "Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.","Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.","Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar den Don hat er beim Verhandeln die Stirn geboten. Aye!"
+"bruder" -> "Arr... vielleicht denkt ihr ich mag meinen großen Bruder nicht ausstehen. Aber da irrt ihr. Er ist mir der Liebste. Nur eben diese Sache mit dem Fisch passt mir nicht.","Snorri nahm mich vor einigen Jahren mit auf große Fahrt. Raus aus Ironsiege, Mutter hat gehäult wie ein Gletscherbach. Aber sicher ist sie trozdem sehr, sehr Stolz auf uns.","Unterschätzt mir Snorri nicht. Wenn's ums Geschäft geht ist er hammerhart. Sogar den Don hat er beim Verhandeln die Stirn geboten. Aye!"
 "ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
 "zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.","Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.","Wir Zwerge sind ein stolzes Folk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
 "nase" -> "Arr, Snorris Nase! Er hat sie sich eingeschlagen, als wir vom Wirt kamen. Obwohl er meint es wäre ein Oger gewesen, so ist es wahr, dass er gegen eine Säule gelaufen ist. Jetzt ist die Nase hinüber und er kann nicht mehr anständig riechen."
-"morri", english -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
+"morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Ha-h! It is said, that this archmage is wearing women cloths! Wool under the chain mail and so on! *laughs*"
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ha-h! Man sagt sich bei uns Zwergen dieser Erzmagier trägt Weiber Gewand! Wolle unterm Kettenhemd und so nen Kram! *lacht*"
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick", english -> "Runewick? Aren't those farmes who thinking to have to bungle with magic? They shall cultivate bigger tomatoes instead. That is more important and helpful."
 "Runewick" -> "Runewick? Sind das nicht diese Bauern, die glauben mit Magie herum murksen zu müssen?. Die sollten lieber größere Tomaten züchten. Damit wäre allen geholfen."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "Don Guilianni ist ein abgebrühter Geschäftsmann. Und wir Händler versuchen uns so gut es geht, mit ihm zu engagieren. "
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don", english -> "Don Guilianni is a nasty fellow. We merchants try to arrange with him as good as possible."
+"Valerio", "Guilianni", "Don" -> "Don Guilianni ist ein abgebrühter Geschäftsmann. Und wir Händler versuchen uns so gut es geht mit ihm zu arrangieren."
+"Galmair", english -> "I want to say, I and my brother could not end up on a better place than this one Well, there are a lot of rabble, and walls are looking quite fragile, but the business is running well."
 "Galmair" -> "Ich möchte sagen, an einen besseren Ort hätte es mich und meinen Bruder nicht verschlagen können. Nun gut, hier treibt sich einiges Gesindel herum, und die Mauern sehen ziemlich zerbrechlich aus, aber das Geschäft geht ausgezeichnet!"
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen, vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "königin", "queen", "edwards", english -> "Blue blood! Pha! - Bring me the kings of human infront of my axe and I show you how blue it is. I tell you, infront of the dead is everyone similar! I have seen too many fool on the throne!"
+"rosaline", "königin", "queen", "edwards" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
+"Cadomyr", english -> "They give their wealth and belongings to dead in Cadomyrs. Bury their gold in their crypts! Every dwarf knows, that gold is a element of those who are alive. How should it be usefull for those who are dead?"
 "Cadomyr" -> "Cadomyrs Reichtum geben sie den Toten. Vergraben das Gold in den Krypten! Jeder Zwerg weiß natürlich, das Gold das Element der Lebenden ist. Wie sollte es den verstorbenen schon von Nutzen sein?"
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar", german -> "Albar! Ein schreckliches Land. Regiert von Narren. Das Volk ist schwach, es ist den Königen kaum mehr wert als die Schweine die sie fressen."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "Gynk! Hier trifft sich alles Volk, das der Sprache mächtig ist. Sicher, da kann viel passieren, aber einen Markt, gibt es dort! Würden die Zwerge dort, nicht alles Geld versaufen und verspielen... *seufzt*"
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "Salkamar? In Salkamar behaupten 4 von 5 Leuten, sie sind klüger als der durchschnittliche Bürger. Clever nicht war? *lacht*"
-"Ironsiege",german ->"Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.", "Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"
-"Ironsiege" ->"ENGLISH"
+"albar", english -> "Albar! A terrible county. Ruled by jesters. The folk is weak and their kings treat them like pigs which they eat."
+"albar" -> "Albar! Ein schreckliches Land. Regiert von Narren. Das Volk ist schwach, es ist den Königen kaum mehr wert als die Schweine die sie fressen."
+"gynk", "gync", english -> "Gynk! Everyone meets their, who is able to speak. Of course, everything is possible there, but a market is there! If dwarfs would not waste their money on drinks and games... *sighs*"
+"gync", "gynk" -> "Gynk! Hier trifft sich alles Volk, das der Sprache mächtig ist. Sicher, da kann viel passieren, aber einen Markt gibt es dort! Würden die Zwerge dort nicht alles Geld versaufen und verspielen... *seufzt*"
+"salkama", english -> "Salkamar? In Salkamar 4 to 5 people claim that they are smarter than an average citizen. Smart, isn't it? *laughs*
+"salkama" -> "Salkamar? In Salkamar behaupten 4 von 5 Leuten, sie sind klüger als der durchschnittliche Bürger. Clever nicht war? *lacht*"
+"Ironsiege",english ->"Listen to me, Ironsiege is an impregnable fortress. Just to call the gates in the mountain as 'imposant' is not suitable. They appear very gigantic!", "Well, you can find mainly three clans in Ironsiege. The Goldaxeclan, the Ironaxeclan, and last but not least my clan. The Flinthammer! Arr!"
+"Ironsiege" ->"Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.", "Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"
+
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "Listen to me, Irmorom created the dwarfs out of a rock. He got this rock as a gift from Ushara. I don't want to know more about gods. Except...well, Adron should be praised for cheese and beer!"
 "Gott", "Götter" -> "Last Euch sagen, Irmorom schuf einst die Zwerge aus einem Stück Felsen. Jenen hatte er von Ushara zum Geschenk bekommen. Und viel mehr möchte ich von den Göttern nicht wissen müssen. Außer...nun ja Adron sei's gedankt für Käse und Bier!"
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron", english -> "Toast! Toast to Adron. Praised should be his beer and cheese."
 "Adron" -> "Trinkt! Trinken wir auf Adron. Gepriesen sein Bier und Käse."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom", english -> "Hail Irmorom. Prodect my brother and his clan. You are praised, because you are the creator of the dwarfs."
 "Irmorom" -> "Heil Irmorom. Schütze meinen Bruder und unseren Klan. Gedankt sei dir, denn du bist der Zwergen Schöpfer."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara", english -> "Honor to you, mother of the rock, stone and soil."
 "Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
 
 -- Catching quest triggers
-"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", english -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. Ask him therefore."
 "quest", german -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der ältere von uns Beiden. Fragt ihn, darum."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"task", "adventure" -> "I don't employ anyone. That is my brother Snorri's task, he is the older one of us. Ask him therefore."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich stelle niemanden ein. Das macht mein Bruder Snorri, er ist der ältere von uns Beiden. Fragt ihn, darum."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Yes" -> "Arr. It's good.", "D'kraga...so, and not otherwise!", "It should be fine by me."
 "Ja" -> "Arr. Ist gut!", "D'kraga... so, und nicht anders!", "Mir soll's auch recht sein."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.","ENGLISH4"
+"No" -> "Hrm, is this your last word?.", "Arr. If you like it in this way.", "Of course."
 "Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.","Natürlich."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
 
-".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+".*",english,chance(20)->"Arr.","#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'","#me turns around suddenly and grumbles: 'Snorri! Listen - the fish stinks as the mouth of those fishfaces'."
 ".*",german,chance(20)->"Arr.","#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'","#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
@@ -143,15 +146,15 @@ radius = 0
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "ENGLISH."
-cycletext "Dein Fisch stinkt, Snorri.", "ENGLISH."
-cycletext "#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "ENGLISH."
-cycletext "#me rümpft die Nase.", "ENGLISH."
-cycletext "#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "ENGLISH."
-cycletext "#me bückt sich und hebt einen muffigen Fisch auf. Er kneift ein Auge zusammen und wirft ihn an Snorris Hinterkopf.", "ENGLISH."
-cycletext "Irmorom, mach das der Sturkopf es einsieht! Der Fisch stinkt so sehr, ich fürchte der Berg könnte uns auf den Kopf fallen.", "ENGLISH."
-cycletext "#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "ENGLISH."
-cycletext "#me murmelt verärgert: 'Der Gestank vertreibt mir noch die Kunden...'", "ENGLISH."
-cycletext "Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "ENGLISH."
-cycletext "Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "ENGLISH."
-cycletext "Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "ENGLISH."
+cycletext "#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles in a bad mood and looks at the street with a discontented glance."
+cycletext "Dein Fisch stinkt, Snorri.", "Your fish smells, Snorri."
+cycletext "#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'"
+cycletext "#me rümpft die Nase.", "#me wrinkles his nose."
+cycletext "#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue: 'Igittigitt!'"
+cycletext "#me bückt sich und hebt einen muffigen Fisch auf. Er kneift ein Auge zusammen und wirft ihn an Snorris Hinterkopf.", "#me bends down and lifts a musty fish. He pinches his eyes and threws it at Snorris back of the head."
+cycletext "Irmorom, mach das der Sturkopf es einsieht! Der Fisch stinkt so sehr, ich fürchte der Berg könnte uns auf den Kopf fallen.", "Imrorom, don't let him be that stubborn. His fish stinks that much, I fear the mountain falls at our head."
+cycletext "#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me graps his long black beard with both hands in a rather despairingly seeming gesture. Thereby he loudly grunts."
+cycletext "#me murmelt verärgert: 'Der Gestank vertreibt mir noch die Kunden...'", "#me mumbles annoyed: 'This stench frightens away my customers."
+cycletext "Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!"
+cycletext "Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Indestructible cookies!"
+cycletext "Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!"
