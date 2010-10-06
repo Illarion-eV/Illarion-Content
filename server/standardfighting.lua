@@ -1,6 +1,7 @@
 -- Fighting System
 -- All fights are handled with this script
 -- Written by martin, Nitram and Xandrina
+-- $Id$
 
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
@@ -136,31 +137,31 @@ function ArmorAbsorbtion(Attacker, Defender, Globals)
     local armourValue = 0;
     
     if armourfound then
-        if (Attacker.AttackKind==0) then --wrestling
-            armourValue=armour.ThrustArmor;
-        elseif (Attacker.AttackKind==1) then --slashing
-            armourValue=armour.StrokeArmor;
-        elseif (Attacker.AttackKind==2) then --concussion
-            armourValue=armour.ThrustArmor;
-        elseif (Attacker.AttackKind==3) then --puncture
-            armourValue=armour.PunctureArmor;
-        elseif (Attacker.AttackKind==4) then --distance
-            armourValue=armour.PunctureArmor;
+        if (Attacker.AttackKind == 0) then --wrestling
+            armourValue = armour.ThrustArmor;
+        elseif (Attacker.AttackKind == 1) then --slashing
+            armourValue = armour.StrokeArmor;
+        elseif (Attacker.AttackKind == 2) then --concussion
+            armourValue = armour.ThrustArmor;
+        elseif (Attacker.AttackKind == 3) then --puncture
+            armourValue = armour.PunctureArmor;
+        elseif (Attacker.AttackKind == 4) then --distance
+            armourValue = armour.PunctureArmor;
         end;
     end;
 
-    armourfound, armour=world:getNaturalArmor(Defender.Race);
+    armourfound, armour = world:getNaturalArmor(Defender.Race);
     if armourfound then
-        if (Attacker.AttackKind==0) then --wrestling
-            armourValue=armourValue+armour.thrustArmor;
-        elseif (Attacker.AttackKind==1) then --slashing
-            armourValue=armourValue+armour.strokeArmor;
-        elseif (Attacker.AttackKind==2) then --concussion
-            armourValue=armourValue+armour.thrustArmor;
-        elseif (Attacker.AttackKind==3) then --puncture
-            armourValue=armourValue+armour.punctureArmor;
-        elseif (Attacker.AttackKind==4) then --distance
-            armourValue=armourValue+armour.punctureArmor;
+        if (Attacker.AttackKind == 0) then --wrestling
+            armourValue = armourValue + armour.thrustArmor;
+        elseif (Attacker.AttackKind == 1) then --slashing
+            armourValue = armourValue + armour.strokeArmor;
+        elseif (Attacker.AttackKind == 2) then --concussion
+            armourValue = armourValue + armour.thrustArmor;
+        elseif (Attacker.AttackKind == 3) then --puncture
+            armourValue = armourValue + armour.punctureArmor;
+        elseif (Attacker.AttackKind == 4) then --distance
+            armourValue = armourValue + armour.punctureArmor;
         end;
     end;
 
@@ -187,8 +188,8 @@ function CalculateDamage(Attacker, Globals)
         * (BaseDamage / 2);
     end;
     
-    Globals["Damage"] = weaponDamage + (weaponDamage * ((Attacker.tactics/140
-        + Attacker.strength/80 + Attacker.perception/120
+    Globals["Damage"] = weaponDamage + (weaponDamage * ((Attacker.tactics / 140
+        + Attacker.strength / 80 + Attacker.perception / 120
         + Attacker.skill / 180)));
 end;
 
@@ -198,6 +199,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
+    Defender:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
