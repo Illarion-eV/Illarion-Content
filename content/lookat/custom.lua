@@ -25,6 +25,7 @@ function InitCustomLookAt()
 	addDescription(	 23,	1,	"mit fein verziertem Griff. Auf dem Kopf ist 'Lexis K.' eingraviert", "with a finely ornamented handle. There is 'Lexis K.' engraved on its head", false, false, false );
 	addDescription(	 55,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	 55,	2,	"grüne Schülerrobe mit der Stickerei der Druiden des Waldes", "green student's robe with the embroidery of the Druids of the Forest", false, true, false );
+	addDescription(	 55,	3,	"mit dem Wappen der Grovestrider auf der Rückseite", "with the Grovestrider coat of arms on the back", false, false, false );
 	addDescription(	 62,	1,	"Smaragdamulett, dessen Anhänger in der Form eines laubbedeckten Baumes gearbeitet wurde", "emerald amulet whose pendant is shaped like a full, leafy tree", false, true, false );
 	addDescription(	 67,	1,	"Rubinkette, ein Drache ist im Inneren des Rubins zu erkennen", "rubin amulet, there is a dragon inside the ruby", false, true, false );
 	addDescription(	 67,	2,	"Lederhalsband mit einem Rubinanhänger, auf dem du das Profil einer jungen langhaarigen Frau erkennen kannst", "leather necklace with a rubin pendant on which you can perceive the profile of a young, long-haired woman", false, true, 2 );
@@ -77,6 +78,7 @@ function InitCustomLookAt()
 	addDescription(	235,	19,	"mit der Gravur 'König der Läufer '31'", "with the gravure 'Runeer King '31'", false, false, false );
 	addDescription(	235,	20,	"mit der Gravur 'Alchemist des Silberbrand'schen Konzils '31'", "with the gravure 'Alchemist of the Council of Silverbrand '31'", false, false, false );
 	addDescription(	235,	21,	"mit der Gravur 'Sieger des Gruppenkampfes '31'", "with the gravure 'Winner of the Group Battle '31'", false, false, false );
+	addDescription(	235,	22,	"goldenen Siegelring der Noakes", "golden seal ring of the Noakes", false, true, false );
 	addDescription(	277,	1,	"zierlicher Goldring, der mit einem herzförmigen Amethysten verziert ist", "graceful golden ring which is ornamented with an amethyst in the shape of a heart", false, true, false );
 	addDescription(	279,	1,	"mit der Gravur 'Sie entzog sich meinen Träumen'", "with the gravure 'She dodged my dreams'", false, false, false );
 	addDescription(	280,	1,	"mit einer eleganten Gravur auf der Innenseite: 'Vanima erwartet ~Khallimar'", "elegantly engraved on the inside with the words 'Vanima awaits ~Khallimar'", false, false, false );
@@ -117,6 +119,7 @@ function InitCustomLookAt()
 	addDescription(2400,	3,	"mit der Gravur 'A.Y.R.' auf der Brust", "with the gravure 'A.Y.R.' on the chest", false, false, false );
 	addDescription(2400,	4,	"graviert mit dem Zeichen der Erzherzogin von Troll's Bane", "marked with the insignia of the Archduchess of Troll's Bane", false, false, false );
 	addDescription(2400,	5,	"mit einem kleinen Wappen der Grovestrider auf der Brust", "with a tiny Grovestrider Coat of Arms on the chest", false, false, false );
+	addDescription(2402,	1,	"mit dem Wappen der Grovestrider auf der Brust", "with the Grovestrider coat of arms on the chest", false, false, false );
 	addDescription(2416,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
 	addDescription(2418,	16,	"grauer Mantel mit einem gelbem, aufgebäumten Pferd", "grey mantle with yellow rampant horse", false, true, 0 );
 	addDescription(2419,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
