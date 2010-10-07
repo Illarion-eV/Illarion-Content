@@ -55,10 +55,11 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Greebas.");
+talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
+talkEntry:addResponse("Be welcome at 'Krudash's Hack and Sack' shop!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,10 +73,11 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
-talkEntry:addResponse("Greebas.");
+talkEntry:addResponse("Greebas. Brauchst du was, hä?");
 talkEntry:addResponse("Hurr! Sei gegrüßt.");
 talkEntry:addResponse("Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
 talkEntry:addResponse("Latha math! Grüße-Grüße, sag ich.");
+talkEntry:addResponse("Sei willkommen, in 'Krudash's Hacken und Plündern'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,10 +88,11 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Greebas.");
+talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Krudash sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
+talkEntry:addResponse("Be welcome at 'Krudash's Hack and Sack' shop!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,10 +103,11 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Greebas.");
+talkEntry:addResponse("Greebas. Brauchst du was, hä?");
 talkEntry:addResponse("Hurr! Sei gegrüßt.");
 talkEntry:addResponse("Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!");
 talkEntry:addResponse("Latha math! Grüße-Grüße, sag ich.");
+talkEntry:addResponse("Sei willkommen, in 'Krudash's Hacken und Plündern'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,7 +188,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Ich bin %Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn.");
+talkEntry:addResponse("Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,17 +347,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("krudash");
-talkEntry:addTrigger("Hacksack");
+talkEntry:addTrigger("Hack");
+talkEntry:addTrigger("sack");
+talkEntry:addTrigger("hacken");
+talkEntry:addTrigger("plündern");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr Hurr. Ciamar a'seibh! Wie geht's?");
+talkEntry:addResponse("Hurr Hurr. Brauchst ne Axt, hä?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("krudash");
-talkEntry:addTrigger("Hacksack");
+talkEntry:addTrigger("Hack");
+talkEntry:addTrigger("sack");
+talkEntry:addTrigger("hacken");
+talkEntry:addTrigger("plündern");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr Hurr. Ciamar a'seibh! How goin?");
+talkEntry:addResponse("Hurr Hurr. Do you need an axe, hä?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
