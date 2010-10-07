@@ -5,7 +5,7 @@
 -- NPC Race: orc                        NPC Position:  368, 260, 0            --
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
 -- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Eine sinnliche Orkfrau mit wilden schwarzen Haaren. Sie hat ein süßes Näschen und spitze kleine Hauer. Achtsam überblickt sie den Marktplatz."
+lookatDE = "Eine sinnliche Orkfrau mit wilden schwarzen Haaren. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz."
 lookatUS = "A voluptous orcess qith wild black hair. She have a cute nose and pointy little tusks. Observantly she glances the marketplace."
 useMsgDE = "Fass mich nicht an! Oder ich mach disch Kebab! Alda!"
 useMsgUS = "Do not touch me!"
@@ -86,25 +86,23 @@ radius = 0
 "I am", "my name" -> "Hurr, hurr. What do you buy?"
 "Ich bin", "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
 
--- More small talk; add at least five triggers
+-- More small talk; add at least five triggers 
 "murgo", german -> "#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'","Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.","Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.","Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind."
-"murgo", english -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'","Ch-h! Where's my husband, hä? For sure, he got again one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.","Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.","Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* Furthermore he allways knew which things are the important things."
+"murgo", english -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'","Ch-h! Where's my husband, hä? For sure, he got again one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.","Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.","Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* Furthermore he always knew which things are the important things."
 "er hja","erhja","er'hja", german -> "Oh-h! Er'hja wird immer meine kleine Orkling bleiben. *grunzt glücklich* Sie ist ist ja so sehr schlau und gewifft. Ich werd immer ihre stolze Mami sein!","#me nickt. 'Tagtha. Er'hja ist meine Tochter. - Sie hat auch ne' Schwester, ja. Ol'hja, Fremde verwechseln die Beiden oft.'","#me lacht heiser. 'Ha-hr. Orklinge wie Er'hja 'nd Ol'hja machen Mamis und Papis viele Sorgen...'"
-"er hja","erhja","er'hja", english -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's so much fiendishly clever. I will be her proud mommy forevermore!","#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers counfound both many times.'","#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommys and papis...'"
+"er hja","erhja","er'hja", english -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's so much fiendishly clever. I will be her proud mommy forevermore!","#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers confound both many times.'","#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommys and papis...'"
 "ali[czs]","ali[czs]e", german -> "Gâsh! Aliz' diese jammernde schwache Snaga! Hat sie sich wieder bei jemanden mitleidig gemacht, hä? Hör zu! Sie's Krudashs dreckige Snaga, also tut sie was Krudash sagt. Und ich bin Krudash!","Kümmert Euch nich um das Mädchen. Das hat sie sich nämlich gar nicht verdient. Soll sie stark und stolz werden, ihre Arbeit gut tun! Ja-h. Aber sie flennt und häult nur! Wie die kleinsten Orkligne...","Ch-arr. Ich hab sie damals gekauft, war nicht viel Geld, nein. Aber jetzt ist sie weinerlich und tut ihre Arbeit nicht gut."
-"ali[czs]","ali[czs]e", english -> "Gâsh! Aliz' this weepy flimsy snaga! Did she complaint again, hä? Listun! She's Krudash dirty Snaga, that for she have to folloe Krudash's orders. And I'm Krudash!","Do not care about the girl. She isn't worthy. She have to become strong and proud, do a good job. Ye-hs. But shes just weeping arround like the puniest orclings...","I bought her for a few coins. Wasn't much money, no. But now she's weepy and doesn't do a good job."
+"ali[czs]","ali[czs]e", english -> "Gâsh! Aliz' this weepy flimsy snaga! Did she complaint again, hä? Listun! She's Krudash dirty Snaga, that for she have to follow Krudash's orders. And I'm Krudash!","Do not care about the girl. She isn't worthy. She have to become strong and proud, do a good job. Ye-hs. But shes just weeping arround like the puniest orclings...","I bought her for a few coins. Wasn't much money, no. But now she's weepy and doesn't do a good job."
 "krudash", "Hacksack", german -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?"
 "krudash", "Hacksack", english -> "Hurr Hurr. Ciamar a'seibh! How goin?"
-"tom", "berry", german -> ""
-"tom", "berry", english -> ""
-"ol hja","olhja", german -> ""
-"ol hja","olhja", english -> ""
-"clan"->""
-"Klan"->""
-"kroch","Gurak",english->
-"kroch","Gurak"->
-"snaga",german->
-"snaga"->
+"tom","berry","thomas","berryard", german -> "Hä-hä! Ich hab das kleine Großmaul selbst gefangen. Jetz muss er schuften, auch wenn ihm das nicht gefällt. Thomas Berryard, er ist jetzt mein Snaga!","#me schlägt verärgert mit der Faust auf den Tisch. 'Scheschnak! Dieser hinterlistige Dreckskerl Berryar', hat mir einmal Glasscherben ins Fleisch gemischt.'","Choar! Der miese Halbling ist 'nes Tags ausgebuchst und hat sich auf der Flucht in d'n Bergen verirrt. Jetzt muss er zur Strafe Steine kloppen.","Hurr, behalt seine kleinen Fäustchen im Aug! Sonst haut er sie dir zwischen die Beine, da ist's ihm egal ob Mann oder Weib."
+"tom","berry","thomas","berryard", english -> "Hä-hä! I caught this puny loudmouth by my own. Now he has to work, although he's not happy with it. Thomas Berryard is my snaga now!","#me smashes her fist upon the table angrily. 'Scheschnak! This disingenuous dirty swine Berryar'! Once he tried to mix cullet with my food.'","Choar! This seedy halfer escaped one day and get lost in the mountains. Now 'e hab to batter stones.","Garh! Thus dastardly halfer! Thoma' Berryar'! Watch his tiny fists! He usually prefer to smash them between your legs, not carring about man or women."
+"ol hja","olhja", german -> "Hurr, is schwer gute Arbeit zu finden. Aber Ol'hja is Späher geworden. Für ne Söldnertruppe. Kj'at, dass is ne gute Arbeit für ne Ork!","Taghta, hast du Ol'hja mal getroffen? Sie's eine gute Ork nich? Alle Männer wolln sie zur Frau, aber sie hat'n sturen Kopf. Einen Dickschädl, wie'n Esel! Aber ihre Mamy is sehr stolz, ja das bin ich. Ja.","Ich, Krudash kenn mich nicht aus draußen, wo die Stadt weit weg ist. Aber woher soll's eine Gynkesh auch lernen? Ol'hja hat alles was sie weiß von Mo'rurt gelernt, der is n' guter Jäger. Ich würd sagen der Beste. Taghta?"
+"ol hja","olhja", english -> "Hurr, its difficult to get good job. But Ol'hja became a scout. At a mercenary troop. Kj'at, thats a good job for an orc!","Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All man ask her to become her husband, but she's very bullsih. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.","Me Krudash arne't very adept in the wild, where's the town far away. Where a gynkesh should lern it, anyway? Ol'hja was taught by Mo'rurt, he 's a well hunter. I would bet the best. Taghta?"
+"kroch","Gurak","Kroch'Gurak",english->"Kroch'Gurak isn't a town, actually. No. But in winter, uncounted orc tribes wander there. Then the whole west Norbuk Plateou lives in the giant Caves there. And there's swineshunt and wrestling.","Mes dropped my daughters at isle Gobaith. And as soon as they were big enough, their father decided, they should live in Kroch'Gurak. So they was able to grow up between other orcs."
+"kroch","Gurak","Kroch'Gurak"->"Kroch'Gurak is keine Stadt, würd ich sagen, nein. Aber im Winter lagern unzählige Orkstämme dort. Das westliche Norbuk Plateou zieht dann in die großen Höhlen dort. Und es gibt Schweinshats und Ringkämpfe.","Ich hab meine Töchter auf der Insel Gobaith geworfen. Und als sie groß genug waren entschied ihr Vater, das sie nach Kroch'Gurak ziehen sollten. Damit sie unter Orks großwachsen können."
+"snaga",german->"Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
+"snaga"->"Snagas! Those are monkeys... - basically. And weak puny orcs, wich need to get told waht they have to do! A mighty orc like me, Krudash have a lot of Snagas. Gâsh! Not for nothing, I'm the smartest here."
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Ch-h! Astute wizard... Runewick rat!"
