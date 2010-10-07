@@ -27,21 +27,24 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hilfe");
-talkEntry:addResponse("Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'gurak, Alice, Tom"));
+talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("helfen");
-talkEntry:addResponse("Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'gurak, Alice, Tom"));
+talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addResponse("Me, Krudash 'sell' and 'buy' lots of stuff! Taghta?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'gurak, Alice, Tom"));
+talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
