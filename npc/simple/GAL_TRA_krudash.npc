@@ -71,12 +71,12 @@ radius = 0
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin %Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
 -- Catching typical NPC phrases
-"tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the lizard Eliza? She sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
-"erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' die Echse Eliza? Sie verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
+"tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
+"erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"what sell","what buy","list wares","price of"->"Gâsh! I sell everything, they maked in the forge. Sharpes Axes! Mightiest Armors! And best tools. Uh!" 
-"was verkauf","was kauf","warenliste","preis von"->"Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!" 
+"what sell","what buy","list wares","price of","weapon"->"Gâsh! I sell everything, they maked in the forge. Sharpes Axes! Mightiest Armors! And best tools. Uh!" 
+"was verkauf","was kauf","warenliste","preis von","waffe"->"Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!" 
 "profession" -> "I'm the arms dealer in this town! And all those Snagas follow my command! Groch!"
 "beruf" -> "Ich bin der Waffenhändler in dieser Stadt! Und alle diese Snagas tun, was ich sag! Groch!"
 "job", english -> "I'm the arms dealer in this town! And all those Snagas follow my command! Groch!"
@@ -87,33 +87,24 @@ radius = 0
 "Ich bin", "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
 
 -- More small talk; add at least five triggers
-"murgo", german -> ""
-"murgo", english -> ""
-"er hja","erhja","er'hja", german -> ""
-"er hja","erhja","er'hja", english -> ""
-"ali[czs]","ali[czs]e", german -> ""
-"ali[czs]","ali[czs]e", english -> ""
+"murgo", german -> "#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'","Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.","Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.","Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind."
+"murgo", english -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'","Ch-h! Where's my husband, hä? For sure, he got again one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.","Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.","Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* Furthermore he allways knew which things are the important things."
+"er hja","erhja","er'hja", german -> "Oh-h! Er'hja wird immer meine kleine Orkling bleiben. *grunzt glücklich* Sie ist ist ja so sehr schlau und gewifft. Ich werd immer ihre stolze Mami sein!","#me nickt. 'Tagtha. Er'hja ist meine Tochter. - Sie hat auch ne' Schwester, ja. Ol'hja, Fremde verwechseln die Beiden oft.'","#me lacht heiser. 'Ha-hr. Orklinge wie Er'hja 'nd Ol'hja machen Mamis und Papis viele Sorgen...'"
+"er hja","erhja","er'hja", english -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's so much fiendishly clever. I will be her proud mommy forevermore!","#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers counfound both many times.'","#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommys and papis...'"
+"ali[czs]","ali[czs]e", german -> "Gâsh! Aliz' diese jammernde schwache Snaga! Hat sie sich wieder bei jemanden mitleidig gemacht, hä? Hör zu! Sie's Krudashs dreckige Snaga, also tut sie was Krudash sagt. Und ich bin Krudash!","Kümmert Euch nich um das Mädchen. Das hat sie sich nämlich gar nicht verdient. Soll sie stark und stolz werden, ihre Arbeit gut tun! Ja-h. Aber sie flennt und häult nur! Wie die kleinsten Orkligne...","Ch-arr. Ich hab sie damals gekauft, war nicht viel Geld, nein. Aber jetzt ist sie weinerlich und tut ihre Arbeit nicht gut."
+"ali[czs]","ali[czs]e", english -> "Gâsh! Aliz' this weepy flimsy snaga! Did she complaint again, hä? Listun! She's Krudash dirty Snaga, that for she have to folloe Krudash's orders. And I'm Krudash!","Do not care about the girl. She isn't worthy. She have to become strong and proud, do a good job. Ye-hs. But shes just weeping arround like the puniest orclings...","I bought her for a few coins. Wasn't much money, no. But now she's weepy and doesn't do a good job."
 "krudash", "Hacksack", german -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?"
 "krudash", "Hacksack", english -> "Hurr Hurr. Ciamar a'seibh! How goin?"
-"morurt", german -> ""
-"morurt", english -> ""
-"olokwa", german -> ""
-"olokwa", english -> ""
-"sogg", german -> ""
-"sogg", english -> ""
-"stout", german -> ""
-"stout", english -> ""
 "tom", "berry", german -> ""
 "tom", "berry", english -> ""
-"thud", german -> ""
-"thud", english -> ""
-"brute", "boze", german -> ""
-"brute", "boze", english -> ""
-"grimlug", german -> ""
-"grimlug", english -> ""
 "ol hja","olhja", german -> ""
 "ol hja","olhja", english -> ""
-
+"clan"->""
+"Klan"->""
+"kroch","Gurak",english->
+"kroch","Gurak"->
+"snaga",german->
+"snaga"->
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Ch-h! Astute wizard... Runewick rat!"
