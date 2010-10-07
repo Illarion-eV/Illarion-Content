@@ -386,6 +386,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ol hja");
 talkEntry:addTrigger("olhja");
+talkEntry:addTrigger("ol'hja");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr, is schwer gute Arbeit zu finden. Aber Ol'hja is Späher geworden. Für ne Söldnertruppe. Kj'at, dass is ne gute Arbeit für ne Ork!");
 talkEntry:addResponse("Taghta, hast du Ol'hja mal getroffen? Sie's eine gute Ork nich? Alle Männer wolln sie zur Frau, aber sie hat'n sturen Kopf. Einen Dickschädl, wie'n Esel! Aber ihre Mamy is sehr stolz, ja das bin ich. Ja.");
@@ -396,6 +397,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ol hja");
 talkEntry:addTrigger("olhja");
+talkEntry:addTrigger("ol'hja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, its difficult to get good job. But Ol'hja became a scout. At a mercenary troop. Kj'at, thats a good job for an orc!");
 talkEntry:addResponse("Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All man ask her to become her husband, but she's very bullsih. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.");
