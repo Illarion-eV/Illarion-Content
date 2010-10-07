@@ -46,8 +46,8 @@ radius = 0
 
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: usual Trading triggers"), "Help? All ob us need help!...'hick'", state = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: übliche Handels-Trigger"), "Hilfe brauschn wir alle!...'hick'", state = 0
+"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hick'", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"), "Hilfe brauschn wir alle!...'hick'", state = 0
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Cheers! Come over 'ere and drink with Sogg!"
@@ -76,10 +76,22 @@ radius = 0
 "Gobaith", "Gobiath" -> "Isch kenne keinen Gobiath! Aba mine Oma hiesch Gobthe. Ehj?"
 "I am", "my name" -> "Yuu, mes like you! Wanna booze?"
 "Ich bin", "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
-"sogg","beermug",english->"Hurr-hurr... want a beer, eh?"
-"sogg","beermug"->"Hurr-hurr... wilscht n' Bier, eh?"
+"sogg","beermug",english->"Hurr-hurr... want a beer, eh?","Hu!?... - Mesch Sogg Beermug, whut do you want?"
+"sogg","beermug"->"Hurr-hurr... wilscht n' Bier, eh?","Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
 "what sell","what buy","list wares","price of"->"Me sell all bottl and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hehe." 
 "was verkauf","was kauf","warenliste","preis von"->"Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe." 
+
+--more smalltalk
+"murgo", german ->"Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"  
+"murgo", english -> "Yubba... - Murgo is n' go-od fella. Allways roaming the streets, for dislike of his women Krudash, she do not like. *hick*"
+"er hja","erhja","er'hja", german -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
+"er hja","erhja","er'hja", english -> "Eh, Er'hja? She's daughter of Murgo 'nd Krudash. She's a good orcling, mes say. Hu, 'er parents be good freind ob mine!"
+"ali[czs]","ali[czs]e","stout","jack","tom", "berry","thomas","berryard",english->"Skeschmath! Nerv misch nich, mit diese Snagas. Isch bin Sogg! Misch gibt sich nicht ab mit Snagas."
+"ali[czs]","ali[czs]e","stout","jack","tom", "berry","thomas","berryard",german->"Skeschmath! Don't annoy mes with thus snagas. Mesch, Sogg! Mesch don't hang around with snagas."
+"krudash","Hack","sack","Hacken","plündern", german -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
+"krudash","Hack","sack","Hacken","plündern", english -> "Yûk. Krudash's shop, is right ther! 'Hack an Sack', good name for a arms dealer, ischn't it?"
+"morurt","mo'rurt","mor'urt","olokwa","thud","grimlug","ol hja","olhja","ol'hja",english->"#me claps his chest with his left hand. 'Hurr, Sogg honour our clan!'"
+"morurt","mo'rurt","mor'urt","olokwa","thud","grimlug","ol hja","olhja","ol'hja",german->"#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'" 
 
 
 -- Faction stuff
@@ -98,22 +110,22 @@ radius = 0
 
 -- Main land factions
 "albar", english -> "I donno care about them."
-"albar", german -> "Wasch kümmenr sche misch? Eh?"
-"gynk", "gync", english -> "He he! There's the bescht Sibanac there."
-"gync", "gynk", german -> "He he! Dort gibtsch da' beschte Sibanac."
+"albar", german -> "Wasch kümmern sche misch? Eh?"
+"gynk", "gync", english -> "He-he! There's the bescht Sibanac there."
+"gync", "gynk", german -> "He-he! Dort gibtsch da' beschte Sibanac."
 "salkama", english -> "I heared, in Salkamar, the people piss into their beer, therefor it tastes better. *laughs*"
 "salkama", german -> "Isch hab gehört, in Salkamar, pissen schie ins Bier, damits bescher schmekt. *gluckst lachend*"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Me praise Adron! 'nd mes Ancestors for shure!"
-"Gott", "Götter" -> "Ehre Adron! Und meinen Vorfahren!"
+"Gott", "Götter" -> "Ehre Adron! Und menen Vorfahren!"
 "moshran", "god", german -> "Gosh! Nicht sagst diese Name! Bessa fragen einen Schamanen über Vatha."
 "moshran", "god", english -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
-"cherga", "icy witch", "eis Hex", german -> "HUrr. Eisig Hexe, gottin von Ahnen ist. Du fragst Grimlug!"
+"cherga", "icy witch", "eis Hex", german -> "Hurr. Eisig Hexe, Göttin von Ahnen ist. Du fragst Grimlug!"
 "cherga", "icy witch", "eis Hex", english -> "Hurr. Tha icy witch, be god ob ancestors. Ask Grimlug for!"
-"where com", "krochgurak", german -> "Kroch'gruak! Ist, wo meiße Orks von uns komme her von."
-"where com", "krochgurak", english -> "Kroch'gurak! Is where most ob us orcs come from."
-"adron", german -> "Honor to Adron, tha fat man with red nose! Yubba. May he help guard all those barrels 'nd bottle!"
+"where com","kroch","gurak","Kroch'gurak", german -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
+"where com","kroch","gurak","Kroch'gurak", english -> "Kroch'Gurak! Is where most ob us orcs come from."
+"adron", german -> "Honor to Adron, tha fat man with red nose! Yubba. May he help me, guaring all those barrels 'nd bottle!"
 "adron", english -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Möge er helfen, zu bewachen alle meine Flasch und Fässa!"
 
 -- Catching quest triggers

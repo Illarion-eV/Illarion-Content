@@ -52,9 +52,9 @@ radius = 0
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
 
 -- Help
-"hilfe" -> "Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0
-"helfen" -> "Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0
-"help" -> "Me, Krudash 'sell' and 'buy' lots of stuff! Taghta?", state = 0
+"hilfe" -> "Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0,inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'gurak, Alice, Tom")
+"helfen" -> "Ich, Krudash 'verkaufe' und 'kaufe' viele Dinger! Taghta?", state = 0,inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'gurak, Alice, Tom")
+"help" -> "Me, Krudash 'sell' and 'buy' lots of stuff! Taghta?", state = 0,inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'gurak, Alice, Tom")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
