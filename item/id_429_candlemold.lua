@@ -13,11 +13,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     math.randomseed( os.time() );
 
 
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then -- Anvisiertes Item Vorhanden
-        	TargetItem = base.common.GetFrontItem( User ); -- Wenn nicht Item in Blickrichtung nehmen
-	end
-
-
+    local TargetItem = base.common.GetFrontItem( User );
 
 	if (TargetItem.id ~= 428) then
     	base.common.InformNLS( User,

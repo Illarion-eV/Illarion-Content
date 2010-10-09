@@ -474,6 +474,10 @@ function Craft:GenerateItemList( User, Param, toolItem )
     end
 end
 
+function Craft:IsProduct( ItemId )
+	return self.Products[ ItemId ] ~= nil;
+end
+
 function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
     local ProduceItem = nil;
     local ItemID;
