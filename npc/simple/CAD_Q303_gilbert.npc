@@ -2,7 +2,7 @@
 -- NPC Name: Gilbert                                                     None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  149, 121, 0            --
+-- NPC Race: human                      NPC Position:  120, 642, 0            --
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
 -- Author:   not set                                                          --
@@ -13,7 +13,7 @@
 name = "Gilbert"
 race = human
 sex = male
-position = 149, 121, 0
+position = 120, 642, 0
 direction = southeast
 affiliation = "None"
 job = "none"
