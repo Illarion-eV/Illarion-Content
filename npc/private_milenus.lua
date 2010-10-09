@@ -23,7 +23,6 @@ require("npc.base.guards_static")
 module("npc.private_milenus", package.seeall)
 
 function initNpc()
-npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
@@ -926,7 +925,6 @@ function receiveText(texttype, message, speaker)
 end;
 function nextCycle()
 	mainNPC:nextCycle();
-	--[[
 	if not guards_init then
 		-- init after 10 cycles
 		guards_init = 10;
@@ -934,7 +932,7 @@ function nextCycle()
 	end
 	if guards_init == 0 then
 		guards_init = -1;
-		--npc.base.guards_static.Init(thisNPC, 1, position(118,624,0), 5);
+		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
 	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
@@ -943,7 +941,7 @@ function nextCycle()
 		npc.base.guards_static.CheckForEnemies(thisNPC);
 	else
 		gCount = gCount + 1;
-	end]]
+	end
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
