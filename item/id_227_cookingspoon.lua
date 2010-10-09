@@ -295,7 +295,7 @@ function UseItem( User, SourceItem, targetItem, Counter, Param, ltstate )  -- DO
 				return;
 			end
 		end
-		User:inform("      6");
+		User:inform("Param: ".. Param);
 
         if (Param == 0) then
             menstate[ User.id ]=1;
