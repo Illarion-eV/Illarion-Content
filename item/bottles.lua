@@ -9,7 +9,7 @@ module("item.bottles", package.seeall)
 
 function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
     if ( drinkList == nil) then
-        -- item ID,  food value,  leftover item
+        -- nameDE, nameEN, leftover item, { {empty target container, filled target container}, ...}
         drinkList={};
         drinkList[2500] = {  "Weinflasche", "bottle of wine", 2498,
         {{1858, 1860}, {224, 1857}, {2055, 2057}, {1840, 1842}, {2185, 2187}} };  -- Kelch, Goldkelch, Glas, Kupferkelch, Holzbecher
@@ -26,7 +26,7 @@ function InitDrinks()  -- initialisiert die coolen softdrinks in da hood.
         drinkList[2499] = {  "Ciderflasche", "bottle of cider", 2498,
         { {1858, 1859}, {224, 1861},{2055, 2059},{1840, 1844}, {2185, 2189} } };
 
-        -- init german descriptions
+        -- init descriptions
         BottleQualDe={"randvolle ","volle ","halbvolle ","fast leere "};
         BottleQualEn={"brimfull ", "full ","half full ","almost empty "};
 
@@ -37,16 +37,11 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    --User:inform("drinking");
+
     if firstcall==nil then
         InitDrinks();
-        --User:inform("drinking2");
         firstcall=1;
-        --User:inform("ini");
     end
-    MegaPotion=false;
-    --User:inform("Hier");
-    --User:inform("Test= "..SourceItem.id)
 
     local progress = User:getQuestProgress(1);
     --if blessed water and
@@ -54,81 +49,67 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if (SourceItem.id==2496 and SourceItem.data==3) then
         if ( ((LuaAnd( progress, 128 ) == 0) or
            (LuaAnd( progress, 61440 ) ~= (world:getTime("month")-1)*4096)) ) then  -- cool bottle
-		User:increaseAttrib("hitpoints", 10000);
-		User:increaseAttrib("mana", 10000);
-		User:setPoisonValue(0);
-		User:increaseAttrib("foodlevel", 30000);
-		User:setMentalCapacity(0);
-		User:tempChangeAttrib("constitution", 250, 60);
-		--User:inform("You're going to drink that megapotion, sucker");
-		world:erase(SourceItem,1);
-		world:gfx( 53, User.pos );
-		world:makeSound( 12, User.pos );
-		progress = LuaOr( progress, 128 ); -- set "drank at least once"
-		progress = LuaAnd( progress, 4294905855 ); -- clear bit 13-16 (last month when used)
-		progress = LuaOr( progress, (world:getTime("month")-1)*4096 ); -- set bit 13-16 (last month when used)
-		User:setQuestProgress( 1, progress );
+			User:increaseAttrib("hitpoints", 10000);
+			User:increaseAttrib("mana", 10000);
+			User:setPoisonValue(0);
+			User:increaseAttrib("foodlevel", 30000);
+			User:setMentalCapacity(0);
+			User:tempChangeAttrib("constitution", 250, 60);
+			world:erase(SourceItem,1);
+			world:gfx( 53, User.pos );
+			world:makeSound( 12, User.pos );
+			progress = LuaOr( progress, 128 ); -- set "drank at least once"
+			progress = LuaAnd( progress, 4294905855 ); -- clear bit 13-16 (last month when used)
+			progress = LuaOr( progress, (world:getTime("month")-1)*4096 ); -- set bit 13-16 (last month when used)
+			User:setQuestProgress( 1, progress );
         else
-		base.common.InformNLS( User,
-		"Plötzlich kommen dir aus unerklärlichen Gründen Bedenken die Flasche auszutrinken.",
-		"Suddenly you begin to doubt whether it would be wise to quaff this potion");
+			base.common.InformNLS( User,
+			"Plötzlich kommen dir aus unerklärlichen Gründen Bedenken die Flasche auszutrinken.",
+			"Suddenly you begin to doubt whether it would be wise to quaff this potion");
         end;
     else
         local food = drinkList[ SourceItem.id ];
         if (food ~= nil ) then
 
-            -- bottle in hand
-            if( User:countItemAt("body", SourceItem.id) > 0) then
-
-                -- search target container
+            local TargetItem = base.common.GetTargetItem(User, SourceItem);
+            if( TargetItem ) then
                 for i, combo in pairs(food[4]) do
                     if combo[1] == TargetItem.id then
+						-- fill drink
+						if (TargetItem.number > 1) then
+							world:erase( TargetItem, 1 );
+							User:createItem( combo[2], 1, 333,0);
+						else
+							TargetItem.id = combo[2];
+							world:changeItem(TargetItem);
+						end
+						world:makeSound(10,User.pos)
 
-                        -- glass in hand or belt
-                        if( User:countItemAt("belt", combo[1]) > 0) or (User:countItemAt("body", combo[1]) > 0) then
-
-                            -- fill drink
-                            if (TargetItem.number > 1) then
-                                world:erase( TargetItem, 1 );
-                                User:createItem( combo[2], 1, 333,0);
-                            else
-                                TargetItem.id = combo[2];
-                                world:changeItem(TargetItem);
-                            end
-                            world:makeSound(10,User.pos)
-
-                            -- create leftovers
-                            if( SourceItem.quality > 199 ) then
-                                -- reduce one portion
-                                world:changeQuality( SourceItem, -100 );
-                            else
-                                if( math.random( 50 ) <= 1 ) then
-                                    base.common.InformNLS( User,
-                                    "Die leere Flasche ist angeschlagen und unbrauchbar.",
-                                    "The empty bottle is broken and no longer usable.");
-                                    world:erase(SourceItem,1);
-                                else
-                                    SourceItem.id = food[3];
-                                    SourceItem.quality = 333;
-                                    world:changeItem(SourceItem);
-                                end
-                            end
-
-                        else
-                            base.common.InformNLS( User,
-                            "Das Gefäß ist nicht in Griffweite.",
-                            "The vessel is out of reach.");
-                        end
+						-- create leftovers
+						if( SourceItem.quality > 199 ) then
+							-- reduce one portion
+							world:changeQuality( SourceItem, -100 );
+						else
+							if( math.random( 50 ) <= 1 ) then
+								base.common.InformNLS( User,
+								"Die leere Flasche ist angeschlagen und unbrauchbar.",
+								"The empty bottle is broken and no longer usable.");
+								world:erase(SourceItem,1);
+							else
+								SourceItem.id = food[3];
+								SourceItem.quality = 333;
+								world:changeItem(SourceItem);
+							end
+						end
 
                         -- cancel after one found item
                         break;
                     end -- found item
-
                 end -- search loop
             else
                 base.common.InformNLS( User,
-                "Nimm die Flasche in die Hand.",
-                "Take the bottle in your hands.");
+                "Nimm die Flasche und ein Trinkgefäß in deine Hände.",
+                "Take the bottle and a drinking vessel in your hands.");
             end
         else
             User:inform("unkown bottle item ");
@@ -185,13 +166,5 @@ function LookAtItem(User,Item)
         --User:inform( DisplayText );
 
         world:itemInform(User,Item, DisplayText );
-
     end
-
-end
-
---Please don't remove!!!
-------------------------AB HIER,SKRIPT FÜR DIE PRIESTER SILBERBRANDS(Heilung)-------------------
-function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
-  InitDrinks();
 end
