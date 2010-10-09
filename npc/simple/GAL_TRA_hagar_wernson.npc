@@ -2,10 +2,10 @@
 -- NPC Name: Hagar Wernson                                               None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  429, 308, -4           --
+-- NPC Race: human                      NPC Position:  391,344,-6             --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind/KormKromson                                            --
 --                                                                            --
 -- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 name = "Hagar Wernson"
 race = human
 sex = male
-position = 429, 308, -4
+position = 391,344,-6
 direction = west
 affiliation = "None"
 job = "none"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "not set"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Ein großgewachsener Norodaj, der mit einem  schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt."
+lookatUS = "A tall Norodaj. He uses a dirty rag to smear a beermug made of glass, 'clean'."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -44,8 +44,8 @@ wrongLangUS = "#me looks at you confused."
 itemTrousers = 823
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern.")
-"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'.")
+"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern." Keyphrases: Galmair, I am 'your name'.)
+"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf, chance(15) -> "G'day... long-ear."
