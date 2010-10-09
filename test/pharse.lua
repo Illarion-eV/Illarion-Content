@@ -7,6 +7,7 @@
 require("base.common")
 require("npc.base.patrol");
 require("base.doors")
+require("gm.items.id_382_ceilingtrowel");
 
 module("test.pharse", package.seeall)
 
@@ -77,33 +78,56 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		return;
 	end
 	if counter==1 then
+		local target = getTargetItem(User, SourceItem);
+		if target then
+			gm.items.id_382_ceilingtrowel.UseItem(User, SourceItem, target, counter, param, ltstate);
+		else
+			User:inform("no target found. Put both items in your hand.");
+		end
+	elseif counter==2 then
+		local target = base.common.GetFrontCharacter(User);
+		if not target then
+			target = User;
+		end
+		gm.items.id_382_ceilingtrowel.UseItem(User, SourceItem, target, counter, param, ltstate);
+	elseif counter==3 then
 		User:inform("create npc");
 		local created = world:createDynamicNPC("Guard",0,base.common.GetFrontPosition(User),0,"npc.lightmaster");
 		if created then
 			User:inform("npc created");
 		end
-	elseif counter==2 then
+	elseif counter==4 then
 		dowp = true;
 		User:inform("do wp! The counter will set the area.");
-	elseif counter==3 then
-		if npcId then
-			User:inform("npcId: ".. npcId);
-		else
-			User:inform("no npcId found");
-		end
-	elseif counter==4 then
+	elseif counter==5 then
 		local found, mode = ScriptVars:find("BG_Mode_0");
 		if found then
 			User:inform("mode: ".. mode);
 		else
 			User:inform("not found");
 		end
-	elseif counter==5 then
-		if ltstate==Action.none then
-			User:startAction(50,0,0,3,40);
-			User:startAction(40,0,0,5,21);
+	end
+end
+
+function getTargetItem(character, source)
+	if source:getType() == 4 then
+		local ipos = source.itempos;
+		local tpos;
+		if ipos == 5 then
+			tpos = 6;
+		elseif ipos == 6 then
+			tpos = 5;
+		else
+			return nil;
+		end
+		local target = character:getItemAt(tpos);
+		if target.id == 0 then
+			return nil;
+		else
+			return target;
 		end
 	end
+	return nil;
 end
 
 function errorFunc(User)
