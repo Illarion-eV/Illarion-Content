@@ -107,6 +107,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		else
 			User:inform("not found");
 		end
+	else
+		User:inform("no counter found");
 	end
 end
 
