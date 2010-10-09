@@ -80,6 +80,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	if counter==1 then
 		local target = getTargetItem(User, SourceItem);
 		if target then
+			User:inform("target found");
 			gm.items.id_382_ceilingtrowel.UseItem(User, SourceItem, target, counter, param, ltstate);
 		else
 			User:inform("no target found. Put both items in your hand.");
