@@ -1247,7 +1247,6 @@ function removeItemIdFromFieldStack( id, pos )
         world:createItemFromItem( stack[i], pos, true );
         i = i - 1;
     end;
-
 end
 
 --[[
@@ -1298,4 +1297,33 @@ function isInRect(targetpos, posi, range)
 	else
 	    return false;
 	end
+end
+
+--- Check if a given monster is docile
+-- @param id The ID of the monster in question
+-- @return true if monster is docile
+function IsMonsterDocile( id )
+	local docileList = {6,16,26,36,46,56,86,107,116,136,191,201,226,236,291,292,293,294,295,296,361,371,381,391,401};
+	for i,v in pairs(docileList) do
+		if id == v then
+			return true;
+		end
+	end
+	return false;
+end
+
+--- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
+-- @param character The character who wants to use the items
+-- @param source The source item that is "used with" the target item
+-- @return The target item (in the other hand slot than the source) or nil if no target is found
+function GetTargetItem( character, source )
+	if source:getType() ~= 4 then
+		return nil;
+	end
+	local tpos = 11 - source.itempos; -- either 5 or 6
+	local target = character:getItemAt(tpos);
+	if target.id == 0 then
+		return nil;
+	end
+	return target;
 end
