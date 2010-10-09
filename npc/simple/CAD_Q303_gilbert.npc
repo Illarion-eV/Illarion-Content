@@ -1,103 +1,123 @@
-name="Gilbert"
-position=149,121,0
-sex=male
-race=human
-direction=southeast
+------------------------------------------------------------------------------AC
+-- NPC Name: Gilbert                                                     None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  149, 121, 0            --
+-- NPC Sex:  male                       NPC Direction: southeast              --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: October 10, 2010                        easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
+name = "Gilbert"
+race = human
+sex = male
+position = 149, 121, 0
+direction = southeast
+affiliation = "None"
+job = "none"
 
---NPC by Rincewind
---Rose's brother (old rons quests) Postion in Varshikar!
---queststatus(303) Overview (rob Gilbert's necklet) 
---QuestID=303
---1:No Quest taken, but offered
---2:Quest 'necklet thief' taken. 
---3: ~necklet stolen
---4:Quest 'necklet thief' solved.
---5:Quest 'place the fake'taken.
---7: ~The fake was placed.
---8:Quest 'place the fake'solved. 
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
+author = "not set"
 
---quest necklet thief
-"geschichte","trauer","traurig","melancholisch",queststatus(303)(303)<1->"Als meine Mutter starb vermachte sie mir ein wertvolles Kollier. Ich hab das nie jemanden erzählt, doch vor kurzem hat meine schreckliche Halbschwester herausgefunden das ich es habe. Und jetzt fürchte ich sie will es mir wegnehmen. Was soll ich tun? Ich trage es die ganze Zeit in meiner Tasche, nur da ist es sicher." 
-"story","tale","dol[e,or,our]","dumpish","melanch",queststatus(303)(303)<1->"When my mother passed away, she bequeathed a precious necklet to me. I never told anyone about it, but a few days ago, my dreadful half-sister detected that I hold the necklace. Now I am worried that she'll try to take it from me. What should I do ? I have it in my bag at all times. It is the only safe place I think."
-"necklet","necklace",queststatus(303)(303)<1->"I always have an eye on the necklace. You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!"
-"kollier","amulett",queststatus(303)(303)<1->"Ich darf das Kollier nie aus den Augen lassen! Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!" 
-"schwester",queststatus(303)(303)<1->"Sie ist meine Halbschwester. Wir haben den selben Vater und haben uns nie richig gemocht. Ständig ist sie unaufrichtig und belügt die Leute. Ich möchte gar nicht wissen wie sie ihr Geld verdient."
-"sister",queststatus(303)(303)<1->"She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don’t want to know how she earns her money."
+lookatDE = "Ein schniefender Trauerkloß der sich unruhig umblickt.."
+lookatUS = "A weepy mope, nervously glancing around..."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
 
-"#me (.+) necklet","#me (.+) necklace",queststatus(303)(303)=2->"#me is not aware that the necklace is nicked from his bag.",queststatus(303)(303)=3,inform( You pick Gilbert's necklace out of his bag. You don't have a bad conscience?),item(79,1,333,0)
-"#me (.+) kollier","#me (.+) amulett",queststatus(303)(303)=2->"#me bemerkt nicht wie ihm das Kollie aus der Tasche gestohlen wird.",queststatus(303)(303)=3,inform( Du stiehlst das Kollier aus Gilberts Tasche. Hast du kein schlechtes Gewissen? ),item(79,1,333,0)
+-- NPC by Rincewind
+-- Rose's brother (old rons quests) Postion in Varshikar!
+-- queststatus(303) Overview (rob Gilbert's necklet)
+-- QuestID=303
+-- 1:No Quest taken, but offered
+-- 2:Quest 'necklet thief' taken.
+-- 3: ~necklet stolen
+-- 4:Quest 'necklet thief' solved.
+-- 5:Quest 'place the fake'taken.
+-- 7: ~The fake was placed.
+-- 8:Quest 'place the fake'solved.
 
-"geschichte","trauer","traurig","melancholisch",queststatus(303)(303)=3->"Ich hab das Erbstück meiner Mutter verloren! Ein sehr wervolles Kollier, es muss mir auf den Boden gafallen sein. Hilfst du mir suchen?"
-"story","tale","dol[e,or,our]","dumpish","melanch",queststatus(303)(303)=3->"I lost the heirloom of my mother! It is a very, very precious necklace! I must have dropped it on the ground. Could you help me find it?"
-"necklet","necklace",queststatus(303)(303)=3->"What a mess! Especially now, while my horrible half-sister's trying to take it from me. I hope I find it before she arrives."
-"kollier","amulett",queststatus(303)(303)=3->"Was für eine Schande! Gerade jetzt, wo meine grauenvolle Halbschwester versucht es mir wegzunehmen. Hoffentlich finde ich das Kollier bevor sie hier her kommt."
-"schwester",queststatus(303)(303)=3->"Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"sister",queststatus(303)(303)=3->"You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!"
+-- quest necklet thief
+"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) < 1 -> "Als meine Mutter starb vermachte sie mir ein wertvolles Kollier. Ich hab das nie jemanden erzählt, doch vor kurzem hat meine schreckliche Halbschwester herausgefunden das ich es habe. Und jetzt fürchte ich sie will es mir wegnehmen. Was soll ich tun? Ich trage es die ganze Zeit in meiner Tasche, nur da ist es sicher."
+"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) < 1 -> "When my mother passed away, she bequeathed a precious necklet to me. I never told anyone about it, but a few days ago, my dreadful half-sister detected that I hold the necklace. Now I am worried that she'll try to take it from me. What should I do ? I have it in my bag at all times. It is the only safe place I think."
+"necklet", "necklace", queststatus(303) < 1 -> "I always have an eye on the necklace. You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!"
+"kollier", "amulett", queststatus(303) < 1 -> "Ich darf das Kollier nie aus den Augen lassen! Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+"schwester", queststatus(303) < 1 -> "Sie ist meine Halbschwester. Wir haben den selben Vater und haben uns nie richig gemocht. Ständig ist sie unaufrichtig und belügt die Leute. Ich möchte gar nicht wissen wie sie ihr Geld verdient."
+"sister", queststatus(303) < 1 -> "She is my half-sister. We have the same father, but never really liked each other. Everything she does is devious. I really don’t want to know how she earns her money."
+"#me (.+) necklet", "#me (.+) necklace", queststatus(303) = 2 -> inform("You pick Gilbert's necklace out of his bag. You don't have a bad conscience?"), "#me is not aware that the necklace is nicked from his bag.", item(79, 1, 333, 0), queststatus(303) = 3
+"#me (.+) kollier", "#me (.+) amulett", queststatus(303) = 2 -> inform("Du stiehlst das Kollier aus Gilberts Tasche. Hast du kein schlechtes Gewissen?"), "#me bemerkt nicht wie ihm das Kollie aus der Tasche gestohlen wird.", item(79, 1, 333, 0), queststatus(303) = 3
+"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) = 3 -> "Ich hab das Erbstück meiner Mutter verloren! Ein sehr wervolles Kollier, es muss mir auf den Boden gafallen sein. Hilfst du mir suchen?"
+"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) = 3 -> "I lost the heirloom of my mother! It is a very, very precious necklace! I must have dropped it on the ground. Could you help me find it?"
+"necklet", "necklace", queststatus(303) = 3 -> "What a mess! Especially now, while my horrible half-sister's trying to take it from me. I hope I find it before she arrives."
+"kollier", "amulett", queststatus(303) = 3 -> "Was für eine Schande! Gerade jetzt, wo meine grauenvolle Halbschwester versucht es mir wegzunehmen. Hoffentlich finde ich das Kollier bevor sie hier her kommt."
+"schwester", queststatus(303) = 3 -> "Meiner hinterhältigen Halbschwester ist nicht zu trauen. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+"sister", queststatus(303) = 3 -> "You can’t trust my revolting half-sister. I think she's trying to sell our only heirloom!"
 
---quest2 place the fake
+-- quest2 place the fake
+"#me (.+) necklet", "#me (.+) necklace", queststatus(303) = 5, item(222, belt) => 1 -> inform("You place the faked necklace in Gilbert's bag. You don't have a bad conscience?"), "#me does not notice that a necklace is placed in his bag.", deleteItem(222, 1), queststatus(303) = 7
+"#me (.+) kollier", "#me (.+) amulett", queststatus(303) = 5, item(222, belt) => 1 -> inform("Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen?"), "#me bemerkt nicht, dass ihm ein Kollier in die Tasche gesteckt wird.", deleteItem(222, 1), queststatus(303) = 7
+"necklet", "necklace", queststatus(303) = 5, item(79, all) = 1 -> inform("Put the necklace into your belt, if you are willing to place it into Gilbert's bag.")
+"kollier", "amulett", queststatus(303) = 5, item(79, all) = 1 -> inform("Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben.")
+"geschichte", "trauer", "traurig", "melancholisch", queststatus(303) > 6 -> "Das gesuchte Kollier war die ganze Zeit in meiner Tasche! Ich hab es nur nicht gesehen. Aber jetzt wird wohl bald meine Halbschwester Rose hier auftauchen und es mir wegnehmen."
+"story", "tale", "dol[e,or,our]", "dumpish", "melanch", queststatus(303) > 6 -> "This priceless necklace was in my bag all along! I just didn't notice it. But now my half-sister Rose will visit me and steal it."
+"necklet", "necklace", queststatus(303) > 6 -> "I'm so happy that I found the necklace but on the other side I'm sad, becouse now Rose have another chance to get it."
+"kollier", "amulett", queststatus(303) > 6 -> "Ich bin sehr glücklich dass ich das Kollier gefunden habe. Auf der anderen Seite hat nun Rose abermals die Möglichkeit es zu bekommen."
+"schwester", queststatus(303) > 6 -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+"sister", queststatus(303) > 6 -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
+"rose", queststatus(303) > 6, german -> "Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
+"rose", queststatus(303) > 6, english -> "Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
 
-"#me (.+) necklet","#me (.+) necklace",queststatus(303)(303)=5,item(222,belt)>=1->"#me does not notice that a necklace is placed in his bag.",queststatus(303)(303)=7, deleteitem(222,1),inform( You place the faked necklace in Gilbert's bag. You don't have a bad conscience? )
-"#me (.+) kollier","#me (.+) amulett",queststatus(303)(303)=5,item(222,belt)>=1->"#me bemerkt nicht, dass ihm ein Kollier in die Tasche gesteckt wird.",queststatus(303)(303)=7, deleteitem(222,1),inform( Du schmuggelst das falsche Kollier in Gilberts Tasche. Hast du kein schlechtes Gewissen? )
-"necklet","necklace",queststatus(303)(303)=5,item(79,all)=1->inform ( Put the necklace into your belt, if you are willing to place it into Gilbert's bag. )
-"kollier","amulett",queststatus(303)(303)=5,item(79,all)=1->inform ( Lege das Amuelett in deinen Gürtel, um es Gilbert unterzuscheieben. )
+-- general~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
+"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
+"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüß.", "Wiedersehen.", "Gehabt euch wohl.", "Adieu..."
+"Ciao", "Adieu", "Au revoir", english -> "Farewell.", "Good bye.", "Bye.", "Ciao", "Adieu...", "You leave?"
+"Ciao", "Adieu", "Au revoir", german -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Adieu...", "Au revoir..."
+"How are you", "How feel", "How do you do" -> "I'm fine.", "Great, and you?", "Pfff!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Pfff!", "Danke,nicht gut.", "Schlecht und dir?"
+"your name", "who are you", "who art thou" -> "I'm %NPCNAME."
+"I am", "I'm" -> "Nice to meet you."
+"Ich bin" -> "Schön dich kennen zu lernen."
 
-"geschichte","trauer","traurig","melancholisch",queststatus(303)(303)>6->"Das gesuchte Kollier war die ganze Zeit in meiner Tasche! Ich hab es nur nicht gesehen. Aber jetzt wird wohl bald meine Halbschwester Rose hier auftauchen und es mir wegnehmen."
-"story","tale","dol[e,or,our]","dumpish","melanch",queststatus(303)(303)>6->"This priceless necklace was in my bag all along! I just didn't notice it. But now my half-sister Rose will visit me and steal it."
-"necklet","necklace",queststatus(303)(303)>6->"I'm so happy that I found the necklace but on the other side I'm sad, becouse now Rose have another chance to get it."
-"kollier","amulett",queststatus(303)(303)>6->"Ich bin sehr glücklich dass ich das Kollier gefunden habe. Auf der anderen Seite hat nun Rose abermals die Möglichkeit es zu bekommen."
-"schwester",queststatus(303)(303)>6->"Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"sister",queststatus(303)(303)>6->"Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
-"rose",german,queststatus(303)(303)>6->"Rose ist meine Halbschwester. Ständig ist sie unaufrichtig und belügt die Leute. Ich glaube sie möchte unser Erbstück einfach verkaufen!"
-"rose",english,queststatus(303)(303)>6->"Rose is my half-sister. Everything she does is devious. I think she's trying to sell our only heirloom!"
+-- smalltalk
+"murgo", race = orc, english -> "Yes! Murgo is a big strong warrior! Everybody is afraid of him!"
+"murgo", race = orc, german -> "Jaah! Murgo ist ein großer starker Krieger! Alle haben Angst vor ihm!"
+"murgo", english -> "He bothered you too? These orcs are a plague."
+"murgo", german -> "Hat er dich auch belästigt? Diese Orks sind eine Plage."
+"alan", english -> "Alan Dowland, sure I know him, the most wonderful bard from Gobaith!"
+"alan", german -> "Alan Dowland, natürlich kenne ich ihn, er ist der begabteste Barde auf ganz Gobaith!"
+"Otto", "Martin", "Sauerteig", german -> "Ach! Diese Halblinge sind doch so unbekümmert..."
+"Otto", "Martin", "Sauerteig", english -> "Sigh. These halfers are rather uncaring..."
 
---general~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin"->"Hallo.","Grüße.","Guten Tag.","Gruß.","Seid gegrüßt."
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Good day.","Greetings.","Greets.","Hello.","Be greeted."
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Good day.","Greetings.","Greets.","Hello.","Be greeted."
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Hallo.","Grüße.","Guten Tag.","Gruß.","Seid gegrüßt."
-"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich bin %NPCNAME."
-"Farewell","Good bye","Bye","Fare thee well"->"Farewell.","Good bye.","Bye.","Ciao.","Adieu...","You leave?"
-"Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Tschüß.","Wiedersehen.","Gehabt euch wohl.","Adieu..."
-"Ciao","Adieu","Au revoir",english->"Farewell.","Good bye.","Bye.","Ciao","Adieu...","You leave?"
-"Ciao","Adieu","Au revoir",german->"Tschüß.","Tschüss.","Wiedersehen.","Auf bald","Gehabt euch wohl.","Adieu...","Au revoir..."
-"How are you","How feel","How do you do"->"I'm fine.","Great, and you?","Pfff!" 
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"Pfff!","Danke,nicht gut.","Schlecht und dir?" 
-"your name","who are you","who art thou"->"I'm %NPCNAME."
-"I am","I'm"->"Nice to meet you."
-"Ich bin"->"Schön dich kennen zu lernen."
+-- Help
+"hilfe", queststatus(303) = 2 -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilberts Tasche zu stehelen."), "Mir können nichteinmal die Götter helfen.", state = 0
+"helfen", queststatus(303) = 2 -> inform("Vieleicht solltest du einfach versuchen, das Kolier aus Gilbert's Tasche zu stehlen."), "Mir können nichteinmal die Götter helfen.", state = 0
+"help", queststatus(303) = 2 -> inform("Maybe you should try out, to pick the necklet out of Gilberts bag."), "Even the gods are not able to help me.", state = 0
+"helfen", queststatus(303) = 5 -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), "Mir können nichteinmal die Götter helfen.", state = 0
+"help", queststatus(303) = 5 -> inform("Maybe you should try out, to place the necklet into Gilbert's bag, carefully."), "Even the gods are not able to help me.", state = 0
+"hilfe", queststatus(303) = 5 -> inform("Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben."), "Mir können nichteinmal die Götter helfen.", state = 0
+"hilfe" -> inform("Warum ist er bloß so 'traurig'?"), "Mir können nichteinmal die Götter helfen.", state = 0
+"helfen" -> inform("Warum ist er bloß so 'traurig'?"), "Mir können nichteinmal die Götter helfen.", state = 0
+"help" -> inform("Why for he is so 'dumpish'?"), "Even the gods are not able to help me.", state = 0
 
---smalltalk
-"murgo",english,race=orc->"Yes! Murgo is a big strong warrior! Everybody is afraid of him!"
-"murgo",german,race=orc->"Jaah! Murgo ist ein großer starker Krieger! Alle haben Angst vor ihm!"
-"murgo",english->"He bothered you too? These orcs are a plague."
-"murgo",german->"Hat er dich auch belästigt? Diese Orks sind eine Plage."
-"alan",english->"Alan Dowland, sure I know him, the most wonderful bard from Gobaith!"
-"alan",german->"Alan Dowland, natürlich kenne ich ihn, er ist der begabteste Barde auf ganz Gobaith!"
-"Otto","Martin","Sauerteig",german->"Ach! Diese Halblinge sind doch so unbekümmert..."
-"Otto","Martin","Sauerteig",english->"Sigh. These halfers are rather uncaring..."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
---Help 
-"hilfe",queststatus(303)(303)=2->"Mir können nichteinmal die Götter helfen.",state=0,inform( Vieleicht solltest du einfach versuchen, das Kolier aus Gilberts Tasche zu stehelen. )
-"helfen",queststatus(303)(303)=2->"Mir können nichteinmal die Götter helfen.",state=0,inform( Vieleicht solltest du einfach versuchen, das Kolier aus Gilbert's Tasche zu stehlen. )
-"help",queststatus(303)(303)=2->"Even the gods are not able to help me.",state=0,inform( Maybe you should try out, to pick the necklet out of Gilberts bag. )
-
-"helfen",queststatus(303)(303)=5->"Mir können nichteinmal die Götter helfen.",state=0,inform( Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben. )
-"help",queststatus(303)(303)=5->"Even the gods are not able to help me.",state=0,inform( Maybe you should try out, to place the necklet into Gilbert's bag, carefully. )
-"hilfe",queststatus(303)(303)=5->"Mir können nichteinmal die Götter helfen.",state=0,inform( Vieleicht solltest du einfach versuchen, das Kolier in Gilberts Tasche zu schieben. )
-
-"hilfe"->"Mir können nichteinmal die Götter helfen.",state=0,inform( Warum ist er bloß so 'traurig'? )
-"helfen"->"Mir können nichteinmal die Götter helfen.",state=0,inform( Warum ist er bloß so 'traurig'? )
-"help"->"Even the gods are not able to help me.",state=0,inform( Why for he is so 'dumpish'? )
-
-cycletext "#me schnieft bekümmert.","#me sniffs distressed."
-cycletext "#me klammert seine Tasche an sich.","#me hugs his bag in a vigorous way."
-cycletext "#me scharrt mit der Schuspitze lustlos im Sand.","#me scrabbles with his foot mopishly on the ground."
-cycletext "#me macht ein unglückliches Gesicht.","#me makes a hapless grimace."
-cycletext "#me schnäuzt sich lautstark in den Ärmel seines Hemdes."," #me honks his nose into the sleeve of his shirt."
-
-
-
-
-
+cycletext "#me schnieft bekümmert.", "#me sniffs distressed."
+cycletext "#me klammert seine Tasche an sich.", "#me hugs his bag in a vigorous way."
+cycletext "#me scharrt mit der Schuspitze lustlos im Sand.", "#me scrabbles with his foot mopishly on the ground."
+cycletext "#me macht ein unglückliches Gesicht.", "#me makes a hapless grimace."
+cycletext "#me schnäuzt sich lautstark in den Ärmel seines Hemdes.", " #me honks his nose into the sleeve of his shirt."
