@@ -6,7 +6,7 @@ sex=male
 --male/female
 race=human
 --human, elf, dwarf, lizardman, orc, halfling...
-position=118, 618, 0
+position=114, 635, 0
 --Name the location
 direction=South
 --north, northeast, east, southeast, south, southwest, west, northwest
