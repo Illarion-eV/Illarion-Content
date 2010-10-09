@@ -109,6 +109,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		end
 	else
 		User:inform("no counter found");
+		if counter == nil then
+			User:inform("counter is nil");
+		else
+			User:inform("counter: ".. counter);
+		end
 	end
 end
 
