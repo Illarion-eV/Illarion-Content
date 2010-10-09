@@ -1249,3 +1249,53 @@ function removeItemIdFromFieldStack( id, pos )
     end;
 
 end
+
+--[[
+    ExtgetPlayersInRangeOf
+    An extended Version of the world - function getPlayersInRangeOf
+	includes players who are in the diagonal direction in range of the radius
+
+	@param pos - the center position struct from where there shall be looked at
+    @param radius - the range at which we want to look for players
+
+    @return struct table - a table with players or nil
+]]
+function ExtgetPlayersInRangeOf(posi, radius)
+
+	local ext = 2;
+	local plyList=world:getPlayersInRangeOf(posi, radius+ext);
+
+	for i, player in pairs(plyList) do
+	    -- player not in rect, remove from list
+		if not isInRect(player.pos, posi, radius) then
+			plyList[i] = nil;
+	    end
+	end
+	
+	return plyList;
+
+end
+
+--[[
+    isInRect
+	checks whether targetpos is within a rect with distance "range"
+	and center position "posi"
+
+	@param targetpos - the target pos that shall be looked for
+    @param posi - center position of the rect
+    @param range - distance of the rect borders from the center
+
+    @return bool - true when targetpos is in rect else false
+]]
+function isInRect(targetpos, posi, range)
+
+	if targetpos.x>=(posi.x-range) and targetpos.x<=(posi.x+range) then         --checks the x-Coordinates with the borders
+	    if targetpos.y>=(posi.y-range) and targetpos.y<=(posi.y+range) then     --checks the y-Coordinates with the borders
+	        return true;
+		else
+		    return false;
+		end
+	else
+	    return false;
+	end
+end

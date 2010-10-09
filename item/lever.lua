@@ -14,7 +14,7 @@ require("handler.createsound")
 require("handler.sendmessage")
 require("handler.movelever")
 require("handler.warpplayer");
-
+require("handler.warpgroup");
 require("quest.leverRiddleA")       -- controlls the behaviour of the levers
 require("quest.leverquest")         -- main class for the whole quest
 
@@ -27,7 +27,7 @@ function init()
 
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
 	elevator1 = base.lever.Lever(position(335,241,-6),true); --create lever object
-	elevator1:bind(1, handler.sendmessage.sendMessage(position(335,244,-6),"debug",2));
+	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
 	
 	AddToLevers(elevator1);
 	----------------------------------------------------------------------------
