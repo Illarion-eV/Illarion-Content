@@ -48,8 +48,45 @@ local CharList = world:getCharactersInRangeOf (posit, 10);
 	end
 end
 		
-function Energy_Beam (Monster, Enemy)
--- Energy Beam - straight line spell that does huge damage to everything in it's way. Boss gets rooted for 1 second before this.
+function Energy_Beam (monster, char, distance)
+-- Energy Beam - straight line spell that does damage to everything in it's way.
+	if (math.random(100)<= 10) then
+		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
+			monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
+			
+			local DamagePosX;		
+			if char.pos.x-monster.pos.x == 0 then
+				DamagePosX = char.pos.x;
+			elseif char.pos.x-monster.pos.x > 0 then
+				DamagePosX = char.pos.x + math.floor((distance*math.sqrt(2))/2);
+			else
+				DamagePosX = char.pos.x - math.floor((distance*math.sqrt(2))/2);
+			end
+		
+			local DamagePosY;
+			if char.pos.y-monster.pos.y == 0 then
+				DamagePosY = char.pos.y;
+			elseif char.pos.y-monster.pos.y > 0 then
+				DamagePosY = char.pos.y + math.floor((distance*math.sqrt(2))/2);
+			else
+				DamagePosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
+			end
+			
+			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
+			
+			base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
+				--insert effectZ here
+				char:increaseAttrib("hitpoints", -3000);
+				char:inform("#w You get blasted by a powerful energy ray shot by the monster.");
+			end );
+			
+		else
+			return false;
+		end
+	else
+		return false;
+	end
+		
 end
 
 
