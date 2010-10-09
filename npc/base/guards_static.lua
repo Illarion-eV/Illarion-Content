@@ -3,34 +3,48 @@ require("base.common")
 module("npc.base.guards_static", package.seeall)
 
 ACTION_NONE = 0;
-ACTION_WARP = 1;
-ACTION_KILL = 2;
+ACTION_PASSIVE = 1;
+ACTION_HOSTILE = 2;
+ACTION_AGGRESSIVE = 3;
 
 WarpPos = {};
 FactionId = {};
 Radius = {};
+CheckCenter = {}
 
-function Init(guard, factionId, warpPos, radius)
+function Init(guard, factionId, warpPos, radius, checkCenter)
 	guard:talk(CCharacter.say,"BEGIN guards_static.Init");
 	WarpPos[guard.id] = warpPos;
 	FactionId[guard.id] = factionId;
 	Radius[guard.id] = radius;
+	CheckCenter[guard.id] = checkCenter;
 	guard:talk(CCharacter.say,"END guards_static.Init");
 end
 
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
-function CheckForCharacters(guard)
-	local charList = world:getPlayersInRangeOf(guard.pos, Radius[guard.id]);
-	
+function CheckForEnemies(guard)
+
+	-- check for hostile monsters
+	local monsterList = world:getMonstersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
+	for i,mon in pairs(monsterList) do
+		if ( not base.common.IsMonsterDocile(mon:get_mon_type()) ) then
+			-- kill them and get help
+			-- but warp for now
+			Warp(guard, mon);
+		end
+	end
+
+	-- check for player characters
+	local charList = world:getPlayersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
 	for i,char in pairs(charList) do
 		local mode = GetMode(char, FactionId[guard.id]);
-		if (mode == ACTION_WARP) then
-			-- warp
-			Warp(guard, char);
-		elseif (mode == ACTION_KILL) then
+		if (mode == ACTION_AGGRESSIVE) then
 			-- spawn monster guards
 			-- for now: just warp
+			Warp(guard, char);
+		elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
+			-- warp
 			Warp(guard, char);
 		end
 	end
@@ -131,9 +145,10 @@ function CheckAdminCommand(guard, speaker, message)
 		
 		local mode = -1;
 		local modeString = {};
-		modeString[ACTION_NONE] = "passive";
-		modeString[ACTION_WARP] = "hostile";
-		modeString[ACTION_KILL] = "aggressive";
+		modeString[ACTION_NONE] = "none";
+		modeString[ACTION_PASSIVE] = "passive";
+		modeString[ACTION_HOSTILE] = "hostile";
+		modeString[ACTION_AGGRESSIVE] = "aggressive";
 		
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
@@ -148,7 +163,7 @@ function CheckAdminCommand(guard, speaker, message)
 			end
 		end
 		if mode == -1 then
-			speaker:inform("#w [Guard Help] no proper mode found. Try passive, hostile or aggressive.");
+			speaker:inform("#w [Guard Help] no proper mode found. Try none, passive, hostile or aggressive.");
 			return;
 		else
 			speaker:inform("mode ~= -1");
