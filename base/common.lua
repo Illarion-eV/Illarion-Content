@@ -1320,14 +1320,10 @@ function GetTargetItem( character, source )
 	if source:getType() ~= 4 then
 		return nil;
 	end
-	character:inform("is in inventory");
 	local tpos = 11 - source.itempos; -- either 5 or 6
-	character:inform("tpos: ".. tpos);
 	local target = character:getItemAt(tpos);
 	if target.id == 0 then
-		character:inform("target is nil");
 		return nil;
 	end
-	character:inform("target id: ".. target.id);
 	return target;
 end

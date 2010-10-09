@@ -281,15 +281,21 @@ function UseItem( User, SourceItem, targetItem, Counter, Param, ltstate )  -- DO
         end
 		
 		local TargetItem = base.common.GetTargetItem(User, SourceItem);
+		User:inform("1");
 		if TargetItem then
+			User:inform(" 2");
 			if Cooking:IsProduct(TargetItem.id) then
+				User:inform("   3");
 				base.common.InformNLS( User,
 				"Du versuchst den Gegenstand in deiner Hand zu bearbeiten.",
 				"You try to work on the item in your hand." );
+				User:inform("    4");
 				Cooking:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
+				User:inform("     5");
 				return;
 			end
 		end
+		User:inform("      6");
 
         if (Param == 0) then
             menstate[ User.id ]=1;
