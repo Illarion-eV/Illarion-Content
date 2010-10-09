@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Rose                                                        None --
--- NPC Job:  Ambiente/Quest                                                             --
+-- NPC Job:  Ambiente/Quest                                                   --
 --                                                                            --
--- NPC Race: human                      NPC Position:  403, 294, 0            --
+-- NPC Race: human                      NPC Position:  404, 292, 0           --
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                         --
@@ -13,7 +13,7 @@
 name = "Rose"
 race = human
 sex = female
-position = 403, 294, 0
+position = 404, 292, 0
 direction = southwest
 affiliation = "None"
 job = "none"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "not set"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Eine leicht bekleidete hübsche Frau, die dich verführerisch anzwinkert als sie deinen Blick bemerkt."
+lookatUS = "A sexy dressed and pretty woman. As she notices your gaze, she winks seductively at you."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -173,20 +173,20 @@ wrongLangUS = "#me looks at you confused."
 "no", state = 4 -> "No? What are you trying to say? I'm not good enough for you?!", state = 1
 "ja", state = 4, money => 250 -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", state = 1, money - 250
 
--- +teleport des Char nach (0,0,0), +add Flitzläuse
+-- +teleport des Char nach (424,293,-3), +add Flitzläuse
 "yes", state = 4, money => 250 -> "Awesome, come on, lets go somewhere more... quiet.", state = 1, money - 250
 
--- +teleport des Char nach (0,0,0), +add Flitzläuse
+-- +teleport des Char nach (424,293,-3), +add Flitzläuse
 "ja", state = 4 -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", state = 1
 "yes", state = 4 -> "Sorry sweetheart, you havn't enough coins. Go fetch them, I'll wait for you!", state = 1
 "ja", state = 3, queststatus(303) > 7 -> "Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?", state = 5
 "yes", state = 3, queststatus(303) > 7 -> "Great, its just 200 coppercoins. A special price for my honey!", state = 5
 "ja", state = 5, money => 200 -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", state = 1, money - 200
 
--- +teleport des Char nach (0,0,0), +add Flitzläuse
+-- +teleport des Char nach (424,293,-3), +add Flitzläuse
 "yes", state = 5, money => 200 -> "Awesome, lets go somewhere more quiet.", state = 1, money - 200
 
--- +teleport des Char nach (0,0,0), +add Flitzläuse
+-- +teleport des Char nach (424,293,-3), +add Flitzläuse
 "ja", state = 5 -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", state = 1
 "yes", state = 5 -> "Sweetie, you havn't enough coins. Go get them, I'll wait for you!", state = 1
 "nein", state = 5 -> "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!", state = 1
@@ -354,8 +354,6 @@ wrongLangUS = "#me looks at you confused."
 "mole" -> "Am I a farmer or what? No Idea!"
 "hase" -> "Sie sin sooo süß! Hey, was isst du da?"
 "rabbit" -> "They are sooo cute! Ey, what are you eating there?"
-"alan", english -> "Alan Dowland, sure I know him, the most wounderful bard on Gobaith!"
-"alan", german -> "Alan Dowland, natürlich kenne ich ihn, er ist der begabteste Barde auf ganz Gobaith!"
 "murgo", english -> "#me chukles heavily.'Murgo? This point is a professional secret.'"
 "murgo", german -> "#me kichert hefitg.'Murgo? Das fällt unter Berufsgeheimnis.'"
 "bruder" -> "Ja, mein Bruder ist ja so einfältig!"
@@ -383,8 +381,9 @@ wrongLangUS = "#me looks at you confused."
 
 cycletext "#me kichert hinter vorgehaltener Hand.", "#me giggles behind her hand."
 cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between her legs."
-cycletext "Lust auf etwas Gesellschaft, Schätzchen?", "Would you like some company,my darling?"
+cycletext "Lust auf etwas Gesellschaft, Schätzchen?", "Would you like some company, my darling?"
 cycletext "Hei! Süschen!", "Hey sweety!"
 cycletext "#me schnalzt verführerisch mit der Zunge.", "#me clicks on her tounge in alluring way."
 cycletext "#me hebt ihre Augenbrauen und gurrt in deine Richtung", "#me raises her brows and purrs in your direction."
 cycletext "#me zwinkert dir zu und leckt sich langsam über ihre Lippen.", "#me winks at you and licks slowly over her lips."
+cycletext "#me streckt ein Bein nach vorne und hebt ganz langsam un dmit beadacht den saum ihres Rockes ein wenig an, so das man ihr Knie zu sehen ist.", "Hey sweety!"
