@@ -926,6 +926,7 @@ function receiveText(texttype, message, speaker)
 end;
 function nextCycle()
 	mainNPC:nextCycle();
+	--[[
 	if not guards_init then
 		-- init after 10 cycles
 		guards_init = 10;
@@ -942,7 +943,7 @@ function nextCycle()
 		npc.base.guards_static.CheckForEnemies(thisNPC);
 	else
 		gCount = gCount + 1;
-	end
+	end]]
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
