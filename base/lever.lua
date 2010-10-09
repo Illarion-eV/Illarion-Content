@@ -38,7 +38,7 @@ function Lever:getPosition()                    -- do as the name says
     return self.pos;
 end
 
-function Lever:setMinStrength(str)
+function Lever:setMinStrength(str)              -- strengh needed to switch the lever
     self.minStrength=str;
     return str;
 end

@@ -24,17 +24,27 @@ module("item.lever", package.seeall)
 
 function init()
     leverList={};
-    --[[myLev1 = base.lever.Lever(position(124,637,0),true);
+
+	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
+	elevator1 = base.lever.Lever(position(335,241,-6),true); --create lever object
+	elevator1:bind(1, handler.sendmessage.sendMessage(position(335,244,-6),"debug",2));
+	
+	AddToLevers(elevator1);
+	----------------------------------------------------------------------------
+
+
+	--[[myLev1 = base.lever.Lever(position(124,637,0),true);
     myLev2 = base.lever.Lever(position(125,637,0),false);
     myLev1:bind(0,handler.movelever.moveLever(myLev2));
     testlever = base.lever.Lever(position(119,637,0),true);
     testlever2 = base.lever.Lever(position(120,637,0),true);
       ]]--
 
+	--------------------------------lever quest fal-fal---------------------------
     -- THIS IS THE DOCUMENTATION FOR FAL-FAL'S LEVER QUEST
     -- IT IS DONE WITH OOP LUA CODING, WHICH MIGHT BE CONFUSING AT A FIRST SIGHT
     -- BUT TURNS OUT TO BE RATHER SIMPLE AND FOLLOWS A CLEAR CONCEPT.
-  
+   --[[
     questA=quest.leverquest.LeverQuest();   -- at the first execution, create an object of that class.
                                             -- The LeverQuest class holds all the information that is unique for
                                             -- the LeverQuest, such as the position of the levers, the condition
@@ -61,7 +71,9 @@ function init()
     AddToLevers(riddleLever2);    
     AddToLevers(riddleLever3);
     AddToLevers(riddleLever4);
-    AddToLevers(riddleLever5);
+    AddToLevers(riddleLever5);  --]]
+    
+    --------------------------------lever quest fal-fal---------------------------
     
     --[[for x=117,119 do
         for y=632,636 do
@@ -105,26 +117,19 @@ function generateKey(posX,posY,posZ)
 end
 
 function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
-    User:inform("debug1");
     if (initi==nil) then
         myLevers=init();
-        User:inform("initialize");
         initi=1;
     end
-    User:inform("debug2");
     key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
     if leverList[key]~=nil then
         leverList[key]:switchLever(User);
-    else
-        User:inform("Does not work!");
     end
 end
 
 function LookAtItem(User, Item)
-    User:inform("debug1");
     if (initi==nil) then
         myLevers=init();
-        User:inform("initialize");
         initi=1;
     end
     User:inform(questA:getLeverHint(Item.pos));
