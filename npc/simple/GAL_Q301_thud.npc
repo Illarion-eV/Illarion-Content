@@ -23,7 +23,7 @@ direction=south
 --Scharzsteinkette (82)
 --50 x Wurfspeer (293)
 
---attrib(distance weapons)>=40
+--skill(distance weapons)>=40
 --queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ 5x Flasche Rum (1319)
 --queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ Horn (333)
 --queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Smaragdamulett (62)
@@ -32,28 +32,30 @@ direction=south
 --queststatus(301)= 165-169 große belohnung +5 (81) ~ 50x Windpfeile (322) 333
 --queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ Ebenholzbogen (2780)
 
-"troph",english,queststatus(301)=>9,queststatus(301)=<13,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(1319,5,333,0),queststatus(301)+5
-"troph",german,queststatus(301)=>9,queststatus(301)=<13,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(1319,5,333,0),queststatus(301)+5
+"troph",english,queststatus(301)=>9,queststatus(301)=<13,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(1319,5,333,0),queststatus(301)+5
+"troph",german,queststatus(301)=>9,queststatus(301)=<13,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(1319,5,333,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>25,queststatus(301)=<29,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>25,queststatus(301)=<29,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>25,queststatus(301)=<29,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>25,queststatus(301)=<29,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>50,queststatus(301)=<54,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(62,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>50,queststatus(301)=<54,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(62,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>50,queststatus(301)=<54,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(62,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>50,queststatus(301)=<54,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(62,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>75,queststatus(301)=<79,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(2445,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
-"troph",german,queststatus(301)=>75,queststatus(301)=<79,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2445,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",english,queststatus(301)=>75,queststatus(301)=<79,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(2445,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",german,queststatus(301)=>75,queststatus(301)=<79,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2445,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
 
-"troph",english,queststatus(301)=>120,queststatus(301)=<124,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(364,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>120,queststatus(301)=<124,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(364,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>120,queststatus(301)=<124,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(364,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>120,queststatus(301)=<124,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(364,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>165,queststatus(301)=<169,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(322,50,333,0),queststatus(301)+5
-"troph",german,queststatus(301)=>165,queststatus(301)=<169,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(322,50,333,0),queststatus(301)+5
+"troph",english,queststatus(301)=>165,queststatus(301)=<169,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(322,50,333,0),queststatus(301)+5
+"troph",german,queststatus(301)=>165,queststatus(301)=<169,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(322,50,333,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>250,queststatus(301)=<254,attrib(distance weapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(2780,1,999,0),queststatus(301)=1
-"troph",german,queststatus(301)=>250,queststatus(301)=<254,attrib(distance weapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2780,1,999,0),queststatus(301)=1
+"troph",english,queststatus(301)=>250,queststatus(301)=<254,skill(distance weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(2780,1,999,0),queststatus(301)=1
+"troph",german,queststatus(301)=>250,queststatus(301)=<254,skill(distance weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2780,1,999,0),queststatus(301)=1
 
---attrib(slashing waeapons)>=40
+--skill(slashing weapons)>=40
 --queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ volle Flasche (517)
 --queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ 5x Lamm mit Beilage (559)
 --queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Amethystkette (97)
@@ -62,26 +64,28 @@ direction=south
 --queststatus(301)= 165-169 große belohnung +5 (81) ~ Flammen-Helm (2286)
 --queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ Feuer-Kriegsaxt (2627)
 
-"troph",english,queststatus(301)=>9,queststatus(301)=<13,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(517,1,333,0),queststatus(301)+5
-"troph",german,queststatus(301)=>9,queststatus(301)=<13,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(517,1,333,0),queststatus(301)+5
+"troph",english,queststatus(301)=>9,queststatus(301)=<13,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(517,1,333,0),queststatus(301)+5
+"troph",german,queststatus(301)=>9,queststatus(301)=<13,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(517,1,333,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>25,queststatus(301)=<29,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(559,5,333,0),queststatus(301)+5
-"troph",german,queststatus(301)=>25,queststatus(301)=<29,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(559,5,333,0),queststatus(301)+5
+"troph",english,queststatus(301)=>25,queststatus(301)=<29,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(559,5,333,0),queststatus(301)+5
+"troph",german,queststatus(301)=>25,queststatus(301)=<29,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(559,5,333,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>50,queststatus(301)=<54,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(97,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>50,queststatus(301)=<54,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(97,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>50,queststatus(301)=<54,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(97,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>50,queststatus(301)=<54,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(97,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>75,queststatus(301)=<79,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>75,queststatus(301)=<79,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>75,queststatus(301)=<79,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>75,queststatus(301)=<79,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>120,queststatus(301)=<124,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(2448,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
-"troph",german,queststatus(301)=>120,queststatus(301)=<124,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2448,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",english,queststatus(301)=>120,queststatus(301)=<124,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(2448,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",german,queststatus(301)=>120,queststatus(301)=<124,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2448,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
 
-"troph",english,queststatus(301)=>165,queststatus(301)=<169,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(2286,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>165,queststatus(301)=<169,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2286,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>165,queststatus(301)=<169,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(2286,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>165,queststatus(301)=<169,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2286,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>250,queststatus(301)=<254,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME like you. Take this stuff here!",item(2627,1,999,0),queststatus(301)=1
-"troph",german,queststatus(301)=>250,queststatus(301)=<254,attrib(slashing waeapons)>=40->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2627,1,999,0),queststatus(301)=1
+"troph",english,queststatus(301)=>250,queststatus(301)=<254,skill(slashing weapons)>=40->"Hurr, Thud like you. Take this stuff here!",item(2627,1,999,0),queststatus(301)=1
+"troph",german,queststatus(301)=>250,queststatus(301)=<254,skill(slashing weapons)>=40->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2627,1,999,0),queststatus(301)=1
 
 --queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ Keule (2664)
 --queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ 5x Lamm mit Beilage (559)
@@ -91,30 +95,32 @@ direction=south
 --queststatus(301)= 165-169 große belohnung +5 (81) ~ Legionästrumschild, graviert (2448)
 --queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ roter Feuerdolch (2742)
 
-"troph",english,queststatus(301)=>9,queststatus(301)=<13->"Hurr, %NPCNAME like you. Take this stuff here!",item(2664,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>9,queststatus(301)=<13->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2664,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>9,queststatus(301)=<13->"Hurr, Thud like you. Take this stuff here!",item(2664,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>9,queststatus(301)=<13->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2664,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>25,queststatus(301)=<29->"Hurr, %NPCNAME like you. Take this stuff here!",item(559,5,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>25,queststatus(301)=<29->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(559,5,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>25,queststatus(301)=<29->"Hurr, Thud like you. Take this stuff here!",item(559,5,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>25,queststatus(301)=<29->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(559,5,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>50,queststatus(301)=<54->"Hurr, %NPCNAME like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>50,queststatus(301)=<54->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>50,queststatus(301)=<54->"Hurr, Thud like you. Take this stuff here!",item(333,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>50,queststatus(301)=<54->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(333,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>75,queststatus(301)=<79->"Hurr, %NPCNAME like you. Take this stuff here!",item(67,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>75,queststatus(301)=<79->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(67,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>75,queststatus(301)=<79->"Hurr, Thud like you. Take this stuff here!",item(67,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>75,queststatus(301)=<79->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(67,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>120,queststatus(301)=<124->"Hurr, %NPCNAME like you. Take this stuff here!",item(39,1,999,0),queststatus(301)+5
-"troph",german,queststatus(301)=>120,queststatus(301)=<124->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(39,1,999,0),queststatus(301)+5
+"troph",english,queststatus(301)=>120,queststatus(301)=<124->"Hurr, Thud like you. Take this stuff here!",item(39,1,999,0),queststatus(301)+5
+"troph",german,queststatus(301)=>120,queststatus(301)=<124->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(39,1,999,0),queststatus(301)+5
 
-"troph",english,queststatus(301)=>165,queststatus(301)=<169->"Hurr, %NPCNAME like you. Take this stuff here!",item(2448,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
-"troph",german,queststatus(301)=>165,queststatus(301)=<169->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2448,1,999,0),queststatus(301)+5 --gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",english,queststatus(301)=>165,queststatus(301)=<169->"Hurr, Thud like you. Take this stuff here!",item(2448,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
+"troph",german,queststatus(301)=>165,queststatus(301)=<169->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2448,1,999,0),queststatus(301)+5
+--gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziehrt. // His/her shield is ornated with the emblem of Galmair.
 
-"troph",english,queststatus(301)=>250,queststatus(301)=<254->"Hurr, %NPCNAME like you. Take this stuff here!",item(2742,1,999,0),queststatus(301)=1
-"troph",german,queststatus(301)=>250,queststatus(301)=<254->"Hurr, %NPCNAME mögen dich! Nimmst du diese Zeug!",item(2742,1,999,0),queststatus(301)=1
+"troph",english,queststatus(301)=>250,queststatus(301)=<254->"Hurr, Thud like you. Take this stuff here!",item(2742,1,999,0),queststatus(301)=1
+"troph",german,queststatus(301)=>250,queststatus(301)=<254->"Hurr, Thud mögen dich! Nimmst du diese Zeug!",item(2742,1,999,0),queststatus(301)=1
 
 --Horn +2
-"troph",english,item(333,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your horn?'",state=1
-"troph",german,item(333,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben Horn, das?'",state=1
+"troph",english,item(333,belt)>=1->"#me peeks your belt: 'Wanna give Thud your horn?'",state=1
+"troph",german,item(333,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'",state=1
 "Ja",state=1,item(333,belt)>=1->"Dancke für Horn, das!",queststatus(301)+2,deleteitem(333,1),state=0
 "Nein",state=1->"So'n Mist!",state=0
 "Ja",state=1->"Ich nix dumm! Du nix hast.",state=0
@@ -123,8 +129,8 @@ direction=south
 "Yes",state=1->"Me no fool. You havn't one!",state=0
 
 --Fell +1
-"troph",english,item(2586,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your fur?'",state=2
-"troph",german,item(2586,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben die Felle?'",state=2
+"troph",english,item(2586,belt)>=1->"#me peeks your belt: 'Wanna give Thud your fur?'",state=2
+"troph",german,item(2586,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'",state=2
 "Ja",state=2,item(2586,belt)>=1->"Dancke für die Felle!",queststatus(301)+1,deleteitem(2586,1),state=0
 "Nein",state=2->"So'n Mist!",state=0
 "Ja",state=2->"Ich nix dumm! Du nix hast.",state=0
@@ -133,8 +139,8 @@ direction=south
 "Yes",state=2->"Me no fool. You havn't one!",state=0
 
 --Salk Paladinhelm +2
-"troph",english,item(2291,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your salkish paladin helmet?'",state=3
-"troph",german,item(2291,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben dein salkamarischer Paladinhelm?'",state=3
+"troph",english,item(2291,belt)>=1->"#me peeks your belt: 'Wanna give Thud your salkish paladin helmet?'",state=3
+"troph",german,item(2291,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'",state=3
 "Ja",state=3,item(2291,belt)>=1->"Dancke für den Helm!",queststatus(301)+2,deleteitem(2291,1),state=0
 "Nein",state=3->"So'n Mist!",state=0
 "Ja",state=3->"Ich nix dumm! Du nix hast.",state=0
@@ -143,8 +149,8 @@ direction=south
 "Yes",state=3->"Me no fool. You havn't one!",state=0
 
 --verziehrter Dolch +1
-"troph",english,item(190,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your ornated dagger?'",state=4
-"troph",german,item(190,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben dein verzierhrte Dolch?'",state=4
+"troph",english,item(190,belt)>=1->"#me peeks your belt: 'Wanna give Thud your ornated dagger?'",state=4
+"troph",german,item(190,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'",state=4
 "Ja",state=4,item(190,belt)>=1->"Dancke für den Dolch!",queststatus(301)+1,deleteitem(190,1),state=0
 "Nein",state=4->"So'n Mist!",state=0
 "Ja",state=4->"Ich nix dumm! Du nix hast.",state=0
@@ -153,8 +159,8 @@ direction=south
 "Yes",state=4->"Me no fool. You havn't one!",state=0
 
 --zwergenaxt +3
-"troph",english,item(2660,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your dwarven axe?'",state=5
-"troph",german,item(2660,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben dein Zwergenaxt?'",state=5
+"troph",english,item(2660,belt)>=1->"#me peeks your belt: 'Wanna give Thud your dwarven axe?'",state=5
+"troph",german,item(2660,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'",state=5
 "Ja",state=5,item(2660,belt)>=1->"Dancke für d'Axt!",queststatus(301)+3,deleteitem(2660,1),state=0
 "Nein",state=5->"So'n Mist!",state=0
 "Ja",state=5->"Ich nix dumm! Du nix hast.",state=0
@@ -163,8 +169,8 @@ direction=south
 "Yes",state=5->"Me no fool. You havn't one!",state=0
 
 --Elben-K.Lanbogen +3
-"troph",english,item(2718,belt)>=1->"#me peeks your belt: 'Wanna give %NPCNAME your elven composite longbow?'",state=6
-"troph",german,item(2718,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste %NPCNAME geben dein Elben-Kompositlangbogen?'",state=6
+"troph",english,item(2718,belt)>=1->"#me peeks your belt: 'Wanna give Thud your elven composite longbow?'",state=6
+"troph",german,item(2718,belt)>=1->"#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'",state=6
 "Ja",state=5,item(2718,belt)>=1->"Dancke für d'Bogen!",queststatus(301)+3,deleteitem(2718,1),state=0
 "Nein",state=5->"So'n Mist!",state=0
 "Ja",state=5->"Ich nix dumm! Du nix hast.",state=0
@@ -172,40 +178,40 @@ direction=south
 "No",state=5->"What a bummer!",state=0
 "Yes",state=5->"Me no fool. You havn't one!",state=0
 
-"troph",english->"%NPCNAME collect trophy! Collect fur! Horn! Salkish... paladin helmet! Dagger, ornated! Dwarven axe! Elven composite longbow!"
-"troph",german->"%NPCNAME sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen!"
+"troph",english->"Thud collect trophy! Collect fur! Horn! Salkish... paladin helmet! Dagger, ornated! Dwarven axe! Elven composite longbow!"
+"troph",german->"Thud sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen!"
 
 --generall
-"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"Greebas!","Hurr!"","Hullo!"
-"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Greebas!","Hurr!"","Hullo!"
-"Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas!","Hurr!"","Hullo!"
-"Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas!","Hurr!"","Hullo!"
-"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich NPCNAME. Wer du?"
+"hallo","gr[üue]+[sß]+e","guten tag","Gruß","Seid gegrüßt","Guten Abend","Tach","Moin","Greb"->"Greebas!","Hurr!","Hullo!"
+"good day","greetings","greets","hail","hello","Be greeted","Good morning"->"Greebas!","Hurr!","Hullo!"
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"Greebas!","Hurr!","Hullo!"
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Greebas!","Hurr!","Hullo!"
+"wie hei[sß]+t du","wie hei[sß]+t ihr","dein name","wer seid","wer bist"->"Ich Thud. Wer du?"
 "Farewell","Good bye","Bye","Fare thee well"->"Farebas!"
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Farebas!"
 "Ciao","Fareba","Adieu","Au revoir",english->"Farebas!"
 "Ciao","Fareba","Adieu","Au revoir",german->"Farebas!"
-"How are you","How feel","How do you do"->"I NPCNAME! I collect! Trophy!"
-"Wie geht","Wie fühlst","Wie ist es ergangen"->"Ich NPCNAME! Ich sammeln! Trophäe!"
-"your name","who are you","who art thou"->"I NPCNAME. Who youb?"
-"I am","I'm"->"#me grins silly: 'I NPCNAME...'."
-"Ich bin"->"#me grinst blöde: 'Ich NPCNAME...'."
+"How are you","How feel","How do you do"->"I Thud! I collect! Trophy!"
+"Wie geht","Wie fühlst","Wie ist es ergangen"->"Ich Thud! Ich sammeln! Trophäe!"
+"your name","who are you","who art thou"->"I Thud. Who youb?"
+"I am","I'm"->"#me grins silly: 'I Thud...'."
+"Ich bin"->"#me grinst blöde: 'Ich Thud...'."
 
 --Help
 
-"hilfe"->"%NPCNAME hilft bei 'Trophäe'. Sonst nix!",state=0
-"helfen"->"%NPCNAME hilft bei 'Trophäe'. Sonst nix!",state=0
-"help"->"%NPCNAME help with 'trophy'. Nothing otha!",state=0
+"hilfe"->"Thud hilft bei 'Trophäe'. Sonst nix!",state=0
+"helfen"->"Thud hilft bei 'Trophäe'. Sonst nix!",state=0
+"help"->"Thud help with 'trophy'. Nothing otha!",state=0
 
 --smalltalk
-"murgo",english->"Murgo?! He %NPCNAME's friend!"
-"murgo",german->"Murgo?! Er %NPCNAME's Freund!"
+"murgo",english->"Murgo?! He Thud's friend!"
+"murgo",german->"Murgo?! Er Thud's Freund!"
 
 cycletext "#me streckt seine Zunge heraus und versucht seine Nase anzustupsen.","#me tries to pat his nose with his tounge."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
 cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs."
 cycletext "#me wischt seine Nase am Hemdärmel ab.", "#me sneezes into his shirtsleeve."
-cycletext "Ich %NPCNAME ist!", "I be %NPCNAME!"
+cycletext "Ich Thud ist!", "I be Thud!"
 cycletext "#me gluckst ein wenig.", "#me clucks a littl ebit."
 cycletext "Mirr mag grosse Kabumms.", "I like to thud!"
 cycletext "#me blickt mit leeren Blick an eine nichtssagende Stelle." , "#me glances with empty eyes at an meaningless area."
