@@ -77,7 +77,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		end
 		return;
 	end
-	if counter==1 then
+	if counter==0 then
 		local target = getTargetItem(User, SourceItem);
 		if target then
 			User:inform("target found");
