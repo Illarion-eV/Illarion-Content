@@ -436,7 +436,6 @@ function Craft:CheckInterrupt(User)
 end
 
 function Craft:GenerateMenu( User, toolItem )
-    User:inform("generate menu");
 	if (table.getn(self.Category) == 0) then
         return false;
     end

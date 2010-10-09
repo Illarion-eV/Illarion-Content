@@ -227,7 +227,7 @@ function InitCraftingTool( )
     return cooking,brewing;
 end
 
-function UseItem( User, SourceItem, targetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
     Cooking,Brewing = InitCraftingTool( );
     base.common.ResetInterruption( User, ltstate );
     if not menstate then
