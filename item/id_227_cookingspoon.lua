@@ -283,7 +283,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 		local TargetItem = base.common.GetTargetItem(User, SourceItem);
 		User:inform("1");
 		if TargetItem then
-			User:inform(" 2");
+			User:inform("target item id: ".. TargetItem.id);
 			if Cooking:IsProduct(TargetItem.id) then
 				User:inform("   3");
 				base.common.InformNLS( User,
