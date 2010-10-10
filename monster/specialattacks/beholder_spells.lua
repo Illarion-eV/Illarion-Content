@@ -56,7 +56,7 @@ function Energy_Beam (monster, char, distance)
 	
 	if (math.random(100)<= 70) then
 		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
-			monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
+		--	monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
 			
 			local DamagePosX;		
 			if char.pos.x-monster.pos.x == 0 then
