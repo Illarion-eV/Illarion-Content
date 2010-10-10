@@ -229,98 +229,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     if not menstate then
         menstate = { };
     end
-     
-------------------------AB HIER,SKRIPT F�R DIE PRIESTER SILBERBRANDS(Flammens�ule erschaffen aka THOR'S HAMMER)------------    
-------------------------Part 1:------- 
-  if (User.id==1551888478 or User.id==1322717830) then --for the Priests in Silverbrand(1551888478=Ferin Zwergenblut, 1322717830=Thogrimm)
-  	if ( SourceItem:getType() ~= 4 ) then -- Wenn Hammer nicht in der Hand dann
-       	if (TargetItem.id~=0) then
-			if (User.id==1551888478 or User.id==1322717830) then  --not so strong flame
-				world:createItemFromId(359, 1, TargetItem.pos, true, 677, 0);   --create flame
-                world:gfx(36,TargetItem.pos);
-        		User:increaseAttrib("hitpoints",-(1600+math.random(500))); --2000HP damage for the Irmorom priest
-        	end
-		else
-			base.common.InformNLS( User, "Du musst schon die Stelle anvisieren wo die Flamme erscheinen soll",
-							 "You have to target a field where the flame shall appear.");
-		end    
-        
-    
-    else
-    
-	if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
-        Smithing:SwapToInactiveItem( User );
-        return
-    end
-
-    if not InitDone then
-        User:inform("Error while loading crafting values.");
-        return
-    end
-
-    if menstate[ User.id ]==nil then                           -- menustatus initialisieren.
-        menstate[ User.id ]=0;
-    end
-    
-    if not Smithing:LocationFine( User, ltstate ) then
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then
-        Smithing:SwapToInactiveItem( User );
-        return
-    end
-    
-    if ( SourceItem:getType() ~= 4 ) then -- Hammer in der Hand
-        base.common.InformNLS( User, 
-        "Du mu�t den Goldschmiedehammer in die Hand nehmen um damit zu arbeiten.", 
-        "You have to take the finesmithing hammer in your hand, to work with it." )
-        return
-    end
-
-    if base.common.Encumbrence(User) then -- Sehr streife R�stung?
-        base.common.InformNLS( User,
-        "Deine R�stung behindert beim feinschmieden.",
-        "Your armour disturbes you while fine smithing." );
-        Smithing:SwapToInactiveItem( User );
-        return
-    end
-
-    if ( TargetItem.id ~= 0 ) then
-        if (TargetItem:getType() == 5) then
-            Smithing:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
-        end
-        return
-    end
-
-    if (Param == 0) then
-        menstate[ User.id ]=1;
-        if ( Smithing:GenerateMenu( User,SourceItem ) ) then
-            Smithing:SwapToInactiveItem( User );
-            return
-        end
-    end
-    if (menstate[ User.id ] == 1) then
-        Smithing:GenerateItemList( User, Param, SourceItem );
-        menstate[ User.id ] = 2;
-        Smithing:SwapToInactiveItem( User );
-        return
-    elseif (menstate[ User.id ] == 2) then
-        Smithing:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
-    end
-	end
 	
----------------------------------------------		
-  else 
+	ThorsHammer(User, SourceItem);
+
     if ( ltstate == Action.abort ) then
         if (User:increaseAttrib("sex",0) == 0) then
             gText = "seine";
@@ -368,12 +279,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if ( TargetItem.id ~= 0 ) then
-        if (TargetItem:getType() == 5) then
-            Smithing:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
-        end
-        return
-    end
+    local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	if TargetItem then
+		if Cooking:IsProduct(TargetItem.id) then
+			base.common.InformNLS( User,
+			"Du versuchst den Gegenstand in deiner Hand zu bearbeiten.",
+			"You try to work on the item in your hand." );
+			Cooking:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
+			return;
+		end
+	end
 
     if (Param == 0) then
         menstate[ User.id ]=1;
@@ -390,30 +305,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     elseif (menstate[ User.id ] == 2) then
         Smithing:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
-  end  
 end --function
 
-------------------------Part 2:-------
-function UseItemWithField( User, SourceItem,TargetPos ,Counter , Param)
-		if (User.id==1551888478 or User.id==1322717830) then  --not so strong flame
-				world:createItemFromId(359, 1, TargetPos, true, 677, 0);   --create flame
-				world:gfx(36,TargetPos);
-        		User:increaseAttrib("hitpoints",-(1600+math.random(500))); --2000HP damage for the Irmorom priest
+------------------------SKRIPT F�R DIE PRIESTER SILBERBRANDS(Flammens�ule erschaffen aka THOR'S HAMMER)------------
+function ThorsHammer( User, SourceItem )
+	if (User.id==1551888478 or User.id==1322717830) then  --for the Priests in Silverbrand(1551888478=Ferin Zwergenblut, 1322717830=Thogrimm)
+		if SourceItem:getType() == 4 then
+			return;
 		end
+		local TargetPos = base.common.GetFrontPosition(User);
+		world:createItemFromId(359, 1, TargetPos, true, 677, 0);   --create flame
+		world:gfx(36,TargetPos);
+		User:increaseAttrib("hitpoints",-(1600+math.random(500))); --2000HP damage for the Irmorom priest
+	end
 end
-
-function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
-		if (User.id==1551888478 or User.id==1322717830) then
-			if (TargetChar.id~=User.id) then
-				if (User.id==1551888478 or User.id==1322717830) then  --not so strong flame
-					world:createItemFromId(359, 1, TargetChar.pos, true, 677, 0);   --create flame
-					world:gfx(36,TargetChar.pos);
-        			User:increaseAttrib("hitpoints",-(1600+math.random(500))); --2000HP damage for the Irmorom priest
-        		end
-			else
-			base.common.InformNLS( User, "Du kannst dich nicht selber verbrennen",
-							 "You can't burn yourself.");
-			end
-		end
-end
---------------------------------------

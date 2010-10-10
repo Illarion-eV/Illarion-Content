@@ -37,7 +37,7 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 732 WHERE com_itemid = 731;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
 
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
+function SetSeeds( User, SourceItem, TargetPos )
     if seedList == nil then
         seedList = {  };
 		
@@ -177,17 +177,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param)
     if ((TargetItem ~= nil) and (TargetItem.id ~= 0)) then
         if (TargetItem:getType() == 3) then
             if ((TargetItem.id == 2862) or (TargetItem.id == 2863)) then
-                UseItemWithField( User, SourceItem, base.common.GetFrontPosition(User), Counter, Param );
+                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
             end
         end
     else
         local TestItem = base.common.GetFrontItem( User );
         if ((TestItem ~= nil) and (TestItem.id ~= 0)) then
             if ((TestItem.id == 2862) or (TestItem.id == 2863)) then
-                UseItemWithField( User, SourceItem, base.common.GetFrontPosition(User), Counter, Param );
+                SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
             end
         else
-            UseItemWithField( User, SourceItem, base.common.GetFrontPosition(User), Counter, Param );
+            SetSeeds( User, SourceItem, base.common.GetFrontPosition(User) );
         end
     end
 end

@@ -64,9 +64,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
 
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        TargetItem = base.common.GetFrontItem( User );
-    end
+    local TargetItem = base.common.GetFrontItem( User );
 
     if not TargetItem then
         base.common.InformNLS( User,

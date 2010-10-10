@@ -3,31 +3,33 @@
 -- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
 
 require("base.common")
-require("base.keys")
 
 module("item.id_52_filledbucket", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 
-if ( TargetItem.id == 0 ) then --if the bucket is used without a target, it is used with the item infront of the character or, if there is nothing, it is used with the character himself
-
-    theFrontItem=base.common.GetFrontItem(User);
+	local TargetItem = base.common.GetTargetItem(User, SourceItem); -- item in hands
 	
-    if theFrontItem ~= nil then
-	    UseItem( User, SourceItem, theFrontItem, Counter, Param);
-		return;
-	else
-		UseItemWithCharacter(User, SourceItem, User, Counter, Param);
+	if TargetItem == nil then
+		TargetItem = base.common.GetFrontItem(User); -- item infront
+	end
+	
+	if TargetItem == nil or TargetItem.id == 0 then
+		local targetChar = base.common.GetFrontCharacter(User); -- char infront
+		if targetChar == nil then
+			PourOnCharacter(User,SourceItem,User);
+		else
+			PourOnCharacter(User,SourceItem,targetChar); -- self
+		end
 		return;
 	end
-end
 	
     -- Wasserflasche auffüllen
-if( TargetItem.id == 2498 ) then
-    if(TargetItem.number > 1) then
-		base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
-		return;
-	end
+	if( TargetItem.id == 2498 ) then
+		if(TargetItem.number > 1) then
+			base.common.InformNLS(User, "#w Du kannst nur eine Flasche befüllen!", "#w You can only fill one bottle.");
+			return;
+		end
         world:makeSound( 10, User.pos )
         world:swap(TargetItem,2496,933);
     else
@@ -50,15 +52,15 @@ if( TargetItem.id == 2498 ) then
 				end
 			end
 		else
-			UseItemWithCharacter(User, SourceItem, User, Counter, Param);
+			PourOnCharacter(User, SourceItem, User);
 		end
     end
-      SourceItem.id = 51;
-      SourceItem.data = 0;
-      world:changeItem(SourceItem);
+	SourceItem.id = 51;
+	SourceItem.data = 0;
+	world:changeItem(SourceItem);
 end  -- function
 
-function UseItemWithCharacter (Character, SourceItem, TargetCharacter, Counter, Param )
+function PourOnCharacter (Character, SourceItem, TargetCharacter )
 
     world:makeSound( 9, Character.pos );
     SourceItem.id = 51;

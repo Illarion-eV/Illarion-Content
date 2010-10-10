@@ -7,12 +7,13 @@ module("item.keys", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
     local WALLPOS = position(-470,241,0);
-    local DoorItem = TargetItem;
-    if DoorItem.id == 0 then
-        DoorItem = base.common.GetFrontItem( User );
-    end;
-
-    if DoorItem == nil then
+    local DoorItem = base.common.GetFrontItem( User );
+    if DoorItem == nil or DoorItem.id == 0 then
+		-- try to sentence a character
+		local targetChar = base.common.GetFrontCharacter(User);
+		if targetChar then
+			SentenceCharacter(User,SourceItem,targetChar,counter,param);
+		end
         return;
     end
 
@@ -38,7 +39,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end
 end
 
-function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
+function SentenceCharacter(User,SourceItem,TargetChar,Counter,Param)
 	if prisonPosition == nil then
 		prisonPosition = {};
 		prisonPosition[1] = position(122, 520, 0); -- cadomyr (queen rosaline)

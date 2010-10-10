@@ -6,15 +6,6 @@ require("base.common")
 
 module("item.id_51_emptybucket", package.seeall)
 
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param )
-    local Field = world:getField(TargetPos);
-    local boden = base.common.GetGroundType(Field:tile());
-    if (boden == 6) then  -- Am Wasser fuellen
-		base.common.TurnTo(User, TargetPos);
-        FillBucket( User, SourceItem );
-    end
-end
-
 -- Wassereimer fuellen
 function UseItem( User, SourceItem, TargetItem, Counter, Param )
 	local pos = base.common.GetFrontPosition(User);

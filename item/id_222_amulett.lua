@@ -56,6 +56,11 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
+	local target = base.common.GetFrontItem(User);
+	if target then
+		TargetItem = target;
+	end
+		
 	if (TargetItem.id == 914) and (TargetItem.data == 666) then
         User:talkLanguage(CCharacter.say,CPlayer.german ,"#me's Hand leuchtet, ebenso wie das Drachenamulett, hell auf und als das Licht verlischt liegt ein seltsam geformter Schlüssel in der Hand und die Schrift auf dem Steinsockel glüht auf.");
         User:talkLanguage(CCharacter.say,CPlayer.english,"#me's Hand, as well as the dragon amulet, starts to glow brightly and as the light is gone there is a strange formed key inside the hand and the letters on the stone socket starts to shine.");

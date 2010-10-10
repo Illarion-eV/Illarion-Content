@@ -10,8 +10,10 @@ require("content.gathering")
 module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood))
 
 
-function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
+function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	content.gathering.InitGathering();
+	
+	TargetPos = base.common.GetFrontPosition(User);
 	
     base.common.ResetInterruption(User, ltstate);
 	if (ltstate == Action.abort) then -- Arbeit unterbrochen
@@ -107,14 +109,6 @@ function UseItemWithField(User, SourceItem, TargetPos, Counter, Param, ltstate)
 	
     User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
 
-end
-
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    if ((TargetItem.id==0) or (TargetItem==nil)) then
-        UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),counter,param, ltstate);
-    else
-        UseItemWithField(User,SourceItem,TargetItem.pos,counter,param, ltstate);
-    end
 end
 
 function LookAtItem( User, Item )

@@ -42,7 +42,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ( User:countItemAt("belt",63) < 1 ) then
         Char = base.common.GetFrontCharacter( User );
         if (Char ~=nil) then
-            UseItemWithCharacter(User,SourceItem, Char, Counter, Param,ltstate)
+            GetWoolFromSheep(User,SourceItem, Char, ltstate)
         elseif (ltstate ~= Action.success) then
             base.common.InformNLS( User,
             "Du brauchst entweder ein Schaf dem du die Wolle abnehmen kannst oder Eingeweide die du zerschneiden kannst.",
@@ -90,7 +90,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.GetHungry( User, 100 ); 
 end
 
-function UseItemWithCharacter(User,SourceItem, Character, Counter, Param,ltstate)
+function GetWoolFromSheep(User,SourceItem, Sheep, ltstate)
     
     math.randomseed( os.time() );
     
@@ -122,14 +122,14 @@ function UseItemWithCharacter(User,SourceItem, Character, Counter, Param,ltstate
         return
     end
     
-    if (Character:get_race()~=18) then
+    if (Sheep:get_race()~=18) then
         base.common.InformNLS( User,
         "Du kannst nur Schafen die Wolle abnehmen.",
         "You can only cut wool from sheeps.");
         return
     end
     
-    if (math.abs(Character.pos.x-User.pos.x) > 1) or (math.abs(Character.pos.y-User.pos.y) > 1 ) then
+    if (math.abs(Sheep.pos.x-User.pos.x) > 1) or (math.abs(Sheep.pos.y-User.pos.y) > 1 ) then
         base.common.InformNLS( User,
         "Das Schaf ist zu weit weg!",
         "The sheep is too far away!");
@@ -140,7 +140,7 @@ function UseItemWithCharacter(User,SourceItem, Character, Counter, Param,ltstate
         User:startAction( 13, 0, 0, 0, 0);
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt das Schaf zu scheren");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to shear the sheep.");
-        Character.movepoints = Character.movepoints - 30;
+        Sheep.movepoints = Sheep.movepoints - 30;
         return
     end
     
@@ -163,7 +163,7 @@ function UseItemWithCharacter(User,SourceItem, Character, Counter, Param,ltstate
     end
     
     User:createItem(170,1,333,0);
-    Character.movepoints = Character.movepoints - 20;
+    Sheep.movepoints = Sheep.movepoints - 20;
     
     if base.common.ToolBreaks( User, SourceItem ) then
         base.common.InformNLS(User,

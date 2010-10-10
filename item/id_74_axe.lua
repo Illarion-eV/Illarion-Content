@@ -140,20 +140,38 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         return
     end
 
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        TargetItem = base.common.GetFrontItem( User );
-    else
-        TargetItem = world:getItemOnField(TargetItem.pos);
-    end
+	local TargetItem = base.common.GetFrontItem( User );
 
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        UseItemWithField( User, SourceItem, base.common.GetFrontPosition( User ), Counter, Param, ltstate );
-        return
-    end
-
-    if ((trees[ TargetItem.id ] == nil) and (logs[ TargetItem.id ] == nil)) then
-        UseItemWithField( User, SourceItem, TargetItem.pos, Counter, Param, ltstate );
-        return
+    if ((TargetItem == nil) or (TargetItem.id == 0) or -- no target item
+	  ((trees[ TargetItem.id ] == nil) and (logs[ TargetItem.id ] == nil))) then -- or no tree or log
+		local foundItem = false;
+		-- try fields beside
+		if world:isItemOnField( position( TargetPos.x, TargetPos.y+1, TargetPos.z ) ) then
+			local testitem = world:getItemOnField( position( TargetPos.x, TargetPos.y+1, TargetPos.z ) );
+			for a,tree in pairs(trees) do
+				if ( tree[4] == testitem.id ) or ( tree[2] == testitem.id ) then
+					TargetItem = testitem;
+					foundItem = true;
+					break;
+				end
+			end
+		end
+		if (not foundItem) and world:isItemOnField( position( TargetPos.x+1, TargetPos.y, TargetPos.z ) ) then
+			local testitem = world:getItemOnField( position( TargetPos.x+1, TargetPos.y, TargetPos.z ) );
+			for a,tree in pairs(trees) do
+				if ( tree[5] == testitem.id ) or ( tree[3] == testitem.id ) then
+					TargetItem = testitem;
+					foundItem = true;
+					break;
+				end
+			end
+		end
+		if (not foundItem) then
+			base.common.InformNLS( User,
+			"Hier ist nichts was du mit der Axt bearbeiten könntest.",
+			"Here is nothing you could work at with your axe." );
+			return;
+		end
     end
 
     if ((logs[ TargetItem.id ] ~= nil) and (TargetItem.wear == 255)) then
@@ -209,31 +227,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me unterbricht "..gText.." Arbeit.");
         User:talkLanguage(CCharacter.say, CPlayer.english,"#me interrupts "..eText.." work.");
     end
-end
-
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
-    initLists(  );
-    if world:isItemOnField( position( TargetPos.x, TargetPos.y+1, TargetPos.z ) ) then
-        local testitem = world:getItemOnField( position( TargetPos.x, TargetPos.y+1, TargetPos.z ) );
-        for a,tree in trees do
-            if ( tree[4] == testitem.id ) or ( tree[2] == testitem.id ) then
-                UseItem( User, SourceItem, testitem, Counter, Param, ltstate );
-                return;
-            end
-        end
-    end
-    if world:isItemOnField( position( TargetPos.x+1, TargetPos.y, TargetPos.z ) ) then
-        local testitem = world:getItemOnField( position( TargetPos.x+1, TargetPos.y, TargetPos.z ) );
-        for a,tree in trees do
-            if ( tree[5] == testitem.id ) or ( tree[3] == testitem.id ) then
-                UseItem( User, SourceItem, testitem, Counter, Param, ltstate );
-                return;
-            end
-        end
-    end
-    base.common.InformNLS( User,
-    "Hier ist nichts was du mit der Axt bearbeiten könntest.",
-    "Here is nothing you could work at with your axe." );
 end
 
 function Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate )
@@ -306,4 +299,4 @@ function Lumberjack( User, SourceItem, TargetItem, Counter, Param, ltstate )
             return false;
         end
     end
-end -- main function UseItem(  )
+end
