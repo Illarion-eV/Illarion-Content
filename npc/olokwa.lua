@@ -1,11 +1,11 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Olokwa                                                      None --
--- NPC Job:  ambiente                                                             --
+-- NPC Job:  ambiente                                                         --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  392, 178, -6           --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
 -- Last parsing: October 10, 2010                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -14,6 +14,7 @@
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (4, 392, 178, -6, 4, 'Olokwa', 'npc.olokwa', 0, 2, 3, 244, 244, 234, 137, 123, 60);
 ---]]
+
 
 require("npc.base.basic")
 require("npc.base.condition.item")
@@ -29,6 +30,7 @@ module("npc.olokwa", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stop");
@@ -688,7 +690,7 @@ talkEntry:addTrigger("wie hei[sß]+t ihr");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer seid");
 talkEntry:addTrigger("wer bist");
-talkEntry:addResponse("Mein Name, Olokwa ist! Mein Auge nur Schwärze sieht, trozdem Olokwa sieht mehr, als alle Anderen.");
+talkEntry:addResponse("Mein Name, Olokwa ist! Mein Auge nur Düsterniss und Schwärze sieht, trozdem Olokwa sieht mehr, als alle Anderen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,13 +759,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("I'm");
-talkEntry:addResponse("%NPCNAME know! Mes know you true Name! Mes saw... your ancientors told me.");
+talkEntry:addResponse("Olokwa know! Mes know you true Name! Mes saw... your ancientors told me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ich bin");
-talkEntry:addResponse("%NPCNAME weiß! Mirr wissen dein wahre Name. Gesehn... dein Ahnen gesagt mir.");
+talkEntry:addResponse("Olokwa weiß! Mirr wissen dein wahre Name. Gesehn... dein Ahnen gesagt mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,27 +792,30 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("aug");
-talkEntry:addResponse("%NPCNAME's Augen sind tot... Aber er hört die Stimmen der Ahnen. Er befragt die Knochen! Er sieht die eisige Hexe in seinen Träumen!");
+talkEntry:addTrigger("auge");
+talkEntry:addTrigger("augenbinde");
+talkEntry:addResponse("Olokwa's Augen sind tot... Aber er hört die Stimmen der Ahnen. Er befragt die Knochen! Er sieht die eisige Hexe in seinen Träumen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("blind");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("%NPCNAME's Augen sind tot... Aber er hört die Stimmen der Ahnen. Er befragt die Knochen! Er sieht die eisige Hexe in seinen Träumen!");
+talkEntry:addResponse("Olokwa's Augen sind tot... Aber er hört die Stimmen der Ahnen. Er befragt die Knochen! Er sieht die eisige Hexe in seinen Träumen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("blind");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("%NPCNAME's eyes dead... But he hear tha voice of ancestors. He quizes the bones. He see tha icy witch in his dreams!");
+talkEntry:addResponse("Olokwa's eyes dead... But he hear tha voice of ancestors. He quizes the bones. He see tha icy witch in his dreams!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eye");
-talkEntry:addResponse("%NPCNAME's eyes dead... But he hear tha voice of ancestors. He quizes the bones. He see tha icy witch in his dreams!");
+talkEntry:addTrigger("blindfold");
+talkEntry:addResponse("Olokwa's eyes dead... But he hear tha voice of ancestors. He quizes the bones. He see tha icy witch in his dreams!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,8 +914,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erhja");
+talkEntry:addTrigger("er'hja");
+talkEntry:addTrigger("er hja");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Mirr mögen Er'hjas Nase. Ist Art von hübsch, wie mir gefallen. Ist gleich wie ihre Mama hatt.");
 talkEntry:addResponse("Er'hja glücklich sich schätzen kann. Hatt sein klugg von Mama. Sein Ass von Papa. Krudash 'nd Murgo sind.");
 talkEntry:addResponse("Er'hja gelernt hat bei MO'rurt. Und Jag. Tapfere, mutig Mädchen. Yubba!");
 talkEntry:addResponse("Er'hja 'nd Ol'hja Schwesta sind. Yubba, auseehn beinahe wie gleich.");
@@ -924,8 +930,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erhja");
+talkEntry:addTrigger("er'hja");
+talkEntry:addTrigger("er hja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mes like Er'hjas nose. Is kinda ob cute. Is like her mum have.");
 talkEntry:addResponse("Er'hja could lucky be. Got tha smart ob 'er mom 'nd ace ob papy. Krudash 'nd Murgo are.");
 talkEntry:addResponse("Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!");
 talkEntry:addResponse("Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look tha same.");
