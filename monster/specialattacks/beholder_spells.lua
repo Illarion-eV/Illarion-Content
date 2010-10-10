@@ -74,7 +74,7 @@ function Energy_Beam (monster, char, distance)
 			
 			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
 			
-			base.common.CreateLine(ThrowPosition, char.pos, function(currPos)
+			base.common.CreateLine(DamagePosition, char.pos, function(currPos)
 				--insert effectZ here
 				char:increaseAttrib("hitpoints", -3000);
 				char:inform("#w You get blasted by a powerful energy ray shot by the monster.");
