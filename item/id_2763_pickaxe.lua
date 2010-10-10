@@ -338,14 +338,11 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if not base.common.CheckItem( User, SourceItem ) then
         return
     end
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        TargetItem = base.common.GetFrontItem( User );
-    else
-        TargetItem = world:getItemOnField(TargetItem.pos);
-    end
+	
+    local TargetItem = base.common.GetFrontItem( User );
     
     if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
+        DigForTresure(User, base.common.GetFrontPosition(User));
         return;
     end
 
@@ -454,7 +451,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
 end
 
-function UseItemWithField(User,SourceItem,TargetPos,counter,param)
+function DigForTresure(User,TargetPos)
     local groundTile = world:getField( TargetPos ):tile();
     local GroundType = base.common.GetGroundType( groundTile );
     

@@ -34,12 +34,40 @@ function LookAtItem(User,Item)
 	world:itemInform(User,Item,base.common.GetNLS(User,gText,eText));
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param)
+function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
-	TyingDataHandler(User, SourceItem, nil, TargetItem);
+	if SourceItem.data == 1 then
+		-- it's a tying rope!
+		local targetChar = base.common.GetFrontCharacter(User);
+		if TyingRopeHandler(User, SourceItem, targetChar) then
+			return;
+		end
+		if targetChar then
+			-- actually nothing can happen anyway, mostly just for the error messages
+			UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
+			return;
+		end
+		return;
+	end
 	
-	if ( TargetItem.id ~= 2207 ) or SourceItem.data == 1 then
-		return false;
+	-- it's a normal rope!
+	
+	-- try to strengthen the knot (if User has tied up someone...)
+	if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
+		return;
+	end
+	-- try to tie up the frontChar!
+	local frontChar = base.common.GetFrontCharacter(User);
+	if frontChar then
+		UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
+		return;
+	end
+	
+	-- noone infront... perhaps climb down a well then.
+	local TargetItem = base.common.GetFrontItem(User);
+	
+	if TargetItem == nil or ( TargetItem.id ~= 2207 ) then
+		return;
     end
     local dummy_1, task = quest_aquest28.split_questdata(User);
     
@@ -91,7 +119,7 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	return true;
 end
 
-function UseItemWithCharacter( User, SourceItem, Target, Counter, Param, ltstate )
+function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	
 	-- check if rope is in hands
 	if SourceItem:getType() ~= 4 then
@@ -116,11 +144,6 @@ function UseItemWithCharacter( User, SourceItem, Target, Counter, Param, ltstate
 		base.common.TempInformNLS( User,
 			"Du solltest dort hinschauen, wo dein Gefangener ist.",
 			"You should look in your captive's direction.");
-		return;
-	end
-	
-	-- check for special datas
-	if TyingDataHandler(User, SourceItem, Target) then
 		return;
 	end
 	
@@ -275,9 +298,8 @@ function UseItemWithCharacter( User, SourceItem, Target, Counter, Param, ltstate
 	end
 end
 
--- return if something was done
-function TyingDataHandler(User, Rope, Target, TargetItem)
-	
+-- @return true if something was done
+function StrengthenKnot(User, Rope, TargetItem)
 	local foundEffect, Tying = User.effects:find(26);
 	if not foundEffect then
 		Rope.data = 0;
@@ -302,12 +324,21 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 				end
 			end
 		end
-		if TargetItem.id ~= 0 then
-			return false;
-		end
 	end
+	return false;
+end
+
+--- Handles actions with a tying rope (data 1), like tightening, untie or handing the leading rope over
+-- @return true if something was done
+function TyingRopeHandler(User, Rope, Target)
 	
 	if Rope.data ~= 1 then
+		return false;
+	end
+	
+	local foundEffect, Tying = User.effects:find(26);
+	if not foundEffect then
+		Rope.data = 0;
 		return false;
 	end
 	
@@ -342,6 +373,7 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 		end
 		
 		if Target.id == Captive then
+			-- target is captive, so untie him
 			gText = GetRaceGenderText(0,Target);
 			eText = GetRaceGenderText(1,Target);
 			User:talkLanguage(CCharacter.say, CPlayer.german, "#me bindet "..gText.." los.");
@@ -353,6 +385,7 @@ function TyingDataHandler(User, Rope, Target, TargetItem)
 			User.effects:removeEffect(26);
 			return true;
 		else
+			-- other target, try to give him the leading rope
 			foundEffect, Tying = Target.effects:find(26);
 			if foundEffect then
 				local foundValue, CaptiveTarget = Tying:findValue("Captive");
