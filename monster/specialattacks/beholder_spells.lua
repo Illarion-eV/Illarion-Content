@@ -50,6 +50,10 @@ end
 		
 function Energy_Beam (monster, char, distance)
 -- Energy Beam - straight line spell that does damage to everything in it's way.
+	if monster:getSkill("common language") < 100 then
+		monster:increaseSkill(1,"common language",100);
+	end
+	
 	if (math.random(100)<= 70) then
 		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
 			monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
@@ -77,7 +81,6 @@ function Energy_Beam (monster, char, distance)
 			local dude;
 			
 			base.common.CreateLine(char.pos, DamagePosition, function(currPos)
-				--insert effectZ here
 				if world:isCharacterOnField(currPos) then
 					tilePos = currPos;
 					dude = world:getCharacterOnField (tilePos);
