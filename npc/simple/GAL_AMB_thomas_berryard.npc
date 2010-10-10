@@ -2,10 +2,10 @@
 -- NPC Name: Thomas Berryard                                             None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  350, 255, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  381, 177, -6           --
+-- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
 -- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -13,7 +13,7 @@
 name = "Thomas Berryard"
 race = halfling
 sex = male
-position = 350, 255, 0
+position = 381, 177, -6
 direction = south
 affiliation = "None"
 job = "none"
@@ -23,7 +23,7 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -129,21 +129,21 @@ wrongLangUS = "#me looks at you confused."
 "good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu."
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin %NPCNAME und man hält mich hier gegen meinen Willen fest!"
+"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Thomas Berryard und man hält mich hier gegen meinen Willen fest!"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
 "Ciao", "Fareba", "Adieu", "Au revoir", english -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
 "Ciao", "Fareba", "Adieu", "Au revoir", german -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
 "How are you", "How feel", "How do you do" -> "Na wie solls mir schon gehen?...eben."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "What do you think?...exactly."
-"your name", "who are you", "who art thou" -> "I'm %NPCNAME. And I don't wan't to be here!"
+"your name", "who are you", "who art thou" -> "I'm Thomas Berryard. And I don't wan't to be here!"
 "I am", "I'm" -> "We havn't met allready, did we?"
 "Ich bin" -> "Hab ich dich nich schon mal geshen?"
 
 -- Help
 "hilfe" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
 "helfen" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
-"help" -> "Actually, i have to batter all 'stones' into pebbles and mix 'dye'.", state = 0
+"help" -> "Actually, I have to batter all 'stones' into pebbles and mix 'dye'.", state = 0
 
 -- smalltalk
 "murgo", english -> "Murgo? He is my owner. And Krudash is his wife."
