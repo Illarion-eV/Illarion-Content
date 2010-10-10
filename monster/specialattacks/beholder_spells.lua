@@ -84,7 +84,7 @@ function Energy_Beam (monster, char, distance)
 				if world:isCharacterOnField(currPos) then
 					local tilePos = currPos;
 					local dude = world:getCharacterOnField (tilePos);
-					world:gfx( 11, tilePos )
+					world:gfx( 11, tilePos );
 					dude:increaseAttrib("hitpoints", -3000);
 					dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
 				end
