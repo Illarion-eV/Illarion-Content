@@ -1,8 +1,8 @@
 name="Thud"
-position=378,222,0
+position=394,188,-6
 sex=male
 race=orc
-direction=south
+direction=west
 
 --NPC by Rincewind
 --language: orc
