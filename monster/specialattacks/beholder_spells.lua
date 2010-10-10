@@ -4,30 +4,6 @@ require("monster.base.drop")
 require("base.common");
 module("monster.specialattacks.beholder_spells", package.seeall)
 
---[[function Death_Gaze (Monster, Enemy)
---  Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
-	CharList={};
-	local posit = Monster.pos;
-	local CharList = world:getCharactersInRangeOf (posit, 10);
-	local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444,}
-	
-	for i,v in pairs(CharList) do
-		local helmet = v:getItemAt (1);	
-		
-		for j,k in pairs(HelmList) do
-			if not k == helmet.id then
-				v:increaseAttrib ("hitpoints",-300);
-				v:increaseAttrib ("mana",-300);
-				if (math.random(100)<= 5) then
-					v:inform ("#w The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.");
-				end
-			else
-				return false;
-			end
-		end
-	end
-end
-	]]--
 
 function Mana_Burn (Monster, Enemy)
 CharList={};
@@ -104,8 +80,51 @@ function doDamage(currPos)
 	end
 end
 
+--[[function Death_Gaze (Monster, Enemy)
+--  Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
+	CharList={};
+	local posit = Monster.pos;
+	local CharList = world:getCharactersInRangeOf (posit, 10);
+	local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444};
+	
+	for i,v in pairs(CharList) do
+		local helmet = v:getItemAt (1);	
+		
+		for j,k in pairs(HelmList) do
+			if not k == helmet.id then
+				v:increaseAttrib ("hitpoints",-300);
+				v:increaseAttrib ("mana",-300);
+				if (math.random(100)<= 5) then
+					v:inform ("#w The terrifying gaze of the monster is piercing your skull, making you feel like your head is about to explode.");
+				end
+			else
+				return false;
+			end
+		end
+	end
+end
+	]]--
 
-
+function Death_Gaze (monster, char)
+-- Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
+	CharList={};
+	local posit = Monster.pos;
+	local CharList = world:getCharactersInRangeOf (posit, 15);
+	local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444};
+	for i,v in pairs(CharList) do
+		local helmet = v:getItemAt (1);	
+		
+		for j,k in pairs(HelmList) do
+			if not k == helmet.id then
+				local myEffect = CLongTimeEffect(550,10);
+				v.effects:addEffect(myEffect, true);
+			else
+				return false;
+			end
+		end
+	end
+	
+end
 
 
  	
