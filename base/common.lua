@@ -1312,12 +1312,25 @@ function IsMonsterDocile( id )
 	return false;
 end
 
+--- Checks if an item is in the hand tools slots
+-- @param item The item to check
+-- @return true if the item is in a hand tools slot, false otherwise
+function IsItemInHands( item )
+	if item:getType() ~= 4 then
+		local itempos = item.itempos;
+		if itempos == 5 or itempos == 6 then
+			return true;
+		end
+	end
+	return false;
+end
+
 --- Gets the target item for Use-With like commands. Both, source and target items have to be in hand tool slots.
 -- @param character The character who wants to use the items
 -- @param source The source item that is "used with" the target item
 -- @return The target item (in the other hand slot than the source) or nil if no target is found
 function GetTargetItem( character, source )
-	if source:getType() ~= 4 then
+	if not IsItemInHands(source) then
 		return nil;
 	end
 	local tpos = 11 - source.itempos; -- either 5 or 6

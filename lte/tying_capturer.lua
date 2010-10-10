@@ -178,7 +178,7 @@ function IsCharidInRangeOf( CharID, Position, Range )
 	
 	CharID = CharID+1-1;
 	local CharList = world:getCharactersInRangeOf(Position,Range);
-	for i,Char in CharList do
+	for i,Char in pairs(CharList) do
 		if Char.id == CharID and Char.pos.z == Position.z then
 			return Char;
 		end
@@ -195,7 +195,7 @@ function GetBestAttribOffset( Char1, Char2, AttribList )
 	local currentOffset;
 	local cnt;
 	local addVal = 0;
-	for cnt in AttribList do
+	for cnt in pairs(AttribList) do
 		currentOffset = Char1:increaseAttrib(AttribList[cnt],0) - Char2:increaseAttrib(AttribList[cnt],0);
 		if currentOffset > bestOffset then
 			bestOffset = currentOffset;
@@ -232,7 +232,7 @@ function HasEnoughCapturers( Character, excludedId )
 	if not excludedId then
 		excludedId = -1;
 	end
-	for i,Char in CharList do
+	for i,Char in pairs(CharList) do
 		if excludedId ~= Char.id and Char.pos.z == Character.pos.z then
 			found, effect = Char.effects:find(26);
 			if found then
