@@ -1340,3 +1340,94 @@ function GetTargetItem( character, source )
 	end
 	return target;
 end
+
+--- Returns the real date and time as a String
+-- @return date and time in format: YYYY-MM-DD | hh:mm:ss
+function GetRealDateTimeString()
+	local year, month, day, hour, minute, second = GetRealDate();
+	local timeString =
+		function(int)
+			if int < 10 then
+				return "0"..int;
+			end
+			return ""..int;
+		end
+	return timeString(year) .."-".. timeString(month) .."-".. 
+	timeString(day) .." | ".. timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+end
+
+--- Returns the real date as a String
+-- @return date in format: YYYY-MM-DD
+function GetRealDateString()
+	local year, month, day, hour, minute, second = GetRealDate();
+	local timeString =
+		function(int)
+			if int < 10 then
+				return "0"..int;
+			end
+			return ""..int;
+		end
+	return timeString(year) .."-".. timeString(month) .."-".. timeString(day);
+end
+
+--- Returns the real time as a String
+-- @return time in format: hh:mm:ss
+function GetRealTimeString()
+	local year, month, day, hour, minute, second = GetRealDate();
+	local timeString =
+		function(int)
+			if int < 10 then
+				return "0"..int;
+			end
+			return ""..int;
+		end
+	return timeString(hour) ..":".. timeString(minute) ..":".. timeString(second);
+end
+
+--- Converts the unix timestamp to a real date (GMT 0)
+-- @return year
+-- @return month
+-- @return day
+-- @return hour
+-- @return minute
+-- @return second
+function GetRealDate()
+	local timestamp = world:getTime("unix");
+	
+	local year, month, day, hour, minute, second, tmp;
+	year = math.floor(timestamp / 31557600) -- (365.25*24*60*60)
+	local leapDays = math.floor( (year+1) / 4 ); -- without the current year
+	timestamp = timestamp - (year*365 + leapDays)*86400; -- 24*60*60
+	
+	local leapYear = 0;
+	if (year % 4) == 2 then
+		leapYear = 1; -- this year is a leap year
+	end
+	year = year + 1970; -- unix time starts there
+
+	local dayList = {0,31,59,90,120,151,181,212,243,273,304,334};
+	tmp = math.floor(timestamp / 86400); -- days so far this year
+	month = 1;
+	for i=12,2,-1 do
+		local check = tmp-dayList[i];
+		if i>2 then
+			check = check - leapYear;
+		end
+		if check > 0 then
+			month = i;
+			break;
+		end
+	end
+	tmp = dayList[month]; -- days without current month
+	if month > 2 then
+		tmp = tmp + leapYear;
+	end
+	timestamp = timestamp - ((tmp-1) * 86400); -- days this month (in seconds)
+	day = math.floor(timestamp / 86400);
+	timestamp = timestamp - (day * 86400);
+	hour = math.floor(timestamp / 3600);
+	timestamp = timestamp - (hour * 3600);
+	minute = math.floor(timestamp / 60);
+	second = timestamp - (minute * 60);
+	return year, month, day, hour, minute, second;
+end
