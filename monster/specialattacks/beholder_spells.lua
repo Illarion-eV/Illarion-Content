@@ -74,7 +74,7 @@ function Energy_Beam (monster, char, distance)
 			
 			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
 			
-			base.common.CreateLine(DamagePosition, char.pos, function(currPos)
+			base.common.CreateLine(char.pos, DamagePosition, function(currPos)
 				--insert effectZ here
 				local dude = world:getCharacterOnField (currPos);
 				dude:increaseAttrib("hitpoints", -3000);
