@@ -81,8 +81,10 @@ function Energy_Beam (monster, char, distance)
 			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
 		--	local tilePos;
 		--	local dude;
+		
+		doDamage (char.pos);
 			
-			base.common.CreateLine(char.pos, DamagePosition, function(currPos)
+		--[[	base.common.CreateLine(char.pos, DamagePosition, function(currPos)
 				if world:isCharacterOnField(currPos) then
 					local tilePos = currPos;
 					local dude = world:getCharacterOnField (tilePos);
@@ -90,7 +92,7 @@ function Energy_Beam (monster, char, distance)
 					dude:increaseAttrib("hitpoints", -3000);
 					dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
 				end
-			end );
+			end ); ]]--
 			
 		else
 			return false;
@@ -102,7 +104,15 @@ function Energy_Beam (monster, char, distance)
 end
 
 
-
+function doDamage(currPos)
+	if world:isCharacterOnField(currPos) then
+		local tilePos = currPos;
+		local dude = world:getCharacterOnField (tilePos);
+		world:gfx( 11, tilePos );
+		dude:increaseAttrib("hitpoints", -3000);
+		dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
+	end
+end
 
 
 
