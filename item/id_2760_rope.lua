@@ -177,7 +177,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		return;
 	end
 	
-	if HasEnoughCapturers(Target) then
+	if lte.tying_capturer.HasEnoughCapturers(Target) then
 		base.common.TempInformNLS(User,
 			"Der Gefangene ist nun schon ausreichend gefesselt.",
 			"The captive is now sufficiently tied up already.");
