@@ -1,5 +1,5 @@
 require("base.common");
-module("monster.lte.mananuke", package.seeall);
+module("monster.lte.lte_mananuke", package.seeall);
 
 -- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.mananuke');
 
