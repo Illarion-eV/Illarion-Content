@@ -76,9 +76,11 @@ function Energy_Beam (monster, char, distance)
 			
 			base.common.CreateLine(char.pos, DamagePosition, function(currPos)
 				--insert effectZ here
-				local dude = world:getCharacterOnField (currPos);
-				dude:increaseAttrib("hitpoints", -3000);
-				dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
+				if world:isCharacterOnField(currPos) then
+					local dude = world:getCharacterOnField (currPos);
+					dude:increaseAttrib("hitpoints", -3000);
+					dude:inform("#w You get blasted by a powerful energy ray shot by the monster.");
+				end
 			end );
 			
 		else
