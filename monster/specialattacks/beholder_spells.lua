@@ -116,8 +116,20 @@ function Death_Gaze (monster, char)
 		
 		for j,k in pairs(HelmList) do
 			if not k == helmet.id then
-				local myEffect = CLongTimeEffect(550,10);
-				v.effects:addEffect(myEffect, true);
+				foundEff, gazeEff = User.effects:find(550);
+				
+				if not foundEff then
+					gazeEff = CLongTimeEffect(550,10);
+					v.effects:addEffect(gazeEff);
+					gazeEff:addValue("effTime",5);
+					
+				else
+					effTime = gazeEff:findValue("effTime");
+					if (effTime < 5) then
+						gazeEff:addValue("effTime",5);
+					end
+				end
+				
 			else
 				return false;
 			end
