@@ -225,12 +225,12 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		end
 		TargetPosList[Target.id] = base.common.CopyPosition( Target.pos );
 		
-		-- local logText = os.date()..": "..User.name.." tries to capture "..Target.name
-		-- coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
-		-- if (coldLog~=nil) then
-			-- coldLog:write(logText.."\n");
-			-- coldLog:close();
-		-- end
+		local logText = base.common.GetRealDateTimeString()..": "..User.name.." tries to capture "..Target.name
+		coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
+		if (coldLog~=nil) then
+			coldLog:write(logText.."\n");
+			coldLog:close();
+		end
 		return;
 	end
 	-- check if target has moved
@@ -242,12 +242,12 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 	end
 	
 	-- tie up!
-	-- local logText = os.date()..": "..User.name.." has captured "..Target.name
-	-- coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
-	-- if (coldLog~=nil) then
-		-- coldLog:write(logText.."\n");
-		-- coldLog:close();
-	-- end
+	local logText = base.common.GetRealDateTimeString()..": "..User.name.." has captured "..Target.name
+	coldLog,errMsg=io.open("/home/nitram/logs/tying_log.txt","a");
+	if (coldLog~=nil) then
+		coldLog:write(logText.."\n");
+		coldLog:close();
+	end
 	SourceItem.data = 1;
 	world:changeItem(SourceItem);
 	if not foundEffectTarget then
