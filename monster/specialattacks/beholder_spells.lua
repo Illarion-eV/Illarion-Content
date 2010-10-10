@@ -76,6 +76,8 @@ function Energy_Beam (monster, char, distance)
 				DamagePosY = char.pos.y - math.floor((distance*math.sqrt(2))/2);
 			end
 			
+			char:inform("DEBUG: End damage position will be at x="..DamagePosX..", y="..DamagePosY..", z="..char.pos.z);
+			
 			local DamagePosition = position (DamagePosX,DamagePosY,char.pos.z);
 		--	local tilePos;
 		--	local dude;
