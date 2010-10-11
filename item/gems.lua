@@ -93,6 +93,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     -- 5 -> Zauberst�be
     -- 6 -> Werkzeuge
     -- 7 -> Schmuck
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 
     content.lookat.unique.itemList();
     if content.lookat.unique.ItemClass[TargetItem.id] ~= nil then

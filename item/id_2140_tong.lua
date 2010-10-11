@@ -157,12 +157,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if ( TargetItem.id ~= 0 ) then
-        if (TargetItem:getType() == 5) then
-            GemCutting:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
-        end
-        return
-    end
+    local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	if TargetItem then
+		if GemCutting:IsProduct(TargetItem.id) then
+			base.common.InformNLS( User,
+			"Du versuchst den Gegenstand in deiner Hand zu bearbeiten.",
+			"You try to work on the item in your hand." );
+			GemCutting:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
+			return;
+		end
+	end
 
     if (Param == 0) then
         GemCutting:GenerateItemList( User, Param, SourceItem );

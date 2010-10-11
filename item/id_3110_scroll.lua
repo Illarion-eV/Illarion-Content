@@ -39,42 +39,38 @@ function LookAtItem(User,Item)
 	end
 end
 
-function UseItemWithCharacter(User, SourceItem, Character, counter, param)
-    User:inform("useitemwitchchar start");
-    if ( Character:get_type() == CCharacter.npc ) then
-        User:inform("useitemwitchchar npc");
-        --abarbeitung der Aufträge
-        fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
-        if ( fnd ) then
-            --wenn funktion true zurück gibt dann war es ein auftrag
-            --daher restliche funktion abbrechen
-            if (ordernpc:checkOrder(SourceItem,User) ) then 
-                return;
-            end
-        end
-        --ende der Aufträge
-    end
-    User:inform("useitemwitchchar end");
+function CheckOrderNpc(User, SourceItem, Character)
+	fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
+	if ( fnd ) then
+		--wenn funktion true zurück gibt dann war es ein auftrag
+		--daher restliche funktion abbrechen
+		if (ordernpc:checkOrder(SourceItem,User) ) then 
+			return;
+		end
+	end
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
-    local spell = SourceItem.quality;
+    local FrontChar = base.common.GetFrontCharacter(User);
+	if FrontChar and FrontChar:get_type() == CCharacter.npc then
+		CheckOrderNpc(User, SourceItem, FrontChar);
+		return;
+	end
+	local spell = SourceItem.quality;
     if (SourceItem.data == 600) then -- summon creature
         summonCreature( User, SourceItem );
     elseif (spell == 101) then -- teleport
-        teleportUseItem( User, SourceItem, TargetItem, counter, param, ltstate );
-    
+        teleportUseItem( User, SourceItem, ltstate );
     elseif (spell == 102) then -- self-teleport
         selfTeleportUseItem( User, SourceItem );
     elseif (SourceItem.data == 666) then 
-    	world:gfx(51,User.pos);
-	world:gfx(31,User.pos);
-    	User:warp(position(48,-327,-23));
-	world:gfx(51,User.pos);
-	world:gfx(31,User.pos);
-	world:erase(SourceItem,1);
+		world:gfx(51,User.pos);
+		world:gfx(31,User.pos);
+		User:warp(position(48,-327,-23));
+		world:gfx(51,User.pos);
+		world:gfx(31,User.pos);
+		world:erase(SourceItem,1);
     end;
-
 end
 
 function teleportTarget( Item )
@@ -154,7 +150,7 @@ function teleportLookAt( User, Item )
         
 end
 
-function teleportUseItem( User, SourceItem, TargetItem, Counter, Param , ltstate )
+function teleportUseItem( User, SourceItem, ltstate )
             if ( ltstate == nil or ltstate == Action.success ) then
                 
                     destination = teleportTarget( SourceItem );

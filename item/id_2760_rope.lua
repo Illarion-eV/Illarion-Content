@@ -36,32 +36,33 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
-	if SourceItem.data == 1 then
-		-- it's a tying rope!
-		local targetChar = base.common.GetFrontCharacter(User);
-		if TyingRopeHandler(User, SourceItem, targetChar) then
-			return;
-		end
-		if targetChar then
-			-- actually nothing can happen anyway, mostly just for the error messages
-			UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
-			return;
-		end
-		return;
-	end
+	-- TYING IS BUGGY IN NEW CLIENT, NEEDS REWORK
+	-- if SourceItem.data == 1 then
+		-- -- it's a tying rope!
+		-- local targetChar = base.common.GetFrontCharacter(User);
+		-- if TyingRopeHandler(User, SourceItem, targetChar) then
+			-- return;
+		-- end
+		-- if targetChar then
+			-- -- actually nothing can happen anyway, mostly just for the error messages
+			-- UseRopeWithCharacter(User, SourceItem, targetChar, ltstate);
+			-- return;
+		-- end
+		-- return;
+	-- end
 	
-	-- it's a normal rope!
+	-- -- it's a normal rope!
 	
-	-- try to strengthen the knot (if User has tied up someone...)
-	if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
-		return;
-	end
-	-- try to tie up the frontChar!
-	local frontChar = base.common.GetFrontCharacter(User);
-	if frontChar then
-		UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
-		return;
-	end
+	-- -- try to strengthen the knot (if User has tied up someone...)
+	-- if StrengthenKnot(User, SourceItem, base.common.GetTargetItem(User, SourceItem)) then
+		-- return;
+	-- end
+	-- -- try to tie up the frontChar!
+	-- local frontChar = base.common.GetFrontCharacter(User);
+	-- if frontChar then
+		-- UseRopeWithCharacter(User, SourceItem, frontChar, ltstate);
+		-- return;
+	-- end
 	
 	-- noone infront... perhaps climb down a well then.
 	local TargetItem = base.common.GetFrontItem(User);

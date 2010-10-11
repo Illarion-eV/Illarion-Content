@@ -90,11 +90,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 base.common.InformNLS(User,"Was hier steht, verstehst du noch nicht","You don't understand the things written down on this page");
             end
         end
-    end               
-    if ((TargetItem.id == 266) or (TargetItem.id == 267)) then
+    end
+	local frontItem = base.common.GetFrontItem(User);
+	
+    if frontItem and ((frontItem.id == 266) or (frontItem.id == 267)) then
         world:erase(SourceItem,1)
         --printerr("Erase aus skript ausgefuehrt");
-    elseif (TargetItem.id == 329 ) then
+		return;
+	end
+	
+	-- obsolet?
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+    if (TargetItem.id == 329 and TargetItem.data == 0) then
         if ( Skill > 50) then
             if (modecode==0) then
                 base.common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem n�chsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",

@@ -10,7 +10,7 @@ require("base.treasure")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
+function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
     base.common.ResetInterruption( User, ltstate );
     if (StoneList==nil) then
         StoneList={ 914, 915, 1245, 1246, 1273, 1276 };
@@ -191,12 +191,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         listofstumps = {125,309,541,542,584,585,587};
     end
 
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        TargetItem = base.common.GetFrontItem( User );
-    end
+    local TargetItem = base.common.GetFrontItem( User );
 
     if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        UseItemWithField( User, SourceItem, base.common.GetFrontPosition( User ), Counter, Param, ltstate );
+        UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
         return
     end
 
@@ -208,7 +206,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
     if not stumpOkay then
-        UseItemWithField( User, SourceItem, TargetItem.pos, Counter, Param, ltstate );
+        UseShovelWithField( User, SourceItem, TargetItem.pos, ltstate );
         return
     end
 

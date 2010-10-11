@@ -13,10 +13,7 @@ module("item.id_271_scythe", package.seeall, package.seeall(item.general.metal))
 function UseItem( User, SourceItem, TargetItem, Counter, Param )   
 	content.gathering.InitGathering();
 	
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then -- Anvisiertes Item Vorhanden
-        TargetItem = base.common.GetFrontItem( User ); -- Wenn nicht Item in Blickrichtung nehmen
-    end
-	
+    local TargetItem = base.common.GetFrontItem( User ); -- look for full grown grain
     if (TargetItem == nil or TargetItem.id ~= 248) then
         return
     end

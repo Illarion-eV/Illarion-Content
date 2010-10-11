@@ -229,15 +229,6 @@ function LookAtItem( User, Item )
 
 end --function
 
-function UseItemWithCharacter(User, SourceItem, Character, counter, param)
-    UseItem(User, SourceItem, nil, counter, param, nil);
-end
-
-function UseItemWithField(User, SourceItem, TargetPos, counter, param)
-    UseItem(User, SourceItem, nil, counter, param, nil);
-end
-
-
 function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
     thisGod=SourceItem.data;
@@ -402,7 +393,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 end --function
 
 function tellStuff(list,lang)
-    text="#w ";
+    local text="#w ";
     text=text..world:getItemName(list[1],lang);
     for i=2,table.getn(list) do
         text=text..", ";
@@ -427,8 +418,8 @@ function deleteStuff(User,list)
 end
 
 function checkAudience(god, position)
-    theCandidates=world:getPlayersInRangeOf(position,10);
-    counter=0; 
+    local theCandidates=world:getPlayersInRangeOf(position,10);
+    local counter=0; 
     for i=1,table.getn(theCandidates) do
         candidate=theCandidate[i];
         if candidate:getQuestProgress(401) == god then
