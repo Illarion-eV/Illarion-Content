@@ -144,7 +144,7 @@ function IsCharidInRangeOf( CharID, Position, Range )
 	
 	CharID = CharID+1-1;
 	local CharList = world:getCharactersInRangeOf(Position,Range);
-	for i,Char in CharList do
+	for i,Char in pairs(CharList) do
 		if Char.id == CharID and Char.pos.z == Position.z then
 			return Char;
 		end
@@ -161,7 +161,7 @@ function GetBestAttribOffset( Char1, Char2, AttribList )
 	local currentOffset;
 	local cnt;
 	local addVal = 0;
-	for cnt in AttribList do
+	for cnt in pairs(AttribList) do
 		currentOffset = Char1:increaseAttrib(AttribList[cnt],0) - Char2:increaseAttrib(AttribList[cnt],0);
 		if currentOffset > bestOffset then
 			bestOffset = currentOffset;
@@ -325,7 +325,7 @@ function escapeSuccess( Effect, Captive, Capturer )
 	local perc;
 	local AttribOffset;
 	local CharList = world:getCharactersInRangeOf(Captive.pos,5);
-	for i,Char in CharList do
+	for i,Char in pairs(CharList) do
 		if Char.id ~= Capturer.id and Char.pos.z == Captive.pos.z then
 			foundEffect, TyingCapturer = Char.effects:find(26);
 			if foundEffect then
@@ -355,7 +355,7 @@ end
 function checkForCapturers( Tying, Captive )
 	
 	local CharList = world:getCharactersInRangeOf(Captive.pos,5);
-	for i,Char in CharList do
+	for i,Char in pairs(CharList) do
 		if Char.pos.z == Captive.pos.z then
 			foundEffect, TyingCapturer = Char.effects:find(26);
 			if foundEffect then
