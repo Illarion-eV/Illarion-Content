@@ -361,7 +361,7 @@ function TyingRopeHandler(User, Rope, Target)
 				end
 				User:talkLanguage(CCharacter.say, CPlayer.german, "#me zieht das Seil straff.");
 				User:talkLanguage(CCharacter.say, CPlayer.english, "#me tightens the rope.");
-				local rope = GetRope(User);
+				local rope = lte.tying_capturer.GetRope(User);
 				if rope then
 					rope.quality = math.max(104,rope.quality-60);
 					world:changeItem(rope);
