@@ -45,6 +45,7 @@
 -- 148 Firnisbl�te                47 / 9014 / 46 "Trugbl�te" / "con blossom"
 -- 153 Fussblatt                  52 / 9016 / 36 "Wiesen-Rhabarber" / "meadow rhabarb"
 
+require("base.common");
 module("druid.base.alchemy", package.seeall)
 
 dataZList = { }
@@ -392,13 +393,9 @@ function IsBottleAlreadyInfected(dataZList)
 	return infect
 end
 -- --------------------------------------------------------------------------------
-function generateTasteMessage(lang,dataZList)
-    local text = "";
-    if ( lang == 0 ) then
-        text = "Der Trank schmeckt ";
-    else
-        text = "The potion tasts ";
-    end
+function generateTasteMessage(character,dataZList)
+    local textDe = "Der Trank schmeckt ";
+	local textEn = "The potion tastes ";
     local anyTaste = false;
 
     local usedTastes = {};
@@ -417,22 +414,28 @@ function generateTasteMessage(lang,dataZList)
         end
     end
     if not anyTaste then
-        text = text..(lang == 0 and "nach nichts." or "like nothing.");
+		textDe = textDe .. "nach nichts.";
+		textEn = textEn .. "like nothing.";
     else
         for i=1,8 do
             if usedTastes[i]~=nil then
                 if usedTastes[i] > 8 or usedTastes[i] < 2 then
-                    text = text..(lang == 0 and "sehr " or "very ");
+					textDe = textDe .. "sehr ";
+					textEn = textEn .. "very ";
                 elseif (usedTastes[i] < 7 and usedTastes[i] > 5) or (usedTastes[i] > 3 and usedTastes[i] < 5) then
-                    text = text..(lang == 0 and "etwas " or "slighty ");
+					textDe = textDe .. "etwas ";
+					textEn = textEn .. "slightly ";
                 end
-                text = text..taste[lang][i]..", ";
+                textDe = textDe..taste[0][i]..", ";
+				textEn = textEn..taste[1][i]..", ";
             end
         end
-        text = string.sub(text, 0, -3);
-        text = text..".";
+        textDe = string.sub(textDe, 0, -3);
+        textDe = textDe..".";
+		textEn = string.sub(textEn, 0, -3);
+        textEn = textEn..".";
     end
-    return text;
+    base.common.TempInformNLS(character,textDe,textEn);
 end
 
 function ds_skillgain(User)

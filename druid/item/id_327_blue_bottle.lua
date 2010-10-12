@@ -233,9 +233,10 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if SourceItem.data == 0 then
 		-- Windtrank alte Art vor DS
-		if ( TargetItem.id == 64 ) and (User:countItem(64)>9) and (User:countItem(327)>0) then
+		if ( TargetItem and TargetItem.id == 64 ) and (User:countItem(64)>9) and (User:countItem(327)>0) then
 			User:eraseItem(64,10)
 			User:eraseItem(327,1)
 	        User:createItem(322,10,333,0);
@@ -244,7 +245,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		end
 	else
 		--Neue Wirkungen nach DS
-		if (SourceItem.data == 63321157) then --Windtrank
+		if (SourceItem.data == 63321157 and TargetItem) then --Windtrank
 			windtrank(User, SourceItem, TargetItem);
 
 		elseif checkMissile(SourceItem.data) then --das ist ein Wurfkörper

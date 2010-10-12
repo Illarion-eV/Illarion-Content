@@ -8,7 +8,7 @@ module("druid.item.id_328_orange_bottle", package.seeall, package.seeall(druid.b
 
 -- UPDATE common SET com_script='druid.item.id_328_orange_bottle' WHERE com_itemid = 328;
 
-function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+function DoDruidism(Character,SourceItem)
 --Heilmittel für 8 Virus-Erkrankungen
 
 	if (SourceItem.data == 12345678) then -- TODO: Assign Potion Data
@@ -109,7 +109,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
         return
     end
 
-     DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+     DoDruidism(Character,SourceItem)
      
      world:gfx(5,Character.pos)
 
@@ -124,18 +124,6 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
   
      Character.movepoints=Character.movepoints-50;  
 end
-
-function UseItemWithCharacter(Character,SourceItem,Character,Counter,Param)
-
-end
-
---
-
-function UseItemWithField(Character,SourceItem,TargetPos,Counter,Param)
-
-end
-
---
 
 function LookAtItem(User,Item)
 

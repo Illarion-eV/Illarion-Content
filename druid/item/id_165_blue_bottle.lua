@@ -23,65 +23,26 @@ function initLists()
 end
 
 
-function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
-  if firsttime == nil then
-    initLists()
-    firsttime = 1
-  end    
-   workdata = SourceItem.data
-   dataZList = {}
-   dataZList = SplitBottleData(Character,workdata)
-   abweichung = {}
-  
--- Flasche in der Hand
-   bottleInHand = false
-   if Character:getItemAt(5).id == SourceItem.id then
-      bottleInHand = true
-      bottlePos= 5     
-   elseif Character:getItemAt(6).id == SourceItem.id then 
-      bottleInHand = true
-      bottlePos= 6
-   end   
+function DoDruidism(Character,SourceItem,TargetItem)
+	if firsttime == nil then
+		initLists()
+		firsttime = 1
+	end    
+	local workdata = SourceItem.data
+	local dataZList = druid.base.alchemy.SplitBottleData(Character,workdata)
 
--- PflegeObjekt in der Hand
-   objectInHand = false
-   if Character:getItemAt(5).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 5     
-   elseif Character:getItemAt(6).id == TargetItem.id then 
-      objectInHand = true
-      objectPos= 6
-	--PflegeObjekt im Gürtel (fï¿½r Zweihï¿½ndige Gegenstï¿½nde)
-	elseif Character:getItemAt(12).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 12
-    elseif Character:getItemAt(13).id == Targetitem.id_id then
-      objectInHand = true
-      objectPos= 13
-    elseif Character:getItemAt(14).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 14
-    elseif Character:getItemAt(15).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 15
-    elseif Character:getItemAt(16).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 16
-	elseif Character:getItemAt(17).id == TargetItem.id then
-      objectInHand = true
-      objectPos= 17
-  end 
-  
-  if bottleInHand  == true and objectInHand == true then
 --   Dura-Wert ermitteln
-     qual = math.floor(TargetItem.quality/100)
-     dura = TargetItem.quality - qual*100
+     local qual = math.floor(TargetItem.quality/100)
+     local dura = TargetItem.quality - qual*100
      
+	 local foundItem = false;
+	 
 --   Effekte für Metall:
      for zaehler = 1,table.getn(ListeObjMetall) do
          if ListeObjMetall[zaehler]==TargetItem.id then
             wert = dataZList[1] -5  
             dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(SourceItem.quality/10))/100)) 
+			foundItem = true;
          end    
      end
 --   Effekte für Nahrung:
@@ -89,6 +50,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
          if ListeObjNahrung[zaehler]==TargetItem.id then    
             wert = dataZList[2] -5
             dura = dura + (wert*25*((Character:getSkill("cooking")+math.floor(SourceItem.quality/10))/100))                
+			foundItem = true;
          end    
      end     
 --   Effekte für Leder:
@@ -96,34 +58,39 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
          if ListeObjLeder[zaehler]==TargetItem.id then       
             wert = dataZList[3] -5   
             dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))        
+			foundItem = true;
          end    
      end
 --   Effekte für Edelsteine:
      for zaehler = 1,table.getn(ListeObjEdelstein) do
          if ListeObjEdelstein[zaehler]==TargetItem.id then         
             wert = dataZList[4] -5
-                   dura = dura + (wert*25*((Character:getSkill("goldsmithing")+math.floor(SourceItem.quality/10))/100))     
+		    dura = dura + (wert*25*((Character:getSkill("goldsmithing")+math.floor(SourceItem.quality/10))/100))     
+			foundItem = true;
          end    
      end 
 --   Effekte für Edelmetalle:
      for zaehler = 1,table.getn(ListeObjEdelMet) do
          if ListeObjEdelMet[zaehler]==TargetItem.id then         
             wert = dataZList[5] -5  
-                   dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(SourceItem.quality/10))/100))  
+		    dura = dura + (wert*25*((Character:getSkill("smithing")+math.floor(SourceItem.quality/10))/100))  
+			foundItem = true;
          end    
      end              
 --   Effekte für Holz:
      for zaehler = 1,table.getn(ListeObjHolz) do
          if ListeObjHolz[zaehler]==TargetItem.id then
             wert = dataZList[6] -5
-                   dura = dura + (wert*25*((Character:getSkill("carpentry")+math.floor(SourceItem.quality/10))/100))    
+		    dura = dura + (wert*25*((Character:getSkill("carpentry")+math.floor(SourceItem.quality/10))/100))    
+			foundItem = true;
          end    
      end
 --   Effekte für Stoff:
      for zaehler = 1,table.getn(ListeObjStoff) do
          if ListeObjStoff[zaehler]==TargetItem.id then          
             wert = dataZList[7] -5 
-                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))     
+		    dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))     
+			foundItem = true;
          end    
      end
 --     
@@ -131,62 +98,68 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
      for zaehler = 1,table.getn(ListeObjHorn) do
          if ListeObjHorn[zaehler]==TargetItem.id then
             wert = dataZList[8] -5
-                   dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))       
+		    dura = dura + (wert*25*((Character:getSkill("tailoring")+math.floor(SourceItem.quality/10))/100))       
+			foundItem = true;
          end    
      end 
---   
+	
+	if not foundItem then
+		base.common.TempInformNLS(Character,
+			"Die Paste lässt sich nicht auf diesen Gegenstand anwenden.",
+			"The paste has no use for this item.");
+		return false;
+	end
 
-     if dura > 99 then 
-        dura = 99 
-     elseif dura < 0 then
-        dura = 0
-     end
---         
-     TargetItem.quality = qual*100 + dura  
-     world:changeItem(TargetItem)          
---
-  else
-  base.common.InformNLS( Character,
-            "Paste in der Hand mit einem Objekt in anderer Hand oder im Gürtel benutzen.",
-            "Paste in your hand has to be used with an object in the other hand or in the belt.");
-  end
+	if dura > 99 then 
+		dura = 99 
+	elseif dura < 0 then
+		dura = 0
+	end
+
+	TargetItem.quality = qual*100 + dura;
+	world:changeItem(TargetItem);
+	return true;
 end  -- function DoDruidism
 --  
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
-  if SourceItem.data == 0 then
-	-- Keine Wirkung
-  else
-    -- NEUE FASSUNG MIT DRUIDENSYSTEM
-    if not Character.attackmode then
-       -- Hier verweisen wir auf die Wirkung
-       DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
-       
-       world:erase(SourceItem,1);
-       world:makeSound(10,TargetItem.pos);
-       world:gfx(1,TargetItem.id_pos)
-       world:makeSound(13,Targetitem.pos);    
-       if( math.random( 20 ) <= 1 ) then
-         base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
-       else
-         Character:createItem( 164, 1, 333,0);
-       end
-  
-       Character.movepoints=Character.movepoints-50;
-         
-    else
-      base.common.InformNLS(Character,"Du kannst die Paste nicht benutzen während du kämpfst.", "You can't use the paste something while fighting.");
-    end
-  end  
-end
---
-function UseItemWithCharacter(Character,SourceItem,Character,Counter,Param)
-   
-end
---
-function UseItemWithField(Character,SourceItem,TargetPos,Counter,Param)
+	if SourceItem.data ~= 0 then
+		-- NEUE FASSUNG MIT DRUIDENSYSTEM
+		if Character.attackmode then
+			base.common.InformNLS(Character,
+				"Du kannst die Paste nicht benutzen während du kämpfst.",
+				"You can't use the paste something while fighting.");
+		else
+			-- Hier verweisen wir auf die Wirkung
+			local TargetItem = base.common.GetTargetItem(User, SourceItem);
+			if not TargetItem then
+				TargetItem = base.common.GetFrontItem(User);
+				if not TargetItem or not base.common.IsItemInHands(SourceItem) then
+					base.common.InformNLS( Character,
+						"Du musst die Paste in der Hand halten und einen anderen Gegenstand in die andere Hand oder vor dich legen.",
+						"You have to take the paste in your hand and put another item in the other hand or infront of you.");
+					return;
+				end
+			end
+			-- got the paste in hands and some TargetItem
+			if not DoDruidism(Character,SourceItem,TargetItem) then
+				return;
+			end
 
+			world:erase(SourceItem,1);
+			world:makeSound(10,TargetItem.pos);
+			world:gfx(1,TargetItem.id_pos)
+			world:makeSound(13,Targetitem.pos);    
+			if( math.random( 20 ) <= 1 ) then
+				base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");
+			else
+				Character:createItem( 164, 1, 333,0);
+			end
+
+			Character.movepoints=Character.movepoints-50;
+		end
+	end  
 end
---
+
 function LookAtItem(Character,Item)
   
   if (Character:getPlayerLanguage()==0) then

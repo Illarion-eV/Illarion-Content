@@ -9,7 +9,7 @@ module("druid.item.id_330_white_bottle", package.seeall(druid.base.alchemy))
 
 -- UPDATE common SET com_script='druid.item.id_330_white_bottle' WHERE com_itemid = 330;
 
-function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+function DoDruidism(Character,SourceItem)
 
 	if (druid.base.alchemy.checkPotionSpam(Character)) then
 		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
@@ -227,7 +227,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 		end
 		
 	    -- Hier verweisen wir auf die Wirkung
-	    DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+	    DoDruidism(Character,SourceItem)
 
 	    world:erase(SourceItem,1);
 	    world:makeSound(12,Character.pos);

@@ -8,7 +8,7 @@ module("druid.item.id_329_black_bottle", package.seeall, package.seeall(druid.ba
 
 -- UPDATE common SET com_script='druid.item.id_329_black_bottle' WHERE com_itemid = 329;
 
-function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+function DoDruidism(Character,SourceItem)
 
 	if (druid.base.alchemy.checkPotionSpam(Character)) then
 		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
@@ -99,7 +99,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
 		-- Hier verweisen wir auf die Wirkung
 		-- Korrektur von Nitram, erst Flasche löschen, dann Verwandeln, weil beim Verwandeln die Flasche gedropped wird.
-		DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+		DoDruidism(Character,SourceItem)
 
 		if( math.random( 20 ) <= 1 ) then
 			base.common.InformNLS( Character, "Die Flasche zerbricht.", "The bottle breaks.");

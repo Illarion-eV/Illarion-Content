@@ -17,7 +17,7 @@ attribList ={"strength","willpower","perception","intelligence","constitution","
 taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"süß"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","acidly"      ,"salt"   ,"hot"      ,"sweet"};
 
-function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+function DoDruidism(Character,SourceItem)
 
 	if (druid.base.alchemy.checkPotionSpam(Character)) then
 		base.common.InformNLS(Character, "Dein exzessives Trinken von Tränken hat wohl dazu geführt, dass Tränke vorrübergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
@@ -30,7 +30,7 @@ function DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
 --      Character:inform("PIN "..i..": "..dataZList[i])
 --    end
 
-    Character:inform(generateTasteMessage(Character:getPlayerLanguage(),dataZList));
+	druid.base.alchemy.generateTasteMessage(Character,dataZList);
 
     if Sourceitem.id_data == 75357464 and Character.effects:find(28) then
         Character.effects:removeEffect(28);
@@ -105,7 +105,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 		-- Keine Funktion
 	else
         -- Hier verweisen wir auf die Wirkung
-        DoDruidism(Character,SourceItem,TargetItem,Counter,Param)
+        DoDruidism(Character,SourceItem)
 
         world:erase(SourceItem,1);
 

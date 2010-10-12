@@ -159,11 +159,3 @@ function LookAtItem(User,Item)
    base.books.GetBookItemInform(User,Item);
 end
 
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
---User:inform("debug 3105-2");
-end
-
-function UseItemWithCharacter( User, SourceItem, TargetCharacter, Counter, Param, ltstate )
---User:inform("debug 3105-3");
-end
-
