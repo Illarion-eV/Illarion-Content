@@ -39,6 +39,8 @@ local MonID=Monster:get_mon_type();
 			return true;
 		elseif monster.specialattacks.mgolem_spells.MGolem_Slam (Monster, Enemy,10) then
 			return true;
+		elseif monster.specialattacks.beholder_spells.Death_Gaze (Monster,Enemy) then
+			return true;
 		elseif monster.specialattacks.beholder_spells.Energy_Beam (Monster, Enemy, 10) then
 			return true;
 
