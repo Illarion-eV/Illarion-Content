@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),halfing,-371,74,0,2,false,'Henning Broomshrub','npc_henning_broomshrub.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),halfing,670,314,0,2,false,'Henning Broomshrub','npc_henning_broomshrub.lua',0);
 
 require("npc.base.autonpcfunctions")
 module("npc.henning_broomshrub", package.seeall)
