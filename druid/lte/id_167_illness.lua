@@ -369,6 +369,7 @@ function getAction(Character,Effect,Runde)
        getEffect_8(Character,Effect,Runde)
     else
 		Character:inform("LTE-Error 167-1: value out of range. Please inform a developer.");
+		return false;
 	end
   else
     Character:inform("LTE-Error 167-1: missing value. Please inform a developer.");
