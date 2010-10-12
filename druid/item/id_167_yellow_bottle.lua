@@ -52,15 +52,6 @@ function DrinkPotion(Character,SourceItem)
 			--     Character:inform("Wolfspest/wolves pest")
 			diagnose=8
 		end
-		--
-		myEffect:addValue("illness",diagnose)
-		--  Laufzeit nach Quality berechnen, maximal 999 Runden
-		myEffect:addValue("zaehler",SourceItem.quality)
-
-		--  Effekt an Char binden
-		Character.effects:addEffect(myEffect);
-		
-		Character.movepoints=Character.movepoints-20;
 	end
 	
 	if diagnose == 0 then
@@ -69,6 +60,15 @@ function DrinkPotion(Character,SourceItem)
 		base.common.TempInformNLS(Character,
 			"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
 			"You drink the liquid but it doesn't seem to have any effect on you.");
+	else
+		myEffect:addValue("illness",diagnose)
+		--  Laufzeit nach Quality berechnen, maximal 999 Runden
+		myEffect:addValue("zaehler",SourceItem.quality)
+
+		--  Effekt an Char binden
+		Character.effects:addEffect(myEffect);
+		
+		Character.movepoints=Character.movepoints-20;
 	end
 
 	world:makeSound(12,Character.pos);
