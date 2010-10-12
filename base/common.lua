@@ -1316,7 +1316,7 @@ end
 -- @param item The item to check
 -- @return true if the item is in a hand tools slot, false otherwise
 function IsItemInHands( item )
-	if item:getType() ~= 4 then
+	if item:getType() == 4 then
 		local itempos = item.itempos;
 		if itempos == 5 or itempos == 6 then
 			return true;
