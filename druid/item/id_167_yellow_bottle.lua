@@ -11,9 +11,10 @@ function DrinkPotion(Character,SourceItem)
 
 	local dataZList = druid.base.alchemy.SplitBottleData(Character,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(Character,dataZList);
-	local diagnose = 0;
+	
 	local found, myEffect = Character.effects:find(167);
 	if not found then
+		local diagnose = 0;
 		myEffect=CLongTimeEffect(167,1);
 		
 		if SourceItem.data == 83795161 then
@@ -52,23 +53,23 @@ function DrinkPotion(Character,SourceItem)
 			--     Character:inform("Wolfspest/wolves pest")
 			diagnose=8
 		end
-	end
-	
-	if diagnose == 0 then
+		
+		if diagnose ~= 0 then
+			-- correct data value
+			myEffect:addValue("illness",diagnose)
+			--  Laufzeit nach Quality berechnen, maximal 999 Runden
+			myEffect:addValue("zaehler",SourceItem.quality)
+
+			--  Effekt an Char binden
+			Character.effects:addEffect(myEffect);
+			
+			Character.movepoints=Character.movepoints-20;
+		end
+	else
 		-- Character has already a disease (thus is immune to anything else)
-		-- or wrong data value => no disease
 		base.common.TempInformNLS(Character,
 			"Du trinkst die Flüssigkeit, doch sie scheint keine Wirkung auf dich zu haben.",
 			"You drink the liquid but it doesn't seem to have any effect on you.");
-	else
-		myEffect:addValue("illness",diagnose)
-		--  Laufzeit nach Quality berechnen, maximal 999 Runden
-		myEffect:addValue("zaehler",SourceItem.quality)
-
-		--  Effekt an Char binden
-		Character.effects:addEffect(myEffect);
-		
-		Character.movepoints=Character.movepoints-20;
 	end
 
 	world:makeSound(12,Character.pos);
@@ -177,7 +178,7 @@ function DoDruidism(Character,SourceItem)
 end -- function DoDruidism()
 
 --
-function UseItem(Character,SourceItem,TargetItem,Counter,Param)
+function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (ltstate == Action.abort) then
         Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
