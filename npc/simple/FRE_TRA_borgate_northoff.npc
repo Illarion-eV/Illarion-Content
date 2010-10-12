@@ -72,7 +72,7 @@ radius = 0
 "Fluffy","Sheep",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Sil[vb]erbran[dt]",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gowan","Sam","brute","Booze","hook",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"half-hung","bryan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"half-hung","bryan",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Borgate","wirt","Northoff",german-> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
 "Fluffy","Sheep","schaf","flausch","flauschige" -> "Das Fluffy Sheep war eine Taverne. Dort habe ich früher, für den König Silberbrands gearbeitet. Aber das ist schon lange her...", "Als ich noch ein Zwerg im besten Alter war, arbeitete ich in der Fluffy Sheep Taverne. Aye?", "Die Fluffy Sheep Taverne hat man nach einem Schaf benannt das sie Fluffy nannten. Und irgendwann - dann haben sie's einfach gegessen."
 "Sil[vb]erbran[dt]" -> "In Silberbrand gabs eine Menge Könige, aber ich will meinen, König Tialdin von Silberbrand ist der Bedeutendste.", "Silberbrand - Die Zwergenstadt unter dem Thron Irmoroms, im Herzen des Kupfergebierges. Mögen wir ihr Andenken in Ehren halten.", "Silberbrand nahm damals jeden Zwerg auf. Und sogar des Nachts soll der Hammerklang der Schmiede hörbar gewesen sein. Eine wirklich mächtige Stadt."
