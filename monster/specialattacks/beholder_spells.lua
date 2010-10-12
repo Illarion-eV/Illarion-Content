@@ -108,7 +108,7 @@ end
 function Death_Gaze (monster, char)
 -- Death Gaze - When in range, all chars that are not wearing full helmet, get damage over time. Permanent spell. 
 	CharList={};
-	local posit = Monster.pos;
+	local posit = monster.pos;
 	local CharList = world:getCharactersInRangeOf (posit, 15);
 	local HelmList = {7,16,94,184,185,2286,2287,2291,2302,2303,2444};
 	for i,v in pairs(CharList) do
