@@ -30,7 +30,7 @@ function Energy_Beam (monster, char, distance)
 		monster:increaseSkill(1,"common language",100);
 	end
 	
-	if (math.random(100)<= 70) then
+	if (math.random(100)<= 10) then
 		if (monster.pos.z == char.pos.z) and ((math.abs(monster.pos.x - char.pos.x) <= 1) and (math.abs(monster.pos.y - char.pos.y) <= 1)) then
 		--	monster:talk(CCharacter.say, "#me charges a ball of pure energy which is immediately shot as a ray, in a forward direction.");
 			
