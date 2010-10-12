@@ -154,20 +154,20 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param, ltstate)
 	end
 	
     if (ltstate == Action.none) then
-		local frontChar = base.common.GetFrontCharacter(User);
+		local frontChar = base.common.GetFrontCharacter(Character);
 		if frontChar then
-			if not PoisonCharacter(User, SourceItem, frontChar) then
+			if not PoisonCharacter(Character, SourceItem, frontChar) then
 				return;
 			end
 		else
-			User:startAction(20,0,0,12,25);
-			User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
-			User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
+			Character:startAction(20,0,0,12,25);
+			Character:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt einen Trank zu trinken.");
+			Character:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to drink a potion.");
 			return;
 		end
     else
 		-- drink self
-		DrinkPotion(User, SourceItem);
+		DrinkPotion(Character, SourceItem);
 	end
 	
 	world:erase(SourceItem,1);
