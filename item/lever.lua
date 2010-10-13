@@ -26,10 +26,16 @@ function init()
     leverList={};
 
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
+	-- elevator from underground to ground--
 	elevator1 = base.lever.Lever(position(332,244,-6),true); --create lever object
 	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
 	
+	---elevator from ground to underground--
+	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
+	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6) ));
+	
 	AddToLevers(elevator1);
+	AddToLevers(elevator2);
 	----------------------------------------------------------------------------
 
 
