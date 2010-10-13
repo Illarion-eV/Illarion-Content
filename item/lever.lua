@@ -26,7 +26,7 @@ function init()
     leverList={};
 
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
-	elevator1 = base.lever.Lever(position(335,241,-6),true); --create lever object
+	elevator1 = base.lever.Lever(position(332,244,-6),true); --create lever object
 	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
 	
 	AddToLevers(elevator1);
