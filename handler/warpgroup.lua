@@ -18,7 +18,7 @@ function warpGroup:execute()   --warps all players within a range radius from ce
 								self.destpos.y - (self.startpos.y - player.pos.y),
 								self.destpos.z );
         if self.gfx~=nil then
-			world:gfx(gfx,player.pos); -- "sun" graphic
+			world:gfx(self.gfx,player.pos); -- "sun" graphic
 		end
 		player:warp( dest );
     end
