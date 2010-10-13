@@ -199,7 +199,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    Defender:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
+    Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
@@ -834,13 +834,13 @@ end
 -- @param Attacker The table that stores the attacker data
 function ShowAttackGFX(Attacker)
     if (Attacker.AttackKind == 0) then -- wrestling
-        --Attacker.Char:performAnimation(5);
+        Attacker.Char:performAnimation(5);
     elseif (Attacker.AttackKind == 4) then -- distance
-        --Attacker.Char:performAnimation(7);
+        Attacker.Char:performAnimation(7);
     elseif (Attacker.UsedHands == 2) then -- 2 hands attack
-        --Attacker.Char:performAnimation(6);
+        Attacker.Char:performAnimation(6);
     else -- 1 hand attack
-        --Attacker.Char:performAnimation(5);
+        Attacker.Char:performAnimation(5);
     end;
 end;
 
