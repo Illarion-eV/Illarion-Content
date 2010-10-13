@@ -31,8 +31,8 @@ function init()
 	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
 	
 	---elevator from ground to underground--
-	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
-	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6) ));
+	elevator2 = base.lever.Lever(position(332,247,0),false); --create lever object
+	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6) ));
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
@@ -124,10 +124,12 @@ end
 
 function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
     if (initi==nil) then
+        User:inform("init");
         myLevers=init();
         initi=1;
     end
-    key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
+	User:inform("create key");
+	key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
     if leverList[key]~=nil then
         leverList[key]:switchLever(User);
     end
@@ -143,7 +145,8 @@ end
 
 function AddToLevers(myLever)
     if (world:isItemOnField(myLever.pos)==true) then    -- item on field?
-        itemID=world:getItemOnField(myLever.pos).id;
+		User:inform("lever added");
+		itemID=world:getItemOnField(myLever.pos).id;
         if (itemID>=434 and itemID<=439) then           -- is item a lever?
             key=myLever.pos.x*1024*1024+myLever.pos.y*1024+myLever.pos.z;
             leverList[key]=myLever;                     -- calculate unique key
