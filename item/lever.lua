@@ -27,13 +27,18 @@ function init()
 
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
 	-- elevator from underground to ground--
+	-- create "sun" graphic with id 46
+	-- activate at every switching of the lever
 	elevator1 = base.lever.Lever(position(332,244,-6),true); --create lever object
 	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
-	
+	elevator1:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
+		
 	---elevator from ground to underground--
 	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
 	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
-
+	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
+	
+	
 	elevator3 = base.lever.Lever(position(33,10,0),true); --create lever object
 	elevator3:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
 	elevator3:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
