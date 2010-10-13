@@ -1262,7 +1262,7 @@ end
 function ExtgetPlayersInRangeOf(posi, radius)
 
 	local ext = 2;
-	local plyList=world:getPlayersInRangeOf(posi, radius+ext);
+	plyList=world:getPlayersInRangeOf(posi, radius+ext);
 
 	for i, player in pairs(plyList) do
 	    -- player not in rect, remove from list
