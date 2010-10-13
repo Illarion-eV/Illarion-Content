@@ -2,6 +2,7 @@
 
 require("gm.base.log")
 require("base.factions")
+require("base.common")
 
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
@@ -172,6 +173,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		User:setAttrib("intelligence", 30);
 		return;
 	end
+	
+	
+	
+	TargetItem = base.common.GetFrontItem(User);
+	
     if (SourceItem.data==0) then
         if (TargetItem.id~=0) then
             User:inform("target item");

@@ -37,7 +37,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     elseif ((TargetItem ~= nil) and (TargetItem.id ~= 0)) then
         world:erase(TargetItem,Counter);
         -- LogGMAction(User,User.name.."("..User.id..") deleted "..Counter.." "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..")");
-    elseif (string.find(User.lastSpokenText,"show locations")~=nil) then
+	elseif (string.find(User.lastSpokenText,"remove frontitem")~=nil) then
+    	local frontitem = base.common.GetFrontItem(User);
+    	if frontitem~=nil then
+    		world:erase(frontitem,1);
+    	end
+	elseif (string.find(User.lastSpokenText,"show locations")~=nil) then
 		local out = "";
 		for _,s in pairs(Location) do
 			out = out .. s .. " -- ";
