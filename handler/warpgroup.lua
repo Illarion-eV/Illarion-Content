@@ -10,7 +10,7 @@ warpGroup = base.class.class(function(warpgr, centerpos, radius, destpos)
 end);
 
 function warpGroup:execute()   --warps all players within a range radius from centerpos to destpos
-    plylist = base.common.ExtgetPlayersInRangeOf(self.startpos, self.range);
+    plyList = base.common.ExtgetPlayersInRangeOf(self.startpos, self.range);
 
 	for i, player in pairs(plyList) do
 		local dest = position(	self.destpos.x - (self.startpos.x - player.pos.x) ,
