@@ -43,8 +43,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         world:createItemFromId(434, 1 ,position (220,737,0),false, 333, 333);
         world:createItemFromId(434, 1 ,position (220,739,0),false, 333, 333);
         world:createItemFromId(434, 1 ,position (220,741,0),false, 333, 333);
-        world:createItemFromId(434, 1 ,position (220,743,0),false, 333, 333);  
-        
+        world:createItemFromId(434, 1 ,position (220,743,0),false, 333, 333);
+
+		world:createItemFromId(434, 1 ,position (33,20,0),false, 333, 333);    --elevator test
+		world:createItemFromId(434, 1 ,position (33,10,0),false, 333, 333);
+		
         User:inform("hebel stehen nahe 220,735,0 rum");
         
         
