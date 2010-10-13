@@ -153,7 +153,6 @@ end
 
 function AddToLevers(myLever)
     if (world:isItemOnField(myLever.pos)==true) then    -- item on field?
-		User:inform("lever added");
 		itemID=world:getItemOnField(myLever.pos).id;
         if (itemID>=434 and itemID<=439) then           -- is item a lever?
             key=myLever.pos.x*1024*1024+myLever.pos.y*1024+myLever.pos.z;
