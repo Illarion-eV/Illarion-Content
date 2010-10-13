@@ -28,19 +28,19 @@ function init()
 	-------------THIS LEVERS ARE FOR THE VBU, PLEASE DON'T REMOVE---------------
 	-- elevator from underground to ground--
 	--[[elevator1 = base.lever.Lever(position(332,244,-6),true); --create lever object
-	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
+	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
 	
 	---elevator from ground to underground--
 	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
-	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6) )); --]]
+	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); --]]
 
 	elevator1 = base.lever.Lever(position(33,10,0),true); --create lever object
-	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0) ));
-
+	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
+	elevator1:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
 	---elevator from ground to underground--
 	elevator2 = base.lever.Lever(position(33,20,0),true); --create lever object
-	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6) ));
-
+	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil ));
+	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil ));
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
