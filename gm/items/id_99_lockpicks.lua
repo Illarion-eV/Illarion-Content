@@ -16,32 +16,42 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Location={};
         Coordina={};
         Location[1]="[cC]adomyr [mM]arket";
-        Coordina[1]={130,598,0};
+        Coordina[1]={130,600,0};
         Location[2]="[gG]almair [cC]astle";
-        Coordina[2]={367,229,0};
+        Coordina[2]={360,230,0};
         Location[3]="[gG]almair [tT]own";
-        Coordina[3]={398,250,0};
-        Location[4]="[Gg]almair [mM]ine";
-        Coordina[4]={412,354,0};
-        Location[5]="[rR]unewick";
-        Coordina[5]={836,810,0};
+        Coordina[3]={400,250,0};
+        Location[4]="[Gg]almair [sS]outh";
+        Coordina[4]={400,355,0};
+        Location[5]="[rR]unewick [bB]ridge";
+        Coordina[5]={844,822,0};
         Location[6] = "[cC]adomyr [tT]hrone";
-        Coordina[6] = {121,543,0};
-		Location[6] = "[cC]adomyr [mM]ine";
-        Coordina[6] = {133,696,0};
-		Location[6] = "[aA]rena";
-        Coordina[6] = {602,396,0};
+        Coordina[6] = {120,545,0};
+		Location[7] = "[cC]adomyr [mM]ine";
+        Coordina[7] = {130,700,0};
+		Location[8] = "[aA]rena";
+        Coordina[8] = {600,400,0};
+		Location[9]="[rR]unewick [mM]arket";
+        Coordina[9]={900,800,1};
     end
+	local frontChar = base.common.GetFrontCharacter(User);
+	if frontChar then
+		ShowCharInfo(User,frontChar);
+		return;
+	end
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
     if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
-        world:erase(TargetItem,Counter);
+        world:erase(base.common.GetFrontItem(User),1);
     elseif ((TargetItem ~= nil) and (TargetItem.id ~= 0)) then
-        world:erase(TargetItem,Counter);
+        world:erase(TargetItem,TargetItem.number);
         -- LogGMAction(User,User.name.."("..User.id..") deleted "..Counter.." "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..")");
 	elseif (string.find(User.lastSpokenText,"remove frontitem")~=nil) then
     	local frontitem = base.common.GetFrontItem(User);
     	if frontitem~=nil then
     		world:erase(frontitem,1);
     	end
+	elseif (string.find(User.lastSpokenText,"show position")~=nil) then
+		ShowPosition(User);
 	elseif (string.find(User.lastSpokenText,"show locations")~=nil) then
 		local out = "";
 		for _,s in pairs(Location) do
@@ -98,16 +108,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif (string.find(User.lastSpokenText,"book")~=nil) then
 		User:sendBook(1); -- testbook
 		User:inform("testbook");
-	elseif (string.find(User.lastSpokenText,"attack2")~=nil) then
-	    User:performAnimation(6); -- 6, 7(bow), 
-	elseif (string.find(User.lastSpokenText,"attack")~=nil) then
-	    User:performAnimation(5); -- 6, 7(bow), 
-	elseif (string.find(User.lastSpokenText,"bow")~=nil) then
-	    User:performAnimation(7); -- 6, 7(bow), 
-	elseif (string.find(User.lastSpokenText,"cast")~=nil) then
-	    User:performAnimation(11); -- 6, 7(bow), 
-	elseif (string.find(User.lastSpokenText,"smith")~=nil) then
-	    User:performAnimation(14);
+	elseif (string.find(User.lastSpokenText,"animation")~=nil) then
+		if (string.find(User.lastSpokenText,"attack2")~=nil) then
+			User:performAnimation(6); -- 6, 7(bow), 
+		elseif (string.find(User.lastSpokenText,"attack")~=nil) then
+			User:performAnimation(5); -- 6, 7(bow), 
+		elseif (string.find(User.lastSpokenText,"bow")~=nil) then
+			User:performAnimation(7); -- 6, 7(bow), 
+		elseif (string.find(User.lastSpokenText,"cast")~=nil) then
+			User:performAnimation(11); -- 6, 7(bow), 
+		elseif (string.find(User.lastSpokenText,"smith")~=nil) then
+			User:performAnimation(14);
+		end
 	elseif (string.find(User.lastSpokenText,"attributes")~=nil) then
 		User:inform("STR: "..User:increaseAttrib("strength", 0).." CONST: "..User:increaseAttrib("constitution", 0).." DEX: "..User:increaseAttrib("dexterity", 0).." AGI: "..User:increaseAttrib("agility", 0).." WIL: "..User:increaseAttrib("willpower", 0).." PERC: "..User:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0));
  	elseif (string.find(User.lastSpokenText,"npc")~=nil) then
@@ -264,16 +276,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 end
 
-function UseItemWithCharacter(User,SourceItem,TargetCharakter,Counter,Param)
+function ShowCharInfo(User,TargetCharakter)
     TargetHP=TargetCharakter:increaseAttrib("hitpoints",0);
     User:inform("Target Charakter HP: "..TargetHP.." - Race: "..TargetCharakter:get_race().." - Sex: "..TargetCharakter:increaseAttrib("sex",0));
 end
 
-function LookAtItem(User, Item) 
+function ShowPosition(User) 
     InfoText="x="..User.pos.x..", y="..User.pos.y.. ", z="..User.pos.z;
     User:inform(InfoText);
-end
-
-function UseItemWithField(User,SourceItem,TargetPos,Counter,Param)
-    User:startMusic(Counter);
 end
