@@ -10,6 +10,12 @@ Lever = base.class.class(function(lev, posi, twoState)    -- defines a class
     lev.state, lev.type, lev.movingTo = lev:findType(posi);   
                                                 -- state=0: zero position ("left"); 1=middle etc.
                                                 -- movingTo: 0 moves from N->S/E->W, 1 other direction
+                                                
+ 	lev.itemstruct = world:getItemOnField(posi);
+ 	if (lev.itemstruct~=nil) then
+		lev.itemstruct.quality = 333; --defined quality to prevent "unfinished levers"
+		world:changeItem(lev.itemstruct);
+	end
 end);
 
             -- here, we have all methods of the above class. enjoy!
