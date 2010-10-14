@@ -38,19 +38,9 @@ function init()
 	elevator2:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	elevator2:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil )); 
 	
-	
-	elevator3 = base.lever.Lever(position(33,10,0),true); --create lever object
-	elevator3:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
-	elevator3:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
-	---elevator from ground to underground--
-	elevator4 = base.lever.Lever(position(33,20,0),true); --create lever object
-	elevator4:bind(1, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil ));
-	elevator4:bind(0, handler.warpgroup.warpGroup(position(329,247,0),2, position(335,244,-6), nil ));
-	
+
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
-	AddToLevers(elevator3);
-	AddToLevers(elevator4);
 	----------------------------------------------------------------------------
 
 
@@ -139,11 +129,9 @@ end
 
 function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
     if (initi==nil) then
-        User:inform("init");
         myLevers=init();
         initi=1;
     end
-	User:inform("create key");
 	key=SourceItem.pos.x*1024*1024+SourceItem.pos.y*1024+SourceItem.pos.z;
     if leverList[key]~=nil then
         leverList[key]:switchLever(User);

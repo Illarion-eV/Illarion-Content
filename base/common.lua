@@ -1266,9 +1266,7 @@ function ExtgetPlayersInRangeOf(posi, radius)
 
 	for i, player in pairs(plyList) do
 	    -- player not in rect, remove from list
-		plyList[i]:inform("player found");
 		if not isInRect(player.pos, posi, radius) then
-			player:inform("...but not in Range");
 			plyList[i] = nil;
 	    end
 	end
