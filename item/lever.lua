@@ -30,8 +30,8 @@ function init()
 	-- create "sun" graphic with id 46
 	-- activate at every switching of the lever
 	elevator1 = base.lever.Lever(position(332,244,-6),true); --create lever object
-	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
-	elevator1:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 46 ));
+	elevator1:bind(1, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 42 ));
+	elevator1:bind(0, handler.warpgroup.warpGroup(position(335,244,-6),2, position(329,247,0), 42 ));
 		
 	---elevator from ground to underground--
 	elevator2 = base.lever.Lever(position(332,247,0),true); --create lever object
