@@ -6,6 +6,7 @@ require("base.common")
 require("base.doors")
 require("content.signpost")
 require("content.gods")
+require("item.lever")
 
 module("server.reload_defs", package.seeall)
 
@@ -19,6 +20,8 @@ function onReload()
 	initNoobia();
 	initTreasureChests();
     -- logToFile("end onReload");
+    item.lever.init();
+    
     return true;
 end
 
