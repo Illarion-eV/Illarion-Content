@@ -126,7 +126,7 @@ AmbientList:add( position(259,570,0),nil,"Der Wind bläßt dir Sandkörner ins Gesi
 AmbientList:add( position(263,598,0),nil,"Die Sandlandschaft ist hier flach und eintönig, die Orientierung fällt dir schwer.","The sandy ground is flat, with no obvious landmarks. Judging distances becomes difficult.",nil,nil,10); --General desert
 AmbientList:add( position(264,631,0),nil,"Ein starker Wind bläßt über die Dünen.","A strong wind blows in the dunes.",nil,nil,10); --General desert
 AmbientList:add( position(298,677,0),nil,"Eine plötzliche Windböe blößt dir Sand ins Gesicht. Die Tränen schießen dir in die Augen und du reibst sie ausgiebig.","A sudden gust of wind blows sand into your face. Tears flood your eyes and you rub them profusely. ",nil,nil,10); --General desert
-AmbientList:add( position(333,538,0),nil,"Der Sand knirscht unter deinen Füßen.","The sand gnashes under your feet.",nil,nil,10); --General desert
+AmbientList:add( position(331,537,0),nil,"Der Sand knirscht unter deinen Füßen.","The sand gnashes under your feet.",nil,nil,10); --General desert
 AmbientList:add( position(336,563,0),nil,"Vor dir erstrecken sich die Dünen, so weit das Auge reicht.","The dunes ahead of you seem to stretch endlessly",nil,nil,10); --General desert
 AmbientList:add( position(348,710,0),nil,"Warmer Wind bläst durch die Wüste und Geheul ist in der Ferne zu hören.","A warm wind blows across the desert, and howls can be heard in the distance.",nil,nil,10); --General desert
 AmbientList:add( position(349,576,0),nil,"Du wirst das Gefühl nicht los, dass dich jemand beobachtet.","You struggle to ignore the strange feeling that you are being watched. ",nil,nil,10); --General desert
