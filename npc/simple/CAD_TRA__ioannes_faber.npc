@@ -41,10 +41,10 @@ radius = 0
 "Hilfe" -> inform("#w [Spielhilfe] Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber. Schlüsselwörter: Seid gegrüßt, Kämmerer, 'Habt ihr Aufträge für mich?', 'Ich möchte Auftrag <Nummer> ansehen', 'Ich möchte Auftrag <Nummer> annehmen'.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Hail and may Malachin bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Malachin zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hail and may Malachin bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Malachin zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
+"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hail and may Malachín bless you. I assume you want to obey the orders of the queen.", "Be greeted. We should get straight to the orders of her majesty.", "You are just the person that needs an order, indeed."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Malachín zum Gruße. Ich nehme an, ihr wollt den Befehlen der Königin gehorchen.", "Seid gegrüßt. Wir sollten sofort über die Aufträge der Königin reden.", "Ihr seid genau die Person, die einen Befehl benötigt."
 "Farewell", "Good bye", "Bye", "Fare thy well" -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehet hin und tut, wie die Königin euch geheißt.", "Gehabt euch wohl und möge eure Reise eine angenehme sein.", "Auf wiedersehen und vergesst nicht, zurückzukehren."
 "Ciao", "Adieu", "Au revoir", english -> "Go forth and do as the queen tells you.", "Farewell and may your journey be a pleasant one.", "Good bye and don't forget to come back."
@@ -58,7 +58,7 @@ radius = 0
 "what sell", "what buy", "list wares", "price of" -> "I'm not a trader, I am the royal treasurere. If you obey the orders of the queen, you might get a reward."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler, ich bin der königliche Kämmerer. Wenn ihr den Befehlen der Königin gehorcht, dann werdet ihr vielleicht entlohnt."
 "tell something" -> "Let me tell you something: A whip can make people work. But a crown makes them obey."
-"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohbbn 78t87z6tdf4r5gtb fr u8ik,ikjhn6tzbnjmujmdgtbn 08976´ß0ne bringt sie dazu, zu gehorchen."
+"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Eine Peitsche bringt Leute zum arbeiten, aber eine Krohne bringt sie dazu, zu gehorchen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "treasurer", "treasury" -> "The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber."
@@ -107,10 +107,10 @@ radius = 0
 "salkama", german -> "Kriegstreiber! Die Menschheit kann sich an keinen dauerhaften Frieden zwischen Albar und Salkamar erinnern. Warum? Ihretwegen!"
 
 -- Gods; each NPC should at react on one god, being a follower of said god
-"Malachin", english -> "Malachin is the patron of Cadomyr. Never displease him nor the queen and you will have a long life."
-"Malachin" -> "Malachin ist der Schutzgott von Cadomyr. Enttäuscht weder ihn noch die Königin und ihr werdet euch eines langen Lebens erfreuen."
-"Irmorom", english -> "The dwarves pray to Irmorom to gain wealth; so far, so good. But I pray to Malachin to help me guard the wealth of Cadomyr with my sword."
-"Irmorom" -> "Die Zwerge beten zu Irmorom um Reichtümer anzuhäufen, soweit, so gut. Aber ich bete zu Malachin, damit er mir hilft, die Reichtümer Cadomyrs mit dem Schwert zu verteidigen."
+"Malachin","Malachín", english -> "Malachín is the patron of Cadomyr. Never displease him nor the queen and you will have a long life."
+"Malachin","Malachín" -> "Malachín ist der Schutzgott von Cadomyr. Enttäuscht weder ihn noch die Königin und ihr werdet euch eines langen Lebens erfreuen."
+"Irmorom", english -> "The dwarves pray to Irmorom to gain wealth; so far, so good. But I pray to Malachín to help me guard the wealth of Cadomyr with my sword."
+"Irmorom" -> "Die Zwerge beten zu Irmorom um Reichtümer anzuhäufen, soweit, so gut. Aber ich bete zu Malachín, damit er mir hilft, die Reichtümer Cadomyrs mit dem Schwert zu verteidigen."
 
 -- Catching quest triggers
 "quest", english -> "I do not issue quests. I issue orders of queen Rosaline. Obey them!"
@@ -165,7 +165,7 @@ cycletext "Cadomyr, oh Cadomyr, wie lieb ich dir!", "Cadomyr, O Cadomyr, you are
 cycletext "Rosaline und Cadomyr - Liebe geben sie uns, unschätzbar und unerreicht.", "Rosaline and Cadomyr - Love she gives us, passing measure."
 cycletext "Nur ein toter Hastings ist ein guter Hastings.", "Only a dead Hastings is a good Hastings."
 cycletext "Ein Hobbitgewicht in Gold für den Kopf von Baron Hastings!", "The weight of a hobbit in gold for the head of Baron Hastings!"
-cycletext "Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachin die Königin!", "From every latent foe, from the assassins blow, Malachin save the queen!"
+cycletext "Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the queen!"
 cycletext "Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush."
-cycletext "Malachin schütze die Königin!", "Malachin save the queen!"
+cycletext "Malachín schütze die Königin!", "Malachín save the queen!"
 cycletext "Ihr da! Kommt her. Ich habe einen Auftrag der Königin.", "You! Come over here. I have orders of the queen."
