@@ -367,28 +367,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     elseif (SourceItem.data==2) then  --ranksystem
 		if (string.find(User.lastSpokenText,"help")~=nil) then
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
-			local text = "a,b,value: ";
-			if a then text = text .. a; end;
-			text = text ..",";
-			if b then text = text .. b; end;
-			text = text ..",";
-			if value then text = text .. value; end;
-			User:inform(text);
-			
+						
 			Page = {};
-			Page[1] = "To look through the commands increase the counter value and use this Item again."
-			Page[2] = "Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0 - 9";
-			Page[3] = "Set hometown: \"settown <townname>\"";
-			Page[4] = "Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
-			Page[5] = "Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\" - range of value: 0 - 100";
-			Page[6] = "If you \"use\" the item without targeting a character with the command addpoints or removepoints...";
-			Page[7] = "...for ALL characters within a radius of <Counter> the rankpoints get added or removed!";
-			Page[8] = "Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
+			Page[0] = "To look through the commands say 'help X' where X is a number from 1 to 7 and use this Item again."
+			Page[1] = "Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0 - 9";
+			Page[2] = "Set hometown: \"settown <townname>\"";
+			Page[3] = "Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
+			Page[4] = "Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\" - range of value: 0 - 100";
+			Page[5] = "If you \"use\" the item without targeting a character with the command addpoints or removepoints...";
+			Page[6] = "...for ALL characters within a radius of <Counter> the rankpoints get added or removed!";
+			Page[7] = "Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
             
-			if Counter<8 then
-        	User:inform("#b|"..Counter.."|382|"..Page[Counter]);
+			if value then
+				User:inform(Page[value]);
         	else
-        	User:inform("This documentation has only 8 pages!");
+				User:inform("This documentation has only 7 pages!");
         	end
         end
 		
