@@ -379,9 +379,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			Page[7] = "Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
             
 			if value then
-				User:inform(Page[value]);
-        	else
-				User:inform("This documentation has only 7 pages!");
+				if value <= 7 then
+					User:inform(Page[value]);
+				else
+					User:inform("This documentation has only 7 pages!");
+				end
+			else
+				User:inform(Page[0]);
         	end
         end
 		
