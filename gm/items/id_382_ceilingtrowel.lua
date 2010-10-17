@@ -365,8 +365,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             world:setWeather(currWeather);
         end
     elseif (SourceItem.data==2) then  --ranksystem
-		Counter = 1;
-        if (string.find(User.lastSpokenText,"help")~=nil) then
+		if (string.find(User.lastSpokenText,"help")~=nil) then
+			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
+			local text = "a,b,value: ";
+			if a then text = text .. a; end;
+			text = text ..",";
+			if b then text = text .. b; end;
+			text = text ..",";
+			if value then text = text .. value; end;
+			User:inform(text);
+			
 			Page = {};
 			Page[1] = "To look through the commands increase the counter value and use this Item again."
 			Page[2] = "Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0 - 9";
