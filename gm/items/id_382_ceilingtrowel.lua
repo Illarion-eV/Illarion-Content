@@ -9,25 +9,6 @@ module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.l
 function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 	Init();
 	if SourceItem.data==2 then --faction system trowel  
-        if (string.find(User.lastSpokenText,"help")~=nil) then
-			Page = {};
-			Page[1] = "To look through the commands increase the counter value and use this Item again."
-			Page[2] = "Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0 - 9";
-			Page[3] = "Set hometown: \"settown <townname>\"";
-			Page[4] = "Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
-			Page[5] = "Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\" - range of value: 0 - 100";
-			Page[6] = "If you \"use\" the item without targeting a character with the command addpoints or removepoints...";
-			Page[7] = "...for ALL characters within a radius of <Counter> the rankpoints get added or removed!";
-			Page[8] = "Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
-            
-			if Counter<8 then
-        	User:inform("#b|"..Counter.."|382|"..Page[Counter]);
-        	else
-        	User:inform("This documentation has only 8 pages!");
-        	end
-        end
-
-
 		if string.find(User.lastSpokenText,"info") then
 			-- print some infos
 			local info = base.factions.BF_get_Faction(TargetCharacter);
