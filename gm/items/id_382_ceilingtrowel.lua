@@ -175,11 +175,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end
 	
 	
-	
-	TargetItem = base.common.GetFrontItem(User);
+	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	if not TargetItem then
+		TargetItem = base.common.GetFrontItem(User);
+	end
 	
     if (SourceItem.data==0) then
-        if (TargetItem.id~=0) then
+        if (TargetItem and TargetItem.id~=0) then
             User:inform("target item");
             WFound,weapon = world:getWeaponStruct(TargetItem.id);
             AFound,armor = world:getArmorStruct(TargetItem.id);
@@ -220,50 +222,52 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                 User:inform("Amount of "..world:getItemName(TargetItem.id,0).."set to "..TargetItem.number);
                 -- LogGMAction(User,User.name.."("..User.id..") changed number of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.wear);
             end
-        else
-            if (string.find(User.lastSpokenText,"count (%d+)")~=nil) then
-                a,b,countID=string.find(User.lastSpokenText,"count (%d+)");
-                countID = countID+1-1;
-                User:inform("User:countItem("..countID..") = "..User:countItem(countID));
-                User:inform("User:countItemAt(\"all\", "..countID..") = "..User:countItemAt("all",countID));
-                User:inform("User:countItemAt(\"belt\", "..countID..") = "..User:countItemAt("belt",countID));
-                User:inform("User:countItemAt(\"body\", "..countID..") = "..User:countItemAt("body",countID));
-                User:inform("User:countItemAt(\"backpack\", "..countID..") = "..User:countItemAt("backpack",countID));
-                User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID, 0));
-                User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID, 0));
-                User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID, 0));
-                User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID, 0));
-                local Bag = User:getBackPack();
-                User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
-                User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID, 0));
-            end
-            if (string.find(User.lastSpokenText,"setdata (%d+)")==nil and string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")==nil) then
-                a,b,spoken = string.find(User.lastSpokenText,"(.+)");
-                if User:increaseAttrib(spoken,0)~=0 then
-                    User:setAttrib(spoken,Counter);
-                    User:inform(spoken.." set to "..User:increaseAttrib(spoken,0));
-                    -- LogGMAction(User,User.name.."("..User.id..") changed attribute "..spoken.." to "..User:increaseAttrib(spoken,0));
-                elseif (string.find(User.lastSpokenText,"cold")~=nil) then
-                    fndRes, resEffect = User.effects:find(3);
-                    if not fndRes then                                  -- if not...
-                        resEffect=User.effects:addEffect( CLongTimeEffect(3,1) );     -- add effect (400) to resurrected player
-
-                        resEffect:addValue("coldStr",coldStr-1);
-                        User:inform("angesteckt");
-                    else            -- if he has the effect already...
-                        User:inform("Du bist schon angesteckt.");
-                        resEffect.nextCalled =20;
-                    end
-                elseif ((string.find(User.lastSpokenText,"show map")~=nil)) then
-                    User:inform("Okay, now showing map");
-                    for i=1, 200 do
-                        newx=math.random(-500,500);
-                        newy=math.random(-500,500);
-                        User:warp(position(newx,newy,0));
-                    end
-                end
-            end
         end
+		if (string.find(User.lastSpokenText,"field")~=nil) then
+			UseItemWighField(User, SourceItem, User.pos, Counter, Param);
+		end
+		if (string.find(User.lastSpokenText,"count (%d+)")~=nil) then
+			a,b,countID=string.find(User.lastSpokenText,"count (%d+)");
+			countID = countID+1-1;
+			User:inform("User:countItem("..countID..") = "..User:countItem(countID));
+			User:inform("User:countItemAt(\"all\", "..countID..") = "..User:countItemAt("all",countID));
+			User:inform("User:countItemAt(\"belt\", "..countID..") = "..User:countItemAt("belt",countID));
+			User:inform("User:countItemAt(\"body\", "..countID..") = "..User:countItemAt("body",countID));
+			User:inform("User:countItemAt(\"backpack\", "..countID..") = "..User:countItemAt("backpack",countID));
+			User:inform("User:countItemAt(\"all\", "..countID..", 0) = "..User:countItemAt("all",countID, 0));
+			User:inform("User:countItemAt(\"belt\", "..countID..", 0) = "..User:countItemAt("belt",countID, 0));
+			User:inform("User:countItemAt(\"body\", "..countID..", 0) = "..User:countItemAt("body",countID, 0));
+			User:inform("User:countItemAt(\"backpack\", "..countID..", 0) = "..User:countItemAt("backpack",countID, 0));
+			local Bag = User:getBackPack();
+			User:inform("Bag:countItem("..countID..") = "..Bag:countItem(countID));
+			User:inform("Bag:countItem("..countID..", 0) = "..Bag:countItem(countID, 0));
+		end
+		if (string.find(User.lastSpokenText,"setdata (%d+)")==nil and string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")==nil) then
+			a,b,spoken = string.find(User.lastSpokenText,"(.+)");
+			if User:increaseAttrib(spoken,0)~=0 then
+				User:setAttrib(spoken,Counter);
+				User:inform(spoken.." set to "..User:increaseAttrib(spoken,0));
+				-- LogGMAction(User,User.name.."("..User.id..") changed attribute "..spoken.." to "..User:increaseAttrib(spoken,0));
+			elseif (string.find(User.lastSpokenText,"cold")~=nil) then
+				fndRes, resEffect = User.effects:find(3);
+				if not fndRes then                                  -- if not...
+					resEffect=User.effects:addEffect( CLongTimeEffect(3,1) );     -- add effect (400) to resurrected player
+
+					resEffect:addValue("coldStr",coldStr-1);
+					User:inform("angesteckt");
+				else            -- if he has the effect already...
+					User:inform("Du bist schon angesteckt.");
+					resEffect.nextCalled =20;
+				end
+			elseif ((string.find(User.lastSpokenText,"show map")~=nil)) then
+				User:inform("Okay, now showing map");
+				for i=1, 200 do
+					newx=math.random(-500,500);
+					newy=math.random(-500,500);
+					User:warp(position(newx,newy,0));
+				end
+			end
+		end
     elseif (SourceItem.data==1) then
         if (string.find(User.lastSpokenText,"set weather")~=nil) then
             currWeather=world.weather;
@@ -362,6 +366,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         end
     elseif (SourceItem.data==2) then  --ranksystem
         
+		if (string.find(User.lastSpokenText,"self")~=nil) then
+			UseItemWithCharacter(User, SourceItem, User, Counter, Param);
+			return;
+		else
+			local frontChar = base.common.GetFrontCharacter(User);
+			if frontChar then
+				UseItemWithCharacter(User, SourceItem, frontChar, Counter, Param);
+				return;
+			end
+		end
+		
         if (string.find(User.lastSpokenText,"help")~=nil) then
 			Page = {};
 			Page[1] = "To look through the commands increase the counter value and use this Item again."

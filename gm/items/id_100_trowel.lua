@@ -8,13 +8,19 @@ module("gm.items.id_100_trowel", package.seeall)
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    if (TargetItem ~= nil and TargetItem.id > 0) then
+    local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	if not TargetItem then
+		TargetItem = base.common.GetFrontItem(User);
+	end
+	if (TargetItem ~= nil and TargetItem.id > 0) then
         if (TargetItem:getType() == scriptItem.field) then
             UseItemWithField(User, SourceItem, TargetItem.pos, Counter, Param);
-        else
-            world:increase(TargetItem, Counter - TargetItem.number);
+			return;
+        elseif string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
+			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
+            world:increase(TargetItem, value - TargetItem.number);
+			return;
         end;
-        return;
     end;
 
     -- check if a number was said, if not: don't do anything
@@ -35,10 +41,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end;
     
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
-end;
-
-function UseItemWithCharacter(User,SourceItem,TargetChar,Counter,Param)
-	UseItemWithField(User,SourceItem,TargetChar.pos,Counter,Param);
 end;
 
 function UseItemWithField(User,SourceItem,TargetPos,Counter,Param)
