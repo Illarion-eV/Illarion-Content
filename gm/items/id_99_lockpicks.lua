@@ -37,19 +37,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local frontChar = base.common.GetFrontCharacter(User);
 	if frontChar then
 		ShowCharInfo(User,frontChar);
-		return;
 	end
-	local TargetItem = base.common.GetTargetItem(User, SourceItem);
     if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
         world:erase(base.common.GetFrontItem(User),1);
-    elseif ((TargetItem ~= nil) and (TargetItem.id ~= 0)) then
-        world:erase(TargetItem,TargetItem.number);
-        -- LogGMAction(User,User.name.."("..User.id..") deleted "..Counter.." "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..")");
-	elseif (string.find(User.lastSpokenText,"remove frontitem")~=nil) then
-    	local frontitem = base.common.GetFrontItem(User);
-    	if frontitem~=nil then
-    		world:erase(frontitem,1);
-    	end
+	elseif (string.find(User.lastSpokenText,"remove")~=nil) then
+    	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+		if TargetItem then
+			world:erase(TargetItem,TargetItem.number);
+		else
+			local frontitem = base.common.GetFrontItem(User);
+			if frontitem~=nil then
+				world:erase(frontitem,frontitem.number);
+			end
+		end
 	elseif (string.find(User.lastSpokenText,"show position")~=nil) then
 		ShowPosition(User);
 	elseif (string.find(User.lastSpokenText,"show locations")~=nil) then

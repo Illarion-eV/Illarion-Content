@@ -365,18 +365,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             world:setWeather(currWeather);
         end
     elseif (SourceItem.data==2) then  --ranksystem
-        
-		if (string.find(User.lastSpokenText,"self")~=nil) then
-			UseItemWithCharacter(User, SourceItem, User, Counter, Param);
-			return;
-		else
-			local frontChar = base.common.GetFrontCharacter(User);
-			if frontChar then
-				UseItemWithCharacter(User, SourceItem, frontChar, Counter, Param);
-				return;
-			end
-		end
-		
+		Counter = 1;
         if (string.find(User.lastSpokenText,"help")~=nil) then
 			Page = {};
 			Page[1] = "To look through the commands increase the counter value and use this Item again."
@@ -394,25 +383,36 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         	User:inform("This documentation has only 8 pages!");
         	end
         end
-        
-		if (string.find(User.lastSpokenText,"addpoints")~=nil) then --add rankpoints within a radius Counter
-            a,b,value = string.find(User.lastSpokenText,"(%d+)");
-            value=value+1-1;
-			if (value<101 and value>-1) then
-			   ChangeRankpoints(User,Counter,true, value);
-            else
-                User:inform("Failed adding rankpoints: max. 100 rankpoints")
+		
+		if (string.find(User.lastSpokenText,"radius (%d+)")~=nil) then
+			local a,b, radius = string.find(User.lastSpokenText,"radius (%d+)");
+			if (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
+				a,b,value = string.find(User.lastSpokenText,"addpoints (%d+)");
+				value=value+1-1;
+				if (value<101 and value>-1) then
+				   ChangeRankpoints(User,radius,true, value);
+				else
+					User:inform("Failed adding rankpoints: max. 100 rankpoints")
+				end
+			elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
+				a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
+				value=value+1-1;
+				if (value<101 and value>-1) then
+				   ChangeRankpoints(User,radius,false, value);
+				else
+					User:inform("Failed removing rankpoints: You can only remove 1-100 rankpoints")
+				end
 			end
-        
-    	elseif (string.find(User.lastSpokenText,"removepoints")~=nil) then --remove rankpoints within a radius Counter
-            a,b,value = string.find(User.lastSpokenText,"(%d+)");
-            value=value+1-1;
-			if (value<101 and value>-1) then
-			   ChangeRankpoints(User,Counter,false, value);
-            else
-                User:inform("Failed removing rankpoints: You can only remove 1-100 rankpoints")
+		else
+			local frontChar = base.common.GetFrontCharacter(User);
+			if frontChar then
+				UseItemWithCharacter(User, SourceItem, frontChar, Counter, Param);
+			else
+				UseItemWithCharacter(User, SourceItem, User, Counter, Param);
 			end
-        end
+		end
+        
+		
 	end
 end
 

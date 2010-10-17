@@ -13,12 +13,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		TargetItem = base.common.GetFrontItem(User);
 	end
 	if (TargetItem ~= nil and TargetItem.id > 0) then
-        if (TargetItem:getType() == scriptItem.field) then
-            UseItemWithField(User, SourceItem, TargetItem.pos, Counter, Param);
-			return;
-        elseif string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
+        if string.find(string.lower(User.lastSpokenText), "setnumber (%d+)") then
 			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
             world:increase(TargetItem, value - TargetItem.number);
+			return;
+		elseif (TargetItem:getType() == scriptItem.field) then
+            UseItemWithField(User, SourceItem, TargetItem.pos, Counter, Param);
 			return;
         end;
     end;
