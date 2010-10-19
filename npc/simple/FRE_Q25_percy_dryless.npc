@@ -30,41 +30,41 @@ direction=south
 "spitzhacke","hacke",item(2763,all)<>0->"Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?"
 "spitzhacke","hacke",item(2763,all)=0->"So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.",item(2763,1,333,0)
 
-"release",queststatus(25)>0 ->"No way.","You'd like to, don't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
-"release",queststatus(25)<1->"Until next time. They all come back!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
-"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)>0->"Nichts da.","Das hättest du wohl gerne!","Ohja, klar lass ich dich frei... in hundert Jahren!","Schnauze!","Hahahahahaha!","Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?","Nichts da. Arbeite!","Warte, lass mich erstmal auslachen.","Du willst also freigelassen werden? Du?","Was für ein Narr bist du?"
-"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)<1->"Bis zum nächsten mal. Sie kommen alle wieder!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
+--"release",queststatus(25)>0 ->"No way.","You'd like to, don't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
+--"release",queststatus(25)<1->"Until next time. They all come back!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
+--"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)>0->"Nichts da.","Das hättest du wohl gerne!","Ohja, klar lass ich dich frei... in hundert Jahren!","Schnauze!","Hahahahahaha!","Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?","Nichts da. Arbeite!","Warte, lass mich erstmal auslachen.","Du willst also freigelassen werden? Du?","Was für ein Narr bist du?"
+--"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)<1->"Bis zum nächsten mal. Sie kommen alle wieder!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
 
-"deliver",queststatus(25)<1->"You don’t need to deliver anything. You are free as a bird. Ask me to release you, maybe I’ll do so."
-"deliver gold",item(234,all)>0->"At least some gold. Unless you deserve to be released - work!",queststatus(25)-expr(item(234,all)),state(expr(item(234,all)),deleteitem(234,0)
-"deliver gold",item(234,all)=0->"You have no gold. Work on, you lazy scumbag."
-"deliver copper",item(2536,all)>0->"Copper. Bah. Give it to me and get back to work.",queststatus(25)-expr(item(2536,all)),state(expr(item(2536,all)),deleteitem(2536,0)
-"deliver copper",item(2536,all)=0->"No copper? Get copper. That is easy enough for you, isn't it?"
-"deliver iron",item(22,all)>0->"So, you think you are the big shot because you found some iron ore? Thanks, work on.",queststatus(25)-expr(item(22,all)), state(expr(item(22,all)),deleteitem(22,0)
-"deliver iron",item(22,all)=0->"Are you kidding me? You have no iron ore."
-"deliver coal",item(21,all)>0->"This coal is as filthy as you. And as black as your soul. Bring me more!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
-"deliver coal",item(21,all)=0->"How for somebody's sake do you plan to give me something you don't have?"
+--"deliver",queststatus(25)<1->"You don’t need to deliver anything. You are free as a bird. Ask me to release you, maybe I’ll do so."
+--"deliver gold",item(234,all)>0->"At least some gold. Unless you deserve to be released - work!",queststatus(25)-expr(item(234,all)),state(expr(item(234,all)),deleteitem(234,0)
+--"deliver gold",item(234,all)=0->"You have no gold. Work on, you lazy scumbag."
+--"deliver copper",item(2536,all)>0->"Copper. Bah. Give it to me and get back to work.",queststatus(25)-expr(item(2536,all)),state(expr(item(2536,all)),deleteitem(2536,0)
+--"deliver copper",item(2536,all)=0->"No copper? Get copper. That is easy enough for you, isn't it?"
+--"deliver iron",item(22,all)>0->"So, you think you are the big shot because you found some iron ore? Thanks, work on.",queststatus(25)-expr(item(22,all)), state(expr(item(22,all)),deleteitem(22,0)
+--"deliver iron",item(22,all)=0->"Are you kidding me? You have no iron ore."
+--"deliver coal",item(21,all)>0->"This coal is as filthy as you. And as black as your soul. Bring me more!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
+--"deliver coal",item(21,all)=0 -> "How for somebody's sake do you plan to give me something you don't have?"
 
-"abliefern","ich liefer ab",queststatus(25)<1->"Du musst hier gar nichts abliefern. Du bist frei wie ein Vogel, frag doch mal, ob ich dich vielleicht freilasse."
-"gold abliefern","ich liefer gold ab",item(234,all)>0->"Wenigstens etwas Gold. Wenn du es nicht verdienst, freigelassen zu werden - Arbeite!",queststatus(25)-expr(item(234,all)), state(expr(item(234,all)),deleteitem(234,0)
-"gold abliefern","ich liefer gold ab",item(234,all)=0->"Du hast kein Gold. Weiterarbeiten, Drecksack!"
-"kupfer abliefern","ich liefer kupfer ab",item(2536,all)>0->"Kupfererz, bäh. Her damit und zurück an die Arbeit.",queststatus(25)-expr(item(2536,all)), state(expr(item(2536,all)),deleteitem(2536,0)
-"kupfer abliefern","ich liefer kupfer ab",item(2536,all)=0->"Kein Kupfererz? Hol' Kupfererz. So einfach ist das."
-"eisen abliefern","ich liefer eisen ab",item(22,all)>0->"So, du denkst du bist der Größte, weil du mir etwas Eisenerz gebracht hast? Danke, weiterarbeiten.",queststatus(25)-expr(item(22,all)),state(expr(item(22,all)),deleteitem(22,0)
-"eisen abliefern","ich liefer eisen ab",item(22,all)=0->"Machst du Witze? Du hast kein Eisenerz."
-"kohle abliefern","ich liefer kohle ab",item(21,all)>0->"Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
-"kohle abliefern","ich liefer kohle ab",item(21,all)=0->"Wie zum... gedenkst du, mir etwas zu geben, was du nicht hast?"
+--"abliefern","ich liefer ab",queststatus(25)<1->"Du musst hier gar nichts abliefern. Du bist frei wie ein Vogel, frag doch mal, ob ich dich vielleicht freilasse."
+--"gold abliefern","ich liefer gold ab",item(234,all)>0->"Wenigstens etwas Gold. Wenn du es nicht verdienst, freigelassen zu werden - Arbeite!",queststatus(25)-expr(item(234,all)), state(expr(item(234,all)),deleteitem(234,0)
+--"gold abliefern","ich liefer gold ab",item(234,all)=0->"Du hast kein Gold. Weiterarbeiten, Drecksack!"
+--"kupfer abliefern","ich liefer kupfer ab",item(2536,all)>0->"Kupfererz, bäh. Her damit und zurück an die Arbeit.",queststatus(25)-expr(item(2536,all)), state(expr(item(2536,all)),deleteitem(2536,0)
+--"kupfer abliefern","ich liefer kupfer ab",item(2536,all)=0->"Kein Kupfererz? Hol' Kupfererz. So einfach ist das."
+--"eisen abliefern","ich liefer eisen ab",item(22,all)>0->"So, du denkst du bist der Größte, weil du mir etwas Eisenerz gebracht hast? Danke, weiterarbeiten.",queststatus(25)-expr(item(22,all)),state(expr(item(22,all)),deleteitem(22,0)
+--"eisen abliefern","ich liefer eisen ab",item(22,all)=0->"Machst du Witze? Du hast kein Eisenerz."
+--"kohle abliefern","ich liefer kohle ab",item(21,all)>0->"Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
+--"kohle abliefern","ich liefer kohle ab",item(21,all)=0->"Wie zum... gedenkst du, mir etwas zu geben, was du nicht hast?"
 
-"remaining punishment",queststatus(25)>0->"Pah! You still have to deliver "queststatus" shovels of resources.","Bring me "queststatus" resources and I'll release you. Maybe.","Mercy won't come before you bring me "queststatus" shovels of resources."
+"remaining punishment",queststatus(25)>0->"Pah! You still have to deliver %QUESTSTATUS shovels of resources.","Bring me %QUESTSTATUS resources and I'll release you. Maybe.","Mercy won't come before you bring me %QUESTSTATUS shovels of resources."
 "remaining punishment",queststatus(25)<1->"You are free to go, thug. Ask me to release you.","That was enough, I think I can release you."
-"übrige strafe",queststatus(25)>0->"Pah! Du mußt mir noch "queststatus" Schaufeln voll Ressourcen bringen.","Bring mir noch "queststatus" Ressourcen und vielleicht lasse ich dich dann gehen.","Gnade wird nicht eher gewaltet bevor du mir nicht "queststatus" Schaufeln voll Ressourcen bringst."
+"übrige strafe",queststatus(25)>0->"Pah! Du mußt mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.","Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.","Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst."
 "übrige strafe",queststatus(25)<1->"Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.","Das reicht jetzt, ich denke, ich kann dich freilassen."
 
 --General speech
 "Hello","Greetings","Be greeted","Hail","Good day","Good morning","Good evening"->"What do you want? Ah, I know: You want to feel my whip!","Welcome to my realm, the realm of tears, sweat and hard work.","Work, scum! Criminals deserve nothing more than pain.","Tell me you are innocent and I will laugh for the rest of the day."
 "Grüße","Gruß","Seid gegrüßt","Guten Tag","Guten Abend","Mahlzeit","Tach","Moin"->"Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.","Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.","Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!","Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
-"Hiho","Hallo","Hey","Greebas","Greebs",english"->"What do you want? Ah, I know: You want to feel my whip!","Welcome to my realm, the realm of tears, sweat and hard work.","Work, scum! Criminals deserve nothing more than pain.","Tell me you are innocent and I will laugh for the rest of the day."
-"Hiho","Hallo","Hey","Greebas","Greebs",german"->"Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.","Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.","Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!","Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
+"Hiho","Hallo","Hey","Greebas","Greebs",english->"What do you want? Ah, I know: You want to feel my whip!","Welcome to my realm, the realm of tears, sweat and hard work.","Work, scum! Criminals deserve nothing more than pain.","Tell me you are innocent and I will laugh for the rest of the day."
+"Hiho","Hallo","Hey","Greebas","Greebs",german->"Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.","Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.","Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!","Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages."
 "Farewell","Good bye","Bye","Fare thy well"->"I do not think you are leaving right now.","So you think you are leaving? Surprise! You aren't!","When you find the exit, send me a letter.","Did nobody tell you that you have to stay a bit longer...?","Nope. Work. Deliver things. Deliver even more things. Then you may get released. Or not."
 "Tschüß","Tschüss","Wiedersehen","Gehabt euch wohl"->"Ich glaube kaum, dass du jetzt gehst.","So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.","Wenn du den Ausgang findest, schick mir einen Brief.","Hat dir niemand gesagt, dass du für eine Weile hier bleibst?","Nö. Arbeite. Liefere Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen. Oder auch nicht."
 "Ciao","Adieu","Au revoir",english->"I do not think you are leaving right now.","So you think you are leaving? Surprise! You aren't!","When you find the exit, send me a letter.","Did nobody tell you that you have to stay a bit longer...?","Nope. Work. Deliver things. Deliver even more things. Then you may get released."

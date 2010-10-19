@@ -1,441 +1,581 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,-495,-484,-40,4,false,'Percy Dryless','npc_percy_dryless.lua',0);
+--------------------------------------------------------------------------------
+-- NPC Name: Percy Dryless                                               None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  -495, -484, -40        --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: October 19, 2010                        easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, -495, -484, -40, 4, 'Percy Dryless', 'npc.percy_dryless', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.attribute")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.consequence.item")
+require("npc.base.talk")
 module("npc.percy_dryless", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addResponse("[Game Help] This NPC is the prison guard Percy. Keyphrases: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How high is my remaining punishment?' and 'I want to deliver <resource>'.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte <Ressource> abliefern.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You don't look hungry to me. Work some more!");
+talkEntry:addResponse("No food for lazy scum like you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Here, have some moulded bread. Back to work!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Thinking you can get free bread from me, eh? Work on or feel my whip.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
+talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hunger");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungry");
+talkEntry:addTrigger("food");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
+talkEntry:addResponse("You don't look hungry to me. Work some more!");
+talkEntry:addResponse("No food for lazy scum like you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungry");
+talkEntry:addTrigger("food");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addResponse("Here, have some moulded bread. Back to work!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungry");
+talkEntry:addTrigger("food");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addResponse("Thinking you can get free bread from me, eh? Work on or feel my whip.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungrig");
+talkEntry:addTrigger("essen");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
+talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
+talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungrig");
+talkEntry:addTrigger("essen");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0));
+talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hungrig");
+talkEntry:addTrigger("essen");
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 15000));
+talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0));
+talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick axe");
+talkEntry:addTrigger("rock pick");
+talkEntry:addTrigger("pick");
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addResponse("So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I whip you.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick axe");
+talkEntry:addTrigger("rock pick");
+talkEntry:addTrigger("pick");
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0));
+talkEntry:addResponse("What do you want with two picks? Hitting stones bihanded?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("spitzhacke");
+talkEntry:addTrigger("hacke");
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0));
+talkEntry:addResponse("Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("spitzhacke");
+talkEntry:addTrigger("hacke");
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0));
+talkEntry:addResponse("So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("remaining punishment");
+talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
+talkEntry:addResponse("Pah! You still have to deliver %QUESTSTATUS shovels of resources.");
+talkEntry:addResponse("Bring me %QUESTSTATUS resources and I'll release you. Maybe.");
+talkEntry:addResponse("Mercy won't come before you bring me %QUESTSTATUS shovels of resources.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("remaining punishment");
+talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
+talkEntry:addResponse("You are free to go, thug. Ask me to release you.");
+talkEntry:addResponse("That was enough, I think I can release you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("übrige strafe");
+talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
+talkEntry:addResponse("Pah! Du mußt mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.");
+talkEntry:addResponse("Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.");
+talkEntry:addResponse("Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("übrige strafe");
+talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
+talkEntry:addResponse("Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.");
+talkEntry:addResponse("Das reicht jetzt, ich denke, ich kann dich freilassen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
+talkEntry:addResponse("Welcome to my realm, the realm of tears, sweat and hard work.");
+talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
+talkEntry:addResponse("Tell me you are innocent and I will laugh for the rest of the day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.");
+talkEntry:addResponse("Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.");
+talkEntry:addResponse("Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!");
+talkEntry:addResponse("Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("What do you want? Ah, I know: You want to feel my whip!");
+talkEntry:addResponse("Welcome to my realm, the realm of tears, sweat and hard work.");
+talkEntry:addResponse("Work, scum! Criminals deserve nothing more than pain.");
+talkEntry:addResponse("Tell me you are innocent and I will laugh for the rest of the day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.");
+talkEntry:addResponse("Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.");
+talkEntry:addResponse("Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!");
+talkEntry:addResponse("Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thy well");
+talkEntry:addResponse("I do not think you are leaving right now.");
+talkEntry:addResponse("So you think you are leaving? Surprise! You aren't!");
+talkEntry:addResponse("When you find the exit, send me a letter.");
+talkEntry:addResponse("Did nobody tell you that you have to stay a bit longer...?");
+talkEntry:addResponse("Nope. Work. Deliver things. Deliver even more things. Then you may get released. Or not.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Ich glaube kaum, dass du jetzt gehst.");
+talkEntry:addResponse("So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.");
+talkEntry:addResponse("Wenn du den Ausgang findest, schick mir einen Brief.");
+talkEntry:addResponse("Hat dir niemand gesagt, dass du für eine Weile hier bleibst?");
+talkEntry:addResponse("Nö. Arbeite. Liefere Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen. Oder auch nicht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I do not think you are leaving right now.");
+talkEntry:addResponse("So you think you are leaving? Surprise! You aren't!");
+talkEntry:addResponse("When you find the exit, send me a letter.");
+talkEntry:addResponse("Did nobody tell you that you have to stay a bit longer...?");
+talkEntry:addResponse("Nope. Work. Deliver things. Deliver even more things. Then you may get released.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich glaube kaum, dass du jetzt gehst.");
+talkEntry:addResponse("So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.");
+talkEntry:addResponse("Wenn du den Ausgang findest, schick mir einen Brief.");
+talkEntry:addResponse("Hat dir niemand gesagt, dass du für eine Weile hier bleibst?");
+talkEntry:addResponse("Nö. Arbeite. Liefer Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("That is none of your business.");
+talkEntry:addResponse("I would feel way better when you'd stop talking and went to work instead!");
+talkEntry:addResponse("I feel like whipping you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Das geht dich nichts an.");
+talkEntry:addResponse("Es würde mir weit besser gehen wenn du die Klappe hieltest und arbeiten würdest.");
+talkEntry:addResponse("Mir ist danach, dich auszupeitschen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("You can call me 'master'.");
+talkEntry:addResponse("Percy Dryless. You will remember this name in your nightmares.");
+talkEntry:addResponse("I have a name at least, your name will be forgotten when you are released... one distant day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Du kannst mich 'Meister' nennen.");
+talkEntry:addResponse("Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.");
+talkEntry:addResponse("Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("What buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I could sell you some hits of my whip. Interested!?");
+talkEntry:addResponse("I trade pain.");
+talkEntry:addResponse("Stop bartering and work or I will lose patience.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!");
+talkEntry:addResponse("Ich handel mit Schmerzen.");
+talkEntry:addResponse("Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me points his finger at your face and laughs out loud.");
+talkEntry:addResponse("Erm, no quest for you.");
+talkEntry:addResponse("My quest is to whip those who are lazy.");
+talkEntry:addResponse("Let me see... your quest is to work!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("#me zeigt mit dem Finger auf dich und lacht lauthals los.");
+talkEntry:addResponse("Äh, keine Queste für dich.");
+talkEntry:addResponse("Meine Bestimmung ist, die Faulen auszupeitschen.");
+talkEntry:addResponse("Wart mal... deine Bestimmung ist es, zu arbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("#me points his finger at your face and laughs out loud.");
+talkEntry:addResponse("Erm, no quest for you.");
+talkEntry:addResponse("My quest is to whip those who are lazy.");
+talkEntry:addResponse("Let me see... your quest is to work!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("#me zeigt mit dem Finger auf dich und lacht lauthals los.");
+talkEntry:addResponse("Äh, keine Queste für dich.");
+talkEntry:addResponse("Meine Bestimmung ist, die Faulen auszupeitschen.");
+talkEntry:addResponse("Wart mal... deine Bestimmung ist es, zu arbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Shut up and work!");
+talkEntry:addResponse("No talking!");
+talkEntry:addResponse("Shut up, swing the pick, you thug!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Halt deinen Mund und arbeite!");
+talkEntry:addResponse("Hier wird nicht geplaudert!");
+talkEntry:addResponse("Klappe halten, Hacke schwingen, du Gauner!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("innocent");
+talkEntry:addResponse("One word: No.");
+talkEntry:addResponse("You are as innocent as the chance of my whip missing your sorry ass.");
+talkEntry:addResponse("Wake up! You aren't dreaming anymore.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("unschuldig");
+talkEntry:addResponse("Ein Wort: Nein.");
+talkEntry:addResponse("Die Chance, dass du unschuldig bist, ist so groß wie die, dass dich meine Peitsche verfehlt.");
+talkEntry:addResponse("Aufwachen! Du träumst nicht mehr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("whip");
+talkEntry:addResponse("I call my whip Susi.");
+talkEntry:addResponse("This is my whip. There are many like it but this one is mine. My whip is my best friend. It is my life.");
+talkEntry:addResponse("Wanna feel my whip, thug?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("peitsche");
+talkEntry:addResponse("Ich nenne meine Peitsche Susi.");
+talkEntry:addResponse("Dies ist meine Peitsche. Es gibt viele wie sie aber diese ist meine. Meine Peitsche ist mein bester Freund. Sie ist mein Leben.");
+talkEntry:addResponse("Willst du meine Peitsche spüren, Gauner?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("criminal");
+talkEntry:addTrigger("thug");
+talkEntry:addResponse("You are as worthless as a cup of water in the ocean.");
+talkEntry:addResponse("I will never understand why you people break the law.");
+talkEntry:addResponse("Filthy bastard, good to see you here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("krimineller");
+talkEntry:addTrigger("gauner");
+talkEntry:addResponse("Du bist so wertlos wie eine Tasse Wasser im Meer.");
+talkEntry:addResponse("Ich werde nie verstehen, warum ihr Leute das Gesetz brecht.");
+talkEntry:addResponse("Dreckiger Bastard, gut dass du hier bist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("master");
+talkEntry:addResponse("I am your master from now on. Obey or be whipped. Your choice.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("meister");
+talkEntry:addResponse("Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("jingles");
+talkEntry:addResponse("If I catch this stupid mouse, I will trample it!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Yes? Fine, work on.");
+talkEntry:addResponse("Yes? You wanted to say 'Yes master'!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Ja? Gut. Arbeite weiter.");
+talkEntry:addResponse("Ja? Das heißt 'Ja, Meister'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("No? You dare to disobey?");
+talkEntry:addResponse("#me barks: 'I will teach you to say 'no'!'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Nein? Wagst du etwa, zu widersprechen?");
+talkEntry:addResponse("#me bellt: 'Ich werde dich lehren, 'Nein' zu sagen!'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me knallt mit seiner Peitsche.", "#me cracks his whip.");
+talkingNPC:addCycleText("Haut rein, alle, haut rein!", "Lets rock, everybody, lets rock.");
+talkingNPC:addCycleText("Ich hab das genau gesehen!", "I saw that!");
+talkingNPC:addCycleText("#me summt: 'Der Trauerkloß saß auf einem Felsblock, in der Ecke und weinte vor sich hin.'", "#me hums: 'The sad sack was sittin' on a block of stone, way over in the corner weepin' all alone'.");
+talkingNPC:addCycleText("Arbeite!", "Work!");
+talkingNPC:addCycleText("Schneller!", "Faster!");
+talkingNPC:addCycleText("Gehorche!", "Obey!");
+talkingNPC:addCycleText("Mwahaha!", "Mwahaha!");
+talkingNPC:addCycleText("#me lacht dreckig.", "#me laughs diabolically.");
+talkingNPC:addCycleText("Ruhe bei der Arbeit, Abschaum!", "Be quiet, scum!");
+talkingNPC:addCycleText("Ich hab das gehört!", "I heard that!");
+talkingNPC:addCycleText("#me tritt nach einer Maus.", "#me kicks at a mouse.");
+talkingNPC:addCycleText("Gute Führung? Ich führe dich gleich an einer Schlinge, ist das gut genug?!", "Good conduct? I will teach you 'good conduct' with my whip!");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(1);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 25;
-    -- Help
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","[Game Help] This NPC is the prison guard Percy. Keyphrases: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How high is my remaining punishment?' and 'I want to deliver '.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte  abliefern.'");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","What do you want? Ah, I know: You want to feel my whip!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("Welcome to my realm, the realm of tears, sweat and hard work.");
-    npc.base.autonpcfunctions.AddAdditionalText("Work, scum! Criminals deserve nothing more than pain.");
-    npc.base.autonpcfunctions.AddAdditionalText("Tell me you are innocent and I will laugh for the rest of the day.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Guten Tag","Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.");
-    npc.base.autonpcfunctions.AddAdditionalText("Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!");
-    npc.base.autonpcfunctions.AddAdditionalText("Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","What do you want? Ah, I know: You want to feel my whip!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger(",english");
-    npc.base.autonpcfunctions.AddAdditionalText("Welcome to my realm, the realm of tears, sweat and hard work.");
-    npc.base.autonpcfunctions.AddAdditionalText("Work, scum! Criminals deserve nothing more than pain.");
-    npc.base.autonpcfunctions.AddAdditionalText("Tell me you are innocent and I will laugh for the rest of the day.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Was ist? Ah, ich weiß: Du willst meine Peitsche zu spüren kriegen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger(",german");
-    npc.base.autonpcfunctions.AddAdditionalText("Willkommen in meinem Reich, dem Reich der Tränen, des Schweißes und der harten Arbeit.");
-    npc.base.autonpcfunctions.AddAdditionalText("Arbeite, Abschaum! Kriminelle verdienen nichts als Schmerz!");
-    npc.base.autonpcfunctions.AddAdditionalText("Sag mir jetzt noch, du bist unschuldig und ich lache für den Rest des Tages.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","I do not think you are leaving right now.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("So you think you are leaving? Surprise! You aren't!");
-    npc.base.autonpcfunctions.AddAdditionalText("When you find the exit, send me a letter.");
-    npc.base.autonpcfunctions.AddAdditionalText("Did nobody tell you that you have to stay a bit longer...?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nope. Work. Deliver things. Deliver even more things. Then you may get released. Or not.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","Ich glaube kaum, dass du jetzt gehst.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wenn du den Ausgang findest, schick mir einen Brief.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hat dir niemand gesagt, dass du für eine Weile hier bleibst?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nö. Arbeite. Liefere Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen. Oder auch nicht.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","I do not think you are leaving right now.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("So you think you are leaving? Surprise! You aren't!");
-    npc.base.autonpcfunctions.AddAdditionalText("When you find the exit, send me a letter.");
-    npc.base.autonpcfunctions.AddAdditionalText("Did nobody tell you that you have to stay a bit longer...?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nope. Work. Deliver things. Deliver even more things. Then you may get released.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Ich glaube kaum, dass du jetzt gehst.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("So, du glaubst also, du gehst jetzt? Überraschung! Du gehst nicht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wenn du den Ausgang findest, schick mir einen Brief.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hat dir niemand gesagt, dass du für eine Weile hier bleibst?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nö. Arbeite. Liefer Dinge ab. Liefere noch mehr Dinge ab. Dann wirst du vielleicht entlassen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","That is none of your business.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("I would feel way better when you'd stop talking and went to work instead!");
-    npc.base.autonpcfunctions.AddAdditionalText("I feel like whipping you.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Das geht dich nichts an.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("Es würde mir weit besser gehen wenn du die Klappe hieltest und arbeiten würdest.");
-    npc.base.autonpcfunctions.AddAdditionalText("Mir ist danach, dich auszupeitschen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","You can call me 'master'.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("Percy Dryless. You will remember this name in your nightmares.");
-    npc.base.autonpcfunctions.AddAdditionalText("I have a name at least, your name will be forgotten when you are released... one distant day.");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Du kannst mich 'Meister' nennen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst.");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","I could sell you some hits of my whip. Interested!?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("What buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("I trade pain.");
-    npc.base.autonpcfunctions.AddAdditionalText("Stop bartering and work or I will lose patience.");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich handel mit Schmerzen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","#me points his finger at your face and laughs out loud.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Erm, no quest for you.");
-    npc.base.autonpcfunctions.AddAdditionalText("My quest is to whip those who are lazy.");
-    npc.base.autonpcfunctions.AddAdditionalText("Let me see... your quest is to work!");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","#me zeigt mit dem Finger auf dich und lacht lauthals los.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Äh, keine Queste für dich.");
-    npc.base.autonpcfunctions.AddAdditionalText("Meine Bestimmung ist, die Faulen auszupeitschen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wart mal... deine Bestimmung ist es, zu arbeiten.");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","#me points his finger at your face and laughs out loud.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddAdditionalText("Erm, no quest for you.");
-    npc.base.autonpcfunctions.AddAdditionalText("My quest is to whip those who are lazy.");
-    npc.base.autonpcfunctions.AddAdditionalText("Let me see... your quest is to work!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Aufgabe","#me zeigt mit dem Finger auf dich und lacht lauthals los.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddAdditionalText("Äh, keine Queste für dich.");
-    npc.base.autonpcfunctions.AddAdditionalText("Meine Bestimmung ist, die Faulen auszupeitschen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wart mal... deine Bestimmung ist es, zu arbeiten.");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","Shut up and work!");
-    npc.base.autonpcfunctions.AddAdditionalText("No talking!");
-    npc.base.autonpcfunctions.AddAdditionalText("Shut up, swing the pick, you thug!");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Halt deinen Mund und arbeite!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("Hier wird nicht geplaudert!");
-    npc.base.autonpcfunctions.AddAdditionalText("Klappe halten, Hacke schwingen, du Gauner!");
-    -- Small talk
-    npc.base.autonpcfunctions.AddTraderTrigger("innocent","One word: No.");
-    npc.base.autonpcfunctions.AddAdditionalText("You are as innocent as the chance of my whip missing your sorry ass.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wake up! You aren't dreaming anymore.");
-    npc.base.autonpcfunctions.AddTraderTrigger("unschuldig","Ein Wort: Nein.");
-    npc.base.autonpcfunctions.AddAdditionalText("Die Chance, dass du unschuldig bist, ist so groß wie die, dass dich meine Peitsche verfehlt.");
-    npc.base.autonpcfunctions.AddAdditionalText("Aufwachen! Du träumst nicht mehr.");
-    npc.base.autonpcfunctions.AddTraderTrigger("whip","I call my whip Susi.");
-    npc.base.autonpcfunctions.AddAdditionalText("This is my whip. There are many like it but this one is mine. My whip is my best friend. It is my life.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wanna feel my whip, thug?");
-    npc.base.autonpcfunctions.AddTraderTrigger("peitsche","Ich nenne meine Peitsche Susi.");
-    npc.base.autonpcfunctions.AddAdditionalText("Dies ist meine Peitsche. Es gibt viele wie sie aber diese ist meine. Meine Peitsche ist mein bester Freund. Sie ist mein Leben.");
-    npc.base.autonpcfunctions.AddAdditionalText("Willst du meine Peitsche spüren, Gauner?");
-    npc.base.autonpcfunctions.AddTraderTrigger("criminal","You are as worthless as a cup of water in the ocean.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("thug");
-    npc.base.autonpcfunctions.AddAdditionalText("I will never understand why you people break the law.");
-    npc.base.autonpcfunctions.AddAdditionalText("Filthy bastard, good to see you here.");
-    npc.base.autonpcfunctions.AddTraderTrigger("krimineller","Du bist so wertlos wie eine Tasse Wasser im Meer.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gauner");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich werde nie verstehen, warum ihr Leute das Gesetz brecht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Dreckiger Bastard, gut dass du hier bist.");
-    npc.base.autonpcfunctions.AddTraderTrigger("master","I am your master from now on. Obey or be whipped. Your choice.");
-    npc.base.autonpcfunctions.AddTraderTrigger("meister","Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl.");
-    -- Easter egg
-    npc.base.autonpcfunctions.AddTraderTrigger("mr. jingles","If I catch this stupid mouse, I will trample it!");
-    -- Prison stuff
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","You don't look hungry to me. Work some more!");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel",">",14999);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("No food for lazy scum like you!");
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","Here, have some moulded bread. Back to work!");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",49,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","Thinking you can get free bread from me, eh? Work on or feel my whip.");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","<>",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel",">",14999);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Kein Futter für faulen Abschaum wie dich!");
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",49,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hunger","Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","<>",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("hungry","You don't look hungry to me. Work some more!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("food");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel",">",14999);
-    npc.base.autonpcfunctions.AddAdditionalText("No food for lazy scum like you!");
-    npc.base.autonpcfunctions.AddTraderTrigger("hungry","Here, have some moulded bread. Back to work!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("food");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",49,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hungry","Thinking you can get free bread from me, eh? Work on or feel my whip.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("food");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","<>",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hungrig","Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("essen");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel",">",14999);
-    npc.base.autonpcfunctions.AddAdditionalText("Kein Futter für faulen Abschaum wie dich!");
-    npc.base.autonpcfunctions.AddTraderTrigger("hungrig","Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("essen");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",49,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("hungrig","Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("essen");
-    npc.base.autonpcfunctions.AddCondition("attrib","foodlevel","<",15000);
-    npc.base.autonpcfunctions.AddCondition("item",49,"all","<>",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("pick axe","So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I whip you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("rock pick");
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("pick axe","What do you want with two picks? Hitting stones bihanded?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("rock pick");
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","<>",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("spitzhacke","Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("hacke");
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","<>",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("spitzhacke","So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("hacke");
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,333,0);
-    npc.base.autonpcfunctions.AddTraderTrigger("release","No way.");
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddAdditionalText("You'd like to, don't you?");
-    npc.base.autonpcfunctions.AddAdditionalText("Sure I'll release you. In a hundred years!");
-    npc.base.autonpcfunctions.AddAdditionalText("Shut up!");
-    npc.base.autonpcfunctions.AddAdditionalText("Hahahahaha!");
-    npc.base.autonpcfunctions.AddAdditionalText("Release you? Sure! What next, shall I wipe your boots?");
-    npc.base.autonpcfunctions.AddAdditionalText("No way. Work!");
-    npc.base.autonpcfunctions.AddAdditionalText("Wait, let me laugh first.");
-    npc.base.autonpcfunctions.AddAdditionalText("You want me to release you? You?");
-    npc.base.autonpcfunctions.AddAdditionalText("What kind of joker are you?");
-    npc.base.autonpcfunctions.AddTraderTrigger("release","Until next time. They all come back!");
-    npc.base.autonpcfunctions.AddCondition("qpg","<",1);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2763,"all");
-	npc.base.autonpcfunctions.AddConsequence("qpg","=",0); --release the n00b
-    npc.base.autonpcfunctions.AddTraderTrigger("freilassen","Nichts da.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("lass mich frei");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("rauslassen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("lass mich raus");
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Das hättest du wohl gerne!");
-    npc.base.autonpcfunctions.AddAdditionalText("Ohja, klar lass ich dich frei... in hundert Jahren!");
-    npc.base.autonpcfunctions.AddAdditionalText("Schnauze!");
-    npc.base.autonpcfunctions.AddAdditionalText("Hahahahahaha!");
-    npc.base.autonpcfunctions.AddAdditionalText("Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nichts da. Arbeite!");
-    npc.base.autonpcfunctions.AddAdditionalText("Warte, lass mich erstmal auslachen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Du willst also freigelassen werden? Du?");
-    npc.base.autonpcfunctions.AddAdditionalText("Was für ein Narr bist du?");
-    npc.base.autonpcfunctions.AddTraderTrigger("freilassen","Bis zum nächsten mal. Sie kommen alle wieder!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("lass mich frei");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("rauslassen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("lass mich raus");
-    npc.base.autonpcfunctions.AddCondition("qpg","<",1);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2763,"all");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",0); --release the n00b
-    npc.base.autonpcfunctions.AddTraderTrigger("gold","You have no gold. Work on, you lazy scumbag.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddCondition("item",234,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("copper","No copper? Get copper. That is easy enough for you, isn't it?");
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("iron","Are you kidding me? You have no iron ore.");
-    npc.base.autonpcfunctions.AddCondition("item",22,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("deliver coal","How for somebody's sake do you plan to give me something you don't have?");
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("gold","Du hast kein Gold. Weiterarbeiten, Drecksack!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("ich liefer gold ab");
-    npc.base.autonpcfunctions.AddCondition("item",234,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("kupfer","Kein Kupfererz? Hol' Kupfererz. So einfach ist das.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("ich liefer kupfer ab");
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("eisen","Machst du Witze? Du hast kein Eisenerz.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("ich liefer eisen ab");
-    npc.base.autonpcfunctions.AddCondition("item",22,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("kohle","Wie zum... gedenkst du, mir etwas zu geben, was du nicht hast?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("ich liefer kohle ab");
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("remaining punishment","Pah! You still have to deliver %QUESTSTATUS resources.");
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Bring me %QUESTSTATUS resources and I'll release you. Maybe.");
-    npc.base.autonpcfunctions.AddAdditionalText("Mercy won't come before you bring me %QUESTSTATUS resources.");
-    npc.base.autonpcfunctions.AddTraderTrigger("remaining punishment","You are free to go, thug.");
-    npc.base.autonpcfunctions.AddCondition("qpg","<",1);
-    npc.base.autonpcfunctions.AddAdditionalText("That was enough, I think I can release you.");
-    npc.base.autonpcfunctions.AddTraderTrigger("übrige strafe","Pah! Du mußt mir noch %QUESTSTATUS Ressourcen bringen.");
-    npc.base.autonpcfunctions.AddCondition("qpg",">",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Ressourcen bringst.");
-    npc.base.autonpcfunctions.AddTraderTrigger("übrige strafe","Du kannst gehen, Gauner.");
-    npc.base.autonpcfunctions.AddCondition("qpg","<",1);
-    npc.base.autonpcfunctions.AddAdditionalText("Das reicht jetzt, ich denke, ich kann dich freilassen.");
-    -- Last catch
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","Yes? Fine, work on.");
-    npc.base.autonpcfunctions.AddAdditionalText("Yes? You wanted to say 'yes master'!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Ja? Gut. Arbeite weiter.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ja? Das heißt 'Ja, Meister'");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","No? You dare to disobey?");
-    npc.base.autonpcfunctions.AddAdditionalText("#me barks: 'I will teach you to say 'no'!'");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Nein? Wagst du etwa, zu widersprechen?");
-    npc.base.autonpcfunctions.AddAdditionalText("#me bellt: 'Ich werde dich lehren, 'Nein' zu sagen!'");
-
-    -- Cycletext
-    npc.base.autonpcfunctions.AddCycleText("#me knallt mit seiner Peitsche.","#me cracks his whip.");
-    npc.base.autonpcfunctions.AddCycleText("Haut rein, alle, haut rein!","Lets rock, everybody, lets rock.");
-    npc.base.autonpcfunctions.AddCycleText("Ich hab das genau gesehen!","I saw that!");
-    npc.base.autonpcfunctions.AddCycleText("#me summt: 'Der Trauerkloß saß auf einem Felsblock, in der Ecke und weinte vor sich hin.'","#me hums: 'The sad sack was sittin' on a block of stone, way over in the corner weepin' all alone'.");
-    npc.base.autonpcfunctions.AddCycleText("Arbeite!","Work!");
-    npc.base.autonpcfunctions.AddCycleText("Schneller!","Faster!");
-    npc.base.autonpcfunctions.AddCycleText("Gehorche!","Obey!");
-    npc.base.autonpcfunctions.AddCycleText("Mwahaha!","Mwahaha!");
-    npc.base.autonpcfunctions.AddCycleText("#me lacht dreckig.","#me laughs diabolically.");
-    npc.base.autonpcfunctions.AddCycleText("Ruhe bei der Arbeit, Abschaum!","Be quiet, scum!");
-    npc.base.autonpcfunctions.AddCycleText("Ich hab das gehört!","I heard that!");
-    npc.base.autonpcfunctions.AddCycleText("#me tritt nach einer Maus.","#me kicks at a mouse.");
-    npc.base.autonpcfunctions.AddCycleText("Gute Führung? Ich führe dich gleich an einer Schlinge, ist das gut genug?!","Good conduct? I will teach you 'good conduct' with my whip!");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-			if not QuestTrigger(message,originator) then
-				npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-			end
-			
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
-
-function QuestTrigger(message,originator)
-	local TheItemID = 0;
-	if string.find(message,"[Gg]old")~=nil then  --gold
-		TheItemID = 234;
-		gText="Wenigstens etwas Gold. Wenn du es nicht verdienst, freigelassen zu werden - Arbeite!";
-		eText="At least some gold. Unless you deserve to be released - work!";
-	elseif string.find(message,"[Cc]opper")~=nil or string.find(message,"[Kk]upfer")~=nil then
-		TheItemID = 2536;
-		gText="Kupfererz, bäh. Her damit und zurück an die Arbeit.";
-		eText="Copper. Bah. Give it to me and get back to work.";
-	elseif string.find(message,"[Ii]ron")~=nil or string.find(message,"[Ee]isen")~=nil then
-		TheItemID = 22;
-		gText="So, du denkst du bist der Größte, weil du mir etwas Eisenerz gebracht hast? Danke, weiterarbeiten.";
-		eText="So, you think you are the big shot because you found some iron ore? Thanks, work on.";
-	elseif string.find(message,"[Cc]oal")~=nil or string.find(message,"[Kk]ohle")~=nil then
-		TheItemID = 21;
-		gText="Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!";
-		eText="This coal is as filthy as you. And as black as your soul. Bring me more!";
-	--[[elseif string.find(message,"[Rr]eset")~=nil then   	   ---TO REMOVE ON REALSERVER!!!!
-		npc.base.autonpcfunctions.NPCTalking(thisNPC,"Reset done");
-        originator:setQuestProgress(25,15); 
-        originator:setQuestProgress(26, 2); --sets the town the char got arrested from as imprisoner id
-        return false;  ]]--
-	else return false; end
-
-	local ItemAmount = originator:countItem(TheItemID);
-	if ItemAmount == 0 then
-		return false;
-	end
-	originator:eraseItem(TheItemID,ItemAmount); --erase the items he wants to deliver
-	
-	local old_questvalue = originator:getQuestProgress(QuestID);
-	local questvalue = originator:getQuestProgress(QuestID) - ItemAmount;
-	
-	if questvalue<0 then questvalue = 0; end
-	originator:setQuestProgress(QuestID, questvalue); --set questprogress with the items he still has to deliver
-
-	if old_questvalue>0 then
-		PayToTaxes(originator,ItemAmount); --PAY 1cp per item to taxes of his homefaction
-	end
-	
-	if originator:getQuestProgress(QuestID) < 1 then
-		gText="Du hast genug Ressourcen geliefert, du kannst gehen, Gauner.";
-	    eText="You brought enough ressources, you are free to go now, thug.";
-	end
-	outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText); npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-	return true;
-end
-
-function PayToTaxes(originator,amount)
-	local Imprisoner = originator:getQuestProgress(26); --looks up which town brought him in prison
-	
-	if Imprisoner == 1 then --cadomyr
-        TaxVar = "cadomyr";
-	elseif Imprisoner == 2 then --runewick
-	    TaxVar = "runewick";
-	elseif Imprisoner == 3 then --galmair
-	    TaxVar = "galmair";
-	else return; end   
-	coins = amount+1-1;
-
-	found, currentAmount = ScriptVars:find( TaxVar ); 
-	if found then 
-		ScriptVars:set( TaxVar, coins+currentAmount);	
-	else 
-		ScriptVars:set( TaxVar, coins);
-	end
-	found, sum = ScriptVars:find( TaxVar );
-	--originator:inform("Npc pays "..coins.." copper coins to town treasury. The treasury of "..TaxVar.." has now "..sum.." copper coins.");
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
