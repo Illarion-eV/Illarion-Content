@@ -5,7 +5,6 @@ require("content.dailymessage")
 module("server.login", package.seeall);
 
 function onLogin( player )
-    player: warp(position(0,0,0)); 
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
 	local cowStatus = player:getQuestProgress(8);
