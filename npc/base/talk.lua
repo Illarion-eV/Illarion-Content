@@ -46,18 +46,22 @@ function talkNPC:addTalkingEntry(newEntry)
         self._entry = {};
     end;
     
+	newEntry:setParent(self);
     table.insert(self._entry, newEntry);
 end;
 
 function talkNPC:receiveText(player, text)
-    for _, entry in pairs(self._entry) do
+	local result = false;
+	
+	table.foreach(self._entry, function(_, entry)
         if entry:checkEntry(player, text) then
             entry:execute(player);
+			result = true;
             return true;
         end;
-    end;
+    end);
     
-    return false;
+    return result;
 end;
 
 function talkNPC:nextCycle(counter)
@@ -80,6 +84,7 @@ talkNPCEntry = base.class.class(function(self)
     self["_responses"] = {};
     self["_responsesCount"] = 0;
     self["_consequences"] = {};
+	self["_parent"] = nil;
 end);
 
 function talkNPCEntry:addTrigger(text)
@@ -90,12 +95,26 @@ function talkNPCEntry:addTrigger(text)
     table.insert(self._trigger, text);
 end;
 
+function talkNPCEntry:setParent(npc)
+	local updateFkt = function(_, value)
+		value:setNPC(npc);
+	end;
+	
+	table.foreach(self._conditions, updateFkt);
+	table.foreach(self._consequences, updateFkt);
+	
+	self._parent = npc;
+end;
+
 function talkNPCEntry:addCondition(condition)
     if (condition == nil or not condition:is_a(npc.base.condition.condition.condition)) then
         return;
     end;
     
-    condition:setNPC(self)
+	if (self._parent ~= nil) then
+		condition:setNPC(self._parent);
+	end;
+	
     table.insert(self._conditions, condition);
 end;
 
@@ -112,7 +131,9 @@ function talkNPCEntry:addConsequence(consequence)
         return;
     end;
     
-    consequence:setNPC(self)
+	if (self._parent ~= nil) then
+		consequence:setNPC(self._parent);
+	end;
     table.insert(self._consequences, consequence);
 end;
 
@@ -142,9 +163,9 @@ function talkNPCEntry:execute(player)
         thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
     end;
     
-    for _, consequence in pairs(self._consequences) do
-        consequence:perform(player);
-    end;
+	table.foreach(self._consequences, function(_, consequence)
+		consequence:perform(player);
+	end);
 end;
 
 function _set_value(value)
