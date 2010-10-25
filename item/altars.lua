@@ -3,8 +3,8 @@
 --Altars are dedicated to gods, encoded in the data value
 
 --Overview of queststatus:
---401 contains the ID of the god the character is devoted to
---402 contains the ID of the god the character is a priest of. MUST be equal to 401 or 0.
+--AAA contains the ID of the god the character is devoted to
+--BBB contains the ID of the god the character is a priest of. MUST be equal to AAA or 0.
 
 --Elder Gods
 
@@ -114,7 +114,7 @@ function ini()
     devoteItems[15]={2760,190,48}; --Ronagan: Rope, Ornate dagger, Leather gloves
     devoteItems[16]={16,63,2757}; --Moshran: Orcish helmet, Entrails, Scimitar
 
---These are the items I need to become a priest. Not relevant for now since there is no priest magic.
+--These are the items I need to become a priest
 
     priestItems={};
     priestItems[1]={2416,40,26,726,735}; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
@@ -200,12 +200,7 @@ function LookAtItem( User, Item )
              base.common.InformNLS(User,"#w Der Anblick von "..godName[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","#w Beholding the altar of "..godName[thisGod].." makes you feel proud of your devotion.");
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
-		
-		     base.common.InformNLS(User,"#w Der Anblick von "..godName[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","#w Beholding the altar of "..godName[thisGod].." makes you feel proud of your devotion.");
 
---For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
-
---[[
             if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
 
                 base.common.InformNLS(User,"#w Ein Magier kann leider kein Priester werden.","#w As a magician, you cannot become a priest anymore.");
@@ -224,7 +219,6 @@ function LookAtItem( User, Item )
                 User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
 
             end
-]]
 
         else --uhm, no idea!
             base.common.InformNLS(User,"#w Fehler! Bitte informiere einen Entwickler. Der Religionsstatus deines Charakters ist fehlerhaft.","#w Error! Please inform a developer, the religious status of your character is flawed.");
@@ -293,9 +287,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
---The functions to become a priest can be found below. Useless without priest magic.
---[[			 
-			 
         elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 then --a priest of another god - wants to become priest
 
             if checkAudience(thisGod,User.pos) then
@@ -323,7 +314,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
-]]
 
         elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of another god - wants to become devotee
 
@@ -347,11 +337,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
 
-		    --Delete the line below if you implement priest magic.
-		     base.common.InformNLS(User,"#w Ihr betet zu "..godName[thisGod].." und bekräftigt euren Glauben.","#w You pray to "..godName[thisGod].." and confirm your faith.");
-
-        --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.			 
-		--[[
             if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
 
                 base.common.InformNLS(User,"#w Ein Magier kann leider kein Priester werden.","#w As a magician, you cannot become a priest anymore.");
@@ -396,8 +381,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
             end --noob
 
-	    ]]
-			
         else --uhm, no idea!
 
             base.common.InformNLS(User,"#w Fehler! Bitte informiere einen Entwickler. Der Religionsstatus deines Charakters ist fehlerhaft.","#w Error! Please inform a developer, the religious status of your character is flawed.");
