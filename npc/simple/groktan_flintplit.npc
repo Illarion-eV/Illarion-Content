@@ -60,8 +60,8 @@ radius = 0
 ".+", queststatus(1337) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
@@ -84,14 +84,14 @@ radius = 0
 "erzähl was", "erzähl etwas" -> "Mir ist nicht danach.", "Sehe ich aus wie ein Elfenbarde?", "Weißt du eigentlich, wie schmerzhaft es ist, jemanden an der Zunge zu ziehen? Echsenwesen hassen das ganz besonders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!","Many people owe the Don a lot. I keep track of this. And I never forget!","The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
+"beruf" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.","Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
+"job", english -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!","Many people owe the Don a lot. I keep track of this. And I never forget!","The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
+"job" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.","Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
+"Gobaith", "Gobiath", english -> "What that's supposed to be?"
+"Gobaith", "Gobiath" -> "Was soll das sein?"
+"I am", "my name" -> "Let me check... no, you don't have debts.","Nice. And I am not nice.","I'm Groktan. Mess with the Don and you mess with me."
+"Ich bin", "mein Name" -> "Lass mich mal nachsehen... nein, du hast keine Schulden.","Nett. Und ich bin nicht nett.","Ich bin Groktan. Leg dich mit dem Don an und du kriegst es mit mir zu tun."
 
 -- More small talk; add at least five triggers
 "reminder" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!","Many people owe the Don a lot. I keep track of this. And I never forget!","The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
@@ -106,8 +106,8 @@ radius = 0
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Other NPCs
-"Miggs",english->
-"Miggs"->
+"Miggs",english->"Aye, Miggs. My best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
+"Miggs"->"Aye, Miggs. Meine besten Grüße an ihn. Du findest ihn im Hauptquartier von Don Valerio. Er übernimmt die... schwierigen Fälle des Dons."
 "Bruno","Blackhole",english->
 "Bruno","Blackhole"->
 "Fronita","Emery",english->
