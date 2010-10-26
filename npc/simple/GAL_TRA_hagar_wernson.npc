@@ -74,10 +74,10 @@ itemTrousers = 823
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Bis bald! Und lass dir nich auffe Hände treten..."
 "How are you", "How feel", "How do you do" -> "Aye, I'm fine. But you seem to be thirsty..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, mir gehts gut. Aber ihr seht aus als hättet ihr durst..."
-"your name", "who are you", "who art thou", sex = female -> "What a pleasure! I am %NPCNAME, the innkeeper."
-"dein name", "wer bist du", "wer seid ihr", sex = female -> "Es ist mir ein Vergnügen! Ich bin %NPCNAME, der Wirt."
-"your name", "who are you", "who art thou" -> "I am %NPCNAME, the innkeeper."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin %NPCNAME, der Wirt."
+"your name", "who are you", "who art thou", sex = female -> "What a pleasure! I am Hagar Wernson, the innkeeper."
+"dein name", "wer bist du", "wer seid ihr", sex = female -> "Es ist mir ein Vergnügen! Ich bin Hagar Wernson, der Wirt."
+"your name", "who are you", "who art thou" -> "I am Hagar Wernson, the innkeeper."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt."
 
 -- Catching typical NPC phrases
 "tell something" -> "At that time I was the inkeeper of the Dragon's Pond. But now - yes now I hold this moderate cottage.", "This's my tavern. 'The Winged Sow', thats the name. Aye that's rigth!", "Altough the business in Galmair is much better, I tend to miss the old Drangon's Pond sometimes."
