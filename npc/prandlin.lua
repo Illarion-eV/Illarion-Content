@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: September 30, 2010                        easyNPC Parser v1.01 --
+-- Last parsing: October 26, 2010                        easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,7 +36,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"));
 talkEntry:addResponse("#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -46,7 +46,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'xxx'"));
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -56,7 +56,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"));
 talkEntry:addResponse("#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -66,7 +66,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'xxx'"));
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,12 +74,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me (.+) stab");
 talkEntry:addTrigger("#me (.+) bein");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(208, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."));
 talkEntry:addResponse("#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 933, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,12 +87,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("#me (.+) staff");
 talkEntry:addTrigger("#me (.+) leg");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(208, "belt", "=>", 1));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("xxx"));
 talkEntry:addResponse("#me xxx");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 933, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +102,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"));
 talkEntry:addResponse("#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
