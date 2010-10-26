@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Alice                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Name: Alice                                                      None --
+-- NPC Job:  slave                                                            --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  389, 262, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: October 26, 2010                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Alice"
@@ -16,73 +16,144 @@ sex = female
 position = 389, 262, 0
 direction = west
 affiliation = "None"
-job = "none"
+job = "slave"
 
 language = common
 language = human
+language = orc
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Eine junge in Lumpen gekleidete Frau. Ihr Haar ist verdreckt und ihre Haut von Ruß und Kohle geschwärzt."
+lookatUS = "A jung women dressed in rags. Her hair is scummy and the skin is covered by coal and dust."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
 
--- NPC by Rincewind
--- Alice schmilzt verschiedene Erze zu Barren. Wenn benötigte Kohle und Erz gebracht wird.
--- Queststatus Overview - no quest
+-- Galmair forge
 
--- language: human, orc, common
+-- Help
+"Help" -> inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal against a melted ingot. Keyphrases: melt 5 gold, melt 3 chopper, melt 17 silver, melt 8 iron.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
 
 -- oremelter
 "melt %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(236, %NUMBER, 333, 0)
 "melt %NUMBER gold" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'"
-"schmelz %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0)
-"schmelz %NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Goldnuggets.'"
+"schmelze %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0)
+"schmelze %NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'"
 "melt %NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2550, %NUMBER, 333, 0)
 "melt %NUMBER copper" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'"
-"schmelz %NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0)
-"schmelz %NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und KUpfererz.'"
+"schmelze %NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0)
+"schmelze %NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'"
 "melt %NUMBER iron", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2535, %NUMBER, 333, 0)
 "melt %NUMBER iron" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'"
-"schmelz %NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0)
-"schmelz %NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohl und Eisenerz.'"
-"melt" -> "I 'melt copper ore', '-iron ore' and '-gold nuggets'..."
-"schmelz" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnuggets'..."
+"schmelze %NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0)
+"schmelze %NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
 
--- generall
-"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
-"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "#me gives you a shy 'H-hello...'.", "#me nods in a scared way."
+
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" ->"#me gives you a shy 'H-hello...'.", "#me nods in a scared way."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you a shy 'H-hello...'.", "#me nods in a scared way."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "I-ich b-bin Alice..."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
+"Farewell", "Good bye", "Bye", "Fare thee well" ->"Uhm...hm.", "#me gives a quiet '...bye...'."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
-"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Uhm...hm.", "#me gives a quiet '...bye...'."
-"Ciao", "Fareba", "Adieu", "Au revoir", german -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
-"How are you", "How feel", "How do you do" -> "G-g-gut! M-Mir geht-gehts g-gut. I-ich h-h-hab doch n-nichts falsch g-gemacht, o-o-oder?"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "I-I'm f-f-fine. H-h-havn't d-done some-something wrong, o-o-or?"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Uhm...hm.", "#me gives a quiet '...bye...'."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
+"How are you", "How feel", "How do you do" -> "I-I'm f-fine. H-h-havn't d-done some-something wrong, o-or?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "G-gut! M-Mir geht-gehts g-gut. I-ich h-hab doch n-nichts falsch g-gemacht, o-oder?"
 "your name", "who are you", "who art thou" -> "M-my n-n-name is Alice..."
-"I am", "I'm" -> "H-how m-may I help you?"
-"Ich bin" -> "W-was soll i-ich machen?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
 
--- Help
-"hilfe" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnuggets'...", state = 0
-"helfen" -> "Ich 'schmelze Kupfererz', '-Eisenerz' und '-Goldnuggets'...", state = 0
-"help" -> "I 'melt copper ore', '-iron ore' and '-gold nuggets'...", state = 0
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- smalltalk
-"murgo", english -> "Murgo? He is my owner. And Krudash is his wife."
-"murgo", german -> "Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"I am", "my name" -> "H-how m-may I help you?"
+"Ich bin", "mein Name" -> "W-was soll i-ich machen?"
 
-------------------------------------------------------------------------------AC
--- Cycle Texts - Messages spoken automatically in random intervals.
--- Every NPC should contain at least 10 of those messages.
--- Emotes are possible also starting with "#me ....".
+-- More small talk; add at least five triggers
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Faction stuff
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar", german -> "E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon"
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "I'm s-sorry, I know just a l-little bit about the gods of I-Illarion. B-but I will you tell what t-the orcs t-told me."
+"Gott", "Götter" -> "Es tut m-mir Leid, ich weiß so w-wenig über d-die Götter I-Illairons. A-aber ich will E-euch sagen was m-mir die Orks g-gesagt haben."
+"Bragon", "Brágon", english -> "M-my owner said Brágon is t-the 'daily–sun–maker'. H-he  is t-the big lord of the fire orcs. A-and oh I d-don't know."
+"Bragon", "Brágon" -> "M-mein Besitzer sagt Brágon ist der 'täglich–Sonnen–Macher'. Er i-ist der g-große Herr der Flammenorks. U-und ich w-weiß nicht mehr."
+"Cherga", english -> "T-the icy witch. It's w-what the orcs call her. B-But just their shaman's seem to talk a-about her."
+"Cherga" -> "D-die eisige Hexe. S-so n-nennen sie die Orks. A-Aber nur d-die S-schamanen scheinen darüber zu s-sprechen."
+"Irmorom", english -> "T-the dwarfs, h-here all arround pray t-to Irm-irmorom. There's a temple i-in the town. B-but I don't know about him."
+"Irmorom" -> "D-die Zwerge hier ü-überal b-beten zu ihm. Und es g-gibt auch einen T-tempel i-in der Stadt. A-aber ich weiß n-nichts über ihn."
+"Moshran", english -> "#me jerks horrible: 'I-It is f-forbidden to s-say - say this n-name!'"
+"Moshran" -> "#me zuckt schrecklich zusammen: 'E-es ist v-verboten diesen - diesen Namen z-zu sagen!'"
+
+-- Catching quest triggers
+"quest", english ->"Y-you just can't help me. I h-have to work f-for my own."
+"quest", german -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
+"task", "adventure" -> "Y-you just can't help me. I h-have to work f-for my own."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes",sex=female -> "#me gives a diffident nod. 'Y-yes... yes madam!"
+"Yes" -> "#me gives a diffident nod. 'Y-yes... yes sir!"
+"Ja" -> "#me nickt zaghaft. 'Z-zu... zu Befehl!'"
+"No",sex=female -> "#me gives a diffident nod. 'Y-yes... yes madam!"
+"No" -> "#me gives a diffident nod. 'Y-yes... yes sir!"
+"Nein" ->"#me nickt zaghaft. 'Z-zu... zu Befehl!'"
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
+
+".*",english,chance(20)->"I-I'm sorry!","E-excuse m-me.","Y-yes. I w-will work h-harder from n-now..."
+".*",german,chance(20)->"E-es tut m-mir Leid!","E-entschuldigung.","J-ja. I-ich werde m-mir mehr Mü-mühe geben."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
 
 cycletext "#me reibt sich müde die Augen.", "#me rubs her sleepy eyes."
 cycletext "#me tritt eineige Male auf den Blasebalg, schnell beginnen die Kohlen in der Esse hell zu glühen.", "#me pumps the bellows several times and the coals in the forge start to glow brigtly."
@@ -91,3 +162,6 @@ cycletext "#me gibt eine leisen Schluchzer von sich.", "#me sobs quietly."
 cycletext "#me kratzt an ihren verfilzten Haaren.", "#me scratches her scruffy hairs."
 cycletext "#me rülpst leise, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps quietly, flavour of stale beer and roasted meat floats into the noses of the surrounding area."
 cycletext "#me balanziert für einige Sekunden auf den Zähenspitzen.", "#me balances for several second at her toes."
+cycletext "#me beißt sich auf die Unterlippe und blickt skeptisch auf das Feuer in der Esse.", "#me bites her under lip and glances scepticly at the fire of the forge."
+cycletext "#me zuckt plötzlich heftig zusammen. Dann blickt sie sich beunruhigt um.", "#me jerks hard, then she glances arround, seem to be worried."
+cycletext "#me kneift die Augen zusammen und späht durch die Türe in richtung des Marktes.", "#me narrows her eyes and peeks trough the door at the market."
