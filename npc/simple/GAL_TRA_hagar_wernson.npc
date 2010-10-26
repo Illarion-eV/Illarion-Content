@@ -90,8 +90,8 @@ itemTrousers = 823
 "job" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'"
 "Gobaith", "Gobiath", english -> "Aye, s' horrible waht happened there. I will miss the Nordmark for ever."
 "Gobaith", "Gobiath" -> "Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen."
-"I am", "my name", queststatus(306) => 1 -> "No need for tell me again. I'm really good with names. I never forgott one. - What may I serve you?"
-"Ich bin", "mein Name", queststatus(306) => 1 -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
+"I am", "my name", queststatus(306) = 5 -> "No need for tell me again. I'm really good with names. I never forgott one. - What may I serve you?"
+"Ich bin", "mein Name", queststatus(306) = 5 -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
 "I am", "my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, arn't you? Here you go! The first beer 's for free. Welcome at the Winged Sow tavern!", item(1909, 1, 333, 0), queststatus(306) = 5
 "Ich bin", "mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333, 0), queststatus(306) = 5
 
@@ -103,7 +103,7 @@ itemTrousers = 823
 "Vigalf", english -> "Good-good old Vigalf. Zhambra may bless my old friend."
 "drache" -> "Drachentränke. Meine alte Taverne. Trauriger Weise musste ich sie verlassen."
 "Nordmark" -> "Das ist der Ort wo die alte Taverne stand. Die Drachentränke! Das war ein guter Ort zum Leben. Keine Hexer und Langohren. Abgesehen von denen, deren Köpfe wir auf nen Pfahl gesteckt haben. Har-har!"
-"fügel sau", "fügel schwein" -> "Aye, schau in die Wolken, vielleicht seht ihr eine."
+"gefügelte sau", "fügel schwein" -> "Aye, schau in die Wolken, vielleicht seht ihr eine."
 "Murgo" -> "Ich kenn Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten."
 "Vigalf" -> "Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund."
 
@@ -122,8 +122,8 @@ itemTrousers = 823
 "Cadomyr" -> "In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.", "Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel."
 
 -- Main land factions
-"albar", english -> "My old freind Vigalf was born there. He didn't like it that much."
-"albar", german -> "Mein alter freund Vigalf kam aus Albar. Hat ihm dort nicht so gefallen."
+"albar", english -> "My old friend Vigalf was born there. He didn't like it that much."
+"albar", german -> "Mein alter Freund Vigalf kam aus Albar. Hat ihm dort nie so wirklich gefallen schätze ich."
 "gynk", "gync", english -> "I'm Norodaj! What should I do at this horrible temperature? But I guess a clever man should be able to make good money there."
 "gync", "gynk", german -> "Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes geld machen."
 "salkama", english -> "Salkamar is a club of boring pergament shufflers."
