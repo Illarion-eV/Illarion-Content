@@ -118,8 +118,8 @@ radius = 0
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ich kenne den Erzmagier Morgan nicht recht. Man sagt, er sei etwas... sonderbar. Wenns dich interessiert, besuch in doch."
 "Runewick", english -> "Runewick is not a town but a joke. I mean, who would be so stupid to build towers in the ocean?"
 "Runewick" -> "Runewick ist keine Stadt, sondern ein Witz. Ich meine, wer ist so dämlich und baut Türme im Ozean?"
-"Valerio", "Guilianni", "Don", english -> "Don Valerio is like a father to me. One could say, like a godfather.","Say a bad word about the Don and risk a teeth. Say another and you risk your tongue.","Don Valerio built up what you see here. Not by brick by brick, but coin by coin. Wealth is what Galmair made strong."
-"Valerio", "Guilianni", "Don" -> "Don Valerio ist wie ein Vater für mich. Wie ein Pate, könnte man auch sagen.","Sag ein böses Wort über den Don und die riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.","Don Valerio hat all dies hier aufgebaut. Nicht Stein für Stein, sondern Münze für Münze. Reichtum hat Galmair stark gemacht."
+"Valerio", "Guilianni", "Don", english -> "Don Valerio is like a father to me. One could say, like a godfather.", "Say a bad word about the Don and risk a teeth. Say another and you risk your tongue.", "Don Valerio built up what you see here. Not by brick by brick, but coin by coin. Wealth is what Galmair made strong."
+"Valerio", "Guilianni", "Don" -> "Don Valerio ist wie ein Vater für mich. Wie ein Pate, könnte man auch sagen.", "Sag ein böses Wort über den Don und die riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.", "Don Valerio hat all dies hier aufgebaut. Nicht Stein für Stein, sondern Münze für Münze. Reichtum hat Galmair stark gemacht."
 "Galmair", english -> "Actually, Galmair is my home. And yes, in this valley, there was once a dwarven stronghold. I'm a dwarf, so I feel quite comfortable here."
 "Galmair" -> "Galmair ist genau genommen meine Heimat. Und ja, in diesen Tal war einst eine Zwergenfeste. Ich bin ein Zwerg, als fühl ich mich hier wohl."
 "rosaline", "königin", "queen", "edwards", english -> "Rosi. Arr, a pretty wife she would be. Not for me, of course. For who? Nevermind!"
@@ -130,7 +130,8 @@ radius = 0
 -- Main land factions
 "albar", english -> "I'm not so familiar with other lands. Albar you say? Sounds like a good sparkling wine."
 "albar", german -> "Ich kenne mich nicht mit anderen Ländern aus. Albar sagst du? Klingt nach einem guten Schaumwein."
---Comment: Herzog Alba is a very cheap sparkling wine you can buy at ALDI
+
+-- Comment: Herzog Alba is a very cheap sparkling wine you can buy at ALDI
 "gynk", "gync", english -> "Gynk; oh yes, the land of my dreams. Freedom for everyone, at least if you can afford it."
 "gync", "gynk", german -> "Gynk; oh ja, das Land meiner Träume. Freiheit für alle, solange man sie sich leisten kann."
 "salkama", english -> "Don Valerio once stated that Salkamar isn't as bad as everyone thinks. I don't want to find out, Galmair is my land."
@@ -139,8 +140,8 @@ radius = 0
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Gods are overrated. They won't pay your dues. They may inspire your life, though."
 "Gott", "Götter" -> "Die Götter werden überschätzt. Sie werden nicht deine Schulden bezahlen. Aber sie können dich zu einem besseren Leben inspirieren."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "The god of booze, that's Adron. Anything interesting about him?"
+"Adron" -> "Der Suffgott, das ist Adron. Gibts sonst noch was über ihn zu sagen?"
 "Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -181,9 +182,9 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 0 -> inform("[Neues Quest] Die Erinnerung I"), "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'.", queststatus(1337) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 5, english -> "Five strong hemp ropes is what I need. Bring 'em or starting attachin' them to the tree at the market place, whatever suits you best."
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 5, english -> "Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best."
 "quest", "mission", queststatus(1337) = 1, item(391, all) < 5 -> "Fünf feste Hanfseile brauch ich. Bring sie her oder knüpf sie schonmal an den Baum auf dem Marktplatz, wie du meinst."
-"task", "adventure", "message", queststatus(1337) = 1, item(391, all) < 5 -> "Five strong hemp ropes is what I need. Bring 'em or starting attachin' them to the tree at the market place, whatever suits you best."
+"task", "adventure", "message", queststatus(1337) = 1, item(391, all) < 5 -> "Five strong hemp ropes is what I need. Bring 'em or start attachin' them to the tree at the market place, whatever suits you best."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 1, item(391, all) < 5 -> "Fünf feste Hanfseile brauch ich. Bring sie her oder knüpf sie schonmal an den Baum auf dem Marktplatz, wie du meinst."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
