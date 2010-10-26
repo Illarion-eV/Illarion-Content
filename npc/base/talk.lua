@@ -110,12 +110,11 @@ function talkNPCEntry:addCondition(condition)
     if (condition == nil or not condition:is_a(npc.base.condition.condition.condition)) then
         return;
     end;
-    
+	
+    table.insert(self._conditions, condition);
 	if (self._parent ~= nil) then
 		condition:setNPC(self._parent);
 	end;
-	
-    table.insert(self._conditions, condition);
 end;
 
 function talkNPCEntry:addResponse(text)
@@ -131,10 +130,10 @@ function talkNPCEntry:addConsequence(consequence)
         return;
     end;
     
+    table.insert(self._consequences, consequence);
 	if (self._parent ~= nil) then
 		consequence:setNPC(self._parent);
 	end;
-    table.insert(self._consequences, consequence);
 end;
 
 function talkNPCEntry:checkEntry(player, text)
@@ -164,7 +163,9 @@ function talkNPCEntry:execute(player)
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
-		consequence:perform(player);
+		if consequence then
+			consequence:perform(player);
+		end;
 	end);
 end;
 
