@@ -89,13 +89,10 @@ radius = 0
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Alice","Sklave","Snaga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Krudash","Murgo","er hja","erhja","er'hja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ork" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -108,16 +105,16 @@ radius = 0
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "C-cadomyr? T-they told me it's horrible there. B-but c-could it be more worse than here?"
+"Cadomyr" -> "C-cadomyr? M-man hat mir gesagt, d-dort ist es grauenhaft. A-aber k-kann es irgendwo schlimmer s-sein als hier, wo i-ich eine Slkavin s-sein muss?"
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar", german -> "E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon"
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'"
+"albar", german -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
+"gynk", "gync", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'"
+"gync", "gynk", german -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
+"salkama", english -> "#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'"
+"salkama", german -> "#me schluchzt. 'E-entschulidge, a-aber von s-solchen S-sachen w-weiß ich f-fast nichts. I-ich bin d-doch s-schon mein ganzes L-leben lang Sklave.'"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "I'm s-sorry, I know just a l-little bit about the gods of I-Illarion. B-but I will you tell what t-the orcs t-told me."
