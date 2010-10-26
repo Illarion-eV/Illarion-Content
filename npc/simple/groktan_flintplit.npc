@@ -68,20 +68,20 @@ radius = 0
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Come back with some money!", "Good bye; and always think what the Don would do to you if you disbehave.", "#me grunts: 'Aye, bye'."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Komm mit Geld zurück!","Auf wiedersehen; und denk immer daran, was der Don mit dir machen würde, wenn du dich daneben benimmst.","#me grunzt: 'Aye, servus'."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Come back with some money!", "Good bye; and always think what the Don would do to you if you disbehave.", "#me grunts: 'Aye, bye'."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Komm mit Geld zurück!","Auf wiedersehen; und denk immer daran, was der Don mit dir machen würde, wenn du dich daneben benimmst.","#me grunzt: 'Aye, servus'."
+"How are you", "How feel", "How do you do" -> "The things I do make me feel alright. How about you?", "Well, I know many folks who feel worse, usually, the owe the Don some money.", "Business is good. The Don cares for me and I care for his debt claims."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Was mache mache, stellt mich zufrieden. Und wie sieht das bei dir aus?", "Nun, ich kenne viele Leute, denen es weit schlechter geht. Meist schulden sie dem Don Geld.", "Das Geschäft läuft bestens. Der Don sorgt für mich und ich kümmere mich um seine Schuldscheine."
 "your name", "who are you", "who art thou" -> "I am Badman!","They call me Groktan. As long as they didn't mess with me. Then, they call me Master Groktan!","Groktan Flintsplit. At the Don's service."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!","Groktan Flintsplit. Stets dem Don zu Diensten."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!", "I'm not a trader. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!", "Get lost if you want to barter."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Komm zu mir, wenn du dem Don Geld schuldest. Das gibst du dann mir. Wenn du das nicht tust, dann gebe ich dir was. Auf die Fresse!", "Ich bin doch kein Händler. Der Unterschied: Ich nehme nur Geld und gebe nichts im Gegenzug. Du bekommst nur etwas von mir, wenn du nicht bezahlst. Schmerz!", "Hau ab, wenn du feilschen willst."
+"tell something" -> "I'm not in the mood.", "Do I look like an elven bard?", "Do you know how much pain it is when you pull on somebody's tongue? Lizards don't like this, especially."
+"erzähl was", "erzähl etwas" -> "Mir ist nicht danach.", "Sehe ich aus wie ein Elfenbarde?", "Weißt du eigentlich, wie schmerzhaft es ist, jemanden an der Zunge zu ziehen? Echsenwesen hassen das ganz besonders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -94,9 +94,9 @@ radius = 0
 "Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- More small talk; add at least five triggers
-"reminder" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!","Many people owe the Don a lot. I keep track of this. And I never forget!","The Don relies on me to 'remind' people on paying their depts. Makes me proud, aye!"
+"reminder" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!","Many people owe the Don a lot. I keep track of this. And I never forget!","The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
 "ruffian","bully" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"owe","depth" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"owe","debt" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "money" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erinnerer" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.","Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
