@@ -2,7 +2,7 @@
 --Race:        invisble
 --Town:        Cadomyr, Runewick, Galmair, Hemp Necktie Inn
 --Function:    Teleporter
---Position:    Cadomyr: 141, 631, 0 ,Runewick: 789, 825, 0, Galmair: 425, 246, 0, Wilderland (Hemp Necktie Inn): 730, 226, 0
+--Position:    Cadomyr: 141, 631, 0 ,Runewick: 789, 825, 0, Galmair: 425, 246, 0, Wilderland (Hemp Necktie Inn): 685, 309, 0
 --Facing:      North, doesn't matter, they are pretty much... invisble, you know.
 --Last Update: 06/25/2010
 --Update by:   Estralis Seborian
@@ -152,7 +152,7 @@ function TeleportationFunction(thisNPC)
 	        self.townName[3] = "Galmair";
 	        self.trigger[3] = "[Gg]almair";
 
-	        self.targetPosition[4] = position(730,226,0);
+	        self.targetPosition[4] = position(685,309,0);
 	        self.townName[4] = "Wilderland";
 	        self.trigger[4] = "[Ww]ilderland";
 
