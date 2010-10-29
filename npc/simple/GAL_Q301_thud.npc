@@ -207,6 +207,13 @@ direction=west
 "murgo",english->"Murgo?! He Thud's friend!"
 "murgo",german->"Murgo?! Er Thud's Freund!"
 
+itemHead = 7
+itemChest = 101
+itemMainHand = 2664
+itemSecondHand = 17
+itemTrousers = 2112
+itemShoes = 53
+
 cycletext "#me streckt seine Zunge heraus und versucht seine Nase anzustupsen.","#me tries to pat his nose with his tounge."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
 cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs."

@@ -56,6 +56,11 @@ radius = 0
 "helfen" -> "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0,inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom")
 "help" -> "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0,inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'Gurak, Alice, Tom")
 
+itemChest = 362
+itemMainHand = 23
+itemTrousers = 366
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.","Sei willkommen, in 'Krudash's Hacken und Plündern'!"

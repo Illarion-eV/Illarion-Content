@@ -37,6 +37,11 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Half-hung Bryan the innkeeper of The Hemp Necktie Inn . Keyphrases: Inn, Necktie, Law, Farmer")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Half-hung Bryan der Gastwirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Gasthof, Strick, Gesetz, Knecht")
 
+itemChest = 458
+itemMainHand = 70
+itemTrousers = 34
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" ->"ENGLISH","ENGLISH"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid Willkommen in meinem Gasthof.","Grüße, wie kann ich Euch helfen?","#me blickt dich mit steifem Nacken an. 'Grüße'."

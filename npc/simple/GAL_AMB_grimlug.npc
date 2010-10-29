@@ -36,6 +36,11 @@ wrongLangUS = "#me looks at you confused."
 -- Ein Schamane. redet viel zeug.
 -- Queststatus Overview (kein quest)
 -- tales n' storys of gods and shamans
+
+itemChest = 811
+itemTrousers = 267
+itemShoes = 369
+
 "stop", german -> "Hrm, Grimlug soll erzähligen etwas anderes?", state = 0
 "stop", english -> "Hrm, Grimlug should tell anoter tale?", state = 0
 "continue", state = 0 -> "Wich tale mes should tell?"

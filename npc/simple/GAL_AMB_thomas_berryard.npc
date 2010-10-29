@@ -36,6 +36,10 @@ wrongLangUS = "#me looks at you confused."
 -- Thomas Berryard zerklopft Steine und mischt Farben wenn man ihm die materialien dafür bringt.
 -- Queststatus Overview - no quest
 
+itemChest = 180
+itemMainHand = 23
+itemTrousers = 183
+
 -- language: halfling, orc, common
 
 -- Verkauft: Eimer (51)

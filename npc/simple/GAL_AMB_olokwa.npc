@@ -170,6 +170,9 @@ wrongLangUS = "#me looks at you confused."
 "Yago", "helgi", german -> "Hurr. Yago 'nd Helgi sind tapfere Kriega! Yubba."
 "Yago", "helgi", english -> "Hurr. Yago 'nd Helgi be brave soldier. Yubba."
 
+itemChest = 813
+itemTrousers = 823
+itemShoes = 53
 
 "moshran", "god", german -> "Gosh! NIcht sagst diese Name! Bassa fragen Schamane über Vatha."
 "moshran", "god", english -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
@@ -192,6 +195,6 @@ cycletext "Die eisige Hexe! Sie nennt alles beim wahren Namen! Nennt sie.", "The
 cycletext "Dieh Ahnen ruhen nicht! Nein...", "The ancestors are fitful. Yes..."
 cycletext "Stein brechen wird. Holz morschen wird. Knochn splittern wird.", "Stone 'll break. Wood'll root. Bone 'll slpash."
 cycletext "#me bohrt einen Finger ins Ohr.", "#me drills a finger into his ear."
-cycletext "#me steckt sich einen finger nach den anderen in den Mund und lutscht den Dreck unter den Fingernägeln aus.", "#me slurps at one finger after another, to get the dirt under the fingernails."
+cycletext "#me steckt sich einen Finger nach den anderen in den Mund und lutscht den Dreck unter den Fingernägeln aus.", "#me slurps at one finger after another, to get the dirt under the fingernails."
 cycletext "#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air."
 cycletext "#me schwankt plötzlich für einige Sekunden beunruhigend ohne ein Wort von sich zu geben. Dann schnarcht er mit einem Mal laut auf und erwacht daraufhin wieder mit verwirrtem Gesichtsausdruck.", "#me swings some seconds ominously at his stand without a noise, then gives a loud snore and wake up again, grimazing a puzzled face."

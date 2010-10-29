@@ -16,14 +16,14 @@ sex = male
 position = 39, 649, 0
 direction = south
 affiliation = "None"
-job = "none"
+job = "quester"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Ein Wächter Cadomyrs. Er ist gut rasiert und blickt stolz in die Ferne."
 lookatUS = "A guard of Cadomyr. He's well shaved and glances proud into the area."
@@ -31,6 +31,12 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+
+itemHead = 2287
+itemChest = 2369
+itemMainHand = 2731
+itemTrousers = 2114
+itemShoes = 53
 
 -- NPC by Rincewind
 

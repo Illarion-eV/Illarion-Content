@@ -42,6 +42,10 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Morri the cook. Keyphrases: profession, job, Gobaith, name.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: Beruf, Job, Gobaith, Name.")
 
+itemChest = 101
+itemTrousers = 2111
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hrm...Greetings. How can I help you?", "#me grumbles in a bad mood: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag'.", "Heil Irmorom. Wollt ihr was kaufen?"
@@ -106,7 +110,7 @@ radius = 0
 "albar" -> "Albar! Ein schreckliches Land. Regiert von Narren. Das Volk ist schwach, es ist den Königen kaum mehr wert als die Schweine die sie fressen."
 "gynk", "gync", english -> "Gynk! Everyone meets their, who is able to speak. Of course, everything is possible there, but a market is there! If dwarfs would not waste their money on drinks and games... *sighs*"
 "gync", "gynk" -> "Gynk! Hier trifft sich alles Volk, das der Sprache mächtig ist. Sicher, da kann viel passieren, aber einen Markt gibt es dort! Würden die Zwerge dort nicht alles Geld versaufen und verspielen... *seufzt*"
-"salkama", english -> "Salkamar? In Salkamar 4 to 5 people claim that they are smarter than an average citizen. Smart, isn't it? *laughs*
+"salkama", english -> "Salkamar? In Salkamar 4 to 5 people claim that they are smarter than an average citizen. Smart, isn't it? *laughs*"
 "salkama" -> "Salkamar? In Salkamar behaupten 4 von 5 Leuten, sie sind klüger als der durchschnittliche Bürger. Clever nicht war? *lacht*"
 "Ironsiege",english ->"Listen to me, Ironsiege is an impregnable fortress. Just to call the gates in the mountain as 'imposant' is not suitable. They appear very gigantic!", "Well, you can find mainly three clans in Ironsiege. The Goldaxeclan, the Ironaxeclan, and last but not least my clan. The Flinthammer! Arr!"
 "Ironsiege" ->"Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.", "Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"

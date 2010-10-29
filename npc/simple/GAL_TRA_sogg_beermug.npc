@@ -44,6 +44,9 @@ radius = 0
 -- Tools (Brewer): 51, 227
 -- Beer: 1909, 1908
 
+itemChest = 802
+itemTrousers = 821
+itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hick'", state = 0

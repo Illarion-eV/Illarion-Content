@@ -59,6 +59,9 @@ wrongLangUS = "#me snorts loudly."
 "?", english -> "xxx"
 "!", english -> "xxx"
 
+itemChest = 811
+itemTrousers = 460
+itemShoes = 53
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

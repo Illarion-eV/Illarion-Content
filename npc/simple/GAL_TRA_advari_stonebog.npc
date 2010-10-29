@@ -44,6 +44,10 @@ radius = 0
 -- Raw meat: 307, 552, 553, 2934
 -- Milk: 330
 
+itemChest = 2390
+itemTrousers = 2116
+itemShoes = 326
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Keyphrases: usual trading trigers.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen handels trigger.")

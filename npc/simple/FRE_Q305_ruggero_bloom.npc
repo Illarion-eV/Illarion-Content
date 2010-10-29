@@ -166,6 +166,10 @@ wrongLangUS = "#me looks at you confused."
 ".*", english -> "Listen... I won't talk to you. Get rid here, or I drill my boots into your butt. Got it?", "I won't tell you again. GET RID!", state + 1
 ".*", german -> "Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!", state + 1
 
+itemChest = 180
+itemTrousers = 824
+itemShoes = 53
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

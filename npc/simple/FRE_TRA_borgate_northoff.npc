@@ -39,6 +39,10 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Borgate Northoff the innkeeper of The Hemp Necktie Inn . Keyphrases: Gods, Bragon, Adron")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Borgate Northoff der Wirt vom Gasthof zur Hanfschlinge. Schlüsselwörter: Götter, Bragon, Adron")
 
+itemChest = 101
+itemTrousers = 2113
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "ENGLISH3."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?.", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"

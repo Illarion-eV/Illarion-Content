@@ -39,6 +39,10 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: heoric deeds, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Heldentaten, erzähl etwas")
 
+itemMainHand = 2642
+itemTrousers = 2113
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx", "xxx", "ENGLISH3."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"

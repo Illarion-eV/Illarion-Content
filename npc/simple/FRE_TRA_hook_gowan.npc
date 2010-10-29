@@ -40,6 +40,10 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Hook Gowan a trader of The Hemp Necktie Inn . Keyphrases: Nubris, Ronagan, King Edwards, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hook Gowan ein Händler im Gasthof zur Hanfschlinge. Schlüsselwörter: Nubris, Ronagan, König Edwards, erzähl etwas")
 
+itemChest = 810
+itemTrousers = 823
+itemShoes = 53
+
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Mit einem Fuß im Schatten, zum Gruße.", "Guten Tag, braucht ihr etwas? Ich kaufe und verkaufe erlesene Güter aus dritter Hand.", "Seid gegrüßt und kauft bei mir ein."
