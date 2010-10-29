@@ -5,6 +5,9 @@ require("content.dailymessage")
 module("server.login", package.seeall);
 
 function onLogin( player )
+
+    world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
 	local cowStatus = player:getQuestProgress(8);
