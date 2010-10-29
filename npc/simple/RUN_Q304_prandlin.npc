@@ -2,7 +2,7 @@
 -- NPC Name: Prandlin                                                    None --
 -- NPC Job:  profesional sleeper (quest)                                      --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  774, 761, 0            --
+-- NPC Race: halfling                   NPC Position:  786, 790,0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
 -- Author:   Rincewind                                                          --
@@ -13,7 +13,7 @@
 name = "Prandlin"
 race = halfling
 sex = male
-position = 774, 761, 0
+position = 786, 790,0
 direction = northeast
 affiliation = "None"
 job = "none"
