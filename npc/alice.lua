@@ -350,7 +350,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Alice");
-talkEntry:addTrigger("Sklave");
+talkEntry:addTrigger("Slave");
 talkEntry:addTrigger("Snaga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me jerks subtly. 'How m-may I h-help y-you?'");
