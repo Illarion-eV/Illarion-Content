@@ -89,7 +89,7 @@ itemShoes = 53
 "Ich bin", "mein Name" -> "W-was soll i-ich machen?"
 
 -- More small talk; add at least five triggers
-"Alice","Sklave","Snaga",english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
+"Alice","Slave","Snaga",english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
 "Krudash","Murgo","er hja","erhja","er'hja",english -> "I h-have to listen w-what the orcs say. I must not weap and h-have to be st-st-strenuous."
 "orc" -> "I g-grew up w-with orcs. My whole l-life. I c-can't remember the t-time it was different...."
 "Alice","Sklave","Snaga" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
