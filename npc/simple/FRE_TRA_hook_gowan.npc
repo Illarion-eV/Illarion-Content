@@ -9,6 +9,7 @@
 --                                                                            --
 -- Last parsing: September 22, 2010                      easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
+----2ond hand stuff: 2776 short sword, 391 torch, 65 short bow, 64 arrow, 97 leather bag
 
 name = "Hook Gowan"
 race = human

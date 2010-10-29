@@ -9,6 +9,8 @@
 --                                                                            --
 -- Last parsing: September 22, 2010                      easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
+--Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
+
 
 name = "Borgate Northoff"
 race = dwarf
