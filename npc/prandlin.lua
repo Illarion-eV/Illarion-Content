@@ -2,7 +2,7 @@
 -- NPC Name: Prandlin                                                    None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  774, 761, 0            --
+-- NPC Race: halfling                   NPC Position:  786, 790,0           --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
 -- Author:   not set                                                          --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 774, 761, 0, 1, 'Prandlin', 'npc.prandlin', 0, 1, 0, 189, 182, 164, 217, 154, 123);
+VALUES (2, 786, 790,0, 1, 'Prandlin', 'npc.prandlin', 0, 1, 0, 189, 182, 164, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
