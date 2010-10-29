@@ -8,18 +8,7 @@ function onLogout( theChar )
 	  	  return true;
 	  end
 
-    -- begin loo
-    local posi = theChar.pos;
-    if (posi.x == -73 or posi.x == -72) and (posi.y == -68 or posi.y == -67) and posi.z == 0 then
-        local bucket = world:getItemOnField( position( -72, -69, 0 ) );
-        local door = world:getItemOnField( position( -74, -68, 0 ) );
-        base.keys.UnlockDoor( door );
-        door = world:getItemOnField( position( -74, -68, 0 ) );
-        OpenDoor( door );
-        bucket.id = 51;
-        world:changeItem( bucket );
-    end;
-    -- end loo
+    world:gfx(31,theChar.pos); --A nice GFX that announces clearly: A player logged out.
     
 	-- begin cow transporter
 	local setQP = true;
