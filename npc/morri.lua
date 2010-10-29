@@ -677,6 +677,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein grimmiger Zwerg mit einem prächtigen schwarzen Bart und einem kahlem Kopf.", "A grimly dwarf with an impressive black beard and a bald head.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 101);
+mainNPC:setEquipment(9, 2111);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

@@ -24,6 +24,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.julio_canaille", package.seeall)
@@ -64,7 +65,10 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Ge
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,7 +83,10 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Ge
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -94,7 +101,10 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("xxx"));
 talkEntry:addResponse("xxx");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +121,10 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("xxx"));
 talkEntry:addResponse("xxx");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, 43));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +306,7 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +316,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -313,7 +326,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +338,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("xxx");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(304, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,7 +772,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Cherga! Warum, warum nur? warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit.");
+talkEntry:addResponse("Cherga! Warum, warum nur? Warum lasst ihr mich hier versauern? Nehmt mich doch endlich mit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1030,6 +1043,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein modriger Geist, der unruhig über einem Grab schwebt.", "ENGLISH");
 mainNPC:setUseMessage("Ch-h! Fass mich nicht an!", "Ch-h! Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 185);
+mainNPC:setEquipment(5, 47);
+mainNPC:setEquipment(9, 823);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

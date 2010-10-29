@@ -1301,6 +1301,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein uralter knochendürrer Ork. Ein schmutziger Lumpen verbindet seine Augen, er scheint blind zu sein. Er hält eine erloschene Laterne in der Hand.", "An immemorial bony Orc. A scruffy rag is bound over his eyes, he seems to be blind. He holds a empty lantern in his hand.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 813);
+mainNPC:setEquipment(9, 823);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

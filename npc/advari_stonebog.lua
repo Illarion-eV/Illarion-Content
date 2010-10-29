@@ -705,6 +705,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn.", "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 2390);
+mainNPC:setEquipment(9, 2116);
+mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

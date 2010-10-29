@@ -17,6 +17,7 @@ VALUES (4, 368, 260, 0, 0, 'Krudash', 'npc.krudash', 1, 3, 0, 6, 18, 8, 137, 123
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.krudash", package.seeall)
@@ -62,7 +63,6 @@ talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
-talkEntry:addResponse("Be welcome at 'Krudash's Hack and Sack' shop!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -95,7 +95,6 @@ talkEntry:addResponse("Greebas. Do you need sumthing?");
 talkEntry:addResponse("Hurr! Be greeted.");
 talkEntry:addResponse("Hurr. Krudash sell all you need. For good hack'n sack trip! Hehe!");
 talkEntry:addResponse("Latha math! Greetings-Greetings, mes mean.");
-talkEntry:addResponse("Be welcome at 'Krudash's Hack and Sack' shop!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,6 +754,10 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Eine sinnliche Orkfrau mit wilden schwarzen Haaren. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz.", "A voluptous orcess qith wild black hair. She have a cute nose and pointy little tusks. Observantly she glances the marketplace.");
 mainNPC:setUseMessage("Fass mich nicht an! Oder ich mach disch Kebab! Alda!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 362);
+mainNPC:setEquipment(5, 23);
+mainNPC:setEquipment(9, 366);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

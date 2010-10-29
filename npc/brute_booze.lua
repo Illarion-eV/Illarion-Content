@@ -907,6 +907,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein stattlicher Ork, mit selbstbewusstem Lächeln. Er trägt nichts am Oberkörper und spricht mit seltsamem Akzent.", "xxx");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(5, 2642);
+mainNPC:setEquipment(9, 2113);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

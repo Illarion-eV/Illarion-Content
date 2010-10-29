@@ -204,6 +204,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein steinalter Halbling, der friedlich in seine Decke gekuschelt vor sich hin schlummert.", "ENGLISH1");
 mainNPC:setUseMessage("#me dreht sich auf die andere Seite und schläft weiter.", "ENGLISH1");
 mainNPC:setConfusedMessage("#me schnarcht laut.", "#me snorts loudly.");
+mainNPC:setEquipment(3, 811);
+mainNPC:setEquipment(9, 460);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

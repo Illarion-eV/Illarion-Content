@@ -851,6 +851,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 180);
+mainNPC:setEquipment(5, 23);
+mainNPC:setEquipment(9, 183);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

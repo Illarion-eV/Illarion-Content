@@ -744,6 +744,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, thiss seems like a ugly wild pirate! Take care.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 180);
+mainNPC:setEquipment(9, 824);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

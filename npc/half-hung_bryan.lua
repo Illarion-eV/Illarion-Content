@@ -949,6 +949,10 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein kräftiger Mann mit schräg verenktem Hals und Hakennase, der mit heißerer Stimme spricht. Eine gerippte, dunkel gefärbte Narbe zieht sich quer über seinen Hals.", "ENGLISH");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 458);
+mainNPC:setEquipment(5, 70);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

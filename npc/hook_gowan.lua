@@ -672,6 +672,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein verschmitzt drein blickender Mann mit Hakenhand. Er spricht mit heiﬂerer, kratziger Stimme.", "xxx");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 810);
+mainNPC:setEquipment(9, 823);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

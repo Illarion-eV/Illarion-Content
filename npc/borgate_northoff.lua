@@ -751,6 +751,9 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein breit lächelnder Zwergenwirt, dessen prächtiger Bart und Kleidung von Bierflecken übersät ist.", "A broadly smiling dwarfen barkeeper whose proud beard and clothes are covered with beer stains.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(3, 101);
+mainNPC:setEquipment(9, 2113);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
