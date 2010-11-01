@@ -27,6 +27,7 @@ module("npc.alice", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
