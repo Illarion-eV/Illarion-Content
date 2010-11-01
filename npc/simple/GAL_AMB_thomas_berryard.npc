@@ -41,7 +41,7 @@ itemMainHand = 23
 itemTrousers = 183
 
 -- language: halfling, orc, common
-
+--Memo to me: DELETE THE DAMN RESURCES DUDE!
 -- Verkauft: Eimer (51)
 -- Kauft: Eimer (51)
 "%NUMBER Steinquader", item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, %NUMBER, 333, 0)
