@@ -268,64 +268,35 @@ itemShoes = 53
 
 --Main land factions 
 
-"albar",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"albar",german->"GERMAN1.","GERMAN2.","GERMAN3." 
-"gynk","gync",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"gync","gynk",german->"GERMAN1.","GERMAN2.","GERMAN3." 
-"salkama",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"salkama",german->"GERMAN1.","GERMAN2.","GERMAN3." 
+"albar",english->"Thud dont't know. Not know town of human. Is humans town. You ask human. About, uh!?" 
+"albar",german->"Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?" 
+"gynk","gync",english->"Thud dont't know. Not know town of human. Is humans town. You ask human. About, uh!?" 
+"gync","gynk",german->"Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?" 
+"salkama",english->"Thud dont't know. Not know town of human. Is humans town. You ask human. About, uh!?" 
+"salkama",german->"Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?" 
 
 --Gods - use the triggers of the god the NPC worships or fights 
 
-"god"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Gott","Götter"->"GERMAN1.","GERMAN2.","GERMAN3." 
+"god"->"Bonelord, be mes god! He father ob all orcs! Hurr. Ib Thud like know about god, he ask Grimlug. Grimlug is shaman! Shaman be prudent." 
+"Gott","Götter"->"Schädelgott, sein mein Gott. Er Vater von alle Ork. Hurr! Wenn Thud spricht über Götter, er fragt Grimlug. Grimlug Schamane ist. Sehr weise. Yubba." 
 
-"Adron",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Adron"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Bragon","Brágon",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Bragon","Brágon"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Cherga",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Cherga"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Elara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Elara"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Eldan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Eldan"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Findari",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Findari"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Irmorom",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Irmorom"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Malachin","Malachín",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Malachin","Malachín"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Moshran",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Moshran"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Nargun","Nargún","Nargùn",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Nargun","Nargún","Nargùn"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Oldra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Oldra"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Ronagan",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Ronagan"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Sirani",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Sirani"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Tanora","Zelphia",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Tanora","Zelphia"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Ushara",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Ushara"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"Zhambra",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Zhambra"->"GERMAN1.","GERMAN2.","GERMAN3." 
+"Moshran","bonelord",english->"Bonelord, be mes god! He father ob all orcs! Hurr. Ib Thud like know about god, he ask Grimlug. Grimlug is shaman! Shaman be prudent." 
+"Moshran","bonelord","schädelgott"->"Schädelgott, sein mein Gott. Er Vater von alle Ork. Hurr! Wenn Thud spricht über Götter, er fragt Grimlug. Grimlug Schamane ist. Sehr weise. Yubba." 
+
 
 --Catching quest triggers 
 
-"quest",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"quest",german->"GERMAN1.","GERMAN2.","GERMAN3." 
-"task","adventure"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Auftrag","Aufgabe","Abenteuer"->"GERMAN1.","GERMAN2.","GERMAN3." 
+"quest",english->"You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr." 
+"quest",german->"Du bringst Thud alle Trophäe du hast! Yubba?" 
+"task","adventure"->"You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr." 
+"Auftrag","Aufgabe","Abenteuer"->"Du bringst Thud alle Trophäe du hast! Yubba?" 
 
 --Last catch: Think about keyphrases the player might say and that are not caught until here 
 
-"Yes"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Ja"->"GERMAN1.","GERMAN2.","GERMAN3." 
-"No"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"Nein"->"GERMAN1.","GERMAN2.","GERMAN3." 
+"Yes"->"Uh? What you mean?","Hä? What uh talking about?","Yubba. There we go." 
+"Ja"->"Uh? Was wollen du?","Hä? Du sprechen worüber?","Yubba. So wir machn." 
+"No"->"What that mean?","`No? Uh sure?","Whatever... Thud don't care 'bout!" 
+"Nein"->"Was das zu bedeuten hat?","Nein? Du sicher?","Was immer auch... Thud es nix interessiert." 
 
 --Absolutely last catch: Everything a player says and is not caught earlier 
 --This response should give the player a hint about what to ask the NPC 
@@ -333,8 +304,8 @@ itemShoes = 53
 
 ".*",english,chance(20)-> "#me thuds your head with his big club. 'Schut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
 ".*",german,chance(20)->"#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
-".*",english,chance(40)->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-".*",german,chance(40)->"GERMAN1.","GERMAN2.","GERMAN3."
+".*",english,chance(40)->"Oh! Mes never thought about. In taht way!","Is that so? Sound's silly.","You mouth be filled with garbage. And it drop's out, each time uh open." 
+".*",german,chance(40)->"Oh! So hat Thud das noch nie betrachtet.","Das ist so? Klingt bekloppt. In meine Ohren.","Dein Maul, voll mit Müll. Und er fällt heraus, jedesmal du machst auf."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
