@@ -316,7 +316,7 @@ cycletext "#me streckt seine Zunge heraus und versucht seine Nase anzustupsen.",
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
 cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs."
 cycletext "#me wischt seine Nase am Hemdärmel ab.", "#me sneezes into his shirtsleeve."
-cycletext "Ich Thud ist!", "I be Thud!"
+cycletext "#me grinst dümmlich. 'Ich Thud ist!'", "#me grins silly. 'I be Thud is!'"
 cycletext "#me gluckst ein wenig.", "#me clucks a littl ebit."
 cycletext "Mirr mag grosse Kabumms.", "I like to thud!"
 cycletext "#me blickt mit leeren Blick an eine nichtssagende Stelle.", "#me glances with empty eyes at an meaningless area."
