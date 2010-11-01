@@ -196,21 +196,21 @@ radius = 0
 -- 2nd quest: Bring a message to Miggs.
 
 -- Give out quest 2
-"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] The Reminder II"), "ENGLISH.", queststatus(1337) = 3
-"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "GERMAN.", queststatus(1337) = 3
-"Task", "Adventure", "Message", queststatus(1337) = 2 -> inform("[New quest] The Reminder II"), "ENGLISH.", queststatus(1337) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "GERMAN.", queststatus(1337) = 3
+"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] The Reminder II"), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(1337) = 3
+"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(1337) = 3
+"Task", "Adventure", "Message", queststatus(1337) = 2 -> inform("[New quest] The Reminder II"), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(1337) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(1337) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 3, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 3 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 3 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 3 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 3, english -> "Bring my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
+"quest", "mission", queststatus(1337) = 3 -> "Bring sofort meine Nachricht zu Miggs! Er soll doch nicht in die falschen Fressen schlagen, es könnte deine sein."
+"Task", "Adventure", "Message", queststatus(1337) = 3 -> "Bring my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 3 -> "Bring sofort meine Nachricht zu Miggs! Er soll doch nicht in die falschen Fressen schlagen, es könnte deine sein."
 
 -- Quest 2 solved, reward: 50cp, ITEM, +10 rankpoints
-".+", queststatus(1337) = 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 4, english, town = Galmair -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 4, english -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5
-".+", queststatus(1337) = 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 4, town = Galmair -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 4 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(1337) = 5
 
 -- 3rd quest: Bring a message to Bruno Blackhole.
@@ -228,9 +228,9 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 6 -> "GERMAN."
 
 -- Quest 3 solved, reward: NICE ITEM, +10 rankpoints
-".+", queststatus(1337) = 7, english, town = Cadomyr -> inform("[Quest solved] You are awarded A NICE ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 7, english, town = Galmair -> inform("[Quest solved] You are awarded A NICE ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 7, english -> inform("[Quest solved] You are awarded A NICE ITEM."), "ENGLISH.", item(391, 1, 699, 0), queststatus(1337) = 8
-".+", queststatus(1337) = 7, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 7, town = Galmair -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 699, 0), queststatus(1337) = 8, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 7 -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM."), "GERMAN.", item(391, 1, 699, 0), queststatus(1337) = 8
 
 -- 4th quest: Bring a message to Fronita Emery.
@@ -248,9 +248,9 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 9 -> "GERMAN."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
-".+", queststatus(1337) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded 400 copper coins. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
+".+", queststatus(1337) = 10, english, town = Galmair -> inform("[Quest solved] You are awarded 400 copper coins. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
 ".+", queststatus(1337) = 10, english -> inform("[Quest solved] You are awarded 400 copper coins."), "ENGLISH.", money + 400, queststatus(1337) = 11
-".+", queststatus(1337) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
+".+", queststatus(1337) = 10, town = Galmair -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
 ".+", queststatus(1337) = 10 -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "GERMAN.", money + 400, queststatus(1337) = 11
 
 -- 5th quest: Bring a message to Rosaline Edwards.
@@ -268,9 +268,9 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 12 -> "Soso, den Liebesbrief des Dons für Rosaline Edwards hast du noch nicht überbracht? Also, worauf wartest du!?"
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints
-".+", queststatus(1337) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 13, english, town = Galmair -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
 ".+", queststatus(1337) = 13, english -> inform("[Quest solved] You are awarded AN UBER ITEM."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14
-".+", queststatus(1337) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 13, town = Galmair -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
 ".+", queststatus(1337) = 13 -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14
 
 -- No more quests, just nice words of gratitude
@@ -286,10 +286,10 @@ radius = 0
 "Snickers" -> "Wenns mal wieder länger dauert..."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "There is something I wanted to say, but I forgot...","Can you rephrase that?","Don't try to fool me or I fool you... in your face!"
+"Ja" -> "Ich wollte gerade noch etwas sagen, aber ich hab es vergessen.","Kannst das anders ausdrücken?","Veräppel mich und ich veräppel... dein Gesicht!"
+"No" -> "Whatever, I do what the Don wants.","That is pretty interesting, why don't you tell more about that?","What!?"
+"Nein" -> "Na und, ich mach was der Don mir sagt.","Das ist sehr interessant, warum erzählst du nicht mehr darüber?","Was!?"
 
 -- Cycletext: Add as many random messages as possible
 
