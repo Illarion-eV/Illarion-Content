@@ -85,24 +85,24 @@ wrongLangUS = "#me looks at you confused."
 "task", "adventure", "mission", "money", "earn", "bow", queststatus(302) = 5 -> "Thanks for your help with the Bowstring."
 
 -- saw logs--------------------------
-"saw %NUMBER apple", item(2560, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2716, %NUMBER, 333, 0)
+"saw %NUMBER apple", item(2560, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2716, %NUMBER, 333, 0),deleteitem(2560,%NUMEBER)
 "saw %NUMBER apple" -> "I wowuld be glad to do so, but you havn't enough applewood."
-"s[aeä]ge %NUMBER apfel", item(2560, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(2716, %NUMBER, 333, 0)
-"s[aeä]ge %NUMBER apfel" -> "Würd ich sofort machen. Aber du hast nicht genügend Apfelholz."
-"saw %NUMBER conifer", item(3, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2543, %NUMBER, 333, 0)
+"säge %NUMBER apfel","saege %NUMBER apfel", item(2560, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(2716, %NUMBER, 333, 0),deleteitem(2560,%NUMEBER)
+"säge %NUMBER apfel","saege %NUMBER apfel"-> "Würd ich sofort machen. Aber du hast nicht genügend Apfelholz."
+"saw %NUMBER conifer", item(3, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(2543, %NUMBER, 333, 0),deleteitem(3,%NUMEBER)
 "saw %NUMBER conifer" -> "I wowuld be glad to do so, but you havn't enough coniferwood."
-"s[aeä]ge %NUMBER nadel", item(3, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(2543, %NUMBER, 333, 0)
-"s[aeä]ge %NUMBER nadel" -> "Würd ich sofort machen. Aber du hast nicht genügend Nadelholz."
-"saw %NUMBER cherry", item(543, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(545, %NUMBER, 333, 0)
+"säge %NUMBER nadel","saege %NUMBER nadel", item(3, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(2543, %NUMBER, 333, 0),deleteitem(3,%NUMEBER)
+"säge %NUMBER nadel","saege %NUMBER nadel" -> "Würd ich sofort machen. Aber du hast nicht genügend Nadelholz."
+"saw %NUMBER cherry", item(543, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(545, %NUMBER, 333, 0),deleteitem(543,%NUMEBER)
 "saw %NUMBER cherry" -> "I wowuld be glad to do so, but you havn't enough cherrywood."
-"s[aeä]ge %NUMBER kirsch", item(543, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(545, %NUMBER, 333, 0)
-"s[aeä]ge %NUMBER kirsch" -> "Würd ich sofort machen. Aber du hast nicht genügend Kirschenholz."
-"saw %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(546, %NUMBER, 333, 0)
+"säge %NUMBER kirsch","saege %NUMBER kirsch", item(543, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(545, %NUMBER, 333, 0),deleteitem(543,%NUMEBER)
+"säge %NUMBER kirsch","saege %NUMBER kirsch" -> "Würd ich sofort machen. Aber du hast nicht genügend Kirschenholz."
+"saw %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me starts to saw the wood, after a few moments he finishes the work.", item(546, %NUMBER, 333, 0),deleteitem(544,%NUMEBER)
 "saw %NUMBER naldor" -> "I wowuld be glad to do so, but you havn't enough Naldorwood."
-"s[aeä]ge %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(546, %NUMBER, 333, 0)
-"s[aeä]ge %NUMBER naldor" -> "Würd ich sofort machen. Aber du hast nicht genügend Naldorholz."
-"saw" -> "I 'saw applewood', 'saw cherrywood', 'saw coniferwood' and 'saw naldorwood. At least two logs."
-"s[aeä]ge" -> "Ich 'säge Apfelholz', 'säge Kirschholz', 'säge Nadelholz' und 'säge Naldorholz'. Mindestens zwei Stück."
+"säge %NUMBER naldor","saege %NUMBER naldor", item(544, all) => expr( %NUMBER*1) -> "#me beginnt das Holz zu sägen. Nach einigen Augenblicken beendet er die Arbeit.", item(546, %NUMBER, 333, 0),deleteitem(544,%NUMEBER)
+"säge %NUMBER naldor","saege %NUMBER naldor" -> "Würd ich sofort machen. Aber du hast nicht genügend Naldorholz."
+"saw","log","wood","board" -> "I 'saw applewood', 'saw cherrywood', 'saw coniferwood' and 'saw naldorwood. At least two logs."
+"säge","saege","holz","brett" -> "Ich 'säge Apfelholz', 'säge Kirschholz', 'säge Nadelholz' und 'säge Naldorholz'. Mindestens 2 Stück."
 
 -- generall
 "hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "Hallo.", "#me ahmt lächelnd ein orkisches 'Greebas!' nach.", "Gruß."
