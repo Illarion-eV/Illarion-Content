@@ -52,7 +52,7 @@ wrongLangUS = "Shut it!"
 -- 11: Quest 4 solved, reward: 400cp, (15 rankpoints)
 -- 12: Quest 5: Bring a message to Queen Rosaline Edwards. Needs edit of the NPC script!
 -- 13: Message delivered
--- 14: Quest 5 solved, reward: item D (uber item, magical gem, ring, weapon), (20 rankpoints)
+-- 14: Quest 5 solved, reward: icebird amueltt (334), (20 rankpoints)
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
@@ -235,22 +235,22 @@ wrongLangUS = "Shut it!"
 -- 4th quest: Bring a message to Fronita Emery.
 
 -- Give out quest 4
-"quest", "mission", queststatus(1337) = 8, english -> inform("[New quest] The Reminder IV"), "ENGLISH.", queststatus(1337) = 9
-"quest", "mission", queststatus(1337) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "GERMAN.", queststatus(1337) = 9
-"Task", "Adventure", "Message", queststatus(1337) = 8 -> inform("[New quest] The Reminder IV"), "ENGLISH.", queststatus(1337) = 9
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "GERMAN.", queststatus(1337) = 9
+"quest", "mission", queststatus(1337) = 8, english -> inform("[New quest] The Reminder IV"), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(1337) = 9
+"quest", "mission", queststatus(1337) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(1337) = 9
+"Task", "Adventure", "Message", queststatus(1337) = 8 -> inform("[New quest] The Reminder IV"), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(1337) = 9
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(1337) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 9, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 9 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 9 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 9 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 9, english -> "Fronita Emery owes the Don a lot; her business isn't doing well. Glass goods don't pay off, keep that in mind when bringing her my message."
+"quest", "mission", queststatus(1337) = 9 -> "Fronita Emery schuldet dem Don eine Menge; ihr Geschäft läuft nicht so gut. Glaswaren zahlen sich nicht aus, denk daran, wenn du ihr meine Nachricht bringst."
+"Task", "Adventure", "Message", queststatus(1337) = 9 -> "Fronita Emery owes the Don a lot; her business isn't doing well. Glass goods don't pay off, keep that in mind when bringing her my message."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 9 -> "Fronita Emery schuldet dem Don eine Menge; ihr Geschäft läuft nicht so gut. Glaswaren zahlen sich nicht aus, denk daran, wenn du ihr meine Nachricht bringst."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
-".+", queststatus(1337) = 10, english, town = Galmair -> inform("[Quest solved] You are awarded 400 copper coins. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
-".+", queststatus(1337) = 10, english -> inform("[Quest solved] You are awarded 400 copper coins."), "ENGLISH.", money + 400, queststatus(1337) = 11
-".+", queststatus(1337) = 10, town = Galmair -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
-".+", queststatus(1337) = 10 -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "GERMAN.", money + 400, queststatus(1337) = 11
+".+", queststatus(1337) = 10, english, town = Galmair -> inform("[Quest solved] You are awarded 400 copper coins. You advance in Don Valerio Guilianni's favour."), "Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
+".+", queststatus(1337) = 10, english -> inform("[Quest solved] You are awarded 400 copper coins."), "Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.", money + 400, queststatus(1337) = 11
+".+", queststatus(1337) = 10, town = Galmair -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.", money + 400, queststatus(1337) = 11, rankpoints(Galmair) + 15
+".+", queststatus(1337) = 10 -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.", money + 400, queststatus(1337) = 11
 
 -- 5th quest: Bring a message to Rosaline Edwards.
 
@@ -267,10 +267,10 @@ wrongLangUS = "Shut it!"
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 12 -> "Soso, den Liebesbrief des Dons für Rosaline Edwards hast du noch nicht überbracht? Also, worauf wartest du!?"
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints
-".+", queststatus(1337) = 13, english, town = Galmair -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in Don Valerio Guilianni's favour."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
-".+", queststatus(1337) = 13, english -> inform("[Quest solved] You are awarded AN UBER ITEM."), "ENGLISH.", item(391, 1, 999, 0), queststatus(1337) = 14
-".+", queststatus(1337) = 13, town = Galmair -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
-".+", queststatus(1337) = 13 -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), "GERMAN.", item(391, 1, 999, 0), queststatus(1337) = 14
+".+", queststatus(1337) = 13, english, town = Galmair -> inform("[Quest solved] You are awarded a charm of the icebird. You advance in Don Valerio Guilianni's favour."), "I already heard the Queen of Cadomyr wasn't so fond of the message you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!", item(334, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 13, english -> inform("[Quest solved] You are awarded a charm of the icebird."), "I already heard the Queen of Cadomyr wasn't so fond of the 'message' you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!", item(334, 1, 999, 0), queststatus(1337) = 14
+".+", queststatus(1337) = 13, town = Galmair -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett. Dein Ansehen bei Don Valerio Guilianni steigt."), "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!", item(334, 1, 999, 0), queststatus(1337) = 14, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 13 -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett."), "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!", item(334, 1, 999, 0), queststatus(1337) = 14
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(1337) = 14, english -> "ENGLISH."
