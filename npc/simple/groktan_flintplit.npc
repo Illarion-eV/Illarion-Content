@@ -273,10 +273,10 @@ wrongLangUS = "Shut it!"
 ".+", queststatus(1337) = 13 -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett."), "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!", item(334, 1, 999, 0), queststatus(1337) = 14
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(1337) = 14, english -> "ENGLISH."
-"quest", "mission", queststatus(1337) = 14 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(1337) = 14 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 14 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 14, english -> "You did so much for me and the Don; one could be suspicious why. So, I'll stick to other henchmen, no offense."
+"quest", "mission", queststatus(1337) = 14 -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
+"Task", "Adventure", "Message", queststatus(1337) = 14 -> "You did so much for me and the Don; one could be suspicious why. So, I'll stick to other henchmen, no offense."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(1337) = 14 -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "bottle" -> "Payment reminder don't come in a bottle. Maybe by a bottle on your head!"
