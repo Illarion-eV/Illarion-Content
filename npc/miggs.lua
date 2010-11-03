@@ -3,12 +3,17 @@
 -- NPC Job:  none                                                             --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  374, 216, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (1, 374, 216, 0, 6, 'Miggs', 'npc.miggs', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
@@ -17,7 +22,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.miggs", package.seeall)
@@ -611,6 +616,55 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."));
+talkEntry:addResponse("Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 0));
@@ -618,7 +672,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers I"));
 talkEntry:addResponse("Blasted flies! The Don wants me to keep the streets clean, but dirty flies seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +683,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair I"));
 talkEntry:addResponse("Verdammte Fliegen! Der Don wünscht sich saubere Straßen, aber diese Schmeißfliegen steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +694,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers I"));
 talkEntry:addResponse("Blasted flies! The Don wants me to keep the streets clean, but dirty flies seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +706,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair I"));
 talkEntry:addResponse("Verdammte Fliegen! Der Don wünscht sich saubere Straßen, aber diese Schmeißfliegen steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,7 +756,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addResponse("#me hands over a small purse: 'Good job. Now I owe you one. But those flies were only the beginning of tasks I have for you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -714,7 +768,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
 talkEntry:addResponse("#me hands over a small purse: 'Good job. Now I owe you one. But those flies were only the beginning of tasks I have for you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -725,7 +779,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addResponse("#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Fliegen waren erst der Anfang der Aufträge, die ich für euch habe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -736,7 +790,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addResponse("#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Fliegen waren erst der Anfang der Aufträge, die ich für euch habe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -747,7 +801,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers II"));
 talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,7 +811,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair II"));
 talkEntry:addResponse("Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,7 +821,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers II"));
 talkEntry:addResponse("Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +832,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair II"));
 talkEntry:addResponse("Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -829,7 +883,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -842,7 +896,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -854,7 +908,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -866,7 +920,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 19));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,7 +931,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers III"));
 talkEntry:addResponse("The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,7 +941,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair III"));
 talkEntry:addResponse("Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,7 +951,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers III"));
 talkEntry:addResponse("The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -908,7 +962,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair III"));
 talkEntry:addResponse("Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -958,7 +1012,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addResponse("You taught those blasted halfers a lesson they won't forget! Never mess with Don Valerio! Here, have these gloves - for the extra punch.");
 talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -970,7 +1024,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves."));
 talkEntry:addResponse("You taught those blasted halfers a lesson they won't forget! Never mess with Don Valerio! Here, have these gloves - for the extra punch.");
 talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -981,7 +1035,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addResponse("Ihr habt den Halblingen eine Lektion erteilt, die sie sobald nicht vergessen werden. Legt euch nie mit Don Valerio an! Hier, nehmt diese Handschuhe - damit ihr auch morgen noch kraftvoll zuschlagen könnt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -992,7 +1046,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe."));
 talkEntry:addResponse("Ihr habt den Halblingen eine Lektion erteilt, die sie sobald nicht vergessen werden. Legt euch nie mit Don Valerio an! Hier, nehmt diese Handschuhe - damit ihr auch morgen noch kraftvoll zuschlagen könnt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
