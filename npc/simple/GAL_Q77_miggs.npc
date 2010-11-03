@@ -5,7 +5,7 @@
 -- NPC Race: dwarf                      NPC Position:  374, 216, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -23,10 +23,10 @@ language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist Miggs, der Handlanger von Don Valerio."
+lookatUS = "This NPC is Miggs, the henchman of Don Valerio."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
