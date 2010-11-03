@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Fronita Emery                                           Runewick --
--- NPC Job:  Trader,glassblower                                               --
+-- NPC Job:  Trader, glassblower                                              --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -16,7 +16,7 @@ sex = female
 position = 893, 799, 1
 direction = east
 affiliation = "Runewick"
-job = "Trader,glassblower"
+job = "Trader, glassblower"
 
 language = common
 language = dwarf
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Faladron"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist die Händlerin Fronita Emery."
+lookatUS = "This NPC is Fronita Emery the merchant."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -42,8 +42,8 @@ wrongLangUS = "#me looks at you confused."
 -- Quest triggers currently blank, to be added at a later date
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keyphrases: glas, wares, Runewick, quest.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fronita Emery die Händlerin. Schlüsselwörter: Glas, Waren, Runewick, Aufgabe.")
+"Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keyphrases: glas, wares, Runewick.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Glas, Waren, Runewick.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
@@ -149,14 +149,20 @@ wrongLangUS = "#me looks at you confused."
 "Zhambra", english -> "Aye, that's true. But I prefer Elara and Findari."
 "Zhambra" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
 
+-- Quest 107: A message from Groktan Flintsplit
+"message", "news", "letter", "scroll", "parchment", queststatus(107) = 9 -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 9 -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
+"Groktan", "Flintsplit", queststatus(107) = 9, english -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
+"Groktan", "Flintsplit", queststatus(107) = 9 -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
+
 -- Catching quest triggers
-"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission", english -> "I do not issue any quests, sorry."
+"quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
+"task", "adventure" -> "I do not issue any quests, sorry."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Questen, tut mir leid."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "Yes. True. Absolutely. And now buy my stuff!", "ENGLISH2.", "ENGLISH3."
+"Yes" -> "Yes. True. Absolutely. And now buy my stuff!"
 "Ja" -> "Ja. Richtig. Aber wirklich. Und jetzt kauf was!", "Sehr schön. Jetzt einigen wir uns noch was du kaufst.", "Ich weiß, wunderbar nicht?"
 "No" -> "No? My heart just shattered like a piece of glass.", "Well whatever, bah!", "You're stealing my time!"
 "Nein" -> "Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.", "Na dann halt nicht, pah!", "Du stehlst nur meine Zeit!"
