@@ -664,7 +664,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("message");
-talkEntry:addResponse("BUG!!!");
+talkEntry:addResponse("OK");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
