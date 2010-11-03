@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 02, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Groktan Flintsplit"
@@ -195,10 +195,10 @@ wrongLangUS = "Shut it!"
 -- 2nd quest: Bring a message to Miggs.
 
 -- Give out quest 2
-"quest", "mission", queststatus(107) = 2, english -> inform("[New quest] The Reminder II"), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
-"quest", "mission", queststatus(107) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
-"Task", "Adventure", "Message", queststatus(107) = 2 -> inform("[New quest] The Reminder II"), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 2 -> inform("[Neues Quest] Die Erinnerung II"), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
+"quest", "mission", queststatus(107) = 2, english -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
+"quest", "mission", queststatus(107) = 2 -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
+"Task", "Adventure", "Message", queststatus(107) = 2 -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 2 -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(107) = 3, english -> "Bring my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
@@ -215,10 +215,10 @@ wrongLangUS = "Shut it!"
 -- 3rd quest: Bring a message to Bruno Blackhole.
 
 -- Give out quest 3
-"quest", "mission", queststatus(107) = 5, english -> inform("[New quest] The Reminder III"), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
-"quest", "mission", queststatus(107) = 5 -> inform("[Neues Quest] Die Erinnerung III"), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
-"Task", "Adventure", "Message", queststatus(107) = 5 -> inform("[New quest] The Reminder III"), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 5 -> inform("[Neues Quest] Die Erinnerung III"), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
+"quest", "mission", queststatus(107) = 5, english -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
+"quest", "mission", queststatus(107) = 5 -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
+"Task", "Adventure", "Message", queststatus(107) = 5 -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 5 -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(107) = 6, english -> "What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Darhole Mine!"
@@ -235,10 +235,10 @@ wrongLangUS = "Shut it!"
 -- 4th quest: Bring a message to Fronita Emery.
 
 -- Give out quest 4
-"quest", "mission", queststatus(107) = 8, english -> inform("[New quest] The Reminder IV"), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(107) = 9
-"quest", "mission", queststatus(107) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(107) = 9
-"Task", "Adventure", "Message", queststatus(107) = 8 -> inform("[New quest] The Reminder IV"), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(107) = 9
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 8 -> inform("[Neues Quest] Die Erinnerung IV"), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(107) = 9
+"quest", "mission", queststatus(107) = 8, english -> inform("[New quest] The Reminder IV: You received a message for Fronita Emery."), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(107) = 9
+"quest", "mission", queststatus(107) = 8 -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(107) = 9
+"Task", "Adventure", "Message", queststatus(107) = 8 -> inform("[New quest] The Reminder IV: You received a message for Fronita Emery."), "She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!", queststatus(107) = 9
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 8 -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(107) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(107) = 9, english -> "Fronita Emery owes the Don a lot; her business isn't doing well. Glass goods don't pay off, keep that in mind when bringing her my message."
@@ -255,10 +255,10 @@ wrongLangUS = "Shut it!"
 -- 5th quest: Bring a message to Rosaline Edwards.
 
 -- Give out quest 5
-"quest", "mission", queststatus(107) = 11, english -> inform("[New quest] The Reminder V"), "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
-"quest", "mission", queststatus(107) = 11 -> inform("[Neues Quest] Die Erinnerung V"), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
-"Task", "Adventure", "Message", queststatus(107) = 11 -> inform("[New quest] The Reminder V"), "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 11 -> inform("[Neues Quest] Die Erinnerung V"), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
+"quest", "mission", queststatus(107) = 11, english -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
+"quest", "mission", queststatus(107) = 11 -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
+"Task", "Adventure", "Message", queststatus(107) = 11 -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 11 -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
 
 -- Quest 5 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(107) = 12, english -> "Well, well, you didn't deliver the love letter of the Don to Rosaline Edwards? So, what are you waiting for!?"
