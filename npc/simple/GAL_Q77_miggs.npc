@@ -137,9 +137,9 @@ wrongLangUS = "#me looks at you confused."
 "Sirani" -> "Sirani, Sirani... der Don erwähnte irgendwas über Sirani. Fragt ihn besser selbst."
 
 -- Quest 107: A message from Groktan Flintsplit
-"message", "news", "letter", "scroll", "parchment", queststatus(107) = 3, english -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
+"message", "news", "letter", "scroll", "parchment", queststatus(107) = 3 -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 3 -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.", queststatus(107) = 4
-"Groktan", "Flintsplit", queststatus(107) = 3, english, english -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
+"Groktan", "Flintsplit", queststatus(107) = 3, english -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
 "Groktan", "Flintsplit", queststatus(107) = 3 -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.", queststatus(107) = 4
 
 -- 1st quest: Kill 10 flies, player receives torch.
