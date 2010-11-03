@@ -16,14 +16,14 @@ sex = male
 position = 439, 359, 0
 direction = south
 affiliation = "None"
-job = "none"
+job = "Miner"
 
 language = common
 language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -100,6 +100,12 @@ wrongLangUS = "#me looks at you confused."
 "Hacke", queststatus(65) = 0 -> "Du wirst 'ne Spitzhacke brauchen um nach Erzen zu suchen, einfach auf die Steine hauen damit. Wenn du es probieren willst, könnte ich dir 'nen kleinen Auftrag geben."
 "pick" -> "If ya need another pickaxe, ask a smith or another miner. The best miners can be found in Galmair."
 "Hacke" -> "Wenn du 'ne weitere Spitzhacke brauchst, frag' 'nen Schmied oder 'nen anderen Bergarbeiter. Die besten Bergarbeiter kann man in Galmair finden."
+
+-- Quest 107: A message from Groktan Flintsplit
+"message", "news", "letter", "scroll", "parchment", queststatus(107) = 6 -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 6 -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...", queststatus(107) = 7
+"Groktan", "Flintsplit", queststatus(107) = 6, english -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
+"Groktan", "Flintsplit", queststatus(107) = 6 -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...", queststatus(107) = 7
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 "quest", "mission", queststatus(65) = 0, english -> inform("[New quest] Malachite Mine I"), "Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something.", item(2763, 1, 399, 0), queststatus(65) = 1

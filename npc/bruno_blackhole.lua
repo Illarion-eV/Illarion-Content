@@ -1,662 +1,1304 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,439,359,0,4,false,'Bruno Blackhole','npc_bruno_blackhole.lua',0);
+--------------------------------------------------------------------------------
+-- NPC Name: Bruno Blackhole                                             None --
+-- NPC Job:  Miner                                                            --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  439, 359, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (1, 439, 359, 0, 4, 'Bruno Blackhole', 'npc.bruno_blackhole', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.sex")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.skill")
+require("npc.base.talk")
 module("npc.bruno_blackhole", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 0");
+talkEntry:addResponse("Quest status set to 0");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 1");
+talkEntry:addResponse("Quest status set to 1");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 2");
+talkEntry:addResponse("Quest status set to 2");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 3");
+talkEntry:addResponse("Quest status set to 3");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 4");
+talkEntry:addResponse("Quest status set to 4");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 5");
+talkEntry:addResponse("Quest status set to 5");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 6");
+talkEntry:addResponse("Quest status set to 6");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 7");
+talkEntry:addResponse("Quest status set to 7");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 8");
+talkEntry:addResponse("Quest status set to 8");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the miner Bruno Blackhole. Keyphrases: Hello, quest, pick-axe, miner."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Be greeted ma friend!");
+talkEntry:addResponse("Welcome in da Malachite mine.");
+talkEntry:addResponse("Greetings I hope ya don't try to steal meh ma gold!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Tach mein Freund!");
+talkEntry:addResponse("Willkommen inner Malachitmine!");
+talkEntry:addResponse("Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Be greeted ma friend!");
+talkEntry:addResponse("Welcome in da Malachite mine.");
+talkEntry:addResponse("Greetings I hope ya don't try to steal meh ma gold!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Tach mein Freund!");
+talkEntry:addResponse("Willkommen inner Malachitmine!");
+talkEntry:addResponse("Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("May Irmorom guide ya on yar ways!");
+talkEntry:addResponse("Come back whenever ya miss the coolness of da mine.");
+talkEntry:addResponse("Farewell.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Möge Irmorom dich auf deinen Wegen beschützen!");
+talkEntry:addResponse("Komm' ruhig zurück wenn du die Kühle der Mine vermisst.");
+talkEntry:addResponse("Auf bald.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Farewell is what we say around here.");
+talkEntry:addResponse("Fancy words don't bring you further around here. Farewell.");
+talkEntry:addResponse("Irmorom with ya!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Auf bald sagen wa hier.");
+talkEntry:addResponse("Schicke Worte helfen dir auch nicht weiter. Auf bald.");
+talkEntry:addResponse("Irmorom mit dir!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("None of ya business.");
+talkEntry:addResponse("I'm fine and ya?");
+talkEntry:addResponse("I could use some beer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Geht dich nichts an.");
+talkEntry:addResponse("Gut und dir?");
+talkEntry:addResponse("Ich könnte 'n Bier vertragen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I'm Bruno Blackhole.");
+talkEntry:addResponse("I'm a dwarven miner named Bruno.");
+talkEntry:addResponse("Just call meh Bruno for now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin Bruno Blackhole.");
+talkEntry:addResponse("Ich bin 'n zwergischer Bergarbeiter namens Bruno.");
+talkEntry:addResponse("Nenn' mich einfach Bruno.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I do not sell or buy anything, but I could need ya help.");
+talkEntry:addResponse("Do I really look like a trader?");
+talkEntry:addResponse("I'm no trader, I'm a miner!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.");
+talkEntry:addResponse("Seh' ich wirklich wie 'n Händler aus?");
+talkEntry:addResponse("Ich bin kein Händler, sondern 'n Bergarbeiter.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("If you want to hear a story, ya in da wrong place.");
+talkEntry:addResponse("I'm here to work, not to tell stories.");
+talkEntry:addResponse("My gold nugget is my most precious posession.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.");
+talkEntry:addResponse("Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.");
+talkEntry:addResponse("Mein Goldnugget ist mein wertvollster Besitz.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("miner");
+talkEntry:addResponse("Aye, that's what I am. Da very best miner of Galmair.");
+talkEntry:addResponse("A miner mines in da mines of Galmair for ore and coal.");
+talkEntry:addResponse("Miners are important to smiths, because they sell ore and coal to them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bergarbeiter");
+talkEntry:addResponse("Aye, das bin ich. Der beste Bergarbeiter von Galmair.");
+talkEntry:addResponse("Ein Bergarbeiter sucht in den Minen Galmairs nach Erz und Kohle.");
+talkEntry:addResponse("Bergarbeiter sind wichtig für Schmiede, weil sie Erz und Kohle an sie verkaufen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachit");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The Malachite mine belongs to Galmair and one can mine for copper and iron here.");
+talkEntry:addResponse("Copper and iron are the most common ores here, but when ya get lucky ya might find goldnuggets as well.");
+talkEntry:addResponse("The Malachite mine is mah favorite spot. Isn't it nice here?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachit");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Die Malachitmine gehört zu Galmair und man findet Kupfer- und Eisenerz hier.");
+talkEntry:addResponse("Kupfer- und Eisenerz kommt hier am meisten vor, aber wenn du Glück hast, findest du auch Goldnuggets.");
+talkEntry:addResponse("Die Malachitmine ist mein liebster Platz, ist es nicht toll hier?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ein faules Pack wohnt dort in Runewick. Nett sind sie zwar, aber sowas von faul!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Lazy scum is living in Runewick. Gentle they are, but lazy!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Der Ort schlechthin: Galmair. Gemütlich, frei und Geld zählt man in großen Beträgen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The place to be: Galmair. Cozy, free and money counts in large amounts.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Edel, pff, die Leute aus Cadomyr verhalten sich nur edel, wenn sie ihr Königin anstarren können.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Noble man, pah, the people of Cadomyr behave only noble as long as they stare at the queen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addResponse("You'll need a pickaxe in order to mine for ore. Just hit the rocks with it. If you want to try it I could give you a little quest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hacke");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addResponse("Du wirst 'ne Spitzhacke brauchen um nach Erzen zu suchen, einfach auf die Steine hauen damit. Wenn du es probieren willst, könnte ich dir 'nen kleinen Auftrag geben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pick");
+talkEntry:addResponse("If ya need another pickaxe, ask a smith or another miner. The best miners can be found in Galmair.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hacke");
+talkEntry:addResponse("Wenn du 'ne weitere Spitzhacke brauchst, frag' 'nen Schmied oder 'nen anderen Bergarbeiter. Die besten Bergarbeiter kann man in Galmair finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."));
+talkEntry:addResponse("Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."));
+talkEntry:addResponse("Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine I"));
+talkEntry:addResponse("Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine I"));
+talkEntry:addResponse("Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine I"));
+talkEntry:addResponse("Aye, I hope ya like hard work. Bring meh ten raw stones and I will give ya a little something.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine I"));
+talkEntry:addResponse("Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addResponse("Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addResponse("Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Gute Arbeit, dies zeigt das du kein Schwächling bist.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Good work, that shows meh that you're not a whimp.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Gute Arbeit, dies zeigt das du kein Schwächling bist.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."));
+talkEntry:addResponse("Good work, that shows meh that you're not a whimp.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du solltest mir zehn rohe Steine bringen und nicht weniger. Versuch es bei den Steinen dort drüben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(735, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I asked you to bring meh ten raw stones and not less. Try it at the rocks over there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine II"));
+talkEntry:addResponse("Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine II"));
+talkEntry:addResponse("Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine II"));
+talkEntry:addResponse("Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine II"));
+talkEntry:addResponse("Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine II"));
+talkEntry:addResponse("Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine II"));
+talkEntry:addResponse("Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine II"));
+talkEntry:addResponse("Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine II"));
+talkEntry:addResponse("Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I need twenty pieces copper ore, do ya have it yet?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich brauche zwanzig Brocken Kupfererz, hast du die schon?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addResponse("I need twenty pieces of copper ore, do ya have it yet?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addResponse("Ich brauche zwanzig Brocken Kupfererz, hast du die schon?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Thank ya pal! Here is ya money, don't spend it all at once.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
+talkEntry:addResponse("Thank ya pal! Here is ya money, don't spend it all at once.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ne Kumpel, zwanzig Brocken brauch ich. Soviel hast du noch nicht, also geh wieder an die Arbeit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nah pal, I need twenty pieces and ya don't have that much yet, so go back to work.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine III"));
+talkEntry:addResponse("Another quest? Alright pal, I need five gold nuggets, ya think ya can find them?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine III"));
+talkEntry:addResponse("Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du kannst die finden?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine III"));
+talkEntry:addResponse("Another task? Alright pal, I need five gold nuggets, ya think ya can find them?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine III"));
+talkEntry:addResponse("Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du findest welche?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Five gold nuggets is what I need. Ya can find them in the rocks.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addResponse("Five gold nuggets is what I need. Ya can find them in the rocks.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addResponse("Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Now ya are a real miner. Here is a silver coin for ya.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."));
+talkEntry:addResponse("Now ya are a real miner. Here is a silver coin for ya.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Schade das du die fünf Goldnuggets noch nicht gefunden hast.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A pity that ya haven't found those five gold nuggets yet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine IV"));
+talkEntry:addResponse("Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine IV"));
+talkEntry:addResponse("Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Malachite Mine IV"));
+talkEntry:addResponse("Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Malachitmine IV"));
+talkEntry:addResponse("Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Hast du die zehn Jungerfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addResponse("Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addResponse("Hast du die zehn Jungfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Thank you, mah wife will be very pleased. Here ya have some compensation money.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."));
+talkEntry:addResponse("Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."));
+talkEntry:addResponse("Thank you, mah wife will be very pleased. Here ya have some compensation money.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Come back when ya have ten virgins weed for mah wife, than I will give you your money.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(144, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Komm wieder wenn du zehn Jungfernkraut hast, dann werde ich dir dein Geld geben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 8));
+talkEntry:addResponse("There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 8));
+talkEntry:addResponse("Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Good for you.");
+talkEntry:addResponse("Aye, I see.");
+talkEntry:addResponse("Are you sure?");
+talkEntry:addResponse("If you say so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Gut für dich.");
+talkEntry:addResponse("Aye, in Ordnung.");
+talkEntry:addResponse("Bist du dir sicher?");
+talkEntry:addResponse("Wenn du das sagst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("What a shame.");
+talkEntry:addResponse("Maybe you'll change your mind.");
+talkEntry:addResponse("Well...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Schade.");
+talkEntry:addResponse("Vielleicht änderst du deine Meinung noch.");
+talkEntry:addResponse("Nun...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nugget");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You might find some down here. But you know my wife is my most precious gold nugget for meh. Are you married?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nugget");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Vielleicht findest du welche hier unten. Doch für mich ist meine Frau mein wertwollstes Goldnugget. Bist du verheiratet?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Raban is most likely at his grove in the south. He never leaves the places and talks to his plants all day long.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Raban ist wahrscheinlich in seinem Hain im Süden. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("grove");
+talkEntry:addResponse("Raban's grove is in the forest in the south, I use to get lost between all those trees.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hain");
+talkEntry:addResponse("Rabans Hain ist im Wald im Süden. Ich verlauf mich immer zwischen all diesen Bäumen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mine");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There are several mines close to Galmair. Just aks a fellow miner or a smith.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mine");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es gibt mehrere Minen hier bei Galmair. Frag' einfach einen anderen Bergarbeiter oder einen Schmied.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ore");
+talkEntry:addResponse("A smith can make several things out of ore. Tools, swords, shields and more. Just ask one and maybe he'll even give ya work.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erz");
+talkEntry:addResponse("Ein Schmied kann viele Dinge aus Erz machen. Werkzeuge, Schwerter, Schilder und noch mehr. Frag' doch einfach einen Schmied und vielleicht gibt er dir ja sogar Arbeit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Stone");
+talkEntry:addResponse("From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Stein");
+talkEntry:addResponse("Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hail Irmorom!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Lobet Irmorom!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me poliert gedankenverloren ein Goldnugget.", "#me seems to be lost in thought while polishing a gold nugget.");
+talkingNPC:addCycleText("#me tritt nach einem Stein der klimpernd wegspringt.", "#me kicks at a small stone which bounces away with a strumming noise.");
+talkingNPC:addCycleText("#me nuschelt vor sich hin: 'Ich hätte mehr Bier mitnehmen sollen.'", "#me mumbles: 'I should have brought more beer.'");
+talkingNPC:addCycleText("Irmorom is der Gott des Handwerks und Handels und zudem der Weltenschmied. Er hat die Zwerge nach seinem Ebenbild geschaffen damit sie der Welt und den anderen Rassen eine Stütze sind.", "Irmorom is the god of trade and craftmanship and also the worldsmith. He created us dwarves in his own likeness so that we can be a support for the world and the other races.");
+talkingNPC:addCycleText("Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.", "When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learned.");
+talkingNPC:addCycleText("Hey-ho!", "Hey-ho!");
+talkingNPC:addCycleText("Glück auf!", "Good luck!");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(2);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 65;
-    -- NPC by Alsaya, revised by Estralis Seborian
-    -- Queststatus Overview
-    -- 0: No Quest taken
-    -- 1: Quest 1 taken - gather 10 raw materials for 50cp
-    -- 2: Quest 1 solved
-    -- 3: Quest 2 taken - gather 20 raw materials for 100cp
-    -- 4: Quest 2 solved
-    -- 5: Quest 3 taken - gather 5 rare raw materials for 100cp
-    -- 6: Quest 3 solved
-    -- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
-    -- 8: Quest 4 solved
-    -- Debugging
-    npc.base.autonpcfunctions.AddTraderTrigger("set 0","Quest status set to 0");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 1","Quest status set to 1");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 2","Quest status set to 2");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 3","Quest status set to 3");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 4","Quest status set to 4");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 5","Quest status set to 5");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 6","Quest status set to 6");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 7","Quest status set to 7");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 8","Quest status set to 8");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    -- Help
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Game Help] This NPC is the miner Bruno Blackhole. Keyphrases: Hello, quest, pick-axe, miner.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","Be greeted ma friend!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("Welcome in da Malachite mine.");
-    npc.base.autonpcfunctions.AddAdditionalText("Greetings I hope ya don't try to steal meh ma gold!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Grüße","Tach mein Freund!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gruß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("Willkommen inner Malachitmine!");
-    npc.base.autonpcfunctions.AddAdditionalText("Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Be greeted ma friend!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Welcome in da Malachite mine.");
-    npc.base.autonpcfunctions.AddAdditionalText("Greetings I hope ya don't try to steal meh ma gold!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Tach mein Freund!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Willkommen inner Malachitmine!");
-    npc.base.autonpcfunctions.AddAdditionalText("Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","May Irmorom guide ya on yar ways!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("Come back whenever ya miss the coolness of da mine.");
-    npc.base.autonpcfunctions.AddAdditionalText("Farewell.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","Möge Irmorom dich auf deinen Wegen beschützen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("Komm' ruhig zurück wenn du die Kühle der Mine vermisst.");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf bald.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Farewell is what we say around here.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Fancy words don't bring you further around here. Farewell.");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom with ya!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Auf bald sagen wa hier.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Schicke Worte helfen dir auch nicht weiter. Auf bald.");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom mit dir!");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","None of ya business.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm fine and ya?");
-    npc.base.autonpcfunctions.AddAdditionalText("I could use some beer.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Geht dich nichts an.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("Gut und dir?");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich könnte 'n Bier vertragen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","I'm Bruno Blackhole.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm a dwarven miner named Bruno.");
-    npc.base.autonpcfunctions.AddAdditionalText("Just call meh Bruno for now.");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Ich bin Bruno Blackhole.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich bin 'n zwergischer Bergarbeiter namens Bruno.");
-    npc.base.autonpcfunctions.AddAdditionalText("Nenn' mich einfach Bruno.");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","I do not sell or buy anything, but I could need ya help.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("Do I really look like a trader?");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm no trader, I'm a miner!");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("Seh' ich wirklich wie 'n Händler aus?");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich bin kein Händler, sondern 'n Bergarbeiter.");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","If you want to hear a story, ya in da wrong place.");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm here to work, not to tell stories.");
-    npc.base.autonpcfunctions.AddAdditionalText("My gold nugget is my most precious posession.");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.");
-    npc.base.autonpcfunctions.AddAdditionalText("Mein Goldnugget ist mein wertvollster Besitz.");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    npc.base.autonpcfunctions.AddTraderTrigger("miner","Aye, that's what I am. Da very best miner of Galmair.");
-    npc.base.autonpcfunctions.AddAdditionalText("A miner mines in da mines of Galmair for ore and coal.");
-    npc.base.autonpcfunctions.AddAdditionalText("Miners are important to smiths, because they sell ore and coal to them.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Bergarbeiter","Aye, das bin ich. Der beste Bergarbeiter von Galmair.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ein Bergarbeiter sucht in den Minen Galmairs nach Erz und Kohle.");
-    npc.base.autonpcfunctions.AddAdditionalText("Bergarbeiter sind wichtig für Schmiede, weil sie Erz und Kohle an sie verkaufen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Malachit","The Malachite mine belongs to Galmair and one can mine for copper and iron here.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Copper and iron are the most common ores here, but when ya get lucky ya might find goldnuggets as well.");
-    npc.base.autonpcfunctions.AddAdditionalText("The Malachite mine is mah favorite spot. Isn't it nice here?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Malachit","Die Malachitmine gehört zu Galmair und man findet Kupfer- und Eisenerz hier.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Kupfer- und Eisenerz kommt hier am meisten vor, aber wenn du Glück hast, findest du auch Goldnuggets.");
-    npc.base.autonpcfunctions.AddAdditionalText("Die Malachitmine ist mein liebster Platz, ist es nicht toll hier?");
-    -- Factions
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Ein faules Pack wohnt dort in Runewick. Nett sind sie zwar, aber sowas von faul!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Lazy scum is living in Runewick. Gentle they are, but lazy!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Der Ort schlechthin: Galmair. Gemütlich, frei und Geld zählt man in großen Beträgen.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","The place to be: Galmair. Cozy, free and money counts in large amounts.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Edel, pff, die Leute aus Cadomyr verhalten sich nur edel, wenn sie ihr Königin anstarren können.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Noble man, pah, the people of Cadomyr behave only noble as long as they stare at the queen.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Tool hints
-    npc.base.autonpcfunctions.AddTraderTrigger("pick","You'll need a pickaxe in order to mine for ore. Just hit the rocks with it. If you want to try it I could give you a little quest.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("Hacke","Du wirst 'ne Spitzhacke brauchen um nach Erzen zu suchen, einfach auf die Steine hauen damit. Wenn du es probieren willst, könnte ich dir 'nen kleinen Auftrag geben.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("pick","If ya need another pickaxe, ask a smith or another miner. The best miners can be found in Galmair.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hacke","Wenn du 'ne weitere Spitzhacke brauchst, frag' 'nen Schmied oder 'nen anderen Bergarbeiter. Die besten Bergarbeiter kann man in Galmair finden.");
-    -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Aye, I hope ya like hard work. Bring meh ten raw stones and I will give you a little something.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Aye, I hope ya like hard work. Bring meh ten raw stones and I will give ya a little something.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Aye, ich hoffe du magst harte Arbeit. Bring mir zehn rohe Steine, dann gebe ich dir 'ne Kleinigkeit.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Do ya have da ten raw stones yet? Just hit on da rocks over there with your pick-axe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Hast du die zehn rohen Steine schon? Haue einfach mit der Spitzhacke auf die Steine dort drüben.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Gute Arbeit, dies zeigt das du kein Schwächling bist.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",735,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Good work, that shows meh that you're not a whimp.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",735,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Gute Arbeit, dies zeigt das du kein Schwächling bist.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",735,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Good work, that shows meh that you're not a whimp.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",735,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Du solltest mir zehn rohe Steine bringen und nicht weniger. Versuch es bei den Steinen dort drüben.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","I asked you to bring meh ten raw stones and not less. Try it at the rocks over there.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",735,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 2nd quest: Gather 20 different raw materials for 100cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("sex","male");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("sex","female");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("sex","male");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("sex","female");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Ya'll become a good miner someday lad! Bring meh twenty pieces of copper ore and I'll pay for it.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("sex","male");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Ya'll become a good miner someday lass! Bring meh twenty pieces of copper ore and I'll pay for it.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("sex","female");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Du wirst mal 'n guter Bergarbeiter Bursche! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("sex","male");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Du wirst mal 'n guter Bergarbeiter Mädel! Bring mir zwanzig Brocken Kupfererz und ich bezahle dich dafür.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("sex","female");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I need twenty pieces copper ore, do ya have it yet?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich brauche zwanzig Brocken Kupfererz, hast du die schon?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I need twenty pieces of copper ore, do ya have it yet?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich brauche zwanzig Brocken Kupfererz, hast du die schon?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank ya pal! Here is ya money, don't spend it all at once.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank ya pal! Here is ya money, don't spend it all at once.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke Kumpel! Hier is dein Geld, gib' nicht alles auf einmal aus.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ne Kumpel, zwanzig Brocken brauch ich. Soviel hast du noch nicht, also geh wieder an die Arbeit.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Nah pal, I need twenty pieces and ya don't have that much yet, so go back to work.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 3rd quest: Gather 5 rare raw materials for 100cp.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Another quest? Alright pal, I need five gold nuggets, ya think ya can find them?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du kannst die finden?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Another task? Alright pal, I need five gold nuggets, ya think ya can find them?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Noch 'n Auftrag? Na gut Kumpel. Ich brauche fünf Goldnuggets, denkst du, du findest welche?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Five gold nuggets is what I need. Ya can find them in the rocks.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Five gold nuggets is what I need. Ya can find them in the rocks.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich brauche fünf Goldnuggets. Du kannst sie in den Steinen finden.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",234,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Now ya are a real miner. Here is a silver coin for ya.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",234,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",234,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Now ya are a real miner. Here is a silver coin for ya.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",234,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Schade das du die fünf Goldnuggets noch nicht gefunden hast.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","A pity that ya haven't found those five gold nuggets yet.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",234,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Malachite Mine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Malachitmine IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Hast du die zehn Jungerfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Hast du die zehn Jungfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",144,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you, mah wife will be very pleased. Here ya have some compensation money.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","galmair");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",144,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","galmair","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",144,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you, mah wife will be very pleased. Here ya have some compensation money.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",144,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your mining skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","mining","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Come back when ya have ten virgins weed for mah wife, than I will give you your money.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Komm wieder wenn du zehn Jungfernkraut hast, dann werde ich dir dein Geld geben.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",144,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Final dialogue: No more quests, just nice hints
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","There is nothing ya can do for meh now. Why don't you help someone else, maybe even Raban?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich habe nun nichts mehr für dich zu tun. Wieso hilfst du nicht jemand anderes, vielleicht sogar Raban?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","Good for you.");
-    npc.base.autonpcfunctions.AddAdditionalText("Aye, I see.");
-    npc.base.autonpcfunctions.AddAdditionalText("Are you sure?");
-    npc.base.autonpcfunctions.AddAdditionalText("If you say so.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Gut für dich.");
-    npc.base.autonpcfunctions.AddAdditionalText("Aye, in Ordnung.");
-    npc.base.autonpcfunctions.AddAdditionalText("Bist du dir sicher?");
-    npc.base.autonpcfunctions.AddAdditionalText("Wenn du das sagst.");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","What a shame.");
-    npc.base.autonpcfunctions.AddAdditionalText("Maybe you'll change your mind.");
-    npc.base.autonpcfunctions.AddAdditionalText("Well...");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Schade.");
-    npc.base.autonpcfunctions.AddAdditionalText("Vielleicht änderst du deine Meinung noch.");
-    npc.base.autonpcfunctions.AddAdditionalText("Nun...");
-    npc.base.autonpcfunctions.AddTraderTrigger("nugget","You might find some down here. But you know my wife is my most precious gold nugget for meh. Are you married?");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("nugget","Vielleicht findest du welche hier unten. Doch für mich ist meine Frau mein wertwollstes Goldnugget. Bist du verheiratet?");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Raban","Raban is most likely at his grove in the south. He never leaves the places and talks to his plants all day long.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Raban","Raban ist wahrscheinlich in seinem Hain im Süden. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("grove","Raban's grove is in the forest in the south, I use to get lost between all those trees.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hain","Rabans Hain ist im Wald im Süden. Ich verlauf mich immer zwischen all diesen Bäumen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Mine","There are several mines close to Galmair. Just aks a fellow miner or a smith.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Mine","Es gibt mehrere Minen hier bei Galmair. Frag' einfach einen anderen Bergarbeiter oder einen Schmied.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("ore","A smith can make several things out of ore. Tools, swords, shields and more. Just ask one and maybe he'll even give ya work.");
-    npc.base.autonpcfunctions.AddTraderTrigger("erz","Ein Schmied kann viele Dinge aus Erz machen. Werkzeuge, Schwerter, Schilder und noch mehr. Frag' doch einfach einen Schmied und vielleicht gibt er dir ja sogar Arbeit.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Stone","From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Stein","Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Irmorom","Hail Irmorom!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Irmorom","Lobet Irmorom!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
-    npc.base.autonpcfunctions.AddCycleText("#me poliert gedankenverloren ein Goldnugget.","#me seems to be lost in thought while polishing a gold nugget.");
-    npc.base.autonpcfunctions.AddCycleText("#me tritt nach einem Stein der klimpernd wegspringt.","#me kicks at a small stone which bounces away with a strumming noise.");
-    npc.base.autonpcfunctions.AddCycleText("#me nuschelt vor sich hin: 'Ich hätte mehr Bier mitnehmen sollen.'","#me mumbles: 'I should have brought more beer.'");
-    npc.base.autonpcfunctions.AddCycleText("Irmorom is der Gott des Handwerks und Handels und zudem der Weltenschmied. Er hat die Zwerge nach seinem Ebenbild geschaffen damit sie der Welt und den anderen Rassen eine Stütze sind.","Irmorom is the god of trade and craftmanship and also the worldsmith. He created us dwarves in his own likeness so that we can be a support for the world and the other races.");
-    npc.base.autonpcfunctions.AddCycleText("Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.","When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learned.");
-    npc.base.autonpcfunctions.AddCycleText("Hey-ho!","Hey-ho!");
-    npc.base.autonpcfunctions.AddCycleText("Glück auf!","Good luck!");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
