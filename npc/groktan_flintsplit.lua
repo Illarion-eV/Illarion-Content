@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 07, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -311,6 +311,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zwerg");
+talkEntry:addResponse("Wenn du wegen dem Weitwurfwettbewerb hier bist, muss ich dich enttäuschen. Der wurde mangels gesunder Teilnehmer abgesagt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dwarf");
+talkEntry:addResponse("If you're here for the throwing competition, I have to dissapoint you. It was canceled due to a lack of healthy participants.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reminder");
 talkEntry:addResponse("I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!");
 talkEntry:addResponse("Many people owe the Don a lot. I keep track of this. And I never forget!");
@@ -482,7 +494,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist genau genommen meine Heimat. Und ja, in diesen Tal war einst eine Zwergenfeste. Ich bin ein Zwerg, als fühl ich mich hier wohl.");
+talkEntry:addResponse("Galmair ist genau genommen meine Heimat. Und ja, in diesem Tal war einst eine Zwergenfeste. Ich bin ein Zwerg, also fühl ich mich hier wohl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
