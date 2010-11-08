@@ -75,9 +75,9 @@ radius = 0
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" -> "Just work! But what do I say, you look like somebody with lost of esteem. How about you fulfill a royal mission?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
+"your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
 
 -- Catching typical NPC phrases
