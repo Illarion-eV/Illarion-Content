@@ -43,7 +43,7 @@ radius = 0
 -- Queststatus Overview
 
 -- 0: No quest taken
--- 1: Quest 1: Deliver 5 item A (uncommon, useless items like candles, ropes, combs,...)
+-- 1: Quest 1: Deliver 5 quills (463)
 -- 2: Quest 1 solved, reward: 200cp, (5 rankpoints)
 -- 3: Quest 2: Bring a message to a nearby NPC. Needs edit of the NPC script!
 -- 4: Message delivered
@@ -63,8 +63,8 @@ radius = 0
 ".+", queststatus(1337) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: Ambassador, quest, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -99,12 +99,12 @@ radius = 0
 -- More small talk; add at least five triggers
 "ambassador", "embassador" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "lazy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Botschafter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "faul" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -155,8 +155,8 @@ radius = 0
 "Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?"
+"Ronagan" -> "Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?"
 "Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
