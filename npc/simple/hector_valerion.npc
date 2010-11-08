@@ -78,7 +78,7 @@ radius = 0
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -87,25 +87,25 @@ radius = 0
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"beruf" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
+"job", english -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"job" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"I am", "my name" -> "You are none of the officals, right? So, what do you require, orders?"
+"Ich bin", "mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
 
 -- More small talk; add at least five triggers
 "ambassador", "embassador" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "lazy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hastings","Baron",english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'""
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Botschafter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "faul" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb"'""
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff
