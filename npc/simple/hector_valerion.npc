@@ -269,9 +269,9 @@ radius = 0
 ".+", queststatus(108) = 13 -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), "GERMAN.", item(391, 1, 999, 0), queststatus(108) = 14
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(108) = 14, english -> "ENGLISH."
+"quest", "mission", queststatus(108) = 14, english -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
 "quest", "mission", queststatus(108) = 14 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(108) = 14 -> "ENGLISH."
+"Task", "Adventure", "Message", queststatus(108) = 14 -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 14 -> "GERMAN."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
