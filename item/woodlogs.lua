@@ -34,7 +34,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     local curWeather = world.weather;
     if ( ( ( curWeather.percipitation_type == 1 ) or ( curWeather.percipitation_type == 2 ) ) and ( curWeather.percipitation_strength > 20 ) and
        ( User.pos.z >= 0 ) and ( potRoof == nil ) ) then
-        base.common.InformNLS( User, "Wegen dem Wetter w�rst du nicht der Lage, ein Feuer zu machen.", "You wouldn't be able to light a fire in this weather." );
+        base.common.InformNLS( User, "Wegen dem Wetter wärst du nicht der Lage ein Feuer zu machen.", "You wouldn't be able to light a fire in this weather." );
         return
     end
 
