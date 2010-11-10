@@ -97,12 +97,15 @@ radius = 0
 "Ich bin", "mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
 
 -- More small talk; add at least five triggers
+"seal"->"Never ever even think about breaking the queen's seal. You'll regret it..."
 "ambassador", "embassador" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "lazy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "despatch","dispatch"-> ""
 "Hastings","Baron",english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
 "diplomaty","diplomatic" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+
+"siegel"->"Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
 "Botschafter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "faul" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -302,3 +305,4 @@ cycletext "Eindeutig zu viel Arbeit. Ich sollte erstmal ein wenig lesen, wahrsch
 cycletext "Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have merried when I still had the time."
 cycletext "Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it to be one should do something about this."
 cycletext "Ruhe! Ich lese!","Silence! I am reading!"
+cycletext "#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.","#me stares morosely at a scroll that bears the royal seal of Cadomyr."
