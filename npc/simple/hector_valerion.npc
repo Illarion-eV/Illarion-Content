@@ -98,16 +98,16 @@ radius = 0
 
 -- More small talk; add at least five triggers
 "seal"->"Never ever even think about breaking the queen's seal. You'll regret it..."
-"ambassador", "embassador" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"lazy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?","Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.","I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
+"lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
 "Order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "despatch","dispatch"-> ""
 "Hastings","Baron",english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
 "diplomaty","diplomatic" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 
 "siegel"->"Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
-"Botschafter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"faul" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...","Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.","Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
+"faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
 "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Depesche"->""
 "Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
