@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 07, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1544,6 +1544,7 @@ talkEntry:addTrigger("No");
 talkEntry:addResponse("Whatever, I do what the Don wants.");
 talkEntry:addResponse("That is pretty interesting, why don't you tell more about that?");
 talkEntry:addResponse("What!?");
+talkEntry:addResponse("Eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1552,6 +1553,7 @@ talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Na und, ich mach was der Don mir sagt.");
 talkEntry:addResponse("Das ist sehr interessant, warum erzählst du nicht mehr darüber?");
 talkEntry:addResponse("Was!?");
+talkEntry:addResponse("Eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Rarr!", "Rarr!");
