@@ -63,8 +63,8 @@ radius = 0
 ".+", queststatus(108) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: Ambassador, quest, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keyphrases: Ambassador, quest, despatch, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, TRIGGER4, TRIGGER5.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You interrupt me, so it has to be important.","#me closes a book and grumbles: 'What is it again?'","Speak or be quiet. The latter is preferred."
@@ -100,18 +100,18 @@ radius = 0
 "seal"->"Never ever even think about breaking the queen's seal. You'll regret it..."
 "ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?","Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.","I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
 "lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
-"Order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"despatch","dispatch"-> ""
+"Order" -> "The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
+"despatch","dispatch"-> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
 "Hastings","Baron",english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
-"diplomaty","diplomatic" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"diplomat",english -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
 
 "siegel"->"Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
 "Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...","Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.","Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
 "faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
-"Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Depesche"->""
+"Befehl" -> "Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?"
+"Depesche"->"Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
 "Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
-"Diplomatie","diplomatisch" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
@@ -120,20 +120,20 @@ radius = 0
 "Runewick" -> "Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert."
 "Valerio", "Guilianni", "Don", english -> "Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed."
 "Valerio", "Guilianni", "Don" -> "Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it."
+"Galmair" -> "Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen."
+"rosaline", "königin", "queen", "edwards", english -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
+"rosaline", "königin", "queen", "edwards" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
+"Cadomyr", english -> "Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while."
+"Cadomyr" -> "Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder."
 
 -- Main land factions
 "albar", english -> "Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards."
 "albar" -> "Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "Diplomacy is not a skill of the Gynkeesh. They have many, but not that one."
+"gync", "gynk" -> "Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese."
+"salkama", english -> "I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!"
+"salkama" -> "Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -273,19 +273,19 @@ radius = 0
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(108) = 14, english -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
-"quest", "mission", queststatus(108) = 14 -> "GERMAN."
+"quest", "mission", queststatus(108) = 14 -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
 "Task", "Adventure", "Message", queststatus(108) = 14 -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 14 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 14 -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"YOURTRIGGER" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Duplo",english -> "They are pretty long, aren't they?"
+"Duplo" -> "Die sind verdammt lang, nicht wahr?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Well, no.","Alright, indeed.","Who said this?","#me shrugs."
+"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?","#me zuckt mit den Schultern."
+"No" -> "I guess I forgot on which page I was.","My book is really interesting. Does the same hold for what you just said?","Shh!","Pardon?"
+"Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.","Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?","Psst!","Pardon?"
 
 -- Cycletext: Add as many random messages as possible
 
