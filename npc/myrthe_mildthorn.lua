@@ -7,8 +7,13 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (2, 784, 772, 0, 4, 'Myrthe Mildthorn', 'npc.myrthe_mildthorn', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
@@ -17,7 +22,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.myrthe_mildthorn", package.seeall)
@@ -534,7 +539,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
 talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +550,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
 talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,7 +561,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
 talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,7 +573,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
 talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,7 +623,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addResponse("Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -630,7 +635,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
 talkEntry:addResponse("Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,7 +646,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -652,7 +657,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addResponse("Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -663,7 +668,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
 talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -673,7 +678,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
 talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,7 +688,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
 talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +699,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
 talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 13));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +750,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -758,7 +763,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -770,7 +775,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -782,7 +787,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 19));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -793,7 +798,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods III"));
 talkEntry:addResponse("Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,7 +808,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald III"));
 talkEntry:addResponse("Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -813,7 +818,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods III"));
 talkEntry:addResponse("Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,7 +829,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald III"));
 talkEntry:addResponse("Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -874,7 +879,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a novice robe. You advance in Archmage Elvaine Morgan's favour."));
 talkEntry:addResponse("Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
 talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -886,7 +891,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a novice robe."));
 talkEntry:addResponse("Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!");
 talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,7 +902,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Novizenrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
 talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -908,7 +913,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 21));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Novizenrobe."));
 talkEntry:addResponse("Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!");
 talkEntry:addConsequence(npc.base.consequence.item.item(547, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(79, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
