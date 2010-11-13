@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: October 04, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -857,7 +857,7 @@ talkEntry:addTrigger("can I do");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addResponse("Hmm... are you sure that you can do something for me? Collecting information for me, for example?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -869,7 +869,7 @@ talkEntry:addTrigger("kann ich was tun");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addResponse("Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,7 +880,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hmm... are you sure that you can do something for me? Collecting information for me, for example?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -890,7 +890,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addResponse("Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,7 +900,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("can I do");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addResponse("Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "=", 21));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,7 +911,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("kann ich was tun");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addResponse("Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "=", 21));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -921,7 +921,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "=", 21));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,7 +930,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addResponse("Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "=", 21));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -940,7 +940,7 @@ talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 1));
 talkEntry:addResponse("Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,7 +952,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 1));
 talkEntry:addResponse("Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,7 +961,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 1));
 talkEntry:addResponse("Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,7 +970,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 1));
 talkEntry:addResponse("Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +980,7 @@ talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("Well, well. That sounds promising... Ready for the task?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -992,7 +992,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1002,7 +1002,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Well, well. That sounds promising... Ready for the task?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1011,7 +1011,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,7 +1019,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("Anyway. Does not matter. But listen carefully now... Ready for the task?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1028,7 +1028,7 @@ talkEntry:addTrigger("Nein");
 talkEntry:addTrigger("Nix");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,7 +1039,7 @@ talkEntry:addTrigger("Nope");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Anyway. Does not matter. But listen carefully now... Ready for the task?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1049,7 +1049,7 @@ talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 2));
 talkEntry:addResponse("Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1060,7 +1060,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(10));
 talkEntry:addResponse("Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1073,7 +1073,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(10));
 talkEntry:addResponse("Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1084,7 +1084,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10));
 talkEntry:addResponse("Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1094,7 +1094,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(10));
 talkEntry:addResponse("Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1105,7 +1105,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(11));
 talkEntry:addResponse("Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1118,7 +1118,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(11));
 talkEntry:addResponse("Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1129,7 +1129,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11));
 talkEntry:addResponse("Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1139,7 +1139,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(11));
 talkEntry:addResponse("Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1150,7 +1150,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(13));
 talkEntry:addResponse("Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1163,7 +1163,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(13));
 talkEntry:addResponse("Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,7 +1174,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13));
 talkEntry:addResponse("Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1184,7 +1184,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(13));
 talkEntry:addResponse("Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1195,7 +1195,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addResponse("Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1208,7 +1208,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addResponse("Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1219,7 +1219,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addResponse("Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1229,7 +1229,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(14));
 talkEntry:addResponse("Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1240,7 +1240,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addResponse("Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1253,7 +1253,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addResponse("Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1264,7 +1264,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addResponse("Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1274,7 +1274,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(17));
 talkEntry:addResponse("Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1285,7 +1285,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1298,7 +1298,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1309,7 +1309,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1319,7 +1319,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1330,7 +1330,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addResponse("Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1342,7 +1342,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addResponse("Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1353,7 +1353,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addResponse("Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1363,7 +1363,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addResponse("Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1374,7 +1374,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(34));
 talkEntry:addResponse("Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1387,7 +1387,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(34));
 talkEntry:addResponse("Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1398,7 +1398,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34));
 talkEntry:addResponse("Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1408,7 +1408,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(34));
 talkEntry:addResponse("Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1419,7 +1419,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(51));
 talkEntry:addResponse("Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1432,7 +1432,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(51));
 talkEntry:addResponse("Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1443,7 +1443,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51));
 talkEntry:addResponse("Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1453,7 +1453,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(51));
 talkEntry:addResponse("Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1464,7 +1464,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1477,7 +1477,7 @@ talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1488,7 +1488,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1498,7 +1498,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 3));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1513,7 +1513,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addResponse("Greetings. Do you have the answer now?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1529,7 +1529,7 @@ talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addResponse("Grüße euch. Wisst ihr die Antwort nun?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1542,7 +1542,7 @@ talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetings. Do you have the answer now?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1554,7 +1554,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addResponse("Grüße euch. Wisst ihr die Antwort nun?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1564,7 +1564,7 @@ talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addResponse("Well...so, how is the answer?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1576,7 +1576,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addResponse("Gut...und wie lautet sie die Antwort?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1586,7 +1586,7 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Well...so, how is the answer?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1595,7 +1595,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addResponse("Gut...und wie lautet sie die Antwort?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1603,7 +1603,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Age of Concord");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you vey much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1611,7 +1611,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zeitalter der Eintracht");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1619,7 +1619,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("comfort");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1628,7 +1628,7 @@ talkEntry:addTrigger("trösten");
 talkEntry:addTrigger("Hoffnung");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1636,7 +1636,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("purge of all impurity and weakness");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1644,7 +1644,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vernichter alles Unreinen und Schwachen");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1652,7 +1652,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Age of Discord");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1660,7 +1660,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zeitalter der Zwietracht");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1668,7 +1668,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Daily sunmaker");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1676,7 +1676,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Täglich Sonnenmacher");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1684,7 +1684,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dragons");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1692,7 +1692,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Drachen");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1700,7 +1700,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fire");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1708,7 +1708,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Feuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1716,7 +1716,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Strong in summer");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1724,7 +1724,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Stark im Sommer");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1732,7 +1732,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("live");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1740,7 +1740,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("leben");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1748,7 +1748,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holy Flame");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Thank you very much for your help! ...do like to have something for it?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1756,7 +1756,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("heiligen Flamme");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1769,7 +1769,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addResponse("Hmm ...Thank you for your support!...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1784,7 +1784,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addResponse("Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1797,7 +1797,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addResponse("Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1809,7 +1809,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addResponse("Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1821,7 +1821,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1836,7 +1836,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1849,7 +1849,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1861,7 +1861,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.chance.chance(100));
 talkEntry:addResponse("Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(600, "+", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
