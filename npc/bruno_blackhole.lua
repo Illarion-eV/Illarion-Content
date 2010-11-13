@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1273,7 +1273,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Lobet Irmorom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

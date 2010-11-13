@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Bruno Blackhole                                             None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Miner                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  439, 359, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Bruno Blackhole"
@@ -199,7 +199,7 @@ wrongLangUS = "#me looks at you confused."
 "Stone" -> "From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work."
 "Stein" -> "Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten."
 "Irmorom", english -> "Hail Irmorom!"
-"Irmorom", german -> "Lobet Irmorom!"
+"Irmorom" -> "Lobet Irmorom!"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
