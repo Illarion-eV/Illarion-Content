@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 09, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -282,19 +282,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("seal");
+talkEntry:addResponse("Never ever even think about breaking the queen's seal. You'll regret it...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ambassador");
 talkEntry:addTrigger("embassador");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?");
+talkEntry:addResponse("Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.");
+talkEntry:addResponse("I used to travel a lot in diplomatic mission, but now I prefer to read a good book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("lazy");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -331,18 +335,22 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("siegel");
+talkEntry:addResponse("Brecht niemals ein königliches Siegel. Ihr würdet es bereuen...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Botschafter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...");
+talkEntry:addResponse("Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.");
+talkEntry:addResponse("Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faul");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,9 +421,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -423,9 +429,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1487,7 +1491,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1504,7 +1508,7 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 14));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1577,6 +1581,7 @@ talkingNPC:addCycleText("Eindeutig zu viel Arbeit. Ich sollte erstmal ein wenig 
 talkingNPC:addCycleText("Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have merried when I still had the time.");
 talkingNPC:addCycleText("Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it to be one should do something about this.");
 talkingNPC:addCycleText("Ruhe! Ich lese!", "Silence! I am reading!");
+talkingNPC:addCycleText("#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.", "#me stares morosely at a scroll that bears the royal seal of Cadomyr.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
