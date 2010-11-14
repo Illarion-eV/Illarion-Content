@@ -109,8 +109,8 @@ wrongLangUS = "Shut it!"
 -- Other NPCs
 "Miggs", english -> "Aye, Miggs. My best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
 "Miggs" -> "Aye, Miggs. Meine besten Grüße an ihn. Du findest ihn im Hauptquartier von Don Valerio. Er übernimmt die... schwierigen Fälle des Dons."
-"Bruno", "Blackhole", english -> "Bruno Blackhole is a lazy digger who pretends to work in the Darkhole mine. Didn't really make him rich."
-"Bruno", "Blackhole" -> "Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Dunkellochmine arbeiten. Hat ihn jedenfalls nicht reich gemacht."
+"Bruno", "Blackhole", english -> "Bruno Blackhole is a lazy digger who pretends to work in the Malachite mine. Didn't really make him rich."
+"Bruno", "Blackhole" -> "Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Malachitmine arbeiten. Hat ihn jedenfalls nicht reich gemacht."
 "Fronita", "Emery", english -> "In Runewick, you can find skilled artisans. Fronita Emery is one of them; instead of cost effective goods, she crafts silly vases nobody buys, anyway."
 "Fronita", "Emery" -> "In Runewick kann man recht geschickte Handwerker finden. Fronita Emery gehört zu ihnen; anstatt allerdings preiswerte Waren anzubieten, verschwendet sie ihre Zeit mit Vasen, die eh niemand kauft."
 

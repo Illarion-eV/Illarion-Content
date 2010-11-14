@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 14, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -406,14 +406,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bruno");
 talkEntry:addTrigger("Blackhole");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Bruno Blackhole is a lazy digger who pretends to work in the Darkhole mine. Didn't really make him rich.");
+talkEntry:addResponse("Bruno Blackhole is a lazy digger who pretends to work in the Malachite mine. Didn't really make him rich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bruno");
 talkEntry:addTrigger("Blackhole");
-talkEntry:addResponse("Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Dunkellochmine arbeiten. Hat ihn jedenfalls nicht reich gemacht.");
+talkEntry:addResponse("Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Malachitmine arbeiten. Hat ihn jedenfalls nicht reich gemacht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

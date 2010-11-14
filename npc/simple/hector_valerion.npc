@@ -113,7 +113,7 @@ radius = 0
 "Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
 "Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
 
-"Daerbur","Wimbert",english->""
+"Daerbur","Wimbert",english->"You might want to search for Daerbur Wimbert in the "
 "Daerbur","Wimbert"->""
 "Robertus",english->""
 "Robertus"->""
