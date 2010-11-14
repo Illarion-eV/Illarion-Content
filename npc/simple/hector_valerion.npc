@@ -113,10 +113,10 @@ radius = 0
 "Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
 "Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
 
-"Daerbur","Wimbert",english->"You might want to search for Daerbur Wimbert in the "
-"Daerbur","Wimbert"->""
-"Robertus",english->""
-"Robertus"->""
+"Daerbur","Wimbert",english->"You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
+"Daerbur","Wimbert"->"Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
+"Robertus",english->"Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
+"Robertus"->"Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
 "Arenius","Batavius",english->""
 "Arenius","Batavius"->""
 
