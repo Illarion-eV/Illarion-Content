@@ -56,7 +56,7 @@ radius = 0
 -- 11: Quest 4 solved, reward: 400cp, (15 rankpoints)
 -- 12: Quest 5: Bring a message to Archmage Morgan. Needs edit of the NPC script!
 -- 13: Message delivered
--- 14: Quest 5 solved, reward: magical topas ring, (20 rankpoints)
+-- 14: Quest 5 solved, reward: magical topaz ring (282), (20 rankpoints)
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(108) = 0
@@ -112,6 +112,13 @@ radius = 0
 "Depesche"->"Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
 "Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
 "Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
+
+"Daerbur","Wimbert",english->""
+"Daerbur","Wimbert"->""
+"Robertus",english->""
+"Robertus"->""
+"Arenius","Batavius",english->""
+"Arenius","Batavius"->""
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
@@ -171,7 +178,7 @@ radius = 0
 "Zhambra", english -> "I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty."
 "Zhambra" -> "Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun."
 
--- 1st quest: Bring 5 item A, reward 200cp
+-- 1st quest: Bring 5 quills (463), reward 200cp
 
 -- Give out quest 1
 "quest", "mission", queststatus(108) = 0, english -> inform("[New quest] Delayed Mail I"), "ENGLISH.", queststatus(108) = 1
@@ -180,24 +187,24 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "GERMAN.", queststatus(108) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(108) = 1, item(391, all) < 5, english -> "ENGLISH."
-"quest", "mission", queststatus(108) = 1, item(391, all) < 5 -> "GERMAN."
-"task", "adventure", "message", queststatus(108) = 1, item(391, all) < 5 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 1, item(391, all) < 5 -> "GERMAN."
+"quest", "mission", queststatus(108) = 1, item(463, all) < 5, english -> "ENGLISH."
+"quest", "mission", queststatus(108) = 1, item(463, all) < 5 -> "GERMAN."
+"task", "adventure", "message", queststatus(108) = 1, item(463, all) < 5 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 1, item(463, all) < 5 -> "GERMAN."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
-".+", queststatus(108) = 1, item(391, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 200, deleteItem(391, 5), queststatus(108) = 2, rankpoints(Cadomyr) + 5
-".+", queststatus(108) = 1, item(391, all) > 4, english -> inform("[Quest solved] You are awarded 200 copper coins."), "ENGLISH.", money + 200, deleteItem(391, 5), queststatus(108) = 2
-".+", queststatus(108) = 1, item(391, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 200, deleteItem(391, 5), queststatus(108) = 2, rankpoints(Cadomyr) + 5
-".+", queststatus(108) = 1, item(391, all) > 4 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "GERMAN.", money + 200, deleteItem(391, 5), queststatus(108) = 2
+".+", queststatus(108) = 1, item(463, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 200, deleteItem(463, 5), queststatus(108) = 2, rankpoints(Cadomyr) + 5
+".+", queststatus(108) = 1, item(463, all) > 4, english -> inform("[Quest solved] You are awarded 200 copper coins."), "ENGLISH.", money + 200, deleteItem(463, 5), queststatus(108) = 2
+".+", queststatus(108) = 1, item(463, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 200, deleteItem(463, 5), queststatus(108) = 2, rankpoints(Cadomyr) + 5
+".+", queststatus(108) = 1, item(463, all) > 4 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "GERMAN.", money + 200, deleteItem(463, 5), queststatus(108) = 2
 
--- 2nd quest: Bring a message to a nearby NPC
+-- 2nd quest: Bring a message to Robertus
 
 -- Give out quest 2
-"quest", "mission", queststatus(108) = 2, english -> inform("[New quest] Delayed Mail II: You received a message for NPC."), "ENGLISH.", queststatus(108) = 3
-"quest", "mission", queststatus(108) = 2 -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 3
-"Task", "Adventure", "Message", queststatus(108) = 2 -> inform("[New quest] Delayed Mail II: You received a message for NPC."), "ENGLISH.", queststatus(108) = 3
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 2 -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 3
+"quest", "mission", queststatus(108) = 2, english -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), "ENGLISH.", queststatus(108) = 3
+"quest", "mission", queststatus(108) = 2 -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), "GERMAN.", queststatus(108) = 3
+"Task", "Adventure", "Message", queststatus(108) = 2 -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), "ENGLISH.", queststatus(108) = 3
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 2 -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), "GERMAN.", queststatus(108) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(108) = 3, english -> "ENGLISH."
@@ -205,19 +212,19 @@ radius = 0
 "Task", "Adventure", "Message", queststatus(108) = 3 -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 3 -> "GERMAN."
 
--- Quest 2 solved, reward: 50cp, ITEM, +10 rankpoints
-".+", queststatus(108) = 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(108) = 5, rankpoints(Cadomyr) + 10
-".+", queststatus(108) = 4, english -> inform("[Quest solved] You are awarded 50 copper coins and A ITEM."), "ENGLISH.", money + 50, item(391, 1, 599, 0), queststatus(108) = 5
-".+", queststatus(108) = 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(108) = 5, rankpoints(Cadomyr) + 10
-".+", queststatus(108) = 4 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."), "GERMAN.", money + 50, item(391, 1, 599, 0), queststatus(108) = 5
+-- Quest 2 solved, reward: 50cp, large metal shield (20), +10 rankpoints
+".+", queststatus(108) = 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 50 copper coins and a large metal shield. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 50, item(20, 1, 599, 0), queststatus(108) = 5, rankpoints(Cadomyr) + 10
+".+", queststatus(108) = 4, english -> inform("[Quest solved] You are awarded 50 copper coins and a large metal shield."), "ENGLISH.", money + 50, item(20, 1, 599, 0), queststatus(108) = 5
+".+", queststatus(108) = 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen großen Metallschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 50, item(20, 1, 599, 0), queststatus(108) = 5, rankpoints(Cadomyr) + 10
+".+", queststatus(108) = 4 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen großen Metallschild."), "GERMAN.", money + 50, item(20, 1, 599, 0), queststatus(108) = 5
 
--- 3rd quest: Bring a message to a NPC somewhere inside the faction home land.
+-- 3rd quest: Bring a message to Arenius Batavius.
 
 -- Give out quest 3
-"quest", "mission", queststatus(108) = 5, english -> inform("[New quest] Delayed Mail III: You received a message for NPC."), "ENGLISH.", queststatus(108) = 6
-"quest", "mission", queststatus(108) = 5 -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 6
-"Task", "Adventure", "Message", queststatus(108) = 5 -> inform("[New quest] Delayed Mail III: You received a message for NPC."), "ENGLISH.", queststatus(108) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 5 -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 6
+"quest", "mission", queststatus(108) = 5, english -> inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."), "ENGLISH.", queststatus(108) = 6
+"quest", "mission", queststatus(108) = 5 -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."), "GERMAN.", queststatus(108) = 6
+"Task", "Adventure", "Message", queststatus(108) = 5 -> inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."), "ENGLISH.", queststatus(108) = 6
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 5 -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."), "GERMAN.", queststatus(108) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(108) = 6, english -> "ENGLISH."
@@ -225,19 +232,19 @@ radius = 0
 "Task", "Adventure", "Message", queststatus(108) = 6 -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 6 -> "GERMAN."
 
--- Quest 3 solved, reward: NICE ITEM, +10 rankpoints
-".+", queststatus(108) = 7, english, town = Cadomyr -> inform("[Quest solved] You are awarded A NICE ITEM. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", item(391, 1, 699, 0), queststatus(108) = 8, rankpoints(Cadomyr) + 10
-".+", queststatus(108) = 7, english -> inform("[Quest solved] You are awarded A NICE ITEM."), "ENGLISH.", item(391, 1, 699, 0), queststatus(108) = 8
-".+", queststatus(108) = 7, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", item(391, 1, 699, 0), queststatus(108) = 8, rankpoints(Cadomyr) + 10
-".+", queststatus(108) = 7 -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM."), "GERMAN.", item(391, 1, 699, 0), queststatus(108) = 8
+-- Quest 3 solved, reward: merinium plated dagger (444), +10 rankpoints
+".+", queststatus(108) = 7, english, town = Cadomyr -> inform("[Quest solved] You are awarded a merinium plated dagger. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", item(444, 1, 699, 0), queststatus(108) = 8, rankpoints(Cadomyr) + 10
+".+", queststatus(108) = 7, english -> inform("[Quest solved] You are awarded a merinium plated dagger."), "ENGLISH.", item(444, 1, 699, 0), queststatus(108) = 8
+".+", queststatus(108) = 7, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", item(444, 1, 699, 0), queststatus(108) = 8, rankpoints(Cadomyr) + 10
+".+", queststatus(108) = 7 -> inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch."), "GERMAN.", item(444, 1, 699, 0), queststatus(108) = 8
 
--- 4th quest: Bring a message to a NPC of another faction.
+-- 4th quest: Bring a message to Daerbur Wimbert.
 
 -- Give out quest 4
-"quest", "mission", queststatus(108) = 8, english -> inform("[New quest] Delayed Mail IV_ You received a message for NPC."), "ENGLISH.", queststatus(108) = 9
-"quest", "mission", queststatus(108) = 8 -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 9
-"Task", "Adventure", "Message", queststatus(108) = 8 -> inform("[New quest] Delayed Mail IV: You received a message for NPC."), "ENGLISH.", queststatus(108) = 9
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 8 -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 9
+"quest", "mission", queststatus(108) = 8, english -> inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."), "ENGLISH.", queststatus(108) = 9
+"quest", "mission", queststatus(108) = 8 -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."), "GERMAN.", queststatus(108) = 9
+"Task", "Adventure", "Message", queststatus(108) = 8 -> inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."), "ENGLISH.", queststatus(108) = 9
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 8 -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."), "GERMAN.", queststatus(108) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(108) = 9, english -> "ENGLISH."
@@ -251,13 +258,13 @@ radius = 0
 ".+", queststatus(108) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 400, queststatus(108) = 11, rankpoints(Cadomyr) + 15
 ".+", queststatus(108) = 10 -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "GERMAN.", money + 400, queststatus(108) = 11
 
--- 5th quest: Bring a message to another faction's leader.
+-- 5th quest: Bring a message to Archmage Elvaine Morgan.
 
 -- Give out quest 5
-"quest", "mission", queststatus(108) = 11, english -> inform("[New quest] Delayed Mail V: You received a message for NPC."), "ENGLISH.", queststatus(108) = 12
-"quest", "mission", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 12
-"Task", "Adventure", "Message", queststatus(108) = 11 -> inform("[New quest] Delayed Mail V: You received a message for NPC."), "ENGLISH.", queststatus(108) = 12
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für NPC erhalten."), "GERMAN.", queststatus(108) = 12
+"quest", "mission", queststatus(108) = 11, english -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "ENGLISH.", queststatus(108) = 12
+"quest", "mission", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "GERMAN.", queststatus(108) = 12
+"Task", "Adventure", "Message", queststatus(108) = 11 -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "ENGLISH.", queststatus(108) = 12
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "GERMAN.", queststatus(108) = 12
 
 -- Quest 5 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(108) = 12, english -> "ENGLISH."
@@ -265,11 +272,11 @@ radius = 0
 "Task", "Adventure", "Message", queststatus(108) = 12 -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 12 -> "GERMAN."
 
--- Quest 5 solved, reward: uber item, +20 rankpoints
-".+", queststatus(108) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded AN UBER ITEM. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", item(391, 1, 999, 0), queststatus(108) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(108) = 13, english -> inform("[Quest solved] You are awarded AN UBER ITEM."), "ENGLISH.", item(391, 1, 999, 0), queststatus(108) = 14
-".+", queststatus(108) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", item(391, 1, 999, 0), queststatus(108) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(108) = 13 -> inform("[Quest gelöst] Du erhältst EIN UBER ITEM."), "GERMAN.", item(391, 1, 999, 0), queststatus(108) = 14
+-- Quest 5 solved, reward: magical topaz ring (282), +20 rankpoints
+".+", queststatus(108) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded a magical topaz ring. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
+".+", queststatus(108) = 13, english -> inform("[Quest solved] You are awarded a magical topaz ring."), "ENGLISH.", item(282, 1, 999, 71), queststatus(108) = 14
+".+", queststatus(108) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen magischen Topasring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
+".+", queststatus(108) = 13 -> inform("[Quest gelöst] Du erhältst einen magischen Topasring."), "GERMAN.", item(282, 1, 999, 71), queststatus(108) = 14
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(108) = 14, english -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
