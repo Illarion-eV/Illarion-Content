@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 08, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 14, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hector Valerion"
@@ -67,14 +67,14 @@ radius = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You interrupt me, so it has to be important.","#me closes a book and grumbles: 'What is it again?'","Speak or be quiet. The latter is preferred."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.","#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'","Sprecht oder schweigt, letzteres wäre mir lieber."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Be greeted. You interrupt me, so it has to be important.","#me closes a book and grumbles: 'What is it again?'","Speak or be quiet. The latter is preferred."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.","#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'","Sprecht oder schweigt, letzteres wäre mir lieber."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Can I continue reading now? Undisturbed? Thank you!","Go and don't come back too early.","There is the door."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!","Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.","Da ist die Tür."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Can I continue reading now? Undisturbed? Thank you!","Go and don't come back too early.","There is the door."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!","Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.","Da ist die Tür."
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
 "How are you", "How feel", "How do you do" -> "Just work! But what do I say, you look like somebody with lost of esteem. How about you fulfill a royal mission?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
 "your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
@@ -97,28 +97,26 @@ radius = 0
 "Ich bin", "mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
 
 -- More small talk; add at least five triggers
-"seal"->"Never ever even think about breaking the queen's seal. You'll regret it..."
-"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?","Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.","I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
+"seal" -> "Never ever even think about breaking the queen's seal. You'll regret it..."
+"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.", "I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
 "lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
 "Order" -> "The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
-"despatch","dispatch"-> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
-"Hastings","Baron",english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
-"diplomat",english -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
-
-"siegel"->"Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
-"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...","Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.","Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
+"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
+"Hastings", "Baron", english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
+"diplomat", english -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
+"siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
+"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...", "Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.", "Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
 "faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
 "Befehl" -> "Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?"
-"Depesche"->"Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
-"Hastings","Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
+"Depesche" -> "Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
+"Hastings", "Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
 "Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
-
-"Daerbur","Wimbert",english->"You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
-"Daerbur","Wimbert"->"Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
-"Robertus",english->"Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
-"Robertus"->"Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
-"Arenius","Batavius",english->""
-"Arenius","Batavius"->""
+"Daerbur", "Wimbert", english -> "You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
+"Daerbur", "Wimbert" -> "Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
+"Robertus", english -> "Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
+"Robertus" -> "Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
+"Arenius", "Batavius", english -> "A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard."
+"Arenius", "Batavius" -> "Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen."
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
@@ -181,10 +179,10 @@ radius = 0
 -- 1st quest: Bring 5 quills (463), reward 200cp
 
 -- Give out quest 1
-"quest", "mission", queststatus(108) = 0, english -> inform("[New quest] Delayed Mail I"), "ENGLISH.", queststatus(108) = 1
-"quest", "mission", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "GERMAN.", queststatus(108) = 1
-"task", "adventure", "message", queststatus(108) = 0 -> inform("[New quest] Delayed Mail I"), "ENGLISH.", queststatus(108) = 1
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "GERMAN.", queststatus(108) = 1
+"quest", "mission", queststatus(108) = 0, english -> inform("[New quest] Delayed Mail I"), "I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?", queststatus(108) = 1
+"quest", "mission", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.", queststatus(108) = 1
+"task", "adventure", "message", queststatus(108) = 0 -> inform("[New quest] Delayed Mail I"), "I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?", queststatus(108) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.", queststatus(108) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(108) = 1, item(463, all) < 5, english -> "ENGLISH."
@@ -285,14 +283,14 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 14 -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"Duplo",english -> "They are pretty long, aren't they?"
+"Duplo", english -> "They are pretty long, aren't they?"
 "Duplo" -> "Die sind verdammt lang, nicht wahr?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"Yes" -> "Well, no.","Alright, indeed.","Who said this?","#me shrugs."
-"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?","#me zuckt mit den Schultern."
-"No" -> "I guess I forgot on which page I was.","My book is really interesting. Does the same hold for what you just said?","Shh!","Pardon?"
-"Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.","Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?","Psst!","Pardon?"
+"Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs."
+"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern."
+"No" -> "I guess I forgot on which page I was.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"
+"Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.", "Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?", "Psst!", "Pardon?"
 
 -- Cycletext: Add as many random messages as possible
 
@@ -311,5 +309,5 @@ cycletext "Gut, gut, gut...", "Good, good, good..."
 cycletext "Eindeutig zu viel Arbeit. Ich sollte erstmal ein wenig lesen, wahrscheinlich überlegt sie es sich nochmal.", "Simply too much work. I should read a bit, most probably, she'll reconsider anyway."
 cycletext "Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have merried when I still had the time."
 cycletext "Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it to be one should do something about this."
-cycletext "Ruhe! Ich lese!","Silence! I am reading!"
-cycletext "#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.","#me stares morosely at a scroll that bears the royal seal of Cadomyr."
+cycletext "Ruhe! Ich lese!", "Silence! I am reading!"
+cycletext "#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.", "#me stares morosely at a scroll that bears the royal seal of Cadomyr."
