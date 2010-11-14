@@ -185,10 +185,10 @@ radius = 0
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 0 -> inform("[Neues Quest] Späte Post I"), "Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.", queststatus(108) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(108) = 1, item(463, all) < 5, english -> "ENGLISH."
-"quest", "mission", queststatus(108) = 1, item(463, all) < 5 -> "GERMAN."
-"task", "adventure", "message", queststatus(108) = 1, item(463, all) < 5 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 1, item(463, all) < 5 -> "GERMAN."
+"quest", "mission", queststatus(108) = 1, item(463, all) < 5, english -> "How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal."
+"quest", "mission", queststatus(108) = 1, item(463, all) < 5 -> "Wie soll ich ohne Federkiele die neuesten Befehle der Königin niederschreiben? Bring mit wenigstens fünf, wenn ihr loyal seid."
+"task", "adventure", "message", queststatus(108) = 1, item(463, all) < 5 -> "How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal."
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 1, item(463, all) < 5 -> "Wie soll ich ohne Federkiele die neuesten Befehle der Königin niederschreiben? Bring mit wenigstens fünf, wenn ihr loyal seid."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
 ".+", queststatus(108) = 1, item(463, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 200, deleteItem(463, 5), queststatus(108) = 2, rankpoints(Cadomyr) + 5
