@@ -134,6 +134,12 @@ wrongLangUS = "#me looks at you confused."
 "Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+-- Quest 108: A message from Hector Valerion
+"message", "news", "letter", "scroll", "parchment", "despatch", queststatus(108) = 12 -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "depesche", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+"Hector", "Valerion", queststatus(108) = 12, english -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"Hector", "Valerion", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+
 -- Catching quest triggers
 "quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "quest", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
