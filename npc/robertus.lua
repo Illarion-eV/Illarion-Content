@@ -5,14 +5,21 @@
 -- NPC Race: human                      NPC Position:  119, 601, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 119, 601, 0, 0, 'Robertus', 'npc.robertus', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.robertus", package.seeall)
 
@@ -641,6 +648,53 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
+talkEntry:addResponse("Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."));
+talkEntry:addResponse("Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."));
+talkEntry:addResponse("Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -721,7 +775,7 @@ talkingNPC:addCycleText("Dient ihrer Hohheit!", "Serve her majesty!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der königliche Baumeister Robertus.", "This NPC is the royal builder Robertus.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);

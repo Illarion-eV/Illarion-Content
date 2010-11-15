@@ -23,10 +23,10 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der königliche Baumeister Robertus."
+lookatUS = "This NPC is the royal builder Robertus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -129,6 +129,12 @@ wrongLangUS = "#me looks at you confused."
 "Irmorom", german -> "Irmorom möge uns vor Unfällen während der Bauarbeiten behüten."
 "Cherga", english -> "I'll never let Cherga take away our queen. If she departs from this world, I will follow.", "I do not fear Cherga. I will meet Cherga, side by side with the queen."
 "Cherga", german -> "Niemals werde ich Cherga unsere Königin rauben lassen. Sollte sie dennoch diese Welt verlassen, so werde ich folgen.", "Ich fürchte Cherga nicht. Ich werde ihr, Seite an Seite mit der Königin, gegenübertreten."
+
+-- Quest 108: A message from Hector Valerion
+"message", "news", "letter", "scroll", "parchment", queststatus(108) = 3 -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 3 -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
+"Hector", "Valerion", queststatus(108) = 3, english -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
+"Hector", "Valerion", queststatus(108) = 3 -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
 
 -- Catching quest triggers
 "quest", "mission", english -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
