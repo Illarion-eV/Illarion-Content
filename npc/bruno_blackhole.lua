@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1286,7 +1286,7 @@ talkingNPC:addCycleText("Glück auf!", "Good luck!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Bergarbeiter Bruno Blackhole.", "This NPC is the miner Bruno Blackhole.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
