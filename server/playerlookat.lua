@@ -12,6 +12,7 @@ require("base.common")
 require("base.factions")
 require("content.lookat.custom")
 require("content.uniquechardescription")
+require("item.altars")
 
 module("server.playerlookat", package.seeall)
 
@@ -36,6 +37,10 @@ function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
 	if not CustomLookAt then
 		content.lookat.custom.InitCustomLookAt();
 		CustomLookAt = content.lookat.custom.CustomLookAt;
+	end
+	
+	if mode == 1 then
+		createDevotionInform(SourceCharacter, TargetCharacter);
 	end
 	
     local lang = SourceCharacter:getPlayerLanguage();
@@ -532,4 +537,46 @@ function handleCustomLookat(TargetChar,SourceChar,Item)
 			SourceChar:inform( "#w " .. customText );
 		end
 	end
+end
+
+function createDevotionInform(SourceCharacter, TargetCharacter)
+	local devotion = TargetCharacter:getQuestProgress(401);
+	local priesthood = TargetCharacter:getQuestProgress(402);
+	
+	if devotion == 0 then
+		return;
+	end
+	local sex = TargetCharacter:increaseAttrib("sex", 0);
+	
+	if not item.altars.init then
+		item.altars.ini();
+	end
+	local godName = item.altars.godName[devotion];
+	
+	local gText, eText = "","";
+	if sex == 0 then
+		gText = "Er ist ein ";
+		eText = "He is a ";
+		if priesthood > 0 then
+			gText = gText .. "Priester ";
+			eText = eText .. "priest ";
+		else
+			gText = gText .. "Anhänger ";
+			eText = eText .. "devotee ";
+		end
+	else
+		gText = "Sie ist eine ";
+		eText = "She is a ";
+		if priesthood > 0 then
+			gText = gText .. "Priesterin ";
+			eText = eText .. "priestess ";
+		else
+			gText = gText .. "Anhängerin ";
+			eText = eText .. "devotee ";
+		end
+	end
+	gText = gText .. godName .."s.";
+	eText = eText .. "of " .. godName ".";
+	
+	base.common.TempInformNLS(SourceCharacter, gText, eText);
 end
