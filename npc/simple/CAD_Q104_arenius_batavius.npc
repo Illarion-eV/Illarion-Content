@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  10, 15, 0              --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -23,10 +23,10 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Kreuzritter Arenius Batavius."
+lookatUS = "This NPC is the crusader Arenius Batavius."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -145,6 +145,12 @@ wrongLangUS = "#me looks at you confused."
 "Cherga" -> "Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!"
 "Bragon", "Brágon", english -> "Did you know that Brágon is the father of all dragons? No? I thought so."
 "Bragon", "Brágon" -> "Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
+
+-- Quest 108: A message from Hector Valerion
+"message", "news", "letter", "scroll", "parchment", queststatus(108) = 6 -> inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."), "#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'", queststatus(108) = 7
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 6 -> inform("[Queststatus] Späte Post III: Du überbringst Arenius Batavius die Nachricht von Hector Valerion."), "#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.", queststatus(108) = 7
+"Hector", "Valerion", queststatus(108) = 6, english -> inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."), "#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'", queststatus(108) = 7
+"Hector", "Valerion", queststatus(108) = 6 -> inform("[Queststatus] Späte Post III: Du überbringst Arenius Batavius die Nachricht von Hector Valerion."), "#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.", queststatus(108) = 7
 
 -- 1st quest: Provide six panels of white cloth.
 
