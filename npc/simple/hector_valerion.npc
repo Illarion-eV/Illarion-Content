@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 14, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hector Valerion"
@@ -259,22 +259,22 @@ radius = 0
 -- 5th quest: Bring a message to Archmage Elvaine Morgan.
 
 -- Give out quest 5
-"quest", "mission", queststatus(108) = 11, english -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "ENGLISH.", queststatus(108) = 12
-"quest", "mission", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "GERMAN.", queststatus(108) = 12
-"Task", "Adventure", "Message", queststatus(108) = 11 -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "ENGLISH.", queststatus(108) = 12
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "GERMAN.", queststatus(108) = 12
+"quest", "mission", queststatus(108) = 11, english -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!", queststatus(108) = 12
+"quest", "mission", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!", queststatus(108) = 12
+"Task", "Adventure", "Message", queststatus(108) = 11 -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!", queststatus(108) = 12
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 11 -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!", queststatus(108) = 12
 
 -- Quest 5 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(108) = 12, english -> "ENGLISH."
-"quest", "mission", queststatus(108) = 12 -> "GERMAN."
-"Task", "Adventure", "Message", queststatus(108) = 12 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 12 -> "GERMAN."
+"quest", "mission", queststatus(108) = 12, english -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+"quest", "mission", queststatus(108) = 12 -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
+"Task", "Adventure", "Message", queststatus(108) = 12 -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 12 -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
 
 -- Quest 5 solved, reward: magical topaz ring (282), +20 rankpoints
-".+", queststatus(108) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded a magical topaz ring. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(108) = 13, english -> inform("[Quest solved] You are awarded a magical topaz ring."), "ENGLISH.", item(282, 1, 999, 71), queststatus(108) = 14
-".+", queststatus(108) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen magischen Topasring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
-".+", queststatus(108) = 13 -> inform("[Quest gelöst] Du erhältst einen magischen Topasring."), "GERMAN.", item(282, 1, 999, 71), queststatus(108) = 14
+".+", queststatus(108) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded a magical topaz ring. You advance in Queen Rosaline Edwards' favour."), "You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
+".+", queststatus(108) = 13, english -> inform("[Quest solved] You are awarded a magical topaz ring."), "You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.", item(282, 1, 999, 71), queststatus(108) = 14
+".+", queststatus(108) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen magischen Topasring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.", item(282, 1, 999, 71), queststatus(108) = 14, rankpoints(Cadomyr) + 20
+".+", queststatus(108) = 13 -> inform("[Quest gelöst] Du erhältst einen magischen Topasring."), "Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.", item(282, 1, 999, 71), queststatus(108) = 14
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(108) = 14, english -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
@@ -287,8 +287,8 @@ radius = 0
 "Duplo" -> "Die sind verdammt lang, nicht wahr?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.","I am trying to read!","#me sighs."
-"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.","Ich versuche hier zu lesen!","#me seufzt."
+"Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."
+"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.", "Ich versuche hier zu lesen!", "#me seufzt."
 "No" -> "I guess I forgot on which page I was.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"
 "Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.", "Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?", "Psst!", "Pardon?"
 
