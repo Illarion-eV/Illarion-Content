@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Daerbur Wimbert                                             None --
--- NPC Job:  none                                                             --
+-- NPC Name: Daerbur Wimbert                                          Galmair --
+-- NPC Job:  miner                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  392, 160, -3           --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 12, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Daerbur Wimbert"
@@ -88,6 +88,12 @@ wrongLangUS = "#me looks at you confused."
 "Dunkelloch", german -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
 "mine", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
 "Mine", german -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
+
+-- Quest 108: A message from Hector Valerion
+"message", "news", "letter", "scroll", "parchment", queststatus(108) = 9 -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jidah!'", queststatus(108) = 10
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
+"Hector", "Valerion", queststatus(108) = 9, english -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jida!'", queststatus(108) = 10
+"Hector", "Valerion", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
 
 -- Factions
 "Runewick", german -> "In Runewick, da sind sie dick!"
