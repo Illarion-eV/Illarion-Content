@@ -1035,9 +1035,13 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
+function nextCycle()
+	nextCycle = nextCycle2;
+	nextCycle2 = nil;
+	initNpc();
+	initNpc = nil;
+end;
+function nextCycle2() mainNPC:nextCycle(); end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
-initNpc();
-initNpc = nil;
 -- END
