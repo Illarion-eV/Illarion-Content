@@ -7,7 +7,7 @@ module("npc.base.condition.sex", package.seeall)
 sex = base.class.class(npc.base.condition.condition.condition,
 function(self, value)
     npc.base.condition.condition.condition:init(self);
-    if (value == "male") then
+    if (value == "male" or value == 0) then
         self["value"] = 0;
     else
         self["value"] = 1;
