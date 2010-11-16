@@ -223,10 +223,10 @@ wrongLangUS = "Shut it!"
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 5 -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(107) = 6, english -> "What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Darhole Mine!"
-"quest", "mission", queststatus(107) = 6 -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Dunkellochmine!"
-"Task", "Adventure", "Message", queststatus(107) = 6 -> "What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Darhole Mine!"
-"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 6 -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Dunkellochmine!"
+"quest", "mission", queststatus(107) = 6, english -> "What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Malachite Mine!"
+"quest", "mission", queststatus(107) = 6 -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!"
+"Task", "Adventure", "Message", queststatus(107) = 6 -> "What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Malachite Mine!"
+"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(107) = 6 -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!"
 
 -- Quest 3 solved, reward: warhammer, +10 rankpoints
 ".+", queststatus(107) = 7, english, town = Galmair -> inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."), "Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!", item(226, 1, 699, 0), queststatus(107) = 8, rankpoints(Galmair) + 10

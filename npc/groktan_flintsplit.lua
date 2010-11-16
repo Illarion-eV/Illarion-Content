@@ -1127,7 +1127,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Darhole Mine!");
+talkEntry:addResponse("What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Malachite Mine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1135,7 +1135,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
-talkEntry:addResponse("Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Dunkellochmine!");
+talkEntry:addResponse("Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1144,7 +1144,7 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
-talkEntry:addResponse("What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Darhole Mine!");
+talkEntry:addResponse("What are still waiting for? Every day that passes without Bruno Blackhole paying results in higher interest. Off to the Malachite Mine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1155,7 +1155,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 6));
-talkEntry:addResponse("Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Dunkellochmine!");
+talkEntry:addResponse("Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
