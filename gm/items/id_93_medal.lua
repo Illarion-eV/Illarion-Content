@@ -1,11 +1,13 @@
 
 -- UPDATE common SET com_script='gm.items.id_93_medal' WHERE com_itemid=93;
 
+require("base.common")
 module("gm.items.id_93_medal", package.seeall)
 
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
-    Counter=1 * string.format("%u",User.lastSpokenText);
-       
+    local a, _, number = string.find(User.lastSpokenText, "(%d+)");
+    Counter = 1 * number;
+    
     if (SourceItem.data==0) then
 	    User:inform("#w Creating monster with ID "..Counter);
         world:createMonster(Counter,TargetPos,20);
@@ -27,19 +29,5 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-
-    --Counter=1 * string.format("%u",User.lastSpokenText);
-    
-       -- world:createMonster(Counter,position(User.pos.x+1, User.pos.y+1,User.pos.z),20);
-
-    if ((SourceItem.data==8) and ( (User.id==833275147) or User.id==666) ) then
-        UndeadEvent(User.pos);
-    else
-        if (gm.items.id_99_lockpicks.firsttime == nil) then
-            User:inform("firsttime of lockpicks is set to NIL");
-        else
-            User:inform("firsttime of lockpicks is set to " .. gm.items.id_99_lockpicks.firsttime);
-        end
-        UseItemWithField(User,SourceItem,position(User.pos.x,User.pos.y+1,User.pos.z),Counter,Param);
-    end
+    UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
 end
