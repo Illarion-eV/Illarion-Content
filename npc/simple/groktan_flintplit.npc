@@ -59,8 +59,8 @@ wrongLangUS = "Shut it!"
 ".+", queststatus(107) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, gods, debt, money.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Götter, Schulden, Geld.")
+"Help" -> inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, quest, gods, debt, money.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Quest, Götter, Schulden, Geld.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."

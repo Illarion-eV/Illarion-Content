@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 14, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -49,13 +49,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, gods, debt, money."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Groktan Flintsplit the 'reminder'. Keyphrases: Reminder, Don Valerio Guilianni, quest, gods, debt, money."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Götter, Schulden, Geld."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Quest, Götter, Schulden, Geld."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
