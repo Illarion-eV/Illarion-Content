@@ -1,644 +1,1298 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),2,791,798,0,4,false,'Nana Winterbutter','npc_nana_winterbutter.lua',1);
+--------------------------------------------------------------------------------
+-- NPC Name: Nana Winterbutter                                           None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  791, 798, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (2, 791, 798, 0, 4, 'Nana Winterbutter', 'npc.nana_winterbutter', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.skill")
+require("npc.base.talk")
 module("npc.nana_winterbutter", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 0");
+talkEntry:addResponse("Quest status set to 0");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 1");
+talkEntry:addResponse("Quest status set to 1");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 2");
+talkEntry:addResponse("Quest status set to 2");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 3");
+talkEntry:addResponse("Quest status set to 3");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 4");
+talkEntry:addResponse("Quest status set to 4");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 5");
+talkEntry:addResponse("Quest status set to 5");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 6");
+talkEntry:addResponse("Quest status set to 6");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 7");
+talkEntry:addResponse("Quest status set to 7");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 8");
+talkEntry:addResponse("Quest status set to 8");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the cook Nana Winterbutter. Keyphrases: Hello, quest, bowl, cook, cooking."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Greetings! Maybe you could help me with a recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Greetings! Maybe you could help me with a recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("Farewell!");
+talkEntry:addResponse("Oldra's blessing!");
+talkEntry:addResponse("Come back soon!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Auf Wiedersehen!");
+talkEntry:addResponse("Oldras Segen!");
+talkEntry:addResponse("Kommt bald wieder!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Farewell!");
+talkEntry:addResponse("Oldra's blessing!");
+talkEntry:addResponse("Come back soon!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Auf Wiedersehen!");
+talkEntry:addResponse("Oldras Segen!");
+talkEntry:addResponse("Kommt bald wieder!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I'm fine.");
+talkEntry:addResponse("Thank you very much!");
+talkEntry:addResponse("Well, I have this recipe in mind, which I would like to try.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Mir geht es gut.");
+talkEntry:addResponse("Vielen Dank!");
+talkEntry:addResponse("Nun, ich habe dieses Rezept im Kopf, welches ich gerne ausprobieren würde.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("I am Nana Winterbutter.");
+talkEntry:addResponse("I'm a cook as you might have noticed. And a good one I might add");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Ich bin Nana Winterbutter.");
+talkEntry:addResponse("Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I'm not much of a storyteller.");
+talkEntry:addResponse("I'm just a cook. I would rather try out my new recipe instead of telling stories.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich bin nicht gerade eine gute Geschichtenerzählerin.");
+talkEntry:addResponse("Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cook");
+talkEntry:addResponse("Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Koch");
+talkEntry:addTrigger("Köchin");
+talkEntry:addResponse("Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("Yewdale is a peaceful place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eibenthal");
+talkEntry:addTrigger("Eibental");
+talkEntry:addResponse("Eibenthal ist ein friedlicher Ort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is wonderful. And I'm one of the best cooks around here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ohje! Galmair ist so stinkig und dreckig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh! Galmair is so smelly and dirty!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich war noch nie in Cadomyr. Aber ich hab gehört, es liegt im Süden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I have never visited Cadomyr myself so far. But I have heard that it is to the south.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addResponse("I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addResponse("Ich habe dieses besondere Rezept im Kopf. Ich möchte nicht zu viel darüber verraten, aber ich wäre dankbar, wenn Ihr mir bei einer Aufgabe helfen würdet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addResponse("I'm preparing some dough but it won't last. Maybe you can help me with this quest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addResponse("Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("scythe");
+talkEntry:addResponse("You can use the scythe to reap wheat once it has this nice golden colour.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sense");
+talkEntry:addResponse("Ihr könnt eine Sense dafür verwenden, um Getreide zu mähen sobald es diese goldene Farbe hat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sickle");
+talkEntry:addResponse("You can use a sickle to collect vegetables once they are ripe. Or you can use it to collect herbs and mushrooms");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sichel");
+talkEntry:addResponse("Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addResponse("It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addResponse("Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addResponse("It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addResponse("Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your peasantry skill increases."));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(249, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addResponse("Well, since you helped me before I might even tell you about the recipe. I think about fish in a crust with tomato sauce. But I don't have enough tomatoes and might need your help with this task again.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addResponse("Nun, da Ihr mir schon zuvor geholfen habt, kann ich Euch auch etwas über das Rezept sagen. Ich denke da an Fisch im Teigmantel mit Tomatensoße. Aber ich habe nicht genug Tomaten und könnte erneut Eure Hilfe bei dieser Aufgabe gebrauchen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
+talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal II"));
+talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
+talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal II"));
+talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Please bring me twenty tomatoes for my sauce.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Bitte bringt mir zwanzig Tomaten für meine Soße.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addResponse("Please bring me twenty tomatoes for my sauce.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addResponse("Bitte bringt mir zwanzig Tomaten für meine Soße.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(200, "all", "<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Would you please bring me twenty tomatoes? I thank you very much!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addResponse("You've helped with my recipe quite a lot so far. Please, don't think that I'm ungrateful, but I might have another task for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addResponse("Ihr habt mir schon sehr bei meinem Rezept geholfen. Bitte, denkt nicht, dass ich undankbar bin, aber ich hätte da noch eine Aufgabe für Euch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale III"));
+talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal III"));
+talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale III"));
+talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal III"));
+talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I hope you are able to find at least five onions so that I can spice up my sauce.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addResponse("I hope you are able to find at least five onions so that I can spice up my sauce.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addResponse("Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your peasantry skill increases."));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(201, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I know that they are hard to find but I would need at least five onions.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("problem");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Problem");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addResponse("How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addResponse("Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal IV"));
+talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal IV"));
+talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zerarisa");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, Zerarisa, she is one of the lizard people who live in Cadomyr at Cape Farewell. She comes to Runewick once a month to sell fish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zerarisa");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Oh, Zerarisa, sie ist eine von den Echsenleuten, die in Cadomyr am Kap des Abschiedes leben. Sie kommt einmal im Monat nach Runewick um Fisch zu verkaufen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerweise bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addResponse("Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addResponse("Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerwiese bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salmon");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10));
+talkEntry:addResponse("Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lachs");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10));
+talkEntry:addResponse("Lachs? Ja, das könnte der Name des Fisches sein. Jetzt wo Ihr es erwähnt. Ich denke Zerarisa hat mal diesen Namen erwähnt. Aber ich brauche zehn Lachse für mein Rezept.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt."));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your peasantry skill increases."));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "peasantry", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("recipe");
+talkEntry:addTrigger("bowl");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addResponse("Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rezept");
+talkEntry:addTrigger("Schüssel");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addResponse("Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addResponse("You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 8));
+talkEntry:addResponse("Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Pardon, I don't understand what you are referring to.");
+talkEntry:addResponse("What do you mean with 'Yes'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.");
+talkEntry:addResponse("Was meint Ihr mit 'Ja'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("Pardon, I don't understand what you are referring to.");
+talkEntry:addResponse("What do you mean with 'No'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.");
+talkEntry:addResponse("Was meint Ihr mit 'Nein'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("grain");
+talkEntry:addResponse("Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Getreide");
+talkEntry:addTrigger("Korn");
+talkEntry:addTrigger("Körner");
+talkEntry:addResponse("Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tomato");
+talkEntry:addResponse("You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tomate");
+talkEntry:addResponse("Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mushroom");
+talkEntry:addResponse("Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Pilze");
+talkEntry:addTrigger("Champignon");
+talkEntry:addResponse("Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("fish");
+talkEntry:addResponse("I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fisch");
+talkEntry:addResponse("Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("onion");
+talkEntry:addResponse("Onions are tasty, aren't they? But your breath turns... bah!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("zwiebeln");
+talkEntry:addResponse("Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.", "#me stirs some dough in a bowl in her left arm.");
+talkingNPC:addCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stares worryingly into the bowl in her left arm.");
+talkingNPC:addCycleText("Das wird nie und nimmer reichen.", "This won't never ever last.");
+talkingNPC:addCycleText("#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me pours carefully some water into the bowl in her left arm.");
+talkingNPC:addCycleText("Vielleicht sollte ich doch etwas anderes kochen.", "Maybe I should cook something else.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(5);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 70;
-    -- NPC by Magdha Tiefenerz, heavily revised by Estralis Seborian
-    -- Queststatus Overview
-    -- 0: No Quest taken
-    -- 1: Quest 1 taken - gather 10 bundle of grain for 50cp
-    -- 2: Quest 1 solved
-    -- 3: Quest 2 taken - gather 20 tomatoes for 100cp
-    -- 4: Quest 2 solved
-    -- 5: Quest 3 taken - gather 5 onions for 100cp
-    -- 6: Quest 3 solved
-    -- 7: Quest 4 taken - gather 10 salmon fish for 200cp
-    -- 8: Quest 4 solved
-    -- Debugging
-    npc.base.autonpcfunctions.AddTraderTrigger("set 0","Quest status set to 0");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 1","Quest status set to 1");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 2","Quest status set to 2");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 3","Quest status set to 3");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 4","Quest status set to 4");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 5","Quest status set to 5");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 6","Quest status set to 6");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 7","Quest status set to 7");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("set 8","Quest status set to 8");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    -- Help
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Game Help] This NPC is the cook Nana Winterbutter. Keyphrases: Hello, quest, bowl, cook, cooking.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Spielhilfe] Dieser NPC ist die Köchin Nana Winterbutter. Schlüsselwörter: Hallo, Quest, Schüssel, Koch, Kochen.");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","Greetings! Maybe you could help me with a recipe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddTraderTrigger("Grüße","Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gruß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Greetings! Maybe you could help me with a recipe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Seid gegrüßt! Vielleicht könntet Ihr mir bei einem Rezept helfen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","Farewell!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("Oldra's blessing!");
-    npc.base.autonpcfunctions.AddAdditionalText("Come back soon!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","Auf Wiedersehen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("Oldras Segen!");
-    npc.base.autonpcfunctions.AddAdditionalText("Kommt bald wieder!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Farewell!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Oldra's blessing!");
-    npc.base.autonpcfunctions.AddAdditionalText("Come back soon!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Auf Wiedersehen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Oldras Segen!");
-    npc.base.autonpcfunctions.AddAdditionalText("Kommt bald wieder!");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","I'm fine.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("Thank you very much!");
-    npc.base.autonpcfunctions.AddAdditionalText("Well, I have this recipe in mind, which I would like to try.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Mir geht es gut.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("Vielen Dank!");
-    npc.base.autonpcfunctions.AddAdditionalText("Nun, ich habe dieses Rezept im Kopf, welches ich gerne ausprobieren würde.");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","I am Nana Winterbutter.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm a cook as you might have noticed. And a good one I might add");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Ich bin Nana Winterbutter.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich bin eine Köchin, wie Ihr vielleicht bereits bemerkt habt. Und eine gute, wenn ich das hinzufügen darf.");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","Sorry, I don't sell anything. But there are other people in Runewick. Some may even sell things to you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Tut mir leid, ich verkaufe nichts. Aber es gibt andere Leute in Runewick. Einige verkaufen Euch vielleicht auch etwas.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","I'm not much of a storyteller.");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm just a cook. I would rather try out my new recipe instead of telling stories.");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Ich bin nicht gerade eine gute Geschichtenerzählerin.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich bin nur eine Köchin. Ich würde viel lieber mein Rezept ausprobieren, als Geschichten zu erzählen.");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    npc.base.autonpcfunctions.AddTraderTrigger("cook","Yes, I'm a good cook. I just use the best materials for cooking. Right now I would like to try out this new recipe.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Koch","Ich bin eine gute Köchin. Ich verwende nur die besten Zutaten zum Kochen. Im Moment würde ich gerne dieses neue Rezept ausprobieren.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Köchin");
-    npc.base.autonpcfunctions.AddTraderTrigger("Yewdale","Yewdale is a peaceful place.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Eibenthal","Eibenthal ist ein friedlicher Ort.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Eibental");
-    -- Factions
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Runewick ist wundervoll. Und ich bin eine der besten Köchinnen hier.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Runewick is wonderful. And I'm one of the best cooks around here.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Ohje! Galmair ist so stinkig und dreckig!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Oh! Galmair is so smelly and dirty!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Ich war noch nie in Cadomyr. Aber ich hab gehört, es liegt im Süden.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","I have never visited Cadomyr myself so far. But I have heard that it is to the south.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Tool hints
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","I have this special recipe in mind. I don't want to reveal too much about it but I would be grateful if you could help me with a quest.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Ich habe dieses besondere Rezept im Kopf. Ich möchte nicht zu viel darüber verraten, aber ich wäre dankbar, wenn Ihr mir bei einer Aufgabe helfen würdet.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("bowl","I'm preparing some dough but it won't last. Maybe you can help me with this quest.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("Schüssel","Ich rühre etwas Teig an aber der wird nicht reichen. Vielleicht könnt Ihr mir ja bei dieser Aufgabe helfen.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("scythe","You can use the scythe to reap wheat once it has this nice golden colour.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Sense","Ihr könnt eine Sense dafür verwenden, um Getreide zu mähen sobald es diese goldene Farbe hat.");
-    npc.base.autonpcfunctions.AddTraderTrigger("sickle","You can use a sickle to collect vegetables once they are ripe. Or you can use it to collect herbs and mushrooms");
-    npc.base.autonpcfunctions.AddTraderTrigger("Sichel","Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln.");
-    -- 1st quest: Take a tool and gather 10 bundles of grain for 50cp 
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",271,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("item",271,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal I");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",271,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale I");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("item",271,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal I");
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bowl");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schüssel");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",249,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",249,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",5);
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",249,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 50 Kupferstücke und deine Landwirtschaftsfertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Yes, this should give plenty of fine grain. Thank you very much! Please take these copper coins as a sign of my gratitude.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",249,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 50 copper coins and your peasantry skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",50);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Es ist sehr nett von Euch mir zehn Getreidebündel zu besorgen. Kehrt bitte zu mir zurück und sagt mir, wenn Ihr fertig seid.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","It is very kind of you to get me ten bundles of grain. Please return to me and tell me when you are finished.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",249,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 2nd quest: Gather 20 tomatoes for 100cp 
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","Well, since you helped me before I might even tell you about the recipe. I think about fish in a crust with tomato sauce. But I don't have enough tomatoes and might need your help with this task again.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bowl");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Nun, da Ihr mir schon zuvor geholfen habt, kann ich Euch auch etwas über das Rezept sagen. Ich denke da an Fisch im Teigmantel mit Tomatensoße. Aber ich habe nicht genug Tomaten und könnte erneut Eure Hilfe bei dieser Aufgabe gebrauchen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schüssel");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal II");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale II");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Please bring me twenty tomatoes for my sauce.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Bitte bringt mir zwanzig Tomaten für meine Soße.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Please bring me twenty tomatoes for my sauce.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Bitte bringt mir zwanzig Tomaten für meine Soße.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",200,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",200,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",10);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",200,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these copper coins. But my recipe is still not finished.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",200,20);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your peasantry skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Würdet Ihr mir bitte zwanzig Tomaten bringen? Ich danke Euch vielmals!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Would you please bring me twenty tomatoes? I thank you very much!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",200,"all","<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 3rd quest: Gather onions for 100cp 
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","You've helped with my recipe quite a lot so far. Please, don't think that I'm ungrateful, but I might have another task for you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bowl");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Ihr habt mir schon sehr bei meinem Rezept geholfen. Bitte, denkt nicht, dass ich undankbar bin, aber ich hätte da noch eine Aufgabe für Euch.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schüssel");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I think some onions would spice up the sauce. See if you can find at least five onions, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal III");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I think some onions would spice up the sauce. See if you can find at least five onions, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale III");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I hope you are able to find at least five onions so that I can spice up my sauce.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I hope you are able to find at least five onions so that I can spice up my sauce.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich hoffe Ihr könnt mindestens fünf Zwiebeln finden, so dass ich meine Soße etwas aufpeppen kann.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",201,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",201,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",15);
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",201,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 100 Kupferstücke und deine Landwirtschaftsfertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Fantastic! You've really managed to come up with five onions. Here, have some copper coins. But how embarrassing, I have a probem with the recipe now.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",201,5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 100 copper coins and your peasantry skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",100);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ich weiß, dass sie schwer zu finden sind, aber ich bräuchte mindestens fünf Zwiebeln.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","I know that they are hard to find but I would need at least five onions.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",201,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 4th quest: Gather 10 salmon fish for 200cp. Link to Fishing quest in Zzyathis. Hint how to get there.
-    npc.base.autonpcfunctions.AddTraderTrigger("problem","How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Problem","Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","How embarrassing! I was not careful enough with storing the fish for my recipe and now it is rotten. I hope that you can help me one last time with the task to get new fish.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bowl");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Wie peinlich! Ich war bei der Lagerung des Fisch, den ich verwenden will, nicht sorgfältig genug und nun ist er verdorben. Ich hoffe, Ihr helft mir ein letztes Mal bei der Besorgung von neuem Fisch.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schüssel");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] Yewdale IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Eibenthal IV");
-    npc.base.autonpcfunctions.AddTraderTrigger("Zerarisa","Oh, Zerarisa, she is one of the lizard people who live in Cadomyr at Cape Farewell. She comes to Runewick once a month to sell fish.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Zerarisa","Oh, Zerarisa, sie ist eine von den Echsenleuten, die in Cadomyr am Kap des Abschiedes leben. Sie kommt einmal im Monat nach Runewick um Fisch zu verkaufen.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerweise bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Did you already speak to Zerarisa about the fish I usually buy from her? I really need ten of these fish to try out my recipe.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Habt Ihr schon mit Zerarisa über die Fische gesprochen, die ich normalerwiese bei ihr kaufe? Ich brauche wirklich zehn von diesen Fischen, um mein Rezept auszuprobieren.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("salmon","Salmon? Yes, that could be the name of the fish. Now that you mention it. I think Zerarisa mentioned that name. But I need ten salmons for my recipe.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all","<",10);
-    npc.base.autonpcfunctions.AddTraderTrigger("Lachs","Lachs? Ja, das könnte der Name des Fisches sein. Jetzt wo Ihr es erwähnt. Ich denke Zerarisa hat mal diesen Namen erwähnt. Aber ich brauche zehn Lachse für mein Rezept.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all","<",10);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",355,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",355,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",20);
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",355,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst 200 Kupferstücke und deine Landwirtschaftsfertigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the copper. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",355,10);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded 200 copper coins and your peasantry skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",200);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","peasantry","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ich brauche wirklich zehn von diesen Fischen, die mir Zerarisa normalerweise verkauft. Könntet Ihr die bitte für mich besorgen?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","I really need ten of the fish that Zerarisa usually sells me. Would you please get them for me?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",355,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Final dialogue: No more quests, just nice hints
-    npc.base.autonpcfunctions.AddTraderTrigger("recipe","Thanks to you I finally have all the ingredients I need to try out my new recipe. I thank you with all my heart!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bowl");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("Rezept","Dank Euch habe ich endlich alle Zutaten zusammen, um mein neues Rezept auszuprobieren. Ich danke Euch von ganzem Herzen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schüssel");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","You have already done way too much for me. I will always keep you in good memory. You are truly a hero to me! May Oldra bless you!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ihr habt bereits viel zu viel für mich getan. Ich werde Euch immer in guter Erinnerung behalten. Ihr seid wahrlich ein Held für mich! Möge Oldra Euch segnen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","Pardon, I don't understand what you are referring to.");
-    npc.base.autonpcfunctions.AddAdditionalText("What do you mean with 'Yes'?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Was meint Ihr mit 'Ja'?");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","Pardon, I don't understand what you are referring to.");
-    npc.base.autonpcfunctions.AddAdditionalText("What do you mean with 'No'?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Verzeiht, aber ich verstehe nicht, worauf Ihr Euch bezieht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Was meint Ihr mit 'Nein'?");
-    npc.base.autonpcfunctions.AddTraderTrigger("grain","Grain can be used as seed or you can grind it to flour. Put the grain on fertile land and the crop will grow.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Getreide","Getreidekörner können als Saatgut verwendet werden oder man zermahlt sie zu Mehl. Gib die Saat auf fruchtbares Land und das Getreide wird wachsen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Korn");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Körner");
-    npc.base.autonpcfunctions.AddTraderTrigger("tomato","You can put tomato seeds into fertile soil. Be sure to fasten the growing plants to poles so that it grows straight up.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tomate","Ihr könnt Tomatensamen in fruchtbaren Boden geben. Geht sicher die heranwachsenden Pflanzen an Stangen zu befestigen, damit sie senkrecht nach oben wachsen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("mushroom","Mushrooms love shadowy places and can be found in forests. You will need a sharp sickle to gather them.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Pilze","Pilze lieben schattige Plätze und können in Wäldern gefunden werden. Ihr werdet eine scharfe Sichel brauchen, um sie zu sammeln.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Champignon");
-    npc.base.autonpcfunctions.AddTraderTrigger("fish","I know how to prepare fish but it seems that I always forget how the fish are called. You better ask someone else if you want to know more about fish.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Fisch","Ich weiß wie man Fisch zubereitet, aber es scheint, als würde ich immer vergessen, wie die Fischen heißen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("onion","Onions are tasty, aren't they? But your breath turns... bah!");
-    npc.base.autonpcfunctions.AddTraderTrigger("zwiebeln","Zwiebeln sind lecker, nicht wahr? Aber dein Atem... igitt!");
-    -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
-    npc.base.autonpcfunctions.AddCycleText("#me rührt etwas Teig in einer Schüssel in ihrem linken Arm um.","#me stirs some dough in a bowl in her left arm.");
-    npc.base.autonpcfunctions.AddCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.","#me stares worryingly into the bowl in her left arm.");
-    npc.base.autonpcfunctions.AddCycleText("Das wird nie und nimmer reichen.","This won't never ever last.");
-    npc.base.autonpcfunctions.AddCycleText("#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.","#me pours carefully some water into the bowl in her left arm.");
-    npc.base.autonpcfunctions.AddCycleText("Vielleicht sollte ich doch etwas anderes kochen.","Maybe I should cook something else.");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
