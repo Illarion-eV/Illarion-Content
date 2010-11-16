@@ -93,7 +93,7 @@ wrongLangUS = "#me looks at you confused."
 "Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> ">The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't."
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't."
 "Elvaine", "Morgan", "archmage", "Erzmagier" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
 "Runewick", english -> "In Runewick, everyone is equal; you have equal chances, but if you don't achieve something, your life is wasted."
 "Runewick" -> "In Runewick ist Jedermann gleich geboren. Wer nichts zustandebringt, dessen Leben ist allerdings verwirkt."

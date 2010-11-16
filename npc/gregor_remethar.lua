@@ -336,7 +336,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse(">The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't.");
+talkEntry:addResponse("The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
