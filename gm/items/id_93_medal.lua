@@ -5,14 +5,15 @@ module("gm.items.id_93_medal", package.seeall)
 
 function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     Counter=1 * string.format("%u",User.lastSpokenText);
-    
-    User:inform("creating monster with ID "..Counter);
-    
+       
     if (SourceItem.data==0) then
+	    User:inform("#w Creating monster with ID "..Counter);
         world:createMonster(Counter,TargetPos,20);
     elseif (SourceItem.data==1) then
-        world:createMonster(Counter+250,TargetPos,20);
+	    User:inform("#w Creating monster with ID "..Counter+250);
+	    world:createMonster(Counter+250,TargetPos,20);
     elseif (SourceItem.data==2) then
+		User:inform("#w Creating monster with ID "..Counter+500);
         world:createMonster(Counter+500,TargetPos,20);
     elseif (SourceItem.data==3) then
 		world:gfx(Counter,TargetPos);
