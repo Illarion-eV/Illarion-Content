@@ -23,10 +23,10 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Leichenbestatter Gregor Remethar."
+lookatUS = "This is NPC is the mortician Gregor Remethar."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -86,7 +86,7 @@ wrongLangUS = "#me looks at you confused."
 "Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk."
 "Wert", "Ansehen", "Schicksal" -> "Je nachdem, wie hoch der Wert des Lebens war, gibt es drei Methoden, jemanden zu begraben. Ich könnte euch mehr über diese Methoden erzählen..."
 "verdien", "schätz", "Urteil" -> "Was ich mir einbilde, den Wert eines Lebens einschätzen zu können? Das muss ich gar nicht; der Ruf eilten einer Leiche zumeist vorraus."
-"method", "grab", "urne", "Sarg" -> "Diejenigen, die ihrem Leben den meisten Wert gegeben haben, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen..."
+"method", "grab", "urne", "Sarg" -> "Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen."
 
 -- Easter egg
 "Calaway", english -> "I am not the undertaker! I prefer the term mortician."

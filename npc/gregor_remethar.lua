@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  907, 804, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 17, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -313,7 +313,7 @@ talkEntry:addTrigger("method");
 talkEntry:addTrigger("grab");
 talkEntry:addTrigger("urne");
 talkEntry:addTrigger("Sarg");
-talkEntry:addResponse("Diejenigen, die ihrem Leben den meisten Wert gegeben haben, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen...");
+talkEntry:addResponse("Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1005,7 +1005,7 @@ talkingNPC:addCycleText("#me keucht wiederholt auf.", "#me coughes over and over
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Leichenbestatter Gregor Remethar.", "This is NPC is the mortician Gregor Remethar.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
