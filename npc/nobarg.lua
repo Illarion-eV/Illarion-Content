@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 17, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,6 +28,104 @@ module("npc.nobarg", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 4");
+talkEntry:addResponse("Quest status set to 4");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 5");
+talkEntry:addResponse("Quest status set to 5");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 6");
+talkEntry:addResponse("Quest status set to 6");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 7");
+talkEntry:addResponse("Quest status set to 7");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 8");
+talkEntry:addResponse("Quest status set to 8");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 9));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 9");
+talkEntry:addResponse("Quest status set to 9");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 10");
+talkEntry:addResponse("Quest status set to 10");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 11));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 11");
+talkEntry:addResponse("Quest status set to 11");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 12));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 12");
+talkEntry:addResponse("Quest status set to 12");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 13");
+talkEntry:addResponse("Quest status set to 13");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 14));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 14");
+talkEntry:addResponse("Quest status set to 14");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 15));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 15");
+talkEntry:addResponse("Quest status set to 15");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 16));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 16");
+talkEntry:addResponse("Quest status set to 16");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 17));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 17");
+talkEntry:addResponse("Quest status set to 17");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 18));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -332,6 +430,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dragon");
+talkEntry:addResponse("These creatures are children of Bragon and are protected by him!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Träger");
 talkEntry:addResponse("Die kämpfen für das Licht und schützen die Schwachen.");
 talkEntry:addResponse("Eine sehr ehrenhafte Gemeinschaft.");
@@ -364,6 +468,12 @@ talkEntry:addTrigger("was ist passiert");
 talkEntry:addTrigger("was ist geschehen");
 talkEntry:addResponse("Ja, viele sind gestorben.");
 talkEntry:addResponse("Ja, aber manche konnten fliehen. Ich denke ihr könnt sie hier irgendwo finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Drachen");
+talkEntry:addResponse("Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,7 +679,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -588,7 +698,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -605,7 +715,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -622,7 +732,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -639,7 +749,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -656,7 +766,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -673,7 +783,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -692,7 +802,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -730,7 +840,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -747,7 +857,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -764,7 +874,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -781,7 +891,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -800,7 +910,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -817,7 +927,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -834,7 +944,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Ja, dieser Gotte exestiert.");
+talkEntry:addResponse("Ja, dieser Gott existiert.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Ich glaube an Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);

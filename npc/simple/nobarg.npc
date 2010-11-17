@@ -68,6 +68,23 @@ itemShoes = 53
 -- 20: Sir Fludnar Yedno - Quest player wants compensation
 -- 21: Sir Fludnar Yedno - Quest done
 
+--Debugging
+
+"set 4"->"Quest status set to 4",queststatus(600) = 4
+"set 5"->"Quest status set to 5",queststatus(600) = 5
+"set 6"->"Quest status set to 6",queststatus(600) = 7
+"set 7"->"Quest status set to 7",queststatus(600) = 8
+"set 8"->"Quest status set to 8",queststatus(600) = 9
+"set 9"->"Quest status set to 9",queststatus(600) = 10
+"set 10"->"Quest status set to 10",queststatus(600) = 11
+"set 11"->"Quest status set to 11",queststatus(600) = 12
+"set 12"->"Quest status set to 12",queststatus(600) = 13
+"set 13"->"Quest status set to 13",queststatus(600) = 14
+"set 14"->"Quest status set to 14",queststatus(600) = 15
+"set 15"->"Quest status set to 15",queststatus(600) = 16
+"set 16"->"Quest status set to 16",queststatus(600) = 17
+"set 17"->"Quest status set to 17",queststatus(600) = 18
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keyphrases: Hello, quest, Bragon, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Priester Nobarg. Schlüsselwörter: Hallo, Quest, Bragon, Götter.")
@@ -107,10 +124,12 @@ itemShoes = 53
 "doom", "extinction", "collapse", "fall" -> "It was horrible!", "Bragon be praised that he saved me!", "Pray that it never happen again."
 "horrible" -> "The fall ob Gobaith", "The last days of Gobaith.", "Yes, it was so...I don't have words to describe it."
 "died", "death", "what did happen", "what happened" -> "Yes, many died in those days.", "Yes, but some could fly. I think you can find them here somewhere."
+"dragon" -> "These creatures are children of Bragon and are protected by him!"
 "Träger" -> "Die kämpfen für das Licht und schützen die Schwachen.", "Eine sehr ehrenhafte Gemeinschaft.", "Das Feuer brenne in ihnen, dass sie das Lich weit tragen werden."
 "Untergang", "Zerstörung" -> "Es war furchtbar!", "Bragon sei gepriesen, dass er mich rettete!", "Bettet, dass es nie wieder passiert."
 "furchtbar" -> "Der Untergang von Gobaith.", "Die letzten Tage von Gobaith.", "Ja, es war so...Ich habe keine Wörter um es besser zu beschreiben."
 "tot", "gestorben", "starben", "was ist passiert", "was ist geschehen" -> "Ja, viele sind gestorben.", "Ja, aber manche konnten fliehen. Ich denke ihr könnt sie hier irgendwo finden."
+"Drachen" -> "Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!"
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Does he belive in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
@@ -140,37 +159,37 @@ itemShoes = 53
 "god" -> "Bragon, Bragon and again Bragon.", "I pray to Bragon, join me.", "I believe in Bragon and his fire."
 "Gott", "Götter" -> "Bragaon, Bragon und nochmals Bragon.", "Ich bete zu Bragon, bete mit mir.", "Ich glaube an Bragon und sein Feuer."
 "Adron", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Adron" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Adron" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Bragon", "Brágon", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Bragon", "Brágon" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Bragon", "Brágon" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Cherga", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Cherga" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Cherga" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Elara", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Elara" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Elara" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Eldan", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Eldan" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Eldan" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Findari", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Findari" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Findari" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Irmorom", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Irmorom" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Irmorom" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Malachin", "Malachín", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Malachin", "Malachín" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Malachin", "Malachín" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Moshran", english -> "I don't talk about this god.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "He stole mine god the dragons."
 "Moshran" -> "Über diesen Gott spreche ich nicht.", "Es gibt Gerüchte, dass der Tempel ihm folgt.", "Er hat meinen Göttern die Drachen gestohlen."
 "Nargun", "Nargún", "Nargùn", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Nargun", "Nargún", "Nargùn" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Nargun", "Nargún", "Nargùn" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Oldra", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Oldra" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Oldra" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Ronagan", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Ronagan" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Ronagan" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Sirani", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Sirani" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Sirani" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Tanora", "Zelphia", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Tanora", "Zelphia" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Tanora", "Zelphia" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Ushara", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Ushara" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Ushara" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 "Zhambra", english -> "Yes, this god exists.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Zhambra" -> "Ja, dieser Gotte exestiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Zhambra" -> "Ja, dieser Gott existiert.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
 
 -- 1st quest: Bring 1 pure fire.
 "task", "adventure", "know", "question", queststatus(600) = 4 -> "You want to know something from me... Well, why should I answer such a question? Probably you can do something for me too. I could need something. To be honest, three things. But bring me a pure fire for the beginning. Are you able to do so?", queststatus(600) + 1

@@ -67,13 +67,37 @@ itemShoes = 369
 -- 20: Sir Fludnar Yedno - Quest player wants compensation
 -- 21: Sir Fludnar Yedno - Quest done
 
+--Debugging
+
+"set 0"->"Quest status set to 0",queststatus(600) = 0
+"set 1"->"Quest status set to 1",queststatus(600) = 1
+"set 2"->"Quest status set to 2",queststatus(600) = 2
+"set 3"->"Quest status set to 3",queststatus(600) = 3
+"set 4"->"Quest status set to 4",queststatus(600) = 4
+"set 17"->"Quest status set to 17",queststatus(600) = 17
+"set 18"->"Quest status set to 18",queststatus(600) = 18
+"set 19"->"Quest status set to 19",queststatus(600) = 19
+"set 20"->"Quest status set to 20",queststatus(600) = 20
+"set 21"->"Quest status set to 21",queststatus(600) = 21
+
+"set 40"->"Quest status set to 40",queststatus(600) = 40
+"set 41"->"Quest status set to 41",queststatus(600) = 41
+"set 42"->"Quest status set to 42",queststatus(600) = 42
+"set 43"->"Quest status set to 43",queststatus(600) = 43
+"set 44"->"Quest status set to 44",queststatus(600) = 44
+"set 45"->"Quest status set to 45",queststatus(600) = 45
+"set 46"->"Quest status set to 46",queststatus(600) = 46
+"set 47"->"Quest status set to 47",queststatus(600) = 47
+"set 48"->"Quest status set to 48",queststatus(600) = 48
+"set 49"->"Quest status set to 49",queststatus(600) = 49
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keyphrases: Hello, quest, gods, orks.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Orks.")
+"Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keyphrases: Hello, quest, god, orc.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Could you lower your tongue? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue to research."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Könnt ihr nicht leiser sprechen? But seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Did you get lost?", "Leave me quick!", "Who is disturbing my work?"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört ich hier bei der Arbeit?"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
@@ -92,23 +116,25 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Ich arbeite und ihr stört.", "Die Tür ist hinter euch.", "Hat euch jemals jemand erzählt, dass ihr störend seid?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Scholar, or what have you thought?", "I am researching on Orcs.", "I am researcher."
-"beruf" -> "Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher."
-"job", english -> "Scholar, or what have you thought?", "I am researching on Orcs.", "I am researcher."
-"job" -> "Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher."
-"Gobaith", english -> "Oh yes, the good, old times.", "It was a small island somewhere in the east of the main land.", "It was a chaotic place with many wannabes!"
-"Gobaith" -> "Oh ja, die guten alten Zeiten.", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
+"profession","work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"beruf","arbeit" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+"job", english -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"job" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+"Gobaith", english -> "Oh yes, the good, old times. *sigh*", "It was a small island somewhere in the east of the main land.", "It was a chaotic place with many wannabes!"
+"Gobaith" -> "Oh ja, die guten alten Zeiten. *seufzt*", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
 "I am", "my name" -> "Nice to meet you.", "Well, what do you want from me?", "Interesting, interesting, but never heared such a ridiculous name."
 "Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
+"sir", "fludnar", "yednos", english -> "That's my name.","Impressing, you can pronounce my name correctly!"
+"sir", "fludnar", "yednos" -> "Das ist mein Name.","Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
 
 -- More small talk; add at least five triggers
 "alter of fire" -> "Ask people. I am sure someone knows it.", "I think it is in the east.", "Shall I looking for by myself?"
-"orcs" -> "Green, strong, bloody.", "An interesting race for research, isn't?.", "Better you show some respect! You never know if the enslave you otherwise!"
+"orcs" -> "Green, strong, bloody.", "An interesting race for research, isn't?.", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
 "Northern", "Mountains", "krest" -> "A mighty clan. Better avoid to bother them.", "They have a very honourfull chief.", "Their warlord destroyed a whole dwarves army once."
 "halfings" -> "Halfings...their favorite food.", "The have several recepies for them.", "They are also very usefull as slaves for them."
 "bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
 "Altar des Feuer" -> "Fragt herum. Ich bin sicher jemand kann euch helfen.", "Ich denke der liegt im Osten.", "Soll ich selber suchen gehen?"
-"Orks" -> "Grün, stark, Blutig.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen etwas Respeikt. Man weiß nie ob sie einen sonst versklaven?"
+"Orks" -> "Grün, stark, Blutig.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
 "Northern", "Mountains", "krest" -> "Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.", "Die haben einen ehrenhaften Chief.", "Deren Kriegsherr zerstörrte eine ganze Armee von Zwergen einst."
 "Halbling" -> "Halblinge...ihr favorisiertes Essen.", "Die haben verschiedene Rezepte für sie.", "Sie verwenden sie auch als Sklaven."
 "Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
@@ -129,16 +155,16 @@ itemShoes = 369
 
 -- Main land factions
 "albar", english -> "Why are you not going there?", "That is no place I like to live.", "Are they still enslaving people?"
-"albar", german -> "Warum geht ihr nicht dort hin?.", "Das ist kein Ort wo ich leben möchte.", "Versklaven die noch immer Leute?"
+"albar" -> "Warum geht ihr nicht dort hin?.", "Das ist kein Ort wo ich leben möchte.", "Versklaven die noch immer Leute?"
 "gync", "gynk", english -> "Why are you not going there?", "Huuu, why do remember me that I still have to pay my debts there.", "They have nice game halls."
-"gync", "gynk", german -> "Warum geht ihr nicht dort hin?", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?", "Nette Spielhalen haben sie dort."
+"gync", "gynk" -> "Warum geht ihr nicht dort hin?", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?", "Nette Spielhalen haben sie dort."
 "salkama", english -> "Why are you not going there?", "I hope they come and free us from all this evil here.", "I say you, I am very sorry that they killed their prince at Gobaith."
-"salkama", german -> "Warum geht ihr nicht dort hin?", "Ich hoffe die kommen und befreien uns von diesem Übel hier.", "Ich sage dir, dass es mir sehr leid tut, dass sie ihren Prinzen in Gobaith getötet haben."
+"salkama" -> "Warum geht ihr nicht dort hin?", "Ich hoffe die kommen und befreien uns von diesem Übel hier.", "Ich sage dir, dass es mir sehr leid tut, dass sie ihren Prinzen in Gobaith getötet haben."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 -- Pick 1-2 gods he likes, 1 he dislikes
 -- Use ONE other response for the other gods i.e. "I don't worship that good much"
-"god" -> "Eldra, who else?", "I pray to Eldra.", "If you look around here, you could belive I pray to Nagrun."
+"god" -> "Elara, who else?", "I pray to Elara.", "If you look around here, you could belive I pray to Nargun."
 "Gott", "Götter" -> "Eldra, wem sonst?", "Ich bete zu Eldra.", "Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott."
 "Adron", english -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
 "Adron" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
@@ -174,106 +200,107 @@ itemShoes = 369
 "Zhambra" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
 
 -- quest - 1th step: gather some information about bragon and orcs
-"task", "adventure", "can I do", queststatus(600) = 0 -> "Hmm... are you sure that you can do something for me? Collecting information for me, for example?", state = 1, queststatus(600) + 1
-"Auftrag", "Aufgabe", "Abenteuer", "kann ich was tun", queststatus(600) = 0 -> "Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.", state = 1, queststatus(600) + 1
-"quest", "mission", queststatus(600) = 0, english -> "Hmm... are you sure that you can do something for me? Collecting information for me, for example?", state = 1, queststatus(600) + 1
-"quest", "mission", queststatus(600) = 0 -> "Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.", state = 1, queststatus(600) + 1
-"task", "adventure", "can I do", state = 1 -> "Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.", queststatus(600) = 21
-"Auftrag", "Aufgabe", "Abenteuer", "kann ich was tun", state = 1 -> "Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.", queststatus(600) = 21
-"quest", "mission", state = 1, english -> "Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.", queststatus(600) = 21
-"quest", "mission", state = 1 -> "Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.", queststatus(600) = 21
-"Yes", "Sure", "Of course", queststatus(600) = 1 -> "Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 1 -> "Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 1 -> "Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 1 -> "Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 2 -> "Well, well. That sounds promising... Ready for the task?", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 2 -> "So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 2, english -> "Well, well. That sounds promising... Ready for the task?", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 2 -> "So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?", queststatus(600) + 1
-"No", queststatus(600) = 2 -> "Anyway. Does not matter. But listen carefully now... Ready for the task?", queststatus(600) + 1
-"Nein", "Nix", queststatus(600) = 2 -> "Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?", queststatus(600) + 1
-"Nay", "Nubba", "Nope", queststatus(600) = 2, english -> "Anyway. Does not matter. But listen carefully now... Ready for the task?", queststatus(600) + 1
-"Nay", "Nubba", "Nope", queststatus(600) = 2 -> "Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?", queststatus(600) + 1
+"task", "adventure", "can I do", queststatus(600) = 0 -> "Hmm... are you sure that you can do something for me? Collecting information for me, for example?",inform( [New Quest] Find information for Sir Fludnar Yednos), queststatus(600) = 1
+"Auftrag", "Aufgabe", "Abenteuer", "kann ich was tun", queststatus(600) = 0 -> "Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.",inform( [Neues Quest] Finde Information für Sir Fludnar Yednos), queststatus(600) = 1
+"quest", "mission", queststatus(600) = 0, english -> "Hmm... are you sure that you can do something for me? Collecting information for me, for example?",inform( [New Quest] Find information for Sir Fludnar Yednos), queststatus(600) = 1
+"quest", "mission", queststatus(600) = 0 -> "Hmm... seid ihr sicher, dass ihr etwas für mich tun könnt? Information sammeln zum Beispiel?.",inform( [Neues Quest] Finde Information für Sir Fludnar Yednos), queststatus(600) = 1
+"task", "adventure", "can I do","Yes", "Sure", "Of course", queststatus(600) = 1 -> "Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?", queststatus(600) = 2
+"Auftrag", "Aufgabe", "Abenteuer", "kann ich was tun","Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 1 -> "Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks", queststatus(600) = 2
+"quest", "mission","Yeah", "Yubba", queststatus(600) = 1 -> "Then shall it be! But first one short question before I give you a task. Do you know something about Bragon and the creation of the orcs?", queststatus(600) = 2
+"quest", "mission","Yeah", "Yubba", queststatus(600) = 1 -> "Dann soll es so sein! Aber erst eine kurze Frage bevor ich euch einen Auftrag gebe. Wisst ihr etwas über Bragon und die Erschaffung der Orks", queststatus(600) = 2
+"Yes", "Sure", "Of course", queststatus(600) = 2 -> "Well, well. That sounds promising... Ready for the task?", queststatus(600) = 3
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 2 -> "So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?", queststatus(600) = 3
+"Yeah", "Yubba", queststatus(600) = 2, english -> "Well, well. That sounds promising... Ready for the task?", queststatus(600) = 3
+"Yeah", "Yubba", queststatus(600) = 2 -> "So, so. Das klingt ja vielversprechend... Bereit für die Aufgabe?", queststatus(600) = 3
+"No", queststatus(600) = 2 -> "Anyway. Does not matter. But listen carefully now... Ready for the task?", queststatus(600) = 3
+"Nein", "Nix", queststatus(600) = 2 -> "Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?", queststatus(600) = 3
+"Nay", "Nubba", "Nope", queststatus(600) = 2, english -> "Anyway. Does not matter. But listen carefully now... Ready for the task?", queststatus(600) = 3
+"Nay", "Nubba", "Nope", queststatus(600) = 2 -> "Wie auch immer. Nicht so schlimm. Aber hört gut zu... Bereit für die Aufgabe?", queststatus(600) = 3
 
 -- quest - 2nd step: related information
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(10) -> "Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(10) -> "Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(10) -> "Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(10) -> "Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(11) -> "Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(11) -> "Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(11) -> "Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(11) -> "Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(13) -> "Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(13) -> "Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(13) -> "Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(13) -> "Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(14) -> "Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(14) -> "Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(14) -> "Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(14) -> "Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(17) -> "Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(17) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(17) -> "Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(17) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(20) -> "Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(20) -> "Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(20) -> "Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(20) -> "Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(25) -> "Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", queststatus(600) = 3, chance(25) -> "Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(25) -> "Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(25) -> "Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(34) -> "Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(34) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(34) -> "Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(34) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(51) -> "Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(51) -> "Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(51) -> "Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(51) -> "Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 3, chance(100) -> "Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(100) -> "Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, english, chance(100) -> "Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 3, chance(100) -> "Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!", queststatus(600) + 1
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(10) -> "Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(10) -> "Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(10) -> "Find out, in which age did Bragon help to create the orks? I think it was the fourth, but the name...However, I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(10) -> "Findet heraus, in welchem Zeitalter Bragon half die Orks zu schaffen! Ich denke es war das vierte, aber der Name... Wie auch immer, ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(11) -> "Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(11) -> "Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(11) -> "Find out, what was the reason for Bragons to support the Bloodgod in the creation of the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(11) -> "Findet heraus, was der Grund für Bragons Unterstüzung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(13) -> "Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(13) -> "Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(13) -> "Find out, what is Bragon for the orcs... something with like a purge or similar, but i cannot remember! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(13) -> "Findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(14) -> "Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!", queststatus(600)  = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(14) -> "Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(14) -> "Find out, in which age did Bragon realize that the creation of the orcs could not change the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(14) -> "Findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(17) -> "Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(17) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(17) -> "Find out, what do the orcs use as name for Bragon... something with sun! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(17) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(20) -> "Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(20) -> "Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(20) -> "Find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(20) -> "Findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(25) -> "Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", queststatus(600) = 3, chance(25) -> "Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(25) -> "Find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(25) -> "Findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(34) -> "Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(34) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(34) -> "Find out, Find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(34) -> "Findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(51) -> "Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(51) -> "Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(51) -> "Find out, why are orcs praying to Bragon! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(51) -> "Findet heraus, warum die Orks zu Bragon beten! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yes", "Sure", "Of course", queststatus(600) = 3, chance(100) -> "Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1, queststatus(600) = 4
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 3, chance(100) -> "Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, english, chance(100) -> "Find out, what has it to do with the so called 'Tribunal of Eternity'! I think you can ask a priest. There should be one at the alter of fire. Good luck and be carefull!",state = 1,state = 1, queststatus(600) = 4
+"Yeah", "Yubba", queststatus(600) = 3, chance(100) -> "Findet heraus, findet raus was es mit dem so genannten 'Tribunal der Ewigkeit'auf sich hat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar des Feuers zu findne sein. Viel Glück und seid vorsichtig!",state = 1,  queststatus(600)  = 4
+
+"task", "adventure", "can I do", queststatus(600) > 3, queststatus(600) < 17, state = 1 -> "Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.",inform( [Quest finished] You bungled it. :O ), queststatus(600) = 21
+"Auftrag", "Aufgabe", "Abenteuer", "kann ich was tun", queststatus(600) > 3, queststatus(600) < 17, state = 1 -> "Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.",inform( [Quest beendet] Du hast es verbockt. :O ), queststatus(600) = 21
+"quest", "mission", queststatus(600) > 3, queststatus(600) < 17, state = 1, english -> "Hmm... do you have forgotten what I asked you? Well, than you are not worth to work for me.",inform( [Quest finished] You bungled it. :O ), queststatus(600) = 21
+"quest", "mission", queststatus(600) > 3, queststatus(600) < 17, state = 1 -> "Hmm... habt ihr vergessen um was ich euch los schickte? Nun, dann seid ihr es nicht wert für mich zu arbeiten.",inform( [Quest beendet] Du hast es verbockt. :O ), queststatus(600) = 21
 
 -- quest - 3rd step: report information and collect gift
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(600) = 17 -> "Greetings. Do you have the answer now?", queststatus(600) + 1
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", queststatus(600) = 17 -> "Grüße euch. Wisst ihr die Antwort nun?", queststatus(600) + 1
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(600) = 17, english -> "Greetings. Do you have the answer now?", queststatus(600) + 1
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(600) = 17 -> "Grüße euch. Wisst ihr die Antwort nun?", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 18 -> "Well...so, how is the answer?", queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 18 -> "Gut...und wie lautet sie die Antwort?", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 18, english -> "Well...so, how is the answer?", queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 18 -> "Gut...und wie lautet sie die Antwort?", queststatus(600) + 1
-"Age of Concord", queststatus(600) = 19 -> "Thank you vey much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Zeitalter der Eintracht", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"comfort", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"trösten", "Hoffnung", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"purge of all impurity and weakness", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Vernichter alles Unreinen und Schwachen", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Age of Discord", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Zeitalter der Zwietracht", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Daily sunmaker", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Täglich Sonnenmacher", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Dragons", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Drachen", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"fire", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Feuer", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Strong in summer", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"Stark im Sommer", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"live", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"leben", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Holy Flame", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600) + 1
-"heiligen Flamme", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 20, chance(30) -> "Hmm ...Thank you for your support!...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, item(46, 1, 999, 1), queststatus(600) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 20, chance(30) -> "Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, 1), queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 20, english, chance(30) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, item(46, 1, 999, 1), queststatus(600) + 1
-"Yeah", "Yubba", queststatus(600) = 20, chance(30) -> "Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, 1), queststatus(600) + 1
-"Yes", "Sure", "Of course", queststatus(600) = 20, chance(100) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, queststatus(600) + 1, treasure(8)
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 20, chance(100) -> "Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) + 1, treasure(8)
-"Yeah", "Yubba", queststatus(600) = 20, english, chance(100) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, queststatus(600) + 1, treasure(8)
-"Yeah", "Yubba", queststatus(600) = 20, chance(100) -> "Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) + 1, treasure(8)
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(600) = 17 -> "Greetings. Do you have the answer now?", queststatus(600) = 18
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", queststatus(600) = 17 -> "Grüße euch. Wisst ihr die Antwort nun?", queststatus(600) = 18
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(600) = 17, english -> "Greetings. Do you have the answer now?", queststatus(600) = 18
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(600) = 17 -> "Grüße euch. Wisst ihr die Antwort nun?", queststatus(600) = 18
+"Yes", "Sure", "Of course", queststatus(600) = 18 -> "Well...so, how is the answer?", queststatus(600) = 19
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 18 -> "Gut...und wie lautet sie die Antwort?", queststatus(600) = 19
+"Yeah", "Yubba", queststatus(600) = 18, english -> "Well...so, how is the answer?", queststatus(600) = 19
+"Yeah", "Yubba", queststatus(600) = 18 -> "Gut...und wie lautet sie die Antwort?", queststatus(600) = 19
+"Age of Concord", queststatus(600) = 19 -> "Thank you vey much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Zeitalter der Eintracht", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"comfort", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"trösten", "Hoffnung", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"purge of all impurity and weakness", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Vernichter alles Unreinen und Schwachen", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Age of Discord", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Zeitalter der Zwietracht", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Daily sunmaker", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Täglich Sonnenmacher", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Dragons", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Drachen", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"fire", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Feuer", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Strong in summer", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"Stark im Sommer", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"live", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"leben", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Holy Flame", queststatus(600) = 19 -> "Thank you very much for your help! ...do like to have something for it?", queststatus(600)  = 20
+"heiligen Flamme", queststatus(600) = 19 -> "Vielen Dank für eure Unterstützung! ...würdet ihr dafür auch etwas haben wollen?", queststatus(600)  = 20
+"Yes", "Sure", "Of course", queststatus(600) = 20, chance(30) -> "Hmm ...Thank you for your support!...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, item(46, 1, 999, 1), queststatus(600)  = 21
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 20, chance(30) -> "Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, 1), queststatus(600)  = 21
+"Yeah", "Yubba", queststatus(600) = 20, english, chance(30) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, item(46, 1, 999, 1), queststatus(600)  = 21
+"Yeah", "Yubba", queststatus(600) = 20, chance(30) -> "Hmm...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, 1), queststatus(600)  = 21
+"Yes", "Sure", "Of course", queststatus(600) = 20, chance(100) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, queststatus(600)  = 21, treasure(8)
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", queststatus(600) = 20, chance(100) -> "Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600)  = 21, treasure(8)
+"Yeah", "Yubba", queststatus(600) = 20, english, chance(100) -> "Hmm...Thank you for your support! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!", state = 0, queststatus(600)  = 21, treasure(8)
+"Yeah", "Yubba", queststatus(600) = 20, chance(100) -> "Hmm...Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600)  = 21, treasure(8)
 "task", "adventure", "can I do", queststatus(600) = 21 -> "Hmm... You already had your task. There nothing to do for you here. Better ask someoneelse! Farewell."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(600) = 21 -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
 "quest", "mission", queststatus(600) = 21, english -> "Hmm... You already had your task. There nothing to do for you here. Better ask someoneelse! Farewell."
