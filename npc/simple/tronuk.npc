@@ -62,6 +62,8 @@ itemShoes = 53
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Hurr, mich fein sein.", "Mude wia imma", "#me kratzt sich am Hintern."
 "your name", "who are you", "who art thou" -> "Tronruk.", "Tronruk, an old orc. Hurr"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Tronruk", "Tronruk, alter Ork mich bin. Hurr."
+"Tronruk", english -> "Yubba, dhat mina nam! *hits his chest and grunts*"
+"Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Meh hub nubbing.", "Meh nub selling sombhing.", "Yoo hub to ask broddhas and sisthas ib yoo want buh stuff."
@@ -91,7 +93,7 @@ itemShoes = 53
 "slave" -> "Hublings beh berreh guud slaves."
 "ommies", english -> "Better nub trust dham!", "Meh nub know maneh ob dham."
 "human" -> "Better nub trust dham!", "Meh nub know maneh ob dham."
-"Ommie-town" -> "Maneh ob dham exist. Too maneh ib yoo ask meh!", "Hurr, Albar, Gynk or Salkama for exampla."
+"Ommie town" -> "Maneh ob dham exist. Too maneh ib yoo ask meh!", "Hurr, Albar, Gynk or Salkama for exampla."
 "Hurr?", english -> "Hurr!"
 "Father" -> "Dha Faddha makes us strong and powerful!"
 "Faddha", english -> "Dha Faddha makes us strong and powerful!"
@@ -104,10 +106,12 @@ itemShoes = 53
 "Sklave" -> "Hublinge sein gute Sklave."
 "ommies" -> "Besser nix trauen denen!", "Mich nix kenna viele.", "Dah broddha Jag won ona big tournament in dah big Ommie-town in Gobaith."
 "Mensch" -> "Besser nix trauen denen!", "Mich nix kenna viele.", "Bruddha Jag hat gewonnen großa Tournier in der großa Ommie-Stadt in Gobaith."
-"Ommie-Stadt" -> "Viela von dena gibts. Zu viela wenn du fragen mich!", "Hurr, Albar, Gynk oda Salkama zum Beispiel."
+"Ommie Stadt" -> "Viela von dena gibts. Zu viela wenn du fragen mich!", "Hurr, Albar, Gynk oda Salkama zum Beispiel."
 "Hurr?" -> "Hurr!"
 "Vater" -> "Der Vater macht uns stark und mächtig!"
 "Faddha" -> "Der Vater macht uns stark und mächtig!"
+"orc" -> "Hurr! Greenskin beh strong and proud! Praeh to dah Faddha!", "Dhat beh dah superior race, yubba!","Meh beh orc! *smirks*"
+"ork" -> "Hurr! Grünhaut sein stark und stolz! Bete zu Vater!","Das sein die überlegene Rasse, yubba!","Mich sein Ork! *lacht frecht*"
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Pahh! Wizzard!.", "Meh smash it ib meh see it.", "Betta nub meat dhat mage."
@@ -170,8 +174,8 @@ itemShoes = 53
 "Zhambra" -> "Zhambra sind 'Brüder-Göttin'."
 
 -- story 1 - The Day of the Hammer
-"The Day of the Hammer" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) + 1
-"Der Tag des Hammer" -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) + 1
+"Day Hammer" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) + 1
+"Tag Hammer" -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) + 1
 "Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 1 -> "Meh tell dha story as dha Warlord once did. *His voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
 "Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 1 -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 1, english -> "Meh tell dha story as dha Warlord once did. *his voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
@@ -180,8 +184,8 @@ itemShoes = 53
 "Nein", "Nix", "Aufhören", queststatus(601) = 1 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 1, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 1 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 2 -> "When the Warlord was about to enter the human city after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
+"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 2 -> "When the Warlord was about to enter the human city Trolls Bane after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt Trolls Bane betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 2, english -> "When the Warlord was about to enter the human city after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
 "No", queststatus(601) = 2 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
@@ -254,8 +258,8 @@ itemShoes = 53
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 10 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
 -- story 2 - Day of Green Growl
-"Day of Green Growl" -> "Meh tell dha story as dha Chief once did. *His voice becomes deeper and horasely* Bruddahs and sistahs!", queststatus(601) = 11
-"Tag des Grünen Knurren" -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester!", queststatus(601) = 11
+"Day Growl" -> "Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!", queststatus(601) = 11
+"Tag Knurren" -> "Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!", queststatus(601) = 11
 "Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 11 -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
 "Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 11 -> "Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 11, english -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
@@ -272,8 +276,8 @@ itemShoes = 53
 "Nein", "Nix", "Aufhören", queststatus(601) = 12 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 12, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 12 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 13 -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
+"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 13 -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!", queststatus(601) + 1
+"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen in Menschenstadt Trolls Bane organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 13, english -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
 "No", queststatus(601) = 13 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
@@ -492,6 +496,50 @@ itemShoes = 53
 "Nein", "Nix", "Aufhören", queststatus(601) = 44 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 44, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 44 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
+
+-- additonal story info
+"Chief" -> "Meh remember dhat beh dah best leader ebba! But meh nub know whub happened to him!"
+"Häuptling","Hauptling" -> "Mich erinnern das sein bester Anfuhrer jemals! Aber mich nix wissen was ihm passierte."
+"Rugh",english -> "Hurr, daht beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know ib it beh around now."
+"Rugh" -> "Hurr, das sein schlau und stolz Chief von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+"Warlord"  -> "Meh remember dhat beh dah strongest orc ebba! Betta run ib him beh on oddha side!"
+"Kriegsherr" -> "Mich erinnern das sein stärkster Ork! Besser lauf wenn du sehen ihn auf anderer Seite stehen."
+"Rogruk","Bregoguk",english -> "Hurr, daht beh strong Warlord from Clan ob Northern Mountains. Meh nub know ib it beh around now."
+"Rogruk","Bregoguk" -> "Hurr, das sein stark Kriegsherr von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+"Murgo","Lokh",english -> "He, he... Broddha Murgo beh also known as dha Flying Lokh'um, but dhat shall yoo dha broddha explain ib yoo meet him. *smirks and covers his head*","Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now."
+"Murgo","lokh" -> "He, he... Bruder Murgo sein bekannt auch als Fliegend Lokh'um, aber das sollen Brudder selber erklären wenn du treffen ihn. *kichert und hält sich seinen Kopf*","Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+"Jag",english -> "Hurr! Avoid to get hit by Red Skull Jag's maces...*howls*","Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now."
+"Jag" -> "Hurr! Vermeid treffen werden von Red Skull Jag' Streitkolben...*heult*","Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+"Gerron", "Lavence","Murdok",english -> "Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.","Meh know dhat Ommie also whib dha nam Murdok."
+"Gerron", "Lavence","Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.","Mich kennen das Ommie auch mit Name Murdok"
+"Jefferson",english -> "Dhat beh berreh chaotic Ommie beh, whub beh berreh guud and fast whib daggers. Beh careful ib ebba see dhat Ommie."
+"Jefferson" -> "Das sein sehr chaotisch Ommie, dass beherschen gut und schnell Dolche. Sei vorsichtig wenn du sehen das Ommie."
+"Kry","Rack",english -> "Dhat sista ob Orcs ob dha Northern Mountains beh. Meh nub know whub she doing now!"
+"Kry","Rack" -> "Das Schwester von Orks von Nordgebierge war. Mich nix wissen was sie nun machen!"
+"Slug",english -> "Dhat broddha beh guud warrior and smithe for Orcs ob dha Northern Mountains beh. Meh nub know whub he doing now!"
+"Slug" -> "Das Bruder sein gut Kreiger und Schmied für Orks von Nordgebierge war. Mich nix wissen was er nun machen!"
+"silver skull",english -> "Dhat beh high rank ob dha Orcs ob dha Northern Mountains beh."
+"silver skull" -> "Das sein hoher Rang bei den Orks des Nordgebierge war."
+"red skull",english -> "Dhat beh berreh high rank ob dha Orcs ob dha Northern Mountains beh."
+"red skull" -> "Das sein sehr hoher Rang bei den Orks des Nordgebierge war."
+"Gynk fire" -> "Yoo nub know dhat fire in bottle? Yoo hub to open and throw it! BUMM! *smirks*"
+"Gynk Feuer" -> "Du nix wissen das Feuer in Flasche? Du müssen offnen und werfen es! BAMM! *kichert*"
+"temple" -> "Dhat beh collection ob lower races beh whub worship dha Faddha also, but beh heresy. Smash dham!"
+"Tempel" -> "Das sein Sammlung niedriger Rassen welche preisen Vater auch, aber sein Häresie. Verhau die!"
+"holy land" -> "Hurr, dha holy land in north in Gobaith. Land beh ob orcs ob Northern Mountains"
+"heilig land" ->"Hurr, das heilig Land von Norden in Gobaith. Land der Ork von Nordgebierge."
+"Orc North","Clan North" -> "Hurr! Orc of the Norhern Mountains beh mighte Clan beh in Gobaith whib strong Chief, Warlod, Red Skulls, Silver Skulls an oddhas broddha and sisthas."
+"Ork Nord","Klan Nord", "Clan Nord" -> "Hurr! Ork von Nordgebierge war mächtig Klan in Gobaith mit stark Hauptling, Kriegsherr, Red Skulls, Silver Skulls und ander Bruddha und Sistha!"
+"dwarven army", "dwarf army","army dwarf","stumpie army" -> "Dhat stumpie army being from Silverbrand, me remember right."
+"Zwergenarmee" -> "Das Zwergenarme waren von Silberbrand, mich richtig erinnern."
+"Troll","Bane", english -> "Dhat beh old Ommie town in Gobaith. Long tiem ago."
+"Troll","Bane" -> "Das sein alte Ommie Stadt in Gobaith. Lang Zeit vorbei."
+"queen dwarf","dwarven queen", "stumpie queen" ->"Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*"
+"königin zwerg","zwerg königin","zwergenkönigin","stumpiekönigin"-> "Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*"
+"friedl","Friedwulfa","Silberklinge", english ->"Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*"
+"friedl","Friedwulfa","Silberklinge" -> "Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*"
+"silverbrand" -> "Dhat beh Stumpietwon in Gobaith whib Stumpie queen whub fhink be able smashing Warlord. *smirks*"
+"silberbrand" -> "Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
