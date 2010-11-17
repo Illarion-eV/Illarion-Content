@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 18, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -172,6 +172,19 @@ talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Tronruk");
 talkEntry:addResponse("Tronruk, alter Ork mich bin. Hurr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tronruk");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yubba, dhat mina nam! *hits his chest and grunts*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tronruk");
+talkEntry:addResponse("Yubba, das mein Name! *schlägt sich auf die Brust*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +379,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ommie-town");
+talkEntry:addTrigger("Ommie town");
 talkEntry:addResponse("Maneh ob dham exist. Too maneh ib yoo ask meh!");
 talkEntry:addResponse("Hurr, Albar, Gynk or Salkama for exampla.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -462,7 +475,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ommie-Stadt");
+talkEntry:addTrigger("Ommie Stadt");
 talkEntry:addResponse("Viela von dena gibts. Zu viela wenn du fragen mich!");
 talkEntry:addResponse("Hurr, Albar, Gynk oda Salkama zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -483,6 +496,22 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Faddha");
 talkEntry:addResponse("Der Vater macht uns stark und mächtig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("orc");
+talkEntry:addResponse("Hurr! Greenskin beh strong and proud! Praeh to dah Faddha!");
+talkEntry:addResponse("Dhat beh dah superior race, yubba!");
+talkEntry:addResponse("Meh beh orc! *smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ork");
+talkEntry:addResponse("Hurr! Grünhaut sein stark und stolz! Bete zu Vater!");
+talkEntry:addResponse("Das sein die überlegene Rasse, yubba!");
+talkEntry:addResponse("Mich sein Ork! *lacht frecht*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,14 +953,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("The Day of the Hammer");
+talkEntry:addTrigger("Day Hammer");
 talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Der Tag des Hammer");
+talkEntry:addTrigger("Tag Hammer");
 talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1029,7 +1058,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("When the Warlord was about to enter the human city after the meeting with the chief, he ran into the dwarven army, led by the queen herself!");
+talkEntry:addResponse("When the Warlord was about to enter the human city Trolls Bane after the meeting with the chief, he ran into the dwarven army, led by the queen herself!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1042,7 +1071,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("Als der Kriegsherr die Menschenstadt betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!");
+talkEntry:addResponse("Als der Kriegsherr die Menschenstadt Trolls Bane betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1788,15 +1817,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Day of Green Growl");
-talkEntry:addResponse("Meh tell dha story as dha Chief once did. *His voice becomes deeper and horasely* Bruddahs and sistahs!");
+talkEntry:addTrigger("Day Growl");
+talkEntry:addResponse("Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tag des Grünen Knurren");
-talkEntry:addResponse("Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester!");
+talkEntry:addTrigger("Tag Knurren");
+talkEntry:addResponse("Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1979,7 +2008,7 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
-talkEntry:addResponse("Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!");
+talkEntry:addResponse("Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1992,7 +2021,7 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
-talkEntry:addResponse("Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!");
+talkEntry:addResponse("Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen in Menschenstadt Trolls Bane organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -4238,6 +4267,304 @@ talkEntry:addTrigger("Stop");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
 talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chief");
+talkEntry:addResponse("Meh remember dhat beh dah best leader ebba! But meh nub know whub happened to him!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Häuptling");
+talkEntry:addTrigger("Hauptling");
+talkEntry:addResponse("Mich erinnern das sein bester Anfuhrer jemals! Aber mich nix wissen was ihm passierte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rugh");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hurr, daht beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rugh");
+talkEntry:addResponse("Hurr, das sein schlau und stolz Chief von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Warlord");
+talkEntry:addResponse("Meh remember dhat beh dah strongest orc ebba! Betta run ib him beh on oddha side!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kriegsherr");
+talkEntry:addResponse("Mich erinnern das sein stärkster Ork! Besser lauf wenn du sehen ihn auf anderer Seite stehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rogruk");
+talkEntry:addTrigger("Bregoguk");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hurr, daht beh strong Warlord from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rogruk");
+talkEntry:addTrigger("Bregoguk");
+talkEntry:addResponse("Hurr, das sein stark Kriegsherr von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Murgo");
+talkEntry:addTrigger("Lokh");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("He, he... Broddha Murgo beh also known as dha Flying Lokh'um, but dhat shall yoo dha broddha explain ib yoo meet him. *smirks and covers his head*");
+talkEntry:addResponse("Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Murgo");
+talkEntry:addTrigger("lokh");
+talkEntry:addResponse("He, he... Bruder Murgo sein bekannt auch als Fliegend Lokh'um, aber das sollen Brudder selber erklären wenn du treffen ihn. *kichert und hält sich seinen Kopf*");
+talkEntry:addResponse("Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jag");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hurr! Avoid to get hit by Red Skull Jag's maces...*howls*");
+talkEntry:addResponse("Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jag");
+talkEntry:addResponse("Hurr! Vermeid treffen werden von Red Skull Jag' Streitkolben...*heult*");
+talkEntry:addResponse("Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gerron");
+talkEntry:addTrigger("Lavence");
+talkEntry:addTrigger("Murdok");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.");
+talkEntry:addResponse("Meh know dhat Ommie also whib dha nam Murdok.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gerron");
+talkEntry:addTrigger("Lavence");
+talkEntry:addTrigger("Murdok");
+talkEntry:addResponse("Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.");
+talkEntry:addResponse("Mich kennen das Ommie auch mit Name Murdok");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jefferson");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh berreh chaotic Ommie beh, whub beh berreh guud and fast whib daggers. Beh careful ib ebba see dhat Ommie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jefferson");
+talkEntry:addResponse("Das sein sehr chaotisch Ommie, dass beherschen gut und schnell Dolche. Sei vorsichtig wenn du sehen das Ommie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kry");
+talkEntry:addTrigger("Rack");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat sista ob Orcs ob dha Northern Mountains beh. Meh nub know whub she doing now!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kry");
+talkEntry:addTrigger("Rack");
+talkEntry:addResponse("Das Schwester von Orks von Nordgebierge war. Mich nix wissen was sie nun machen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Slug");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat broddha beh guud warrior and smithe for Orcs ob dha Northern Mountains beh. Meh nub know whub he doing now!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Slug");
+talkEntry:addResponse("Das Bruder sein gut Kreiger und Schmied für Orks von Nordgebierge war. Mich nix wissen was er nun machen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("silver skull");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh high rank ob dha Orcs ob dha Northern Mountains beh.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("silver skull");
+talkEntry:addResponse("Das sein hoher Rang bei den Orks des Nordgebierge war.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("red skull");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh berreh high rank ob dha Orcs ob dha Northern Mountains beh.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("red skull");
+talkEntry:addResponse("Das sein sehr hoher Rang bei den Orks des Nordgebierge war.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gynk fire");
+talkEntry:addResponse("Yoo nub know dhat fire in bottle? Yoo hub to open and throw it! BUMM! *smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gynk Feuer");
+talkEntry:addResponse("Du nix wissen das Feuer in Flasche? Du müssen offnen und werfen es! BAMM! *kichert*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("temple");
+talkEntry:addResponse("Dhat beh collection ob lower races beh whub worship dha Faddha also, but beh heresy. Smash dham!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tempel");
+talkEntry:addResponse("Das sein Sammlung niedriger Rassen welche preisen Vater auch, aber sein Häresie. Verhau die!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("holy land");
+talkEntry:addResponse("Hurr, dha holy land in north in Gobaith. Land beh ob orcs ob Northern Mountains");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("heilig land");
+talkEntry:addResponse("Hurr, das heilig Land von Norden in Gobaith. Land der Ork von Nordgebierge.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Orc North");
+talkEntry:addTrigger("Clan North");
+talkEntry:addResponse("Hurr! Orc of the Norhern Mountains beh mighte Clan beh in Gobaith whib strong Chief, Warlod, Red Skulls, Silver Skulls an oddhas broddha and sisthas.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ork Nord");
+talkEntry:addTrigger("Klan Nord");
+talkEntry:addTrigger("Clan Nord");
+talkEntry:addResponse("Hurr! Ork von Nordgebierge war mächtig Klan in Gobaith mit stark Hauptling, Kriegsherr, Red Skulls, Silver Skulls und ander Bruddha und Sistha!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dwarven army");
+talkEntry:addTrigger("dwarf army");
+talkEntry:addTrigger("army dwarf");
+talkEntry:addTrigger("stumpie army");
+talkEntry:addResponse("Dhat stumpie army being from Silverbrand, me remember right.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zwergenarmee");
+talkEntry:addResponse("Das Zwergenarme waren von Silberbrand, mich richtig erinnern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll");
+talkEntry:addTrigger("Bane");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh old Ommie town in Gobaith. Long tiem ago.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll");
+talkEntry:addTrigger("Bane");
+talkEntry:addResponse("Das sein alte Ommie Stadt in Gobaith. Lang Zeit vorbei.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("queen dwarf");
+talkEntry:addTrigger("dwarven queen");
+talkEntry:addTrigger("stumpie queen");
+talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("königin zwerg");
+talkEntry:addTrigger("zwerg königin");
+talkEntry:addTrigger("zwergenkönigin");
+talkEntry:addTrigger("stumpiekönigin");
+talkEntry:addResponse("Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("friedl");
+talkEntry:addTrigger("Friedwulfa");
+talkEntry:addTrigger("Silberklinge");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("friedl");
+talkEntry:addTrigger("Friedwulfa");
+talkEntry:addTrigger("Silberklinge");
+talkEntry:addResponse("Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("silverbrand");
+talkEntry:addResponse("Dhat beh Stumpietwon in Gobaith whib Stumpie queen whub fhink be able smashing Warlord. *smirks*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("silberbrand");
+talkEntry:addResponse("Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me rülpst.", "#me burps.");
