@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Sogg Beermug                                                None --
--- NPC Job:  trader                                                             --
+-- NPC Name: Sogg Beermug                                             Galmair --
+-- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  374, 249, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: November 17, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Sogg Beermug"
@@ -23,7 +23,7 @@ language = orc
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Ein schwankender Ork, mit tränenden Augen und roter Nase."
 lookatUS = "A drunken Orc, with watery eyes and red nose."
@@ -32,6 +32,9 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
+itemChest = 802
+itemTrousers = 821
+itemShoes = 369
 
 -- Galmair
 
@@ -43,10 +46,6 @@ radius = 0
 -- Tools (Alchemist): 58, 164, 1008
 -- Tools (Brewer): 51, 227
 -- Beer: 1909, 1908
-
-itemChest = 802
-itemTrousers = 821
-itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keyphrases: Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hick'", state = 0
@@ -79,23 +78,22 @@ itemShoes = 369
 "Gobaith", "Gobiath" -> "Isch kenne keinen Gobiath! Aba mine Oma hiesch Gobthe. Ehj?"
 "I am", "my name" -> "Yuu, mes like you! Wanna booze?"
 "Ich bin", "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
-"sogg","beermug",english->"Hurr-hurr... want a beer, eh?","Hu!?... - Mesch Sogg Beermug, whut do you want?"
-"sogg","beermug"->"Hurr-hurr... wilscht n' Bier, eh?","Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
-"what sell","what buy","list wares","price of"->"Me sell all bottl and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hehe." 
-"was verkauf","was kauf","warenliste","preis von"->"Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe." 
+"sogg", "beermug", english -> "Hurr-hurr... want a beer, eh?", "Hu!?... - Mesch Sogg Beermug, whut do you want?"
+"sogg", "beermug" -> "Hurr-hurr... wilscht n' Bier, eh?", "Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
+"what sell", "what buy", "list wares", "price of" -> "Me sell all bottl and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hehe."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
 
---more smalltalk
-"murgo", german ->"Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"  
+-- more smalltalk
+"murgo", german -> "Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"
 "murgo", english -> "Yubba... - Murgo is n' go-od fella. Allways roaming the streets, for dislike of his women Krudash, she do not like. *hick*"
-"er hja","erhja","er'hja", german -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
-"er hja","erhja","er'hja", english -> "Eh, Er'hja? She's daughter of Murgo 'nd Krudash. She's a good orcling, mes say. Hu, 'er parents be good freind ob mine!"
-"ali[czs]","ali[czs]e","stout","jack","tom", "berry","thomas","berryard",english->"Skeschmath! Nerv misch nich, mit diese Snagas. Isch bin Sogg! Misch gibt sich nicht ab mit Snagas."
-"ali[czs]","ali[czs]e","stout","jack","tom", "berry","thomas","berryard",german->"Skeschmath! Don't annoy mes with thus snagas. Mesch, Sogg! Mesch don't hang around with snagas."
-"krudash","Hack","sack","Hacken","plündern", german -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
-"krudash","Hack","sack","Hacken","plündern", english -> "Yûk. Krudash's shop, is right ther! 'Hack an Sack', good name for a arms dealer, ischn't it?"
-"morurt","mo'rurt","mor'urt","olokwa","thud","grimlug","ol hja","olhja","ol'hja",english->"#me claps his chest with his left hand. 'Hurr, Sogg honour our clan!'"
-"morurt","mo'rurt","mor'urt","olokwa","thud","grimlug","ol hja","olhja","ol'hja",german->"#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'" 
-
+"er hja", "erhja", "er'hja", german -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
+"er hja", "erhja", "er'hja", english -> "Eh, Er'hja? She's daughter of Murgo 'nd Krudash. She's a good orcling, mes say. Hu, 'er parents be good freind ob mine!"
+"ali[czs]", "ali[czs]e", "stout", "jack", "tom", "berry", "thomas", "berryard", english -> "Skeschmath! Nerv misch nich, mit diese Snagas. Isch bin Sogg! Misch gibt sich nicht ab mit Snagas."
+"ali[czs]", "ali[czs]e", "stout", "jack", "tom", "berry", "thomas", "berryard", german -> "Skeschmath! Don't annoy mes with thus snagas. Mesch, Sogg! Mesch don't hang around with snagas."
+"krudash", "Hack", "sack", "Hacken", "plündern", german -> "Yûk. Krudash's Laden, 'Hacken un Plündern' is gleich da drübn. Guter Name für'n Waffnladen, findesch du nich?"
+"krudash", "Hack", "sack", "Hacken", "plündern", english -> "Yûk. Krudash's shop, is right ther! 'Hack an Sack', good name for a arms dealer, ischn't it?"
+"morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja", english -> "#me claps his chest with his left hand. 'Hurr, Sogg honour our clan!'"
+"morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja", german -> "#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'"
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Uh! Mes bet, thus Longleg drops after two beer under the tesk. Bah-Gosch!"
@@ -126,8 +124,8 @@ itemShoes = 369
 "moshran", "god", english -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
 "cherga", "icy witch", "eis Hex", german -> "Hurr. Eisig Hexe, Göttin von Ahnen ist. Du fragst Grimlug!"
 "cherga", "icy witch", "eis Hex", english -> "Hurr. Tha icy witch, be god ob ancestors. Ask Grimlug for!"
-"where com","kroch","gurak","Kroch'gurak", german -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
-"where com","kroch","gurak","Kroch'gurak", english -> "Kroch'Gurak! Is where most ob us orcs come from."
+"where com", "kroch", "gurak", "Kroch'gurak", german -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
+"where com", "kroch", "gurak", "Kroch'gurak", english -> "Kroch'Gurak! Is where most ob us orcs come from."
 "adron", german -> "Honor to Adron, tha fat man with red nose! Yubba. May he help me, guaring all those barrels 'nd bottle!"
 "adron", english -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Möge er helfen, zu bewachen alle meine Flasch und Fässa!"
 
