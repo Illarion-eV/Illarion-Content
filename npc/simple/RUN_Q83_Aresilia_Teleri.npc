@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  896, 803, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   Zot & Rincewind                                                          --
+-- Author:   Zot & Rincewind                                                  --
 --                                                                            --
 -- Last parsing: November 18, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -98,17 +98,17 @@ radius = 2
 "Tanora", english -> "I know that one. it's the Lizard goddess, they call her 'Zelphia' ! She's the goddess of the sea. Sailors pray to her too."
 "Zelphia", english -> "That's the Lizard name for Tanora, goddess of water."
 "Findari", english -> "An ancient wind goddess."
-"Narg[úùu]n", english -> "The gambler, the jester, the two-faced god of insanity and sanity ? Hmh."
-"Elara", english -> "That's the goddess of Wisdom !"
+"Narg[úùu]n", english -> "The gambler, the jester, the two-faced god of insanity and sanity? Hmh."
+"Elara", english -> "That's the goddess of Wisdom!"
 "Adron", english -> "He is the god of wine and festivities."
-"Oldra", english -> "Goddess of fertility and harvesting !"
-"Cherga", english -> "The Grey Lady brings the spirits of the dead to where they belong, and takes care that their rotting bodies rest in peace. And stay in their coffins !"
+"Oldra", english -> "Goddess of fertility and harvesting!"
+"Cherga", english -> "The Grey Lady brings the spirits of the dead to where they belong, and takes care that their rotting bodies rest in peace. And stay in their coffins!"
 "Malachin", english -> "The green hunter, god of forests, hunt, bravery, battle and strength. Many noble Knights and Paladins pray to Malachin."
-"Irmorom", english -> "The Lord of trade and craftsmenship ! He is the main god of the dwarves."
+"Irmorom", english -> "The Lord of trade and craftsmenship! He is the main god of the dwarves."
 "Sirani", english -> "Goddess of Love and trust."
 "Zhambra", english -> "The god of friendship, bravery and loyality. Usually the Patron of Paladins. He's one of the main gods in Salkamar."
 "Ronagan", english -> "The God of Shadows, stealth and trickery. Patron of every thieve's guild, or even assassins, if there is any."
-"Moshran", english -> "PSSSHHH ! Are you insane ? Don't say that name aloud ! You might attract his wrath ! We call him the bone lord."
+"Moshran", english -> "PSSSHHH! Are you insane ? Don't say that name aloud ! You might attract his wrath ! We call him the bone lord."
 "bone lord" -> "The god of slaughter, rage, bloody revenge and war."
 "blood god" -> "The god of slaughter, rage, bloody revenge and war."
 "bjolmur", english -> "The whispering darkness... One of the three evil demigods created by the bone lord. A mere curse to the world, it is said that her mouth never lost a single true word."
@@ -127,14 +127,14 @@ radius = 2
 "Narg[úùu]n", german -> "Der Spieler, der Narr, der zweigesichtige Gott des Sinns und des Wahnsinns ? Hmh."
 "Elara", german -> "Das ist die Göttin der Weisheit!"
 "Adron", german -> "Er ist der Gott des Weines und des Feierns."
-"Oldra", german -> "Göttin der fruchtbarkeit und der Ernte !"
+"Oldra", german -> "Göttin der Fruchtbarkeit und der Ernte!"
 "Cherga", german -> "Die graue Dame bringt die Geister der Toten dahin, wo sie hingehören und sorgt dafür, daß ihre verfaulenden gebeine in Frieden Ruhen - und in ihren Särgen bleiben !"
 "Malachin", german -> "Der grüne Jäger, Gott der Wälder, der Jagd, des Kampfes, des Mutes und der Stärke. Viele noble Ritter und Paladine beten zu Malachin."
-"Irmorom", german -> "Der Herr des Handels und des Handwerks ! Er ist der Hauptgott des Zwergenvolkes."
+"Irmorom", german -> "Der Herr des Handels und des Handwerks! Er ist der Hauptgott des Zwergenvolkes."
 "Sirani", german -> "Die Göttin der Liebe und des Vertrauens."
 "Zhambra", german -> "Der Gott der Freundschaft, der Tapferkeit und der Loyalität. Üblicherweise der Patron von Paladinen. Er ist einer der Hauptgötter in Salkamar."
 "Ronagan", german -> "Der Gott der Schatten, der Heimlichkeit und der Tricks. Schutzherr jeder Diebesgilde, falls es sowas gibt. Oder von Assassinen."
-"Moshran", german -> "PSSSSST ! Seid ihr des Wahnsinns ! Sprecht diesen Namen nicht laut. Ihr werdet seinen Zorn heraufbeschwören ! Wir nennen ihn den Knochenlord."
+"Moshran", german -> "PSSSSST ! Seid ihr des Wahnsinns! Sprecht diesen Namen nicht laut. Ihr werdet seinen Zorn heraufbeschwören! Wir nennen ihn den Knochenlord."
 "knochenlord" -> "Der Gott des Schlachtens, der Raserei, der blutigen Rache und des Krieges."
 "blutgott" -> "Der Gott des Schlachtens, der Raserei, der blutigen Rache und des Krieges."
 "bjolmur", german -> "Die flüsternde Finsternis... Eine der drei bösen Halbgötter, die der Blutgott schuf.Ein Fluch für die Welt, es heißt daß noch nie auch nur ein einziges wahres Wort über ihre Lippen gekommen sei!"
