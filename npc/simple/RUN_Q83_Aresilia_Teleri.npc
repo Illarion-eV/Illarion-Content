@@ -234,6 +234,11 @@ radius = 2
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+
+itemChest = 847
+itemTrousers = 827
+itemShoes = 53
+
 cycletext "#me nimmt ein Tuch zur Hand und wischt sich etwas Blut von der Fingerspitze weg.", "#me takes a rag and catches a drop of blood from her finger."
 cycletext "#me streicht ihre Robe glatt.", "#me brunishes her robe."
 cycletext "#me pustet einige Haarsträhnen aus ihrem Gesicht.", "#me puffs some strand of hair out of her face."
