@@ -38,7 +38,7 @@ wrongLangUS = "#me looks at you confused."
 -- tales n' storys of gods and shamans
 
 itemChest = 811
-itemTrousers = 267
+itemTrousers = 366
 itemShoes = 369
 
 "stop", german -> "Hrm, Grimlug soll erzähligen etwas anderes?", state = 0

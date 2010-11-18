@@ -32,7 +32,7 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-itemChest = 802
+itemChest = 811
 itemTrousers = 821
 itemShoes = 369
 
