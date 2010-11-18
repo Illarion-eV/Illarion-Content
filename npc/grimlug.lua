@@ -1143,7 +1143,7 @@ mainNPC:setLookat("Dies ist ein NPC blabalblab...", "This is a NPC who's develop
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(3, 811);
-mainNPC:setEquipment(9, 267);
+mainNPC:setEquipment(9, 366);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 

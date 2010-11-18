@@ -711,7 +711,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein schwankender Ork, mit tränenden Augen und roter Nase.", "A drunken Orc, with watery eyes and red nose.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(3, 802);
+mainNPC:setEquipment(3, 811);
 mainNPC:setEquipment(9, 821);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
