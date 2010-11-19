@@ -40,22 +40,28 @@ itemTrousers = 826
 itemShoes = 53
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal against a melted ingot. Keyphrases: melt 5 gold, melt 3 chopper, melt 17 silver, melt 8 iron.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
+"Help" -> inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal against a melted ingot. Fee: 1 silver coin each task. Keyphrases: smelt 5 gold, smelt 3 chopper, smelt 17 silver, smelt 8 iron.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
 
 -- oremelter
-"melt %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER)
-"melt %NUMBER gold" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'"
-"schmelze %NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER)
-"schmelze %NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'"
-"melt %NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER)
-"melt %NUMBER copper" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'"
-"schmelze %NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER)
-"schmelze %NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'"
-"melt %NUMBER iron", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me starts to melt the ore, after a few moments she finishes her work.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER)
-"melt %NUMBER iron" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'"
-"schmelze %NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER)
-"schmelze %NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
+"%NUMBER gold",money >= 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1),english -> "#me gets a silver coin and starts to melt the ore, after a few moments she finishes her work.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1),english ->"#me answers whiny-voiced: 'I-I'm soo sorry. You have n-not enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER gold",english -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'"
+"%NUMBER gold",money >= 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'"
+"%NUMBER copper",money >= 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me gets a silver coin and starts to melt the ore, after a few moments she finishes her work.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me answers whiny-voiced: 'I-I'm soo sorry. You have n-not enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER copper" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'"
+"%NUMBER kupfer",money >= 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'"
+"%NUMBER iron",money >= 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me gets a silver coin and starts to melt the ore, after a few moments she finishes her work.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER iron",item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers whiny-voiced: 'I-I'm soo sorry. You have n-not enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER iron" -> "#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'"
+"%NUMBER eisen",money >= 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER),money -100
+"%NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
 
 
 -- General speech
@@ -73,16 +79,16 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Y-you don't h-have to pay. If enough ore and... and coal is brought, I w-will melt them for free."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "D-du musst n-nicht bezahlen. W-wenn genügend K-kohle u-und Erz da ist sch-schmelze ich sie einfach so, z-zu Barren."
+"what sell", "what buy", "list wares", "price of" -> "If enough ore and... and coal is brought, I w-will melt them f-for fee of a s-silver piece... each task."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "W-wenn genügend K-kohle u-und Erz da ist sch-schmelze ich sie z-zu Barren. K-kostet e-ein Silberstück pr-pro Auftrag."
 "tell something" -> "O-once, the fire la-lapsed during melting. A-and Krudash saw it... *sighs*", "So-sometimes, if there's no business, I... - I j-just close my eyes and i-imagine I'm far far away."
 "erzähl was", "erzähl etwas" -> "E-einmal i-ist mir das Feuer während dem S-schmelzen ausgegangen. U-und Krudash hat es gesehen. *schnieft*", "Ma-manchmal wenn n-nichts zu tun ist, dann mach ich di-die Augen zu und d-denk mir, ich wäre wo anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron."
-"beruf" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen."
-"job", english -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron."
-"job" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen."
+"profession" -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."
+"beruf" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag."
+"job", english -> "I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task."
+"job" -> "I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag."
 "Gobaith", "Gobiath", english -> "E-excuse m-me. I never heared about."
 "Gobaith", "Gobiath" -> "E-entschuldigung. I-ich hab nie davon gehört."
 "I am", "my name" -> "H-how m-may I help you?"
