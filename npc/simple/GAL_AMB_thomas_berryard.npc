@@ -1,3 +1,183 @@
+-- Note: ALWAYS add commentaries in an extra line! 
+-- This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.) 
+
+name = "Thomas Berryard" 
+-- Replace to own liking 
+race = halfling
+-- human, elf, dwarf, lizardman, orc, halfling... 
+sex = male 
+-- male/female 
+position = 381, 177, -6 
+--name the position here. 
+direction = southeast 
+-- north, northeast, east, southeast, south, southwest, west, northwest 
+affiliation = "None" 
+job = "slave" 
+
+language = common 
+language = halfling
+language = orc 
+defaultLanguage = common 
+autointroduce = on 
+
+author = "Rincewind" 
+--sign your name in here. 
+
+lookatDE = "Ein dürrer Halbling in zerschlissener Kleidung. An seinen Füßen befinden sich Schellen die ihn an eine Kette fesseln." 
+lookatUS = "A meager halfling in tattered cloth. His feet are handcuffed to a heavy chain." 
+useMsgDE = "Fass mich nicht an!" 
+useMsgUS = "Do not touch me!" 
+wrongLangDE = "#me schaut dich verwirrt an." 
+wrongLangUS = "#me looks at you confused." 
+-- Keep radius=0 and the Npc won't walk around 
+radius = 0 
+
+-- Help 
+"Help" -> inform("[Game Help] This NPC is Thomas Berryard the mason and dye mixer-slave. Fee: 1 silver coin each task. Keyphrases: make 15 buckets black/green/blue/red/yellow/white dye, make 10 pebbles, make 3 stone block) 
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Berryard der Steinmetz und Farbmischer-Sklave. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: mische 15 Eimer schwarze/grüne/blaue/rote/gelbe/weiße Farbe, mache 10 Kiesel, mache 3 Steinquader.") 
+
+-- General speech 
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Catching typical NPC phrases 
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more! 
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- More small talk; add at least five triggers 
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Faction stuff 
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Main land factions 
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"albar", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"gync", "gynk", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"salkama", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Gods - use the triggers of the god the NPC worships or fights 
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Catching quest triggers 
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"quest","mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here 
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+-- Absolutely last catch: Everything a player says and is not caught earlier 
+-- This response should give the player a hint about what to ask the NPC 
+-- Optional Trigger /  Response is only given 1/5 of the time 
+
+".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
+".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3." 
+
+--The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ... 
+"NPC Name",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
+"NPC Name"->"GERMAN1.","GERMAN2.","GERMAN3." 
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
+
+------------------------------------------------------------------------------AC 
+-- Cycle Texts - Messages spoken automatically in random intervals. 
+-- Every NPC should contain at least 10 of those messages. 
+-- Emotes are possible also starting with "#me ....". 
+
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH." 
+cycletext "GERMAN.", "ENGLISH."
+
+
 ------------------------------------------------------------------------------AC
 -- NPC Name: Thomas Berryard                                             None --
 -- NPC Job:  none                                                             --
@@ -41,7 +221,7 @@ itemMainHand = 23
 itemTrousers = 183
 
 -- language: halfling, orc, common
---Memo to me: DELETE THE DAMN RESURCES DUDE!
+--Memo to me: DELETE THE DAMN RESURCES DUDE! / fee is one silver!
 -- Verkauft: Eimer (51)
 -- Kauft: Eimer (51)
 "%NUMBER Steinquader", item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER)
@@ -168,3 +348,4 @@ cycletext "Seit dem ich versucht habe Wegzulaufen muss ich pausenlos schuften!",
 cycletext "Wenn er mich zwingt das nochmal zu essen, hau ich ihm ins Gemächt!", "If he force me to eat this stuff again, I will bash his family jewels!"
 cycletext "... und dann wird mir alles egal sein.. ja genau! Hihi.", "... and then I won't care annymore.. oh yes! Hihi."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
+cycletext "#me klimpert mit seinen Handschellen.", "#me jingles with his handcuffs. "
