@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 20, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -590,13 +590,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gold");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I need gold to sacrifice it to Bragon.");
+talkEntry:addResponse("Bragon loves gold and I give him every gold which I have.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gold");
-talkEntry:addResponse("Ich brauche Gold um es Bragon zu opfern.");
+talkEntry:addResponse("Bragon liebt Gold und ich gebe ihm alles Gold, dass ich habe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1597,8 +1597,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -1610,8 +1611,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"));
@@ -1649,8 +1651,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -1659,8 +1662,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(224, "all", "=", 0));
 talkEntry:addResponse("Bitte stört mich nicht bis ihr den Goldkelch habt!");

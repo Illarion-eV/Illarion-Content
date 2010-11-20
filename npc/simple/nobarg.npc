@@ -135,8 +135,8 @@ itemShoes = 53
 "furchtbar" -> "Der Untergang von Gobaith.", "Die letzten Tage von Gobaith.", "Ja, es war so...Ich habe keine Wörter um es besser zu beschreiben."
 "tot", "gestorben", "starben", "was ist passiert", "was ist geschehen" -> "Ja, viele sind gestorben.", "Ja, aber manche konnten fliehen. Ich denke ihr könnt sie hier irgendwo finden."
 "Drachen" -> "Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!"
-"Gold", english -> "I need gold to sacrifice it to Bragon."
-"Gold" -> "Ich brauche Gold um es Bragon zu opfern."
+"Gold", english -> "Bragon loves gold and I give him every gold which I have."
+"Gold" -> "Bragon liebt Gold und ich gebe ihm alles Gold, dass ich habe."
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Does he belive in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
@@ -255,13 +255,13 @@ itemShoes = 53
 -- 4st quest: Question.
 "task", "adventure", "know", "question", "goblet", "thing", queststatus(600) = 7, item(224, all) > 0 -> "You have done everything I asked you. What is your question now?",inform( [Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
 "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding", queststatus(600) = 7, item(224, all) > 0 -> "Ihr habt alles getan, wss ich haben wollte. Was ist eure Frage nun?",inform( [Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
-"Yeah", "Yubba", queststatus(600) = 7, item(224, all) > 0, english -> "You have done everything I asked you. What is your question now?",inform( [Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
-"Yeah", "Yubba", queststatus(600) = 7, item(224, all) > 0 -> "Ihr habt alles getan, wss ich haben wollte. Was ist eure Frage nun?",inform( [Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
+"quest", "mission", "info", queststatus(600) = 7, item(224, all) > 0, english -> "You have done everything I asked you. What is your question now?",inform( [Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
+"quest", "mission", "info", queststatus(600) = 7, item(224, all) > 0 -> "Ihr habt alles getan, wss ich haben wollte. Was ist eure Frage nun?",inform( [Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos), deleteItem(224, 1), queststatus(600) = 8
 
 "task", "adventure", "know", "question", "goblet", "thing", queststatus(600) = 7, item(224, all) = 0 -> "Please, do not interupt me until you got the golden goblet!"
 "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Kelch", "Ding", queststatus(600) = 7, item(224, all) = 0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
-"Yeah", "Yubba", queststatus(600) = 7, item(224, all) = 0, english -> "Please, do not interupt me until you got the golden goblet!"
-"Yeah", "Yubba", queststatus(600) = 7, item(224, all) = 0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
+"quest", "mission", "info", queststatus(600) = 7, item(224, all) = 0, english -> "Please, do not interupt me until you got the golden goblet!"
+"quest", "mission", "info", queststatus(600) = 7, item(224, all) = 0 -> "Bitte stört mich nicht bis ihr den Goldkelch habt!"
 
 "age", queststatus(600) = 8 -> "That is not difficult, of course. It was in the Age of Concord! *sings few lines to himselves* The world is perfect. You cannot improve her.La, la,....well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*",inform( [Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos), queststatus(600) = 21
 "Zeitalter", queststatus(600) = 8 -> "Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*",inform( [Quest Anwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos), queststatus(600) = 21

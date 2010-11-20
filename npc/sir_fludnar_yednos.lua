@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 20, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -525,16 +525,22 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("five");
 talkEntry:addResponse("Altar of the Five? Ask people. I am sure someone knows it.");
-talkEntry:addResponse("Altar of the Five? I think it is in the east.");
+talkEntry:addResponse("Altar of the Five? I think it is in the west.");
 talkEntry:addResponse("Altar of the Five? I don't know, but shall I looking for by myself? ...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("orc");
-talkEntry:addResponse("Green, strong, bloody.");
-talkEntry:addResponse("An interesting race for research, isn't?.");
-talkEntry:addResponse("Better you show some respect if you meet one! You never know if the enslave you otherwise!");
+talkEntry:addTrigger("altar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I would recommend the altar of the Five. Ask people. I am sure someone knows it.");
+talkEntry:addResponse("I would recommend the altar of the Five. I think it is in the west.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("priest");
+talkEntry:addResponse("I have no idea where they are hidding. Better you ask someone else or you look for an altar at least.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -544,15 +550,15 @@ talkEntry:addTrigger("Mountains");
 talkEntry:addTrigger("krest");
 talkEntry:addResponse("A mighty clan. Better avoid to bother them.");
 talkEntry:addResponse("They have a very honourfull chief.");
-talkEntry:addResponse("Their warlord destroyed a whole dwarves army once.");
+talkEntry:addResponse("Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halfing");
-talkEntry:addResponse("Halfings...their favorite food.");
-talkEntry:addResponse("The have several recepies for them.");
-talkEntry:addResponse("They are also very usefull as slaves for them.");
+talkEntry:addResponse("Halfings...the favorite food of orcs.");
+talkEntry:addResponse("Orcs have several recepies for them.");
+talkEntry:addResponse("Halflings are also very usefull as slaves for orcs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,10 +579,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ork");
-talkEntry:addResponse("Grün, stark, Blutig.");
-talkEntry:addResponse("Eine interessante Rasse zum forschen, oder?");
-talkEntry:addResponse("Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?");
+talkEntry:addTrigger("altar");
+talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.");
+talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("priester");
+talkEntry:addResponse("Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,15 +597,15 @@ talkEntry:addTrigger("Mountains");
 talkEntry:addTrigger("krest");
 talkEntry:addResponse("Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.");
 talkEntry:addResponse("Die haben einen ehrenhaften Chief.");
-talkEntry:addResponse("Deren Kriegsherr zerstörrte eine ganze Armee von Zwergen einst.");
+talkEntry:addResponse("Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halbling");
-talkEntry:addResponse("Halblinge...ihr favorisiertes Essen.");
-talkEntry:addResponse("Die haben verschiedene Rezepte für sie.");
-talkEntry:addResponse("Sie verwenden sie auch als Sklaven.");
+talkEntry:addResponse("Halblinge...das favorisierte Essen der Orks.");
+talkEntry:addResponse("Orks haben verschiedene Rezepte für sie.");
+talkEntry:addResponse("Orks verwenden sie auch als Sklaven.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1405,7 +1416,7 @@ talkEntry:addTrigger("was tun");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addCondition(npc.base.condition.chance.chance(25));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos"));
-talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!");
+talkEntry:addResponse("Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 17));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1697,7 +1708,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("can I do");
 talkEntry:addTrigger("answer");
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 21));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 31));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest deliver answer] Tell him your answer"));
 talkEntry:addResponse("Do you know the answer? So, what is it then?");
@@ -1709,7 +1720,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("antwort");
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 21));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 31));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest übermittle Antwort] Erzähle ihm deine Antwort"));
 talkEntry:addResponse("Wisst ihr die Antwort? So, wie lautet sie nun?");
@@ -1720,7 +1731,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 21));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 31));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest deliver answer] Tell him your answer"));
@@ -1732,7 +1743,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 21));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 31));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest übermittle Antwort] Erzähle ihm deine Antwort"));
 talkEntry:addResponse("Wisst ihr die Antwort? So, wie lautet sie nun?");
@@ -2248,16 +2259,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because the have a powerful shaman.");
+talkEntry:addResponse("Green, strong, bloody.");
+talkEntry:addResponse("An interesting race for research, isn't?.");
+talkEntry:addResponse("Better you show some respect if you meet one! You never know if the enslave you otherwise!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ork");
-talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.");
+talkEntry:addResponse("Grün, stark, Blutig.");
+talkEntry:addResponse("Eine interessante Rasse zum forschen, oder?");
+talkEntry:addResponse("Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2374,7 +2388,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("100");
-talkEntry:addResponse("Orks drangen in diesen Teil ein vor hundert Jahren und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekammen.");
+talkEntry:addResponse("Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekammen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me sitzt am Tisch und liest in einem Buch.", "#me sits at the table and reads in a book.");

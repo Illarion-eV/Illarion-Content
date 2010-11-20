@@ -127,15 +127,17 @@ itemShoes = 369
 "sir", "fludnar", "yednos" -> "Das ist mein Name.","Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
 
 -- More small talk; add at least five triggers
-"five" -> "Altar of the Five? Ask people. I am sure someone knows it.", "Altar of the Five? I think it is in the east.", "Altar of the Five? I don't know, but shall I looking for by myself? ..."
-"orc" -> "Green, strong, bloody.", "An interesting race for research, isn't?.", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
-"Northern", "Mountains", "krest" -> "A mighty clan. Better avoid to bother them.", "They have a very honourfull chief.", "Their warlord destroyed a whole dwarves army once."
-"halfing" -> "Halfings...their favorite food.", "The have several recepies for them.", "They are also very usefull as slaves for them."
+"five" -> "Altar of the Five? Ask people. I am sure someone knows it.", "Altar of the Five? I think it is in the west.", "Altar of the Five? I don't know, but shall I looking for by myself? ..."
+"altar",english -> "I would recommend the altar of the Five. Ask people. I am sure someone knows it.", "I would recommend the altar of the Five. I think it is in the west."
+"priest" -> "I have no idea where they are hidding. Better you ask someone else or you look for an altar at least."
+"Northern", "Mountains", "krest" -> "A mighty clan. Better avoid to bother them.", "They have a very honourfull chief.", "Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that."
+"halfing" -> "Halfings...the favorite food of orcs.", "Orcs have several recepies for them.", "Halflings are also very usefull as slaves for orcs."
 "bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
 "Fünf" -> "Altar der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf? Ich denke der liegt im Westen.", "Altar der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ..."
-"Ork" -> "Grün, stark, Blutig.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
-"Northern", "Mountains", "krest" -> "Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.", "Die haben einen ehrenhaften Chief.", "Deren Kriegsherr zerstörrte eine ganze Armee von Zwergen einst."
-"Halbling" -> "Halblinge...ihr favorisiertes Essen.", "Die haben verschiedene Rezepte für sie.", "Sie verwenden sie auch als Sklaven."
+"altar" -> "Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen."
+"priester" -> "Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar."
+"Northern", "Mountains", "krest" -> "Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.", "Die haben einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
+"Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
 "Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
 
 -- Faction stuff
@@ -224,7 +226,7 @@ itemShoes = 369
 "quest", "mission", queststatus(600) = 0, english, chance(20) -> "Hmm... are you sure? However, find out, what did Bragon in order to remedy his mistake of helping to creat the orcs! I think you can ask a priest. There should be one at the alter of the five. Good luck and be carefull!",inform( [New Quest] Find the information for Sir Fludnar Yednos),state = 1, queststatus(600) = 16
 "quest", "mission", queststatus(600) = 0, chance(20) -> "Hmm... seid ihr sicher? Naja egal, findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!",inform( [Neues Quest] Finde die Information für Sir Fludnar Yednos),state = 1, queststatus(600) = 16
 "task", "adventure", "can I do", queststatus(600) = 0, chance(25) -> "Hmm... are you sure? However, find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of the five. Good luck and be carefull!",inform( [New Quest] Find the information for Sir Fludnar Yednos),state = 1, queststatus(600) = 17
-"Auftrag", "Aufgabe", "Abenteuer", "was tun", queststatus(600) = 0, chance(25) -> "Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!",inform( [Neues Quest] Finde die Information für Sir Fludnar Yednos),state = 1, queststatus(600) = 17
+"Auftrag", "Aufgabe", "Abenteuer", "was tun", queststatus(600) = 0, chance(25) -> "Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!",inform( [Neues Quest] Finde die Information für Sir Fludnar Yednos),state = 1, queststatus(600) = 17
 "quest", "mission", queststatus(600) = 0, english, chance(25) -> "Hmm... are you sure? However, find out, what kind of relationship was it between Bragon and the Bloodgod! I think you can ask a priest. There should be one at the alter of the five. Good luck and be carefull!",inform( [New Quest] Find the information for Sir Fludnar Yednos),state = 1, queststatus(600) = 17
 "quest", "mission", queststatus(600) = 0, chance(25) -> "Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr sollter hierfür einen Priester fragen. Es sollte einer am Altar der Fünf zu findne sein. Viel Glück und seid vorsichtig!",inform( [Neues Quest] Finde die Information für Sir Fludnar Yednos),state = 1, queststatus(600) = 17
 "Yes", "Sure", "Of course", queststatus(600) = 0, chance(34) -> "Hmm... are you sure? However, find out, Hmm... are you sure? However, find out, what do the orcs use as name for Bragon... something with summer! I think you can ask a priest. There should be one at the alter of the five. Good luck and be carefull!",inform( [New Quest] Find the information for Sir Fludnar Yednos),state = 1, queststatus(600) = 18
@@ -251,10 +253,10 @@ itemShoes = 369
 "quest", "mission", queststatus(600) > 0, queststatus(600) < 21, state = 2 -> "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.",inform( [Quest beendet] Du hast es verbockt. :O ), queststatus(600) = 40
 
 -- quest - 3rd step: report information and collect gift
-"task", "adventure", "can I do", "answer", queststatus(600) > 21, queststatus(600) < 31 -> "Do you know the answer? So, what is it then?",inform( [Quest deliver answer] Tell him your answer)
-"Auftrag", "Aufgabe", "Abenteuer", "antwort", queststatus(600) > 21, queststatus(600) < 31 -> "Wisst ihr die Antwort? So, wie lautet sie nun?",inform( [Quest übermittle Antwort] Erzähle ihm deine Antwort)
-"quest", "mission", "info", queststatus(600) > 21, queststatus(600) < 31, english -> "Do you know the answer? So, what is it then?",inform( [Quest deliver answer] Tell him your answer)
-"quest", "mission", "info", queststatus(600) > 21, queststatus(600) < 31 -> "Wisst ihr die Antwort? So, wie lautet sie nun?",inform( [Quest übermittle Antwort] Erzähle ihm deine Antwort)
+"task", "adventure", "can I do", "answer", queststatus(600) > 20, queststatus(600) < 31 -> "Do you know the answer? So, what is it then?",inform( [Quest deliver answer] Tell him your answer)
+"Auftrag", "Aufgabe", "Abenteuer", "antwort", queststatus(600) > 20, queststatus(600) < 31 -> "Wisst ihr die Antwort? So, wie lautet sie nun?",inform( [Quest übermittle Antwort] Erzähle ihm deine Antwort)
+"quest", "mission", "info", queststatus(600) > 20, queststatus(600) < 31, english -> "Do you know the answer? So, what is it then?",inform( [Quest deliver answer] Tell him your answer)
+"quest", "mission", "info", queststatus(600) > 20, queststatus(600) < 31 -> "Wisst ihr die Antwort? So, wie lautet sie nun?",inform( [Quest übermittle Antwort] Erzähle ihm deine Antwort)
 
 "Concord", queststatus(600) = 21, chance(30) -> "Thank you vey much for your help! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!",inform( [Quest solved] You earnt a magical rubin), state = 0, item(46, 1, 999, 1), queststatus(600) = 40
 "Concord", queststatus(600) = 21 -> "Thank you vey much for your help! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!",inform( [Quest solved] You earnt a treasure map), state = 0, treasure(8), queststatus(600) = 40
@@ -302,12 +304,10 @@ itemShoes = 369
 "quest", "mission", queststatus(600) = 40, english -> "Hmm... You already had your task. There nothing to do for you here. Better ask someoneelse! Farewell."
 "quest", "mission", queststatus(600) = 40 -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
 
--- Absolutely last catch: Everything a player says and is not caught earlier
--- This response should give the player a hint about what to ask the NPC
--- Optional Trigger /  Response is only given 1/5 of the time
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
 
-"orc",english,chance(20)->"There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because the have a powerful shaman."
-"ork",chance(20)->"Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben."
+"orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because the have a powerful shaman.","Green, strong, bloody.", "An interesting race for research, isn't?.", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
+"ork" -> "Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.","Grün, stark, Blutig.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
 "marsh" -> "The Death Marsh is in the north from here, beyond the dragon's lair. But be careful!"
 "sumpf" -> "Der Todes Sumpf ist nördlich von hier, hinter der Drachenhöhle. Aber sei vorsichtig!"
 "drageon" -> "You have not been here for a long them, haven't you? Ask someone else if you want know more about that."
@@ -325,7 +325,7 @@ itemShoes = 369
 "invade", "hundred" ->"Orcs invaded in this area hundred years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
 "dring","drang","hundert" -> "Orks drangen in diesen Teil ein vor hundert Jahren und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekammen."
 "100", english -> "Orcs invaded in this area hundred years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
-"100" -> "Orks drangen in diesen Teil ein vor hundert Jahren und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekammen."
+"100" -> "Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekammen."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
