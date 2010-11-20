@@ -174,8 +174,8 @@ itemShoes = 53
 "Zhambra" -> "Zhambra sind 'Brüder-Göttin'."
 
 -- story 1 - The Day of the Hammer
-"Day Hammer" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) + 1
-"Tag Hammer" -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) + 1
+"Hammer" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) + 1
+"Hammer" -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) + 1
 "Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 1 -> "Meh tell dha story as dha Warlord once did. *His voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
 "Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 1 -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 1, english -> "Meh tell dha story as dha Warlord once did. *his voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
@@ -258,8 +258,8 @@ itemShoes = 53
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 10 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
 -- story 2 - Day of Green Growl
-"Day Growl" -> "Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!", queststatus(601) = 11
-"Tag Knurren" -> "Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!", queststatus(601) = 11
+"Growl" -> "Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!", queststatus(601) = 11
+"Knurren" -> "Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!", queststatus(601) = 11
 "Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 11 -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
 "Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 11 -> "Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 11, english -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
@@ -512,6 +512,8 @@ itemShoes = 53
 "Jag" -> "Hurr! Vermeid treffen werden von Red Skull Jag' Streitkolben...*heult*","Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
 "Gerron", "Lavence","Murdok",english -> "Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.","Meh know dhat Ommie also whib dha nam Murdok."
 "Gerron", "Lavence","Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.","Mich kennen das Ommie auch mit Name Murdok"
+"Murdok",english -> "Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie."
+"Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie."
 "Jefferson",english -> "Dhat beh berreh chaotic Ommie beh, whub beh berreh guud and fast whib daggers. Beh careful ib ebba see dhat Ommie."
 "Jefferson" -> "Das sein sehr chaotisch Ommie, dass beherschen gut und schnell Dolche. Sei vorsichtig wenn du sehen das Ommie."
 "Kry","Rack",english -> "Dhat sista ob Orcs ob dha Northern Mountains beh. Meh nub know whub she doing now!"

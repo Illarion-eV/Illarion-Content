@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 18, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 20, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -953,14 +953,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Day Hammer");
+talkEntry:addTrigger("Hammer");
 talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tag Hammer");
+talkEntry:addTrigger("Hammer");
 talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1817,14 +1817,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Day Growl");
+talkEntry:addTrigger("Growl");
 talkEntry:addResponse("Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tag Knurren");
+talkEntry:addTrigger("Knurren");
 talkEntry:addResponse("Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -4371,6 +4371,19 @@ talkEntry:addTrigger("Lavence");
 talkEntry:addTrigger("Murdok");
 talkEntry:addResponse("Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.");
 talkEntry:addResponse("Mich kennen das Ommie auch mit Name Murdok");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Murdok");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Murdok");
+talkEntry:addResponse("Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
