@@ -140,7 +140,7 @@ function TeleportationFunction(thisNPC)
 
 	local initializeNpc = function(thisNPC)
 
-	        self.targetPosition[1] = position(141,631,0);
+	        self.targetPosition[1] = position(127,647,0);
 	        self.townName[1] = "Cadomyr";
 	        self.trigger[1] = "[Cc]adomyr";
 
