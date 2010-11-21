@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (0, 896, 757, 1, 4, 'Sir Fludnar Yednos', 'npc.sir_fludnar_yednos', 0, 2, 0, 33, 28, 25, 180, 102, 102);
 ---]]
 
@@ -245,843 +245,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
-talkEntry:addTrigger("Greet");
-talkEntry:addTrigger("Hail");
-talkEntry:addTrigger("Good day");
-talkEntry:addTrigger("Good morning");
-talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Could you lower your tongue? But be greeted anyway!");
-talkEntry:addResponse("Hmm...Can I help you?");
-talkEntry:addResponse("Be greeted as well, but now let me continue to research.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
-talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
-talkEntry:addTrigger("Guten Tag");
-talkEntry:addTrigger("Guten Abend");
-talkEntry:addTrigger("Mahlzeit");
-talkEntry:addTrigger("Tach");
-talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
-talkEntry:addResponse("Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!");
-talkEntry:addResponse("Hmm...Kann ich euch helfen?.");
-talkEntry:addResponse("Seid auch gegrüßt, aber nun last mich doch weiter forschen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you get lost?");
-talkEntry:addResponse("Leave me quick!");
-talkEntry:addResponse("Who is disturbing my work?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addResponse("Habt ihr euch verlaufen?");
-talkEntry:addResponse("Raus hier aber schnell!");
-talkEntry:addResponse("Wer stört mich hier bei der Arbeit?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
-talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Farewell.");
-talkEntry:addResponse("Good bye.");
-talkEntry:addResponse("Don't forget to close the door!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tschüß");
-talkEntry:addTrigger("Tschüss");
-talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
-talkEntry:addResponse("Lebt wohl.");
-talkEntry:addResponse("Aufwiedersehen.");
-talkEntry:addResponse("Vergesst nicht die Tür zu schließen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Adieu");
-talkEntry:addTrigger("Au revoir");
-talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Get out!");
-talkEntry:addResponse("Finally!");
-talkEntry:addResponse("...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Adieu");
-talkEntry:addTrigger("Au revoir");
-talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
-talkEntry:addResponse("Raus hier!");
-talkEntry:addResponse("Endlich!");
-talkEntry:addResponse("...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("How are you");
-talkEntry:addTrigger("How feel");
-talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("If nobody would disturb me, it would be better!");
-talkEntry:addResponse("Could you keep silent please?");
-talkEntry:addResponse("Fine, fine, but let me continue my work now.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wie geht");
-talkEntry:addTrigger("Wie fühlst");
-talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("Würde man mich nicht stören, würde es mir besser gehen.");
-talkEntry:addResponse("Könnt ihr bitte leise sein?");
-talkEntry:addResponse("Gut, Gut, aber nun lasst mich weiterarbeiten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("your name");
-talkEntry:addTrigger("who are you");
-talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Who asks?");
-talkEntry:addResponse("Sir Fludnar Yednos.");
-talkEntry:addResponse("Is this necessary to know?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("dein name");
-talkEntry:addTrigger("wer bist du");
-talkEntry:addTrigger("wer seid ihr");
-talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Wer fragt?");
-talkEntry:addResponse("Sir Fludnar Yednos.");
-talkEntry:addResponse("Ist das von belang zu wissen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Do I look as I sell something?");
-talkEntry:addResponse("Do you remember where the gate is? GET OUT!");
-talkEntry:addResponse("I can sell you this book for 1000 gold! *smirks* ");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Sehe ich aus als würde ich etwas verkaufen?");
-talkEntry:addResponse("Erinnerst du dich wo die Türe ist? RAUS HIER!");
-talkEntry:addResponse("Ich kann dir das Buch hier um 1000 Goldmünzen verkaufen. *grinst frech*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I am working and you are disturbing me!");
-talkEntry:addResponse("The gate is behind you.");
-talkEntry:addResponse("Have somebody ever told you that you are disturbing?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich arbeite und ihr stört.");
-talkEntry:addResponse("Die Tür ist hinter euch.");
-talkEntry:addResponse("Hat euch jemals jemand erzählt, dass ihr störend seid?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addTrigger("work");
-talkEntry:addResponse("I'm a scholar, or what have you thought?");
-talkEntry:addResponse("I am researching on Orcs.");
-talkEntry:addResponse("I'm a researcher and my interest is in the race of orcs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addTrigger("arbeit");
-talkEntry:addResponse("Ich bin ein Gelehrter, oder was habt ihr gedacht?");
-talkEntry:addResponse("Ich forsche an Orks.");
-talkEntry:addResponse("Ich bin Forscher und interessiert an der Rasse der Orks.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm a scholar, or what have you thought?");
-talkEntry:addResponse("I am researching on Orcs.");
-talkEntry:addResponse("I'm a researcher and my interest is in the race of orcs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin ein Gelehrter, oder was habt ihr gedacht?");
-talkEntry:addResponse("Ich forsche an Orks.");
-talkEntry:addResponse("Ich bin Forscher und interessiert an der Rasse der Orks.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh yes, the good, old times. *sigh*");
-talkEntry:addResponse("It was a small island somewhere in the east of the main land.");
-talkEntry:addResponse("It was a chaotic place with many wannabes!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addResponse("Oh ja, die guten alten Zeiten. *seufzt*");
-talkEntry:addResponse("Es war eine kleine Insel irgendwo im Osten des Festlands.");
-talkEntry:addResponse("Es war ein chaotischer Ort mit lauter Möchtegern-Typen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
-talkEntry:addTrigger("my name");
-talkEntry:addResponse("Nice to meet you.");
-talkEntry:addResponse("Well, what do you want from me?");
-talkEntry:addResponse("Interesting, interesting, but never heard such a ridiculous name.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
-talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Schön euch kennen zu lernen.");
-talkEntry:addResponse("Schön, was wollt ihr von mir?");
-talkEntry:addResponse("Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sir");
-talkEntry:addTrigger("fludnar");
-talkEntry:addTrigger("yednos");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's my name.");
-talkEntry:addResponse("Impressing, you can pronounce my name correctly!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sir");
-talkEntry:addTrigger("fludnar");
-talkEntry:addTrigger("yednos");
-talkEntry:addResponse("Das ist mein Name.");
-talkEntry:addResponse("Beeindruckend, ihr könnt meinen Namen richtig aussprechen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("five");
-talkEntry:addResponse("Altar of the Five? Ask people. I am sure someone knows it.");
-talkEntry:addResponse("Altar of the Five? I think it is in the west.");
-talkEntry:addResponse("Altar of the Five? I don't know, but shall I looking for by myself? ...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("altar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I would recommend the altar of the five. Ask people. I am sure someone knows it.");
-talkEntry:addResponse("I would recommend the altar of the five. I think it is in the west.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("priest");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I have no idea where they are hiding. Better you ask someone else or you look for an altar at least.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Northern");
-talkEntry:addTrigger("Mountains");
-talkEntry:addTrigger("krest");
-talkEntry:addResponse("A mighty clan. Better avoid to bother them.");
-talkEntry:addResponse("They have a very honourable chief.");
-talkEntry:addResponse("Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halfing");
-talkEntry:addResponse("Halfings...the favourite food of orcs.");
-talkEntry:addResponse("Orcs have several recipes for them.");
-talkEntry:addResponse("Halflings are also very useful as slaves for orcs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("bloodgod");
-talkEntry:addResponse("I don't want mention is right name. It would be heresey");
-talkEntry:addResponse("Orcs celebrating and following him, because he created them.");
-talkEntry:addResponse("Beware of those who follow him. Those are lost as he is.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fünf");
-talkEntry:addResponse("Altar der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.");
-talkEntry:addResponse("Altar der Fünf? Ich denke der liegt im Westen.");
-talkEntry:addResponse("Altar der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("altar");
-talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.");
-talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("priest");
-talkEntry:addResponse("Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Northern");
-talkEntry:addTrigger("Mountains");
-talkEntry:addTrigger("krest");
-talkEntry:addResponse("Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.");
-talkEntry:addResponse("Die haben einen ehrenhaften Chief.");
-talkEntry:addResponse("Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Halbling");
-talkEntry:addResponse("Halblinge...das favorisierte Essen der Orks.");
-talkEntry:addResponse("Orks haben verschiedene Rezepte für sie.");
-talkEntry:addResponse("Orks verwenden sie auch als Sklaven.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blutgott");
-talkEntry:addResponse("Ich möchte seinen Namen nicht nennen. Es wäre Häresie.");
-talkEntry:addResponse("Orks feiern und folgen ihm, weil er sie erschaffen hat.");
-talkEntry:addResponse("Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He has so much knowledge.");
-talkEntry:addResponse("I have not seen anyone who is smarter than he.");
-talkEntry:addResponse("If you have a question, nobody can answer it better than him..");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Er hat so viel Wissen.");
-talkEntry:addResponse("Ich habe noch nie jemanden gesehen der so schlau ist.");
-talkEntry:addResponse("Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Nice towers do we have, haven't we? And many great books. Take a look.");
-talkEntry:addResponse("Our forest is so beautiful, isn't it?");
-talkEntry:addResponse("I enjoy it to live here.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.");
-talkEntry:addResponse("Unser Wald ist so wunderhübsch, oder?");
-talkEntry:addResponse("Ich genieße es hier zu leben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Watch his daggers if you ever meet him!");
-talkEntry:addResponse("He has only one aim: more wealth!");
-talkEntry:addResponse("I think he believes in Nargun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Achte auf seine Dolche wenn du ihn jemals treffen solltest!");
-talkEntry:addResponse("Er hat nur ein einziges Interesse: mehr Reichtum!");
-talkEntry:addResponse("Ich denke er glaubt an Nargun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Only one word: Criminals.");
-talkEntry:addResponse("They are all greedy and moody.");
-talkEntry:addResponse("A disgusting place.");
-talkEntry:addResponse("Huuu, why do remember me that I still have to pay my debts there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Nur ein Wort: Verbrecher.");
-talkEntry:addResponse("Die sind all gierig und launisch.");
-talkEntry:addResponse("Ein abscheulicher Platz.");
-talkEntry:addResponse("Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't know how such a person could become queen.");
-talkEntry:addResponse("Wisdom is not one of her characteristics.");
-talkEntry:addResponse("I haven't seen her so far, but she should be very pretty.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ich weiß nicht wie so eine Person Königin werden konnte.");
-talkEntry:addResponse("Weisheit ist nicht gerade eine ihrer Eigenschaften.");
-talkEntry:addResponse("Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They think they have honour, but to be honest, they only lack on wisdom.");
-talkEntry:addResponse("I think the have some quite good goldsmiths.");
-talkEntry:addResponse("I would not be surprised if they have some slaves.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Die denken, dass sie Ehre hätten, aber um ehrlich zu sein, denen mangelt es lediglich an Weisheit.");
-talkEntry:addResponse("Ich denke, dass sie ein paar ganz gute Goldschmiede haben.");
-talkEntry:addResponse("Ich wäre nicht überrascht wenn die nicht einige Sklaven hätten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Why are you not going there?");
-talkEntry:addResponse("That is no place I like to live.");
-talkEntry:addResponse("Are they still enslaving people?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("Warum geht ihr nicht dort hin?.");
-talkEntry:addResponse("Das ist kein Ort wo ich leben möchte.");
-talkEntry:addResponse("Versklaven die noch immer Leute?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Why are you not going there?");
-talkEntry:addResponse("Huuu, why do remember me that I still have to pay my debts there.");
-talkEntry:addResponse("They have nice game halls.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Warum geht ihr nicht dort hin?");
-talkEntry:addResponse("Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?");
-talkEntry:addResponse("Nette Spielhallen haben sie dort.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Why are you not going there?");
-talkEntry:addResponse("I hope they come and free us from all this evil here.");
-talkEntry:addResponse("I say you, I am very sorry that they killed their prince at Gobaith.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Warum geht ihr nicht dort hin?");
-talkEntry:addResponse("Ich hoffe die kommen und befreien uns von diesem Übel hier.");
-talkEntry:addResponse("Ich sage dir, dass es mir sehr leid tut, dass sie ihren Prinzen in Gobaith getötet haben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("god");
-talkEntry:addResponse("Elara, who else?");
-talkEntry:addResponse("I pray to Elara.");
-talkEntry:addResponse("If you look around here, you could believe I pray to Nargun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gott");
-talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Eldra, wem sonst?");
-talkEntry:addResponse("Ich bete zu Eldra.");
-talkEntry:addResponse("Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I hope she gives me knowledge.");
-talkEntry:addResponse("I believe in here as other scholars.");
-talkEntry:addResponse("She will help me to solve this matter here.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ich hoffe sie verleiht wir mehr Wissen.");
-talkEntry:addResponse("Wie andere Gelehrte verehre ich nur sie.");
-talkEntry:addResponse("Sie wird mir helfen mein Rätsel hier zu lösen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One more word about him and I call the guards.");
-talkEntry:addResponse("There is rumours that the temple follows him.");
-talkEntry:addResponse("The Father of the Orks he is.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Ein Wort mehr über ihn und ich rufe die Wache.");
-talkEntry:addResponse("Es gibt Gerüchte, dass der Tempel ihm folgt.");
-talkEntry:addResponse("Für Orks ist er ihr Vater, ja.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Don't believe I pray to him just because it looks chaotic here.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Glaubt nur nicht ich bete zu ihm weil es hier so chaotisch aussieht.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There shall be people who pray to this god.");
-talkEntry:addResponse("I do not believe in this god.");
-talkEntry:addResponse("Nothing compared to Elara");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
-talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
-talkEntry:addResponse("Nichts im Vergleich zu Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2927,6 +2090,843 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("100");
 talkEntry:addResponse("Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greetings");
+talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Could you lower your tongue? But be greeted anyway!");
+talkEntry:addResponse("Hmm...Can I help you?");
+talkEntry:addResponse("Be greeted as well, but now let me continue to research.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Seid gegrüßt");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addTrigger("mit dir");
+talkEntry:addResponse("Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!");
+talkEntry:addResponse("Hmm...Kann ich euch helfen?.");
+talkEntry:addResponse("Seid auch gegrüßt, aber nun last mich doch weiter forschen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did you get lost?");
+talkEntry:addResponse("Leave me quick!");
+talkEntry:addResponse("Who is disturbing my work?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addResponse("Habt ihr euch verlaufen?");
+talkEntry:addResponse("Raus hier aber schnell!");
+talkEntry:addResponse("Wer stört mich hier bei der Arbeit?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Good bye");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare thee well");
+talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Good bye.");
+talkEntry:addResponse("Don't forget to close the door!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addResponse("Lebt wohl.");
+talkEntry:addResponse("Aufwiedersehen.");
+talkEntry:addResponse("Vergesst nicht die Tür zu schließen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addTrigger("See you");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Get out!");
+talkEntry:addResponse("Finally!");
+talkEntry:addResponse("...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Raus hier!");
+talkEntry:addResponse("Endlich!");
+talkEntry:addResponse("...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("If nobody would disturb me, it would be better!");
+talkEntry:addResponse("Could you keep silent please?");
+talkEntry:addResponse("Fine, fine, but let me continue my work now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befinden");
+talkEntry:addResponse("Würde man mich nicht stören, würde es mir besser gehen.");
+talkEntry:addResponse("Könnt ihr bitte leise sein?");
+talkEntry:addResponse("Gut, Gut, aber nun lasst mich weiterarbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("Who asks?");
+talkEntry:addResponse("Sir Fludnar Yednos.");
+talkEntry:addResponse("Is this necessary to know?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Wer fragt?");
+talkEntry:addResponse("Sir Fludnar Yednos.");
+talkEntry:addResponse("Ist das von belang zu wissen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Do I look as I sell something?");
+talkEntry:addResponse("Do you remember where the gate is? GET OUT!");
+talkEntry:addResponse("I can sell you this book for 1000 gold! *smirks* ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Sehe ich aus als würde ich etwas verkaufen?");
+talkEntry:addResponse("Erinnerst du dich wo die Türe ist? RAUS HIER!");
+talkEntry:addResponse("Ich kann dir das Buch hier um 1000 Goldmünzen verkaufen. *grinst frech*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I am working and you are disturbing me!");
+talkEntry:addResponse("The gate is behind you.");
+talkEntry:addResponse("Have somebody ever told you that you are disturbing?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich arbeite und ihr stört.");
+talkEntry:addResponse("Die Tür ist hinter euch.");
+talkEntry:addResponse("Hat euch jemals jemand erzählt, dass ihr störend seid?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addTrigger("work");
+talkEntry:addResponse("I'm a scholar, or what have you thought?");
+talkEntry:addResponse("I am researching on Orcs.");
+talkEntry:addResponse("I'm a researcher and my interest is in the race of orcs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addTrigger("arbeit");
+talkEntry:addResponse("Ich bin ein Gelehrter, oder was habt ihr gedacht?");
+talkEntry:addResponse("Ich forsche an Orks.");
+talkEntry:addResponse("Ich bin Forscher und interessiert an der Rasse der Orks.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm a scholar, or what have you thought?");
+talkEntry:addResponse("I am researching on Orcs.");
+talkEntry:addResponse("I'm a researcher and my interest is in the race of orcs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein Gelehrter, oder was habt ihr gedacht?");
+talkEntry:addResponse("Ich forsche an Orks.");
+talkEntry:addResponse("Ich bin Forscher und interessiert an der Rasse der Orks.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh yes, the good, old times. *sigh*");
+talkEntry:addResponse("It was a small island somewhere in the east of the main land.");
+talkEntry:addResponse("It was a chaotic place with many wannabes!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addResponse("Oh ja, die guten alten Zeiten. *seufzt*");
+talkEntry:addResponse("Es war eine kleine Insel irgendwo im Osten des Festlands.");
+talkEntry:addResponse("Es war ein chaotischer Ort mit lauter Möchtegern-Typen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I am");
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Nice to meet you.");
+talkEntry:addResponse("Well, what do you want from me?");
+talkEntry:addResponse("Interesting, interesting, but never heard such a ridiculous name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich bin");
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Schön euch kennen zu lernen.");
+talkEntry:addResponse("Schön, was wollt ihr von mir?");
+talkEntry:addResponse("Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sir");
+talkEntry:addTrigger("fludnar");
+talkEntry:addTrigger("yednos");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("That's my name.");
+talkEntry:addResponse("Impressing, you can pronounce my name correctly!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sir");
+talkEntry:addTrigger("fludnar");
+talkEntry:addTrigger("yednos");
+talkEntry:addResponse("Das ist mein Name.");
+talkEntry:addResponse("Beeindruckend, ihr könnt meinen Namen richtig aussprechen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("five");
+talkEntry:addResponse("Altar of the Five? Ask people. I am sure someone knows it.");
+talkEntry:addResponse("Altar of the Five? I think it is in the west.");
+talkEntry:addResponse("Altar of the Five? I don't know, but shall I looking for by myself? ...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("altar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I would recommend the altar of the five. Ask people. I am sure someone knows it.");
+talkEntry:addResponse("I would recommend the altar of the five. I think it is in the west.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("priest");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I have no idea where they are hiding. Better you ask someone else or you look for an altar at least.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Northern");
+talkEntry:addTrigger("Mountains");
+talkEntry:addTrigger("krest");
+talkEntry:addResponse("A mighty clan. Better avoid to bother them.");
+talkEntry:addResponse("They have a very honourable chief.");
+talkEntry:addResponse("Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("halfing");
+talkEntry:addResponse("Halfings...the favourite food of orcs.");
+talkEntry:addResponse("Orcs have several recipes for them.");
+talkEntry:addResponse("Halflings are also very useful as slaves for orcs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bloodgod");
+talkEntry:addResponse("I don't want mention is right name. It would be heresey");
+talkEntry:addResponse("Orcs celebrating and following him, because he created them.");
+talkEntry:addResponse("Beware of those who follow him. Those are lost as he is.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fünf");
+talkEntry:addResponse("Altar der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.");
+talkEntry:addResponse("Altar der Fünf? Ich denke der liegt im Westen.");
+talkEntry:addResponse("Altar der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("altar");
+talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.");
+talkEntry:addResponse("Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("priest");
+talkEntry:addResponse("Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Northern");
+talkEntry:addTrigger("Mountains");
+talkEntry:addTrigger("krest");
+talkEntry:addResponse("Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.");
+talkEntry:addResponse("Die haben einen ehrenhaften Chief.");
+talkEntry:addResponse("Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Halbling");
+talkEntry:addResponse("Halblinge...das favorisierte Essen der Orks.");
+talkEntry:addResponse("Orks haben verschiedene Rezepte für sie.");
+talkEntry:addResponse("Orks verwenden sie auch als Sklaven.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Blutgott");
+talkEntry:addResponse("Ich möchte seinen Namen nicht nennen. Es wäre Häresie.");
+talkEntry:addResponse("Orks feiern und folgen ihm, weil er sie erschaffen hat.");
+talkEntry:addResponse("Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("He has so much knowledge.");
+talkEntry:addResponse("I have not seen anyone who is smarter than he.");
+talkEntry:addResponse("If you have a question, nobody can answer it better than him..");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Er hat so viel Wissen.");
+talkEntry:addResponse("Ich habe noch nie jemanden gesehen der so schlau ist.");
+talkEntry:addResponse("Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nice towers do we have, haven't we? And many great books. Take a look.");
+talkEntry:addResponse("Our forest is so beautiful, isn't it?");
+talkEntry:addResponse("I enjoy it to live here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.");
+talkEntry:addResponse("Unser Wald ist so wunderhübsch, oder?");
+talkEntry:addResponse("Ich genieße es hier zu leben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Watch his daggers if you ever meet him!");
+talkEntry:addResponse("He has only one aim: more wealth!");
+talkEntry:addResponse("I think he believes in Nargun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Achte auf seine Dolche wenn du ihn jemals treffen solltest!");
+talkEntry:addResponse("Er hat nur ein einziges Interesse: mehr Reichtum!");
+talkEntry:addResponse("Ich denke er glaubt an Nargun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Only one word: Criminals.");
+talkEntry:addResponse("They are all greedy and moody.");
+talkEntry:addResponse("A disgusting place.");
+talkEntry:addResponse("Huuu, why do remember me that I still have to pay my debts there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Nur ein Wort: Verbrecher.");
+talkEntry:addResponse("Die sind all gierig und launisch.");
+talkEntry:addResponse("Ein abscheulicher Platz.");
+talkEntry:addResponse("Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I don't know how such a person could become queen.");
+talkEntry:addResponse("Wisdom is not one of her characteristics.");
+talkEntry:addResponse("I haven't seen her so far, but she should be very pretty.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich weiß nicht wie so eine Person Königin werden konnte.");
+talkEntry:addResponse("Weisheit ist nicht gerade eine ihrer Eigenschaften.");
+talkEntry:addResponse("Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They think they have honour, but to be honest, they only lack on wisdom.");
+talkEntry:addResponse("I think the have some quite good goldsmiths.");
+talkEntry:addResponse("I would not be surprised if they have some slaves.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Die denken, dass sie Ehre hätten, aber um ehrlich zu sein, denen mangelt es lediglich an Weisheit.");
+talkEntry:addResponse("Ich denke, dass sie ein paar ganz gute Goldschmiede haben.");
+talkEntry:addResponse("Ich wäre nicht überrascht wenn die nicht einige Sklaven hätten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Why are you not going there?");
+talkEntry:addResponse("That is no place I like to live.");
+talkEntry:addResponse("Are they still enslaving people?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Warum geht ihr nicht dort hin?.");
+talkEntry:addResponse("Das ist kein Ort wo ich leben möchte.");
+talkEntry:addResponse("Versklaven die noch immer Leute?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Why are you not going there?");
+talkEntry:addResponse("Huuu, why do remember me that I still have to pay my debts there.");
+talkEntry:addResponse("They have nice game halls.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Warum geht ihr nicht dort hin?");
+talkEntry:addResponse("Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?");
+talkEntry:addResponse("Nette Spielhallen haben sie dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Why are you not going there?");
+talkEntry:addResponse("I hope they come and free us from all this evil here.");
+talkEntry:addResponse("I say you, I am very sorry that they killed their prince at Gobaith.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Warum geht ihr nicht dort hin?");
+talkEntry:addResponse("Ich hoffe die kommen und befreien uns von diesem Übel hier.");
+talkEntry:addResponse("Ich sage dir, dass es mir sehr leid tut, dass sie ihren Prinzen in Gobaith getötet haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Elara, who else?");
+talkEntry:addResponse("I pray to Elara.");
+talkEntry:addResponse("If you look around here, you could believe I pray to Nargun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Eldra, wem sonst?");
+talkEntry:addResponse("Ich bete zu Eldra.");
+talkEntry:addResponse("Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I hope she gives me knowledge.");
+talkEntry:addResponse("I believe in here as other scholars.");
+talkEntry:addResponse("She will help me to solve this matter here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addResponse("Ich hoffe sie verleiht wir mehr Wissen.");
+talkEntry:addResponse("Wie andere Gelehrte verehre ich nur sie.");
+talkEntry:addResponse("Sie wird mir helfen mein Rätsel hier zu lösen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("One more word about him and I call the guards.");
+talkEntry:addResponse("There is rumours that the temple follows him.");
+talkEntry:addResponse("The Father of the Orks he is.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("Ein Wort mehr über ihn und ich rufe die Wache.");
+talkEntry:addResponse("Es gibt Gerüchte, dass der Tempel ihm folgt.");
+talkEntry:addResponse("Für Orks ist er ihr Vater, ja.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Don't believe I pray to him just because it looks chaotic here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("Glaubt nur nicht ich bete zu ihm weil es hier so chaotisch aussieht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There shall be people who pray to this god.");
+talkEntry:addResponse("I do not believe in this god.");
+talkEntry:addResponse("Nothing compared to Elara");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Es soll Leute geben die an diesen Gott glauben.");
+talkEntry:addResponse("Ich glaube nicht an diesen Gott.");
+talkEntry:addResponse("Nichts im Vergleich zu Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me sitzt am Tisch und liest in einem Buch.", "#me sits at the table and reads in a book.");
