@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (0, 475, 795, 0, 6, 'Nobarg', 'npc.nobarg', 0, 1, 3, 139, 87, 74, 211, 137, 126);
 ---]]
 
@@ -1695,7 +1695,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("age");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("That is not difficult, of course. It was in the Age of Concord! *sings few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*");
+talkEntry:addResponse("That is not difficult, of course. It was in the Age of Concord! *sings few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1704,7 +1704,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zeitalter");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1750,7 +1750,7 @@ talkEntry:addTrigger("realized");
 talkEntry:addTrigger("realised");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("That is not difficult, of course. It was in the Age of Discord! *sings few lines to himself* Deep down, where loneliness and darkness reign. Deep down, where the soul consumes itself....well, I hope you are satisfied with this answer! Farewell! *lowers his head and starts praying*");
+talkEntry:addResponse("That is not difficult, of course. It was in the Age of Discord! *sings few lines to himself* Deep down, where loneliness and darkness reign...well, I hope you are satisfied! Farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 24));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1760,7 +1760,7 @@ talkEntry:addTrigger("bemerkt hat");
 talkEntry:addTrigger("erkannt hat");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen. Tief unten, wo die Seele sich selbst verzehrt....nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 24));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
