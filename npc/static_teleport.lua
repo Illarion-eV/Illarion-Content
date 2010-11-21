@@ -193,21 +193,21 @@ function TeleportationFunction(thisNPC)
 	    end
 	    if (self.desiredDestination[thisNPC.id]==self.HomePosition[thisNPC.id]) then --already there
 	        InformNLS(originator,
-	        "#w Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
-	        "#w You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
+	        "#w [Teleporter] Ihr seid bereits in "..self.townName[self.desiredDestination[thisNPC.id]]..".",
+	        "#w [Teleporter] You are already in "..self.townName[self.desiredDestination[thisNPC.id]]..".");
 	        return
 	    end
 	    if ((self.desiredDestination[thisNPC.id]==0) or (self.desiredDestination[thisNPC.id]==nil)) then
 	        InformNLS(originator,
-	        "#w Sagt den Namen der Gegend, in die ihr reisen möchtet: Cadomyr, Runewick, Galmair, Wilderland.",
-	        "#w Say the name of the realm you want to travel to: Cadomyr, Runewick, Galmair, Wilderland.");
+	        "#w [Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Cadomyr, Runewick, Galmair, Wilderland.",
+	        "#w [Teleporter] Say the name of the realm you want to travel to: Cadomyr, Runewick, Galmair, Wilderland.");
 	        --Char stands on teleporter but says no valid trigger.
 	        return
 	    end
 	    if (originator:countItem(3076)<self.travelFee) and (originator:countItem(3077)==0) and (originator:countItem(61)==0) then --Char has not enough money
 	        InformNLS(originator,
-	        "#w Ihr habt nicht genug Geld für diese Reise. Die Reise kostet "..self.travelFee.." Kupferstücke.",
-	        "#w You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
+	        "#w [Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet "..self.travelFee.." Kupferstücke.",
+	        "#w [Teleporter] You don't have enough money for this journey. The journey costs "..self.travelFee.." copper coins.");
 	        return
 	    end
 
@@ -224,8 +224,8 @@ function TeleportationFunction(thisNPC)
 	    coins = self.travelFee;
 
 	    InformNLS(originator,
-	    "#w Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." zu einem Preis von "..self.travelFee.." Kupferstücken öffnen.",
-	    "#w You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
+	    "#w [Teleporter] Ihr lasst den Teleporter ein Tor nach "..self.townName[self.desiredDestination[thisNPC.id]].." zu einem Preis von "..self.travelFee.." Kupferstücken öffnen.",
+	    "#w [Teleporter] You make the teleporter open a portal to "..self.townName[self.desiredDestination[thisNPC.id]].." at a cost of "..self.travelFee.." copper coins.");
 	    self.TeleportInProgress[thisNPC.id] = true;
 	    self.TeleportCharacter[thisNPC.id] = originator;
 	end
