@@ -10,8 +10,8 @@ crossPosition={};
 
 --Where are the cross NPCS?
 
-crossPosition[0]= position(685,355,0);       -- Wilderland
-crossPosition[1]= position(102,561,0);       -- Cadomyr
+crossPosition[0]= position(685,335,0);       -- Wilderland
+crossPosition[1]= position(102,562,0);       -- Cadomyr
 crossPosition[2]= position(854,804,0);       -- Runewick
 crossPosition[3]= position(345,266,0);       -- Galmair
 
