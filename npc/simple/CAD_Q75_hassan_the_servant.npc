@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Hassan the Servant                                          None --
--- NPC Job:  none                                                             --
+-- NPC Name: Hassan the Servant                                       Cadomyr --
+-- NPC Job:  fan waver                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  110, 574, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hassan the Servant"
@@ -15,18 +15,18 @@ race = human
 sex = male
 position = 110, 574, 0
 direction = east
-affiliation = "None"
-job = "none"
+affiliation = "Cadomyr"
+job = "fan waver"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatUS = "This is the NPC Hassan."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."

@@ -1,14 +1,19 @@
 --------------------------------------------------------------------------------
--- NPC Name: Hassan the Servant                                          None --
--- NPC Job:  none                                                             --
+-- NPC Name: Hassan the Servant                                       Cadomyr --
+-- NPC Job:  fan waver                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  110, 574, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 110, 574, 0, 2, 'Hassan the Servant', 'npc.hassan_the_servant', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.item")
@@ -17,7 +22,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.hassan_the_servant", package.seeall)
@@ -29,21 +34,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
 talkEntry:addResponse("Quest status set to 0");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 1");
 talkEntry:addResponse("Quest status set to 1");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 2");
 talkEntry:addResponse("Quest status set to 2");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,7 +75,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine, I will gladly answer your questions.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -97,7 +102,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("#me frowns: 'What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -120,7 +125,7 @@ talkEntry:addTrigger("How do you do");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -140,7 +145,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -160,7 +165,7 @@ talkEntry:addTrigger("question");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,7 +190,7 @@ talkEntry:addTrigger("Moin");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,7 +218,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,7 +241,7 @@ talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,7 +261,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,7 +281,7 @@ talkEntry:addTrigger("Frage");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,7 +383,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."));
 talkEntry:addResponse("#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -391,7 +396,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions."));
 talkEntry:addResponse("#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,7 +409,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -417,7 +422,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."));
 talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(75, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,7 +686,7 @@ talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen K
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is the NPC Hassan.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
