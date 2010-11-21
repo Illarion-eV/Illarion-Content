@@ -2,8 +2,8 @@
 -- NPC Name: Nobarg                                                      None --
 -- NPC Job:  Priest                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  200, 140, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: human                      NPC Position:  475, 795, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 200, 140, 0, 2, 'Nobarg', 'npc.nobarg', 0, 1, 3, 255, 255, 255, 255, 255, 255);
+VALUES (0, 475, 795, 0, 6, 'Nobarg', 'npc.nobarg', 0, 1, 3, 139, 87, 74, 211, 137, 126);
 ---]]
 
 require("npc.base.basic")
@@ -296,7 +296,6 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me nickt leicht und betet weiter.");
 talkEntry:addResponse("Hmm? Ja, ja.");
 talkEntry:addResponse("Bragon mit euch.");
@@ -601,6 +600,30 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("five");
+talkEntry:addResponse("There are five old gods and several younger gods. The old gods are Bragon, Ushara, Eldan, Tanora and Findari. They have left us to another level.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("fünf");
+talkEntry:addResponse("Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("level");
+talkEntry:addResponse("Yes level. Other people call it world. However, Illarion is our level. For more information ask someone else.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ebene");
+talkEntry:addResponse("Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion is unsere Ebene. Für mehr Information fragt jemand anderen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
@@ -729,7 +752,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eines der großen Reiche, aber ich war nie dort.");
 talkEntry:addResponse("Wer interessiert sich sohon für diese Stadt?");
 talkEntry:addResponse("Ich weiß nicht, ob die zu Bragon beten.");
@@ -749,7 +771,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eines der großen Reiche, aber ich war nie dort.");
 talkEntry:addResponse("Wer interessiert sich sohon für diese Stadt?");
 talkEntry:addResponse("Ich weiß nicht, ob die zu Bragon beten.");
@@ -767,7 +788,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eines der großen Reiche, aber ich war nie dort.");
 talkEntry:addResponse("Wer interessiert sich sohon für diese Stadt?");
 talkEntry:addResponse("Ich weiß nicht, ob die zu Bragon beten.");
@@ -796,6 +816,7 @@ talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I believe in Bragon and his fire, that it leads me.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,6 +824,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("Ich glaube an Bragon und sein Feuer, dass es mir den rechten Weg zeige.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,8 +833,7 @@ talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists. But he left this level. I hope he is coming back one day. That's the reason I'm praying");
-talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("He is the old god of fire and stands for a wise, strong, noble and handsome personality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,8 +841,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Ja, dieser Gott existiert. Aber er hat diese Ebene verlassen. Ich hoffe er kommt zurück eines Tages. Das ist auch der Grund warum ich bete.");
-talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Er ist einer der alten Götter und steht für eine weise, starke, noble und ansehliche Persönlichkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -830,7 +850,7 @@ talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,7 +858,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -847,7 +867,7 @@ talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the old gods as Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -855,7 +875,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -864,7 +884,7 @@ talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -872,7 +892,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("That's one of the old gods as Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -881,7 +901,7 @@ talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the old gods as Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -889,7 +909,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -898,7 +918,7 @@ talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,7 +926,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -916,7 +936,7 @@ talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -925,7 +945,7 @@ talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,7 +973,7 @@ talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -963,7 +983,7 @@ talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -972,7 +992,7 @@ talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +1000,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -989,7 +1009,7 @@ talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +1017,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,7 +1026,7 @@ talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1014,7 +1034,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1024,7 +1044,7 @@ talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the old gods as Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1033,7 +1053,7 @@ talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1042,7 +1062,7 @@ talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the old gods as Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1050,7 +1070,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1059,7 +1079,7 @@ talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists but is not interesting for me but is not interesting for me.");
 talkEntry:addResponse("I heard about priests of this god, but I cannot remeber the name of the priest.");
-talkEntry:addResponse("I believe in Bragon.");
+talkEntry:addResponse("That's one of the younger gods. Therfore nothing compared to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,7 +1087,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich .");
 talkEntry:addResponse("I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
-talkEntry:addResponse("Ich glaube an Bragon.");
+talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

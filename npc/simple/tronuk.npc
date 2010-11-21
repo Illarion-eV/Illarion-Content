@@ -52,8 +52,8 @@ itemShoes = 53
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
+"Hiho", "Hallo", "Hey","Greebas", "Greebhas", "Greebs", english -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
+"Hiho", "Hallo", "Hey","Greebas", "Greebhas", "Greebs" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farebrass."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Farebrass."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farebrass."
@@ -129,11 +129,11 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Betta ask Ommie about dhat Ommie-town.", "Meh nub interested in dah Ommie-towns."
-"albar", german -> "Besser fragen Ommie über Ommie-Stadt.", "Mich nich interssiert sein in Ommie-Stadt."
+"albar" -> "Besser fragen Ommie über Ommie-Stadt.", "Mich nich interssiert sein in Ommie-Stadt."
 "gynk", "gync", english -> "On of the big empires.", "Who cares about this town?", "Hmm...I don't know if they pray to Bragon."
-"gync", "gynk", german -> "Eines der großen Reiche.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
+"gync", "gynk" -> "Eines der großen Reiche.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 "salkama", english -> "On of the big empires.", "Who cares about this town?", "Hmm...I don't know if they pray to Bragon."
-"salkama", german -> "Eines der großen Reiche.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
+"salkama" -> "Eines der großen Reiche.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 -- Pick 1-2 gods he likes, 1 he dislikes

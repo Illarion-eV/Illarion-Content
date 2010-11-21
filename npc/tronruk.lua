@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 164, 621, 0, 4, 'Tronruk', 'npc.tronruk', 0, 2, 5, 255, 255, 255, 255, 255, 255);
+VALUES (4, 164, 621, 0, 4, 'Tronruk', 'npc.tronruk', 0, 2, 5, 84, 76, 74, 51, 52, 36);
 ---]]
 
 require("npc.base.basic")
@@ -75,6 +75,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebhas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me nods slighty and closes his eyes again.");
@@ -88,8 +89,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebhas");
 talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me nickt leicht und schließt seine Augen wieder.");
 talkEntry:addResponse("Hurr? Yubbah, Yubbah");
 talkEntry:addResponse("Grebbha.");
@@ -643,7 +644,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Besser fragen Ommie über Ommie-Stadt.");
 talkEntry:addResponse("Mich nich interssiert sein in Ommie-Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -662,7 +662,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eines der großen Reiche.");
 talkEntry:addResponse("Wer interessiert sich sohon für diese Stadt?");
 talkEntry:addResponse("Ich weiß nicht, ob die zu Bragon beten.");
@@ -680,7 +679,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Eines der großen Reiche.");
 talkEntry:addResponse("Wer interessiert sich sohon für diese Stadt?");
 talkEntry:addResponse("Ich weiß nicht, ob die zu Bragon beten.");

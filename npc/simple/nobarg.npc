@@ -2,8 +2,8 @@
 -- NPC Name: Nobarg                                                      None --
 -- NPC Job:  Priest                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  200, 140, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: human                      NPC Position:  475, 795, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Nobarg"
 race = human
 sex = male
-position = 200, 140, 0
-direction = east
+position = 475, 795, 0
+direction = west
 affiliation = "None"
 job = "Priest"
 
@@ -98,7 +98,7 @@ itemShoes = 53
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slighty and continous praying.", "Hmm? Yes, yes.", "Bragon with you."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me nods slighty and continous praying.", "Hmm? Yes, yes.", "Bragon with you."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bragon with you!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farewell.", "Good bye.", "Bragon with you!"
@@ -137,6 +137,10 @@ itemShoes = 53
 "Drachen" -> "Diese Kreaturen sind Kinder von Bragon und werden geschützt von ihm!"
 "Gold", english -> "Bragon loves gold and I give him every gold which I have."
 "Gold" -> "Bragon liebt Gold und ich gebe ihm alles Gold, dass ich habe."
+"five" -> "There are five old gods and several younger gods. The old gods are Bragon, Ushara, Eldan, Tanora and Findari. They have left us to another level."
+"fünf" -> "Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen."
+"level" -> "Yes level. Other people call it world. However, Illarion is our level. For more information ask someone else."
+"Ebene" -> "Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion is unsere Ebene. Für mehr Information fragt jemand anderen."
 
 -- Faction stuff
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Does he belive in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
@@ -154,49 +158,49 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "On of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Bragon."
-"albar", german -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
+"albar" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 "gynk", "gync", english -> "On of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Bragon."
-"gync", "gynk", german -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
+"gync", "gynk" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 "salkama", english -> "On of the big empires, but I have never been there.", "Who cares about this town?", "Hmm...I don't know if they pray to Bragon."
-"salkama", german -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
+"salkama" -> "Eines der großen Reiche, aber ich war nie dort.", "Wer interessiert sich sohon für diese Stadt?", "Ich weiß nicht, ob die zu Bragon beten."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 -- Pick 1-2 gods he likes, 1 he dislikes
 -- Use ONE other response for the other gods i.e. "I don't worship that good much"
 "god" -> "Bragon, Bragon and again Bragon.", "I pray to Bragon, join me.", "I believe in Bragon and his fire."
 "Gott", "Götter" -> "Bragaon, Bragon und nochmals Bragon.", "Ich bete zu Bragon, bete mit mir.", "Ich glaube an Bragon und sein Feuer."
-"Adron", english -> "Yes, this god exists but is not interesting for me.", "I believe in Bragon and his fire, that it leads me."
-"Adron" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich glaube an Bragon und sein Feuer, dass es mir den rechten Weg zeige."
-"Bragon", "Brágon", english -> "Yes, this god exists. But he left this level. I hope he is coming back one day. That's the reason I'm praying", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Bragon", "Brágon" -> "Ja, dieser Gott existiert. Aber er hat diese Ebene verlassen. Ich hoffe er kommt zurück eines Tages. Das ist auch der Grund warum ich bete.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Cherga", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Cherga" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Elara", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Elara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Eldan", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Eldan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Findari", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Findari" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Irmorom", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Irmorom" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Malachin", "Malachín", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Malachin", "Malachín" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Adron", english -> "Yes, this god exists but is not interesting for me.", "I believe in Bragon and his fire, that it leads me.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Adron" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich glaube an Bragon und sein Feuer, dass es mir den rechten Weg zeige.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Bragon", "Brágon", english -> "Yes, this god exists. But he left this level. I hope he is coming back one day. That's the reason I'm praying","He is the old god of fire and stands for a wise, strong, noble and handsome personality."
+"Bragon", "Brágon" -> "Ja, dieser Gott existiert. Aber er hat diese Ebene verlassen. Ich hoffe er kommt zurück eines Tages. Das ist auch der Grund warum ich bete.", "Er ist einer der alten Götter und steht für eine weise, starke, noble und ansehliche Persönlichkeit."
+"Cherga", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Cherga" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Elara", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "That's one of the old gods as Bragon."
+"Elara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
+"Eldan", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Eldan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "That's one of the old gods as Bragon."
+"Findari", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "That's one of the old gods as Bragon."
+"Findari" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
+"Irmorom", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Irmorom" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Malachin", "Malachín", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Malachin", "Malachín" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
 "Moshran", english -> "I don't talk about this god.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "He stole mine god the dragons."
 "Moshran" -> "Über diesen Gott spreche ich nicht.", "Es gibt Gerüchte, dass der Tempel ihm folgt.", "Er hat meinen Göttern die Drachen gestohlen."
-"Nargun", "Nargún", "Nargùn", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Nargun", "Nargún", "Nargùn" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Oldra", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Oldra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Ronagan", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Ronagan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Sirani", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Sirani" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Tanora", "Zelphia", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Tanora", "Zelphia" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Ushara", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Ushara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
-"Zhambra", english -> "Yes, this god exists but is not interesting for me but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "I believe in Bragon."
-"Zhambra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich .", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Ich glaube an Bragon."
+"Nargun", "Nargún", "Nargùn", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Nargun", "Nargún", "Nargùn" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Oldra", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Oldra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Ronagan", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Ronagan" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Sirani", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Sirani" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+"Tanora", "Zelphia", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "That's one of the old gods as Bragon."
+"Tanora", "Zelphia" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
+"Ushara", english -> "Yes, this god exists but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.", "That's one of the old gods as Bragon."
+"Ushara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
+"Zhambra", english -> "Yes, this god exists but is not interesting for me but is not interesting for me.", "I heard about priests of this god, but I cannot remeber the name of the priest.","That's one of the younger gods. Therfore nothing compared to Bragon."
+"Zhambra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich .", "I hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
 
 -- 1st quest: Bring 1 pure fire.
 "task", "adventure", "know", "question", queststatus(600) < 5 -> "I don't have to do anything for you."
