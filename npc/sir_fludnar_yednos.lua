@@ -300,7 +300,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addResponse("Habt ihr euch verlaufen?");
 talkEntry:addResponse("Raus hier aber schnell!");
-talkEntry:addResponse("Wer stört ich hier bei der Arbeit?");
+talkEntry:addResponse("Wer stört mich hier bei der Arbeit?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

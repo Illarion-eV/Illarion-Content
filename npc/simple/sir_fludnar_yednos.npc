@@ -98,7 +98,7 @@ itemShoes = 369
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Could you lower your tongue? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue to research."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Did you get lost?", "Leave me quick!", "Who is disturbing my work?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört ich hier bei der Arbeit?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Vergesst nicht die Tür zu schließen!"
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Get out!", "Finally!", "..."
