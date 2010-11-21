@@ -144,7 +144,7 @@ function TeleportationFunction(thisNPC)
 	        self.townName[1] = "Cadomyr";
 	        self.trigger[1] = "[Cc]adomyr";
 
-	        self.targetPosition[2] = position(789,825,0);
+	        self.targetPosition[2] = position(788,826,0);
 	        self.townName[2] = "Runewick";
 	        self.trigger[2] = "[Rr]unewick";
 
