@@ -152,7 +152,7 @@ function TeleportationFunction(thisNPC)
 	        self.townName[3] = "Galmair";
 	        self.trigger[3] = "[Gg]almair";
 
-	        self.targetPosition[4] = position(685,309,0);
+	        self.targetPosition[4] = position(684,307,0);
 	        self.townName[4] = "Wilderland";
 	        self.trigger[4] = "[Ww]ilderland";
 
