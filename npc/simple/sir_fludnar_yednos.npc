@@ -292,15 +292,25 @@ itemShoes = 369
 "quest", "mission", queststatus(600) = 20, state = 1, english -> "I asked you: What has it to do with the so called 'Tribunal of Eternity'! Now go, find a priest for the information and don't waste my time until you have it!",state = 2
 "quest", "mission", queststatus(600) = 20, state = 1 -> "Ich habe euch gefragt: Was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!",state = 2
 
-"task", "adventure", "can I do", queststatus(600) > 0, queststatus(600) < 21, state = 2 -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
-"Auftrag", "Aufgabe", "Abenteuer", "was tun",  queststatus(600) > 0, queststatus(600) < 21, state = 2 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
-"quest", "mission", queststatus(600) > 0, queststatus(600) < 21, state = 2, english -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
-"quest", "mission", queststatus(600) > 0, queststatus(600) < 21, state = 2 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
+"task", "adventure", "can I do", queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"Auftrag", "Aufgabe", "Abenteuer", "was tun",  queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
+"quest", "mission", queststatus(600) > 0, queststatus(600) < 11, state = 1, english -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"quest", "mission", queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
+
+"task", "adventure", "can I do", queststatus(600) > 10, queststatus(600) < 21, state = 2 -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"Auftrag", "Aufgabe", "Abenteuer", "was tun",  queststatus(600) > 10, queststatus(600) < 21, state = 2 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
+"quest", "mission", queststatus(600) > 10, queststatus(600) < 21, state = 2, english -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"quest", "mission", queststatus(600) > 10, queststatus(600) < 21, state = 2 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
 
 "task", "adventure", "can I do", queststatus(600) > 0, queststatus(600) < 21, state = 3 -> "Hmm... it seems you have forgotten what I asked you! Well, then you are not worth to work for me.",inform( [Quest finished] You bungled it. :O ), queststatus(600) = 40
 "Auftrag", "Aufgabe", "Abenteuer", "was tun",  queststatus(600) > 0, queststatus(600) < 21, state = 3 -> "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.",inform( [Quest beendet] Du hast es verbockt. :O ), queststatus(600) = 40
 "quest", "mission", queststatus(600) > 0, queststatus(600) < 21, state = 3, english -> "Hmm... it seems you have forgotten what I asked you! Well, then you are not worth to work for me.",inform( [Quest finished] You bungled it. :O ), queststatus(600) = 40
 "quest", "mission", queststatus(600) > 0, queststatus(600) < 21, state = 3 -> "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.",inform( [Quest beendet] Du hast es verbockt. :O ), queststatus(600) = 40
+
+"task", "adventure", "can I do", queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"Auftrag", "Aufgabe", "Abenteuer", "was tun",  queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
+"quest", "mission", queststatus(600) > 0, queststatus(600) < 11, state = 1, english -> "Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.",state = 3
+"quest", "mission", queststatus(600) > 0, queststatus(600) < 11, state = 1 -> "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.",state = 3
 
 -- quest - 3rd step: report information and collect gift
 "task", "adventure", "can I do", "answer", queststatus(600) > 20, queststatus(600) < 31 -> "Do you know the answer? So, what is it then?",inform( [Quest deliver answer] Tell him your answer)

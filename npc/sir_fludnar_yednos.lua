@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (0, 896, 757, 1, 4, 'Sir Fludnar Yednos', 'npc.sir_fludnar_yednos', 0, 2, 0, 33, 28, 25, 180, 102, 102);
 ---]]
 
@@ -2049,8 +2049,56 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("can I do");
-talkEntry:addCondition(npc.base.condition.state.state("=", 2));
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("was tun");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("can I do");
+talkEntry:addCondition(npc.base.condition.state.state("=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 10));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -2063,7 +2111,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("was tun");
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 10));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -2074,7 +2122,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 10));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
@@ -2086,7 +2134,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 10));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -2142,6 +2190,54 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest beendet] Du hast es verbockt. :O"));
 talkEntry:addResponse("Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 40));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("can I do");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("was tun");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Don't bother me! Better you find a priest and DON't come back until you got the answer, otherwise you will have to face consequences.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.state.state("=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 11));
+talkEntry:addResponse("Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
