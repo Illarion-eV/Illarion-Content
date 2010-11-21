@@ -11,7 +11,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
 VALUES (0, 896, 757, 1, 4, 'Sir Fludnar Yednos', 'npc.sir_fludnar_yednos', 0, 2, 0, 33, 28, 25, 180, 102, 102);
 ---]]
 
@@ -2715,7 +2715,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Holy Flame");
+talkEntry:addTrigger("Flame");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 30));
 talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You earnt a magical rubin"));
@@ -2727,7 +2727,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Holy Flame");
+talkEntry:addTrigger("Flame");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 30));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You earnt a treasure map"));
 talkEntry:addResponse("Thank you very much for your help! ...I have something for you. Maybe you can use it. However... you know where the door is. Farewell, and leave now! But Silent!");
@@ -2738,7 +2738,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("heilige Flamme");
+talkEntry:addTrigger("Flamme");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 30));
 talkEntry:addCondition(npc.base.condition.chance.chance(30));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"));
@@ -2750,7 +2750,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("heilige Flamme");
+talkEntry:addTrigger("Flamme");
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 30));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du hast eine Schatzkarte erhalten"));
 talkEntry:addResponse("Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!");
