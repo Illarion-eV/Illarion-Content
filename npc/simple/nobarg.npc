@@ -18,6 +18,20 @@ direction = west
 affiliation = "None"
 job = "Priest"
 
+-- appearance
+colorHair = 139, 87, 74
+colorSkin = 211, 137, 126
+hairID = 1
+beardID = 3
+itemHead = 358
+itemChest = 182
+itemCoat = 2419
+itemMainHand = 40
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 53
+
 language = common
 language = human
 language = ancient
@@ -32,16 +46,6 @@ useMsgDE = "Dein Feuer berühre und erleuchte mich!"
 useMsgUS = "Your fire touches and enlightens me!"
 wrongLangDE = "#me blickt verwirrt."
 wrongLangUS = "#me looks confused."
-hairID = 1
-beardID = 3
-itemHead = 358
-itemChest = 182
-itemCoat = 2419
-itemMainHand = 40
-itemSecondHand = 0
-itemHands = 2295
-itemTrousers = 34
-itemShoes = 53
 
 -- queststatus(600) Overview
 -- QuestID=600

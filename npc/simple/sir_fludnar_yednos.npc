@@ -18,6 +18,20 @@ direction = south
 affiliation = "Runewick"
 job = "Scholar"
 
+-- appearance
+colorHair = 33, 28, 25
+colorSkin = 180, 102, 102
+hairID = 2
+beardID = 0
+itemHead = 357
+itemChest = 182
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 110
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 369
+
 language = common
 language = human
 language = ancient
@@ -32,15 +46,6 @@ useMsgDE = "Psss! Ruhe bitte!"
 useMsgUS = "Psss! Silent please!"
 wrongLangDE = "Was sagtet ihr? Könntet ihr deutlicher sprechen?"
 wrongLangUS = "What are you saying? Could you say that again?"
-hairID = 2
-itemHead = 357
-itemChest = 182
-itemCoat = 193
-itemMainHand = 0
-itemSecondHand = 110
-itemHands = 2295
-itemTrousers = 34
-itemShoes = 369
 
 -- queststatus(600) Overview
 -- QuestID=600

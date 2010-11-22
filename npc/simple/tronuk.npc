@@ -18,6 +18,20 @@ direction = south
 affiliation = "Cadomyr"
 job = "priest"
 
+-- appearance
+colorHair = 84, 76, 74
+colorSkin = 51, 52, 36
+hairID = 2
+beardID = 5
+itemHead = 0
+itemChest = 363
+itemCoat = 196
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 2113
+itemShoes = 53
+
 language = common
 language = orc
 defaultLanguage = orc
@@ -31,16 +45,6 @@ useMsgDE = "Alt und zach aber genug fur Welpen!"
 useMsgUS = "Old and tough but strong enub for whelps!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-hairID = 2
-beardID = 5
-itemHead = 0
-itemChest = 363
-itemCoat = 196
-itemMainHand = 0
-itemSecondHand = 0
-itemHands = 48
-itemTrousers = 2113
-itemShoes = 53
 
 -- queststatus(601) Overview
 -- QuestID=601
