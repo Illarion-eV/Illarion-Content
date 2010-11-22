@@ -1,0 +1,304 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Hummi Olaficht                                              None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  200, 140, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                                            --
+-- Last parsing: November 22, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+-- Note: ALWAYS add commentaries in an extra line!
+-- This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.)
+
+name = "Hummi Olaficht"
+-- Replace to own liking
+race = halfling
+-- human, elf, dwarf, lizardman, orc, halfling...
+sex = male
+-- male/female
+position = 210, 140, 0
+--name the position here.
+direction = south
+-- north, northeast, east, southeast, south, southwest, west, northwest
+affiliation = "None"
+job = "none"
+
+-- appearance
+colorHair = 254, 14, 1
+colorSkin = 245, 180, 137
+hairID = 2
+beardID = 5
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+--sign your name in here.
+
+lookatDE = "winkt in deine Richtung als du zu ihm siehst."
+lookatUS = "waves in your direction when you look at him."
+useMsgDE = "Finger weg!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Rassenspezifische."
+wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
+
+-- Keep radius=0 and the Npc won't walk around
+radius = 0
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.")
+
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho.", "Hello.", "Hi."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho.", "Hallo.", "Hi."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho.", "Hello.", "Hi."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hiho.", "Hallo.", "Hi."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Fare thee well.", "Bye.", "Good bye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Fare thee well.", "Bye.", "Good bye."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
+"How are you", "How feel", "How do you do" -> "I'm fine. And you?", "I feel wonderful.", "I cannot complain."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht's toll. Und dir?", "Ich fühle mich wunderbar.", "Ich kann mich nicht beschweren."
+"your name", "who are you", "who art thou" -> "I'm Hummi and know all important things about this place here. So, ask me about it!","I'm Hummi. And you? Do you like to know something?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!","Ich bin Hummi und du? Möchtest du etwas wissen?"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "You get only information from me and those are free!","I'm sorry, but I don't sell anything."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Von mir bekommst du nur Informationen, und die sind umsonst!","Tut mir leid, aber ich verkaufe nichts."
+"tell something" -> "You get only information from me and those are free!","I'm sorry, but I don't sell anything."
+"erzähl was", "erzähl etwas" -> "Von mir bekommst du nur Informationen, und die sind umsonst!","Tut mir leid, aber ich verkaufe nichts."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I don't have any specific profession.", "I only tell information, but I don't have any profession actually."
+"beruf" -> "Ich habe keine spezifische Arbeit.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
+"job", english -> "I don't have any specific profession.", "I only tell information, but I don't have any profession actually."
+"job" -> "Ich habe keine spezifische Arbeit.", "Ich gebe lediglich Informationen, aber ich habe nicht wirklich einen Beruf."
+"Gobaith", "Gobiath", english -> "This in an old island, which does not exist anymore. Many who you can find here, are from this island. If you like know more about it, feel free to ask them.", "I haven't been there, therefore I cannot tell you anything about it except that it doesn't exist anymore and that you can ask other people about it."
+"Gobaith", "Gobiath" -> "Das ist eine alte Insel, welche nicht mehr existiert. Viele die du hier finden kann sind von dort. Wenn du mehr darüber wissen möchtest, frag sie.", "Ich war noch nie dort, daher weiß ich auch nichts über sie, außer dass es sie nicht mehr gibt und dass du andere Leute über sie fragen kannst."
+"I am", "my name" -> "Sounds pretty nice, but not as my name. *giggles*"
+"Ich bin", "mein Name" -> "Klingt hübsch, aber nicht so hübsch wie mein Name. *kichert*"
+
+-- More small talk; add at least five triggers
+"faction" -> "We have there factions here. Runewick, Cadomyr and Galmair. If you like to know more about one of these factions, say the name."
+"race" -> "In every faction are specific races to find. In Runewick you can mainly find Elves and Halflings; in Galmair Dwarves and in Cadomyr Lizards and Orcs. Humans can be found everywhere."
+"craft" -> "Which one do you mean? Alchemist, Candle maker, Carpenter, Lumberjack, Cook, Baker, Farmer, Herb gatherer, Tailor, Tanner, Dyer, Blacksmith, Brick maker, Mason, Miner, Brewer, Fisher, Glass blower, Digger, Finesmith or Gem grinder?","Every faction is specialist on specfic crafts. Mention a specific craft and I will tell you in which fraction you will find it.","The main crafts of Runewick are Alchemist, Candle maker, Carpenter/Lumberjack, Cook/Baker, Farmer, Herb gatherer, Tailor/Tanner/Dyer; in Galmair Blacksmith, Brick maker, Mason, Miner, Brewer; and in Cadomyr Fisher, Glass blower, Digger, Finesmith, Gem grinder"
+"motive",english -> "The leading motive in Runewick is wisdom, in Cadomyr honour, and in Galmair wealth."
+"landscape" -> "The four towers of Runewick are somewhere in the southeast between meadows and forests; the halls and caves of Galmair in the northwest between mountains and forests; and the houses of Cadomyr in the west between a desert and mountains."
+"leader" -> "Archmage Elvaine Morgan is the leader of Runewick, Don Valerio Guilianni rules in Galmair, and Queen Rosaline Edwards in Cadomyr."
+"law" -> "Runewick is the only community with exact laws you can rely on; Galmair doesn't have real laws - you just have to obey the Don; and there are customs in Cadomyr which are of albarian origin, but to an albarian, they will look shocking innovative. More information can be found in their towns."
+
+"Fraktion" -> "Wir haben hier drei Fraktionen. Runewick, Cadomyr und Galmair. Wenn du mehr über eine der drei Faktionen wissen möchtest, dann sag den Namen der Fraktion."
+"Rasse" -> "In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden."
+"Handwerk" -> "Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?","Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.",""
+"Motive" -> "Das leitende Motive in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es `Ehre."
+"Landschaft" -> "Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen."
+"Anführer" -> "Erzmagier Elvaine Morgan der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr."
+"Gesetz" -> "Runewick ist die einzige Gemeinde mit exakten Gesetzen an denen du dich orientieren kannst; Galmair hat keine wirklichen Gesetzte - du musst nur dem Don gehorchen; und dann sind noch die Bräuche von Cadomyr welche ihren Ursprung in Albar haben, aber für einen Albarianer sind diese schockierend innovative."
+
+-- Faction stuff
+"archmage" -> "He is the ruler of Runewick. Due to he is an Archmage and elf from Lor-Angur, he is very good in magic. *claps his hands* Nice fireworks! He is very wise and gives good advices. I recommend you to accept his advice."
+"Erzmagier" -> "Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen."
+"Elvaine", "Morgan", english -> "He is the ruler of Runewick. Due to he is an Archmage and elf from Lor-Angur, he is very good in magic. *claps his hands* Nice fireworks! He is very wise and gives good advices. I recommend you to accept his advice."
+"Elvaine", "Morgan" -> "Er ist der Herrscher über Runewick. Da er Erzmagier und ein Elf aus Lor-Angur ist, ist er sehr gut in Magie. *klatscht in die Hände* Hübsche Feuerwerke! Er ist sehr weise und gibt gute Ratschläge und ich kann dir empfehlen diese auch zu befolgen."
+"Runewick", english -> "Runewick has four towers and can be found in the southeast. You will have to cross a long small bridge there. However, they believe in wisdom and in the advice of their Archmage Elvaine Morgan.", "Their opponents from Cadomyr and Galmair call them arrogant smartasses who claim to know it all and try to keep a self defined 'balance’. Don’t ask me what that is.","Primarily following crafts can be found in Runewick: Alchemist, Candle maker, Carpenter/Lumberjack, Cook/Baker, Farmer, Herb gatherer, Tailor/Tanner/Dyer."
+"Runewick" -> "Runewick hat vier Türme und kann im Südosten gefunden werden. Du musst eine lange schmalle Brücke zudem überqueren. Sie glauben zudem an Weisheit und den Rat ihres Erzmagier Elvaine Morgan.", "Ihre Gegner aus Cadomyr und Galmair nennen sie arrogante Klugscheißer, welche behaupten alles zu wissen und versuchen eine selbst definierte 'Balance' zu halten. Frag mich nicht, was da ist.","Insbesondere folgende Handwerke können in Runewick gefunden werden: Alchemist, Kerzenmacher, Schreiner/Holzfäller,  Koch/Bäcker, Bauer, Kräutersammler, Schneider/Gerber/Färber."
+"Valerio", "Guilianni", "Don", english -> "He is the ruler of Galmair and the successor his father. He is a very strong dwarf and is very rich. Therefore it is better not to bother him, otherwise he will hire some headhunters who will visit you. *giggles*","Primarily following crafters can be found in Galmair: Blacksmith, Brick maker, Mason, Miner, Brewer."
+"Valerio", "Guilianni", "Don" -> "Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuert wird. *kichert*.","Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer."
+"Galmair", english -> "Galmair is somewhere in the northwest and it consists several halls and caves. Very deep and amazing caves! However, you can become there whatever you want as long you have enough money. ", "There opponents from Runewick and Cadomyr call them greedy and chaotic. They assume that people from Galmair would do everything what they can to get some extra coins."
+"Galmair" -> "Galmair ist irgendwo im Nordwesten und es besteht aus mehreren Hallen und Höhlen. Sehr tiefe und beeindruckende Höhlen. Wie dem auch sei, du kannst dort alles bekommen was du möchtest, solange du genügend Geld hast.", "Bei ihren Gegner aus Runewick und Cadomyr  sind sie als gierig und chaotisch verschrien.  Die nehmen an, dass Leute aus Galmair würden alles für einige zusätzliche Münzen tun."
+"queen" -> "This very pretty woman is the Queen of Cadomyr. She is very proud and noble. Further, she likes those who act bravery and show their courage in battles. Her albarian orgin is probably the reason for her liking."
+"königin" -> "Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe."
+"rosaline", "edwards", english -> "This very pretty woman is the Queen of Cadomyr. She is very proud and noble. Further, she likes those who act bravery and show their courage in battles. Her albarian orgin is probably the reason for her liking."
+"rosaline" -> "Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe."
+"Cadomyr", english -> "Cadomyr can be found behind a huge townwall in the desert in the southwestern area of this peninsula. They believe in honour and in their queen, and they are a very proud folk that does not fear anything.", "Their opponents from Runewick and Galmair think about Cadomyr as place of wannabe heroes who follow strange codes of honour and where everyone is supposed to know his 'rank', given by the gods.","Primarily following crafters can be found in Cadomyr: Fisher, Glass blower, Digger, Finesmith, Gem grinder."
+"Cadomyr" -> "Cadomyr kann hinter einen großen Stadtmauer in der Wüste im südwestlichen Bereich der Halbinsel gefunden werden. Sie glauben dort an Ehre und ihre Königin, und sie sind ein sehr stolzen und furchtloses Volk .", "Ihre Gegner aus Runewick und Galmair denken, dass Cadomyr  ein Platz von möchte gern Helden sei, welche einem verrückten Kode der Ehre folgen und wo jeder weiß, welchen gottgegebenen 'Rang' er einnimmt.","Insbesondere folgende Handwerke können in Cadomyr gefunden werden: Fischer, Glasblässer, Gräber, Goldschmied, Edelsteinschleifer."
+
+-- Main land factions
+"albar", english -> "A very old empire with a very hierarchical social order of their society. The society of Runewick is to some extant similar to it, but you can’t compare them. The family of the queen is original from there."
+"albar" -> "Ein sehr altes Reich mit einer sehr hierarchischen gesellschaftlichen Ordnung ihrer Gesellschaft. Die Gesellschaft von Runewick ähnelt ihr, kann aber nicht wirklich damit verglichen werden. Die Familie der Königin hat ihre Wurzeln von dort."
+"gynk", "gync", english -> "Gynk is a very chaotic place, where almost everything is possible as long as you can manage to survive. Galmair is very similar. Probably due to the father of the Don was from Gynk."
+"gync", "gynk" -> "Gynk ist ein sehr chaotischer Platz, wo beinahe alles möglich ist solange man es schafft zu überleben. Galmair ist sehr ähnlich. Wahrscheinlich liegt das daran, dass der Vater des Don aus Gynk war ."
+"salkama", english -> "It is next to Gynk and Albar the third big empire and has a very close relationship to Lor-Angur, the hometown of the ruler from Runewick, Elvaine Morgan."
+"salkama" -> "Es ist neben Gynk und Albar das dritte große Reich und hat eine sehr enge Beziehung zu Lor-Angur, der Heimatstadt vom Herrscher von Runewick, Elvaine Morgan."
+"angur", english -> "That's a very famous town of mages at a faraway place and it is the hometown of the ruler from Runewick, Archmage Elvaine Morgan. They have even a fifth tower. *smiles*"
+"angur" -> "Das ist eine sehr berühmte und ferne Stadt von Magiern und es ist die Heimatstadt des Herrschers von Runewick, Erzmagier Elvaine Morgan. Die haben sogar einen fünften Turm. *lächelt*"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Inhabitants of every faction prefer specific younger gods. In Runewick they pray to Elara, Oldra and Adron; in Galmair to Irmorom, Ronagan and Nargun; and in Cadomyr to Malachin, Zhambra and Sirani.", "We differ between younger and elder gods. You will find for almost any of the younger gods like-minded people in one of the fractions, but noone for the elder gods. But who is that stupid and still worship them? They are gone!"
+"Gott", "Götter" -> "Die Einwohner jeder Fraktion bevorzugen spezifische junge Götter. In Runewick beten sie zu Elara, Oldra und Adron; in Galmair zu Irmorom, Ronagan und Nargun; und in Cadomyr zu Malachin, Zhambra and Sirani.", "Wir unterscheiden zwischen jungen und alten Göttern. Du wirst für beinahe jeden der jungen einen Gleichgesinnten in einer der Fraktionen finden, aber niemanden für die älteren. Aber wer ist so dumm und dient denen noch? Die sind weg!"
+"elder" -> "The elder gods are Bragon, Eldan, Findari, Tanora and Ushara. They have left this sphere and you should not waste your time to worship them. Only some nostalgic and disconcerted Elfes still do so, but they are strange. *giggles*"
+"alten" -> "Die alten Götter sind Bragon, Eldan, Findari, Tanora und Ushara. Sie haben diese Ebene verlassen. Somit besteht kein Grund ihnen mehr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch, aber die sind komisch. *kichert*"
+"younger" -> "The younger gods are Nargun, Elara, Adron, Oldra, Cherga, Malachin, Irmorom, Sirani, Zhambra, Ronagan und Moshran. Some faction believe in this, other faction in others. I believe in Elara. And you? *smiles*"
+"junge" -> "The younger gods are Nargun, Elara, Adron, Oldra, Cherga, Malachin, Irmorom, Sirani, Zhambra, Ronagan und Moshran. Einige Fraktionen glauben in den einen, andere Fraktionen in die anderen. Ich glaube an Elara. Und du?"
+"Adron", english -> "He is the god of life and fertility and followers can be found in Runewick. So if you believe in her as well, you will find like-minded people there."
+"Adron" -> "Er ist des Weines und der Feste und einige Anhänger können in Runewick  gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+"Bragon", "Brágon", english -> "He is one of the elder gods who left this sphere. Therefore he will not help you at all and makes no sense to worship him. Only nostalgic and disconcerted Elfes still do so. However, he was known as the god of fire."
+"Bragon", "Brágon" -> "Er ist einer der alten Götter, die diese Ebene verlassen haben. Daher wird er dir nicht mehr helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er war bekannt als der Gott des Feuers."
+"Cherga", english -> "She is the goddess of spirits and the underworld. Noone in particular worships her, except those who think to travel to the underworld soon. *giggles*"
+"Cherga" -> "Sie ist die Götting der Geister und der Unterwelt. Niemand besonderes dient ihr, außer jene, welche denken, sie bald zu besuchen. *kichert*"
+"Elara", english -> "She is the goddess of wisdom and knowledge and followers can be found in Runewick. So if you believe in her as well, you will find like-minded people there, as I do, because I also believe in Elara. *giggles*"
+"Elara" -> "Sie ist die Göttin des Wissens und der Weisheit und einige Anhänger können in Runewick  gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden, so wie ich, weil ich ja auch an Elara glaube. *kichert*"
+"Eldan", english -> "He is one of the elder gods who left this sphere. Therefore he will not help you at all and makes no sense to worship him. Only nostalgic and disconcerted Elfes still do so. However, he was known as the god of spirit."
+"Eldan" -> "Er ist einer der alten Götter, die diese Ebene verlassen haben. Daher wird er dir nicht mehr helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er war bekannt als der Gott des Geistes."
+"Findari", english -> "She is one of the elder gods who left this sphere. Therefore she will not help you at all and makes no sense to worship her. Only nostalgic and disconcerted Elfes still do so. However, she was known as the god of air."
+"Findari" -> "Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war bekannt als der Gott der Luft."
+"Irmorom", english -> "He is the god of trade and craftsmanship and followers can be found in Galmair. So if you believe in her as well, you will find like-minded people there."
+"Irmorom" -> "Er ist des Handels und des Handwerks und einige Anhänger können in Galmair gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+"Malachin", "Malachín", english -> "He is the god of battle and hunting and followers can be found in Cadomyr. So if you believe in her as well, you will find like-minded people there."
+"Malachin", "Malachín" -> "Er ist der Jagd und der Schlachten und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+"Moshran", english -> "He is the unnamed one , also called the Milkspiller, who suffered a sickness in his stomach from an old cake he had stolen from Nargun, who had wanted to use it in order to slay a giant. But I don’t say more about him. *shivers*"
+"Moshran" -> "Er ist der Ungenannte, den man auch den Milchversaurer nennt, der sich den Magen an einem alten Kuchen verdarb, den er Nargun gestohlen hatte, welcher damit eigentlich einen Riesen hatte erschlagen wollte. Und mehr sag ich nicht dazu. *zittert*"
+"Nargun", "Nargún", "Nargùn", english -> "He is the god of chaos and some followers can be found in Galmair. So if you believe in him as well, you will find like-minded people there."
+"Nargun", "Nargún", "Nargùn" -> "Er ist der Gott des Chaos und einige Anhänger können in Galmair gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+"Oldra", english -> "She is the goddess of life and fertility and followers can be found in Runewick. So if you believe in her as well, you will find like-minded people there."
+"Oldra" -> "Sie ist die Göttin der Fruchtbarkeit und des Lebens und einige Anhänger können in Runewick  gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden."
+"Ronagan", english -> "He is the god of thieves and shadows and some followers can be found in Galmair. So if you believe in him as well, you will find like-minded people there."
+"Ronagan" -> "Er ist der Gott der Diebe und der Schatten und einige Anhänger können in Galmair gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+"Sirani", english -> "She is the goddess of love and pleasure and followers can be found in Cadomyr. So if you believe in her as well, you will find like-minded people there."
+"Sirani" -> "Sie ist die Göttin der Liebe und der Freude und einige Anhänger können in Cadomyr  gefunden werden. Wenn du an sie glaubst, dann wirst du dort Gleichgesinnte finden."
+"Tanora", "Zelphia", english -> "She is one of the elder gods who left this sphere. Therefore she will not help you at all and makes no sense to worship her. Only nostalgic and disconcerted Elfes still do so. However, she was known as the god of water."
+"Tanora", "Zelphia" -> "Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war die Göttin des Wasser."
+"Ushara", english -> "She is one of the elder gods who left this sphere. Therefore she will not help you at all and makes no sense to worship her. Only nostalgic and disconcerted Elfes still do so. However, she was known as the god of earth."
+"Ushara" -> "Sie ist eine der alten Götter, die diese Ebene verlassen haben. Daher wird sie dir nicht mehr helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie war die Göttin der Erde."
+"Zhambra", english -> "He is the god of friendship and loyalty and followers can be found in Cadomyr. So if you believe in her as well, you will find like-minded people there."
+"Zhambra" -> "Er ist der Freundschaft und Treue und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
+
+-- Faction motive
+"wisdom" -> "Wisdom is the highest premise in Runewick. Therefore, they believe in Elara among other gods and follow the advice of their ruler Archmage Elvaine Morgan, who’s sageness is widely known."
+"Weisheit" -> "Weisheit ist die höchste Prämisse in Runewick. Deswegen glauben sie auch an Elara neben anderen Göttern und dem Rat ihres Herrschers Erzmagier Elvaine Morgan, wessen Klugheit ist weitbekannt."
+"wealth" -> "Wealth is the highest premise in Galmair. Therefore, they believe in Irmorom among other gods and obtain Don Valerio Guilianni, who is the richest person there."
+"Reichtum" -> "Reichtum ist die höchste Prämisse in Galmair. Deswegen glauben sie auch an Irmorom neben anderen Göttern und gehorchen Don Valerio Guilianni, der die reichste Person dort ist."
+"honour","honor" -> "Honour is the highest premise in Cadomyr. Therefore, they believe in Malachin among other gods and their ruler Queen Rosaline Edwards, who is the noblest person there."
+"Ehre" -> "Ehre ist die höchste Prämisse in Cadomyr. Deswegen glauben sie auch Malachin neben anderen Göttern und ihrer Herrscherin Königin Rosaline Edwards, welche die nobelste Person dort ist."
+
+-- Faction craft
+"Alchemist","Druid",english -> "Alchemists can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Alchemist","Druid" -> "Alchemisten können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Candle" -> "Candle makers can be mainly found in Runewick due to there are the best conditions for this profession. But in Cadomyr they have also few. Galmair has to trade, if the need something from them."
+"Kerzenmacher" -> "Kerzenmacher können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Carpenter" -> "Carpenter can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Schreiner" -> "Schreiner können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Lumberjack" -> "Lumberjacks can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Holz" -> "Holzfäller können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Cook" -> "Cooks can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Koch" -> "Köche können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Baker" -> "Bakers can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Bäcker" -> "Bäcker können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Farmer" -> "Farmers can be mainly found in Runewick due to there are the best conditions for this profession. But in Galmair they have also few. Cadomyr has to trade, if the need something from them."
+"Bauer" -> "Bauern können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+"Herb" -> "Herb gatherer can be mainly found in Runewick due to there are the best conditions for this profession. But in Cadomyr they have also few. Galmair has to trade, if the need something from them."
+"Kräutersammler" -> "Kräutersammler können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Tailor" -> "Tailors can be mainly found in Runewick due to there are the best conditions for this profession. But in Cadomyr they have also few. Galmair has to trade, if the need something from them."
+"Schneider" -> "Schneider können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Tanner" -> "Tanners can be mainly found in Runewick due to there are the best conditions for this profession. But in Cadomyr they have also few. Galmair has to trade, if the need something from them."
+"Gerber" -> "Gerber können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Dyer" -> "Dyers can be mainly found in Runewick due to there are the best conditions for this profession. But in Cadomyr they have also few. Galmair has to trade, if the need something from them."
+"Färber" -> "Färber können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Fisher" -> "Fishers can be mainly found in Cadomyr due to there are the best conditions for this profession. But in Runewick they have also few. Galmair has to trade, if the need something from them."
+"Fischer" -> "Fischer können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Glass","blow" -> "Glass blowers can be mainly found in Cadomyr due to there are the best conditions for this profession. But in Runewick they have also few. Galmair has to trade, if they need something from them."
+"Glasbläser" -> "Glasbläser können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
+"Digger" -> "Diggers can be mainly found in Cadomyr due to there are the best conditions for this profession. But in Galmair they have also few. Runewick has to trade, if the need something from them."
+"Gräber" -> "Gräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Finesmith" -> "Finesmiths can be mainly found in Cadomyr due to there are the best conditions for this profession. But in Galmair they have also few. Runewick has to trade, if the need something from them."
+"Goldschmied" -> "Goldschmiede können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Gem","grinder" -> "Gem grinder can be mainly found in Cadomyr due to there are the best conditions for this profession. But in Galmair they have also few. Runewick has to trade, if the need something from them."
+"Edelstein","schleifer" -> "Edelsteinschleifer können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Blacksmith" -> "Blacksmiths can be mainly found in Galmair due to there are the best conditions for this profession. But in Cadomyr they have also few. Runewick has to trade, if the need something from them."
+"Schmied" -> "Schmiede können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Brick","Brick maker" -> "Brick makers can be mainly found in Galmair due to there are the best conditions for this profession. But in Cadomyr they have also few. Runewick has to trade, if the need something from them."
+"Ziegelmacher" -> "Ziegelmacher können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Mason" -> "Masons can be mainly found in Galmair due to there are the best conditions for this profession. But in Cadomyr they have also few. Runewick has to trade, if the need something from them."
+"Steinmetz" -> "Steinmetze können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Miner" -> "Miners can be mainly found in Galmair due to there are the best conditions for this profession. But in Cadomyr they have also few. Runewick has to trade, if the need something from them."
+"Schürfer" -> "Schürfer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Brewer" -> "Brewers can be mainly found in Galmair due to there are the best conditions for this profession. But in Runewick they have also few. Cadomyr has to trade, if the need something from them."
+"Brauer" -> "Brauer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
+
+--fraction race
+"elf",race=elf,english -> "Elfes can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"elf" -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"elf",english -> "Elfes can be mainly found in Runewick."
+"elf" -> "Elfen können vorallem in Runewick gefunden werden."
+"human",race=human -> "Humans can be found everywhere. Therefore you will feel quite at home everywhere. *giggles* But feel free to go somewhere else too!"
+"mensch",race=human -> "Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"human" -> "Humans can be found everywhere."
+"mensch" -> "Menschen können überall gefunden werden."
+"dwarf","dwarves",race=dwarf -> "Dwarves can be mainly found in Galmair. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"zwerg",race=dwarf -> "Zwerge können vorallem in Galmair gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"dwarf","dwarves" -> "Dwarves can be mainly found in Galmair."
+"zwerg" -> "Zwerge können vorallem in Galmair gefunden werden."
+"orc",race=orc,english -> "Orcs can be mainly found in Cadomyr. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"ork",race=orc -> "Orks können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"orc",english -> "Orcs can be mainly found in Cadomyr."
+"ork" -> "Orks können vorallem in Cadomyr gefunden werden."
+"lizard",race=lizardman -> "Lizardmen can be mainly found in Cadomyr. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"echse",race=lizardman -> "Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"lizard",english -> "Lizardmen can be mainly found in Cadomyr."
+"echse" -> "Echsenmenschen können vorallem in Cadomyr gefunden werden."
+"halbing","halfing",race=halfling,english -> "Halfings as I am can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"halbing","halfing",race=halfling -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"halbing","halfing",english -> "Halfings as I am can be mainly found in Runewick."
+"halbing","halfing" -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here.
+"Yes" -> "Yes?", "'Yes' is the opposite from 'no'. *giggles*","'Yes' means 'Ja' in the old language. *giggles*"
+"Ja" -> "Ja?", "'Ja' ist das Gegenteil von 'Nein'. *kichert*","'Ja' bedeutet 'Yes' in der neuen Sprache. *kichert*"
+"No" -> "No?", "'No' is the opposite of 'Yes'. *giggles*","'No' means 'Nein' in the old language. *giggles*"
+"Nein" -> "Nein?", "'Nein' ist das Gegenteil von 'Ja'. *kichert*","'Nein' bedeutet 'No' in der neuen Sprache. *kichert*"
+
+"Father" -> "The father of Queen Rosaline Edwards was King Sir Reginald and the father of Don Valerio Guilianni was Don Tommaso Guilianni. Both are dead. Probably also the father of Archmage Elvaine Morgan, but I have never heard about him. *giggles*"
+"Vater" -> "Der Vater von Königin Rosaline Edwards war König Sir Reginald und der Vater von Don Valerio Guilianni war Don Tommaso Guilianni. Beide sind Tod. Wahrscheinlich auch der Vater von Erzmagier Elvaine Morgan, aber ich hab nie was von ihm gehört.*kichert*"
+"sevenhill" -> "That is in the south of the Sinking Mountains, in the north of the Mountains of Khenserra and in the west of us. *giggles*"
+"siebenhügel" -> "Das ist südlich von den Sinkenden Berge, nördlich der Berge von Khenserra und westlich von uns hier. *kichert*"
+"sinking" -> "Sinking Mountains? Somewhere in the north."
+"sinken" -> "Sinkende Berge? Irgendwo im Norden."
+"Khenserra",english -> "Mountains of Khenserra? Somewhere in the south."
+"Khenserra" -> "Berge von Khenserra? Irgendwo im Süden."
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
+
+".*",english,chance(20)->"Duddli, duddla, ask me for help."
+".*",chance(20)->"Duddli, duddla, frag mich nach Hilfe."
+
+--The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
+"Hummi", english -> "That's me and I know many important things."
+"Hummi" -> "Das bin ich und ich weiß viele wichtige Dinge."
+"quest", "mission", english -> "Some people which you will meet have some tasks for your. Therefore ask always for tasks. But I haven't one for you."
+"quest","mission" -> "Einige Personen die du treffen wirst haben Aufgaben für dich. Daher frage immer nach Aufgaben. Ich habe aber keine für dich."
+"task", "adventure" -> "Some people which you will meet have some tasks for your. Therefore ask always for tasks. But I haven't one for you."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Einige Personen die du treffen wirst haben Aufgaben für dich. Daher frage immer nach Aufgaben. Ich habe aber keine für dich."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.","Ask me for 'help', if you need help."
+cycletext "Frag mich wenn du was über Fraktionen wissen möchtest.", "Ask me if you like to know something about factions."
+cycletext "Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *giggles*"
+cycletext "Frage immer nach Aufgaben, vielleicht hat einer eine für dich und es gibt etwas für dich zu verdienen.", "Ask always for tasks. Probably someone has one for you and you can earn something."
+cycletext "Ob Königin Rosaline Edwards, Don Valerio Guilianni, oder Erzmagier Elvaine Morgan... ich weiß alles über sie... fast alles.*kichert*", "If Queen Rosaline Edwards, Don Valerio Guilianni, or Archmage Elvaine Morgan... I know everything about them...almost. *giggles*."
+cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "If you have no idea where you should go, ask me for help."
+cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you like to know where you and your faith are welcome, ask me for help."
+cycletext "Ich bin Hummi und weiß viele Sachen", "I'm Hummi and know many things."
+cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "If elf, dwarf, human, orc, lizardman, orc or halfling; I know the right place for everyone."
+cycletext "Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebierge.", "Farewell Gobaith, welcome in the east of Sevenhill Mountains."
