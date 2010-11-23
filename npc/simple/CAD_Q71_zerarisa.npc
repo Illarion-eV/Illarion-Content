@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: November 23, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zerarisa"
@@ -32,7 +32,7 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 
--- NPC by Hadrian "The Llama Guy" Abela, revised and translated by Estralis Seborian
+-- NPC by Hadrian The Llama Guy Abela, revised and translated by Estralis Seborian
 
 -- queststatus(71) Overview
 -- QuestID=71
