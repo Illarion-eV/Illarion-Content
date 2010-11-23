@@ -48,8 +48,8 @@ autointroduce = on
 author = "envi"
 --sign your name in here.
 
-lookatDE = "winkt in deine Richtung als du zu ihm siehst."
-lookatUS = "waves in your direction when you look at him."
+lookatDE = "A NPC who has brief and important information about factions."
+lookatUS = "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Rassenspezifische."
@@ -63,8 +63,8 @@ radius = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho.", "Hello.", "Hi."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho.", "Hallo.", "Hi."
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you like to know something about the factions here, just ask me.", "Hello, if you like to know something about the factions here, just ask me.", "Good day, if you like to know something about the factions here, just ask me."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho.", "Hello.", "Hi."
 "Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hiho.", "Hallo.", "Hi."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Fare thee well.", "Bye.", "Good bye."
@@ -230,10 +230,10 @@ radius = 0
 "Brauer" -> "Brauer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
 
 --fraction race
-"elf",race=elf,english -> "Elfes can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
-"elf" -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
-"elf",english -> "Elfes can be mainly found in Runewick."
-"elf" -> "Elfen können vorallem in Runewick gefunden werden."
+"elf","elves",race=elf,english -> "Elves can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"elf","elves" -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"elf","elves",english -> "Elves can be mainly found in Runewick."
+"elf","elves" -> "Elfen können vorallem in Runewick gefunden werden."
 "human",race=human -> "Humans can be found everywhere. Therefore you will feel quite at home everywhere. *giggles* But feel free to go somewhere else too!"
 "mensch",race=human -> "Menschen können überall gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
 "human" -> "Humans can be found everywhere."
@@ -301,4 +301,4 @@ cycletext "Wenn du nicht weißt wohin du gehen sollst, frag mich nach hilfe.", "
 cycletext "Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you like to know where you and your faith are welcome, ask me for help."
 cycletext "Ich bin Hummi und weiß viele Sachen", "I'm Hummi and know many things."
 cycletext "Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "If elf, dwarf, human, orc, lizardman, orc or halfling; I know the right place for everyone."
-cycletext "Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebierge.", "Farewell Gobaith, welcome in the east of Sevenhill Mountains."
+cycletext "Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell Gobaith, welcome in the east of Sevenhill Mountains."

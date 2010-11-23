@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 22, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: November 23, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -48,9 +48,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Hiho.");
-talkEntry:addResponse("Hello.");
-talkEntry:addResponse("Hi.");
+talkEntry:addResponse("Hiho, if you like to know something about the factions here, just ask me.");
+talkEntry:addResponse("Hello, if you like to know something about the factions here, just ask me.");
+talkEntry:addResponse("Good day, if you like to know something about the factions here, just ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -64,9 +64,9 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("mit dir");
-talkEntry:addResponse("Hiho.");
-talkEntry:addResponse("Hallo.");
-talkEntry:addResponse("Hi.");
+talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1096,27 +1096,31 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
+talkEntry:addTrigger("elves");
 talkEntry:addCondition(npc.base.condition.race.race(3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Elfes can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!");
+talkEntry:addResponse("Elves can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
+talkEntry:addTrigger("elves");
 talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
+talkEntry:addTrigger("elves");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Elfes can be mainly found in Runewick.");
+talkEntry:addResponse("Elves can be mainly found in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
+talkEntry:addTrigger("elves");
 talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1409,11 +1413,11 @@ talkingNPC:addCycleText("Wenn du nicht weißt wohin du gehen sollst, frag mich na
 talkingNPC:addCycleText("Wenn du wissen möchtest wo du und dein Glaube gut aufgehoben sind, frage mich nach hilfe.", "If you like to know where you and your faith are welcome, ask me for help.");
 talkingNPC:addCycleText("Ich bin Hummi und weiß viele Sachen", "I'm Hummi and know many things.");
 talkingNPC:addCycleText("Ob Elf, Zwerg, Mensch, Ork, Echsenmensch oder Halbing, ich weiß für jeden den richtigen Platz.", "If elf, dwarf, human, orc, lizardman, orc or halfling; I know the right place for everyone.");
-talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebierge.", "Farewell Gobaith, welcome in the east of Sevenhill Mountains.");
+talkingNPC:addCycleText("Lebwohl Gobaith, willkommen östlich des Siebenhügel Gebirge.", "Farewell Gobaith, welcome in the east of Sevenhill Mountains.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("winkt in deine Richtung als du zu ihm siehst.", "waves in your direction when you look at him.");
+mainNPC:setLookat("A NPC who has brief and important information about factions.", "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Rassenspezifische.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
