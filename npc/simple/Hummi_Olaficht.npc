@@ -52,7 +52,7 @@ lookatDE = "A NPC who has brief and important information about factions."
 lookatUS = "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat."
 useMsgDE = "Finger weg!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Rassenspezifische."
+wrongLangDE = "Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache."
 wrongLangUS = "You have to talk to me in a language which I understand. Either the common or the racespecific language."
 
 -- Keep radius=0 and the Npc won't walk around

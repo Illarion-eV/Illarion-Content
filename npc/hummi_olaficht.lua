@@ -1419,7 +1419,7 @@ mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("A NPC who has brief and important information about factions.", "Ein NPC der kurze und wichtige Informationen über die Fraktionen hat.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Rassenspezifische.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
+mainNPC:setConfusedMessage("Du musst schon in einer Sprache sprechen die ich verstehe. Entweder die gemeinsame oder die rassenspezifische Sprache.", "You have to talk to me in a language which I understand. Either the common or the racespecific language.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 181);
 mainNPC:setEquipment(11, 0);
