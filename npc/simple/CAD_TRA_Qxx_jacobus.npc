@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  134, 590, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Jacobus"
@@ -23,14 +23,23 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Juwellier Jacobus."
+lookatUS = "This NPC is the jeweller Jacobus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+
+itemHead = 0
+itemChest = 814
+itemCoat = 195
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 821
+itemShoes = 771
 
 -- NPC by Estralis Seborian
 
