@@ -100,6 +100,7 @@ function initializeNpc()
 
     npc.base.autonpcfunctions.InitTalkLists();
 	mainNPC = npc.base.basic.baseNPC();
+	local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 
 	
     -- ********* START DYNAMIC PART ********
