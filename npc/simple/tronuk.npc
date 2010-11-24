@@ -19,8 +19,8 @@ affiliation = "Cadomyr"
 job = "priest"
 
 -- appearance
-colorHair = 84, 76, 74
-colorSkin = 51, 52, 36
+colorHair = 108, 86, 72
+colorSkin = 57, 138, 55
 hairID = 2
 beardID = 5
 itemHead = 0
