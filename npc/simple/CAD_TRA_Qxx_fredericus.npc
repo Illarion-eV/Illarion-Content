@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  133, 581, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -23,10 +23,10 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Fischer Fredericus."
+lookatUS = "This NPC is the fisherman Fredericus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -42,6 +42,15 @@ wrongLangUS = "#me looks at you confused."
 -- 5% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
 -- 5% Mushrooms: 158, 159, 160, 161, 162, 163
 -- 10% Fish: 73, 355, 455
+
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 183
+itemShoes = 369
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman.")
