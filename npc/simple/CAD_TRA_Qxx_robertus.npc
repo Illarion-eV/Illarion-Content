@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  119, 601, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Robertus"
@@ -42,6 +42,15 @@ wrongLangUS = "#me looks at you confused."
 -- 5% Bricks: 736, 2588
 -- 5% Stones: 733, 735, 1266
 -- 10% Clay: 26
+
+itemHead = 0
+itemChest = 363
+itemCoat = 195
+itemMainHand = 207
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 2112
+itemShoes = 53
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keyphrases: Hello, builder.")
