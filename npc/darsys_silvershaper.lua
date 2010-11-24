@@ -99,7 +99,9 @@ function initializeNpc()
     end
 
     npc.base.autonpcfunctions.InitTalkLists();
+	mainNPC = npc.base.basic.baseNPC();
 
+	
     -- ********* START DYNAMIC PART ********
     npc.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Be greeted!");
     npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
