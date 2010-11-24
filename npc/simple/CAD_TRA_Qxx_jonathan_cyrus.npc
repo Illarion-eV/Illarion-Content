@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  113, 599, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Jonathan Cyrus"
@@ -23,10 +23,10 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist Glaswarenhändler Jonathan Cyrus."
+lookatUS = "This NPC is the glass goods trader Jonathan Cyrus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -42,6 +42,15 @@ wrongLangUS = "#me looks at you confused."
 -- 10% Glass resources: 41, 314, 316, 726
 -- 5% Candles, torches: 43, 391
 -- 5% Wax: 431
+
+itemHead = 0
+itemChest = 180
+itemCoat = 195
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 827
+itemShoes = 770
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the glass goods trader Jonathan Cyrus. Keyphrases: Hello, glass.")
