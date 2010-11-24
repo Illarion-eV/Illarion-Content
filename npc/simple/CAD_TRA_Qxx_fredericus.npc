@@ -44,7 +44,7 @@ wrongLangUS = "#me looks at you confused."
 -- 10% Fish: 73, 355, 455
 
 itemHead = 0
-itemChest = 181
+itemChest = 182
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
