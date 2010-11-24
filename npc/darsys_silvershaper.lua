@@ -132,6 +132,10 @@ function initializeNpc()
 
     npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
     thisNPC.activeLanguage=TradStdLang;
+	mainNPC:setEquipment(3, 852);
+	mainNPC:setEquipment(4, 2295);
+	mainNPC:setEquipment(9, 843);
+	mainNPC:setEquipment(10, 369);
 
 
 end
