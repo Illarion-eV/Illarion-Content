@@ -1,14 +1,19 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Ehrom Goldhammer                                            None --
--- NPC Job:  none                                                             --
+-- NPC Job:  smuggler                                                         --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  720, 175, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 25, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (1, 720, 175, 0, 4, 'Ehrom Goldhammer', 'npc.ehrom_goldhammer', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.item")
@@ -18,7 +23,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.ehrom_goldhammer", package.seeall)
 
@@ -490,7 +495,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler I"));
 talkEntry:addResponse("So you want to help me. A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,7 +506,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler I"));
 talkEntry:addResponse("Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -511,7 +516,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler I"));
 talkEntry:addResponse("So you want to help me. A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,7 +527,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler I"));
 talkEntry:addResponse("Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -570,7 +575,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Bei Ronagan, ihr habt tatsächlich die Kupferkelche gebracht. Nehmt diese Silberstücke als kleine Anerkennung. Allerdings könnte ich nochmal Eure Dienste bei einem Auftrag brauchen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 5));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -583,7 +588,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. But I could use your service again for another order.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 5));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -612,7 +617,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler II"));
 talkEntry:addResponse("I got a new order from abroad. A dwarven souvereign ordered two dwarven state armours. But I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +628,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler II"));
 talkEntry:addResponse("Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -633,7 +638,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler II"));
 talkEntry:addResponse("I got a new order from abroad. A dwarven souvereign ordered two dwarven state armours. But I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,7 +649,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler II"));
 talkEntry:addResponse("Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,7 +697,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2390, 2));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,7 +710,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Aye aye, I have to say that you are getting better and better. These silver coins are yours now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2390, 2));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +739,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler III"));
 talkEntry:addResponse("A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin. 'For his freshmen', he said. Will you bring me those?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,7 +750,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler III"));
 talkEntry:addResponse("Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +760,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler III"));
 talkEntry:addResponse("A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin. 'For his freshmen', he said. Will you bring me those?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -766,7 +771,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler III"));
 talkEntry:addResponse("Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,7 +819,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("As scheint, als wäre Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, 42));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -827,7 +832,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("It seems as if Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, 42));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -856,7 +861,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler IV"));
 talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,7 +872,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,7 +882,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler II"));
 talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +893,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -936,7 +941,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert für euch, welches ich gerne loswerden würde. Fragt nicht, warum und nehmt es an.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2785, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(206, 1, 999, 14));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -949,7 +954,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ronagan's thanks... yes, this wand should be good enough. I just have this word for your, I want to get rid of it. Do not ask why and accept it.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2785, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(206, 1, 999, 14));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(72, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,7 +1050,7 @@ talkingNPC:addCycleText("Geheimverstecke? Pah, je offener, desto besser, dann fr
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Schmuggler Ehrom Goldhammer.", "This NPC is the smuggler Ehrom Goldhammer.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
