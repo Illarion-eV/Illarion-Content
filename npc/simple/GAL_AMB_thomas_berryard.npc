@@ -1,16 +1,9 @@
--- Note: ALWAYS add commentaries in an extra line! 
--- This Template is used for NPCs that stay at one place (Shopkeepers, tavern owners, etc.) 
-
 name = "Thomas Berryard" 
--- Replace to own liking 
 race = halfling
--- human, elf, dwarf, lizardman, orc, halfling... 
 sex = male 
--- male/female 
 position = 381, 177, -6 
---name the position here. 
+--Galmair Underground Orc's Place
 direction = southeast 
--- north, northeast, east, southeast, south, southwest, west, northwest 
 affiliation = "None" 
 job = "slave" 
 
@@ -21,62 +14,220 @@ defaultLanguage = common
 autointroduce = on 
 
 author = "Rincewind" 
---sign your name in here. 
 
-lookatDE = "Ein dürrer Halbling in zerschlissener Kleidung. An seinen Füßen befinden sich Schellen die ihn an eine Kette fesseln." 
-lookatUS = "A meager halfling in tattered cloth. His feet are handcuffed to a heavy chain." 
+lookatDE = "Ein pummeliger Halbling in zerschlissener Kleidung. An seinen Füßen befinden sich Schellen die ihn an eine Kette fesseln." 
+lookatUS = "A chubby halfling in tattered cloth. His feet are handcuffed to a heavy chain." 
 useMsgDE = "Fass mich nicht an!" 
 useMsgUS = "Do not touch me!" 
 wrongLangDE = "#me schaut dich verwirrt an." 
 wrongLangUS = "#me looks at you confused." 
--- Keep radius=0 and the Npc won't walk around 
 radius = 0 
+
+itemChest = 180
+itemMainHand = 23
+itemTrousers = 183
+
+--Trader Options: Bucket (51)
 
 -- Help 
 "Help" -> inform("[Game Help] This NPC is Thomas Berryard the mason and dye mixer-slave. Fee: 1 silver coin each task. Keyphrases: make 15 buckets black/green/blue/red/yellow/white dye, make 10 pebbles, make 3 stone block) 
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thomas Berryard der Steinmetz und Farbmischer-Sklave. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: mische 15 Eimer schwarze/grüne/blaue/rote/gelbe/weiße Farbe, mache 10 Kiesel, mache 3 Steinquader.") 
 
+
+"%NUMBER Steinquader",money >= 100, item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER),money -100
+"%NUMBER Kiesel",money >= 100, item(735, all) => expr( %NUMBER/5) -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5)),money -100
+"%NUMBER Kiesel",money >= 100, item(733, all) => expr( %NUMBER/5) -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5)),money -100
+"Steinquader",money >= 100, item(21, all) => 1 -> "#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, 1, 333, 0), deleteitem(21, 1),money -100
+"%NUMBER Steinquader", item(735, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER Kiesel", item(735, all) => expr( %NUMBER/5) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER Kiesel", item(733, all) => expr( %NUMBER/5) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"Steinquader", item(21, all) => 1 ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"Kiesel" -> "Kiesel mach ich nur für die, die mir ausreichend entweder Steinquader oder rohe Steine bringen. Fünf Kiesel je Stein. Außerdem musst du mir eine Silbermünze geben... pro Auftrag."
+"Steinquader" -> "Steinquader kann ich nur machen wenn mir jemand ausreichend rohe Steine bringt. Außerdem musst du mir eine Silbermünze geben... pro Auftrag."
+"stein","steine","felsen", -> "Wieviele 'Steinquader' oder 'Kiesel' brauchst du? Und vergiß nicht, jeder Auftrag kostet eine Silbermünze..."
+
+"%NUMBER stone block",money >= 100, item(735, all) => expr( %NUMBER*1) -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the raw stones to fair blocks.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER),money -100
+"stone block",money >= 100, item(21, all) => 1 -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the raw stones to fair blocks.", item(733, 1, 333, 0), deleteitem(21, 1),money -100
+"%NUMBER pebble",money >= 100, item(735, all) => expr( %NUMBER/5) -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5)),money -100
+"%NUMBER pebble",money >= 100, item(733, all) => expr( %NUMBER/5) -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5)),money -100
+"%NUMBER stone block", item(735, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"stone block", item(21, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER pebble", item(735, all) => expr( %NUMBER/5) ->"You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER pebble", item(733, all) => expr( %NUMBER/5) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"pebble" -> "Pebbles are only possible if you bring me enough stone blocks or raw stones. Furthermore I have to claim one silvercoin for each task."
+"stone block" -> "Bring enough raw stones and I will work stone blocks for you. Furthermore I have to claim one silvercoin for each task."
+"stone","rock" -> "How many 'stone blocks' or 'pebbles' do you need? Do not forget that I have to claim one silvercoin for each task."
+
+-- 2678 | schwarze Farbe - benötigt Kohle(21) 1x
+-- 2679 | grüne Farbe - benötigt Kohl(290)
+-- 2680 | blaue Farbe - Blackberry (147) 3x
+-- 2681 | rote Farbe - benötigt Kirsche(302) 2x + Zwiebel(201) 2x
+-- 2682 | gelbe Farbe - benötigt Faulbaum Rinde(157) 2x
+-- 2683 | weiße Farbe - benötigt Hirtenpilz(161) 2x
+
+--resurces and money here = give out item. delate money.
+"%NUMBER.*schwarze Farbe",money >= 100, item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER),money -100
+"%NUMBER.*schwarze Farbe",money >= 100, item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER),money -100
+"schwarze Farbe",money >= 100, item(21, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1),money -100
+"schwarze Farbe",money >= 100, item(21, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1),money -100
+--resurces. no money! = 'I need a silvercoin'
+"%NUMBER.*schwarze Farbe", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER.*schwarze Farbe", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"schwarze Farbe", item(21, all) => 1, item(51, all) => 1 ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"schwarze Farbe", item(21, all) => 1, item(52, all) => 1 ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+-- no resurces. no money =  general information
+"schwarze Farbe" -> "Ohne Material kann ich keine Fraben machen. Für schwarze Farbe brauch ich Kohle und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+
+
+"%NUMBER.*black dye",money >= 100, item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER),money -100
+"%NUMBER.*black dye",money >= 100, item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER),money -100
+"black dye",money >= 100, item(21, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1),money -100
+"black dye",money >= 100, item(21, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1),money -100
+"%NUMBER.*black dye", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER.*black dye", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"black dye", item(21, all) => 1, item(51, all) => 1 ->"You have to give me a silvercoin. Otherwise I won't do anything for you." 
+"black dye", item(21, all) => 1, item(52, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"black dye" -> "Without material I can't mix Dye. Black dye needs coal and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"%NUMBER.*gr[üu]ne Farbe",money >= 100, item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER),money -100
+"%NUMBER.*gr[üu]ne Farbe",money >= 100, item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER),money -100
+"gr[üu]ne Farbe",money >= 100, item(290, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1),money -100
+"gr[üu]ne Farbe",money >= 100, item(290, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1),money -100
+"%NUMBER.*gr[üu]ne Farbe", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER.*gr[üu]ne Farbe", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gr[üu]ne Farbe", item(290, all) => 1, item(51, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gr[üu]ne Farbe", item(290, all) => 1, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gr[üu]ne Farbe" -> "Ohne Material kann ich keine Fraben machen. Für grüne Farbe brauch ich Kohl und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+"%NUMBER.*green dye",money >= 100, item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER),money -100
+"%NUMBER.*green dye",money >= 100, item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER),money -100
+"green dye",money >= 100, item(290, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1),money -100
+"green dye",money >= 100, item(290, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1),money -100
+"%NUMBER.*green dye", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER.*green dye", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"green dye", item(290, all) => 1, item(51, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"green dye", item(290, all) => 1, item(52, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"green dye" -> "Without material I can't mix Dye. Green dye needs cabbage and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"%NUMBER.*blaue Farbe",money >= 100, item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, %NUMBER),money -100
+"%NUMBER.*blaue Farbe",money >= 100, item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, %NUMBER),money -100
+"blaue Farbe",money >= 100, item(147, all) => 3, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 1),money -100
+"blaue Farbe",money >= 100, item(147, all) => 3, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 1),money -100
+"%NUMBER.*blaue Farbe", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER.*blaue Farbe", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"blaue Farbe", item(147, all) => 3, item(51, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"blaue Farbe", item(147, all) => 3, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"blau Farbe" -> "Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 3 Brombeeren und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+"%NUMBER.*blue dye",money >= 100, item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, expr( %NUMBER*3)),money -100
+"%NUMBER.*blue dye",money >= 100, item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, expr( %NUMBER*3)),money -100
+"blue dye",money >= 100, item(147, all) => 3, item(51, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 3),money -100
+"blue dye",money >= 100, item(147, all) => 3, item(52, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 3),money -100
+"%NUMBER.*blue dye", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER.*blue dye", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"blue dye", item(147, all) => 3, item(51, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"blue dye", item(147, all) => 3, item(52, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"blue dye" -> "Without material I can't mix Dye. Blue dye needs at least 3 blackberries and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"%NUMBER.*rote Farbe",money >= 100, item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2)),money -100
+"%NUMBER.*rote Farbe",money >= 100, item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2)),money -100
+"rote Farbe",money >= 100, item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
+"rote Farbe",money >= 100, item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
+"%NUMBER.*rote Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) =>"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!" 
+"%NUMBER.*rote Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"rote Farbe", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"rote Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"rote Farbe" -> "Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 2 Zwiebeln, 2 Kirschen und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+"%NUMBER.*red dye",money >= 100, item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2)),money -100
+"%NUMBER.*red dye",money >= 100, item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2)),money -100
+"red dye",money >= 100, item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
+"red dye",money >= 100, item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
+"%NUMBER.*red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER.*red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"red dye", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"red dye", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"red dye" -> "Without material I can't mix Dye. Red dye needs at least 2 Onions, 2 Cherries and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"%NUMBER.*gelbe Farbe",money >= 100, item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2)),money -100
+"%NUMBER.*gelbe Farbe",money >= 100, item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2)),money -100
+"gelbe Farbe",money >= 100, item(157, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0), deleteitem(51, 1), deleteitem(157, 2),money -100
+"gelbe Farbe",money >= 100, item(157, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0), deleteitem(51, 1), deleteitem(157, 2),money -100
+"%NUMBER.*gelbe Farbe", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!" 
+"%NUMBER.*gelbe Farbe", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gelbe Farbe", item(157, all) => 2, item(51, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gelbe Farbe", item(157, all) => 2, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"gelbe Farbe" -> "Ohne Material kann ich keine Fraben machen. Für gelbe Farbe brauch ich mindestens 2 Faulbaumrinden und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+"%NUMBER.*yellow dye",money >= 100, item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2)),money -100
+"%NUMBER.*yellow dye",money >= 100, item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2)),money -100
+"yellow dye",money >= 100, item(157, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, 2),money -100
+"yellow dye",money >= 100, item(157, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, 2),money -100
+"%NUMBER.*yellow dye", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) ->"You have to give me a silvercoin. Otherwise I won't do anything for you."
+"%NUMBER.*yellow dye", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"yellow dye", item(157, all) => 2, item(51, all) => 1 ->"You have to give me a silvercoin. Otherwise I won't do anything for you."
+"yellow dye", item(157, all) => 2, item(52, all) => 1 ->"You have to give me a silvercoin. Otherwise I won't do anything for you."
+"yellow dye" -> "Without material I can't mix Dye. Yellow dye needs at least 2 rotten tree barks and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"%NUMBER wei[ßs]e Farbe",money >= 100, item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2)),money -100
+"%NUMBER wei[ßs]e Farbe",money >= 100, item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2)),money -100
+"wei[ßs]e Farbe",money >= 100, item(161, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2),money -100
+"wei[ßs]e Farbe",money >= 100, item(161, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2),money -100
+"%NUMBER wei[ßs]e Farbe", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER wei[ßs]e Farbe", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"wei[ßs]e Farbe", item(161, all) => 2, item(51, all) => 1 ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!" 
+"wei[ßs]e Farbe", item(161, all) => 2, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"wei[ßs]e Farbe" -> "Ohne Material kann ich keine Fraben machen. Für weiße Farbe brauch ich mindestens 2 Hirtnepilze und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
+"%NUMBER white dye",money >= 100, item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2)),money -100
+"%NUMBER white dye",money >= 100, item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2)),money -100
+"white dye",money >= 100, item(161, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2),money -100
+"white dye",money >= 100, item(161, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2),money -100
+"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) ->"You have to give me a silvercoin. Otherwise I won't do anything for you." 
+"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) ->"You have to give me a silvercoin. Otherwise I won't do anything for you." 
+"white dye", item(161, all) => 2, item(51, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"white dye", item(161, all) => 2, item(52, all) => 1 -> "You have to give me a silvercoin. Otherwise I won't do anything for you."
+"white dye" -> "Without material I can't mix Dye. White dye needs at least 2 herders mushroom and a bucket, witch you have to buy from me if you havn't one allready... water is here. I have to claim one silvercoin for each task."
+"dye" -> "I mix 'white dye', 'yellow dye', 'red dye', 'blue dye', 'green dye'and 'black dye'... *sighs* Do not forget that I have to claim one silvercoin for each task."
+"farbe" -> "Ich rühre 'weiße Farbe', 'gelbe Farbe', 'rote Farbe', 'blaue Farbe', 'grüne Farbe' und 'schwarze Farbe' an... *seufzt* Und vergiß nicht, jeder Auftrag kostet eine Silbermünze."
+
+
 -- General speech 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod.","Yes... Hello."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu.","Jah-h... Hallo."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod.","Yes... Hello."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu.","Jah-h... Hallo."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
+"How are you", "How feel", "How do you do" -> "What do you think? - Exactly." 
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Na wie solls mir schon gehen? - Eben." 
+"your name", "who are you", "who art thou" -> "I'm Thomas Berryard. And I don't wan't to be here!"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Thomas Berryard und man hält mich hier gegen meinen Willen fest!" 
 
 -- Catching typical NPC phrases 
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"what sell", "what buy", "list wares", "price of" -> "I sell nothing. I'm a slave. But I work stones and mix dye, wich'll need one silvercoin each task." 
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin ein Sklave. Also darf ich nichts verkaufen. Aber ich behaue Steine und mische Farbe, was dann trozdem eine Silbermünze pro Auftrag kostet." 
+"tell something" -> "Long time ago, I was a fat happy halfling. But I lend money from deceptive people. And in the next moment - I worked for the pignoses here.", "The first day's it was quite bearable. But I sneaked away at night... That was a trouble, I will never forgett. Since that, I'm handcuffed to this chain.", "These orcs don't give me enough to eat! They are amused by my collywobbles. I became honestly meager!" 
+"erzähl was", "erzähl etwas" -> "Tja. Einst war ich ein fetter glücklicher Halbling. Aber dann hab ich mir von den falschen Leuten Geld geliehen und ehe ich mich umsehen konnte, arbeite ich hier für die Schweinenasen.", "Zu Anfang war es ja noch einigermaßen erträglich. Doch ich hab mich in der Nacht davon geschlichen... das gab einen Trubel, will ich mich gar nicht drann erinnern. Dannach haben sie mich hier angekettet.", "Diese Orks geben mir nie genug zu Essen! Die finden das lustig, wenn mir der Magen knurrt. Ich bin jetzt ja schon ganz dürr!" 
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more! 
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"profession" -> "Do you see the chain there? It's mine. My personal one. Therefore I do not sneak away at night. - Again. So my profession... yeah. I'm slave. Isn't it great? *sighs*","I'm a mason. And I mix dye. Bring resources and one silvercoin. Then I'll work for you." 
+"beruf" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich.
+"job", english -> "Do you see the chain there? It's mine. My personal one. Therefore I do not sneak away at night. - Again. So my profession... yeah. I'm slave. Isn't it great? *sighs*","I'm a mason. And I mix dye. Bring resources and one silvercoin. Then I'll work for you." 
+"job" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich.
+"Gobaith", "Gobiath", english -> "Never heard of that." 
+"Gobaith", "Gobiath" -> "Nie davon gehört." 
+"I am", "my name" ->"We havn't met allready, did we?"
+"Ich bin", "mein Name" -> "Hab ich dich nich schon mal geshen?"
 
 -- More small talk; add at least five triggers 
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+
+
+"orc" -> "Eh... they are taler than me and stinky. If they care about, they are quite adept. But finally it's me who have to do all the work.","Once, I became sick. I thought now it's over... Then the shaman over there cured me. Tja...","Belive me, noone like to get told what I have seen in this cave."
+"book" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"food" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"escape","chain","fly","break"->""
+"money"->""
+"Murgo","Er'hja","Erhja","Krudash",english->"H-hm? That's my owner. In generall all those orcs command me arround all the time. But Damn! They look all the same way!"
+
+"Ork" -> "Eh... ja. Sie sind größer als ich und stinken. Wenn sie sich Mühe geben sind sie ganz geschickt. Aber die Arbeit lassen sie ja dann doch nur mich machen.","Ich bin einmal krank geworden, dann dachte ich... jetzt ists vorbei. Aber der Schamane dort drüben hat sich tatsächlich um mich gekümmert. Tja...","Glaub mir, keiner will wissen was ich hier in dieser Höhle schon alles mit ansehen musste." 
+"Murgo","Er'hja","Erhja","Krudash"->"H-hm? S' ist mein Besitzer. Im Grunde kommandieren mich alle diese Orks herum, wie's ihnen passt. Verdammt nochmal, die sehen doch alle gleich aus!"
+"Flucht","ausbrechen","fliehen","kette" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"geld" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Essen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Buch" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
 
 -- Faction stuff 
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
@@ -153,191 +304,15 @@ radius = 0
 -- Optional Trigger /  Response is only given 1/5 of the time 
 
 ".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-".*",german,chance(20)->"GERMAN1.","GERMAN2.","GERMAN3." 
+".*",german,chance(20)->"Ich wollte eine Gewerkschaft gründen. Aber Murgo war dagegen.","GERMAN2.","GERMAN3." 
 
 --The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ... 
-"NPC Name",english->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"NPC Name"->"GERMAN1.","GERMAN2.","GERMAN3." 
+"Thomas","Berry","snaga",english -> "Hm-h? Do you need any stones ore dye?","Yeh-hs. What do you want?"  
+"Thomas","Berry","snaga" -> "Was ist? Brauchst du Steine, oder Farben?" ,"Jah-ah. Was willst du?"
+"slave" -> "Hm-h? Do you need any stones ore dye?","Yeh-hs. What do you want?" 
+"Sklave", -> "Was ist? Brauchst du Steine, oder Farben?" ,"Jah-ah. Was willst du?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
-
-------------------------------------------------------------------------------AC 
--- Cycle Texts - Messages spoken automatically in random intervals. 
--- Every NPC should contain at least 10 of those messages. 
--- Emotes are possible also starting with "#me ....". 
-
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH." 
-cycletext "GERMAN.", "ENGLISH."
-
-
-------------------------------------------------------------------------------AC
--- NPC Name: Thomas Berryard                                             None --
--- NPC Job:  none                                                             --
---                                                                            --
--- NPC Race: halfling                   NPC Position:  381, 177, -6           --
--- NPC Sex:  male                       NPC Direction: southeast              --
---                                                                            --
--- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
---------------------------------------------------------------------------------
-
-name = "Thomas Berryard"
-race = halfling
-sex = male
-position = 381, 177, -6
-direction = south
-affiliation = "None"
-job = "none"
-
-language = common
-language = halfling
-defaultLanguage = common
-autointroduce = on
-
-author = "Rincewind"
-
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
-useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
-
--- NPC by Rincewind
--- Thomas Berryard zerklopft Steine und mischt Farben wenn man ihm die materialien dafür bringt.
--- Queststatus Overview - no quest
-
-itemChest = 180
-itemMainHand = 23
-itemTrousers = 183
-
--- language: halfling, orc, common
---Memo to me: DELETE THE DAMN RESURCES DUDE! / fee is one silver!
--- Verkauft: Eimer (51)
--- Kauft: Eimer (51)
-"%NUMBER Steinquader", item(735, all) => expr( %NUMBER*1) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER)
-"%NUMBER Kiesel", item(735, all) => expr( %NUMBER/5) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5))
-"%NUMBER Kiesel", item(733, all) => expr( %NUMBER/5) -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5))
-"Steinquader", item(21, all) => 1 -> "#me seufzt tief, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.", item(733, 1, 333, 0), deleteitem(21, %NUMBER)
-"Kiesel" -> "Kiesel mach ich nur für die, die mir ausreichend entweder Steinquader oder rohe Steine bringen."
-"Steinquader" -> "Steinquader kann ich nur machen wenn mir jemand ausreichend rohe Steine bringt."
-"stein" -> "Wieviele 'Steinquader' oder 'Kiesel' brauchst du?"
-"%NUMBER stone block", item(735, all) => expr( %NUMBER*1) -> "#me sighs deeply and after a while he worked the raw stones to fair blocks.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER)
-"stone block", item(21, all) => 1 -> "#me sighs deeply and after a while he worked the raw stones to fair blocks.", item(733, 1, 333, 0), deleteitem(21, %NUMBER)
-"%NUMBER pebble", item(735, all) => expr( %NUMBER/5) -> "#me sighs deeply and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5))
-"%NUMBER pebble", item(733, all) => expr( %NUMBER/5) -> "#me sighs deeply and after a while he worked the stones to handy pebbles.", item(1266, %NUMBER, 333, 0), deleteitem(735, expr( %NUMBER/5))
-"pebble" -> "Pebbles are only possible if you bring me enough stone blocks or raw stones."
-"stone block" -> "Bring enough raw stones and I will work stone blocks for you."
-"stone" -> "How many 'stone blocks' or 'pebbles' do you need?"
-
--- 2678 | schwarze Farbe - benötigt Kohle(21) 1x
--- 2679 | grüne Farbe - benötigt Kohl(290)
--- 2680 | blaue Farbe - Blackberry (147) 3x
--- 2681 | rote Farbe - benötigt Kirsche(302) 2x + Zwiebel(201) 2x
--- 2682 | gelbe Farbe - benötigt Faulbaum Rinde(157) 2x
--- 2683 | weiße Farbe - benötigt Hirtenpilz(161) 2x
-"%NUMBER schwarz Farbe", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER)
-"%NUMBER schwarz Farbe", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER)
-"schwarz Farbe", item(21, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1)
-"schwarz Farbe", item(21, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1)
-"schwarz Farbe" -> "Ohne Material kann ich keine Fraben machen. Für schwarze Farbe brauch ich Kohle und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER black dye", item(21, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER)
-"%NUMBER black dye", item(21, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2678, %NUMBER, 333, 0), deleteitem(21, %NUMBER), deleteitem(51, %NUMBER)
-"black dye", item(21, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1)
-"black dye", item(21, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2678, 1, 333, 0), deleteitem(21, 1), deleteitem(51, 1)
-"black dye" -> "Without material I can't mix Dye. Black dye needs coal and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-
-"%NUMBER gr[üu]n Farbe", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER)
-"%NUMBER gr[üu]n Farbe", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER)
-"gr[üu]n Farbe", item(290, all) => 1, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1)
-"gr[üu]n Farbe", item(290, all) => 1, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1)
-"gr[üu]n Farbe" -> "Ohne Material kann ich keine Fraben machen. Für grüne Farbe brauch ich Kohl und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER green dye", item(290, all) => expr( %NUMBER*1), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER)
-"%NUMBER green dye", item(290, all) => expr( %NUMBER*1), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2679, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(290, %NUMBER)
-"green dye", item(290, all) => 1, item(51, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1)
-"green dye", item(290, all) => 1, item(52, all) => 1 -> "Here's your dye.", item(2679, 1, 333, 0), deleteitem(51, 1), deleteitem(290, 1)
-"green dye" -> "Without material I can't mix Dye. Green dye needs cabbage and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-"%NUMBER blau Farbe", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, %NUMBER)
-"%NUMBER blau Farbe", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, %NUMBER)
-"blau Farbe", item(147, all) => 3, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 1)
-"blau Farbe", item(147, all) => 3, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 1)
-"blau Farbe" -> "Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 3 Brombeeren und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER blue dye", item(147, all) => expr( %NUMBER*3), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, expr( %NUMBER*3))
-"%NUMBER blue dye", item(147, all) => expr( %NUMBER*3), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2680, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(147, expr( %NUMBER*3))
-"blue dye", item(147, all) => 3, item(51, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 3)
-"blue dye", item(147, all) => 3, item(52, all) => 1 -> "Here's your dye.", item(2680, 1, 333, 0), deleteitem(51, 1), deleteitem(147, 3)
-"blue dye" -> "Without material I can't mix Dye. Blue dye needs at least 3 blackberries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-"%NUMBER rot Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2))
-"%NUMBER rot Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2))
-"rot Farbe", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2)
-"rot Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2)
-"rot Farbe" -> "Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 2 Zwiebeln, 2 Kirschen und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2))
-"%NUMBER red dye", item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2))
-"red dye", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2)
-"red dye", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2)
-"red dye" -> "Without material I can't mix Dye. Red dye needs at least 2 Onions, 2 Cherries and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-"%NUMBER gelb Farbe", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2))
-"%NUMBER gelb Farbe", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2))
-"gelb Farbe", item(157, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0), deleteitem(51, 1), deleteitem(157, 2)
-"gelb Farbe", item(157, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2682, 1, 333, 0), deleteitem(51, 1), deleteitem(157, 2)
-"gelb Farbe" -> "Ohne Material kann ich keine Fraben machen. Für gelbe Farbe brauch ich mindestens 2 Faulbaumrinden und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER yellow dye", item(157, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2))
-"%NUMBER yellow dye", item(157, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2682, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, expr( %NUMBER*2))
-"yellow dye", item(157, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, 2)
-"yellow dye", item(157, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2682, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(157, 2)
-"yellow dye" -> "Without material I can't mix Dye. Yellow dye needs at least 2 rotten tree barks and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-"%NUMBER wei[ßs] Farbe", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2))
-"%NUMBER wei[ßs] Farbe", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2))
-"wei[ßs] Farbe", item(161, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2)
-"wei[ßs] Farbe", item(161, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2)
-"wei[ßs] Farbe" -> "Ohne Material kann ich keine Fraben machen. Für weiße Farbe brauch ich mindestens 2 Hirtnepilze und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier."
-"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(51, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2))
-"%NUMBER white dye", item(161, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Here's your dye.", item(2683, %NUMBER, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, expr( %NUMBER*2))
-"white dye", item(161, all) => 2, item(51, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2)
-"white dye", item(161, all) => 2, item(52, all) => 1 -> "Here's your dye.", item(2683, 1, 333, 0), deleteitem(51, %NUMBER), deleteitem(161, 2)
-"white dye" -> "Without material I can't mix Dye. White dye needs at least 2 herders mushroom and a bucket, witch you have to buy from me if you havn't one allready... water is here."
-"dye" -> "I mix 'white dye', 'yellow dye', 'red dye', 'blue dye', 'green dye'and 'black dye'... *sighs*"
-"farbe" -> "Ich rühre 'weiße Farbe', 'gelbe Farbe', 'rote Farbe', 'blaue Farbe', 'grüne Farbe' und 'schwarze Farbe' an... *seufzt*"
-
--- generall
-"hallo", "gr[üue]+[sß]+e", "guten tag", "Gruß", "Seid gegrüßt", "Guten Abend", "Tach", "Moin", "Greb" -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu."
-"good day", "greetings", "greets", "hail", "hello", "Be greeted", "Good morning" -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me gives you an aggrieved and sarkastic 'Hihoo...'.", "#me gives you a spiritless nod."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "#me gibt ein bedrückt, sarkastisches 'Hihoo...' von sich.", "#me nickt dir lustlos zu."
-"wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Thomas Berryard und man hält mich hier gegen meinen Willen fest!"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
-"Ciao", "Fareba", "Adieu", "Au revoir", english -> "Farewell.", "Good bye.", "Bye.", "Ciao...", "Adieu!"
-"Ciao", "Fareba", "Adieu", "Au revoir", german -> "Tschüß.", "Wiedersehen.", "Adieu!", "Baba..."
-"How are you", "How feel", "How do you do" -> "Na wie solls mir schon gehen?...eben."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "What do you think?...exactly."
-"your name", "who are you", "who art thou" -> "I'm Thomas Berryard. And I don't wan't to be here!"
-"I am", "I'm" -> "We havn't met allready, did we?"
-"Ich bin" -> "Hab ich dich nich schon mal geshen?"
-
--- Help
-"hilfe" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
-"helfen" -> "Ja, genau. Ich muss die ganzen 'Steine' zu Kieseln hauen und 'Farben' mischen.", state = 0
-"help" -> "Actually, I have to batter all 'stones' into pebbles and mix 'dye'.", state = 0
-
--- smalltalk
-"murgo", english -> "Murgo? He is my owner. And Krudash is his wife."
-"murgo", german -> "Murgo? Er ist mein Besitzer. Und Krudash seine Frau."
-
-------------------------------------------------------------------------------AC
--- Cycle Texts - Messages spoken automatically in random intervals.
--- Every NPC should contain at least 10 of those messages.
--- Emotes are possible also starting with "#me ....".
 
 cycletext "#me klopft lustlos auf ein paar Steinen herum.", "#me knocks some stones in a spiritless way."
 cycletext "#me seufzt. 'Schon wieder...'", "#me sighs. 'Again...'"
@@ -349,3 +324,4 @@ cycletext "Wenn er mich zwingt das nochmal zu essen, hau ich ihm ins Gemächt!",
 cycletext "... und dann wird mir alles egal sein.. ja genau! Hihi.", "... and then I won't care annymore.. oh yes! Hihi."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
 cycletext "#me klimpert mit seinen Handschellen.", "#me jingles with his handcuffs. "
+
