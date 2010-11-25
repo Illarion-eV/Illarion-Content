@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Francois Delacroix                                          None --
--- NPC Job:  none                                                             --
+-- NPC Name: Francois Delacroix                                      Runewick --
+-- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  911, 798, 1            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: November 25, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -15,18 +15,18 @@ race = human
 sex = male
 position = 911, 798, 1
 direction = north
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "trader"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Bauer Francois Delacroix."
+lookatUS = "This is NPC is the peasant Francois Delacroix."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
