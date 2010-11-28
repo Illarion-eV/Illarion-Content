@@ -216,7 +216,7 @@ itemTrousers = 183
 
 
 "orc" -> "Eh... they are taler than me and stinky. If they care about, they are quite adept. But finally it's me who have to do all the work.","Once, I became sick. I thought now it's over... Then the shaman over there cured me. Tja...","Belive me, noone like to get told what I have seen in this cave."
-"book" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"book" -> "Well, yes. I wrote books. Hopefully they help others to avoid problems I got." 
 "food" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
 "escape","chain","fly","break"->""
 "money"->""
@@ -227,7 +227,7 @@ itemTrousers = 183
 "Flucht","ausbrechen","fliehen","kette" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
 "geld" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
 "Essen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Buch" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Buch" -> "Gut, ja. Ich hab Bücher geschrieben. Hoffentlich helfen die jemanden." 
 
 -- Faction stuff 
 "Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
