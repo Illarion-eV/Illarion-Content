@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind/KormKormson                                            --
 --                                                                            --
--- Last parsing: October 26, 2010                        easyNPC Parser v1.01 --
+-- Last parsing: November 28, 2010                        easyNPC Parser v1.01 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -164,7 +164,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
-talkEntry:addResponse("G'day, beautyfull maiden! come here! I'll clean that table.");
+talkEntry:addResponse("G'day, beautiful maiden! Come here! I'll clean that table.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,7 +191,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
-talkEntry:addResponse("G'day, beautyfull maiden! come here! I'll clean that table.");
+talkEntry:addResponse("G'day, beautiful maiden! Come here! I'll clean that table.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,7 +314,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Be well! An' carefull, that no one steps on yer hands...");
+talkEntry:addResponse("Be well! An' careful that no one steps on yer hands...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +334,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Be well! An' carefull, that no one steps on yer hands...");
+talkEntry:addResponse("Be well! An' careful that no one steps on yer hands...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,8 +403,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("At that time I was the inkeeper of the Dragon's Pond. But now - yes now I hold this moderate cottage.");
-talkEntry:addResponse("This's my tavern. 'The Winged Sow', thats the name. Aye that's rigth!");
-talkEntry:addResponse("Altough the business in Galmair is much better, I tend to miss the old Drangon's Pond sometimes.");
+talkEntry:addResponse("This is my tavern. 'The Winged Sow', that's the name. Aye that's right!");
+talkEntry:addResponse("Although the business in Galmair is much better, I tend to miss the old Drangon's Pond sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +420,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I'm the inkeeper here.");
-talkEntry:addResponse("That's my tavern. 'The Winged Sow'");
+talkEntry:addResponse("This is my tavern. 'The Winged Sow'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +435,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'm the inkeeper here.");
-talkEntry:addResponse("That's my tavern. 'The Winged Sow'");
+talkEntry:addResponse("This is my tavern. 'The Winged Sow'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -465,7 +465,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addCondition(npc.base.condition.quest.quest(306, "=", 5));
-talkEntry:addResponse("No need for tell me again. I'm really good with names. I never forgott one. - What may I serve you?");
+talkEntry:addResponse("No need for tell me again. I'm really good with names. I never forgot one. - What may I serve you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,7 +481,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The Innkeeper gifts you a beer for free. Cheers!"));
-talkEntry:addResponse("You are new here, arn't you? Here you go! The first beer 's for free. Welcome at the Winged Sow tavern!");
+talkEntry:addResponse("You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(306, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -503,7 +503,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
-talkEntry:addResponse("I got virgen's delight, our applewine. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our meade. An' Northburger scullcracker, our beer.");
+talkEntry:addResponse("I got virgin's delight, our applewine. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,7 +522,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I got virgen's delight, our applewine. An' Gnollpoison, a red wine, or Beartrap, our meade. An' Northburger scullcracker, our beer.");
+talkEntry:addResponse("I got virgin's delight, our applewine. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +537,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("buy milk");
-talkEntry:addResponse("Here is no monastery! get lost!");
+talkEntry:addResponse("This is no monastery! get lost!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -571,21 +571,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nordmark");
 talkEntry:addTrigger("northmark");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That's the place where my old tavern was. The Dragon's Pond! It was a good place to be. No witchers and longears. Besyde those, whos heads we had put on a pale. Har-har!");
+talkEntry:addResponse("That's the place where my old tavern was. The Dragon's Pond! It was a good place to be. No witches and longears. Except for the ones whose heads we put on a spike. Har-har!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sow");
 talkEntry:addTrigger("pig");
-talkEntry:addResponse("Aye, peek the sky. Maybe you are able to see one.");
+talkEntry:addResponse("Aye, peek at the sky. Maybe you are able to see one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Murgo");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I know Murgo since the time at Gobaith. He was a good freind of my people.");
+talkEntry:addResponse("I know Murgo since coming to Gobaith. He was a good friend of my people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -624,6 +624,50 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Vigalf");
 talkEntry:addResponse("Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My old friend Vigalf was born there. He didn't like it that much.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Mein alter Freund Vigalf kam aus Albar. Hat ihm dort nie so wirklich gefallen schätze ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm Norodaj! What would I do in this horrible heat? But I guess a clever man should be able to make good money there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes Geld machen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Salkamar is a club of boring parchment shufflers.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Salkamar ist ein Verein von langweiligen Sesselpupsern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -725,52 +769,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My old friend Vigalf was born there. He didn't like it that much.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Mein alter Freund Vigalf kam aus Albar. Hat ihm dort nie so wirklich gefallen schätze ich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm Norodaj! What should I do at this horrible temperature? But I guess a clever man should be able to make good money there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes geld machen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Salkamar is a club of boring pergament shufflers.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Salkamar ist ein Verein von langweiligen Sesselpupsern.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I'm Norodaj. Zhambra and Tanora are those of my choice. And Ronagan, to keep my tavern save! Aye.");
+talkEntry:addResponse("I'm Norodaj. Zhambra and Tanora are those of my choice. And Ronagan, to keep my tavern safe! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,7 +784,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Adron? Well, for sure... I had his shrine here - somwhere. Uhm..");
+talkEntry:addResponse("Adron? Well, for sure... I had his shrine here - somewhere. Uhm..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -798,7 +798,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the treehuggers gods. Don't ask me.");
+talkEntry:addResponse("One of the treehugger gods. Don't ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -812,7 +812,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -825,7 +825,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,7 +838,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the treehuggers gods. Don't ask me.");
+talkEntry:addResponse("One of the treehugger gods. Don't ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -851,7 +851,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the treehuggers gods. Don't ask me.");
+talkEntry:addResponse("One of the treehugger gods. Don't ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,7 +894,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,7 +909,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,7 +924,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -937,7 +937,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Praise ROnagan. And thanks to him, that those thieves are far away from my coins.");
+talkEntry:addResponse("Praise Ronagan. And thanks to him those thieves are far away from my coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -950,7 +950,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ask a preist or something.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,7 +964,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Norodaj are the childrens of the sea. Tanora bless our ships.");
+talkEntry:addResponse("The Norodaj are the children of the sea. Tanora blesses our ships.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -978,7 +978,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("One of the treehuggers gods. Don't ask me.");
+talkEntry:addResponse("One of the treehugger gods. Don't ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -991,7 +991,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Bless my brothers and freinds, Zhambra.");
+talkEntry:addResponse("Bless my brothers and friends, Zhambra.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,7 +1004,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I havn't any tasks for you.");
+talkEntry:addResponse("I haven't any tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1018,7 +1018,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I havn't any tasks for you.");
+talkEntry:addResponse("I haven't any tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1034,7 +1034,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Aye!");
 talkEntry:addResponse("Whatever.");
-talkEntry:addResponse("Allright.");
+talkEntry:addResponse("Alright.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1050,7 +1050,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Aye!");
 talkEntry:addResponse("Whatever.");
-talkEntry:addResponse("Allright.");
+talkEntry:addResponse("Alright.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1067,7 +1067,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("The gods may bless you.");
-talkEntry:addResponse("Have fun, in my tavern.");
+talkEntry:addResponse("Have fun in my tavern.");
 talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1081,7 +1081,7 @@ talkEntry:addResponse("Viel Spass in meiner Taverne!");
 talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord....  In den Kesseln da faulte das Wassah...  da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!");
+talkingNPC:addCycleText("wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord.... In den Kesseln da faulte das Wassah... da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!");
 talkingNPC:addCycleText("#me verwischt den Dreck auf dem Tisch.", "#me wipes in the dirt on the table.");
 talkingNPC:addCycleText("#me steht in einer Wolke übler Gerüche.", "#me stands in a cloud of bad smells.");
 talkingNPC:addCycleText("#me trocknet einen Krug mit einem Drecklappen.", "#me dries a mug with a dirty rag.");
@@ -1097,10 +1097,11 @@ talkingNPC:addCycleText("#me's Atem riecht nach schalem Bier.", "#me's breath sm
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein großgewachsener Norodaj, der mit einem  schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt.", "A tall Norodaj. He uses a dirty rag to smear a beermug made of glass, 'clean'.");
+mainNPC:setLookat("Ein großgewachsener Norodaj, der mit einem schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt.", "A tall Norodaj. He uses a dirty rag to smear a glass beermug, 'clean'.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(9, 823);
+mainNPC:setEquipment(3, 457);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
