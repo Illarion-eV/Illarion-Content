@@ -2,22 +2,21 @@
 -- NPC Name: Hagar Wernson                                               None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  391, 344, -6           --
+-- NPC Race: human                      NPC Position:  391, 334, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind & kormkormsen                                          --
 --                                                                            --
 -- Last parsing: October 29, 2010                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
 
---Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan 
 
 name = "Hagar Wernson" 
 race = human 
 sex = male 
-position = 391, 344, -6 
+position = 391, 334, -6 
 direction = west 
 affiliation = "None" 
 job = "none" 
@@ -27,7 +26,7 @@ language = human
 defaultLanguage = common 
 autointroduce = on 
 
-author = "Rincewind" 
+author = "Rincewind & kormkormsen" 
 
 lookatDE = "Ein großgewachsener Norodaj, der mit einem schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt." 
 lookatUS = "A tall Norodaj. He uses a dirty rag to smear a glass beermug, 'clean'." 
@@ -36,6 +35,7 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an." 
 wrongLangUS = "#me looks at you confused." 
 itemTrousers = 823 
+itemChest = 457
 
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau' 
 
