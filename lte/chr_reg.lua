@@ -256,7 +256,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 elseif ( ( Foodvalue < 3000 ) and ( Foodvalue > 1000 ) ) then -- Noch 50 Minuten bis zum verhungern
                     if ( math.random(1,120) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 10 Minuten )
                         Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me scheint Hunger zu haben, ein leises Magenknurren ist zu vernehmen.");
-                        Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles slightly");
+                        Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me 's stomach grumbles slightly.");
                     end
                 elseif ( ( Foodvalue < 1000 ) and ( Foodvalue > 100 ) ) then -- Noch 16 Minuten bis zum verhungern
                     if ( math.random(1,36) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 3 Minuten )
