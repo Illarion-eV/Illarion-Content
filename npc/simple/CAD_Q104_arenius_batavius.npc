@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -31,6 +31,14 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+itemHead = 0
+itemChest = 101
+itemCoat = 2419
+itemMainHand = 231
+itemSecondHand = 2284
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
 
 -- NPC by Estralis Seborian
 -- Additional content by PO Grim
