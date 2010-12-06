@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 114, 635, 0, 4, 'Horatio Milenus', 'npc.horatio_milenus', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 114, 635, 0, 4, 'Horatio Milenus', 'npc.horatio_milenus', 0, 2, 0, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -964,14 +964,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "A tall man encombered in heavy armor looks down at you from above his nose.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Back up!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(1, 2287);
+mainNPC:setEquipment(3, 2369);
+mainNPC:setEquipment(11, 195);
+mainNPC:setEquipment(5, 2757);
+mainNPC:setEquipment(6, 95);
+mainNPC:setEquipment(4, 530);
 mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(10, 771);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
