@@ -50,11 +50,11 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     ------------------------POSITION ANZEIGEN FERTIG--------------------------
 
-	
+   
     if ( Hitpoints == 0 ) then -- Charakter ist tot
         leadToCross( Char , Effect ); -- Warp char to cross
 
-		return leaveSavely( Effect );
+      return leaveSavely( Effect );
     else
     
         local foundValue, cycleCounter = Effect:findValue( "cycleCounter" ); --Is the cycleCounter still there? Can happen when somebody is revived by another method than the cross or runs to the cross himself
@@ -92,14 +92,14 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     -------------- Meldungen fertig --------------------
                 end
             else -- Tod durch Hunger
-				-- Andere Scripts ggf. benachrichtigen
-				base.playerdeath.playerKilled(Char);
+            -- Andere Scripts ggf. benachrichtigen
+            base.playerdeath.playerKilled(Char);
                 -------------- Meldungen ausgeben ------------------
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english, "#me clenches and falls to the ground.");
+                Char:talkLanguage( CCharacter.say, CPlayer.english, "#me [color=#4040BF]convulses[/color] and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
-                    "Your stomach clenches and the last thing you feel is that your body hits the ground, before everything around you becomes dark.");
+                    "Your stomach [color=#4040BF]cramps[/color] and the last thing you feel is [color=#4040BF] your body hitting[/color] the ground before everything [color=#4040BF]goes[/color] dark.");
                 -------------- Meldungen fertig --------------------
             end
         end
@@ -111,7 +111,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
             -------------- Meldungen ausgeben ------------------
             base.common.InformNLS(Char,
                 "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
-                "You feel how the poison in your body looses its effect.");
+                "You feel [color=#4040BF]the[/color] poison in your body [color=#4040BF]losing[/color] its effect.");
             -------------- Meldungen fertig --------------------
         else
             Hitpoints = math.max( 0,Hitpoints - ( ( Poisonvalue * 0.07 ) * ( ( 30 - Const ) / 20 ) * 5 ) );
@@ -120,20 +120,20 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
                         "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
-                        "You feel how your body becomes weaker.");
+                        "You [color=#4040BF]feel your[/color] body [color=#4040BF]becoming[/color] weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
                 end
             else -- Tod durch Gift
-				-- Andere Scripts ggf. benachrichtigen
-				base.playerdeath.playerKilled(Char);
-				
+            -- Andere Scripts ggf. benachrichtigen
+            base.playerdeath.playerKilled(Char);
+            
                 Poisonvalue = 0; -- Char Tod, Gift verfliegt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me drips some saliva out of the mouth and falls to the ground.");
+                Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me [color=#4040BF]starts to drool [/color]and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
-                    "You feel a cauterization in your body and that the saliva concentrates in your mouth. Then the world around you becomes dark.");
+                    "You feel a [color=#4040BF]burning sensation[/color] in your body and [color=#4040BF]your mouth watering[/color] before [color=#4040BF]everything goes dark[/color].");
             end
         end
     elseif Effect:findValue("poison") then
@@ -149,24 +149,24 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
             local stoneLvl=0;
             local ItemL = Char:getItemAt( 5 );
             local ItemR = Char:getItemAt( 6 );
-        	local FoundItemL, WeaponL = world:getWeaponStruct( ItemL.id );
-        	local FoundItemR, WeaponR = world:getWeaponStruct( ItemR.id );
-        	local StoneItem = false;
-        	if FoundItemL and (WeaponL.WeaponType == 13) then
-        	    StoneItem = ItemL;
-        	elseif FoundItemR and (WeaponR.WeaponType == 13) then
-        	    StoneItem = ItemR;
-        	end
-        	if StoneItem then
-        	    local stone1, str1, stone2, str2 = base.common.GetBonusFromTool( StoneItem );
-				if stone1 == 7 then
-					stoneLvl = stoneLvl + str1;
-				end
-				if stone2 == 7 then
-					stoneLvl = stoneLvl + str2;
-				end
-				RegBoni = 100+stoneLvl * 20; -- 20% per level.
-			end
+           local FoundItemL, WeaponL = world:getWeaponStruct( ItemL.id );
+           local FoundItemR, WeaponR = world:getWeaponStruct( ItemR.id );
+           local StoneItem = false;
+           if FoundItemL and (WeaponL.WeaponType == 13) then
+               StoneItem = ItemL;
+           elseif FoundItemR and (WeaponR.WeaponType == 13) then
+               StoneItem = ItemR;
+           end
+           if StoneItem then
+               local stone1, str1, stone2, str2 = base.common.GetBonusFromTool( StoneItem );
+            if stone1 == 7 then
+               stoneLvl = stoneLvl + str1;
+            end
+            if stone2 == 7 then
+               stoneLvl = stoneLvl + str2;
+            end
+            RegBoni = 100+stoneLvl * 20; -- 20% per level.
+         end
 
             if ( Foodvalue >= maxFoodvalue/12 ) then -- Schnelles HP regenerieren mit FP
                 Manapoints = math.min( maxManapoints, Manapoints + ( (400 * ( Essence / 20 ) ) * RegBoni)/100 ); -- Manapunkte regenerieren bei Ess 10 in 4 Minuten und 10 Sekunden von 0 auf 10000
@@ -175,47 +175,47 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                 Manapoints = math.min( maxManapoints, Manapoints + ( Essence * 5 ) + RegBoni );  -- Manapunkte steigen bei Ess 10 in 16 Minuten und 40 Sekunden von 0 auf 10000
             end
         end
-	else
-		Manapoints = 0;
-	end
+   else
+      Manapoints = 0;
+   end
     --[[elseif ( ( Char:getMagicType() == 1 ) and ( Char:getMagicFlags( 1 ) > 0 ) ) then -- char is priest
-		local pSkill = P_GetConversionSkill(Char.lastSpokenText);
-		if pSkill and P_CheckAltarConversion(Char,true) and Manapoints>0 then
-			Manapoints = Manapoints - 1;
-			Char:increaseSkill(7,pSkill,1);
-			if Char:getSkill(pSkill) == 100 or Manapoints == 0 then
-				Char:talkLanguage(CCharacter.say,CPlayer.german,"#me beendet das Gebet.");
-				Char:talkLanguage(CCharacter.say,CPlayer.english,"#me finishes the prayer.");
-			end
-		else
-			Manapoints = Manapoints + 1;
-		end
-	else -- Wenn der Charakter kein Magier ist, Manapunkte auf 0
+      local pSkill = P_GetConversionSkill(Char.lastSpokenText);
+      if pSkill and P_CheckAltarConversion(Char,true) and Manapoints>0 then
+         Manapoints = Manapoints - 1;
+         Char:increaseSkill(7,pSkill,1);
+         if Char:getSkill(pSkill) == 100 or Manapoints == 0 then
+            Char:talkLanguage(CCharacter.say,CPlayer.german,"#me beendet das Gebet.");
+            Char:talkLanguage(CCharacter.say,CPlayer.english,"#me finishes the prayer.");
+         end
+      else
+         Manapoints = Manapoints + 1;
+      end
+   else -- Wenn der Charakter kein Magier ist, Manapunkte auf 0
         Char:inform("1");
-		Manapoints = 0;
-		local pGod = P_GetGodOfAltar(Char);
-		Char:inform("2");
-		if pGod then
-			Char:inform("3");
-			if P_CheckPrayerFollower(Char,pGod) and P_CheckDevotionTime(Char,pGod,true) and P_CheckItemsFollower(Char,pGod,true) then
-				P_DeleteItemsFollower(Char,pGod);
-				P_DevoteFollower(Char,pGod);
-			elseif P_CheckPrayerPriest(Char,pGod) then
-				if P_CheckDevotionForOrdination(Char,pGod,true) then
-					local pChance = P_GetChanceForOrdination(Char,pGod,true);
-					if pChance and P_CheckItemsPriest(Char,pGod,true) then
-						P_DeleteItemsPriest(Char,pGod);
-						if ( math.random(1,100) <= pChance ) then
-							P_CharToPriest(Char,pGod);
-						else
-							base.common.TempInformNLS(Char,
-								"Nichts passiert.",
-								"Nothing happens.");
-						end
-					end
-				end
-			end
-		end
+      Manapoints = 0;
+      local pGod = P_GetGodOfAltar(Char);
+      Char:inform("2");
+      if pGod then
+         Char:inform("3");
+         if P_CheckPrayerFollower(Char,pGod) and P_CheckDevotionTime(Char,pGod,true) and P_CheckItemsFollower(Char,pGod,true) then
+            P_DeleteItemsFollower(Char,pGod);
+            P_DevoteFollower(Char,pGod);
+         elseif P_CheckPrayerPriest(Char,pGod) then
+            if P_CheckDevotionForOrdination(Char,pGod,true) then
+               local pChance = P_GetChanceForOrdination(Char,pGod,true);
+               if pChance and P_CheckItemsPriest(Char,pGod,true) then
+                  P_DeleteItemsPriest(Char,pGod);
+                  if ( math.random(1,100) <= pChance ) then
+                     P_CharToPriest(Char,pGod);
+                  else
+                     base.common.TempInformNLS(Char,
+                        "Nichts passiert.",
+                        "Nothing happens.");
+                  end
+               end
+            end
+         end
+      end
     end ]]
 
     found1, _ = Effect:findValue( "rapidMana" );
@@ -245,7 +245,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     if ( math.random(1,360) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 30 Minuten )
                         base.common.InformNLS(Char,
                         "Du fühlst ein leichtes Grummeln in deinem Magen.",
-                        "You feel a slight mumble in your stomach.");
+                        "You feel a slight [color=#4040BF]grumble[/color] in your stomach.");
                     end
                 elseif ( ( Foodvalue < 6000 ) and ( Foodvalue > 3000 ) ) then -- Noch 1 Stunde und 40 Minuten bis zum verhungern
                     if ( math.random(1,180) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 15 Minuten )
@@ -355,7 +355,7 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around faints and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
+        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around[color=#4040BF] you fades [/color]and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
@@ -377,7 +377,7 @@ end
 
 
 function leaveSavely( Effect )
-	if ( Effect.numberCalled <= 254 ) then
+   if ( Effect.numberCalled <= 254 ) then
         Effect.nextCalled = 50;
         return true
     else
