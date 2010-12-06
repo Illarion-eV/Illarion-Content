@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 25, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -32,6 +32,15 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 
+itemHead = 0
+itemChest = 813
+itemCoat = 0
+itemMainHand = 258
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 823
+itemShoes = 53
+
 -- NPC by Estralis Seborian
 
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
@@ -47,44 +56,40 @@ wrongLangUS = "#me looks at you confused."
 -- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC is the peasant Francois Delacroix. Keyphrases: Hello, peasant, YOURTRIGGER1, YOURTRIGGER2.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bauer Francois Delacroix. Schlüsselwörter: Hallo, Bauer, DEINTRIGGER1, DEINTRIGGER2.")
+"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", german -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"beruf" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"job", german -> "ANSWER1", "ANSWER2", "ANSWER3"
-"job", english -> "ANSWER1", "ANSWER2", "ANSWER3"
-"PROFESSION" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"BERUF" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"LOCATION" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"ORT" -> "ANSWER1", "ANSWER2", "ANSWER3"
-"trader", "merchant", "collegue", "vendor", "market" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
-"händler", "kollege", "höker", "markt" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
-"Gobaith", english -> "ANSWER1", "ANSWER2", "ANSWER3"
-"Gobaith", german -> "ANSWER1", "ANSWER2", "ANSWER3"
+"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- More small talk; add at least five triggers
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -96,17 +101,21 @@ wrongLangUS = "#me looks at you confused."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -118,36 +127,72 @@ wrongLangUS = "#me looks at you confused."
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"GOD", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"GOTT" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Catching quest triggers
-"quest", english -> "NO QUEST"
-"quest", german -> "NO QUEST"
-"task", "adventure" -> "NO QUEST"
-"Auftrag", "Aufgabe", "Abenteuer" -> "NO QUEST"
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "ANSWER1", "ANSWER2"
-"Ja" -> "ANSWER1", "ANSWER2"
-"No" -> "ANSWER1", "ANSWER2"
-"Nein" -> "ANSWER1", "ANSWER2"
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
-cycletext "GERMAN", "ENGLISH"
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
