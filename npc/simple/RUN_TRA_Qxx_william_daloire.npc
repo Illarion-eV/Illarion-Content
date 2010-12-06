@@ -26,13 +26,12 @@ autointroduce = on
 author = "Insert your name here"
 
 lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatUS = "This NPC is William Daloire the herbalist."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-
 itemHead = 831
 itemChest = 363
 itemCoat = 196
