@@ -1,0 +1,251 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Horatio Milenus                                          Cadomyr --
+-- NPC Job:  Guard                                                            --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  114, 635, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Kawan Baxter                                                     --
+--                                                                            --
+-- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Horatio Milenus"
+race = human
+sex = male
+position = 114, 635, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Guard"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "A tall man encombered in heavy armor looks down at you from above his nose."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Back up!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Replace to own liking
+
+-- human
+
+-- male
+
+-- Gaurd.
+
+-- south
+
+-- appearance
+-- if you don't change it your npc will wear a blue shirt, black trousers, leather glowes and leather boots at least.
+-- He will also have fair skin and brown hairs.
+
+-- Name: Horatio Milenus
+-- Age: 29
+-- Occupation: Gate Guard
+-- Race: Cadomyr
+-- Skin: olive, rough, heavily tanned from constant sun exposure
+-- Eyes Back
+-- Hair: Black, shaven
+-- Height: Tall
+-- Body: Broad shoulders, heavily muscular
+-- Weapon: huge scimitar, in sand colored leather sheath
+-- Cloth: Heavy sand colored armor, quite unusual in the area
+
+-- Personality:
+-- Horatio is “a solid rock amidst an endless sea of sand.” Horatio is a man raised to
+-- value emotions little and value morals greatly. As a result his emotions are wrapped up in his morals.
+-- His greatest moral is duty; duty to his wife, duty two his mother-in law and father-in law, duty to
+-- his two daughters, his duty to his kingdom, the people of Cadomyr, to keep them safe, and duty to his
+-- queen. Horatio has looked at Rosaline as a star ever since he was a babe and her a young adult princess.
+-- Outsiders are not people to him, they are just things that will or will not hurt Cadomyr. If they do not
+-- possess a threat to Cadomyr Horatio is generally cold to them. If they posses even a miniscule threat
+-- however, Horatio will show them with great fury why the desert is called the natural grave of men.
+
+-- Background:
+-- Horatio was born to a poor family.  He was raised by his mother, a beggar. His father he never knew.
+-- Horatio was incredibly tall for his age. Because of his height he looked older and was able to sneak into
+-- joining military service.  While he was in training his mother died. Horatio placed all his devotion into
+-- the city of Cadomyr. He saw the old king as his long lost father and princess Rosalin as his mystical elder
+-- sister.
+
+-- Horatio earnestly fought for his city. He gained renowned status from battle. With huge stature and his rare
+-- choice in using heavy armor Horatio has taken down up to twenty people by himself. In the process of stopping
+-- liquor smuggling operation against 14 bandits an arrow pierced his foot severing the fourth toe on his left foot.
+
+-- While serving as city guard, a young tree cutter’s daughter caught his eye. Horatio paid the dowry for her hand in
+-- marriage. It was a stable home since Horatio was paid well for his position. His in-laws eventually moved in with
+-- Horatio and his wife, Fern Milenus. They currently are living out the happily ever after scenario.
+
+-- Goals
+-- - To provide for him in his family
+-- - To protect his realm
+-- - To be a good father, even more motivated because he never had one.
+
+-- Method
+-- - Being a Cadomyr gate guard.
+
+-- Family tree
+-- -Mother: Besta Milenus
+-- -Wife: Fern Milenus
+-- -Daughter: Orange Milenus
+-- -Daughter: Budou Milenus
+
+-- Kawan Baxter.
+
+-- Keep radius=0 and the Npc won't walk around
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Quest, Where, Who, Gaurd.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What?.", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha", english -> "What?.", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "Don't ask me such silly questions.", "Don't ask me such silly qu- Actually today is a pretty good day.", "I guard, I don't feel."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "I am Horatio Milenus, guard of this realm.", "I am Horatio Milenus protector of Cadomyr.", "This is Cadomyr. I am Cadomyr."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "Always carry double the water you think you'll need"
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "It's an Island."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main concerns
+"Cadomyr" -> "My home and my heart."
+"Rosaline", "Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
+"Gate" -> "Anyone or anything that passes between these walls are under my eyes. Remember that."
+"Hastings", "Baron", english -> "I swear, on the day that the gods decide, that man's head will be fell by my blade."
+"Galmair" -> "Galmair is a dirty town where money washes hands clean from any sin."
+"Runewick" -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "it is a strong city, but the inhabitants have no honor. They do whatever it takes to get what they want."
+"Desert" -> "I am but this realm's second greatest protector, the sand is it's first."
+"Pyramid" -> "The resting place of the greatest of our people."
+"Family" -> "Mind your business."
+"Palace" -> "If you have no business at the palace. Stay away from there."
+"Reginald", "King" -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"Guard" -> "I guard the gate of this city."
+
+-- Main land factions
+"albar", english -> "I am Albarian yes.", "You are in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "I have never been there. I know nothing of them.", "They do not concern my attention."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"gods", english -> "The ones I serve are Adron, Malachin and Zhambra."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "My queen loves the god of festivities."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "I respect him. but there is too much fire in this world"
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I will not meet her, but through the fulfillment of my duty."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "She is not cared for much in this country. I have never sought her guidance."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "Eldan is the father of Elara and hence, as useless as her."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "She brings rain, but also sand storms. That is all I have to say of her."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "This god was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along."
+"Irmorom" -> ""
+"Malachin", "Malachín", english -> "The god of battle has saved my life on many occasions."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "Quiet now! or I shall remove your tongue."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "I do not serve this god."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "She has forsaken us. It is through our own hands that we grow food in Cadomyr."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "You can serve Ronagan and end up a lowly thief or you can serve a just god and end up like me."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "We do not serve her here."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "We don't see her often in Cadomyr."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "She is one of the five."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "It is through him that I am able to serve Cadomyr."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching quest triggers
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Yes" -> "Yes to what?"
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "Leave me now or suffer to be arrested."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+-- This response should give the player a hint about what to ask the NPC
+-- Optional Trigger /  Response is only given 1/5 of the time
+".*", english, chance(20) -> "I am the merely a guard of Cadomyr."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
+"Horatio Milenus", english -> "That is I. State your business."
+"NPC Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+-- Will change cycle text for Horatio when quests When I become more aware of Cadomyr.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "ENGLISH.", "#me Unsheathes his giant scimitar"
+cycletext "ENGLISH ", "#me Sharpens his giant scimitar"
+cycletext "ENGLISH.", "#me resheathes his giant scimitar"
+cycletext "ENGLISH.", "Pass along."
+cycletext "ENGLISH.", "Cause no trouble."
+cycletext "ENGLISH.", "Welcome to Cadomyr"
+cycletext "ENGLISH.", "Take shelter before night falls."
+cycletext "ENGLISH.", "#me glares at you"
+cycletext "ENGLISH.", "What do you want?"
+cycletext "ENGLISH.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
+cycletext "ENGLISH.", "Disgusting mage with her books, incantations and spells. She knows nothing about man’s toil of real struggle. She knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
+cycletext "ENGLISH.", "Trolls Bane, Trolls Bane, Trolls Bane! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
+cycletext "ENGLISH.", "Those who wish to see the queen must first be allowed into the castle, those allowed into the castle must first enter the city, those entering the city must first past through these gates, and those who try to pass through these gates must first speak to me."
+cycletext "ENGLISH.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward’s bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
