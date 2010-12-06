@@ -967,7 +967,7 @@ mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you con
 mainNPC:setEquipment(1, 2287);
 mainNPC:setEquipment(3, 2393);
 mainNPC:setEquipment(11, 195);
-mainNPC:setEquipment(5, 2757);
+mainNPC:setEquipment(5, 2731);
 mainNPC:setEquipment(6, 95);
 mainNPC:setEquipment(4, 530);
 mainNPC:setEquipment(9, 2112);
