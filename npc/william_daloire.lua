@@ -980,12 +980,12 @@ mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is <N
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 831);
-mainNPC:setEquipment(3, 0);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 363);
+mainNPC:setEquipment(11, 196);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
-mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(9, 183);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

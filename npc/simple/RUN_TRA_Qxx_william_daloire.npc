@@ -34,12 +34,12 @@ wrongLangUS = "#me looks around confused."
 radius = 0
 
 itemHead = 831
-itemChest = 0
-itemCoat = 0
+itemChest = 363
+itemCoat = 196
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 0
+itemTrousers = 183
 itemShoes = 53
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
