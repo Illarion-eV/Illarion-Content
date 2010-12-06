@@ -34,7 +34,7 @@ wrongLangUS = "#me looks at you confused."
 
 itemHead = 0
 itemChest = 813
-itemCoat = 0
+itemCoat = 55
 itemMainHand = 258
 itemSecondHand = 0
 itemHands = 2295
