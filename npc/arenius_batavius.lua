@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 07, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 10, 15, 0, 4, 'Arenius Batavius', 'npc.arenius_batavius', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 10, 15, 0, 4, 'Arenius Batavius', 'npc.arenius_batavius', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -61,8 +61,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -72,9 +71,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -88,8 +86,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hail! A noble knight I was, defeated I am. Listen to my tale of the evil cult of blood mages.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -99,18 +96,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Seid gegrüßt! Einst war ich ein edler Ritter, nun liege ich im Staub. Horcht meiner Geschichte über einen bösen Kult von Blutmagiern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Go with godspeed. And spread the old customs where you can.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -119,7 +114,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -128,6 +123,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Go with godspeed. And spread the old customs where you can.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -137,7 +133,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -172,386 +168,6 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Arenius Batavius. Ich weile erst seit kurzem in diesen Landen, aber nur Unglück ist mir widerfahren. Bitte, werdet ihr mir auf meinem Kreuzzug beiseite stehen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tale");
-talkEntry:addTrigger("story");
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("geschichte");
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("crusade");
-talkEntry:addTrigger("knight");
-talkEntry:addResponse("Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ritter");
-talkEntry:addTrigger("kreuzzug");
-talkEntry:addResponse("Wir Ritter vom Orden der Silberdrachen bekämpfen das, was nicht mit den alten Sitten vereinbar ist, wo immer es möglich ist. Und in diesem Land bietet sich hierfür allerlei Möglichkeit.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Orden");
-talkEntry:addTrigger("Silberdrache");
-talkEntry:addResponse("Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ork");
-talkEntry:addResponse("Ich habe einige Orks in der Nähe der Höhle, welche ich für den Unterschlupf eines bösen Kultes von Blutmagiern halte, umherstreifen gesehen. Ich frage mich, welche Verbindung sie miteinander haben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kult");
-talkEntry:addResponse("Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Drache");
-talkEntry:addResponse("Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blutmagie");
-talkEntry:addTrigger("totenbeschwör");
-talkEntry:addResponse("Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Höhle");
-talkEntry:addTrigger("Unterschlupf");
-talkEntry:addResponse("Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier, befindet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wund");
-talkEntry:addResponse("Diener des Kultes der Salavesh fügten mir diese Wunden zu. Doch ich werde nicht klein bei geben; helft mir in meiner Mission für das die alten Sitten!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sitte");
-talkEntry:addResponse("Die alten Sitten zu bewahren und zu schützen, das ist die Mission des Ordens der Silberdrachen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Order");
-talkEntry:addTrigger("silver dragon");
-talkEntry:addResponse("The Order of the Silver Dragon might be unknown in these lands; but in the realm of Albar, our name is feared.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Orc");
-talkEntry:addResponse("I saw some orcs prowling the vicinity of the cave which I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cult");
-talkEntry:addResponse("The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dragon");
-talkEntry:addResponse("Dragons are majestic beings and I am proud of once seeing one. Rumours say that the Cult of Salavesh hunts dragons.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("blood magic");
-talkEntry:addTrigger("blood mage");
-talkEntry:addTrigger("necro");
-talkEntry:addResponse("Blood magic is pure sin. The old customs forbid even considering such foul deeds.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("cave");
-talkEntry:addTrigger("stronghold");
-talkEntry:addResponse("I am convinced that the stronghold of the Cult of Salavesh is a cave to the north east.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wound");
-talkEntry:addResponse("Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("custom");
-talkEntry:addResponse("To protect and preserve the old customs, that is the mission of the Order of the Silver Dragon.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Who is that?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Wer soll das sein?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Where is that?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Wo soll das sein?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I had to pay a huge amount of money for the grant to pass the land of this Don Guilianni; is that normal in this land?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Money seems to be one of the favourite words of the people of Galmair. At least it was the word they used most when spoken to.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Geld scheint das Lieblingswort der Leute von Galmair zu sein. Zumindestens war es das Wort, was sie am häufigsten zu mir gesagt haben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is a hospitable village. I am very glad that I found a place where the old customs are still honoured.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist ein gastfreundliches Dorf. Ich bin sehr froh einen Ort gefunden zu haben, wo die alten Sitten noch gewahrt sind.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Well, what exactly don't you know about Albar? It is my home, so refrain from any words that might dishonour it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("Nun, was genau wollt ihr über Albar wissen? Es ist meine Heimat, daher verkneift euch unehrenhafte Worte.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Travellers report evil things about Gynk. A pool of sin, it is. Time for some cleansing, I say!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Reisende berichteten mir schlimme Dinge über Gynk. Ein Sündenpfuhl soll es sein. Zeit, dort aufzuräumen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, please, can't we talk about the weather instead?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Oh nein, lasst uns doch lieber über das Wetter reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Being loyal is more important than being right; that is Zhambra's doctrine.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you know that Brágon is the father of all dragons? No? I thought so.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1459,6 +1075,473 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 35));
 talkEntry:addResponse("Nun, da ihr dem niederträchtigen Kult der Salavesh das Handwerk gelegt habt, gibt es nichts, was ihr für mich tun könntet, denn ich bin geschlagen und fehl am Platz auf dieser Welt. Ihr, auf zu neuen Abenteuern!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("crusade");
+talkEntry:addTrigger("knight");
+talkEntry:addResponse("Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ritter");
+talkEntry:addTrigger("kreuzzug");
+talkEntry:addResponse("Wir Ritter vom Orden der Silberdrachen bekämpfen das, was nicht mit den alten Sitten vereinbar ist, wo immer es möglich ist. Und in diesem Land bietet sich hierfür allerlei Möglichkeit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Orden");
+talkEntry:addTrigger("Silberdrache");
+talkEntry:addResponse("Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ork");
+talkEntry:addResponse("Ich habe einige Orks in der Nähe der Höhle, welche ich für den Unterschlupf eines bösen Kultes von Blutmagiern halte, umherstreifen gesehen. Ich frage mich, welche Verbindung sie miteinander haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kult");
+talkEntry:addResponse("Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Drache");
+talkEntry:addResponse("Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Blutmagie");
+talkEntry:addTrigger("totenbeschwör");
+talkEntry:addResponse("Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Höhle");
+talkEntry:addTrigger("Unterschlupf");
+talkEntry:addResponse("Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier, befindet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wund");
+talkEntry:addResponse("Diener des Kultes der Salavesh fügten mir diese Wunden zu. Doch ich werde nicht klein bei geben; helft mir in meiner Mission für das die alten Sitten!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sitte");
+talkEntry:addResponse("Die alten Sitten zu bewahren und zu schützen, das ist die Mission des Ordens der Silberdrachen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Order");
+talkEntry:addTrigger("silver dragon");
+talkEntry:addResponse("The Order of the Silver Dragon might be unknown in these lands; but in the realm of Albar, our name is feared.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Orc");
+talkEntry:addResponse("I saw some orcs prowling the vicinity of the cave which I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cult");
+talkEntry:addResponse("The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dragon");
+talkEntry:addResponse("Dragons are majestic beings and I am proud of once seeing one. Rumours say that the Cult of Salavesh hunts dragons.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("blood magic");
+talkEntry:addTrigger("blood mage");
+talkEntry:addTrigger("necro");
+talkEntry:addResponse("Blood magic is pure sin. The old customs forbid even considering such foul deeds.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cave");
+talkEntry:addTrigger("stronghold");
+talkEntry:addResponse("I am convinced that the stronghold of the Cult of Salavesh is a cave to the north east.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wound");
+talkEntry:addResponse("Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("custom");
+talkEntry:addResponse("To protect and preserve the old customs, that is the mission of the Order of the Silver Dragon.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Who is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Wer soll das sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Who is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Wer soll das sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Where is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Wo soll das sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I had to pay a huge amount of money for the grant to pass the land of this Don Guilianni; is that normal in this land?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Money seems to be one of the favourite words of the people of Galmair. At least it was the word they used most when spoken to.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Geld scheint das Lieblingswort der Leute von Galmair zu sein. Zumindestens war es das Wort, was sie am häufigsten zu mir gesagt haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("queen");
+talkEntry:addResponse("I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("königin");
+talkEntry:addResponse("Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr is a hospitable village. I am very glad that I found a place where the old customs are still honoured.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Cadomyr ist ein gastfreundliches Dorf. Ich bin sehr froh einen Ort gefunden zu haben, wo die alten Sitten noch gewahrt sind.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Well, what exactly don't you know about Albar? It is my home, so refrain from any words that might dishonour it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Nun, was genau wollt ihr über Albar wissen? Es ist meine Heimat, daher verkneift euch unehrenhafte Worte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Travellers report evil things about Gynk. A pool of sin, it is. Time for some cleansing, I say!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Reisende berichteten mir schlimme Dinge über Gynk. Ein Sündenpfuhl soll es sein. Zeit, dort aufzuräumen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, please, can't we talk about the weather instead?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Oh nein, lasst uns doch lieber über das Wetter reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Being loyal is more important than being right; that is Zhambra's doctrine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addResponse("Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did you know that Brágon is the father of all dragons? No? I thought so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tale");
+talkEntry:addTrigger("story");
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("geschichte");
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC first name>");
+talkEntry:addTrigger("<NPC last name>");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

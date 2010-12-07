@@ -31,6 +31,11 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
 itemHead = 0
 itemChest = 101
 itemCoat = 2419
@@ -39,6 +44,14 @@ itemSecondHand = 2284
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Estralis Seborian
 -- Additional content by PO Grim
@@ -75,84 +88,18 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kreuzritter Arenius Batavius. Schlüsselwörter: Hallo, Quest, Beruf, Kreuzritter, Orden, Orks, Kult, Cherga.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Hail! A noble knight I was, defeated I am. Listen to my tale of the evil cult of blood mages."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt! Einst war ich ein edler Ritter, nun liege ich im Staub. Horcht meiner Geschichte über einen bösen Kult von Blutmagiern."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hail! A noble knight I was, defeated I am. Listen to my tale of the evil cult of blood mages."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Seid gegrüßt! Einst war ich ein edler Ritter, nun liege ich im Staub. Horcht meiner Geschichte über einen bösen Kult von Blutmagiern."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Go with godspeed. And spread the old customs where you can."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
-"Ciao", "Adieu", "Au revoir", english -> "Go with godspeed. And spread the old customs where you can."
-"Ciao", "Adieu", "Au revoir", german -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hail! A noble knight I was, defeated I am. Listen to my tale of the evil cult of blood mages."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt! Einst war ich ein edler Ritter, nun liege ich im Staub. Horcht meiner Geschichte über einen bösen Kult von Blutmagiern."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hail! A noble knight I was, defeated I am. Listen to my tale of the evil cult of blood mages."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt! Einst war ich ein edler Ritter, nun liege ich im Staub. Horcht meiner Geschichte über einen bösen Kult von Blutmagiern."
+"Farewell", "Bye", "Fare well", "See you" -> "Go with godspeed. And spread the old customs where you can."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go with godspeed. And spread the old customs where you can."
+"Ciao", "Adieu", "Au revoir", "Farebba"  -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
 "How are you", "How feel", "How do you do" -> "I underestimated my enemy and I have paid for it, barely made it out alive. Will you continue with my glorious endeavours?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe meinen Feind unterschätzt und dafür bezahlt - ich bin froh, mit dem Leben davongekommen zu sein. Werdet ihr meine ehrbaren Taten vollenden?"
 "your name", "who are you", "who art thou" -> "My name is Arenius Batavius. I came to this land not too long ago, but only misfortune I have received. Please stranger, will you help me in my crusade?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Arenius Batavius. Ich weile erst seit kurzem in diesen Landen, aber nur Unglück ist mir widerfahren. Bitte, werdet ihr mir auf meinem Kreuzzug beiseite stehen?"
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln."
-"tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
-"geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?"
-"beruf" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?"
-"job", english -> "I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?"
-"job" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?"
-"crusade", "knight" -> "Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so."
-"Ritter", "kreuzzug" -> "Wir Ritter vom Orden der Silberdrachen bekämpfen das, was nicht mit den alten Sitten vereinbar ist, wo immer es möglich ist. Und in diesem Land bietet sich hierfür allerlei Möglichkeit."
-
--- More small talk; add at least five triggers
-"Orden", "Silberdrache" -> "Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen."
-"Ork" -> "Ich habe einige Orks in der Nähe der Höhle, welche ich für den Unterschlupf eines bösen Kultes von Blutmagiern halte, umherstreifen gesehen. Ich frage mich, welche Verbindung sie miteinander haben."
-"Kult" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
-"Drache" -> "Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen."
-"Blutmagie", "totenbeschwör" -> "Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen."
-"Höhle", "Unterschlupf" -> "Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier, befindet."
-"Wund" -> "Diener des Kultes der Salavesh fügten mir diese Wunden zu. Doch ich werde nicht klein bei geben; helft mir in meiner Mission für das die alten Sitten!"
-"sitte" -> "Die alten Sitten zu bewahren und zu schützen, das ist die Mission des Ordens der Silberdrachen."
-"Order", "silver dragon" -> "The Order of the Silver Dragon might be unknown in these lands; but in the realm of Albar, our name is feared."
-"Orc" -> "I saw some orcs prowling the vicinity of the cave which I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs."
-"Cult" -> "The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave."
-"Dragon" -> "Dragons are majestic beings and I am proud of once seeing one. Rumours say that the Cult of Salavesh hunts dragons."
-"blood magic", "blood mage", "necro" -> "Blood magic is pure sin. The old customs forbid even considering such foul deeds."
-"cave", "stronghold" -> "I am convinced that the stronghold of the Cult of Salavesh is a cave to the north east."
-"wound" -> "Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs."
-"custom" -> "To protect and preserve the old customs, that is the mission of the Order of the Silver Dragon."
-
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Who is that?"
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Wer soll das sein?"
-"Runewick", english -> "Where is that?"
-"Runewick" -> "Wo soll das sein?"
-"Valerio", "Guilianni", "Don", english -> "I had to pay a huge amount of money for the grant to pass the land of this Don Guilianni; is that normal in this land?"
-"Valerio", "Guilianni", "Don" -> "Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?"
-"Galmair", english -> "Money seems to be one of the favourite words of the people of Galmair. At least it was the word they used most when spoken to."
-"Galmair" -> "Geld scheint das Lieblingswort der Leute von Galmair zu sein. Zumindestens war es das Wort, was sie am häufigsten zu mir gesagt haben."
-"rosaline", "königin", "queen", "edwards", english -> "I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power."
-"rosaline", "königin", "queen", "edwards" -> "Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh."
-"Cadomyr", english -> "Cadomyr is a hospitable village. I am very glad that I found a place where the old customs are still honoured."
-"Cadomyr" -> "Cadomyr ist ein gastfreundliches Dorf. Ich bin sehr froh einen Ort gefunden zu haben, wo die alten Sitten noch gewahrt sind."
-
--- Main land factions
-"albar", english -> "Well, what exactly don't you know about Albar? It is my home, so refrain from any words that might dishonour it."
-"albar" -> "Nun, was genau wollt ihr über Albar wissen? Es ist meine Heimat, daher verkneift euch unehrenhafte Worte."
-"gynk", "gync", english -> "Travellers report evil things about Gynk. A pool of sin, it is. Time for some cleansing, I say!"
-"gync", "gynk" -> "Reisende berichteten mir schlimme Dinge über Gynk. Ein Sündenpfuhl soll es sein. Zeit, dort aufzuräumen!"
-"salkama", english -> "Oh, please, can't we talk about the weather instead?"
-"salkama" -> "Oh nein, lasst uns doch lieber über das Wetter reden."
-
--- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"Moshran", english -> "Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'."
-"Moshran" -> "Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'."
-"Malachin", "Malachín", english -> "Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?"
-"Malachin", "Malachín" -> "Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?"
-"Zhambra", english -> "Being loyal is more important than being right; that is Zhambra's doctrine."
-"Zhambra" -> "Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin."
-"Cherga", english -> "Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!"
-"Cherga" -> "Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!"
-"Bragon", "Brágon", english -> "Did you know that Brágon is the father of all dragons? No? I thought so."
-"Bragon", "Brágon" -> "Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
 
 -- Quest 108: A message from Hector Valerion
 "message", "news", "letter", "scroll", "parchment", queststatus(108) = 6 -> inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."), "#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'", queststatus(108) = 7
@@ -292,13 +239,89 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 35 -> "Now that you stopped the foul deeds of the Cult of Salavesh, there is nothing you can do for me,for I am battered and lost in this world. So, set out to new adventures!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 35 -> "Nun, da ihr dem niederträchtigen Kult der Salavesh das Handwerk gelegt habt, gibt es nichts, was ihr für mich tun könntet, denn ich bin geschlagen und fehl am Platz auf dieser Welt. Ihr, auf zu neuen Abenteuern!"
 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?"
+"beruf" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?"
+"job", english -> "I am a crusader of the Order of the Silver Dragon. I came to these lands to stop the foul deeds of an evil Cult - but I failed. Will you finish my mission?"
+"job" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?"
+"crusade", "knight" -> "Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so."
+"Ritter", "kreuzzug" -> "Wir Ritter vom Orden der Silberdrachen bekämpfen das, was nicht mit den alten Sitten vereinbar ist, wo immer es möglich ist. Und in diesem Land bietet sich hierfür allerlei Möglichkeit."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers
+"Orden", "Silberdrache" -> "Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen."
+"Ork" -> "Ich habe einige Orks in der Nähe der Höhle, welche ich für den Unterschlupf eines bösen Kultes von Blutmagiern halte, umherstreifen gesehen. Ich frage mich, welche Verbindung sie miteinander haben."
+"Kult" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
+"Drache" -> "Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen."
+"Blutmagie", "totenbeschwör" -> "Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen."
+"Höhle", "Unterschlupf" -> "Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier, befindet."
+"Wund" -> "Diener des Kultes der Salavesh fügten mir diese Wunden zu. Doch ich werde nicht klein bei geben; helft mir in meiner Mission für das die alten Sitten!"
+"sitte" -> "Die alten Sitten zu bewahren und zu schützen, das ist die Mission des Ordens der Silberdrachen."
+"Order", "silver dragon" -> "The Order of the Silver Dragon might be unknown in these lands; but in the realm of Albar, our name is feared."
+"Orc" -> "I saw some orcs prowling the vicinity of the cave which I believe must be the stronghold of an evil cult of blood mages. I wonder what business they have with orcs."
+"Cult" -> "The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave."
+"Dragon" -> "Dragons are majestic beings and I am proud of once seeing one. Rumours say that the Cult of Salavesh hunts dragons."
+"blood magic", "blood mage", "necro" -> "Blood magic is pure sin. The old customs forbid even considering such foul deeds."
+"cave", "stronghold" -> "I am convinced that the stronghold of the Cult of Salavesh is a cave to the north east."
+"wound" -> "Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs."
+"custom" -> "To protect and preserve the old customs, that is the mission of the Order of the Silver Dragon."
+
+-- Faction stuff
+"archmage" -> "Who is that?"
+"Erzmagier" -> "Wer soll das sein?"
+"Elvaine", "Morgan", english -> "Who is that?"
+"Elvaine", "Morgan" -> "Wer soll das sein?"
+"Runewick", english -> "Where is that?"
+"Runewick" -> "Wo soll das sein?"
+"Valerio", "Guilianni", "Don", english -> "I had to pay a huge amount of money for the grant to pass the land of this Don Guilianni; is that normal in this land?"
+"Valerio", "Guilianni", "Don" -> "Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?"
+"Galmair", english -> "Money seems to be one of the favourite words of the people of Galmair. At least it was the word they used most when spoken to."
+"Galmair" -> "Geld scheint das Lieblingswort der Leute von Galmair zu sein. Zumindestens war es das Wort, was sie am häufigsten zu mir gesagt haben."
+"queen" -> "I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power."
+"königin" -> "Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh."
+"rosaline", "edwards", english -> "I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power."
+"rosaline", "edwards" -> "Ich zweifle nicht ihren Herrschaftsanspruch an. Sie ist von adeligem Blut, daher ist sie berufen zu herrschen. Aber ich zweifle den Brauch an, der ihr die Macht verlieh."
+"Cadomyr", english -> "Cadomyr is a hospitable village. I am very glad that I found a place where the old customs are still honoured."
+"Cadomyr" -> "Cadomyr ist ein gastfreundliches Dorf. Ich bin sehr froh einen Ort gefunden zu haben, wo die alten Sitten noch gewahrt sind."
+
+-- Main land factions
+"albar", english -> "Well, what exactly don't you know about Albar? It is my home, so refrain from any words that might dishonour it."
+"albar" -> "Nun, was genau wollt ihr über Albar wissen? Es ist meine Heimat, daher verkneift euch unehrenhafte Worte."
+"gynk", "gync", english -> "Travellers report evil things about Gynk. A pool of sin, it is. Time for some cleansing, I say!"
+"gync", "gynk" -> "Reisende berichteten mir schlimme Dinge über Gynk. Ein Sündenpfuhl soll es sein. Zeit, dort aufzuräumen!"
+"salkama", english -> "Oh, please, can't we talk about the weather instead?"
+"salkama" -> "Oh nein, lasst uns doch lieber über das Wetter reden."
+
+-- Gods; each NPC should react on AT LEAST one god, being a follower of said god
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'."
+"Moshran" -> "Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'."
+"Malachin", "Malachín", english -> "Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?"
+"Malachin", "Malachín" -> "Vor einer Schlacht beten viele Ritter zu Malachin; aber wie fest ist ihr Glaube in seine Führung wirklich? Oder sind sie am Ende nur Feiglinge?"
+"Zhambra", english -> "Being loyal is more important than being right; that is Zhambra's doctrine."
+"Zhambra" -> "Loyal zu sein ist wichtiger, als Recht zu haben; das ist Zhambras Doktrin."
+"Cherga", english -> "Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!"
+"Cherga" -> "Cherga! Die Totengöttin! Was tot ist, ist tot und verrottet; alles andere ist einfach nur böse!"
+"Bragon", "Brágon", english -> "Did you know that Brágon is the father of all dragons? No? I thought so."
+"Bragon", "Brágon" -> "Wußtet ihr, dass Brágon der Vater aller Drachen ist? Nein? Dachte ich mir."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Der Codex meines Ordens verbietet es, weltlichem Reichtum nachzustreben. Daher werde ich nicht mit euch handeln."
+"tale", "story", "tell something" -> "I have an interesting tale to tell. It is about an evil cult of blood mages. Seen my wounds? They tell the story."
+"geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
+
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes", "yub" -> "Pardon?", "What do you mean?", "I don't quite know..."
 "Ja" -> "Pardon?", "Wie meinen?", "Ich weiß nicht recht..."
 "No", "nub" -> "Sorry?", "I cannot understand your words.", "What was that again?"
 "Nein" -> "Entschuldigt?", "Ich kann euch nicht folgen.", "Wie bitte?"
-
--- Cycletext: Add as many random messages as possible
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
