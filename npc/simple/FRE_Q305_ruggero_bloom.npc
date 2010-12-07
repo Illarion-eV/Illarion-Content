@@ -26,7 +26,7 @@ autointroduce = on
 author = "not set" 
 
 lookatDE = "Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!" 
-lookatUS = "Arr, this seems like a ugly wild pirate! Be careful."
+lookatUS = "Arr, this seems like a ugly wild pirate! Be careful!"
 useMsgDE = "Fass mich nicht an!" 
 useMsgUS = "Do not touch me!" 
 wrongLangDE = "#me schaut dich verwirrt an." 
