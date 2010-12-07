@@ -19,9 +19,12 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.money")
 require("npc.base.condition.sex")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
+require("npc.base.consequence.money")
 require("npc.base.talk")
 module("npc.alice", package.seeall)
 
@@ -31,102 +34,177 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal against a melted ingot. Keyphrases: melt 5 gold, melt 3 chopper, melt 17 silver, melt 8 iron."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Alice the ore melting slave. Change a raw ore and a piece of coal into a melted ingot. Fee: 1 silver coin for each task. Keyphrases: smelt 5 gold, smelt 3 copper, smelt 17 silver, smelt 8 iron."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) gold");
+talkEntry:addTrigger("(%d+) gold");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) gold");
-talkEntry:addResponse("#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and gold nuggets.'");
+talkEntry:addTrigger("(%d+) gold");
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) gold");
+talkEntry:addTrigger("(%d+) gold");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and gold nuggets.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) gold");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) gold");
+talkEntry:addTrigger("(%d+) gold");
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) gold");
 talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) copper");
+talkEntry:addTrigger("(%d+) copper");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2550, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) copper");
-talkEntry:addResponse("#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and copper ore.'");
+talkEntry:addTrigger("(%d+) copper");
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) kupfer");
+talkEntry:addTrigger("(%d+) copper");
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and copper ore.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) kupfer");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2550, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) kupfer");
+talkEntry:addTrigger("(%d+) kupfer");
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) kupfer");
 talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) iron");
+talkEntry:addTrigger("(%d+) iron");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("melt (%d+) iron");
-talkEntry:addResponse("#me answers whiny-voiced: 'I-I'm soo sorry. You brought n-not enough coal and iron ore.'");
+talkEntry:addTrigger("(%d+) iron");
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) eisen");
+talkEntry:addTrigger("(%d+) iron");
+talkEntry:addResponse("#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and iron ore.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) eisen");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(number) return (number*1); end));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
-talkEntry:addResponse("#me beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("schmelze (%d+) eisen");
+talkEntry:addTrigger("(%d+) eisen");
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(number) return (number*1); end));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
+talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) eisen");
 talkEntry:addResponse("#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -141,7 +219,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("#me gives you a shy 'H-hello...'.");
-talkEntry:addResponse("#me nods in a scared way.");
+talkEntry:addResponse("#me nods in a frightened manner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,7 +246,7 @@ talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me gives you a shy 'H-hello...'.");
-talkEntry:addResponse("#me nods in a scared way.");
+talkEntry:addResponse("#me nods in a frightened manner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +309,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I-I'm f-fine. H-h-havn't d-done some-something wrong, o-or?");
+talkEntry:addResponse("I-I'm f-fine. H-h-haven't d-done some-something wrong, h-have I?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +344,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Y-you don't h-have to pay. If enough ore and... and coal is brought, I w-will melt them for free.");
+talkEntry:addResponse("If enough ore and... and coal is brought, I w-will melt them f-for fee of a s-silver piece... each task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,13 +353,13 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("D-du musst n-nicht bezahlen. W-wenn genügend K-kohle u-und Erz da ist sch-schmelze ich sie einfach so, z-zu Barren.");
+talkEntry:addResponse("W-wenn genügend K-kohle u-und Erz da ist sch-schmelze ich sie z-zu Barren. K-kostet e-ein Silberstück pr-pro Auftrag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("O-once, the fire la-lapsed during melting. A-and Krudash saw it... *sighs*");
+talkEntry:addResponse("O-once, the fire di-died during melting. A-and Krudash saw it... *sighs*");
 talkEntry:addResponse("So-sometimes, if there's no business, I... - I j-just close my eyes and i-imagine I'm far far away.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -296,26 +374,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron.");
+talkEntry:addResponse("I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen.");
+talkEntry:addResponse("I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron.");
+talkEntry:addResponse("I m-melt all ores i-into ingots. G-gold. Copper, silver... a-and iron. A s-silver piece... each task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen.");
+talkEntry:addResponse("I-ch schmelze a-alle Erze z-zu Barren. G-gold. Kupfer, Silber... u-und Eisen. E-ein Silberstück pr-pro Auftrag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +401,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("E-excuse m-me. I never heared about.");
+talkEntry:addResponse("E-excuse m-me. I never heard of it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,13 +442,13 @@ talkEntry:addTrigger("er hja");
 talkEntry:addTrigger("erhja");
 talkEntry:addTrigger("er'hja");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I h-have to listen w-what the orcs say. I must not weap and h-have to be st-st-strenuous.");
+talkEntry:addResponse("I h-have to do w-what the orcs say. I must not cry and h-have to be st-st-strong.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
-talkEntry:addResponse("I g-grew up w-with orcs. My whole l-life. I c-can't remember the t-time it was different....");
+talkEntry:addResponse("I g-grew up w-with orcs my whole l-life. I c-can't remember a t-time when it was different....");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,7 +482,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("T-the Leader of Runewick. H-he should be a mighty and smart wizard.");
+talkEntry:addResponse("Th-the Leader of Runewick. H-he should be a mighty and smart wizard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +498,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("R-runewick. They count on s-smart people. I t-think... I w-would fit in, g-good. There.");
+talkEntry:addResponse("R-runewick. They count on s-smart people. I th-think... I w-would fit in g-good there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +513,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("T-the c-chieftrain o-of Galmair. I hear... - heared he's a dangerous person.");
+talkEntry:addResponse("Th-the ch-chieftain o-of Galmair. I hear... - heard he's a dangerous person.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -450,7 +528,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("G-galmair. T-the name of the t-town here. T-the life is hard and the work i-is difficult.");
+talkEntry:addResponse("G-galmair. Th-the name of the t-town here. Th-the life is hard and the work i-is difficult.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +544,7 @@ talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I... - I heared s-she is a beautiful and mighty q-queen. N-nobody w-would treat h-her rude.");
+talkEntry:addResponse("I... - I heard sh-she is a beautiful and mighty q-queen. N-nobody w-would be rude to h-her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +560,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("C-cadomyr? T-they told me it's horrible there. B-but c-could it be more worse than here?");
+talkEntry:addResponse("C-cadomyr? Th-they told me it's horrible there. B-but c-could it be worse than here?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,7 +573,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'");
+talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,7 +588,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'");
+talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -525,7 +603,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I'm m-my whole live a s-slave.'");
+talkEntry:addResponse("#me sighs. 'E-excuse me. I d-don't know about these things. I've b-been a s-slave for m-my whole life.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -539,7 +617,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("I'm s-sorry, I know just a l-little bit about the gods of I-Illarion. B-but I will you tell what t-the orcs t-told me.");
+talkEntry:addResponse("I'm s-sorry, I know just a l-little bit about the gods of I-Illarion. B-but I will you tell what th-the orcs t-told me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,7 +632,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("M-my owner said Brágon is t-the 'daily?sun?maker'. H-he  is t-the big lord of the fire orcs. A-and oh I d-don't know.");
+talkEntry:addResponse("M-my owner said Brágon is th-the 'daily?sun?maker'. H-he is th-the big lord of the fire orcs. A-and oh I d-don't know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,7 +646,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("T-the icy witch. It's w-what the orcs call her. B-But just their shaman's seem to talk a-about her.");
+talkEntry:addResponse("Th-the icy witch. It's w-what the orcs call her. B-But just their shaman's seem to talk a-about her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -581,7 +659,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("T-the dwarfs, h-here all arround pray t-to Irm-irmorom. There's a temple i-in the town. B-but I don't know about him.");
+talkEntry:addResponse("Th-the dwarves, h-here all arround pray t-to Irm-irmorom. There's a temple i-in the town. B-but I don't know anything about him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -607,7 +685,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Y-you just can't help me. I h-have to work f-for my own.");
+talkEntry:addResponse("Y-you just can't help me. I h-have to w-work alone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,7 +699,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Y-you just can't help me. I h-have to work f-for my own.");
+talkEntry:addResponse("Y-you just can't help me. I h-have to w-work alone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -636,13 +714,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
-talkEntry:addResponse("#me gives a diffident nod. 'Y-yes... yes madam!");
+talkEntry:addResponse("#me gives a humble nod. 'Y-yes... yes madam!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("#me gives a diffident nod. 'Y-yes... yes sir!");
+talkEntry:addResponse("#me gives a humble nod. 'Y-yes... yes sir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,13 +733,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
-talkEntry:addResponse("#me gives a diffident nod. 'Y-yes... yes madam!");
+talkEntry:addResponse("#me gives a humble nod. 'Y-yes... yes madam!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("#me gives a diffident nod. 'Y-yes... yes sir!");
+talkEntry:addResponse("#me gives a humble nod. 'Y-yes... yes sir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -677,7 +755,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("I-I'm sorry!");
 talkEntry:addResponse("E-excuse m-me.");
-talkEntry:addResponse("Y-yes. I w-will work h-harder from n-now...");
+talkEntry:addResponse("Y-yes. I w-will work h-harder from n-now on...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,20 +769,20 @@ talkEntry:addResponse("J-ja. I-ich werde m-mir mehr Mü-mühe geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me reibt sich müde die Augen.", "#me rubs her sleepy eyes.");
-talkingNPC:addCycleText("#me tritt eineige Male auf den Blasebalg, schnell beginnen die Kohlen in der Esse hell zu glühen.", "#me pumps the bellows several times and the coals in the forge start to glow brigtly.");
+talkingNPC:addCycleText("#me tritt eineige Male auf den Blasebalg, schnell beginnen die Kohlen in der Esse hell zu glühen.", "#me pumps the bellows several times and the coals in the forge start to glow brightly.");
 talkingNPC:addCycleText("#me schaufelt einige Kohlenstücke in die Esse.", "#me shovels some coal into the forge.");
 talkingNPC:addCycleText("#me gibt eine leisen Schluchzer von sich.", "#me sobs quietly.");
-talkingNPC:addCycleText("#me kratzt an ihren verfilzten Haaren.", "#me scratches her scruffy hairs.");
-talkingNPC:addCycleText("#me rülpst leise, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps quietly, flavour of stale beer and roasted meat floats into the noses of the surrounding area.");
-talkingNPC:addCycleText("#me balanziert für einige Sekunden auf den Zähenspitzen.", "#me balances for several second at her toes.");
-talkingNPC:addCycleText("#me beißt sich auf die Unterlippe und blickt skeptisch auf das Feuer in der Esse.", "#me bites her under lip and glances scepticly at the fire of the forge.");
-talkingNPC:addCycleText("#me zuckt plötzlich heftig zusammen. Dann blickt sie sich beunruhigt um.", "#me jerks hard, then she glances arround, seem to be worried.");
-talkingNPC:addCycleText("#me kneift die Augen zusammen und späht durch die Türe in richtung des Marktes.", "#me narrows her eyes and peeks trough the door at the market.");
+talkingNPC:addCycleText("#me kratzt an ihren verfilzten Haaren.", "#me scratches her scruffy hair.");
+talkingNPC:addCycleText("#me rülpst leise, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps quietly, the scent of stale beer and roasted meat floats into the noses of anyone in the surrounding area.");
+talkingNPC:addCycleText("#me balanziert für einige Sekunden auf den Zähenspitzen.", "#me balances for several second on her toes.");
+talkingNPC:addCycleText("#me beißt sich auf die Unterlippe und blickt skeptisch auf das Feuer in der Esse.", "#me bites her lower lip and glances skeptically at the fire in the forge.");
+talkingNPC:addCycleText("#me zuckt plötzlich heftig zusammen. Dann blickt sie sich beunruhigt um.", "#me jerks hard, then she glances around, seeming worried.");
+talkingNPC:addCycleText("#me kneift die Augen zusammen und späht durch die Türe in Richtung des Marktes.", "#me narrows her eyes and peeks through the door at the market.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Eine junge in Lumpen gekleidete Frau. Ihr Haar ist verdreckt und ihre Haut von Ruß und Kohle geschwärzt.", "A jung women dressed in rags. Her hair is scummy and the skin is covered by coal and dust.");
+mainNPC:setLookat("Eine junge in Lumpen gekleidete Frau. Ihr Haar ist verdreckt und ihre Haut von Ruß und Kohle geschwärzt.", "A young women dressed in rags. Her hair is filthy and her skin is covered with coal and dust.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(3, 802);

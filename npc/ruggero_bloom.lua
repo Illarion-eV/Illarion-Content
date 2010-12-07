@@ -741,7 +741,7 @@ talkingNPC:addCycleText("#me puhlt sich mit einem Dolch Essensreste aus den Zahn
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, this seems like a ugly wild pirate! Be careful.");
+mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, this seems like a ugly wild pirate! Be careful!");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(3, 180);
