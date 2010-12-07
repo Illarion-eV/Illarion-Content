@@ -32,7 +32,26 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 2390
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 2116
+itemShoes = 326
 
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 -- Galmair
 
 -- NPC by Rincewind
@@ -44,33 +63,29 @@ radius = 0
 -- Raw meat: 307, 552, 553, 2934
 -- Milk: 330
 
-itemChest = 2390
-itemTrousers = 2116
-itemShoes = 326
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Keyphrases: usual trading trigers.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen handels trigger.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen Handelstrigger.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Abundance and Wealth, my friend.", "Arr."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk. "
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farewell.", "Abundance and Wealth, my friend.", "Arr.", "G'hruk."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk. "
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Abundance and Wealth, my friend.", "Arr.", "G'hruk."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
 "How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
--- Catching typical NPC phrases
-"what sell","what buy","list wares","price of"->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-"was verkauf","was kauf","warenliste","preis von"->"Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr." 
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
+-- Catching quest triggers
+"quest", "mission", english-> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission"-> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -79,8 +94,8 @@ itemShoes = 326
 "job" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis	. und ich werd's nicht vergessen solltest du versuchen mich übers Ohr zu hauen!"
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis	. und ich werd's nicht vergessen solltest du versuchen mich übers Ohr zu hauen!"
 
 -- More small talk; add at least five triggers
 "Dwar[vf]" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -99,26 +114,30 @@ itemShoes = 326
 "advari","stonebog"->"Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Arr. Jeder Zwerg weiß natürlich, daß Magie gemeingefährlicher Firlefanz ist! Und dieser Elvaine Morgan täte gut daran auf uns Zwerge zu hören!"
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "Arr. Jeder Zwerg weiß natürlich, daß Magie gemeingefährlicher Firlefanz ist! Und dieser Elvaine Morgan täte gut daran auf uns Zwerge zu hören!"
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "Arr. Jeder Zwerg weiß natürlich, daß Magie gemeingefährlicher Firlefanz ist! Und dieser Elvaine Morgan täte gut daran auf uns Zwerge zu hören!"
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "Drhg'hgin! Ein Sündenpfuhl wenn ihr mich fragt. Dort spielen sie mit Magie herum. Da versteh ich keine Scherze! Sollen sie sich selbst in die Luft sprengen, D'rkza...Narren."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "Aye, der Don ist das Gesetz hier. Leg dich besser nicht mit ihm an. Er ist der reichste Zwerg hier... könnte das letzte sein was ihr getan habt."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt sei's Irmorom!"
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
+"queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"königin" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "Cadomyr? Die werden doch von so einer verzogenen Göre regiert. Wenn ihr mich fragt, hat die keine Ahnung von Geschäften. Bei uns Zwergen, ja-ja, da haben nur die klügsten Köpfe was zu sagen!"
 
 -- Main land factions
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar", german -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
+"albar" -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "Gynk, ja-ja! Dort gibt's Mienen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
+"gync", "gynk" -> "Gynk, ja-ja! Dort gibt's Mienen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur daran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
+"salkama" -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur daran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -128,13 +147,15 @@ itemShoes = 326
 "Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ronagan" -> "Aye, ich opfere einen guten Teil meiner Einkünfte dem Schattengott. So sorgt er dafür, dass ich vom diebischen Gesindel verschont bleibe! Arr."
 
--- Catching quest triggers
-"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", german -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" ->"ENGLISH1.","ENGLISH2.","ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" ->"Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1", "ENGLISH2", "Aargk... - tell me about."
 "Ja" -> "Aye. Da stimm ich zu!", "Arr, so gefällt mir das!", "Aargk... - sprich was ist's?"
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -142,7 +163,7 @@ itemShoes = 326
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(20) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
+".*", chance(20) -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
