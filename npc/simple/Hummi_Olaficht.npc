@@ -65,8 +65,8 @@ radius = 0
 -- General speech
 "Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, if you like to know something about the factions here, just ask me.", "Hello, if you like to know something about the factions here, just ask me.", "Good day, if you like to know something about the factions here, just ask me."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho.", "Hello.", "Hi."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hiho.", "Hallo.", "Hi."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hiho, if you like to know something about the factions here, just ask me.", "Hello, if you like to know something about the factions here, just ask me.", "Good day, if you like to know something about the factions here, just ask me."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Fare thee well.", "Bye.", "Good bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Mach's gut.", "Tschüß.", "Wiedersehen."
 "Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Fare thee well.", "Bye.", "Good bye."

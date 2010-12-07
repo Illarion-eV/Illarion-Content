@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 23, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 07, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -77,9 +77,9 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hiho.");
-talkEntry:addResponse("Hello.");
-talkEntry:addResponse("Hi.");
+talkEntry:addResponse("Hiho, if you like to know something about the factions here, just ask me.");
+talkEntry:addResponse("Hello, if you like to know something about the factions here, just ask me.");
+talkEntry:addResponse("Good day, if you like to know something about the factions here, just ask me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,9 +89,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
-talkEntry:addResponse("Hiho.");
-talkEntry:addResponse("Hallo.");
-talkEntry:addResponse("Hi.");
+talkEntry:addResponse("Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
+talkEntry:addResponse("Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
