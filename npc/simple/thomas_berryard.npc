@@ -44,7 +44,7 @@ itemTrousers = 183
 "Steinquader", item(21, all) => 1 ->"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
 "Kiesel" -> "Kiesel mach ich nur für die, die mir ausreichend entweder Steinquader oder rohe Steine bringen. Fünf Kiesel je Stein. Außerdem musst du mir eine Silbermünze geben... pro Auftrag."
 "Steinquader" -> "Steinquader kann ich nur machen wenn mir jemand ausreichend rohe Steine bringt. Außerdem musst du mir eine Silbermünze geben... pro Auftrag."
-"stein","steine","felsen", -> "Wieviele 'Steinquader' oder 'Kiesel' brauchst du? Und vergiß nicht, jeder Auftrag kostet eine Silbermünze..."
+"stein","steine","felsen" -> "Wieviele 'Steinquader' oder 'Kiesel' brauchst du? Und vergiß nicht, jeder Auftrag kostet eine Silbermünze..."
 
 "%NUMBER stone block",money >= 100, item(735, all) => expr( %NUMBER*1) -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the raw stones to fair blocks.", item(733, %NUMBER, 333, 0), deleteitem(735, %NUMBER),money -100
 "stone block",money >= 100, item(21, all) => 1 -> "#me sighs deeply, he puts the gotten silvercoin into his trouser pocket and after a while he worked the raw stones to fair blocks.", item(733, 1, 333, 0), deleteitem(21, 1),money -100
@@ -128,8 +128,8 @@ itemTrousers = 183
 "%NUMBER.*rote Farbe",money >= 100, item(302, all) => expr( %NUMBER*2), item(201, all) => expr( %NUMBER*2), item(52, all) => expr( %NUMBER*1) -> "Da hast du deine Farbe.", item(2681, %NUMBER, 333, 0), deleteitem(51, expr( %NUMBER*2)), deleteitem(302, expr( %NUMBER*2)),money -100
 "rote Farbe",money >= 100, item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
 "rote Farbe",money >= 100, item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Da hast du deine Farbe.", item(2681, 1, 333, 0), deleteitem(51, 2), deleteitem(302, 2),money -100
-"%NUMBER.*rote Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) =>"Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!" 
-"%NUMBER.*rote Farbe", item(302, all) => expr( %NUMBER*2), item(201, all) => "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
+"%NUMBER.*rote Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Dau msst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!" 
+"%NUMBER.*rote Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
 "rote Farbe", item(302, all) => 2, item(201, all) => 2, item(51, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
 "rote Farbe", item(302, all) => 2, item(201, all) => 2, item(52, all) => 1 -> "Du musst mir aber eine Silbermünze geben. Sonst tu ich gar nicht's für dich!"
 "rote Farbe" -> "Ohne Material kann ich keine Fraben machen. Für blaue Farbe brauch ich mindestens 2 Zwiebeln, 2 Kirschen und einen Eimer, den du mir abkaufen musst fallst du keinen hast... Wasser hab ich hier. Jeder Auftrag kostet eine Silbermünze."
@@ -204,9 +204,9 @@ itemTrousers = 183
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more! 
 "profession" -> "Do you see the chain there? It's mine. My personal one. Therefore I do not sneak away at night. - Again. So my profession... yeah. I'm slave. Isn't it great? *sighs*","I'm a mason. And I mix dye. Bring resources and one silvercoin. Then I'll work for you." 
-"beruf" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich.
+"beruf" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich."
 "job", english -> "Do you see the chain there? It's mine. My personal one. Therefore I do not sneak away at night. - Again. So my profession... yeah. I'm slave. Isn't it great? *sighs*","I'm a mason. And I mix dye. Bring resources and one silvercoin. Then I'll work for you." 
-"job" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich.
+"job" -> "Siehst du die Kette dort? Sie gehört mir. Mir ganz allein. Damit ich mich nicht davon machen kann. - Wieder einmal. Mein Beruf... Ja. Ich bin ein Sklave. Toll nicht? *seufzt*","Ich bin Steinmetz. Und Farben mische ich auch. Bring das Material und ne Silbermünze. Dann arbeite ich für dich."
 "Gobaith", "Gobiath", english -> "Never heard of that." 
 "Gobaith", "Gobiath" -> "Nie davon gehört." 
 "I am", "my name" ->"We havn't met allready, did we?"
@@ -217,100 +217,77 @@ itemTrousers = 183
 
 "orc" -> "Eh... they are taler than me and stinky. If they care about, they are quite adept. But finally it's me who have to do all the work.","Once, I became sick. I thought now it's over... Then the shaman over there cured me. Tja...","Belive me, noone like to get told what I have seen in this cave."
 "book" -> "Well, yes. I wrote books. Hopefully they help others to avoid problems I got." 
-"food" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"escape","chain","fly","break"->""
-"money"->""
+"food" -> "Once I was a healthy halfling. But here's no good food.", "Tja, Thomas Berryard have to be hungry. How could that happen?" 
+"escape","chain","fly","break"->"Do you think this stupid chain will hold me for ever? Tja, Thomas Berryard got a plan! He-he-he...","#me jingles his chain. 'Hm, without a key it wouldn't open.'"
+"money","chopper","coin","silver","gold",english->"I lent coins from Don Guilianni. When I wasn't able to pay back, he sold me to the orcs. ME! Like I was a good or something!","I wish would never be indebted at the Don. *sighs*","Within just a few years I will be discharged. - Or maybe my escape will sucess tomorrow? Who knows... Tja-hie!"
 "Murgo","Er'hja","Erhja","Krudash",english->"H-hm? That's my owner. In generall all those orcs command me arround all the time. But Damn! They look all the same way!"
 
 "Ork" -> "Eh... ja. Sie sind größer als ich und stinken. Wenn sie sich Mühe geben sind sie ganz geschickt. Aber die Arbeit lassen sie ja dann doch nur mich machen.","Ich bin einmal krank geworden, dann dachte ich... jetzt ists vorbei. Aber der Schamane dort drüben hat sich tatsächlich um mich gekümmert. Tja...","Glaub mir, keiner will wissen was ich hier in dieser Höhle schon alles mit ansehen musste." 
 "Murgo","Er'hja","Erhja","Krudash"->"H-hm? S' ist mein Besitzer. Im Grunde kommandieren mich alle diese Orks herum, wie's ihnen passt. Verdammt nochmal, die sehen doch alle gleich aus!"
-"Flucht","ausbrechen","fliehen","kette" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"geld" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Essen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Flucht","ausbrechen","fliehen","kette" -> "Du glaubst diese olle Kette hält mich für ewig hier fest? Tja, Thomas Berryard hat einen Plan! Hä-hä-hä...", "#me rüttelt an seiner Kette. 'Tja, die kriegt man ohne Schlüssel bestimmt nicht auf.'"
+"geld","kupfer","m[uü]nz.*","silber","gold" -> "Ich hab mir Münzen von Don Guilianni geborgt. Als ich sie nicht zurückzahlen konnte hat er mich an die Orks verkauft. MICH! Ich bin doch keine Wahre!", "Wenn ich doch bloß niemals beim Don in der Kreide gestanden währe! *seufzt*", "Nur noch ein paar, Jahre arbeiten dann darf ich gehen wohin ich will. - Oder vielleicht gelingt mir morgen schon die Flucht? Tja-hie!" 
+"Essen" -> "Damals war ich ein gesunder Halbling. Aber hier bekommt man nicht richtig zu essen.", "Tja, Thomas Berryard muss hungern. Wie konnte es nur so weit kommen?"
 "Buch" -> "Gut, ja. Ich hab Bücher geschrieben. Hoffentlich helfen die jemanden." 
 
 -- Faction stuff 
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"rosaline", "königin", "queen", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "I heared he is an elfess. *snickers*" 
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Ich hab gehört er ist eine Elfe. *kichert*" 
+"Runewick", english -> "Once I lived close to Runewick. But I didn't like it that much, these towers are too scary. Seems to me they could drop to the ground each moment." 
+"Runewick" -> "Ich habe früher neben Runewick gelebt. Aber es hat mir dort nie richtig gefallen, diese Türme waren schon reichlich unheimlich. Für mich hat das immer so ausgesehen als würden sie jeden Moment herunterfallen können." 
+"Valerio", "Guilianni", "Don", english -> "I lent coins from Don Guilianni. When I wasn't able to pay back, he sold me to the orcs. ME! Like I was a good or something!" 
+"Valerio", "Guilianni", "Don" -> "Ich hab mir Münzen von Don Guilianni geborgt. Als ich sie nicht zurückzahlen konnte hat er mich an die Orks verkauft. MICH! Ich bin doch keine Wahre!" 
+"Galmair", english -> "Uh, well... I came here to earn some money... basically. That's why everybody came here, isn't it?" 
+"Galmair" -> "Hm, tja... Ich bin her gekommen um Geld zu verdienen... im Grunde. Das wollen ja alle hier, oder etwa nicht?" 
+"rosaline", "königin", "queen", "edwards", english -> "This kings 'nd queens thingy I never understood well. But the have blue blood or so. *shurgs his shoulders*" 
+"rosaline", "königin", "queen", "edwards" -> "Diese Königs-Sache der Menschen hab ich nie wirklich verstanden. Außerdem ist deren Blut blau oder so. *zuckt mit der Schulter*" 
+"Cadomyr", english -> "Cadomyr? There's only sand and heat. Not a good place for a halfling, should you ask for my opinion." 
+"Cadomyr" -> "Cadomyr? Dort gibt's nur Sand und Hitze. Kein Ort für einen Halbling wenn du mich fragst." 
 
 -- Main land factions 
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"albar", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"gync", "gynk", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"salkama", german -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"albar", english -> "Why you don't talk with some Longers about that, hm? I'm really busy with uhm... slave things - right now." 
+"albar", german -> "He, warum sprichst du nicht mit irgendwelchen Langen über das, hm? Ich bin gerade wirklich beschäftigt mit uhm... Sklavendingen. Genau! Wirklich viel zu tun hier..." 
+"gynk", "gync", english -> "Why you don't talk with some Longers about that, hm? I'm really busy with uhm... slave-things - right now." 
+"gync", "gynk", german -> "He, warum sprichst du nicht mit irgendwelchen Langen über das, hm? Ich bin gerade wirklich beschäftigt mit uhm... Sklavendingen. Genau! Wirklich viel zu tun hier..." 
+"salkama", english -> "Why you don't talk with some Longers about that, hm? I'm really busy with uhm... slave-things - right now." 
+"salkama", german -> "He, warum sprichst du nicht mit irgendwelchen Langen über das, hm? Ich bin gerade wirklich beschäftigt mit uhm... Sklavendingen. Genau! Wirklich viel zu tun hier..." 
 
 -- Gods - use the triggers of the god the NPC worships or fights 
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"god" -> "Seems to me, the gods punish me for something, I couldn't remember." 
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Adron", english -> "Well, before get enslaved I worshiped Adron every day in Hagar's Tavern - The Winged Sow." 
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Nargun", "Nargún", "Nargùn", english -> "Hi-hi! Nargún is quite fun, isn't he? I like to talk his followers." 
+"Nargun", "Nargún", "Nargùn" -> "Hi-hi! Nargún ist wirklich lustig. Oder? Ich spreche gern mit seinen Anhängern." 
+"Ronagan", english -> "Gn-ah? What? No-no-no. I never worshiped this Ronagan. *snickers*" 
+"Ronagan" -> "Gn-ah? Was? Nein-nein-nein. Ronagans lehren bin ich nie gefolgt. *kichert*" 
+
 
 -- Catching quest triggers 
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"quest","mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"quest", "mission", english -> "#me smirks sarcastical. 'Find five dragon eggs. And than I broil them over the fire, all right?'" 
+"quest","mission" -> "#me lächelt sarkastisch. 'Bringe mir fünf Dracheneier. Und dann braten wir sie gemeinsam raus, ja?'" 
+"task", "adventure" -> "#me smirks sarcastical. 'Find five dragon eggs. And than I broil them over the fire, all right?'" 
+"Auftrag", "Aufgabe", "Abenteuer" -> "#me lächelt sarkastisch. 'Bringe mir fünf Dracheneier. Und dann braten wir sie überm Feuer raus, ja?'" 
+"dragon"->"I was just kidding you! You didn't tried to get dragon eggs, didn't you?"
+"drache"->"Ich hab mir nur einen Spaß gemacht! Du hast doch nicht wirklich versucht  Dracheneier zu besorgen?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here 
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3." 
+"Yes" -> "Well-well.", "Hm-hm.", "All right." 
+"Ja" -> "Ist gut.", "Hm-hm.", "Alles klar." 
+"No" -> "Whatever...", "A-ha?", "I do not care. Honestly." 
+"Nein" -> "Was auch immer.", "A-ha?", "Meinetwegen." 
 
 -- Absolutely last catch: Everything a player says and is not caught earlier 
 -- This response should give the player a hint about what to ask the NPC 
 -- Optional Trigger /  Response is only given 1/5 of the time 
 
-".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3." 
-".*",german,chance(20)->"Ich wollte eine Gewerkschaft gründen. Aber Murgo war dagegen.","GERMAN2.","GERMAN3." 
+".*",english,chance(20)->"I tried to found a labour union, but Murgo forbid it.","Yeah? ... what a bummer!.","Heh-heh. You are quite funny." 
+".*",german,chance(20)->"Ich wollte eine Gewerkschaft gründen. Aber Murgo war dagegen.","Yeah? ... so ein Mist!","Hä-hä. Du bist richtig drollig." 
 
 --The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ... 
 "Thomas","Berry","snaga",english -> "Hm-h? Do you need any stones ore dye?","Yeh-hs. What do you want?"  
 "Thomas","Berry","snaga" -> "Was ist? Brauchst du Steine, oder Farben?" ,"Jah-ah. Was willst du?"
-"slave" -> "Hm-h? Do you need any stones ore dye?","Yeh-hs. What do you want?" 
-"Sklave", -> "Was ist? Brauchst du Steine, oder Farben?" ,"Jah-ah. Was willst du?"
+"slave","halfer","halfling" -> "Hm-h? Do you need any stones ore dye?","Yeh-hs. What do you want?" 
+"Sklave","halbe","halbling","halber" -> "Was ist? Brauchst du Steine, oder Farben?" ,"Jah-ah. Was willst du?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too. 
 
@@ -324,4 +301,3 @@ cycletext "Wenn er mich zwingt das nochmal zu essen, hau ich ihm ins Gemächt!",
 cycletext "... und dann wird mir alles egal sein.. ja genau! Hihi.", "... and then I won't care annymore.. oh yes! Hihi."
 cycletext "#me bohrt in der Nase", "#me drills with a finger into his nose."
 cycletext "#me klimpert mit seinen Handschellen.", "#me jingles with his handcuffs. "
-
