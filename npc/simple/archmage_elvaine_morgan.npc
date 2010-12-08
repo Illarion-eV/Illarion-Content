@@ -1,11 +1,11 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Archmage Elvaine Morgan                                     None --
--- NPC Job:  none                                                             --
+-- NPC Name: Archmage Elvaine Morgan                                     Runewick --
+-- NPC Job:  boss                                                            --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  898, 775, 2            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                          --
 --                                                                            --
 -- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
 --------------------------------------------------------------------------------
@@ -15,15 +15,15 @@ race = elf
 sex = male
 position = 898, 775, 2
 direction = east
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "boss"
 
 language = common
 language = elf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -33,7 +33,7 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 2
-beardID = 5
+beardID = 0
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
 itemHead = 0
@@ -53,67 +53,62 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- NPC by Estralis Seborian
+-- NPC by Rincewind
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan der Herrscher über Runewick. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1", "ENGLISH2.", "ENGLISH3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
 "Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
 "Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer kleiner Faden ist."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer kleiner Faden ist."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Im Großen und Ganzen gesehen, ist Eure Frage sehr höflich aber nicht besonders wichtig.", "Ich freue mich zu sehen, das ihr Euch um mein Wohlergehen sorgt. Dennoch möchte ich Euch versichern, es gibt nur wenige Probleme die ein Mann meiner Fähigkeiten nicht zu überwinden vermag.", "#me breitet in einer dramatischen Geste die Arme aus. 'Runewick ist mein Kind und es bereitet mir Sorge, so wie alle Kinder ihren Eltern Sorgen bereiten.'"
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist so alt wie die Sagen aus vergangenen Zeiten und in manchen wird er wohl auch genannt werden. 'Elvaine Morgan', Gründer und Herr dieser Stadt.", "Morgan... Elvaine Morgen. Erzmagier der vier Türme von Runewick. Worüber wollt Ihr mit mir sprechen?", "Ich bin Erzmagier Morgan. - Ich hoffe Euer Anliegen ist es tatsächlich Wert beredet zu werden?"
 
 -- Quest 108: A message from Hector Valerion
-"message", "news", "letter", "scroll", "parchment", "despatch", queststatus(108) = 12 -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "depesche", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
-"Hector", "Valerion", queststatus(108) = 12, english -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
-"Hector", "Valerion", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+"message", "news", "letter", "scroll", "parchment", "despatch","task", "adventure", queststatus(108) = 12 -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "depesche","Auftrag", "Aufgabe", "Abenteuer", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+"Hector", "Valerion","quest", "mission", queststatus(108) = 12, english -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"Hector", "Valerion","quest", "mission", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.","Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.","Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 "task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.","Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.","Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ich bin der Erzmagier. Also obliegt mir die Verantwortung über die Türme Runewicks und deren Wirken. Nicht mehr, aber auch nicht weniger.", "Es ist meine selbst auferlegte Pflicht, Runwick mit meinem bestem Rat und der einen oder anderen Tat zur Seite zu stehen.", "Ich bin der Erzmagier hier, demnach sehr sehr beschäftigt. Am Besten lasst ihr Euch das von einem Novizen erklären."
 "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" -> "Ich bin der Erzmagier. Also obliegt mir die Verantwortung über die Türme Runewicks und deren Wirken. Nicht mehr, aber auch nicht weniger.", "Es ist meine selbst auferlegte Pflicht, Runwick mit meinem bestem Rat und der einen oder anderen Tat zur Seite zu stehen.", "Ich bin der Erzmagier hier, demnach sehr sehr beschäftigt. Am Besten lasst ihr Euch das von einem Novizen erklären."
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" -> "In der Tat ist mir Gobaith nicht unbekannt. Aber lasst uns keine Worte darüber verlieren, denn sie sind wohl kaum von Wert.", "Natürlich weiß ich von Gobaith. Eine kleinere Inselgruppe, weit entfert vom Festland. Aber sicher versteht ihr, dass es kaum von Interesse für mich ist.", "Ich ließ mir sagen es gibt Leute hier, die einst auf Gobaith lebten. Ihr solltet sie suchen und befragen, wenn ihr so bemüht seid mehr zu erfahren."
 "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "#me nickt etwas steif. 'Sehr erfreut. Wie kann ich Euch helfen?'", "Ausgezeichnet. Ich dachte mir bereits das ihr Euch vorstellen wolltet.", "#me schmunzelt: 'Das weiß ich natürlich, schließlich bin ich hier der Erzmagier.'"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mage","magic","wizard","theurgy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Lor Angur" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "Dies ist Runewick. Jeder der vier Türme steht für ein Element. Erde. Wasser. Feuer. Luft. Hier ist die Weisheit der Leute Gut.", "Runewick ist nicht nur eine Stadt, müsst Ihr wissen. Runewick's Name steht für Weisheit und die Kraft des Geistes.","Ich danke Elara jeden Tag für die starke geistige Kraft die sie den Bürgern der vier Türme verleiht. Denn die Weisheit selbst ist unser höchstes Gut."
+"Lor Angur" -> "Ja, ihr habt Euch wohl bereits umgehört, nicht wahr? Ich zog einst aus Lor Angur hier her und legte den Grundstein der vier Türme.","In der Tat, vor langer Zeit lebte ich in Lor Angur. Aber diese Zeit ist fern und es gibt wenig Gründe meine Zeit damit zu vertun, darüber zu sinnieren.", "Einst lebte ich in Lor Angur, ihr seid gut unterichtet. Aber es liegt mir fern mich mit Euch darüber zu unterhalten."
+"Magie","zauber" -> "Nun, Runewick ist durchwirkt von Magie und viele Gelehrte meinen sie könnten das Prickeln in den Fingerspitzen fühlen. *zwinkert*", "Magie und Zauberei, darauf hat sich Runewick seit je her besonnen. Nun schließlich leitet nicht umsonst ein Erzmagier das Geschick der vier Türme.", "Magie ist hier in den Türmen Runewicks allgegenwärtig. Fasst nicht die falschen Dinge an, oder es mag sein, dass Ihr Euch eines Tages in einen Frosch verwandelt."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -187,6 +182,10 @@ itemShoes = 53
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 ".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
