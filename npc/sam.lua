@@ -28,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sam a guest of The Hemp Necktie Inn . Keyphrases: tell something, who are you, Gobaith"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Sam, a guest of The Hemp Necktie Inn . Keyphrases: tell something, who are you, Gobaith"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Sam ein Gast im Gasthof zur Hanfschlinge. Schlüsselwörter: erzähl etwas, wer seid ihr, Gobaith"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Sam, ein Gast im Gasthof zur Hanfschlinge. Schlüsselwörter: erzähl etwas, wer seid ihr, Gobaith"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,9 +47,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me raises his head slowly and looks around. 'Ew-h?'");
+talkEntry:addResponse("#me raises his hand with great effort and waves. 'Greetings...'");
+talkEntry:addResponse("#me exhales thickly. 'Greets.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,9 +76,9 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greebas");
 talkEntry:addTrigger("Greebs");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me raises his head slowly and looks around. 'Ew-h?'");
+talkEntry:addResponse("#me raises his hand with great effort and waves. 'Greetings...'");
+talkEntry:addResponse("#me exhales thickly. 'Greets.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,9 +100,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("xxxx");
+talkEntry:addResponse("#me nods a bit. 'Gn-ha.'");
+talkEntry:addResponse("Bye...");
+talkEntry:addResponse("#me looks questioningly. 'Eh?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,9 +124,9 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("'#me nods a bit. 'Gn-ha.'");
+talkEntry:addResponse("Bye...");
+talkEntry:addResponse("#me looks questioningly. 'Eh?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -146,9 +146,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me raises his arms angrily and shouts drunkenly. 'I'm FINE!");
+talkEntry:addResponse("Nothing...it's nothing. Everything's alright.");
+talkEntry:addResponse("Ah-wh! My life is complete hellbriar! - You don't know what it's like!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,7 +157,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("#hebt zornig die Arme und ruft. 'Es geht mir GUT!'");
+talkEntry:addResponse("#me hebt zornig die Arme und ruft. 'Es geht mir GUT!'");
 talkEntry:addResponse("Nichts... es ist nichts. Allesch in beschter Ordnuch.");
 talkEntry:addResponse("Ah-wh! Mein Lebn ischt die reinste Qual! - Wischt Ihr wie daasch ischt?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -167,9 +167,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("grey refuge");
+talkEntry:addResponse("Sam...I'm Sam. Just Sam.");
+talkEntry:addResponse("Sam. Yes - THAT Sam, from the Grey Refuge. But... nobody knows that anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,7 +187,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("xxx");
+talkEntry:addResponse("#me sighs. 'Nothing....simple, just, plain nothing. Everything is gone! They took everything...ewh. Some time ago...yes...Sam sold everything. But now, there is nothing left.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,8 +202,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("xxx");
-talkEntry:addResponse("ENGLISH");
+talkEntry:addResponse("Where? Where? Is the old time gone? I'd like to follow her. But now - I drown my sorrows in Borgate's beer... good old Borgate.");
+talkEntry:addResponse("Yes. In former times I had my shop in the castle of the Grey Orders. But...like everything that's gone now! Gone! Gone...");
+talkEntry:addResponse("#me makes an angry gesture. 'Ewh-h! Let me drink in peace! Go away!! Grnrh?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,14 +212,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Wo? WO? Ischt die alte Zeit hin? Gern würd isch ihr folgn. Aber jetz - ertrink isch mein Leid mit Borgates Bier... guter alter Borgate.");
-talkEntry:addResponse("Ja. Damlas hatt isch men Laden in der Brug der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...");
+talkEntry:addResponse("Ja. Damlas hatt isch men Laden in der Burg der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...");
 talkEntry:addResponse("#me macht eine verärgerte Handbewgung. 'Ewh-h! Lascht misch einfach in Friedn trinkn! Verschwind hier! Gnrh?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I a-am..eh...was a trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,9 +232,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I a-am..eh...was a trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,9 +246,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Yeah! Everything was pretty nice in Gobaith. Not so complicated like here!");
+talkEntry:addResponse("Argh! Go away! Don't bother me! I don't talk with strangers...");
+talkEntry:addResponse("I'll tell you, the Grey Orders decided about Gobaith. That didn't happen... and, good old Sam was in the middle of it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,16 +257,16 @@ talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Jah! In Gobaith war allesch noch schön Ordnlisch. Nich so verworrn wie hie-r!");
 talkEntry:addResponse("Ärgh! Geh weg! Lasch misch in ruh! Ich sprech nisch mit Fremdn...");
-talkEntry:addResponse("Sag isch dir, die Grauen Orden, haben über Gobiath entschiedn. Da hatsch sonscht nicht gegeben und, der gute Sam war mittn drin!");
+talkEntry:addResponse("Sag isch dir, die Grauen Orden, haben über Gobaith entschiedn. Da hatsch sonscht nicht gegeben und, der gute Sam war mittn drin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Yesh..!");
+talkEntry:addResponse("Leave me alone!");
+talkEntry:addResponse("Uargh. Never mind!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,27 +285,23 @@ talkEntry:addTrigger("barkeeper");
 talkEntry:addTrigger("innkeeper");
 talkEntry:addTrigger("Northoff");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Borgate is an old chum. He always knows what he has to do. Eh-h. Borgate, me and Eliza are left. I heard she lives in the swamp now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("refuge");
 talkEntry:addTrigger("grey");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. If I would have stayed at my store I would be dead now. Dead...but happy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sam");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Huh? Did someone call me?");
+talkEntry:addResponse("#me raises his head. 'I am Sam!'");
+talkEntry:addResponse(" Ah-Leave me alone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,18 +310,14 @@ talkEntry:addTrigger("market");
 talkEntry:addTrigger("shop");
 talkEntry:addTrigger("market");
 talkEntry:addTrigger("store");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Yes, my old store is gone. Far away..and I am here and ... drunk. Who can tell what's happening there?!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eliza");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,9 +366,7 @@ talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("archmage");
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Ewh-h! Morgan is a self-important snob. That toad can eat my pants!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,9 +382,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("A buncha s-shh-stuck up nobodies who would clean their butts with magic if they could! They can blow themselves up ... for all I care.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,9 +397,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Thissh ...uh...guy thinkssh he is some kind of half god. He's hyssh-terrrical!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,9 +412,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me shuts his eyes tightly closed. 'Are you from Galmair?! Are you one of those cutthroats? I tell you - honest people like S-Sh-Sam don't want to deal with you Galmairians!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,9 +428,7 @@ talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("This queen is so p-p-posh. She drags all of Cadomyr down with her! But what ever, they are all idiots. All of them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,9 +444,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("...scumbags, pigs, horse's arses, slimeballs! Thats what I call the people of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,9 +457,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Albarian scrumbags! Speared my father on the battlefield!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,9 +472,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Too hot there right now. - Actually , it's always too hot in Gynk. I heard it doesn't snow during winter there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,9 +487,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am from Salkamar. But why should I have stayed there? And why should I go back there? Do you know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,25 +500,23 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Eh-h? Do you think you're some kind of friend of mine or what? I don't know you! I only talk about gods with friends.");
+talkEntry:addResponse("Leave me alone! I don't wanna think about gods with you around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter. Hau ab! Isch will allein über die Götter grübeln.");
+talkEntry:addResponse("Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.");
+talkEntry:addResponse("Hau ab! Isch will allein über die Götter grübeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Do I look like someone who has work for you? Leave, you stupid farmer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,9 +530,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Do I look like someone who has work for you? Leave, you stupid farmer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,9 +544,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Eh-h?!");
+talkEntry:addResponse("Fiiiiiine.");
+talkEntry:addResponse("Yes-s!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,9 +560,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Gn-hr...Just go away. Leave me alone!");
+talkEntry:addResponse("I don't care, and now leave me alone!");
+talkEntry:addResponse("So WHAT?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -610,9 +578,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Why do you talk with me? I don't even know you!");
+talkEntry:addResponse("You talk like some smart ass elven girl.");
+talkEntry:addResponse("Shut up and bring me another beer!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -625,22 +593,30 @@ talkEntry:addResponse("Du quaschelscht wie so'n neunmal kluges Elfnweib.");
 talkEntry:addResponse("Halt's Maul und bring mir noch 'n Bier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me rülpst herzhaft.", "ENGLISH.");
-talkingNPC:addCycleText("#me gähnt mit müdem Blick.", "ENGLISH.");
-talkingNPC:addCycleText("#me seufzt langezogen.", "ENGLISH.");
-talkingNPC:addCycleText("#me grummelt wütend in seinen ungepflegten Bart hinein.", "ENGLISH.");
-talkingNPC:addCycleText("#me schnieft ein wenig und wischt seine Nase am Hemdärmel ab.", "ENGLISH.");
-talkingNPC:addCycleText("#me schlägt wütend mit der Faust auf den Tisch.", "ENGLISH.");
-talkingNPC:addCycleText("#me wankt im sitzen hin und her.", "ENGLISH.");
-talkingNPC:addCycleText("#me riecht nach Alkohol und Erbrochenem.", "ENGLISH.");
-talkingNPC:addCycleText("#me's Augen fallen für einen Moment zu, er schnarcht einmal laut auf, dann blinzelt er und blickt sich ratlos um.", "ENGLISH.");
-talkingNPC:addCycleText("#me mustert den Boden seines leeren Glases.", "ENGLISH.");
+talkingNPC:addCycleText("#me rülpst herzhaft.", "#me belches loudly..");
+talkingNPC:addCycleText("#me gähnt mit müdem Blick.", "#me yawns.");
+talkingNPC:addCycleText("#me seufzt langezogen.", "#me lets out a long sigh.");
+talkingNPC:addCycleText("#me grummelt wütend in seinen ungepflegten Bart hinein.", "#me mumbles something into his grubby beard.");
+talkingNPC:addCycleText("#me schnieft ein wenig und wischt seine Nase am Hemdärmel ab.", "#me sniffles and wipes his nose on his sleeve.");
+talkingNPC:addCycleText("#me schlägt wütend mit der Faust auf den Tisch.", "#me hits the table in anger.");
+talkingNPC:addCycleText("#me wankt im sitzen hin und her.", "#me staggers to the left...and back to the right.");
+talkingNPC:addCycleText("#me riecht nach Alkohol und Erbrochenem.", "#me reeks of alcohol and vomit.");
+talkingNPC:addCycleText("#me's Augen fallen für einen Moment zu, er schnarcht einmal laut auf, dann blinzelt er und blickt sich ratlos um.", "#me can hardly keep his eyes open.");
+talkingNPC:addCycleText("#me mustert den Boden seines leeren Glases.", "#me stares into his empty glass.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein lümmelnder Trunkenbold, mit Schnapsfahne und unterlaufenen Augen. Seine Bewegungen sind unkoordiniert und er lallt fürchterlich.", "XXX");
-mainNPC:setUseMessage("Aw.. las dasch, eh?!", "XXX");
+mainNPC:setLookat("Ein lümmelnder Trunkenbold, mit Schnapsfahne und unterlaufenen Augen. Seine Bewegungen sind unkoordiniert und er lallt fürchterlich.", "A stumbling drunkard with creepy eyes and breath stinking of booze. His movements are uncoordinated and his speech is tremendously slurred.");
+mainNPC:setUseMessage("Aw.. las dasch, eh?!", "Ew...sshtop thhaat, eh?!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
