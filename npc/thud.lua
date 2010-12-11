@@ -548,7 +548,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your horn?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
@@ -557,7 +557,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
@@ -567,7 +567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für Horn, das!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(333, 1));
@@ -594,7 +594,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(333, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha horn!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(333, 1));
@@ -620,7 +620,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your fur?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
@@ -629,7 +629,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
@@ -639,7 +639,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für die Felle!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 1));
@@ -666,7 +666,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2586, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha fur!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 1));
@@ -692,7 +692,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your salkish paladin helmet?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -701,7 +701,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
@@ -711,7 +711,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für den Helm!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2291, 1));
@@ -738,7 +738,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2291, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha helmet!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2291, 1));
@@ -764,7 +764,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your ornate dagger?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
@@ -773,7 +773,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
@@ -783,7 +783,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für den Dolch!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1));
@@ -810,7 +810,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
-talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(190, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha dagger!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1));
@@ -836,7 +836,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your dwarven axe?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
@@ -845,7 +845,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
@@ -855,7 +855,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für d'Axt!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2660, 1));
@@ -882,7 +882,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2660, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha axe!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2660, 1));
@@ -908,7 +908,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
@@ -917,7 +917,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("troph");
-talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
@@ -927,7 +927,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 0));
 talkEntry:addResponse("Dancke für d'Bogen!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2718, 1));
@@ -954,7 +954,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 1));
+talkEntry:addCondition(npc.base.condition.item.item(2718, "belt", "=>", 1, 0));
 talkEntry:addResponse("Thanks for tha bow!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2718, 1));
