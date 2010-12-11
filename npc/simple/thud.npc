@@ -143,62 +143,62 @@ itemShoes = 53
 "troph", queststatus(301) => 250, queststatus(301) =< 254, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2742, 1, 999, 0), queststatus(301) = 1 
 
 -- Horn +2 
-"troph", item(333, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your horn?'", state = 1 
-"troph", item(333, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'", state = 1 
-"Ja", state = 1, item(333, belt,1) => 1 -> "Dancke für Horn, das!", state = 0, deleteItem(333, 1), queststatus(301) + 2 
+"troph", item(333, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your horn?'", state = 1 
+"troph", item(333, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'", state = 1 
+"Ja", state = 1, item(333, belt,0) => 1 -> "Dancke für Horn, das!", state = 0, deleteItem(333, 1), queststatus(301) + 2 
 "Nein", state = 1 -> "So'n Mist!", state = 0 
 "Ja", state = 1 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 1, item(333, belt,1) => 1 -> "Thanks for tha horn!", state = 0, deleteItem(333, 1), queststatus(301) + 2 
+"Yes", state = 1, item(333, belt,0) => 1 -> "Thanks for tha horn!", state = 0, deleteItem(333, 1), queststatus(301) + 2 
 "No", state = 1 -> "What a bummer!", state = 0 
 "Yes", state = 1 -> "Me no fool. You don't have one!", state = 0 
 
 -- Fell +1 
-"troph", item(2586, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your fur?'", state = 2 
-"troph", item(2586, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'", state = 2 
-"Ja", state = 2, item(2586, belt,1) => 1 -> "Dancke für die Felle!", state = 0, deleteItem(2586, 1), queststatus(301) + 1 
+"troph", item(2586, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your fur?'", state = 2 
+"troph", item(2586, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'", state = 2 
+"Ja", state = 2, item(2586, belt,0) => 1 -> "Dancke für die Felle!", state = 0, deleteItem(2586, 1), queststatus(301) + 1 
 "Nein", state = 2 -> "So'n Mist!", state = 0 
 "Ja", state = 2 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 2, item(2586, belt,1) => 1 -> "Thanks for tha fur!", state = 0, deleteItem(2586, 1), queststatus(301) + 1 
+"Yes", state = 2, item(2586, belt,0) => 1 -> "Thanks for tha fur!", state = 0, deleteItem(2586, 1), queststatus(301) + 1 
 "No", state = 2 -> "What a bummer!", state = 0 
 "Yes", state = 2 -> "Me no fool. You don't have one!", state = 0 
 
 -- Salk Paladinhelm +2 
-"troph", item(2291, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your salkish paladin helmet?'", state = 3 
-"troph", item(2291, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'", state = 3 
-"Ja", state = 3, item(2291, belt,1) => 1 -> "Dancke für den Helm!", state = 0, deleteItem(2291, 1), queststatus(301) + 2 
+"troph", item(2291, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your salkish paladin helmet?'", state = 3 
+"troph", item(2291, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'", state = 3 
+"Ja", state = 3, item(2291, belt,0) => 1 -> "Dancke für den Helm!", state = 0, deleteItem(2291, 1), queststatus(301) + 2 
 "Nein", state = 3 -> "So'n Mist!", state = 0 
 "Ja", state = 3 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 3, item(2291, belt,1) => 1 -> "Thanks for tha helmet!", state = 0, deleteItem(2291, 1), queststatus(301) + 2 
+"Yes", state = 3, item(2291, belt,0) => 1 -> "Thanks for tha helmet!", state = 0, deleteItem(2291, 1), queststatus(301) + 2 
 "No", state = 3 -> "What a bummer!", state = 0 
 "Yes", state = 3 -> "Me no fool. You don't have one!", state = 0 
 
 -- verziehrter Dolch +1 
-"troph", item(190, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your ornate dagger?'", state = 4 
-"troph", item(190, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'", state = 4 
-"Ja", state = 4, item(190, belt,1) => 1 -> "Dancke für den Dolch!", state = 0, deleteItem(190, 1), queststatus(301) + 1 
+"troph", item(190, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your ornate dagger?'", state = 4 
+"troph", item(190, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'", state = 4 
+"Ja", state = 4, item(190, belt,0) => 1 -> "Dancke für den Dolch!", state = 0, deleteItem(190, 1), queststatus(301) + 1 
 "Nein", state = 4 -> "So'n Mist!", state = 0 
 "Ja", state = 4 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 4, item(190, belt,1) => 1 -> "Thanks for tha dagger!", state = 0, deleteItem(190, 1), queststatus(301) + 1 
+"Yes", state = 4, item(190, belt,0) => 1 -> "Thanks for tha dagger!", state = 0, deleteItem(190, 1), queststatus(301) + 1 
 "No", state = 4 -> "What a bummer!", state = 0 
 "Yes", state = 4 -> "Me no fool. You don't have one!", state = 0 
 
 -- zwergenaxt +3 
-"troph", item(2660, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your dwarven axe?'", state = 5 
-"troph", item(2660, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'", state = 5 
-"Ja", state = 5, item(2660, belt,1) => 1 -> "Dancke für d'Axt!", state = 0, deleteItem(2660, 1), queststatus(301) + 3 
+"troph", item(2660, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your dwarven axe?'", state = 5 
+"troph", item(2660, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'", state = 5 
+"Ja", state = 5, item(2660, belt,0) => 1 -> "Dancke für d'Axt!", state = 0, deleteItem(2660, 1), queststatus(301) + 3 
 "Nein", state = 5 -> "So'n Mist!", state = 0 
 "Ja", state = 5 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 5, item(2660, belt,1) => 1 -> "Thanks for tha axe!", state = 0, deleteItem(2660, 1), queststatus(301) + 3 
+"Yes", state = 5, item(2660, belt,0) => 1 -> "Thanks for tha axe!", state = 0, deleteItem(2660, 1), queststatus(301) + 3 
 "No", state = 5 -> "What a bummer!", state = 0 
 "Yes", state = 5 -> "Me no fool. You don't have one!", state = 0 
 
 -- Elben-K.Lanbogen +3 
-"troph", item(2718, belt,1) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'", state = 6 
-"troph", item(2718, belt,1) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'", state = 6 
-"Ja", state = 6, item(2718, belt,1) => 1 -> "Dancke für d'Bogen!", state = 0, deleteItem(2718, 1), queststatus(301) + 3 
+"troph", item(2718, belt,0) => 1, english -> "#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'", state = 6 
+"troph", item(2718, belt,0) => 1, german -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'", state = 6 
+"Ja", state = 6, item(2718, belt,0) => 1 -> "Dancke für d'Bogen!", state = 0, deleteItem(2718, 1), queststatus(301) + 3 
 "Nein", state = 6 -> "So'n Mist!", state = 0 
 "Ja", state = 6 -> "Ich nix dumm! Du nix hast.", state = 0 
-"Yes", state = 6, item(2718, belt,1) => 1 -> "Thanks for tha bow!", state = 0, deleteItem(2718, 1), queststatus(301) + 3 
+"Yes", state = 6, item(2718, belt,0) => 1 -> "Thanks for tha bow!", state = 0, deleteItem(2718, 1), queststatus(301) + 3 
 "No", state = 6 -> "What a bummer!", state = 0 
 "Yes", state = 6 -> "Me no fool. You don't have one!", state = 0 
 "troph", english -> "Thud collect trophy! Collect fur! Horn! Salkish... paladin helmet! Ornate dagger! Dwarven axe! Elven composite longbow!" 
