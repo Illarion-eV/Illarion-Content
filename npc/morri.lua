@@ -319,13 +319,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("morri");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Arr. Bura'zak-ka! - What meal would you like to buy?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fisch");
 talkEntry:addResponse("J'uk! Hört mir auf mit dem Fisch! Der stinkt zum Himmel, aber Snorri kann nichts reichen, weil seine Nase hin ist!");
 talkEntry:addResponse("Wenn der verdammte Fisch frisch ist, dann bin ich eine Schweineschnauze. Und, seh ich aus wie eine Schweineschnauze? - Nein!");
@@ -372,8 +365,96 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("morri");
-talkEntry:addResponse("Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?");
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Ha-h! Man sagt sich bei uns Zwergen dieser Erzmagier trägt Weiber Gewand! Wolle unterm Kettenhemd und so nen Kram! *lacht*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick? Aren't those the farmers who bungle with magic? They should cultivate bigger tomatoes instead. That is more useful.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Runewick? Sind das nicht diese Bauern, die glauben mit Magie herum murksen zu müssen?. Die sollten lieber größere Tomaten züchten. Damit wäre allen geholfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Don Guilianni is a nasty fellow. We merchants cut our deals with him carefully.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Don Guilianni ist ein abgebrühter Geschäftsmann. Und wir Händler versuchen uns so gut es geht mit ihm zu arrangieren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I want to say, my brother and I could not find a better place than this except for all the riff-raff. Well, and the buildings are falling down, but the business is great.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Ich möchte sagen, an einen besseren Ort hätte es mich und meinen Bruder nicht verschlagen können. Nun gut, hier treibt sich einiges Gesindel herum, und die Mauern sehen ziemlich zerbrechlich aus, aber das Geschäft geht ausgezeichnet!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Blue blood! Pah! - Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They give their wealth and belongings to the dead in Cadomyr. Bury their gold in their crypts! Every dwarf knows that gold is an element for the living. How is it of any use to the dead?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Cadomyrs Reichtum geben sie den Toten. Vergraben das Gold in den Krypten! Jeder Zwerg weiß natürlich, das Gold das Element der Lebenden ist. Wie sollte es den verstorbenen schon von Nutzen sein?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,6 +646,19 @@ talkEntry:addResponse("#me rümpft die Nase und streckt angewidert die Zunge hera
 talkEntry:addResponse("#me dreht sich plötzlich um und grummelt: 'Snorri! Hör mir zu - der Fisch stinkt wie das Maul der Fischgesichter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("morri");
+talkEntry:addResponse("Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("morri");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arr. Bura'zak-ka! - What meal would you like to buy?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles moodily and looks at the street with a discontented glance.");
 talkingNPC:addCycleText("Dein Fisch stinkt, Snorri.", "Your fish smells, Snorri.");
 talkingNPC:addCycleText("#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'");
@@ -575,7 +669,7 @@ talkingNPC:addCycleText("Irmorom, mach das der Sturkopf es einsieht! Der Fisch s
 talkingNPC:addCycleText("#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me pulls his long black beard with both hands despairingly and grunts loudly.");
 talkingNPC:addCycleText("#me murmelt verärgert: 'Der Gestank vertreibt mir noch die Kunden...'", "#me mumbles in annoyance: 'This stink scares away my customers.");
 talkingNPC:addCycleText("Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!");
-talkingNPC:addCycleText("Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Indestructible cookies!");
+talkingNPC:addCycleText("Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedible cookies!");
 talkingNPC:addCycleText("Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);

@@ -628,6 +628,103 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("All that riff-raff should be kicked in their butts, if you ask me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("All that riff-raff should be kicked in their butts, if you ask me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The Don makes sure my tavern is the only one in town. Good deal, eh? That's totally worth the fee.");
+talkEntry:addResponse("What's up? I paid for everything a few days ago!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Der Don, sorgt dafür das meine Taverne die einzige in der Stadt ist. Feine Sache oder? Das lass ich mir gerne etwas kosten.");
+talkEntry:addResponse("Was willst du? Ich hab alles schon vor n' paar Tagen bezahlt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I know what the people say... But here in Galmair your wallet gets nice and fat. The only fat thing in Cadomyr is Queen Rosaline's butt! Har-har-har!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Ich weiß was die Leute sagen... Aber hier in Galmair! - Wird der Münzbeutel prall und fett. Das einzig fette in Cadomyr ist Königin Edwards! Har-har-har!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They say queen Rosaline sells hot love for a handful of copper. Oh! No, wait. Thats what I say...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Like the dwarves say: 'There are too many head bangers in Cadomyr.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.");
+talkEntry:addResponse("Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("My old friend Vigalf was born there. He didn't like it that much.");
@@ -668,103 +765,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Salkamar ist ein Verein von langweiligen Sesselpupsern.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("All that riff-raff should be kicked in their butts. If my opinion still counts.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("All that riff-raff should be kicked in their butts. If my opinion still counts.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Don takes care, my tavern is the only one in town. Good deal, eh? That's totaly worth the fee.");
-talkEntry:addResponse("What's up? I paid for everything a few days ago!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don, sorgt dafür das meine Taverne die einzige in der Stadt ist. Feine Sache oder? Das lass ich mir gerne etwas kosten.");
-talkEntry:addResponse("Was willst du? Ich hab alles schon vor n' paar Tagen bezahlt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I know what the people say... But here in Galmair! - your wallet becomes basting and fat. The only fat thing in Cadomyr, is queen Edwards butt! Har-har-har!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Ich weiß was die Leute sagen... Aber hier in Galmair! - Wird der Münzbeutel prall und fett. Das einzig fette in Cadomyr ist Königin Edwards! Har-har-har!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They say queen Edwards sells hot love for a hand full copper. Oh! No, wait. Thats what I say...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Like the dwarves say: 'There are too mutch head bangers in Cadomyr.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.");
-talkEntry:addResponse("Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,9 +878,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Ask a priest or something.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1101,7 +1099,6 @@ mainNPC:setLookat("Ein großgewachsener Norodaj, der mit einem schmierigen Lappen
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(9, 823);
-mainNPC:setEquipment(3, 457);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
