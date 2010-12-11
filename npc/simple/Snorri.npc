@@ -8,7 +8,7 @@
 -- Author:   Rincewind                                                         --
 --                                                                            --
 -- Last parsing: August 28, 2010                         easyNPC Parser v1.01 --
---------------------------------------------------------------------------------
+----------notice the file with english translations is only in .lua----------------
 
 name = "Snorri"
 race = dwarf
