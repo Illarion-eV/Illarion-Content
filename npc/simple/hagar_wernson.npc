@@ -10,13 +10,12 @@
 -- Last parsing: October 29, 2010                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
---Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
-
+--Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan 
 
 name = "Hagar Wernson" 
 race = human 
 sex = male 
-position = 391, 334, -6 
+position = 391, 344, -6 
 direction = west 
 affiliation = "None" 
 job = "none" 
@@ -35,7 +34,6 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an." 
 wrongLangUS = "#me looks at you confused." 
 itemTrousers = 823 
-itemChest = 457
 
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau' 
 
@@ -119,6 +117,19 @@ itemChest = 457
 "Murgo" -> "Ich kenn Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten." 
 "Vigalf" -> "Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund." 
 
+"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "All that riff-raff should be kicked in their butts, if you ask me."
+"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
+"Runewick", english -> "All that riff-raff should be kicked in their butts, if you ask me."
+"Runewick" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
+"Valerio", "Guilianni", "Don", english -> "The Don makes sure my tavern is the only one in town. Good deal, eh? That's totally worth the fee.", "What's up? I paid for everything a few days ago!"
+"Valerio", "Guilianni", "Don" -> "Der Don, sorgt dafür das meine Taverne die einzige in der Stadt ist. Feine Sache oder? Das lass ich mir gerne etwas kosten.", "Was willst du? Ich hab alles schon vor n' paar Tagen bezahlt!"
+"Galmair", english -> "I know what the people say... But here in Galmair your wallet gets nice and fat. The only fat thing in Cadomyr is Queen Rosaline's butt! Har-har-har!"
+"Galmair" -> "Ich weiß was die Leute sagen... Aber hier in Galmair! - Wird der Münzbeutel prall und fett. Das einzig fette in Cadomyr ist Königin Edwards! Har-har-har!"
+"rosaline", "königin", "queen", "edwards", english -> "They say queen Rosaline sells hot love for a handful of copper. Oh! No, wait. Thats what I say..."
+"rosaline", "königin", "queen", "edwards" -> "Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage..."
+"Cadomyr", english -> "Like the dwarves say: 'There are too many head bangers in Cadomyr.'"
+"Cadomyr" -> "In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.", "Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel."
+
 
 -- Main land factions 
 "albar", english -> "My old friend Vigalf was born there. He didn't like it that much." 
@@ -127,21 +138,6 @@ itemChest = 457
 "gync", "gynk", german -> "Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes Geld machen." 
 "salkama", english -> "Salkamar is a club of boring parchment shufflers." 
 "salkama", german -> "Salkamar ist ein Verein von langweiligen Sesselpupsern." 
-
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "All that riff-raff should be kicked in their butts. If my opinion still counts."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
-"Runewick", english -> "All that riff-raff should be kicked in their butts. If my opinion still counts."
-"Runewick" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
-"Valerio", "Guilianni", "Don", english -> "The Don takes care, my tavern is the only one in town. Good deal, eh? That's totaly worth the fee.", "What's up? I paid for everything a few days ago!"
-"Valerio", "Guilianni", "Don" -> "Der Don, sorgt dafür das meine Taverne die einzige in der Stadt ist. Feine Sache oder? Das lass ich mir gerne etwas kosten.", "Was willst du? Ich hab alles schon vor n' paar Tagen bezahlt!"
-"Galmair", english -> "I know what the people say... But here in Galmair! - your wallet becomes basting and fat. The only fat thing in Cadomyr, is queen Edwards butt! Har-har-har!"
-"Galmair" -> "Ich weiß was die Leute sagen... Aber hier in Galmair! - Wird der Münzbeutel prall und fett. Das einzig fette in Cadomyr ist Königin Edwards! Har-har-har!"
-"rosaline", "königin", "queen", "edwards", english -> "They say queen Edwards sells hot love for a hand full copper. Oh! No, wait. Thats what I say..."
-"rosaline", "königin", "queen", "edwards" -> "Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage..."
-"Cadomyr", english -> "Like the dwarves say: 'There are too mutch head bangers in Cadomyr.'"
-"Cadomyr" -> "In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.", "Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel."
-
 
 -- Gods - use the triggers of the god the NPC worships or fights 
 "god" -> "I'm Norodaj. Zhambra and Tanora are those of my choice. And Ronagan, to keep my tavern safe! Aye." 
@@ -160,7 +156,7 @@ itemChest = 457
 "Findari" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut." 
 "Irmorom", english -> "The Merchants and dwarves. Ask them, it's their god." 
 "Irmorom" -> "Die Händler und Zwerge, ja-ja. Frag die. Irmorom ist deren Gott." 
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3." 
+"Malachin", "Malachín", english -> "Ask a priest or something." 
 "Malachin", "Malachín" -> "Fragt doch einen Priester oder so etwas." 
 "Moshran", english -> "Ask a priest or something." 
 "Moshran" -> "Fragt doch einen Priester oder so etwas." 
