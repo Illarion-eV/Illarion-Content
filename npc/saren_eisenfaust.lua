@@ -1,568 +1,1069 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),1,-5,-137,0,4,false,'Saren Eisenfaust','npc_saren_eisenfaust.lua',0);
+--------------------------------------------------------------------------------
+-- NPC Name: Saren Eisenfaust                                         Galmair --
+-- NPC Job:  stuff for skill                                                  --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  335, 257, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Someone                                                          --
+--                                                                            --
+-- Last parsing: December 11, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (1, 335, 257, 0, 0, 'Saren Eisenfaust', 'npc.saren_eisenfaust', 0, 1, 2, 123, 62, 9, 245, 180, 137);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.skill")
+require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.skill")
+require("npc.base.talk")
 module("npc.saren_eisenfaust", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addResponse("[Game Help] This NPC is the smith Saren Eisenfaust. Keyphrases: Hello, quest, pickaxe, adventure");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Hallo, Quest, Aufgaben, Spitzhacke");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("greetings");
+talkEntry:addTrigger("hello");
+talkEntry:addTrigger("huhu");
+talkEntry:addTrigger("good evening");
+talkEntry:addTrigger("good day");
+talkEntry:addTrigger("good morning");
+talkEntry:addResponse("Good day, what do ya want?");
+talkEntry:addResponse("Irmorom with ya, do ya need anything?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("grüße");
+talkEntry:addTrigger("huhu");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Guten Morgen");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addResponse("Tach auch, wat gibts?");
+talkEntry:addResponse("Irmorom zum Gruße, brauchst du wat?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("What do ya want, eh? We say greetings around here.");
+talkEntry:addResponse("Aye, whatever.");
+talkEntry:addResponse("You won't go far with that greeting around here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greebas");
+talkEntry:addTrigger("Greebs");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wat willste, eh? Dat heißt Tach!");
+talkEntry:addResponse("Aye, wat auch immer.");
+talkEntry:addResponse("Damit kommste hier nich weit, es heißt Tach!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Eh..what did you just say about my mother?");
+talkEntry:addResponse("What are you jabbering about?");
+talkEntry:addResponse("Nah, I don't wanna buy that!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Eh..wat hast du grad über meine Mutter gesagt?");
+talkEntry:addResponse("Wat quasselst du da?");
+talkEntry:addResponse("Nay, ich will dat nich kaufen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("whats your name");
+talkEntry:addTrigger("your name");
+talkEntry:addResponse("I'm Saren and who are you?");
+talkEntry:addResponse("I'm called Saren, Saren Eisenfaust and what's your name?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt du");
+talkEntry:addTrigger("dein name");
+talkEntry:addResponse("Ich bin der Saren und wer bist du?");
+talkEntry:addResponse("Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("good bye");
+talkEntry:addTrigger("bye");
+talkEntry:addTrigger("see you");
+talkEntry:addResponse("Aye, take care.");
+talkEntry:addResponse("Irmorom with ya!");
+talkEntry:addResponse("Until next time!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auf bald");
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Machs gut");
+talkEntry:addTrigger("Bis dann");
+talkEntry:addTrigger("Bis später");
+talkEntry:addTrigger("Schönen Tag noch");
+talkEntry:addResponse("Aye, machs gut.");
+talkEntry:addResponse("Irmorom mit dir!");
+talkEntry:addResponse("Man sieht sich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("how are you");
+talkEntry:addTrigger("how feel");
+talkEntry:addTrigger("how do you do");
+talkEntry:addResponse("Can't say anything's bothering me and ya?");
+talkEntry:addResponse("So-so, but I'm fine right now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wie gehts");
+talkEntry:addTrigger("wie fühlst");
+talkEntry:addResponse("Ich kann nich klagen und du?");
+talkEntry:addResponse("Ganz gut und selbst?");
+talkEntry:addResponse("Mal so, mal so, aber gerade geht es mir ganz gut.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Do I look like a merchant? I don't think so!");
+talkEntry:addResponse("Nah, I don't buy anything and I won't ever sell something to you!");
+talkEntry:addResponse("Maybe some other time, not today.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Sehe ich aus wie ein Händler, ich denke nicht!");
+talkEntry:addResponse("Nay, ich kauf nix und verkaufen tu ich erst recht nix an dich!");
+talkEntry:addResponse("Ein ander mal vielleicht, heute nich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You ask what my profession is? I'm a smith, the best even.");
+talkEntry:addResponse("I'm a smith and you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Beruf");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du fragst nach meinem Beruf? Ich bin Schmied, einer der besten sogar.");
+talkEntry:addResponse("Von Beruf bin ich Schmied und du?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("location");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You're in the mountains, where else?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ort");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("In den Bergen bist du hier, wo sonst?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is the city full of them mage-folk right? Don't like them much.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("runewick");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Runewick ist die Stadt mit diesem Magierpack, stimmts? Mag die nicht besonders.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nun, ein bisschen warm dort, aber die Königin soll gutaussehen. Würde nichts dagegen haben, wenn sie mal herkommt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Fine town, really fine town you know. But only if ya have enough silver coins in your pocket you know what I mean?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Tolle Stadt, wirklich tolle Stadt weißt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weißt du was ich meine?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("queen");
+talkEntry:addResponse("Don't know her personally but wouldn't mind if she really is as good looking as they say. Hear she's a harsh leader though.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("königin");
+talkEntry:addResponse("Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe herrscherin is.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzmagier");
+talkEntry:addResponse("Kenn ich nicht, wer soll denn das sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Don't know him, who's that supposed to be?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Well, nothing much to say. He's the leader of Galmair and does a really good job.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("don");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nun, gibt nicht viel zu sagen. Er ist der Anführer von Galmair und macht seine Arbeit sehr gut.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pickaxe");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addResponse("You can mine for ore with it, a merchant can surely sell ya one if you lose yours.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Spitzhacke");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 0));
+talkEntry:addResponse("Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ich kann dir helfen falls du Schmied werden willst, hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addResponse("I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal as well as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addResponse("Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I want ya to get 10 lumps of coal and 10 chunks of iron ore, and don't forget the hammer!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addResponse("Aye, 10 lumps of coal and 10 chunks of iron ore and a hammer, that's what I want.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addResponse("Aye, 10 Brocken Eisenerz, 10 Klumpen Kohle und nen Hammer is es wat ich haben will!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
+talkEntry:addResponse("Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
+talkEntry:addResponse("Arr, good job. Now watch me, so that you actually learn something!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(23, 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(21, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(22, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(23, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addResponse("Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 20));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addResponse("Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
+talkEntry:addResponse("Leave me be for now, I wanna do my own smithing for a change. Come back later, alright?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 20));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 2));
+talkEntry:addResponse("Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addResponse("Arr! You're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addResponse("Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
+talkEntry:addResponse("Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2699, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You have feel like you really learned something."));
+talkEntry:addResponse("Looks good and it's even everything that I wanted ya to bring. Looks as if you could become a real smith after all.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 15));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2699, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 15));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, einen Schmelztiegel und einen Feinschmiedehammer zu besorgen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 15));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2699, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.item.item(122, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It seems you're not trustworthy after all, or maybe you're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, a crucible and a fine smith hammer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addResponse("Arr! You're quite good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, then I'll show ya what a smith can do.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 40));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addResponse("Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
+talkEntry:addResponse("Be gone, I have no time for ya right now since you didn't make any progress! Practice some more, then I'll show you how to smith some nice weapons.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 4));
+talkEntry:addResponse("Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addResponse("It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addResponse("Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
+talkEntry:addResponse("Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2763, 4));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2172, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", ">", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
+talkEntry:addResponse("Finally, you're back, I started to worry about ya. Now watch how I combine these materials.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2763, 4));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2535, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2172, 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Wenn du nix lernen willst, dann mach das du verschwindest! Wenn du nichtmal die kleinsten Aufträge erfüllen willst, wie willste da nen guter Schmied werden?!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "<", 4));
+talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2172, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If ya don't wanna learn anything, just go. Ya can't even complete the simplest task! How do ya think you'll become a good smith then?!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 80));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 80));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 80));
+talkEntry:addResponse("Never thought I'd see your face again. But glad that you ask. I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", ">", 60));
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 80));
+talkEntry:addResponse("Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Come back later, I've no time for ya at the moment.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Komm später wieder, ich hab im Moment keine Zeit für dich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
+talkEntry:addResponse("Come back later, I've no time for ya at the moment.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.skill.skill(2, "smithing", "=<", 60));
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 6));
+talkEntry:addResponse("Komm später wieder, ich hab im Moment keine Zeit für dich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addResponse("You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addResponse("Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt."));
+talkEntry:addResponse("Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2675, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2364, 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest finished!] You feel like you really learned something."));
+talkEntry:addResponse("Good job. Now that I know I can count on you, watch closely here and see how this sword is made.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "smithing", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2550, 15));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2675, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(226, 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2364, 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(81, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nay, ick red mit dir kein Wort mehr bist du mir nicht das bringst, was ich von dir haben wollte!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 7));
+talkEntry:addCondition(npc.base.condition.item.item(2550, "all", "<", 15));
+talkEntry:addCondition(npc.base.condition.item.item(2675, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(226, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.item.item(2364, "all", "<", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nah, I won't talk to ya until ya bring me the things I asked you for.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nah, you learned enough from me. You have to figure out everything else for yourself . That's what a good smith is all about.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addResponse("Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(81, "=", 8));
+talkEntry:addResponse("Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Aye, then go and collect those things I asked you for.");
+talkEntry:addResponse("If ya say so.");
+talkEntry:addResponse("Alright, have fun!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Aye, dann mach dich auf dem Weg und sammel was ich von dir wollte!");
+talkEntry:addResponse("Na wenn du meinst");
+talkEntry:addResponse("Is gut, viel Vergnügen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("What did ya say? I hope I didn't hear ya correctly!");
+talkEntry:addResponse("You say no... no to me, who do ya think your speaking to?");
+talkEntry:addResponse("With that attitude, ya won't become a good smith.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Wat sachste, ich hoffe ich habe mich verhört?!");
+talkEntry:addResponse("Du sagst Nein...nein zu mir, wat denkst du mit wem du sprichst!");
+talkEntry:addResponse("Dann nich, so wird nie was aus dir!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me streicht sich über seinen langen Bart.", "#me untangles his long beard.");
+talkingNPC:addCycleText("#me blickt sich mistrauisch um und kratzt sich anschließend breit grinsend am Hintern.", "#me looks around suspiciously then scratches his buttocks and grins broadly.");
+talkingNPC:addCycleText("#me nimmt eine Bierflasche aus seiner Tasche und trinkt einen Schluck", "#me pulls a bottle of beer from his bag and takes a swig.");
+talkingNPC:addCycleText("#me wischt sich den Schweiß von der Stirn, als er seine Arbeit unterbricht.", "#me interrupts his work to wipe the sweat off his forehead.");
+talkingNPC:addCycleText("#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(2);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("k.a.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    npc.base.autonpcfunctions.SetRadius(0);
-    QuestID = 0;
-    -- Queststatus Overview 
-    -- 0: No Quest taken 
-    -- 1: Quest 1 taken - gather 10 raw materials of two different kinds and 1 needed tools for +5 skill while skill<=20 
-    -- 2: Quest 1 solved 
-    -- 3: Quest 2 taken - gather 15 raw materials, 2 differnt tools and 5 semi finished products for +5 skill while 20<=40 
-    -- 4: Quest 2 solved 
-    -- 5: Quest 3 taken - gather 4 needed tools, 10 semi finished products of 2 kinds and 5 easy finished products for +5 skill while 40<=60 
-    -- 6: Quest 3 solved 
-    -- 7: Quest 4 taken - gather 15 semi finished products, 10 easy finished products of 2 kinds and 5 advanced finished products for skill+5 while 60<=80 
-    -- 8: Quest 4 solved 
-    -- Cycletext:
-    npc.base.autonpcfunctions.AddCycleText("#me streicht sich über seinen langen Bart.","#me uncurls his long beard.");
-    npc.base.autonpcfunctions.AddCycleText("#me blickt sich mistrauisch in der Höhle um und kratzt sich anschließend breit grinsend am Hintern.","#me looks around suspeciously through the cave and afterwards scratchs his buttocks grinning broadly.");
-    npc.base.autonpcfunctions.AddCycleText("#me nimmt eine Bierflasche aus seiner Tasche und trinkt einen Schluck","#me takes a beer bottle out of his bag and takes a mouthful.");
-    npc.base.autonpcfunctions.AddCycleText("#me wischt sich den Schweiß von der Stirn, als er die Arbeit unterbricht","#me wipes the sweat off his forehead, when he intterupts his work.");
-    npc.base.autonpcfunctions.AddCycleText("#me brummt leise etwas in seinen Bart als er beim Schmieden auf seinen Finger schlägt","#me grumbles something into his beard when he hits his finger with his hammer.");
-    -- Help 
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","[Game Help] This NPC is the smith Saren Eisenfaust. Keyphrases: Hello, quest, pickaxe, adventure");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","[Spielhilfe] Dieser NPC ist der Schmied Saren Eisenfaust. Schlüsselwörter: Hallo, Quest, Aufgaben, Spitzhacke");
-    -- General speech 
-    npc.base.autonpcfunctions.AddTraderTrigger("greetings","Good day, what do ya want?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("hello");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("huhu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("good evening");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("good morning");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom with ya, do ya need anything?");
-    npc.base.autonpcfunctions.AddTraderTrigger("grüße","Tach auch, wat gibts?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("huhu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Morgen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom zum Gruße, brauchst du wat?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","What do ya want, eh? We say greetings around here.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger(",english");
-    npc.base.autonpcfunctions.AddAdditionalText("Aye, whatever.");
-    npc.base.autonpcfunctions.AddAdditionalText("You won't come far with that, that's greetings around here.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Wat willste, eh? Dat heißt Tach!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger(",german");
-    npc.base.autonpcfunctions.AddAdditionalText("Aye, wat auch immer.");
-    npc.base.autonpcfunctions.AddAdditionalText("Damit kommste hier nich weit, es heißt Tach!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Eh..what did you just say about my mother?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("What are you jabbering about?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nah, I don't wanna buy that!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Eh..wat hast du grad über meine Mutter gesagt?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Wat quasselst du da?");
-    npc.base.autonpcfunctions.AddAdditionalText("Nay, ich will dat nich kaufen!");
-    npc.base.autonpcfunctions.AddTraderTrigger("who are you","I'm Saran and who are you?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("whats your name");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("your name");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm called Saran, Saran Eisenfaust and what's your name?");
-    npc.base.autonpcfunctions.AddTraderTrigger("wer bist du","Ich bin der Saren und wer bist du?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("dein name");
-    npc.base.autonpcfunctions.AddAdditionalText("Man nennt mich Saren, Saren Eisenfaust und wie nennt man dich?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","Aye, take care.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("see you");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom with ya!");
-    npc.base.autonpcfunctions.AddAdditionalText("Until next time!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auf bald","Aye, machs gut.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Machs gut");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bis dann");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bis später");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Schönen Tag noch");
-    npc.base.autonpcfunctions.AddAdditionalText("Irmorom mit dir!");
-    npc.base.autonpcfunctions.AddAdditionalText("Man sieht sich.");
-    npc.base.autonpcfunctions.AddTraderTrigger("how are you","Can't say that something's bothering me and ya?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("how feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("how do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("So-so, but I'm fine right now.");
-    npc.base.autonpcfunctions.AddTraderTrigger("wie gehts","Ich kann nich klagen und du?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalText("Ganz gut und selbst?");
-    npc.base.autonpcfunctions.AddAdditionalText("Mal so, mal so, aber gerade geht es mir ganz gut.");
-    -- Catching typical NPC phrases 
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","Do I looks like a merchant? I don't think so!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("Nah, I don't buy anything and I won't ever sell something to you!");
-    npc.base.autonpcfunctions.AddAdditionalText("Maybe some other time, not today.");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Sehe ich aus wie ein Händler, ich denke nicht!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("Nay, ich kauf nix und verkaufen tu ich erst recht nix an dich!");
-    npc.base.autonpcfunctions.AddAdditionalText("Ein ander mal vielleicht, heute nich.");
-    -- Small talk
-    npc.base.autonpcfunctions.AddTraderTrigger("profession","You ask what my profession is? I'm a smith, the best even.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("I'm a smith and you?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Beruf","Du fragst nach meinem Beruf? Ich bin Schmied, einer der besten sogar.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Von Beruf bin ich Schmied und du?");
-    npc.base.autonpcfunctions.AddTraderTrigger("location","You're in the mountains, where else?");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ort","In den Bergen bist du hier, wo sonst?");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("runewick","Runewick is the city full of that mage-folk right? Don't like them much.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("runewick","Runewick ist die Stadt mit diesem Magierpack, stimmts? Mag die nicht besonders.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("cadomyr","Well, a little hot there but the queen is supposed to be good looking, wouldn't mind if she came here.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("cadomyr","Nun, ein bisschen warm dort, aber die Königin soll gutaussehen. Würde nichts dagegen haben, wenn sie mal herkommt.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("galmair","Fine town, really fine town you know. But only if ya have enough silvercoins in your pocket you know what I mean?");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("galmair","Tolle Stadt, wirklich tolle Stadt weißt du. Aber nur wenn du genug Silbermünzen in der Tasche hast, weißt du was ich meine?");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("queen","Don't know her personally but wouldn't mind if she really is as good looking as they say. Told to be a harsh leader though.");
-    npc.base.autonpcfunctions.AddTraderTrigger("königin","Kenn die nicht persönlich aber würde mich nicht weigern wenn sie wirklich so gut aussieht wie man sagt. Man sagt auch das sie eine taffe herrscherin is.");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzmagier","Kenn ich nicht, wer soll denn das sein?");
-    npc.base.autonpcfunctions.AddTraderTrigger("archmage","Don't know him, who's that supposed to be?");
-    npc.base.autonpcfunctions.AddTraderTrigger("don","Well, not much to say here. He's the leader of Galmair and does his job really good.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("don","Nun, gibt nicht viel zu sagen. Er ist der Anführer von Galmair und macht seine Arbeit sehr gut.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Tool hints 
-    npc.base.autonpcfunctions.AddTraderTrigger("pickaxe","You can mine for ore with it, a merchant can surely sell ya one if you lose yours.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("Spitzhacke","Damit kannst du das Erz abbauen, ein Händler kann dir sicher eine verkaufen wenn du deine verlierst");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    -- 1st quest
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal aswell as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich kann dir helfen falls du Schmied werden willst,  hol mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz und nen Hammer nich zu vergessen. Hier noch die Spitzhacke zum abbauen des Erzes.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I can help ya if ya wanna become a smith, but first bring me 10 lumps of coal aswell as 10 chunks of iron ore, and don't forget to bring a hammer. Here is a pickaxe for you to get the ore.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich kann dir helfen, falls du Schmied werden willst, dafür solltest du mir aber erstma 10 Brocken Kohle sowie 10 Klumpen Eisenerz bringen. Und hier eine Hacke um das Erz abzubauen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddConsequence("item",2763,1,399,0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I want ya to get 10 lumps of coal and 10 cunks of iron ore, and don't forget the hammer!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","10 Brocken Kohle und 10 Klumpen Eisenerz will ich das du holst, vergiss aber auch nicht den Hammer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Aye, 10 lumps of coal and 10 chunks of iron ore and a hammer, that's what I want.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Aye, 10 Brocken Eisenerz, 10 Klumpen Kohle und nen Hammer is es wat ich haben will!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Arr, gut gemacht. Jetzt schau mir gut zu, damit du auch wat lernst!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",22,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",23,"all",">",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",22,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",23,1);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Arr, good job. Now watch me, so that you actually learn something!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",22,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",23,"all",">",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",21,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",22,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",23,1);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest finished!] You have the feeling as if you really learnt something.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Arr, wenn du dir mit mir einen Spaß erlauben willst, werd ich dir nich helfen, ich sehe genau das du nich alles da hast wat ich haben wollte!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",22,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",23,"all","<",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Arr, if you try to trick me, I won't help you. I see that this is not everything that I wanted.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",21,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",22,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",23,"all","<",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 2nd quest 
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",20);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",20);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Aye, I have another task for ya. I need 15 copper ore, a new crucible, a fine smith hammer and 5 iron ingots!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",20);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Aye, hab wieder wat für dich zu tun. 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren brauch ich!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",20);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Leave me be for now, I wanna smith something for me for a change. Come back later, alright?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Leave me be for now, I wanna smith something for me for a change. Come back later, alright?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Lass mich mal in Ruhe, will auch selber mal wat schmieden. Kannst ja später wieder kommen, nich?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",20);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ya're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Ya're supposed to bring me 15 copper ore, a crucible, a fine smith hammer and 5 iron ingots. Not that hard to memorize, is it?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Du sollst mir 15 Kupfererz, einen neuen Schmelztiegel, einen Feinschmiedehammer und 5 Eisenbarren bringen, is das so schwer zu merken,eh?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Sieht gut aus, alles da wat ich von dir verlangt hab, scheint als könnt aus dir doch nen richtiger Schmied werden.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("item",2699,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("item",122,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,15);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",25351,5);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2699,1);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",122,1);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Looks good and even everything that I wanted ya to bring. Looks as if you could become a real smith after all.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2536,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("item",2699,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("item",122,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2536,15);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2535,5);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2699,1);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",122,1);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest finished!] You have the feeling as if you really learnt something.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wie mir scheint, kann man sich nich auf dich verlassen. Oder du bist dümmer als du aussiehst, denn es is nich besonders schwer 15 Kupfererz, 5 Eisenbarren, einen Schmelztiegel und einen Feinschmiedehammer zu besorgen!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2356,"all","<",15);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("item",2699,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("item",122,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","It seems ya're not trustworthy after all, or maybe ya're just dumber that ya look, because you didn't bring me the 15 copper ore, 5 iron ingots, a crucible and a fine smith hammer.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",2356,"all","<",15);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("item",2699,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("item",122,"all","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 3rd quest
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ya're quiet good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, than I'll show ya what a smith can do.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",40);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken, dann siehst du selbst was ein Schmied so alles kann.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",40);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Ya're quiet good now. It's time to teach ya something real. Bring me 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes, than I'll show ya what a smith can do.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",40);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Du machst dich ganz gut. Nun wird es aber an der Zeit dir wat richtiges beizubringen. Bring mir zehn Eisenbarren, zehn Goldbarren, fünf Kupferbarren und vier große Schwertgriffe, dann siehst du selbst was ein Schmied so alles kann.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",40);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Be gone, I have no time for ya right now and as it seems you didn't make any progress! Practice some more, than I'll show you how to smith some nice weapons.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Be gone, I have no time for ya right now and as it seems you didn't make any progress! Practice some more, than I'll show you how to smith some nice weapons.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Verschwinde, ich hab grad keine Zeit und so wie du aussiehst, hast du eh keine Fortschritte gemacht! Übe mehr, dann zeig ich dir auch wie man ne nette Waffe schmiedet.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",40);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","It's 10 iron ingots, 10 copper ingots, 5 steel greaves and 4 pickaxes I wanted from you.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Es waren zehn Eisenbarren, zehn Kupferbarren, fünf Stahlbeinschienen und vier Spitzhacken die ich haben wollt, aye!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Endlich biste wieder zurück, ich hatte mir schon Sorgen gemacht. Nun pass aber auf wie ich die Erze kombiniere.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all",">",3);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2176,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2763,4);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2535,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2550,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2176,5);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Finally, you're back, I started to worry about ya. Now watch me, how I combine those ore.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all",">",3);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2176,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2763,4);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2535,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2550,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2176,5);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest finished!] You have the feeling as if you really learnt something.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Wenn du nix lernen willst, dann mach das du verschwindest! Wenn du nichtmal die kleinsten Aufträge erfüllen willst, wie willste da nen guter Schmied werden?!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","<",4);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2176,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","If ya don't wanna learn anything, just go. Ya don't even want to fulfill the simplest task, how do ya want to become a good smith than?!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",2763,"all","<",4);
-    npc.base.autonpcfunctions.AddCondition("item",2535,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2176,"all","<",5);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 4th quest
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Never thought I would see your face again. But good that you ask, I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",60);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",80);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">","60s");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",80);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Never thought I would see your face again. But good that you ask, I need 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",60);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",80);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Das ich dich mal wieder zu Gesicht bekomme hätte ich nich gedacht. Aber jut das du fragst. 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische bräuchte ich von dir.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing",">",60);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",80);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Come back later, I've no time for ya at the moment.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Komm später wieder, ich hab im Moment keine Zeit für dich.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Come back later, I've no time for ya at the moment.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Komm später wieder, ich hab im Moment keine Zeit für dich.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("skill","smithing","=<",60);
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","You were supposed to bring me 15 copper ingots, 10 war hammer, 10 rapier and 2 steel plate.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Die Sachen die du mir bringen solltest waren 15 Kupferbarren, 10 Kriegshämmer, 10 Degen und 2 Stahlharnische.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Sehr gut gemacht, ich wusste man kann sich auf dich verlassen. Nun sperr die Augen weit auf und beobachte wie ich dat Schwert schmiede!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("item",2675,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",226,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2364,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2550,15);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2675,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",226,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2364,2);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest erfüllt!] Du hast das Gefühl als hättest du was dazu gelernt.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("item",2675,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",226,"all",">",9);
-    npc.base.autonpcfunctions.AddCondition("item",2364,"all",">",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2550,15);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2675,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",226,10);
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",2364,2);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","smithing","+",5);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",8);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest finished!] You have the feeling as if you really learnt something.");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Nay, ick red mit dir kein Wort mehr bist du mir nicht das bringst, was ich von dir haben wollte!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all","<",15);
-    npc.base.autonpcfunctions.AddCondition("item",2675,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",226,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2364,"all","<",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Nah, I won't talk to ya until ya bring me the things I asked you for.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",7);
-    npc.base.autonpcfunctions.AddCondition("item",2550,"all","<",15);
-    npc.base.autonpcfunctions.AddCondition("item",2675,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",226,"all","<",10);
-    npc.base.autonpcfunctions.AddCondition("item",2364,"all","<",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Final dialogue: No more quests, just nice hints 
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Nah, you learnt enough from me. You have to find out everything else there is. That's what a good smith is all about.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Nah, you learnt enough from me. You have to find out everything else there is. That's what a good smith is all about.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",8);
-    -- Last catch: Think about keyphrases the player might say and that are not caught until here 
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","Aye, than go and collect those things I asked you for.");
-    npc.base.autonpcfunctions.AddAdditionalText("If ya say so.");
-    npc.base.autonpcfunctions.AddAdditionalText("Alright, have fun!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Aye, dann mach dich auf dem Weg und sammel was ich von dir wollte!");
-    npc.base.autonpcfunctions.AddAdditionalText("Na wenn du meinst");
-    npc.base.autonpcfunctions.AddAdditionalText("Is gut, viel Vergnügen!");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","What did ya say, I hope I didn't hear ya correctly?!");
-    npc.base.autonpcfunctions.AddAdditionalText("You say no... no to me, what do ya think your speaking to?");
-    npc.base.autonpcfunctions.AddAdditionalText("With that attitude, ya won't become a good smith.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Wat sachste, ich hoffe ich habe mich verhört?!");
-    npc.base.autonpcfunctions.AddAdditionalText("Du sagst Nein...nein zu mir, wat denkst du mit wem du sprichst!");
-    npc.base.autonpcfunctions.AddAdditionalText("Dann nich, so wird nie was aus dir!");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
