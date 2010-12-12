@@ -110,23 +110,23 @@ itemShoes = 53
 -- Faction stuff. Please remove if you send the template to outsiders!
 
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Es macht keinen Sinn vorzugeben ich hätte keine Differenzen mit Valerio, aber näheres geht Euch jetzt wirklich nicht's an.","Nun... ich denke, wenn ihr von diesen Dingen wissen solltet wüsstet Ihr es bereits. Also bin ich nicht bereit Auskünfte hierüber zu verteilen.","Sicherlich seid Ihr Euch im klaren darüber, dass meine Meinung über Don Guilianni eine Sache ist, die ausschließlich mich und Don Guilianni selbst betrifft."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair" -> "Das Metall und die Kohlen in den Böden Galmairs nähren die Habgier seiner Bürger. Doch wenn die Minen erschöpft sind wird man erkennen müssen, dass Weisheit das einzige erstrebenswerte Gut ist.", "Galmair trachtet seit jäh her nach Wohlstand und Reichtum. Vernunft und Gemäßigtheit sind ihnen fremd. Zügellosigkeit und gierige Entscheidungen werden diese Stadt einmal zu Grunde richten.", "Ich halte die Bürger Galmairs keinesweges für besinnungloße Leichtgeistige. Doch ihre Ziele und Pläne die stehts von Gier dominiert werden sind nur wenig undurchschaubar."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Königin Rosaline, nun sie ist... eine Sphinx ohne Geheimnisse. Dabei ist es erstaunlich wie wenig diese Blutslinie aus den Fehlern ihrer Vorfahren gelernt hat.", "Die kurzlebigkeit der Menschen mag ihre Welt beschränken. Allerdings finde ich es doch immer wieder erstaunlich wozu sie denoch fähig sind.", "Nun, ich errinere mich noch gut an Rosalines Großvater. Ein bemerkenswerter Mensch in mancherlei Hinsicht. So wie sein Sohn. Und nun, soll sich zeigen ob dessen Tochter ein ähnliches Schicksal erwartet."
 "rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Königin Rosaline, nun sie ist... eine Sphinx ohne Geheimnisse. Dabei ist es erstaunlich wie wenig diese Blutslinie aus den Fehlern ihrer Vorfahren gelernt hat.", "Die kurzlebigkeit der Menschen mag ihre Welt beschränken. Allerdings finde ich es doch immer wieder erstaunlich wozu sie denoch fähig sind.", "Nun, ich errinere mich noch gut an Rosalines Großvater. Ein bemerkenswerter Mensch in mancherlei Hinsicht. So wie sein Sohn. Und nun, soll sich zeigen ob dessen Tochter ein ähnliches Schicksal erwartet.""
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr" -> "Wenn ein Feind um jemandens ehrenhaften Kodex weiß, mag sich das für den dem die Ehre ein göttliches Gut ist, eventuell als gefährliches Hinderniss erweisen.", "Cadomyrs Kodex der Ehre, macht es langsam und träge - vorhersehbar. Stets, könnte ein kluger Mann die Pläne der Stadt ersinnen. Veränderung ereignen sich nur langsam, wenn sie nicht so und so versickern.", "Cadomyr mag standhafte Streiter haben. Doch viel zu nah liegt der Unterschied zwischen Tapferkeit und Torheit. Der Adel Cadomyrs spaltet sich an der Weiblichkeit von Rosaline Edwards und Uneinigkeit schwächt die Stadt."
 
 -- Main land factions
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar" -> "Albar stand seit jeher gegen mich und meine Überzeugungen. Schon damals, als ich noch ein Magier Lor Angurs war.", "Alles woran ich Glaube und all meine Überzeugungen scheinen in Albar mit Füßen getreten zu werden. Denkt Ihr nicht?", "Albar regiert gegen sein eigenes Volk. Nun der jetzige Hochkönig scheint weniger strikt zu sein, aber Menschen sind Wankelmütit und nichteinmal ich vermag zu sagen wie er sich entscheiden mag."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gync", "gynk" -> "Über ein herogenes Volk wie das Gynks ist es schwer eine pregnante Aussage zu machen. Doch gerade aus diesem grund bin ich der Meinung das in Gynk organisiertere Regierung nicht von Nachteil währe.", "Auf Ersten Blick mag einem Gynk als Chaotisches Unsystem erscheinen. Näher betrachtet - komplex. Ausführlich studiert - als ein sich slebst frei entwickelndes und unreguliertes System.", "Die Unvernunft und Triebhaftigkeit welche in Gynk überwiegend vorherrscht, ist mir zu wider. Unaustehlich ist mir der Gedanke, dort zu leben."
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama" -> "Beinahe will ich so weit gehen und Salkamar als das erleuchtete Reich der Menschen zu bezeichnen. Es dürfte Euch nicht überraschen das Runewick einige Beziehungen zu jenen Landen pflegt.", "Der Lichtblick unter den Reichen der Menschen. Die Werte Salkamars spiegeln zu vielen Teilen jene wieder die ich mir seit vielen Jarhunderten zu eigen gemacht habe.", "Habt ihr die Möglichkeit eines Tages in die Stadt Salkamar selbst zu reisen, besucht die hießige Bibliothek. Sie ist Weltbekannt und beherbergt ungezählte Schränke mit wertvollen Büchern."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
