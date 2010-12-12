@@ -86,12 +86,12 @@ itemShoes = 53
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest
-"quest", skill(baking) =< 20, english -> "Yes, I have something to do for you. Bring me 10 onions and 10 cabbage, than I might let you taste from my soup and it would be nice if you bring me a cooking spoon as well. Here are some seeds and a sickle.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
-"quest", skill(baking) =< 20 -> "Jup, ich hätte was für dich zu tun, bring mir 10 Zwiebeln sowie 10 Kohlköpfe, dann lass ich dich auch von meiner Suppe kosten und ein neuer Kochlöffel wäre auch nett. Ach und hier ist eine Sichel, die wirst du brauche und ein paar Samen.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
+"quest", "mission", skill(baking) =< 20, english -> "Yes, I have something to do for you. Bring me 10 onions and 10 cabbage, than I might let you taste from my soup and it would be nice if you bring me a cooking spoon as well. Here are some seeds and a sickle.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
+"quest", "mission", skill(baking) =< 20 -> "Jup, ich hätte was für dich zu tun, bring mir 10 Zwiebeln sowie 10 Kohlköpfe, dann lass ich dich auch von meiner Suppe kosten und ein neuer Kochlöffel wäre auch nett. Ach und hier ist eine Sichel, die wirst du brauche und ein paar Samen.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
 "task", "adventure", skill(baking) =< 20 -> "Yes, I have something to do for you. Bring me 10 onions and 10 cabbage, than I might let you taste from my soup and it would be nice if you bring me a cooking spoon as well. Here are some seeds and a sickle.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) =< 20 -> "Jup, ich hätte was für dich zu tun, bring mir 10 Zwiebeln sowie 10 Kohlköpfe, dann lass ich dich auch von meiner Suppe kosten und ein neuer Kochlöffel wäre auch nett. Ach und hier ist eine Sichel, die wirst du brauche und ein paar Samen.", item(534, 30, 399, 0), item(291, 30, 399, 0), item(126, 1, 399, 0), queststatus(80) = 1
-"quest", queststatus(80) = 1, english -> "If you don't bring me those 10 onions and 10 cabbage, I won't be able to make soup. And without a cooking spoon I cannot cook."
-"quest", queststatus(80) = 1 -> "Wenn du mir nicht die 10 Zwiebeln und die 10 Kohlköpfe bringst, kann ich leider auch keine Suppe machen. Und ohne den neuen Kochlöffel kann ich nicht kochen."
+"quest", "mission", queststatus(80) = 1, english -> "If you don't bring me those 10 onions and 10 cabbage, I won't be able to make soup. And without a cooking spoon I cannot cook."
+"quest", "mission", queststatus(80) = 1 -> "Wenn du mir nicht die 10 Zwiebeln und die 10 Kohlköpfe bringst, kann ich leider auch keine Suppe machen. Und ohne den neuen Kochlöffel kann ich nicht kochen."
 "task", "adventure", queststatus(80) = 1 -> "If you don't bring me those 10 onions and 10 cabbage, I won't be able to make soup. And without a cooking spoon I cannot cook."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(80) = 1 -> "Wenn du mir nicht die 10 Zwiebeln und die 10 Kohlköpfe bringst, kann ich leider auch keine Suppe machen. Und ohne den neuen Kochlöffel kann ich nicht kochen."
 ".+", queststatus(80) = 1, item(290, all) > 9, item(201, all) > 9, item(227, all) > 0, english -> inform("You have the feeling that you've learnt a lot today."), "Ah, you're back and you even have everything with you, that I requested. Very good. Now watch closely!", skill(baking) + 5, deleteItem(290, 10), deleteItem(201, 10), deleteItem(227, 1), queststatus(80) = 2
@@ -100,16 +100,16 @@ itemShoes = 53
 ".+", queststatus(80) = 1, item(290, all) < 10, item(201, all) < 10, item(227, all) < 1 -> "Das ist nicht alles was ich haben wollte, ich wollte 10 Kohlköpfe, 10 Zwiebeln und einen Kochlöffel!"
 
 -- 2nd quest
-"quest", skill(baking) > 20, skill(baking) =< 40, english -> "Oioioi, you again! Now bring me 15 tomatoes, a hatchet for a new fire and a bucket. And don't forget to bring me 5 bowls of onionsoup as well, I want to see if yours is as good as mine by now!", queststatus(80) = 3
-"quest", skill(baking) > 20, skill(baking) =< 40 -> "Uiuiui, da bist du ja wieder! Jetzt bring mir aber schnell 15 Tomaten, ein Beil für ein neues Feuer und einen Eimer. Und vergiss nicht mir auch noch 5 Schüsseln Zwiebelsuppe zu bringen, ich will sehen ob du die endlich genau so gut machen kannst wie ich! ", queststatus(80) = 3
+"quest", "mission", skill(baking) > 20, skill(baking) =< 40, english -> "Oioioi, you again! Now bring me 15 tomatoes, a hatchet for a new fire and a bucket. And don't forget to bring me 5 bowls of onionsoup as well, I want to see if yours is as good as mine by now!", queststatus(80) = 3
+"quest", "mission", skill(baking) > 20, skill(baking) =< 40 -> "Uiuiui, da bist du ja wieder! Jetzt bring mir aber schnell 15 Tomaten, ein Beil für ein neues Feuer und einen Eimer. Und vergiss nicht mir auch noch 5 Schüsseln Zwiebelsuppe zu bringen, ich will sehen ob du die endlich genau so gut machen kannst wie ich! ", queststatus(80) = 3
 "task", "adventure", skill(baking) > 20, skill(baking) =< 40 -> "Oioioi, you again! Now bring me 15 tomatoes, a hatchet for a new fire and a bucket. And don't forget to bring me 5 bowls of onionsoup as well, I want to see if yours is as good as mine by now!", queststatus(80) = 3
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) > 20, skill(baking) =< 40 -> "Uiuiui, da bist du ja wieder! Jetzt bring mir aber schnell 15 Tomaten, ein Beil für ein neues Feuer und einen Eimer. Und vergiss nicht mir auch noch 5 Schüsseln Zwiebelsuppe zu bringen, ich will sehen ob du die endlich genau so gut machen kannst wie ich!", queststatus(80) = 3
-"quest", skill(baking) =< 20, queststatus(80) = 2, english -> "You have to practice a little more, than I will gladly help you with more advances recipes."
-"quest", skill(baking) =< 20, queststatus(80) = 2 -> "Du musst noch ein bisschen mehr üben, dann helf ich dir auch gerne weiter bei schwierigeren Rezepten."
+"quest", "mission", skill(baking) =< 20, queststatus(80) = 2, english -> "You have to practice a little more, than I will gladly help you with more advances recipes."
+"quest", "mission", skill(baking) =< 20, queststatus(80) = 2 -> "Du musst noch ein bisschen mehr üben, dann helf ich dir auch gerne weiter bei schwierigeren Rezepten."
 "task", "adventure", skill(baking) =< 20, queststatus(80) = 2 -> "You have to practice a little more, than I will gladly help you with more advances recipes."
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) =< 20, queststatus(80) = 2 -> "Du musst noch ein bisschen mehr üben, dann helf ich dir auch gerne weiter bei schwierigeren Rezepten."
-"quest", queststatus(80) = 3, english -> "Bring me the 15 tomatoes, the hatchet and the bucket, as well as 5 bowls of selfmade onionsoup and I will cook us a tasty stew!"
-"quest", queststatus(80) = 3 -> "Bring mir die 15 Tomaten, das Beil und den Eimer, sowie deine 5 Schüsseln selbstgemacher Zwiebelsuppe und ich koch uns einen leckeren Eintopf!"
+"quest", "mission", queststatus(80) = 3, english -> "Bring me the 15 tomatoes, the hatchet and the bucket, as well as 5 bowls of selfmade onionsoup and I will cook us a tasty stew!"
+"quest", "mission", queststatus(80) = 3 -> "Bring mir die 15 Tomaten, das Beil und den Eimer, sowie deine 5 Schüsseln selbstgemacher Zwiebelsuppe und ich koch uns einen leckeren Eintopf!"
 "task", "adventure", queststatus(80) = 3 -> "Bring me the 15 tomatoes, the hatchet and the bucket, as well as 5 bowls of selfmade onionsoup and I will cook us a tasty stew!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(80) = 3 -> "Bring mir die 15 Tomaten, das Beil und den Eimer, sowie deine 5 Schüsseln selbstgemacher Zwiebelsuppe und ich koch uns einen leckeren Eintopf!"
 ".+", queststatus(80) = 3, item(200, all) > 14, item(2923, all) > 4, item(74, all) > 1, item(51, all) > 1, english -> inform("You have the feeling that you've learnt a lot today."), "You're finally back, now quickly hand me those things. Watch me now, maybe you learn a thing or two from me!", skill(baking) + 5, deleteItem(200, 15), deleteItem(2923, 5), deleteItem(74, 1), deleteItem(51, 1), queststatus(80) = 4
@@ -118,16 +118,16 @@ itemShoes = 53
 ".+", queststatus(80) = 3, item(200, all) < 15, item(2923, all) < 5, item(74, all) = 0, item(51, all) = 0 -> "So wird das nichts, du musst mir schon die Sachen bringen die ich von dir wollte, ich zähle sie nochmal auf also schreibs auf. 15 Tomaten, ein Beil, einen Eimer und 5 Schüsseln Zwiebelsuppe!"
 
 -- 3rd quest
-"quest", skill(baking) > 40, skill(baking) =< 60, english -> "Ah, you're back so soon. I just wanted to make a cake, please bring me the following things: four peels, a small pouch with 10 hops in it, 10 muffins and the most important thing, five honeycombs.", queststatus(80) = 5
-"quest", skill(baking) > 40, skill(baking) =< 60 -> "So, so, schnell bist du zurück. Ich wollte gerade einen Kuchen backen, bring' mir bitte folgende Sachen: vier Ofenschieber, ein kleinen Beutel mit 10 Hopfen darin, 10 Muffins und das wichtigste nicht zu vergessen, fünf Honigwaben.", queststatus(80) = 5
+"quest", "mission", skill(baking) > 40, skill(baking) =< 60, english -> "Ah, you're back so soon. I just wanted to make a cake, please bring me the following things: four peels, a small pouch with 10 hops in it, 10 muffins and the most important thing, five honeycombs.", queststatus(80) = 5
+"quest", "mission", skill(baking) > 40, skill(baking) =< 60 -> "So, so, schnell bist du zurück. Ich wollte gerade einen Kuchen backen, bring' mir bitte folgende Sachen: vier Ofenschieber, ein kleinen Beutel mit 10 Hopfen darin, 10 Muffins und das wichtigste nicht zu vergessen, fünf Honigwaben.", queststatus(80) = 5
 "task", "adventure", skill(baking) > 40, skill(baking) =< 60 -> "Ah, you're back so soon. I just wanted to make a cake, please bring me the following things: four peels, a small pouch with 10 hops in it, 10 muffins and the most important thing, five honeycombs.", queststatus(80) = 5
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) > 40, skill(baking) =< 60 -> "So, so, schnell bist du zurück. Ich wollte gerade einen Kuchen backen, bring' mir bitte folgende Sachen: vier Ofenschieber, ein kleinen Beutel mit 10 Hopfen darin, 10 Muffins und das wichtigste nicht zu vergessen, fünf Honigwaben.", queststatus(80) = 5
-"quest", skill(baking) =< 40, queststatus(80) = 4, english -> "Don't disturbe me now, I'm just working on a new recipe. Come back later."
-"quest", skill(baking) =< 40, queststatus(80) = 4 -> "Störe mich jetzt nicht, ich bastel grad an einem neuen Rezept. Komm später wieder."
+"quest", "mission", skill(baking) =< 40, queststatus(80) = 4, english -> "Don't disturbe me now, I'm just working on a new recipe. Come back later."
+"quest", "mission", skill(baking) =< 40, queststatus(80) = 4 -> "Störe mich jetzt nicht, ich bastel grad an einem neuen Rezept. Komm später wieder."
 "task", "adventure", skill(baking) =< 40, queststatus(80) = 4 -> "Don't disturbe me now, I'm just working on a new recipe. Come back later."
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) =< 40, queststatus(80) = 4 -> "Störe mich jetzt nicht, ich bastel grad an einem neuen Rezept. Komm später wieder."
-"quest", queststatus(80) = 5, english -> "4 peels, 10 hops, 10 muffings and 5 honeycombs, I think you will have that in no time."
-"quest", queststatus(80) = 5 -> "4 Ofenschieber, 10 Hopfen, 10 Muffins und 5 Honigwaben waren es, ich denke mal das hast du im nu zusammen."
+"quest", "mission", queststatus(80) = 5, english -> "4 peels, 10 hops, 10 muffings and 5 honeycombs, I think you will have that in no time."
+"quest", "mission", queststatus(80) = 5 -> "4 Ofenschieber, 10 Hopfen, 10 Muffins und 5 Honigwaben waren es, ich denke mal das hast du im nu zusammen."
 "task", "adventure", queststatus(80) = 5 -> "4 peels, 10 hops, 10 muffings and 5 honeycombs, I think you will have that in no time."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(80) = 5 -> "4 Ofenschieber, 10 Hopfen, 10 Muffins und 5 Honigwaben waren es, ich denke mal das hast du im nu zusammen."
 ".+", queststatus(80) = 5, item(121, all) > 3, item(154, all) > 9, item(454, all) > 9, item(2529, all) > 4, english -> inform("You have the feeling that you've learnt a lot today."), "You're back and you have everything with you, fantastic! Now you can help me with this cake, I#m sure that'll help you!", skill(baking) + 5, deleteItem(121, 4), deleteItem(154, 10), deleteItem(454, 10), deleteItem(2529, 5), queststatus(80) = 6
@@ -136,16 +136,16 @@ itemShoes = 53
 ".+", queststatus(80) = 5, item(121, all) < 4, item(154, all) < 10, item(454, all) < 10, item(2529, all) < 5 -> "Du hast ja nicht alles was ich wollte wie mir scheint, hol' mir die Sachen doch bitte, dann back ich einen super leckeren Kuchen!"
 
 -- 4th quest
-"quest", skill(baking) > 60, skill(baking) =< 80, english -> "I have one recipe for you left but I want to try some of you selfmade dished. I would like to try 15 sausage dishes, one box with 10 cookies, as well as 10 meat dishes and 5 strawberry cakes.", queststatus(80) = 7
-"quest", skill(baking) > 60, skill(baking) =< 80 -> "Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.", queststatus(80) = 7
+"quest", "mission", skill(baking) > 60, skill(baking) =< 80, english -> "I have one recipe for you left but I want to try some of you selfmade dished. I would like to try 15 sausage dishes, one box with 10 cookies, as well as 10 meat dishes and 5 strawberry cakes.", queststatus(80) = 7
+"quest", "mission", skill(baking) > 60, skill(baking) =< 80 -> "Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.", queststatus(80) = 7
 "task", "adventure", skill(baking) > 60, skill(baking) =< 80 -> "I have one recipe for you left but I want to try some of you selfmade dished. I would like to try 15 sausage dishes, one box with 10 cookies, as well as 10 meat dishes and 5 strawberry cakes.", queststatus(80) = 7
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) > 60, skill(baking) =< 80 -> "Ein Rezept habe ich noch für dich, dafür will ich aber von dir einige selbstgemachte Gerichte testen. 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen darin, sowie 10 Teller Steak mit Beilage und zu guter letzt 5 Erdbeertorten will ich von dir kosten.", queststatus(80) = 7
-"quest", skill(baking) =< 60, queststatus(80) = 6, english -> "Practice your cooking skill a little more, because with practice you get better and if you later ask nicely, I might have another recipe for you."
-"quest", skill(baking) =< 60, queststatus(80) = 6 -> "Übe dich noch etwas im Kochen, denn nur durch Übung wird man besser und wenn du später nett fragst, habe ich vielleicht sogar noch ein Rezept für dich."
+"quest", "mission", skill(baking) =< 60, queststatus(80) = 6, english -> "Practice your cooking skill a little more, because with practice you get better and if you later ask nicely, I might have another recipe for you."
+"quest", "mission", skill(baking) =< 60, queststatus(80) = 6 -> "Übe dich noch etwas im Kochen, denn nur durch Übung wird man besser und wenn du später nett fragst, habe ich vielleicht sogar noch ein Rezept für dich."
 "task", "adventure", skill(baking) =< 60, queststatus(80) = 6 -> "Practice your cooking skill a little more, because with practice you get better and if you later ask nicely, I might have another recipe for you."
 "Auftrag", "Aufgabe", "Abenteuer", skill(baking) =< 60, queststatus(80) = 6 -> "Übe dich noch etwas im Kochen, denn nur durch Übung wird man besser und wenn du später nett fragst, habe ich vielleicht sogar noch ein Rezept für dich."
-"quest", queststatus(80) = 7, english -> "You should bring me 15 sausage dishes, a box with 10 cookies, 10 steaks and of course the 5 strawberry cakes."
-"quest", queststatus(80) = 7 -> "Du solltest mir 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen, 10 Teller Steak mit Beilage bringen und natürlich die 5 Erdbeertorten nicht zu vergessen."
+"quest", "mission", queststatus(80) = 7, english -> "You should bring me 15 sausage dishes, a box with 10 cookies, 10 steaks and of course the 5 strawberry cakes."
+"quest", "mission", queststatus(80) = 7 -> "Du solltest mir 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen, 10 Teller Steak mit Beilage bringen und natürlich die 5 Erdbeertorten nicht zu vergessen."
 "task", "adventure", queststatus(80) = 7 -> "You should bring me 15 sausage dishes, a box with 10 cookies, 10 steaks and of course the 5 strawberry cakes."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(80) = 7 -> "Du solltest mir 15 Teller Würstchen mit Beilage, eine Dose mit 10 Keksen, 10 Teller Steak mit Beilage bringen und natürlich die 5 Erdbeertorten nicht zu vergessen."
 ".+", queststatus(80) = 7, item(2922, all) > 14, item(453, all) > 9, item(557, all) > 9, item(354, all) > 4, english -> inform("You have the feeling that you've learnt a lot today."), "Mhh..your dishes are tasty. But one small, last tipp, if you mix a small piece of a Sibanac leaf under your dishes it gets this nice smell.", skill(baking) + 5, deleteItem(2922, 15), deleteItem(453, 10), deleteItem(557, 10), deleteItem(354, 5), queststatus(80) = 8
@@ -154,8 +154,8 @@ itemShoes = 53
 ".+", queststatus(80) = 7, item(2922, all) < 15, item(453, all) < 10, item(557, all) < 10, item(354, all) < 5 -> "Wenn du keinen Wert auf meine Forderung legst, mir ein paar von deinen Gerichten zu bringen, helfe ich dir auch nicht!"
 
 -- Final dialogue: No more quests, just nice hints
-"quest", queststatus(80) = 8, english -> "You're good enough now, there is nothing more I could teach you. If you keep on practicing you might become a master cook!"
-"quest", queststatus(80) = 8 -> "Du bist nun gut genug, es gibt nichts dass ich dir noch beibringen könnte. Strengst du dich noch ein wenig mehr an, wirst du noch ein Meister im kochen!"
+"quest", "mission", queststatus(80) = 8, english -> "You're good enough now, there is nothing more I could teach you. If you keep on practicing you might become a master cook!"
+"quest", "mission", queststatus(80) = 8 -> "Du bist nun gut genug, es gibt nichts dass ich dir noch beibringen könnte. Strengst du dich noch ein wenig mehr an, wirst du noch ein Meister im kochen!"
 "task", "adventure", queststatus(80) = 8 -> "You're good enough now, there is nothing more I could teach you. If you keep on practicing you might become a master cook!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(80) = 8 -> "Du bist nun gut genug, es gibt nichts dass ich dir noch beibringen könnte. Strengst du dich noch ein wenig mehr an, wirst du noch ein Meister im kochen!"
 

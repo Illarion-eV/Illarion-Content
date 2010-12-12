@@ -85,8 +85,8 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Baron Hastings, der rechtmäßige Herrscher Cadomyrs.", "Meine Name ist Hastings. Baron Hastings.", end
 
 -- Catching quest triggers
-"quest", queststatus(999) = 0, english -> inform("[Quest started] An usurper to the throne"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
-"quest", queststatus(999) = 0, german -> inform("[Quest started] An usurper to the throne"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
+"quest", "mission", queststatus(999) = 0, english -> inform("[Quest started] An usurper to the throne"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
+"quest", "mission", queststatus(999) = 0, german -> inform("[Quest started] An usurper to the throne"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
 "task", "adventure", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
 
