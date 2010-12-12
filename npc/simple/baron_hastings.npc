@@ -196,7 +196,7 @@ itemShoes = 53
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 "Harold", english -> "Do you mean the man who got an arrow through his eye?"
-"Harold", german -> "Meint Ihr den Mann, durch dessen Auge sich ein Pfeil bohrte?"
+"Harold" -> "Meint Ihr den Mann, durch dessen Auge sich ein Pfeil bohrte?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
