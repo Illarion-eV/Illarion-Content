@@ -32,6 +32,26 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
+hairID = 0
+beardID = 2
+colorHair = 6, 18, 8
+colorSkin = 137, 123, 60
+itemHead = 0
+itemChest = 0
+itemCoat = 0
+itemMainHand = 2642
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 2113
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 --Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
 
@@ -39,28 +59,26 @@ radius = 0
 "Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: heoric deeds, tell something")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brute Booze ein berühmter orkischer Glücksritter. Schlüsselwörter: Heldentaten, erzähl etwas")
 
-itemMainHand = 2642
-itemTrousers = 2113
-itemShoes = 53
-
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx", "xxx", "ENGLISH3."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Save Travel!", "xxx", "xxx"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Save Travel!", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "xxx", "xxx", "ENGLISH3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gerüßet! Ihr seid wohl auch auf Reise?", "Guten Tag, wünsche iche. Befindigt Ihr Euch auf grosser Fahrt?", "Seid mir willkommen!"
+"Farewell", "Bye", "Fare well", "See you" -> "Save Travel!", "xxx", "xxx"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sicheres Reisen!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save Travel!", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?","Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
 "your name", "who are you", "who art thou" -> "xxx", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehöright."
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" ->"x"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Iche bedauerige sehr, nichts habe iche zu verkaufen und keine Eurer Sachen sind mir von Wertlichkeit."
-"tell something" -> "x","ENGLISH"
-"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.","Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
+
+-- Catching quest triggers
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1."
 "beruf" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
@@ -68,8 +86,8 @@ itemShoes = 53
 "job" -> "Binne kein König. Binne kein Schmied. Binne kein Bauer. Mein Leben iset das Abenteuer."
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Viele meinen es hieße Gobiath, doch tatsächlich wurde der Name in der oft abgezeichneten Karte falsch geschriebigt. Es heißt GobIAth.", "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Es war eine kleine unscheinbare Insel, dennoche gab es immer viel Spannendes zu erlebigen.", "Sicherlin, selbst auf Gobaith drank iche ein schales Bier. Ein unscheinbarer Flecken, doch befüllt mit großigen Männern voll Ehre und Mut."
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
 
 -- More small talk; add at least five triggers
 "heoric","deeds" -> "xxx"
@@ -108,12 +126,10 @@ itemShoes = 53
 "Kjelt"->"Die Sturmumtoste Stadt! Kjelt. Nachdem man Monate lang durch kalte trostlose Steppe reist, findet man eine anschauliche Festung. Die Menschen dort sind uns Orks teils ähnlich und dann doch wieder ganz anders."
 "Karras"->"Karras die Stadt aus Eis. Es iset selbst im Sommer nicht warm genug um die Mauern zu schmelzen, ließ iche mir sagen. Man bekommt heißes Bier zum saufen und würzigen Wein. Die Reise war mir jede abgefrorigte Zehe wert!"
 
-"Albar",english->""
 "Ann-Korr",english->""
 "Fennsworth",english->""
 "Kang-Arr",english->""
 "Oldford",english->""
-"Albar"->"Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
 "Ann-Korr"->"Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders."
 "Fennsworth"->"Wenn man n' Ork iset, darf man Fennsworth nur als Sklave betrethigen. Also war iche dort nie."
 "Kang-Arr"->"Kang-Arr iset wohl die bekömmlichste Stadt für einen Reisenden im ganzen Albarischen Reich. Gi-hibt eine Menge Menschen aus dem Norden dort. Schätze das hat einen nützlichen Einfluss."
@@ -121,13 +137,10 @@ itemShoes = 53
 
 "Myr-Tobar",english->""
 "Khenserra",english->""
-"gynk", "gync", english -> ""
+
 "Myr-Tobar"->"Myr-Tobar, die Jadestadt, das grüne Herz des Dschungels. Die sieben großen Tempel gehören angesehen. Und überhaupt möchten diese Menschen die Zahl Sieben sehr gern."
 "Khenserra"->"Khenserra iset eine staubige Mienenstadt. Sogar'n Oger hab iche dort gesehen. Eine gute Stadt wenn ein Ork schnell Geld braucht. Es riecht zwar nicht schön, iset aber Elfenfrei."
-"gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
 
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 "Falmarha",english->""
 "Laris",english->""
 "Nubris",english->""
@@ -143,32 +156,78 @@ itemShoes = 53
 "Lor-Angur","Lor Angur"->"In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte fröhnen sie der Zauberei und solch gefährlichen Sachen."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Iche hab mir sagen lassen, der Erzmagier Runewicks, Elvaine Morgan iset ein Elf aus Lor-Angur."
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "Iche hab mir sagen lassen, der Erzmagier Runewicks, Elvaine Morgan iset ein Elf aus Lor-Angur."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "Iche hab mir sagen lassen, der Erzmagier Runewicks, Elvaine Morgan iset ein Elf aus Lor-Angur."
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "In Runewick hält mich nichts. Meine Nackenhaare sträubigen sich wenn Zauberei in der Nähe iset."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Das Bier in Galmair iset gut. Aber wenn man nicht aufpassigt klauen sie einem den Geldbeutel, noch bevor man die Zeche begleichen kann."
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "Eine Königin der Menschen. Wohl von den Göttern erwählt. - Iche bevorzuge ja eher Prinzessinen in verinsamten Türmsen."
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "Es iset mir zu trocken in Cadomyr. Und kein Bier dort iset gut genug um lange dort zu bleibigen."
+
+-- Main land factions
+"Albar",english->""
+"Albar"->"Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
+"gynk", "gync", english -> ""
+"gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama" -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "Meine Vorahnen si-hind auf meinen Reisen immer beihe mir."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Catching quest triggers
-"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", german -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Hach, ja-ja! Fraget immerhig alle Leute nach Arbeit und Aufgaben. Dann werdet auch Ihr eines Tagiges ein ebenso großer Held sein, wie iche es bin. Allerdings habe iche im Moment keine Arbeit fü-hür Euch."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" ->"x"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Iche bedauerige sehr, nichts habe iche zu verkaufen und keine Eurer Sachen sind mir von Wertlichkeit."
+"tell something" -> "x","ENGLISH"
+"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.","Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "Wharlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
+"Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "Iset das So?", "Tatsächlich?", "Hm-hm."
 
@@ -178,8 +237,6 @@ itemShoes = 53
 
 ".*",english,chance(40)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
 ".*",german,chance(40)->"Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?","Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.","Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
-
--- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

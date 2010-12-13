@@ -42,7 +42,7 @@ itemChest = 101
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 48
+itemHands = 0
 itemTrousers = 2113
 itemShoes = 53
 
