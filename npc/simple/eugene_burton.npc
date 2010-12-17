@@ -32,6 +32,26 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 1
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Estralis Seborian
 
@@ -60,81 +80,20 @@ radius = 1
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Wilderer Eugene Burton. Schlüsselwörter: Hallo, Quest, Wilderer, Tiere.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Shh! Not so loud! You'll scare away my game!"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Shh! Not so loud! You'll scare away my game!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Go forth with Malachin's blessing. May you never starve."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
-"Ciao", "Adieu", "Au revoir", english -> "Go forth with Malachin's blessing. May you never starve"
-"Ciao", "Adieu", "Au revoir", german -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Shh! Not so loud! You'll scare away my game!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Shh! Not so loud! You'll scare away my game!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Psst, nicht so laut, ihr verscheucht ja das ganze Wild."
+"Farewell", "Bye", "Fare well", "See you" -> "Go forth with Malachin's blessing. May you never starve."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go forth with Malachin's blessing. May you never starve"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Geht mit Malachins Segen. Auf dass ihr nie Hunger leiden müßt."
 "How are you", "How feel", "How do you do" -> "I'd feel much better if you could help me a bit, hunting."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich würde mich weit besser fühlen, wenn ihr mir bei der Jagd helfen könntet."
 "your name", "who are you", "who art thou" -> "I am Eugene Burton; father to four hungry mouths. Feeding those mouths has become so difficult these days..."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Eugene Burton, Vater von vier hungrigen Mäulern. Diese zu stopfen ist dieser Tage wirklich schwierig geworden."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "If I had something for trading, I'd sell everything to feed my family, I swear."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Hätte ich etwas zum handeln, so würde ich alles veräußern, um meine Familie zu ernähren. Das schwöre ich."
-"tell something" -> "I don't have the time to chat with you; my family is starving. Perhaps you can help me with a task?"
-"erzähl was", "erzähl etwas" -> "Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"poacher", "hunter" -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
-"wilderer", "jäger" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
-"profession" -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
-"beruf" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
-"job", english -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
-"job" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
-
--- More small talk; add at least five triggers
-"valandil", "elensar", "elf", "elfen", "elves", english -> "Wicked elves! They think that the life of an animal is worth much more than the life of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!"
-"valandil", "elensar", "elf", "elfen", "elves" -> "Vermaledeite Elfen! Sie schätzen das Leben eines Tieres mehr als das Leben meiner vier Kinder. Valandial Elensar, der selbsternannte Hüter des Elsbaumwaldes, ist der schlimmste von allen."
-"law" -> "Legal, illegal... I give a damn!"
-"Gesetz" -> "Legal, illegal... Scheißegal!"
-"animal", "game" -> "There are countless animals in the Elstree forest, waiting for me and my bow: rabbits, deers and, sadly, even wolves."
-"Tier", "Beute" -> "Es gibt im Elsbaumwald unzählige Tiere, die nur auf mich und meinen Bogen warten: Hasen, Rehe und leider auch Wölfe."
-"forest", "woods", "Elstree" -> "The Elstree forest is a good place to hunt; unfortunately wolves know that too. I still wonder what an Elstree is, actually."
-"Wald", "Elsbaum" -> "Der Elsbaumwald ist ein gutes Jagdgebiet. Leider haben das auch schon die Wölfe begriffen. Ich frag mich allerdings schon länger, was eigentlich genau ein Elsbaum sein soll."
-"rabbit", "bunny" -> "Catching those rabbits is more difficult than you might think. They are damn fast!"
-"Hase", "Häßchen", "Kaninchen" -> "Hasen zu fangen ist schwerer, als man denkt; sie sind verdammt schnell!"
-"Reh", "Hirsch", "Wild" -> "Es gibt immer weniger Dammhirsche im Elsbaumwald. Ich frage mich nur, warum..."
-"Stag", "Deer" -> "Fewer and fewer deer can be found in the Elstree forest. I wonder why..."
-"Wolf", english -> "Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
-"Wolf" -> "Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
-"Wolves" -> "Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
-"Wölfe", "Woelfe" -> "Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
-"Father", "children", "family" -> "My family starves, and all I can do is to hunt. However, these insane elves prefer to see humans die, rather than animals."
-"Vater", "Kinder", "Familie" -> "Meine Familie ist am verhungern und alles, was ich tun kann, ist zu Jagen. Aber diese vermaledeiten Elfen haben es lieber wenn Menschen statt Tiere sterben."
-"fur" -> "Hush! I do not hunt to get fur... but if I end the life of an animal to feed my family, do you expect me to leave behind what yields good coin?"
-"fell" -> "Pah! Ich jage nicht der Felle wegen... nunja, wenn ich schon das Leben eines Tieres beenden muss, um meine Famlilie zu ernähren, sollte ich das zurücklassen, womit man ordentlich abkassieren kann?"
-
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Immer schon haben die Magier in Runewick den Ton angegeben. Ich fürchte, dies wird sich nie ändern; die Bedürfnisse der einfachen Leute sind denen egal."
-"Runewick", english -> "Runewick, ha! The self proclaimed protectors of everything. They'd better protect themselves from my arrows!"
-"Runewick" -> "Runewick, ha! Die selbsternannten Hüter von allem möglichen. Die sollten sich besser vor meinen Pfeilen hüten!"
-"Valerio", "Guilianni", "Don", english -> "The Don of Galmair scares me. I prefer to stay out of his sight."
-"Valerio", "Guilianni", "Don" -> "Der Don von Galmair macht mir Angst. Ich gehe im lieber aus dem Weg."
-"Galmair", english -> "Oh, Galmair, a good place to sell fur for a good coin. Uhm, to buy food... of course."
-"Galmair" -> "Oh, Galmair, das ist ein guter Ort, um ordentlich für Felle abzukassieren. Äh, um Essen zu kaufen... meine ich."
-"rosaline", "königin", "queen", "edwards", english -> "She is... hot. I swear, I love my wife, but I can't fight my dreams."
-"rosaline", "königin", "queen", "edwards" -> "Sie ist... heiß. Ich schwöre, dass ich meine Frau liebe, aber für seine Träume kann man nichts."
-"Cadomyr", english -> "Cadomyr is a bad place for hunters. Not much to hunt there, except sand and scorpions."
-"Cadomyr" -> "Cadomyr ist kein guter Ort für die Jagd. Man kann dort nicht viel jagen, außer nach Sand und Skorpionen."
-
--- Main land factions
-"albar", english -> "I heard a lot about Albar and I wait eagerly for the day I can travel there. But I doubt this day will ever come; too poor I am."
-"albar" -> "Ich habe schon eine Menge über Albar gehört und ich warte sehnsüchtig auf den Tag, an dem ich dort hinreisen kann. Aber ich glaube nicht, dass dieser Tage jemals kommt, so arm bin ich."
-"gynk", "gync", english -> "Gynk is a pool of sins. But aren't we all sinnners one day?"
-"gync", "gynk" -> "Gynk ist ein Sündenpfuhl. Aber sündigen wir nicht alle einmal?"
-"salkama", english -> "Noble folk are living there; but also poor people. And nobody really cares about them!"
-"salkama" -> "Hochwohlgeborenes Volk lebt dort; aber auch arme Leute wie ich. Und niemanden schert es, wie es denen ergeht!"
-
--- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"Malachin", english -> "Praise Malachin, the god of all hunters. May he guide my bow."
-"Malachin" -> "Lobet Malachin, den Gott der Jagd. Möge er meinen Bogen führen."
-
+-- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 6 bunnies, provide 6 rabbit meat
 
 -- Give out quest 1
@@ -229,15 +188,119 @@ radius = 1
 "task", "adventure", queststatus(4) = 33 -> "My friend, you helped me and my family more than enough. Thank you and may Malachin bless you."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(4) = 33 -> "Mein Freund, ihr habt mir und meiner Familie mehr als genug geholfen. Habt dank und möge Malachin euch segnen."
 
--- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"easter", "egg" -> "I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs."
-"osterei" -> "Einst habe ich ein merkwürdiges Ei im Elsbaumwald gefunden. Es war riesig! Aber ich habe es zurückgelassen, wo es war, wer weiß, was aus solchen Eiern alles schlüpfen kann."
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"beruf" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"job", english -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"job" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here.
+-- More small talk; add at least five triggers
+"poacher", "hunter" -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
+"wilderer", "jäger" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"valandil", "elensar", "elf", "elfen", "elves", english -> "Wicked elves! They think that the life of an animal is worth much more than the life of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!"
+"valandil", "elensar", "elf", "elfen", "elves" -> "Vermaledeite Elfen! Sie schätzen das Leben eines Tieres mehr als das Leben meiner vier Kinder. Valandial Elensar, der selbsternannte Hüter des Elsbaumwaldes, ist der schlimmste von allen."
+"law" -> "Legal, illegal... I give a damn!"
+"Gesetz" -> "Legal, illegal... Scheißegal!"
+"animal", "game" -> "There are countless animals in the Elstree forest, waiting for me and my bow: rabbits, deers and, sadly, even wolves."
+"Tier", "Beute" -> "Es gibt im Elsbaumwald unzählige Tiere, die nur auf mich und meinen Bogen warten: Hasen, Rehe und leider auch Wölfe."
+"forest", "woods", "Elstree" -> "The Elstree forest is a good place to hunt; unfortunately wolves know that too. I still wonder what an Elstree is, actually."
+"Wald", "Elsbaum" -> "Der Elsbaumwald ist ein gutes Jagdgebiet. Leider haben das auch schon die Wölfe begriffen. Ich frag mich allerdings schon länger, was eigentlich genau ein Elsbaum sein soll."
+"rabbit", "bunny" -> "Catching those rabbits is more difficult than you might think. They are damn fast!"
+"Hase", "Häßchen", "Kaninchen" -> "Hasen zu fangen ist schwerer, als man denkt; sie sind verdammt schnell!"
+"Reh", "Hirsch", "Wild" -> "Es gibt immer weniger Dammhirsche im Elsbaumwald. Ich frage mich nur, warum..."
+"Stag", "Deer" -> "Fewer and fewer deer can be found in the Elstree forest. I wonder why..."
+"Wolf", english -> "Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
+"Wolf" -> "Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
+"Wolves" -> "Wolves! They prey on what feeds my children. Just to feed their blasted cubs!"
+"Wölfe", "Woelfe" -> "Wölfe! Sie machen Jagd auf das, was meine Kinder am Leben erhält. Und das nur, um ihre eigene Brut zu füttern!"
+"Father", "children", "family" -> "My family starves, and all I can do is to hunt. However, these insane elves prefer to see humans die, rather than animals."
+"Vater", "Kinder", "Familie" -> "Meine Familie ist am verhungern und alles, was ich tun kann, ist zu Jagen. Aber diese vermaledeiten Elfen haben es lieber wenn Menschen statt Tiere sterben."
+"fur" -> "Hush! I do not hunt to get fur... but if I end the life of an animal to feed my family, do you expect me to leave behind what yields good coin?"
+"fell" -> "Pah! Ich jage nicht der Felle wegen... nunja, wenn ich schon das Leben eines Tieres beenden muss, um meine Famlilie zu ernähren, sollte ich das zurücklassen, womit man ordentlich abkassieren kann?"
+
+-- Faction stuff
+"archmage" -> "The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people."
+"Erzmagier" -> "Immer schon haben die Magier in Runewick den Ton angegeben. Ich fürchte, dies wird sich nie ändern; die Bedürfnisse der einfachen Leute sind denen egal."
+"Elvaine", "Morgan", english -> "The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people."
+"Elvaine", "Morgan" -> "Immer schon haben die Magier in Runewick den Ton angegeben. Ich fürchte, dies wird sich nie ändern; die Bedürfnisse der einfachen Leute sind denen egal."
+"Runewick", english -> "Runewick, ha! The self proclaimed protectors of everything. They'd better protect themselves from my arrows!"
+"Runewick" -> "Runewick, ha! Die selbsternannten Hüter von allem möglichen. Die sollten sich besser vor meinen Pfeilen hüten!"
+"Valerio", "Guilianni", "Don", english -> "The Don of Galmair scares me. I prefer to stay out of his sight."
+"Valerio", "Guilianni", "Don" -> "Der Don von Galmair macht mir Angst. Ich gehe im lieber aus dem Weg."
+"Galmair", english -> "Oh, Galmair, a good place to sell fur for a good coin. Uhm, to buy food... of course."
+"Galmair" -> "Oh, Galmair, das ist ein guter Ort, um ordentlich für Felle abzukassieren. Äh, um Essen zu kaufen... meine ich."
+"Queen" -> "She is... hot. I swear, I love my wife, but I can't fight my dreams."
+"Königin" -> "Sie ist... heiß. Ich schwöre, dass ich meine Frau liebe, aber für seine Träume kann man nichts."
+"rosaline", "edwards", english -> "She is... hot. I swear, I love my wife, but I can't fight my dreams."
+"rosaline", "edwards" -> "Sie ist... heiß. Ich schwöre, dass ich meine Frau liebe, aber für seine Träume kann man nichts."
+"Cadomyr", english -> "Cadomyr is a bad place for hunters. Not much to hunt there, except sand and scorpions."
+"Cadomyr" -> "Cadomyr ist kein guter Ort für die Jagd. Man kann dort nicht viel jagen, außer nach Sand und Skorpionen."
+
+-- Main land factions
+"albar", english -> "I heard a lot about Albar and I wait eagerly for the day I can travel there. But I doubt this day will ever come; too poor I am."
+"albar" -> "Ich habe schon eine Menge über Albar gehört und ich warte sehnsüchtig auf den Tag, an dem ich dort hinreisen kann. Aber ich glaube nicht, dass dieser Tage jemals kommt, so arm bin ich."
+"gynk", "gync", english -> "Gynk is a pool of sins. But aren't we all sinnners one day?"
+"gync", "gynk" -> "Gynk ist ein Sündenpfuhl. Aber sündigen wir nicht alle einmal?"
+"salkama", english -> "Noble folk are living there; but also poor people. And nobody really cares about them!"
+"salkama" -> "Hochwohlgeborenes Volk lebt dort; aber auch arme Leute wie ich. Und niemanden schert es, wie es denen ergeht!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", english -> "Praise Malachin, the god of all hunters. May he guide my bow."
+"Malachin" -> "Lobet Malachin, den Gott der Jagd. Möge er meinen Bogen führen."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "If I had something for trading, I'd sell everything to feed my family, I swear."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Hätte ich etwas zum handeln, so würde ich alles veräußern, um meine Familie zu ernähren. Das schwöre ich."
+"tell something" -> "I don't have the time to chat with you; my family is starving. Perhaps you can help me with a task?"
+"erzähl was", "erzähl etwas" -> "Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Indeed?", "So, what?", "#me shakes his head slightly: 'Sorry, can you rephrase that?'"
 "Ja" -> "Ist dem so?", "Gut, und nun?", "#me schüttelt seinen Kopf: 'Entschuldigt, könnt ihr das anders ausdrücken?'"
 "No" -> "I don't quite understand, sorry.", "Pardon me?", "What?!"
 "Nein" -> "Ich verstehe nicht recht...", "Entschuldigt?", "Was?!"
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+"easter", "egg" -> "I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs."
+"osterei" -> "Einst habe ich ein merkwürdiges Ei im Elsbaumwald gefunden. Es war riesig! Aber ich habe es zurückgelassen, wo es war, wer weiß, was aus solchen Eiern alles schlüpfen kann."
 
 -- Cycletext: Add as many random messages as possible
 
