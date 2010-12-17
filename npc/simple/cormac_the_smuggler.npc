@@ -31,6 +31,27 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by PO Edward Cromwell, translated by Estralis Seborian
 
@@ -45,39 +66,44 @@ wrongLangUS = "#me looks at you confused."
 "set 1" -> "Quest status set to 1", queststatus(74) = 1
 "set 2" -> "Quest status set to 2", queststatus(74) = 2
 
--- Cycletext:
+-- Help
+"help" -> inform("[Game help] This NPC is the smuggler Cormac. To learn more about him, your should greet the NPC first.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Um mehr über ihn zu erfahren, grüße ihn zunächst.")
 
--- First part, the gossiper is thirsty--
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening", queststatus(74) = 0 -> inform("[New quest] Galmair's Gossiper"), "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'", queststatus(74) = 1
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening", queststatus(74) = 2 -> "If that isn't mah good ol' buddy! Come, sit down and drink with meh!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(74) = 0, english -> inform("[New quest] Galmair's Gossiper"), "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'", queststatus(74) = 1
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(74) = 2, english -> "What! Haven't seen ya since last time."
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(74) = 0 -> inform("[New quest] Galmair's Gossiper"), "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'", queststatus(74) = 1
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(74) = 2 -> "If that isn't mah good ol' buddy! Come, sit down and drink with meh!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'", queststatus(74) = 1
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 2 -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(74) = 0, english -> inform("[New quest] Galmair's Gossiper"), "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'", queststatus(74) = 1
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(74) = 2, english -> "What! Haven't seen ya since last time."
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.", queststatus(74) = 1
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(74) = 2 -> "Was! Dich hab ich ja seid dem letzten mal nicht mehr gesehen!"
+"Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveller!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "See ye around, traveller! Stay safe."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Man sieht sich, Fremder. Gib auf dich acht."
 "How are you", "How feel", "How do you do", queststatus(74) = 0 -> inform("[New quest] Galmair's Gossiper"), "Arr! My throat is dry as tha desert! When ye want tha talk, ye need to bring me a beer first.", queststatus(74) = 1
 "How are you", "How feel", "How do you do", queststatus(74) = 2 -> "A beer in the morning drives away the sorrows. And I have none anymore."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.", queststatus(74) = 1
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(74) = 2 -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
+"your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+-- First part, the gossiper is thirsty--
 "quest", "mission", queststatus(74) = 0, english -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
 "quest", "mission", queststatus(74) = 2, english -> "What is it ya want to know? I know the latest gossip."
 "quest", "mission", queststatus(74) = 1, english -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+"quest", "mission", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
+"quest", "mission", queststatus(74) = 2 -> "Was willst du wissen? Ich kenne alle Gerüchte."
+"quest", "mission", queststatus(74) = 1 -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 "task", "adventure", "question", queststatus(74) = 0 -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
 "task", "adventure", "question", queststatus(74) = 2 -> "What is it ya want to know? I know the latest gossip."
 "task", "adventure", "question", queststatus(74) = 1 -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Until next time, traveller!"
-"Ciao", "Adieu", "Au revoir", english -> "See ye around, traveller! Stay safe."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'", queststatus(74) = 1
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(74) = 2 -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(74) = 0, german -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.", queststatus(74) = 1
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", queststatus(74) = 2, german -> "Was! Dich hab ich ja seid dem letzten mal nicht mehr gesehen!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.", queststatus(74) = 1
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(74) = 2 -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
-"quest", "mission", queststatus(74) = 0, german -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
-"quest", "mission", queststatus(74) = 2, german -> "Was willst du wissen? Ich kenne alle Gerüchte."
-"quest", "mission", queststatus(74) = 1, german -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 "Aufgabe", "Abenteuer", "Frage", queststatus(74) = 0 -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
 "Aufgabe", "Abenteuer", "Frage", queststatus(74) = 2 -> "Was willst du wissen? Ich kenne alle Gerüchte."
 "Aufgabe", "Abenteuer", "Frage", queststatus(74) = 1 -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Bis zum nächsten mal, Reisender."
-"Ciao", "Adieu", "Au revoir", german -> "Man sieht sich, Fremder. Gib auf dich acht."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
-"your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
 
 -- bringing the beer--
 ".+", queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20
@@ -119,19 +145,110 @@ wrongLangUS = "#me looks at you confused."
 "Runewick", queststatus(74) = 2, german -> "Runewick! Hah! Ein Land von Knilchen, die morgens erstmal auf einem Besen reiten, regiert von einem Kerl, der mit seinem Zauberstab rumfuchtelt."
 "Cadomyr", queststatus(74) = 2, german -> "Die machen einen riesen Aufstand über ihre Ehre, kriechen einander in den Allerwertesten und spucken auf geschäftstüchtige Leute. Aber wie sagt man, man kämpft am stärksten für etwas, was man gar nicht hat."
 
--- Gods
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My profession? Well, I am in tha... transportation business, sorta."
+"beruf" -> "Mein Beruf? Ich bin im... Fuhrgewerbe."
+"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"tavern", english -> "Did you ever wonder where all this booze comes from? No? Good!"
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"tavern" -> "Hast du dich nie gefragt, wo all das Gesöff hier herkommt? Nein? Gut so!"
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
 "Irmorom" -> "Blah.", "Bleh.", "Blubb.", "Moep."
 "Ronagan" -> "Eh?", "Hmm?", "Shh!"
 
--- Small talk--
-"profession" -> "My profession? Well, I am in tha... transportation business, sorta."
-"tavern", english -> "Did you ever wonder where all this booze comes from? No? Good!"
-"beruf" -> "Mein Beruf? Ich bin im... Fuhrgewerbe."
-"tavern" -> "Hast du dich nie gefragt, wo all das Gesöff hier herkommt? Nein? Gut so!"
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Help
-"help" -> inform("[Game help] This NPC is the smuggler Cormac. To learn more about him, your should greet the NPC first.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Um mehr über ihn zu erfahren, grüße ihn zunächst.")
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
