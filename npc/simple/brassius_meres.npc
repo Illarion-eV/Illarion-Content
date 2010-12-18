@@ -1,0 +1,246 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Brassius Meres                                              None --
+-- NPC Job:  Guard                                                            --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Grokk, translation by Estralis Seborian                          --
+--                                                                            --
+-- Last parsing: December 16, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Brassius Meres"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Guard"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Grokk, translation by Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Brassius Meres der Wächter."
+lookatUS = "This NPC is Brassius Meres the Guard."
+useMsgDE = "Nehmt augenblicklich eure Hände von mir!"
+useMsgUS = "Remove your hands from me this instant!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 3
+beardID = 3
+colorHair = 204, 124, 25
+colorSkin = 245, 180, 137
+itemHead = 2291
+itemChest = 362
+itemCoat = 547
+itemMainHand = 2708
+itemSecondHand = 2708
+itemHands = 528
+itemTrousers = 2193
+itemShoes = 697
+
+-- Queststatus Overview
+
+-- 0: No Quest taken
+-- 1: Quest 1 taken - bring five apples
+-- 2: Quest 1 solved, reward: 30cp
+-- 3: Quest 2 taken - bring 10 arrows
+-- 4: Quest 2 solved - reward: 100cp, apple pie (353)
+-- 5: Quest 3 taken - bring 10 furs
+-- 6: Quest 3 solved, reward: legionaire's tower shield (2448)
+
+-- TO BE DONE
+
+-- Position, direction, affiliation
+-- Translation
+-- Replace (1337) with valid quest status
+-- Replace (391) with correct item values
+
+-- --------------------------------------------------
+
+-- Debugging
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
+".+", queststatus(1337) > 6 -> inform("[Error] Something went wrong, please inform a developer.")
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keyphrases: hello, quest, profession, Salkamar, law, gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Salkamar, Gesetze, Götter.")
+
+-- General speech
+"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely, 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
+"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Good bye", "Bye", "Fare thee well" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
+"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "I am well, thank you.", "Zhambra keeps me safe and in good health.", "I can not complain, the Gods care for me."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "My name is Brassius Meres. It is an honour to meet you.", "I am Brassius Meres, a guard of this town.", "Brassius Meres, faithful servant of the Lords Malachin and Zhambra."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a town guard. I take care of troublemakers.", "I keep order 'round here, and make sure the citizens are safe.", "I'm a soldier, serving here as a town guard."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I am a town guard.", "I protect the town and its citizens.", "It's my job to keep the people safe and out of trouble."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "The people of this island are a hardy folk. Not much seems to faze them these days.", "I like it here. It's peaceful when it needs to be, but excitement is always just around the corner.", "This island is a breeding ground for crime, unfortunately. It's no wonder the Captain is always looking for more guards."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"I am", "my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully, 'Well met.'"
+"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"law" -> "The laws are tough, but fair.", "Take a look in the library, it should not be difficult to find a copy of the town's laws.", "The laws are easily available. Take a look around, you'll find them eventually."
+"captain" -> "The Captain runs the Town Guard. He does a good job, considering the number of guards he has to work with.", "You should have a look 'round town for the Captain or one of the deputies, I hear they are looking for recruits.", "#me suddenly straightens, standing at attention, 'Captain! What!? Where!?'."
+"guard" -> "Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
+"criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Guard Captain.", "The Guard Captain decides who investigates specific crimes. You should speak to him when you have trouble."
+"quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "I've been to Albar once before. I found it to be a rather...backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "Ah, yes...Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "Ahh...Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Zhambra and Malachin are my patron deities.", "I am protected by the Lords Malachin and Zhambra in battle. They have kept me safe so far.", "I worship Zhambra and Malachin."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Adron. I hear his followers frequent the tavern, though.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about the God of Fire.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Cherga or those who worship Her.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Elara.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Eldan.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Findari.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "Malachin is the God of Battle. He watches over all those who fight with honour.", "#me closes his eyes and tilts his head upward, whispering a silent prayer.", "The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "#me spits on the ground, expressing his distaste.", "The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.", "I would not mention that name so freely, if I were you."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "His followers are all fools and madmen.", "I do not have time for the worshippers of Nargun.", "Order is something that I greatly value. And something that the God of Chaos does not provide."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Oldra. Perhaps a druid could inform you better.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "#me frowns lightly, 'His followers are thieves, petty criminals. Nothing but lowlife scum.'", "Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.", "I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Sirani.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Tanora", "Zelphia", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about that Goddess.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "The God of Friendship and Loyalty is one of my patron deities. He keeps me safe, provided I stay faithful.", "I worship Zhambra and eagerly await the day He leads me to the paradise.", "Loyalty is vital for a man in my position. Lord Zhambra keeps me honest."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head, 'Not while I'm on duty, thank you.'"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "Hm. You look like you could wield a weapon. Perhaps the guard captain would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- 1st quest: Bring five APPLES
+
+-- Give out quest 1
+"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] Eating on the Job"), "Hmm...now that you mention it, I am feeling rather hungry. But I can't leave my post. Tell you what, bring me five apples and I will reimburse you for your troubles.", queststatus(1337) = 1
+"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] Eating on the Job"), "Hmm...now that you mention it, I am feeling rather hungry. But I can't leave my post. Tell you what, bring me five apples and I will reimburse you for your troubles.", queststatus(1337) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+
+-- Quest 1 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 5, english -> "#me's stomach rumbles, 'I could really do with those five apples, if you've got a few moments to spare.'"
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 5 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(391, all) < 5 -> "#me's stomach rumbles, 'I could really do with those five apples, if you've got a few moments to spare.'"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 5 -> "GERMAN."
+
+-- Quest 1 solved, reward: 30cp
+".+", queststatus(1337) = 1, item(391, all) > 4, english -> inform("[Quest solved] You are awarded 30 copper coins."), "#me quickly grabs the fruit, handing over a small purse of coins, 'Thank you kindly!' He raises one of the apples, taking a large bite, and stuffs the others into his bag as he chews.", money + 30, deleteItem(391, 5), queststatus(1337) = 2
+".+", queststatus(1337) = 1, item(391, all) > 4 -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "GERMAN.", money + 30, deleteItem(391, 5), queststatus(1337) = 2
+
+-- 2nd quest: Bring 10 ARROWS
+
+-- Give out quest 2
+"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help, if you are interested? My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(1337) = 3
+"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
+"task", "adventure", queststatus(1337) = 2 -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help, if you are interested? My supply of arrows is running low, if you bring me ten more, then I have something that might interest you..", queststatus(1337) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
+
+-- Quest 2 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 3, item(391, all) < 10, english -> "#me glances at his empty quiver, frowning lightly, 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+"quest", "mission", queststatus(1337) = 3, item(391, all) < 10 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 3, item(391, all) < 10 -> "#me glances at his empty quiver, frowning lightly, 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 3, item(391, all) < 10 -> "GERMAN."
+
+-- Quest 2 solved, reward: 100cp, ITEM,
+".+", queststatus(1337) = 3, item(391, all) > 9, english -> inform("[Quest solved] You are awarded 100 copper coins and a ITEM."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 100, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
+".+", queststatus(1337) = 3, item(391, all) > 9 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und ein ITEM."), "GERMAN.", money + 100, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
+
+-- 3rd quest: Bring 10 FUR
+
+-- Give out quest 3
+"quest", "mission", queststatus(1337) = 4, english -> inform("[New quest] Wild Animals"), "My friend, I need your help once more. I’ve received reports of wild animals attacking villagers in the lands surrounding our town. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(1337) = 5
+"quest", "mission", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
+"task", "adventure", queststatus(1337) = 4 -> inform("[New quest] Wild Animals"), "My friend, I need your help once more. I’ve received reports of wild animals attacking villagers in the lands surrounding our town. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(1337) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
+
+-- Quest 3 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 5, item(391, all) < 10, english -> "I receive new attack reports daily. You must protect the citizens by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+"quest", "mission", queststatus(1337) = 5, item(391, all) < 10 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 5, item(391, all) < 10 -> "I receive new attack reports daily. You must protect the citizens by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5, item(391, all) < 10 -> "GERMAN."
+
+-- Quest 3 solved, reward: NICE ITEM, +10 rankpoints
+".+", queststatus(1337) = 5, item(391, all) > 9, english -> inform("[Quest solved] You are awarded a NICE ITEM."), "#me bows his head respectfully, 'You have done very well, thank you. The town and its citizens are safe once more. Please, take this gift as thanks for the risk you took.", item(391, 1, 799, 0), queststatus(1337) = 6
+".+", queststatus(1337) = 5, item(391, all) > 9 -> inform("[Quest gelöst] Du erhältst ein NICE ITEM."), "GERMAN.", item(391, 1, 799, 0), queststatus(1337) = 6
+
+-- No more quests, just nice words of gratitude
+"quest", "mission", queststatus(1337) = 6, english -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
+"quest", "mission", queststatus(1337) = 6 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 6 -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 6 -> "GERMAN."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Brassius", "Meres", english -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
+"Brassius", "Meres" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "I should really be returning to my work.", "If the Captain catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me rückt den Kinnriemen seines Helmes zurecht.", "#me adjusts the chin strap on his helm."
+cycletext "GERMAN.", "#me coughs into a closed fist."
+cycletext "GERMAN.", "#me glances into his quiver."
+cycletext "GERMAN.", "#me tightens the string of his bow."
+cycletext "GERMAN.", "#me places a hand upon the hilt of his sheathed blade."
+cycletext "GERMAN.", "#me's eyes wander over the scene before him."
+cycletext "GERMAN.", "#me looks around suspiciously."
+cycletext "Dann geht mal weiter.", "Move along, then."
+cycletext "GERMAN.", "Don't go causing any trouble 'round here."
+cycletext "GERMAN.", "We're watching."

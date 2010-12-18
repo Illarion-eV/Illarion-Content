@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter                                                     --
 --                                                                            --
--- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 15, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -23,14 +23,14 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Kawan Baxter"
+author = "Kawan Baxter, translation by Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "A tall man encombered in heavy armor looks down at you from above his nose."
-useMsgDE = "Fass mich nicht an!"
+lookatDE = "Dieser NPC ist Horatio Milenus der Torwächter, ein großer Mann, eingehüllt in eine schwere Rüstung."
+lookatUS = "This NPC is Horatio Milenus the gate guardian, a tall man encombered in heavy armor."
+useMsgDE = "Zurück!"
 useMsgUS = "Back up!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+wrongLangDE = "#me schaut verwirrt umher."
+wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
 beardID = 0
@@ -44,20 +44,6 @@ itemSecondHand = 95
 itemHands = 530
 itemTrousers = 367
 itemShoes = 771
-
--- Replace to own liking
-
--- human
-
--- male
-
--- Gaurd.
-
--- south
-
--- appearance
--- if you don't change it your npc will wear a blue shirt, black trousers, leather glowes and leather boots at least.
--- He will also have fair skin and brown hairs.
 
 -- Name: Horatio Milenus
 -- Age: 29
@@ -102,7 +88,7 @@ itemShoes = 771
 -- - To be a good father, even more motivated because he never had one.
 
 -- Method
--- - Being a Cadomyr gate guard.
+-- -Being a Cadomyr gate guard.
 
 -- Family tree
 -- -Mother: Besta Milenus
@@ -112,31 +98,29 @@ itemShoes = 771
 
 -- Kawan Baxter.
 
--- Keep radius=0 and the Npc won't walk around
-
 -- Help
-"Help" -> inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Quest, Where, Who, Gaurd.")
+"Help" -> inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Quest, Where, Who, Guard.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha", english -> "What?.", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "What?", "Welcome to Cadomyr.", "This is Cadomyr, home of beautiful and infinitely wise Queen Rosaline.", "Hello.", "#me just gives a brief nod.", "Greetings to you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Hallo.", "#me nickt nur kurz.", "Seid gegrüßt."
+"Farewell", "Bye", "Fare well", "See you" -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Care, the desert can be quite unforgiving.", "Care, make no trouble.", "Care.", "Farewell.", "Good bye."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Auf Wiedersehen.", "Bis zum nächsten Mal."
 "How are you", "How feel", "How do you do" -> "Don't ask me such silly questions.", "Don't ask me such silly qu- Actually today is a pretty good day.", "I guard, I don't feel.", "I'm on duty. How should I feel?.", "Everyday it's the same anyway."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin im Dienst. Wie soll es mir da gehen?.", "Ist jeden Tag sowieso immer dasselbe."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin im Dienst. Wie soll es mir da gehen?.", "Ist jeden Tag sowieso immer dasselbe."
 "your name", "who are you", "who art thou" -> "I am Horatio Milenus, guard of this realm.", "I am Horatio Milenus protector of Cadomyr.", "This is Cadomyr. I am Cadomyr.", "My name is Horatio Milenus. I am guarding this town entrance.", "I am Horatio Milenus, town guard of Cadomyr."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Mein  Name ist Horatio Milenus. Ich bewache diesen Eingang Stadt.", "Ich bin Horatio Milenus, Stadtwache von Cadomyr."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am no trader.", "If you are looking for a trader, go to the market place."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
-"tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
@@ -145,50 +129,58 @@ itemShoes = 771
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
 "Gobaith", "Gobiath", english -> "Gob... what?", "I don't know no Gobaith."
 "Gobaith", "Gobiath" -> "Gob... was?", "Ich kenne kein Gobaith."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick", english -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "It is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair", english -> "Galmair is a dirty town where money washes hands clean from any sin."
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards", english -> "If Cadomyr is my heart then Queen Rosaline is my soul."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr", english -> "My home and my heart."
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main concerns
-"Cadomyr" -> "My home and my heart."
-"Rosaline", "Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
 "Gate" -> "Anyone or anything that passes between these walls are under my eyes. Remember that."
+"Tor" -> "GERMAN."
 "Hastings", "Baron", english -> "I swear, on the day that the gods decide, that man's head will be fell by my blade."
-"Galmair" -> "Galmair is a dirty town where money washes hands clean from any sin."
-"Runewick" -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "it is a strong city, but the inhabitants have no honor. They do whatever it takes to get what they want."
+"Hastings", "Baron" -> "GERMAN."
 "Desert" -> "I am but this realm's second greatest protector, the sand is it's first."
-"Pyramid" -> "The resting place of the greatest of our people."
+"Wüste" -> "GERMAN."
+"Pyramid", english -> "The resting place of the greatest of our people."
+"Pyramid" -> "GERMAN."
 "Family" -> "Mind your business."
+"Familie" -> "Das geht euch nichts an."
 "Palace" -> "If you have no business at the palace. Stay away from there."
-"Reginald", "King" -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"Palast" -> "GERMAN."
+"King" -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"König" -> "GERMAN."
+"Reginald", english -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
+"Reginals" -> "GERMAN."
 "Guard" -> "I guard the gate of this city."
+"Wache" -> "GERMAN."
 
 -- Main land factions
-"albar", english -> "I am Albarian yes.", "You are in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
+"albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "gynk", "gync", english -> "I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "I have never been there. I know nothing of them.", "They do not concern my attention."
+"salkama", english -> "I have never been in Salkamar. I know nothing of them.", "Salkamar does not concern my attention."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "gods", english -> "The ones I serve are Adron, Malachin and Zhambra."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gott", "Götter" -> "Ich diene den Göttern Adron, Malachín und Zhambra."
 "Adron", english -> "My queen loves the god of festivities."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Bragon", "Brágon", english -> "I respect him. but there is too much fire in this world"
@@ -222,11 +214,15 @@ itemShoes = 771
 "Zhambra", english -> "It is through him that I am able to serve Cadomyr."
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Catching quest triggers
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am no trader.", "If you are looking for a trader, go to the market place."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
+"tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
+
+-- Easter egg
+"private" -> "I am not a private anymore! The queen promoted me, haha!"
+"Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Yes to what?"
@@ -241,8 +237,8 @@ itemShoes = 771
 ".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
-"Horatio Milenus", english -> "That is I. State your business."
-"NPC Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Horatio", "Milenus", english -> "That is I. State your business."
+"Horatio", "Milenus" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -253,17 +249,17 @@ itemShoes = 771
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "ENGLISH.", "#me Unsheathes his giant scimitar"
-cycletext "ENGLISH ", "#me Sharpens his giant scimitar"
-cycletext "ENGLISH.", "#me resheathes his giant scimitar"
-cycletext "ENGLISH.", "Pass along."
-cycletext "ENGLISH.", "Cause no trouble."
-cycletext "ENGLISH.", "Welcome to Cadomyr"
-cycletext "ENGLISH.", "Take shelter before night falls."
-cycletext "ENGLISH.", "#me glares at you"
-cycletext "ENGLISH.", "What do you want?"
-cycletext "ENGLISH.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
-cycletext "ENGLISH.", "Disgusting mage with her books, incantations and spells. She knows nothing about man’s toil of real struggle. She knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
-cycletext "ENGLISH.", "Trolls Bane, Trolls Bane, Trolls Bane! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
-cycletext "ENGLISH.", "Those who wish to see the queen must first be allowed into the castle, those allowed into the castle must first enter the city, those entering the city must first past through these gates, and those who try to pass through these gates must first speak to me."
-cycletext "ENGLISH.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward’s bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
+cycletext "GERMAN.", "#me unsheathes his giant scimitar."
+cycletext "GERMAN ", "#me sharpens his giant scimitar."
+cycletext "GERMAN.", "#me resheathes his giant scimitar."
+cycletext "Weitergehen.", "Pass along."
+cycletext "Macht keinen Ärger.", "Cause no trouble."
+cycletext "Willkommen in Cadomyr.", "Welcome to Cadomyr."
+cycletext "Sucht Schutz in der Stadt.", "Take shelter in the town."
+cycletext "Was wollt ihr?", "What do you want?"
+cycletext "GERMAN.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
+cycletext "GERMAN.", "Disgusting mage with her books, incantations and spells. She knows nothing about man's toil of real struggle. She knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
+cycletext "GERMAN.", "Galmair, Galmair, Galmair! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
+cycletext "GERMAN.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
+cycletext "GERMAN.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
+cycletext "Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go."
