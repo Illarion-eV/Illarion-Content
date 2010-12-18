@@ -161,14 +161,14 @@ itemShoes = 771
 "Pyramid" -> "GERMAN."
 "Family" -> "Mind your business."
 "Familie" -> "Das geht euch nichts an."
-"Palace" -> "If you have no business at the palace. Stay away from there."
+"Palace" -> "If you have no business at the palace, stay away from there."
 "Palast" -> "GERMAN."
 "King" -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
 "König" -> "GERMAN."
 "Reginald", english -> "The greatest king of the last generation. All honest men in Cadomyr aspire to be like him."
 "Reginals" -> "GERMAN."
-"Guard" -> "I guard the gate of this city."
-"Wache" -> "GERMAN."
+"Guard" -> "I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill."
+"Wache" -> "Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen."
 
 -- Main land factions
 "albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
@@ -225,7 +225,7 @@ itemShoes = 771
 "Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "Yes to what?"
+"Yes" -> "Yes to what?","Pardon?"
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "Leave me now or suffer to be arrested."
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -238,7 +238,7 @@ itemShoes = 771
 
 -- The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
 "Horatio", "Milenus", english -> "That is I. State your business."
-"Horatio", "Milenus" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -249,16 +249,16 @@ itemShoes = 771
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "#me unsheathes his giant scimitar."
-cycletext "GERMAN ", "#me sharpens his giant scimitar."
-cycletext "GERMAN.", "#me resheathes his giant scimitar."
+cycletext "#me zieht einen beeindruckenden Krummsäbel aus einer Lederscheide.", "#me unsheathes his giant scimitar."
+cycletext "#me schärft seinen großen Krummsäbel. ", "#me sharpens his giant scimitar."
+cycletext "#me lässt seinen furchteinflößenden Krummsäbel zurück in seine Lederscheide gleiten.", "#me resheathes his giant scimitar."
 cycletext "Weitergehen.", "Pass along."
 cycletext "Macht keinen Ärger.", "Cause no trouble."
 cycletext "Willkommen in Cadomyr.", "Welcome to Cadomyr."
 cycletext "Sucht Schutz in der Stadt.", "Take shelter in the town."
 cycletext "Was wollt ihr?", "What do you want?"
-cycletext "GERMAN.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
-cycletext "GERMAN.", "Disgusting mage with her books, incantations and spells. She knows nothing about man's toil of real struggle. She knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
+cycletext "Das ist meine einzige Warnung. Lungert hier nicht herum, auch nicht dort drüben. Entweder, ihr geht durch das Tor oder zurück in die Wüste.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
+cycletext "GERMAN.", "Disgusting mage with her books, incantations and spells. He knows nothing about man's toil of real struggle. He knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
 cycletext "GERMAN.", "Galmair, Galmair, Galmair! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
 cycletext "GERMAN.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
 cycletext "GERMAN.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
