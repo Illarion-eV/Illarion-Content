@@ -117,20 +117,20 @@ itemShoes = 771
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Horatio Milenus, Wächter des Reiches.", "Ich bin Horation Milenus, der Beschützer Cadomyrs.", "Dies ist Cadomyr. Ich bin Cadomyr.", "Mein  Name ist Horatio Milenus. Ich bewache diesen Eingang Stadt.", "Ich bin Horatio Milenus, Stadtwache von Cadomyr."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission", english -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
+"quest", "mission" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
+"task", "adventure" -> "Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
+"beruf" -> "Ich bin ein Wächter Cadomyrs.", "Ich diene dem Reich.", "Ich diene dieser mächtigen Stadt.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
 "job", english -> "I am Guard of Cadomyr.", "I serve this realm.", "I serve this mighty city.", "I am a town guard of Cadomyr.", "I serve the noble Queen as a town guard."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
+"job" -> "Ich bin ein Wächter Cadomyrs.", "Ich diene dem Reich.", "Ich diene dieser mächtigen Stadt.", "Ich bin ein Stadtwächter von Cadomyr.", "Ich diene der edlen Königin als ein Stadtwächter."
 "Gobaith", "Gobiath", english -> "Gob... what?", "I don't know no Gobaith."
 "Gobaith", "Gobiath" -> "Gob... was?", "Ich kenne kein Gobaith."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "Nice to meet you. Pass along.", "Very well.", "Pass along."
+"mein Name" -> "Freut mich euch kennenzulernen. Weitergehen.", "Na wunderbar.", "Weitergehen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

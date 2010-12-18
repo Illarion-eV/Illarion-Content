@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: December 18, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -207,27 +207,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Well, it is my mission to guard this gate. I do not know what your mission is; apart from serving her majesty, of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,9 +229,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nun, meine Aufgabe ist es, dieses Tor zu bewachen. Was eure Aufgabe ist, weiß ich nicht, Hauptsache, ihr dient ihrer Majestät.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,9 +245,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein Wächter Cadomyrs.");
+talkEntry:addResponse("Ich diene dem Reich.");
+talkEntry:addResponse("Ich diene dieser mächtigen Stadt.");
 talkEntry:addResponse("Ich bin ein Stadtwächter von Cadomyr.");
 talkEntry:addResponse("Ich diene der edlen Königin als ein Stadtwächter.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -274,9 +266,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ein Wächter Cadomyrs.");
+talkEntry:addResponse("Ich diene dem Reich.");
+talkEntry:addResponse("Ich diene dieser mächtigen Stadt.");
 talkEntry:addResponse("Ich bin ein Stadtwächter von Cadomyr.");
 talkEntry:addResponse("Ich diene der edlen Königin als ein Stadtwächter.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -301,17 +293,17 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Nice to meet you. Pass along.");
+talkEntry:addResponse("Very well.");
+talkEntry:addResponse("Pass along.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Freut mich euch kennenzulernen. Weitergehen.");
+talkEntry:addResponse("Na wunderbar.");
+talkEntry:addResponse("Weitergehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
