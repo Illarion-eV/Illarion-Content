@@ -15,7 +15,7 @@ race = human
 sex = male
 position = 0, 0, 0
 direction = south
-affiliation = "None"
+affiliation = "Runewick"
 job = "Guard"
 
 language = common
@@ -57,7 +57,7 @@ itemShoes = 697
 
 -- TO BE DONE
 
--- Position, direction, affiliation
+-- Position, direction
 -- Translation
 -- Replace (1337) with valid quest status
 -- Replace (391) with correct item values
