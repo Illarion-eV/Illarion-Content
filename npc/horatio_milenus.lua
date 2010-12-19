@@ -524,7 +524,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Reginals");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -613,9 +613,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meine Königin verehrt Adron, den Gott der Festgelage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -637,15 +635,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I will not meet her, but through the fulfillment of my duty.");
+talkEntry:addResponse("I will not meet Cherga, but through the fulfillment of my duty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich werde Cherga nur gegenübertreten, wenn ich in Erfüllung meiner Pflicht falle. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,22 +680,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Findari bringt zwar den Regen, aber auch Sandstürme. Das ist, was ich über sie zu sagen habe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This god was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along.");
+talkEntry:addResponse("Irmorom was never kind to my mother. I live well, but have no lo- Stop asking me questions and move along.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("");
+talkEntry:addResponse("Irmorom hat es nicht gut mit meiner Mutter gemeint. Mir ist es gut ergangen, aber... Fragt mich nicht nach sowas und geht weiter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,16 +701,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The god of battle has saved my life on many occasions.");
+talkEntry:addResponse("Malachín, the god of battle has saved my life on many occasions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Malachín, der Gott der Schlachten, hat mein Leben schon so einige male verschont.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -753,15 +745,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She has forsaken us. It is through our own hands that we grow food in Cadomyr.");
+talkEntry:addResponse("Oldra has forsaken us. It is through our own hands that we grow food in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Oldra hat uns im Stich gelassen. Die Nahrung, die wir zu uns nehmen, ist die Ernte unserer Hände.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,9 +764,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ihr könnt euch Ronagan verschreiben und endet als erbärmlicher Gauner oder ihr verschreibt euch einem gerechten Gott und ihr werdet wie ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -830,9 +818,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zhambra ermöglicht es mir, Cadomyr zu dienen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
