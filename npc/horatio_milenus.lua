@@ -309,17 +309,17 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("He's quite a merry fellow.");
+talkEntry:addResponse("The towers the archmage of Runewick built must be easy to defend.");
+talkEntry:addResponse("The archmage of Runewick; I better keep my mouth shut now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Er ist ein ziemlich freundlicher Kerl.");
+talkEntry:addResponse("Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.");
+talkEntry:addResponse("Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,17 +328,17 @@ talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He's quite a merry fellow.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The towers the archmage of Runewick built must be easy to defend.");
+talkEntry:addResponse("The archmage of Runewick; I better keep my mouth shut now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Er ist ein ziemlich freundlicher Kerl.");
+talkEntry:addResponse("Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.");
+talkEntry:addResponse("Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,15 +346,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.");
-talkEntry:addResponse("It is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want.");
+talkEntry:addResponse("Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick ist eine Feste der Magie, vier mächtige Türme, die in das Meer gebaut wurden.");
+talkEntry:addResponse("Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,7 +435,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tor");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Nichts und niemand, der durch dieses Tor geht, entgeht meinen Augen. Denkt immer daran.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,15 +467,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pyramid");
+talkEntry:addTrigger("Tomb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The resting place of the greatest of our people.");
+talkEntry:addResponse("The resting place of the greatest of our people is the tomb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pyramid");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addTrigger("Gruft");
+talkEntry:addResponse("Die letzte Ruhestätte der größten Helden unseres Volkes ist die Gruft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,26 +499,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Palast");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Wenn ihr im Palast nichts zu suchen habt, dann haltet euch fern von ihm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("King");
-talkEntry:addResponse("The greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
+talkEntry:addResponse("Reginald, the greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("König");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Reginald");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
+talkEntry:addResponse("Reginald, he greatest king of the last generation. All honest men in Cadomyr aspire to be like him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
