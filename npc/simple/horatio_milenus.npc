@@ -5,9 +5,9 @@
 -- NPC Race: human                      NPC Position:  114, 635, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Kawan Baxter                                                     --
+-- Author:   Kawan Baxter, translation by Estralis Seborian                   --
 --                                                                            --
--- Last parsing: December 15, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Horatio Milenus"
@@ -172,11 +172,11 @@ itemShoes = 771
 
 -- Main land factions
 "albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar" -> "Ich bin in der Tat Albarier.", "Ihr seid nicht in Albar, schaut euch doch mal um.", "Stört mich bitte nicht, ich bin im Dienst."
 "gynk", "gync", english -> "I hear on occasion that they are a foul nation, but one can never fully trust the words of outsiders."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gync", "gynk" -> "Ich hörte einst, dass sie ein Volk von Verruchten sind, aber was kann man schon auf das Wort eines Fremden geben."
 "salkama", english -> "I have never been in Salkamar. I know nothing of them.", "Salkamar does not concern my attention."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama" -> "Ich war nie in Salkamar, also weiß ich auch nichts darüber.", "Salkamar interessiert mich nicht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "gods", english -> "The ones I serve are Adron, Malachin and Zhambra."
@@ -216,25 +216,25 @@ itemShoes = 771
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.", "I am no trader.", "If you are looking for a trader, go to the market place."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich erkaufe lediglich die Sicherheit des Reiches und biete die Niederschlagung der Feinde Cadomyrs an.", "Ich bin kein Händler.", "Wenn Ihr einen Händler sucht, dann geht zum Marktplatz."
 "tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
+"erzähl was", "erzähl etwas" -> "Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
 
 -- Easter egg
 "private" -> "I am not a private anymore! The queen promoted me, haha!"
 "Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Yes" -> "Yes to what?","Pardon?"
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Yes to what?", "Pardon?"
+"Ja" -> "Ja?", "Pardon?"
 "No" -> "Leave me now or suffer to be arrested."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "Geht nun oder ich werde euch unter Arrest stellen."
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-".*", english, chance(20) -> "I am the merely a guard of Cadomyr."
-".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", english, chance(20) -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
+".*", chance(20) -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
 
 -- The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
 "Horatio", "Milenus", english -> "That is I. State your business."
@@ -258,8 +258,10 @@ cycletext "Willkommen in Cadomyr.", "Welcome to Cadomyr."
 cycletext "Sucht Schutz in der Stadt.", "Take shelter in the town."
 cycletext "Was wollt ihr?", "What do you want?"
 cycletext "Das ist meine einzige Warnung. Lungert hier nicht herum, auch nicht dort drüben. Entweder, ihr geht durch das Tor oder zurück in die Wüste.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert."
-cycletext "GERMAN.", "Disgusting mage with her books, incantations and spells. He knows nothing about man's toil of real struggle. He knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs."
-cycletext "GERMAN.", "Galmair, Galmair, Galmair! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
-cycletext "GERMAN.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
-cycletext "GERMAN.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
+cycletext "Diese widerlichen Magier mit ihren Büchern, Ritualen und Zaubersprüchen!", "Disgusting mages with their books, incantations and spells!"
+cycletext "Dieser verdammte Don! Ich weiß nichts über die Tugenden eines echten Mannes. Er kennt keinen Respekt.", "Blasted Don! He knows nothing about man's toil of real struggle. He knows nothing of proper respect."
+cycletext "Don Valerio, pah! Wenn es das Gesetz zuließe, würde ich seinen Kopf abschlagen und seinen Körper an die Schweine verfüttern.", "Don Valerio, pah! If Cadomyrian law allowed, I would sever his head and feed his body to the pigs."
+cycletext "Galmair, Galmair, Galmair! Reden die anderen Völker über nichts anderes mehr? Warum sollte ich mich um eine Stadt voller Tunichtgute scheren?", "Galmair, Galmair, Galmair! Do outsiders ever talk about anything else? Why would I care about a city full of incompetents?"
+cycletext "Wer zur Königin will, muss zunächst ein den Palast, wer in den Palast will, muss erst in die Stadt und wer in die Stadt will, muss an mir vorbei.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
+cycletext "Dies ist Cadomyr und der Palast der Edwards. Die derzeitige Regentin der königlichen albarischen Blutlinie ist die weise und wunderschöne Königin Rosaline.", "This is Cadomyr and the palace of the Edwards. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
 cycletext "Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go."

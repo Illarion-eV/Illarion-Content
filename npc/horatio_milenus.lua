@@ -551,9 +551,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin in der Tat Albarier.");
+talkEntry:addResponse("Ihr seid nicht in Albar, schaut euch doch mal um.");
+talkEntry:addResponse("Stört mich bitte nicht, ich bin im Dienst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,9 +568,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich hörte einst, dass sie ein Volk von Verruchten sind, aber was kann man schon auf das Wort eines Fremden geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,9 +582,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich war nie in Salkamar, also weiß ich auch nichts darüber.");
+talkEntry:addResponse("Salkamar interessiert mich nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,9 +835,7 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich erkaufe lediglich die Sicherheit des Reiches und biete die Niederschlagung der Feinde Cadomyrs an.");
 talkEntry:addResponse("Ich bin kein Händler.");
 talkEntry:addResponse("Wenn Ihr einen Händler sucht, dann geht zum Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -857,9 +852,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.");
 talkEntry:addResponse("Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.");
 talkEntry:addResponse("Ich bin eine Stadtwache und kein Geschichtenerzähler.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -886,9 +879,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ja?");
+talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,9 +892,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Geht nun oder ich werde euch unter Arrest stellen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,15 +901,23 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("I am the merely a guard of Cadomyr.");
+talkEntry:addResponse("Tell that somebody else.");
+talkEntry:addResponse("Move along.");
+talkEntry:addResponse("Pass along");
+talkEntry:addResponse("Do not loiter!");
+talkEntry:addResponse("In or out?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin in erster Linie der Wächter Cadomyrs.");
+talkEntry:addResponse("Erzählt das jemanden anderes.");
+talkEntry:addResponse("Geht weiter.");
+talkEntry:addResponse("Weitergehen.");
+talkEntry:addResponse("Lungert hier nicht herum.");
+talkEntry:addResponse("Rein oder raus?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,10 +944,12 @@ talkingNPC:addCycleText("Willkommen in Cadomyr.", "Welcome to Cadomyr.");
 talkingNPC:addCycleText("Sucht Schutz in der Stadt.", "Take shelter in the town.");
 talkingNPC:addCycleText("Was wollt ihr?", "What do you want?");
 talkingNPC:addCycleText("Das ist meine einzige Warnung. Lungert hier nicht herum, auch nicht dort drüben. Entweder, ihr geht durch das Tor oder zurück in die Wüste.", "This is your one and only warning. Do not loiter here, do not loiter there. Either come pass this gate or go back into the desert.");
-talkingNPC:addCycleText("GERMAN.", "Disgusting mage with her books, incantations and spells. He knows nothing about man's toil of real struggle. He knows nothing of proper respect. If Cadomyrian law allowed, I would sever her head and feed her body to the pigs.");
-talkingNPC:addCycleText("GERMAN.", "Galmair, Galmair, Galmair! Do you outsiders ever talk about anything else? Why would I care about a city full of incompetents?");
-talkingNPC:addCycleText("GERMAN.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me.");
-talkingNPC:addCycleText("GERMAN.", "This is Cadomyr and the palace of Edward. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful.");
+talkingNPC:addCycleText("Diese widerlichen Magier mit ihren Büchern, Ritualen und Zaubersprüchen!", "Disgusting mages with their books, incantations and spells!");
+talkingNPC:addCycleText("Dieser verdammte Don! Ich weiß nichts über die Tugenden eines echten Mannes. Er kennt keinen Respekt.", "Blasted Don! He knows nothing about man's toil of real struggle. He knows nothing of proper respect.");
+talkingNPC:addCycleText("Don Valerio, pah! Wenn es das Gesetz zuließe, würde ich seinen Kopf abschlagen und seinen Körper an die Schweine verfüttern.", "Don Valerio, pah! If Cadomyrian law allowed, I would sever his head and feed his body to the pigs.");
+talkingNPC:addCycleText("Galmair, Galmair, Galmair! Reden die anderen Völker über nichts anderes mehr? Warum sollte ich mich um eine Stadt voller Tunichtgute scheren?", "Galmair, Galmair, Galmair! Do outsiders ever talk about anything else? Why would I care about a city full of incompetents?");
+talkingNPC:addCycleText("Wer zur Königin will, muss zunächst ein den Palast, wer in den Palast will, muss erst in die Stadt und wer in die Stadt will, muss an mir vorbei.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me.");
+talkingNPC:addCycleText("Dies ist Cadomyr und der Palast der Edwards. Die derzeitige Regentin der königlichen albarischen Blutlinie ist die weise und wunderschöne Königin Rosaline.", "This is Cadomyr and the palace of the Edwards. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful.");
 talkingNPC:addCycleText("Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
