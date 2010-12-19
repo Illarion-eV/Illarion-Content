@@ -31,6 +31,11 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
 itemHead = 0
 itemChest = 365
 itemCoat = 2419
@@ -39,6 +44,14 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Estralis Seborian
 
@@ -62,34 +75,34 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: Hallo, Schmied.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Let's get to business, alright?"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Lasst uns zum Geschäft kommen, ja?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Let's get to business, alright?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Lasst uns zum Geschäft kommen, ja?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Kill some scum with my weapons, will you?"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Tötet Abschaum mit meinen Waffen, ja?"
-"Ciao", "Adieu", "Au revoir", english -> "Kill some scum with my weapons, will you?"
-"Ciao", "Adieu", "Au revoir", german -> "Tötet Abschaum mit meinen Waffen, ja?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Let's get to business, alright?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Lasst uns zum Geschäft kommen, ja?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Let's get to business, alright?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Lasst uns zum Geschäft kommen, ja?"
+"Farewell", "Bye", "Fare well", "See you" -> "Kill some scum with my weapons, will you?"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tötet Abschaum mit meinen Waffen, ja?"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Kill some scum with my weapons, will you?"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Tötet Abschaum mit meinen Waffen, ja?"
 "How are you", "How feel", "How do you do" -> "Pardon me, but I do not want to talk about my feelings."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Entschuldigt, aber ich möchte nicht über meine Gefühle reden."
 "your name", "who are you", "who art thou" -> "Frobenius!", "I am Frobenius, the blacksmith."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Frobenius!", "Ich bin Frobenius, der Schmied."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell swords!", "I sell helmets!", "I sell axes!", "I sell armour!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe Schwerter!", "Ich verkaufe Helme!", "Ich verkaufe Äxte!", "Ich verkaufe Rüstungen!"
-"tell something" -> "I tell you: Sharpen you blade and commit deeds for the glory of Cadomyr."
-"erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
+-- Catching quest triggers
+"quest", "mission", english -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
+"quest", "mission", german -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
+"task", "adventure" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a blacksmith. That means I craft weapons of death."
 "beruf" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
-"job", german -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
 "job", english -> "I am a blacksmith. That means I craft weapons of death."
-"smith" -> "Use my forged items to smite the foes of Cadomyr."
-"Schmied" -> "Benutze meine Schmiedewaren um die Feinde Cadomyrs zu zerschmettern."
-"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end, only weapons will make Cadomyr prosper."
-"händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr vorran bringen."
+"job" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
+"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- More small talk; add at least five triggers
 "iron" -> "Iron is tough, stiff and hard. The perfect material for weapons."
@@ -98,42 +111,54 @@ itemShoes = 53
 "ore" -> "Iron you can make from ore. Cadomyr does not have rich mines, but we're doing our best."
 "steel" -> "What is that supposed to be?"
 "Stahl" -> "Was soll das sein?"
+"smith" -> "Use my forged items to smite the foes of Cadomyr."
+"Schmied" -> "Benutze meine Schmiedewaren um die Feinde Cadomyrs zu zerschmettern."
+"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end, only weapons will make Cadomyr prosper."
+"händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr vorran bringen."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
-"Elvaine", "Morgan", "archmage", "Erzmagier", german -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
+"archmage" -> "The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
+"Erzmagier" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
+"Elvaine", "Morgan", english -> "The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
+"Elvaine", "Morgan" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
 "Runewick", english -> "Runewick will fall into ruins one day, so do not bother. If you do, I have a good sword for you."
-"Runewick", german -> "Runewick wird eines Tages eine Ruine sein, sorgt euch nicht. Wenn ihr euch dennoch sorgt, ich habe ein gutes Schwert für euch."
+"Runewick" -> "Runewick wird eines Tages eine Ruine sein, sorgt euch nicht. Wenn ihr euch dennoch sorgt, ich habe ein gutes Schwert für euch."
 "Valerio", "Guilianni", "Don", english -> "I assume the dagger that will slash the Don's throat was already crafted. Hopefully, by me."
-"Valerio", "Guilianni", "Don", german -> "Ich denke, dass der Dolch, der die Kehle des Dons aufschlitzen wird, bereits gefertigt wurde. Hoffentlich ist es einer von meinen."
+"Valerio", "Guilianni", "Don" -> "Ich denke, dass der Dolch, der die Kehle des Dons aufschlitzen wird, bereits gefertigt wurde. Hoffentlich ist es einer von meinen."
 "Galmair", english -> "Galmair is rich, but they don't use their wealth properly. Like, for buying weapons."
-"Galmair", german -> "Galmair ist reich, aber sie verstehen es nicht, ihren Reichtum richtig einzusetzen, zum Beispiel, um Waffen zu kaufen."
-"rosaline", "Königin", "queen", "edwards", english -> "Any weapon I craft is ment to protect the queen. So, raise you hand against the queen and hundreds of swords will chop it off."
-"rosaline", "königin", "queen", "edwards", german -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
+"Galmair" -> "Galmair ist reich, aber sie verstehen es nicht, ihren Reichtum richtig einzusetzen, zum Beispiel, um Waffen zu kaufen."
+"Queen" -> "Any weapon I craft is ment to protect the queen. So, raise you hand against the queen and hundreds of swords will chop it off."
+"Königin" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
+"rosaline", "edwards", english -> "Any weapon I craft is ment to protect the queen. So, raise you hand against the queen and hundreds of swords will chop it off."
+"rosaline", "edwards" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
 "Cadomyr", english -> "Cadomyr is our home and I hope my goods help to defend it against any enemies."
-"Cadomyr", german -> "Cadomyr ist unsere Heimat und ich hoffe, meine Waren leisten ihren Beitrag, es gegen Feinde zu verteidigen."
+"Cadomyr" -> "Cadomyr ist unsere Heimat und ich hoffe, meine Waren leisten ihren Beitrag, es gegen Feinde zu verteidigen."
 
 -- Main land factions
 "albar", english -> "Spears and swords built the albarian kingdom. Need any?"
-"albar", german -> "Speere und Schwerter haben Albar aufgebaut. Braucht ihr welche?"
+"albar" -> "Speere und Schwerter haben Albar aufgebaut. Braucht ihr welche?"
 "gynk", "gync", english -> "Gynk is far away and their weapons are lies and treason."
-"gync", "gynk", german -> "Gynk ist weit entfernt und ihre Waffen sind Lügen und Verrat."
+"gync", "gynk" -> "Gynk ist weit entfernt und ihre Waffen sind Lügen und Verrat."
 "salkama", english -> "Salkamaerian armour might look brightly shining, but it is ineffective."
-"salkama", german -> "Salkamaerische Rüstungen mögen funkeln und blitzen, aber sie sind nicht effektiv."
+"salkama" -> "Salkamaerische Rüstungen mögen funkeln und blitzen, aber sie sind nicht effektiv."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Malachin", english -> "Every sword I craft I craft for Malachin himself."
-"Malachin", german -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
+"Malachin" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
 "Irmorom", english -> "Irmorom would be proud if he beheld my art. I'm his most hard working scholar."
-"Irmorom", german -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
+"Irmorom" -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
 
--- Catching quest triggers
-"quest", "mission", english -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"quest", "mission", german -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
-"task", "adventure" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell swords!", "I sell helmets!", "I sell axes!", "I sell armour!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe Schwerter!", "Ich verkaufe Helme!", "Ich verkaufe Äxte!", "Ich verkaufe Rüstungen!"
+"tell something" -> "I tell you: Sharpen you blade and commit deeds for the glory of Cadomyr."
+"erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "What do you mean?", "What do you need?", "I have a good weapon for you."
 "Ja" -> "Was meint ihr?", "Was braucht ihr?", "Ich habe eine gute Waffe für euch."
 "No" -> "As you like.", "Per chance you want a helmet?", "My swords never go blunt."

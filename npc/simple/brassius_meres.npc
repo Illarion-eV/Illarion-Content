@@ -45,6 +45,14 @@ itemHands = 528
 itemTrousers = 2193
 itemShoes = 697
 
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
 -- Queststatus Overview
 
 -- 0: No Quest taken
@@ -73,90 +81,20 @@ itemShoes = 697
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Salkamar, Gesetze, Götter.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely, 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", "Greebha" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely, 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl"-> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "I am well, thank you.", "Zhambra keeps me safe and in good health.", "I can not complain, the Gods care for me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "My name is Brassius Meres. It is an honour to meet you.", "I am Brassius Meres, a guard of this town.", "Brassius Meres, faithful servant of the Lords Malachin and Zhambra."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am a town guard. I take care of troublemakers.", "I keep order 'round here, and make sure the citizens are safe.", "I'm a soldier, serving here as a town guard."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I am a town guard.", "I protect the town and its citizens.", "It's my job to keep the people safe and out of trouble."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "The people of this island are a hardy folk. Not much seems to faze them these days.", "I like it here. It's peaceful when it needs to be, but excitement is always just around the corner.", "This island is a breeding ground for crime, unfortunately. It's no wonder the Captain is always looking for more guards."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"I am", "my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully, 'Well met.'"
-"Ich bin", "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"law" -> "The laws are tough, but fair.", "Take a look in the library, it should not be difficult to find a copy of the town's laws.", "The laws are easily available. Take a look around, you'll find them eventually."
-"captain" -> "The Captain runs the Town Guard. He does a good job, considering the number of guards he has to work with.", "You should have a look 'round town for the Captain or one of the deputies, I hear they are looking for recruits.", "#me suddenly straightens, standing at attention, 'Captain! What!? Where!?'."
-"guard" -> "Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
-"criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Guard Captain.", "The Guard Captain decides who investigates specific crimes. You should speak to him when you have trouble."
-"quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Main land factions
-"albar", english -> "I've been to Albar once before. I found it to be a rather...backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "Ah, yes...Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "Ahh...Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Zhambra and Malachin are my patron deities.", "I am protected by the Lords Malachin and Zhambra in battle. They have kept me safe so far.", "I worship Zhambra and Malachin."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Adron. I hear his followers frequent the tavern, though.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about the God of Fire.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Cherga or those who worship Her.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Elara.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Eldan.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Findari.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "Malachin is the God of Battle. He watches over all those who fight with honour.", "#me closes his eyes and tilts his head upward, whispering a silent prayer.", "The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "#me spits on the ground, expressing his distaste.", "The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.", "I would not mention that name so freely, if I were you."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "His followers are all fools and madmen.", "I do not have time for the worshippers of Nargun.", "Order is something that I greatly value. And something that the God of Chaos does not provide."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Oldra. Perhaps a druid could inform you better.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "#me frowns lightly, 'His followers are thieves, petty criminals. Nothing but lowlife scum.'", "Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.", "I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Sirani.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Tanora", "Zelphia", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about that Goddess.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "The God of Friendship and Loyalty is one of my patron deities. He keeps me safe, provided I stay faithful.", "I worship Zhambra and eagerly await the day He leads me to the paradise.", "Loyalty is vital for a man in my position. Lord Zhambra keeps me honest."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head, 'Not while I'm on duty, thank you.'"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "Hm. You look like you could wield a weapon. Perhaps the guard captain would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
+-- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring five APPLES
 
 -- Give out quest 1
@@ -216,6 +154,95 @@ itemShoes = 697
 "quest", "mission", queststatus(1337) = 6 -> "GERMAN."
 "task", "adventure", queststatus(1337) = 6 -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 6 -> "GERMAN."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a town guard. I take care of troublemakers.", "I keep order 'round here, and make sure the citizens are safe.", "I'm a soldier, serving here as a town guard."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I am a town guard.", "I protect the town and its citizens.", "It's my job to keep the people safe and out of trouble."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "The people of this island are a hardy folk. Not much seems to faze them these days.", "I like it here. It's peaceful when it needs to be, but excitement is always just around the corner.", "This island is a breeding ground for crime, unfortunately. It's no wonder the Captain is always looking for more guards."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully, 'Well met.'"
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"law" -> "The laws are tough, but fair.", "Take a look in the library, it should not be difficult to find a copy of the town's laws.", "The laws are easily available. Take a look around, you'll find them eventually."
+"captain" -> "The Captain runs the Town Guard. He does a good job, considering the number of guards he has to work with.", "You should have a look 'round town for the Captain or one of the deputies, I hear they are looking for recruits.", "#me suddenly straightens, standing at attention, 'Captain! What!? Where!?'."
+"guard" -> "Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
+"criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Guard Captain.", "The Guard Captain decides who investigates specific crimes. You should speak to him when you have trouble."
+"quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "I've been to Albar once before. I found it to be a rather...backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "Ah, yes...Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "Ahh...Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Zhambra and Malachin are my patron deities.", "I am protected by the Lords Malachin and Zhambra in battle. They have kept me safe so far.", "I worship Zhambra and Malachin."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Adron. I hear his followers frequent the tavern, though.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about the God of Fire.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Cherga or those who worship Her.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Elara.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Eldan.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Findari.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "I respect His followers, but I do not worship that God.", "I confess to knowing little about Irmorom. Speak to some Dwarves, that would be your best bet.", "You would be better off speaking to someone else about that God, I'm certain there are followers nearby."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "Malachin is the God of Battle. He watches over all those who fight with honour.", "#me closes his eyes and tilts his head upward, whispering a silent prayer.", "The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "#me spits on the ground, expressing his distaste.", "The followers of the Blood-God deserve whatever cruel, twisted fate awaits them.", "I would not mention that name so freely, if I were you."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "His followers are all fools and madmen.", "I do not have time for the worshippers of Nargun.", "Order is something that I greatly value. And something that the God of Chaos does not provide."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Oldra. Perhaps a druid could inform you better.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "#me frowns lightly, 'His followers are thieves, petty criminals. Nothing but lowlife scum.'", "Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.", "I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Sirani.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Tanora", "Zelphia", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about that Goddess.", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "I respect Her followers, but I do not worship that Goddess.", "I confess to knowing little about Ushara. I recommend speaking with an Elf about such matters", "You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "The God of Friendship and Loyalty is one of my patron deities. He keeps me safe, provided I stay faithful.", "I worship Zhambra and eagerly await the day He leads me to the paradise.", "Loyalty is vital for a man in my position. Lord Zhambra keeps me honest."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head, 'Not while I'm on duty, thank you.'"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "Hm. You look like you could wield a weapon. Perhaps the guard captain would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Brassius", "Meres", english -> "My apologies, I am on duty. Perhaps someone else can help you.", "I should be getting back to my work.", "I am quite busy at the moment, sorry."
