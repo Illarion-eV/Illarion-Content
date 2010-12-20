@@ -103,7 +103,10 @@ function SetMode(thisFaction, otherFaction, newMode)
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
 end
 
+--- initialize the mode for all factions, only the current faction gets access
+-- @param thisFaction The faction ID of the current faction
 function InitMode(thisFaction)
+	ScriptVars:set("Mode_".. thisFaction, 0);
 	SetMode(thisFaction, thisFaction, ACTION_NONE);
 	local factions = {0,1,2,3};
 	for _,f in factions do
