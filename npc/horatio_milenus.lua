@@ -972,9 +972,9 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker)
-	
-	mainNPC:receiveText(speaker, message);
 	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+	mainNPC:receiveText(speaker, message);
+	
 end;
 function nextCycle()
 	mainNPC:nextCycle();
