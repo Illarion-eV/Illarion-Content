@@ -14,12 +14,12 @@ Radius = {};
 CheckCenter = {}
 
 function Init(guard, factionId, warpPos, radius, checkCenter)
-	guard:talk(CCharacter.say,"BEGIN guards_static.Init");
+	--guard:talk(CCharacter.say,"BEGIN guards_static.Init");
 	WarpPos[guard.id] = warpPos;
 	FactionId[guard.id] = factionId;
 	Radius[guard.id] = radius;
 	CheckCenter[guard.id] = checkCenter;
-	guard:talk(CCharacter.say,"END guards_static.Init");
+	--guard:talk(CCharacter.say,"END guards_static.Init");
 end
 
 --- Checks for chars in range and handles them (warp)
@@ -180,23 +180,19 @@ function CheckAdminCommand(guard, speaker, message)
 			speaker:inform("#w [Guard Help] no proper mode found. Try none, passive, hostile or aggressive.");
 			return;
 		else
-			speaker:inform("mode ~= -1");
+			--speaker:inform("mode ~= -1");
 		end
 		if FactionId then
-			speaker:inform("FactionId exists");
+			--speaker:inform("FactionId exists");
 			if FactionId[guard.id] then
-				speaker:inform("FactionId[guard.id] exists");
+				--speaker:inform("FactionId[guard.id] exists");
 			end
 		end
-		speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
+		--speaker:inform("call SetMode: ".. FactionId[guard.id] ..";".. faction ..";".. mode);
 		SetMode(FactionId[guard.id], faction, mode);
 		speaker:inform("#w [Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode]);
 	elseif string.find(msg, "help") then
 		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
-	elseif string.find(msg, "init") then
-		speaker:inform("init!");
-		npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
-		speaker:inform("init done");
 	end
 end
 
