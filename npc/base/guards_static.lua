@@ -2,10 +2,11 @@ require("base.factions")
 require("base.common")
 module("npc.base.guards_static", package.seeall)
 
-ACTION_NONE = 0;
-ACTION_PASSIVE = 1;
-ACTION_HOSTILE = 2;
-ACTION_AGGRESSIVE = 3;
+-- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
+ACTION_NONE = 0;		-- do nothing at all
+ACTION_PASSIVE = 1;		-- if in attackmode, warp away
+ACTION_HOSTILE = 2;		-- warp away
+ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 
 WarpPos = {};
 FactionId = {};
@@ -68,8 +69,8 @@ end
 function GetModeByFaction(thisFaction, otherFaction)
 	local found, mode = ScriptVars:find("Mode_".. thisFaction);
 	if not found then
-		SetMode(thisFaction, otherFaction, ACTION_NONE);
-		return ACTION_NONE;
+		InitMode(thisFaction);
+		return GetModeByFaction(thisFaction, otherFaction);
 	end
 	mode = mode % (10^(otherFaction+1));
 	mode = math.floor(mode / 10^otherFaction);
@@ -85,8 +86,9 @@ function SetMode(thisFaction, otherFaction, newMode)
 	local found, modeAll = ScriptVars:find("Mode_".. thisFaction);
 	local oldMode = 0;
 	if not found then
-		modeAll = 0;
-		oldMode = 0;
+		InitMode(thisFaction);
+		SetMode(thisFaction, otherFaction, newMode);
+		return;
 	else
 		-- calculate the old mode for the otherFaction
 		oldMode = modeAll % (10^(otherFaction+1));
@@ -99,6 +101,16 @@ function SetMode(thisFaction, otherFaction, newMode)
 	-- set ScriptVar again
 	modeAll = math.max(0,math.min(9999, modeAll)); -- must not be negative & exceed 9999 (3 towns + outcasts)
 	ScriptVars:set("Mode_".. thisFaction, modeAll);
+end
+
+function InitMode(thisFaction)
+	SetMode(thisFaction, thisFaction, ACTION_NONE);
+	local factions = {0,1,2,3};
+	for _,f in factions do
+		if (thisFaction ~= f) then
+			SetMode(thisFaction, f, ACTION_HOSTILE);
+		end
+	end
 end
 
 --- warp the char to the defined warp position
@@ -119,9 +131,9 @@ function CheckAdminCommand(guard, speaker, message)
 	if guard.id == speaker.id then
 		return;
 	end
-	if not speaker:isAdmin() then
-		return;
-	end
+	--if not speaker:isAdmin() then
+		--return;
+	--end
 	if speaker:distanceMetric(guard) > 2 then
 		return;
 	end
@@ -180,9 +192,9 @@ function CheckAdminCommand(guard, speaker, message)
 	elseif string.find(msg, "help") then
 		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
 	elseif string.find(msg, "init") then
-		speaker:inform("init!");
-		npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
-		speaker:inform("init done");
+		--speaker:inform("init!");
+		--npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
+		--speaker:inform("init done");
 	end
 end
 
