@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.guards_static")
 module("npc.horatio_milenus", package.seeall)
 
 function initNpc()
@@ -970,8 +971,30 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
+function receiveText(texttype, message, speaker)
+	mainNPC:receiveText(speaker, message);
+	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+end;
+function nextCycle()
+	mainNPC:nextCycle();
+	if not guards_init then
+		-- init after 10 cycles
+		guards_init = 10;
+		gCount = 0;
+	end
+	if guards_init == 0 then
+		guards_init = -1;
+		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
+	elseif guards_init > 0 then
+		guards_init = guards_init - 1;
+	end
+	if gCount == 4 and guards_init == 0 then
+		gCount = 0;
+		npc.base.guards_static.CheckForEnemies(thisNPC);
+	else
+		gCount = gCount + 1;
+	end
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();

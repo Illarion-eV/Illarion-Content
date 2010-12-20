@@ -185,3 +185,33 @@ function CheckAdminCommand(guard, speaker, message)
 		speaker:inform("init done");
 	end
 end
+
+--[[
+-- ## REPLACE THESE FUNCTIONS IN THE LUA CODE OF EACH GUARD ##
+
+function receiveText(texttype, message, speaker)
+	mainNPC:receiveText(speaker, message);
+	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+end;
+function nextCycle()
+	mainNPC:nextCycle();
+	if not guards_init then
+		-- init after 10 cycles
+		guards_init = 10;
+		gCount = 0;
+	end
+	if guards_init == 0 then
+		guards_init = -1;
+		npc.base.guards_static.Init(thisNPC, #FACTION_ID, #WARP_POS, #WARP_RADIUS, #CHECK_CENTER);
+	elseif guards_init > 0 then
+		guards_init = guards_init - 1;
+	end
+	if gCount == 4 and guards_init == 0 then
+		gCount = 0;
+		npc.base.guards_static.CheckForEnemies(thisNPC);
+	else
+		gCount = gCount + 1;
+	end
+end;
+
+]]
