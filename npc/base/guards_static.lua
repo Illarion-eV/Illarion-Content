@@ -109,7 +109,7 @@ function InitMode(thisFaction)
 	ScriptVars:set("Mode_".. thisFaction, 0);
 	SetMode(thisFaction, thisFaction, ACTION_NONE);
 	local factions = {0,1,2,3};
-	for _,f in factions do
+	for _,f in pairs(factions) do
 		if (thisFaction ~= f) then
 			SetMode(thisFaction, f, ACTION_HOSTILE);
 		end
@@ -164,7 +164,6 @@ function CheckAdminCommand(guard, speaker, message)
 		modeString[ACTION_PASSIVE] = "passive";
 		modeString[ACTION_HOSTILE] = "hostile";
 		modeString[ACTION_AGGRESSIVE] = "aggressive";
-		speaker:inform(msg);
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
 			local mode = GetModeByFaction(FactionId[guard.id],faction);
