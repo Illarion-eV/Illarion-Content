@@ -192,9 +192,9 @@ function CheckAdminCommand(guard, speaker, message)
 	elseif string.find(msg, "help") then
 		speaker:inform("#w [Guard Help] You can set the mode for the guards by: set mode <faction> <mode>");
 	elseif string.find(msg, "init") then
-		--speaker:inform("init!");
-		--npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
-		--speaker:inform("init done");
+		speaker:inform("init!");
+		npc.base.guards_static.Init(guard, 1, position(118,624,0), 5);
+		speaker:inform("init done");
 	end
 end
 
