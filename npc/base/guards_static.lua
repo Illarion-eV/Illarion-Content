@@ -70,8 +70,7 @@ function GetModeByFaction(thisFaction, otherFaction)
 	local found, mode = ScriptVars:find("Mode_".. thisFaction);
 	if not found then
 		InitMode(thisFaction);
-		--return GetModeByFaction(thisFaction, otherFaction);
-		return ACTION_NONE;
+		return GetModeByFaction(thisFaction, otherFaction);
 	end
 	mode = mode % (10^(otherFaction+1));
 	mode = math.floor(mode / 10^otherFaction);
@@ -165,7 +164,7 @@ function CheckAdminCommand(guard, speaker, message)
 		modeString[ACTION_PASSIVE] = "passive";
 		modeString[ACTION_HOSTILE] = "hostile";
 		modeString[ACTION_AGGRESSIVE] = "aggressive";
-		
+		speaker:inform(msg);
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
 			local mode = GetModeByFaction(FactionId[guard.id],faction);
