@@ -70,7 +70,8 @@ function GetModeByFaction(thisFaction, otherFaction)
 	local found, mode = ScriptVars:find("Mode_".. thisFaction);
 	if not found then
 		InitMode(thisFaction);
-		return GetModeByFaction(thisFaction, otherFaction);
+		--return GetModeByFaction(thisFaction, otherFaction);
+		return ACTION_NONE;
 	end
 	mode = mode % (10^(otherFaction+1));
 	mode = math.floor(mode / 10^otherFaction);
