@@ -31,6 +31,27 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Estralis Seborian
 
@@ -50,74 +71,20 @@ wrongLangUS = "#me looks at you confused."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Wert des Lebens.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, one of the living visits me. What brought you here - do you want to honour your ancestors in the tomb?"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Ah, one of the living visits me. What brought you here - do you want to visit your ancestors in the tomb?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> ", einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Go with the gods' blessing. And don't return too soon, if you know what I mean."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
-"Ciao", "Adieu", "Au revoir", english -> "Go with the gods' blessing. And don't return too soon, if you know what I mean."
-"Ciao", "Adieu", "Au revoir", german -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, one of the living visits me. What brought you here - do you want to honour your ancestors in the tomb?"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, one of the living visits me. What brought you here - do you want to visit your ancestors in the tomb?"
+"Hiho", "Hallo", "Hey", "Greeb" -> ", einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
+"Farewell", "Bye", "Fare well", "See you" -> "Go with the gods' blessing. And don't return too soon, if you know what I mean."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go with the gods' blessing. And don't return too soon, if you know what I mean."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
 "How are you", "How feel", "How do you do" -> "I bury those who fell. How do you I think I feel? Assessing one's life's value is not an easy task."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, fühle ich mich dabei? Den Wert eines Lebens zu schätzen ist fürwahr nicht einfach."
 "your name", "who are you", "who art thou" -> "I am called Gregor Remethar, nice to meet you and to be able to - still - talk to you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "You cannot bribe me. I do not accept any goods nor money. My judgement is neutral."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Man kann mich nicht bestechen. Ich nehme weder Waren noch Geld an. Mein Urteil ist unabhängig."
-"tell something" -> "We could talk about the tomb or my profession as mortician. I also have a task for you."
-"erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those who fell - and to assess the value of their life. Depending on that, their fate is sealed."
-"Bestatter", "Totengräber", "Beerdigung" -> "Meine Aufgabe ist es, diejenigen zu begraben, deren Leben am Ende ist - und den Wert ihres Lebens einzuschätzen. Den der bestimmt, was mit ihnen geschieht."
-"profession" -> "I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife."
-"beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-"job", english -> "I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife."
-"job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-
--- More small talk; add at least five triggers
-"tomb" -> "The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners."
-"value", "fame", "fate" -> "Depening on the value of one's life, there are three methods to get buried. I could tell you more on these methods..."
-"assess", "earn", "judge" -> "Who am I to judge over one's life you might say? I do not judge. One's fame usually arrives here long before one's body."
-"method", "urn", english -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
-"bury", "grave", "coffin" -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
-"Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk."
-"Wert", "Ansehen", "Schicksal" -> "Je nachdem, wie hoch der Wert des Lebens war, gibt es drei Methoden, jemanden zu begraben. Ich könnte euch mehr über diese Methoden erzählen..."
-"verdien", "schätz", "Urteil" -> "Was ich mir einbilde, den Wert eines Lebens einschätzen zu können? Das muss ich gar nicht; der Ruf eilten einer Leiche zumeist vorraus."
-"method", "grab", "urne", "Sarg" -> "Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen."
-
--- Easter egg
-"Calaway", english -> "I am not the undertaker! I prefer the term mortician."
-"Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
-
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
-"Runewick", english -> "In Runewick, everyone is equal; you have equal chances, but if you don't achieve something, your life is wasted."
-"Runewick" -> "In Runewick ist Jedermann gleich geboren. Wer nichts zustandebringt, dessen Leben ist allerdings verwirkt."
-"Valerio", "Guilianni", "Don", english -> "I heard a rumour about the Don; that he makes people dissapear he does not like. No tombstone reminds on them..."
-"Valerio", "Guilianni", "Don" -> "Ich habe eine Gerücht über den Don gehört; er lässt Leute einfach so verschwinden, die ihm quer kommen. Kein Grabstein wird jemals an sie erinnern."
-"Galmair", english -> "In Galmair, your fame in afterlife depends a lot on the amount of money you have - or had. Big purse, big grave, small purse, no grave. Horrible!"
-"Galmair" -> "In Galmair hängt der Ruf eines Verstorbenen offensichtlich stark vom Reichtum ab. Großer Geldbeutel, großes Grab, kleiner Geldbeutel, kein Grab - wie schrecklich!"
-"rosaline", "königin", "queen", "edwards", english -> "I overheard queen Rosaline wants to have a magnificient grave in the desert. Her royal builder Robertus is in charge; I wonder whether he'll finish the grave before she passes..."
-"rosaline", "königin", "queen", "edwards" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
-"Cadomyr", english -> "I do respect the people of Cadomyr. Their habits are unlike ours; they assess the value of one's life upon birth, we do upon death. But does this make us so different?"
-"Cadomyr" -> "Ich schätze das Volk von Cadomyr. Ihre Gebräuche sind etwas anders als unsere; der Wert eines Lebens wird bei ihnen bei der Geburt bestimmt, bei uns nach dem Tode. Aber macht uns das so verschieden?"
-
--- Main land factions
-"albar", english -> "They are burning the bodies of their deads in Albar. This is, as a matter of fact, an act of honour - for those will never be raised as undeads by foul craft."
-"albar" -> "Die Albarier verbrennen ihre Toten. Dies ist fürwahr eine Ehrerweisung, denn wer verbrannt ist, kann nicht durch dunkle Künste ins Leben zurückgerufen werden."
-"gynk", "gync", english -> "They have strange habits in Gynk. Word is they just sink their deads in the swamps. What a horrible custom!"
-"gync", "gynk" -> "Es gibt merkwürdige Sitten in Gynk. Man sagt, sie werfen ihre Toten einfach in den Sumpf. Was für ein grausamer Brauch!"
-"salkama", english -> "The archmage once told me that in Salkamar, only the good are buried in coffins while the evil face an undescribeable fate."
-"salkama" -> "Einst sagte mir der Erzmagier, dass in Salkamar nur die Rechtschaffenden in Särgen begraben werden während die Niederträchtigen ein unbeschreibliches Schicksal erleiden."
-
--- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"Cherga", english -> "I do not love Cherga. But I honour her. Being the keeper of the afterlife, her deeds deserve our respect. Or would you like to do that job?"
-"Cherga" -> "Ich liebe Cherga nicht, aber ich ehre sie. Ihre Taten als Hüterin des Jenseits verdienen unseren Respekt. Oder möchtet ihr ihren Job übernehmen?"
-
+-- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 1: Take lamp oil (390) and make sure that the light in the tomb is burning
 
 -- Give out quest 1
@@ -185,7 +152,72 @@ wrongLangUS = "#me looks at you confused."
 -- Debugging
 ".+", queststatus(105) = 2 -> inform("[Chance error] Something went wrong, please inform a developer.")
 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those who fell - and to assess the value of their life. Depending on that, their fate is sealed."
+"Bestatter", "Totengräber", "Beerdigung" -> "Meine Aufgabe ist es, diejenigen zu begraben, deren Leben am Ende ist - und den Wert ihres Lebens einzuschätzen. Den der bestimmt, was mit ihnen geschieht."
+"profession" -> "I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife."
+"beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
+"job", english -> "I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife."
+"job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers
+"tomb" -> "The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners."
+"value", "fame", "fate" -> "Depening on the value of one's life, there are three methods to get buried. I could tell you more on these methods..."
+"assess", "earn", "judge" -> "Who am I to judge over one's life you might say? I do not judge. One's fame usually arrives here long before one's body."
+"method", "urn", english -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
+"bury", "grave", "coffin" -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
+"Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk."
+"Wert", "Ansehen", "Schicksal" -> "Je nachdem, wie hoch der Wert des Lebens war, gibt es drei Methoden, jemanden zu begraben. Ich könnte euch mehr über diese Methoden erzählen..."
+"verdien", "schätz", "Urteil" -> "Was ich mir einbilde, den Wert eines Lebens einschätzen zu können? Das muss ich gar nicht; der Ruf eilten einer Leiche zumeist vorraus."
+"method", "grab", "urne", "Sarg" -> "Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen."
+
+-- Easter egg
+"Calaway", english -> "I am not the undertaker! I prefer the term mortician."
+"Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
+
+-- Faction stuff
+"archmage" -> "The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't."
+"Erzmagier" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
+"Elvaine", "Morgan", english -> "The archmage is a good man. He knows exactly who's life is valuable for the society and who's isn't."
+"Elvaine", "Morgan" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
+"Runewick", english -> "In Runewick, everyone is equal; you have equal chances, but if you don't achieve something, your life is wasted."
+"Runewick" -> "In Runewick ist Jedermann gleich geboren. Wer nichts zustandebringt, dessen Leben ist allerdings verwirkt."
+"Valerio", "Guilianni", "Don", english -> "I heard a rumour about the Don; that he makes people dissapear he does not like. No tombstone reminds on them..."
+"Valerio", "Guilianni", "Don" -> "Ich habe eine Gerücht über den Don gehört; er lässt Leute einfach so verschwinden, die ihm quer kommen. Kein Grabstein wird jemals an sie erinnern."
+"Galmair", english -> "In Galmair, your fame in afterlife depends a lot on the amount of money you have - or had. Big purse, big grave, small purse, no grave. Horrible!"
+"Galmair" -> "In Galmair hängt der Ruf eines Verstorbenen offensichtlich stark vom Reichtum ab. Großer Geldbeutel, großes Grab, kleiner Geldbeutel, kein Grab - wie schrecklich!"
+"Queen" -> "I overheard queen Rosaline wants to have a magnificient grave in the desert. Her royal builder Robertus is in charge; I wonder whether he'll finish the grave before she passes..."
+"Königin" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
+"rosaline", "edwards", english -> "I overheard queen Rosaline wants to have a magnificient grave in the desert. Her royal builder Robertus is in charge; I wonder whether he'll finish the grave before she passes..."
+"rosaline", "edwards" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
+"Cadomyr", english -> "I do respect the people of Cadomyr. Their habits are unlike ours; they assess the value of one's life upon birth, we do upon death. But does this make us so different?"
+"Cadomyr" -> "Ich schätze das Volk von Cadomyr. Ihre Gebräuche sind etwas anders als unsere; der Wert eines Lebens wird bei ihnen bei der Geburt bestimmt, bei uns nach dem Tode. Aber macht uns das so verschieden?"
+
+-- Main land factions
+"albar", english -> "They are burning the bodies of their deads in Albar. This is, as a matter of fact, an act of honour - for those will never be raised as undeads by foul craft."
+"albar" -> "Die Albarier verbrennen ihre Toten. Dies ist fürwahr eine Ehrerweisung, denn wer verbrannt ist, kann nicht durch dunkle Künste ins Leben zurückgerufen werden."
+"gynk", "gync", english -> "They have strange habits in Gynk. Word is they just sink their deads in the swamps. What a horrible custom!"
+"gync", "gynk" -> "Es gibt merkwürdige Sitten in Gynk. Man sagt, sie werfen ihre Toten einfach in den Sumpf. Was für ein grausamer Brauch!"
+"salkama", english -> "The archmage once told me that in Salkamar, only the good are buried in coffins while the evil face an undescribeable fate."
+"salkama" -> "Einst sagte mir der Erzmagier, dass in Salkamar nur die Rechtschaffenden in Särgen begraben werden während die Niederträchtigen ein unbeschreibliches Schicksal erleiden."
+
+-- Gods; each NPC should react on AT LEAST one god, being a follower of said god
+"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I do not love Cherga. But I honour her. Being the keeper of the afterlife, her deeds deserve our respect. Or would you like to do that job?"
+"Cherga" -> "Ich liebe Cherga nicht, aber ich ehre sie. Ihre Taten als Hüterin des Jenseits verdienen unseren Respekt. Oder möchtet ihr ihren Job übernehmen?"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "You cannot bribe me. I do not accept any goods nor money. My judgement is neutral."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Man kann mich nicht bestechen. Ich nehme weder Waren noch Geld an. Mein Urteil ist unabhängig."
+"tell something" -> "We could talk about the tomb or my profession as mortician. I also have a task for you."
+"erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
+
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Really.", "By Cherga, could you rephrase that?", "Honour the dead."
 "Ja" -> "Wirklich.", "Bei Cherga, könntet ihr das anders ausdrücken?", "Ehret die Toten."
 "No" -> "Shall I take your measurements for a coffin now or later?", "I do not understand. Do I have to?", "Pardon?"
