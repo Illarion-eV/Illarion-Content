@@ -10,211 +10,233 @@
 -- Last parsing: October 29, 2010                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
---Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan 
+--Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
 
-name = "Hagar Wernson" 
-race = human 
-sex = male 
-position = 391, 344, -6 
-direction = west 
-affiliation = "None" 
-job = "none" 
+name = "Hagar Wernson"
+race = human
+sex = male
+position = 391, 344, -6
+direction = west
+affiliation = "None"
+job = "none"
 
-language = common 
-language = human 
-defaultLanguage = common 
-autointroduce = on 
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
 
-author = "Rincewind & kormkormsen" 
+author = "Rincewind & kormkormsen"
 
-lookatDE = "Ein großgewachsener Norodaj, der mit einem schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt." 
-lookatUS = "A tall Norodaj. He uses a dirty rag to smear a glass beermug, 'clean'." 
-useMsgDE = "Fass mich nicht an!" 
-useMsgUS = "Do not touch me!" 
-wrongLangDE = "#me schaut dich verwirrt an." 
-wrongLangUS = "#me looks at you confused." 
-itemTrousers = 823 
+lookatDE = "Ein großgewachsener Norodaj, der mit einem schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt."
+lookatUS = "A tall Norodaj. He uses a dirty rag to smear a glass beermug, 'clean'."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 112, 74, 51
+colorSkin = 217, 154, 123
+itemHead = 0
+itemChest = 0
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 823
+itemShoes = 0
 
--- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau' 
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
--- QuestID=306 
+-- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau'
 
--- autointroduce = on 
+-- QuestID=306
 
--- dank an Dariya fuer einige eklige ideen 
--- von kormkormsen fuer Illarion 
--- converted to new Illarion by Rincewind 
+-- autointroduce = on
 
--- Help 
-"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keyphrases: Galmair, I am 'your name'.") 
-"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.") 
+-- dank an Dariya fuer einige eklige ideen
+-- von kormkormsen fuer Illarion
+-- converted to new Illarion by Rincewind
 
--- General speech 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf, chance(15) -> "G'day... long-ear." 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", race = elf, chance(15) -> "N'guten...Langohr" 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", race = elf, english, chance(15) -> "G'day... long-ear." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", race = elf, german, chance(15) -> "N'guten...Langohr" 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf -> "Moin... long-ear." 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", race = elf -> "Moin...Langohr" 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", race = elf, english -> "Moin... long-ear." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", race = elf, german -> "Moin... Langohr." 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = female -> "G'day, beautiful maiden! Come here! I'll clean that table." 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", sex = female -> "Sei gegrüßt, holde Maid! Komm näher! Ich wisch auch den Tisch ab." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english, sex = female -> "G'day, beautiful maiden! Come here! I'll clean that table." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german, sex = female -> "Sei gegrüßt, holde Maid! Komm näher! Ich wisch auch den Tisch ab." 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening", item(333, all) => 1 -> "G'day, %CHARNAME! Here's yer place! Fill yer up?" 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", item(333, all) => 1 -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen." 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", item(333, all) => 1, english -> "G'day, %CHARNAME! Here's yer place! Fill yer up?" 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", item(333, all) => 1, german -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen." 
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "G'day, be wellcome in the Winged Sow Tavern!" 
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!" 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "G'day, be wellcome in the Winged Sow Tavern!" 
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!" 
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Be well! An' careful that no one steps on yer hands..." 
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Bis bald! Und lass dir nich auffe Hände treten..." 
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Be well! An' careful that no one steps on yer hands..." 
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Bis bald! Und lass dir nich auffe Hände treten..." 
-"How are you", "How feel", "How do you do" -> "Aye, I'm fine. But you seem to be thirsty..." 
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, mir gehts gut. Aber ihr seht aus als hättet ihr Durst..." 
-"your name", "who are you", "who art thou", sex = female -> "What a pleasure! I am Hagar Wernson, the innkeeper." 
-"dein name", "wer bist du", "wer seid ihr", sex = female -> "Es ist mir ein Vergnügen! Ich bin Hagar Wernson, der Wirt." 
-"your name", "who are you", "who art thou" -> "I am Hagar Wernson, the innkeeper." 
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt." 
+-- Help
+"Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keyphrases: Galmair, I am 'your name'.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
 
--- Catching typical NPC phrases 
-"tell something" -> "At that time I was the inkeeper of the Dragon's Pond. But now - yes now I hold this moderate cottage.", "This is my tavern. 'The Winged Sow', that's the name. Aye that's right!", "Although the business in Galmair is much better, I tend to miss the old Drangon's Pond sometimes." 
-"erzähl was", "erzähl etwas" -> "Damals war ich der Wirt der Drachentränke. Aber nun - ja nun gehört mir diese bescheidene Hütte.", "Dies ist meine Taverne. 'Zur geflügelten Sau' heißt sie. Aye, so ist's!", "Auch wenn das Geschäft in Galmair besser geht, vermiss ich die alte Drachentränke manchmal trozdem." 
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf, chance(15) -> "G'day... long-ear."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", race = elf, chance(15) -> "N'guten...Langohr"
+"Hiho", "Hallo", "Hey", "Greeb", race = elf, english, chance(15) -> "G'day... long-ear."
+"Hiho", "Hallo", "Hey", "Greeb", race = elf, chance(15) -> "N'guten...Langohr"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", race = elf -> "Moin... long-ear."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", race = elf -> "Moin...Langohr"
+"Hiho", "Hallo", "Hey", "Greeb", race = elf, english -> "Moin... long-ear."
+"Hiho", "Hallo", "Hey", "Greeb", race = elf -> "Moin... Langohr."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", sex = female -> "G'day, beautiful maiden! Come here! I'll clean that table."
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", sex = female -> "Sei gegrüßt, holde Maid! Komm näher! Ich wisch auch den Tisch ab."
+"Hiho", "Hallo", "Hey", "Greeb", english, sex = female -> "G'day, beautiful maiden! Come here! I'll clean that table."
+"Hiho", "Hallo", "Hey", "Greeb", sex = female -> "Sei gegrüßt, holde Maid! Komm näher! Ich wisch auch den Tisch ab."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", item(333, all) => 1 -> "G'day, %CHARNAME! Here's yer place! Fill yer up?"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir", item(333, all) => 1 -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
+"Hiho", "Hallo", "Hey", "Greeb", item(333, all) => 1, english -> "G'day, %CHARNAME! Here's yer place! Fill yer up?"
+"Hiho", "Hallo", "Hey", "Greeb", item(333, all) => 1 -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "G'day, be wellcome in the Winged Sow Tavern!"
+"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "G'day, be wellcome in the Winged Sow Tavern!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
+"Farewell", "Bye", "Fare well", "See you" -> "Be well! An' careful that no one steps on yer hands..."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis bald! Und lass dir nich auffe Hände treten..."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Be well! An' careful that no one steps on yer hands..."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald! Und lass dir nich auffe Hände treten..."
+"How are you", "How feel", "How do you do" -> "Aye, I'm fine. But you seem to be thirsty..."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Aye, mir gehts gut. Aber ihr seht aus als hättet ihr Durst..."
+"your name", "who are you", "who art thou", sex = female -> "What a pleasure! I am Hagar Wernson, the innkeeper."
+"dein name", "wer bist du", "wer seid ihr", sex = female -> "Es ist mir ein Vergnügen! Ich bin Hagar Wernson, der Wirt."
+"your name", "who are you", "who art thou" -> "I am Hagar Wernson, the innkeeper."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hagar Wernson, der Wirt."
 
--- Small talk + free beer: 
-"profession" -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'" 
-"beruf" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'" 
-"job", english -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'" 
-"job" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'" 
-"Gobaith", "Gobiath", english -> "Aye, s' horrible waht happened there. I will miss the Nordmark for ever." 
-"Gobaith", "Gobiath" -> "Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen." 
-"I am", "my name", queststatus(306) = 5 -> "No need for tell me again. I'm really good with names. I never forgot one. - What may I serve you?" 
-"Ich bin", "mein Name", queststatus(306) = 5 -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?" 
-"I am", "my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333, 0), queststatus(306) = 5 
-"Ich bin", "mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333, 0), queststatus(306) = 5 
-"what sell", "what buy", "list wares", "price of", sex = female -> "I got virgin's delight, our applewine. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer." 
-"was verkauf", "was kauf", "warenliste", "preis von", sex = female -> "Ich verkauf Jungfernglück, den beliebten Apfelwein. Wär das nichts für Euch, meine Liebe? Oder Gnollgift, den guten Rotwein. Bärenfalle, der beste Met der Gegend. Und Nordburger Schädelbrecher, unser Bier." 
-"what sell", "what buy", "list wares", "price of" -> "I got virgin's delight, our applewine. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer." 
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich hab Jungfernglück, den beliebten Apfelwein. Oder Gnollgift, den guten Rotwein. Bärenfalle, den besten Met der Gegend. Und Nordburger Schädelbrecher, unser Bier." 
-"buy milk" -> "This is no monastery! get lost!" 
-"milch kauf", "kauf milch" -> "Hier iss doch kein Kloster! Verschwinde!" 
-"buy water" -> "ye can water yer cow outside! this ain't no stable here!" 
-"wasser kauf", "kauf wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!" 
+-- Catching quest triggers
+"quest", english -> "I haven't any tasks for you."
+"quest", german -> "Ich hab keine Arbeit für Euch."
+"task", "adventure" -> "I haven't any tasks for you."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe keine Arbeit für Euch."
 
--- More small talk; add at least five triggers 
-"dragon" -> "Dragon's Pond. My old tavern. Sadly I had to leave it behind." 
-"nordmark", "northmark", english -> "That's the place where my old tavern was. The Dragon's Pond! It was a good place to be. No witches and longears. Except for the ones whose heads we put on a spike. Har-har!" 
-"sow", "pig" -> "Aye, peek at the sky. Maybe you are able to see one." 
-"Murgo", english -> "I know Murgo since coming to Gobaith. He was a good friend of my people." 
-"Vigalf", english -> "Good-good old Vigalf. Zhambra may bless my old friend." 
-"drache" -> "Drachentränke. Meine alte Taverne. Trauriger Weise musste ich sie verlassen." 
-"Nordmark" -> "Das ist der Ort wo die alte Taverne stand. Die Drachentränke! Das war ein guter Ort zum Leben. Keine Hexer und Langohren. Abgesehen von denen, deren Köpfe wir auf nen Pfahl gesteckt haben. Har-har!" 
-"sau", "schwein" -> "Aye, schaut in die Wolken, vielleicht seht ihr eine." 
-"Murgo" -> "Ich kenn Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten." 
-"Vigalf" -> "Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund." 
+-- Small talk + free beer:
+"profession" -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'"
+"beruf" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'"
+"job", english -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'"
+"job" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'"
+"Gobaith", "Gobiath", english -> "Aye, s' horrible waht happened there. I will miss the Nordmark for ever."
+"Gobaith", "Gobiath" -> "Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen."
+"my name", queststatus(306) = 5 -> "No need for tell me again. I'm really good with names. I never forgot one. - What may I serve you?"
+"mein Name", queststatus(306) = 5 -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
+"my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333, 0), queststatus(306) = 5
+"mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333, 0), queststatus(306) = 5
 
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "All that riff-raff should be kicked in their butts, if you ask me."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
+-- More small talk; add at least five triggers
+"dragon" -> "Dragon's Pond. My old tavern. Sadly I had to leave it behind."
+"nordmark", "northmark", english -> "That's the place where my old tavern was. The Dragon's Pond! It was a good place to be. No witches and longears. Except for the ones whose heads we put on a spike. Har-har!"
+"sow", "pig" -> "Aye, peek at the sky. Maybe you are able to see one."
+"Murgo", english -> "I know Murgo since coming to Gobaith. He was a good friend of my people."
+"Vigalf", english -> "Good-good old Vigalf. Zhambra may bless my old friend."
+"drache" -> "Drachentränke. Meine alte Taverne. Trauriger Weise musste ich sie verlassen."
+"Nordmark" -> "Das ist der Ort wo die alte Taverne stand. Die Drachentränke! Das war ein guter Ort zum Leben. Keine Hexer und Langohren. Abgesehen von denen, deren Köpfe wir auf nen Pfahl gesteckt haben. Har-har!"
+"sau", "schwein" -> "Aye, schaut in die Wolken, vielleicht seht ihr eine."
+"Murgo" -> "Ich kenn Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten."
+"Vigalf" -> "Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "All that riff-raff should be kicked in their butts, if you ask me."
+"Erzmagier" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
+"Elvaine", "Morgan", english -> "All that riff-raff should be kicked in their butts, if you ask me."
+"Elvaine", "Morgan" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
 "Runewick", english -> "All that riff-raff should be kicked in their butts, if you ask me."
 "Runewick" -> "Dieses ganze Gesocks gehört kreäftig in den Hintern getreten. Wenn meine Meinung was Wert ist."
 "Valerio", "Guilianni", "Don", english -> "The Don makes sure my tavern is the only one in town. Good deal, eh? That's totally worth the fee.", "What's up? I paid for everything a few days ago!"
 "Valerio", "Guilianni", "Don" -> "Der Don, sorgt dafür das meine Taverne die einzige in der Stadt ist. Feine Sache oder? Das lass ich mir gerne etwas kosten.", "Was willst du? Ich hab alles schon vor n' paar Tagen bezahlt!"
 "Galmair", english -> "I know what the people say... But here in Galmair your wallet gets nice and fat. The only fat thing in Cadomyr is Queen Rosaline's butt! Har-har-har!"
 "Galmair" -> "Ich weiß was die Leute sagen... Aber hier in Galmair! - Wird der Münzbeutel prall und fett. Das einzig fette in Cadomyr ist Königin Edwards! Har-har-har!"
-"rosaline", "königin", "queen", "edwards", english -> "They say queen Rosaline sells hot love for a handful of copper. Oh! No, wait. Thats what I say..."
-"rosaline", "königin", "queen", "edwards" -> "Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage..."
+"Queen" -> "They say queen Rosaline sells hot love for a handful of copper. Oh! No, wait. Thats what I say..."
+"Königin" -> "Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage..."
+"rosaline", "edwards", english -> "They say queen Rosaline sells hot love for a handful of copper. Oh! No, wait. Thats what I say..."
+"rosaline", "edwards" -> "Man sagt Königin Edwards verkauft heiße Liebe für ne Hand voll Kupfer. Oh! Nein wartet, das ist was ich sage..."
 "Cadomyr", english -> "Like the dwarves say: 'There are too many head bangers in Cadomyr.'"
 "Cadomyr" -> "In Cadomyr laufen mir zu viele Holzköpfe mit großen Schwertern herum.", "Es heißt die Frauen in Cadomyr hätten besondere Tricks auf Lager. Nüsse knacken zum Beispiel."
 
+-- Main land factions
+"albar", english -> "My old friend Vigalf was born there. He didn't like it that much."
+"albar" -> "Mein alter Freund Vigalf kam aus Albar. Hat ihm dort nie so wirklich gefallen schätze ich."
+"gynk", "gync", english -> "I'm Norodaj! What would I do in this horrible heat? But I guess a clever man should be able to make good money there."
+"gync", "gynk" -> "Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes Geld machen."
+"salkama", english -> "Salkamar is a club of boring parchment shufflers."
+"salkama" -> "Salkamar ist ein Verein von langweiligen Sesselpupsern."
 
--- Main land factions 
-"albar", english -> "My old friend Vigalf was born there. He didn't like it that much." 
-"albar", german -> "Mein alter Freund Vigalf kam aus Albar. Hat ihm dort nie so wirklich gefallen schätze ich." 
-"gynk", "gync", english -> "I'm Norodaj! What would I do in this horrible heat? But I guess a clever man should be able to make good money there." 
-"gync", "gynk", german -> "Ich bin 'n Norodaj! Was sollte ich in dieser Affen-Hitze? Aber ich schätze ein kluger Mann kann dort gutes Geld machen." 
-"salkama", english -> "Salkamar is a club of boring parchment shufflers." 
-"salkama", german -> "Salkamar ist ein Verein von langweiligen Sesselpupsern." 
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "I'm Norodaj. Zhambra and Tanora are those of my choice. And Ronagan, to keep my tavern safe! Aye."
+"Gott", "Götter" -> "Ich bin Norodaj. Zhambra und Tanora sind meine Wahl. Und Ronagan, damit meine Taverne sicher ist. Aye."
+"Adron", english -> "Adron? Well, for sure... I had his shrine here - somewhere. Uhm.."
+"Adron" -> "Adron? Ja Sicherlich... Ich hatte seinen Schrein hier - irgendwo. Uhm.."
+"Bragon", "Brágon", english -> "One of the treehugger gods. Don't ask me."
+"Bragon", "Brágon" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut."
+"Cherga", english -> "Ask a priest or something."
+"Cherga" -> "Fragt doch einen Priester oder so etwas."
+"Elara", english -> "Ask a priest or something."
+"Elara" -> "Fragt doch einen Priester oder so etwas."
+"Eldan", english -> "One of the treehugger gods. Don't ask me."
+"Eldan" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut."
+"Findari", english -> "One of the treehugger gods. Don't ask me."
+"Findari" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut."
+"Irmorom", english -> "The Merchants and dwarves. Ask them, it's their god."
+"Irmorom" -> "Die Händler und Zwerge, ja-ja. Frag die. Irmorom ist deren Gott."
+"Malachin", "Malachín", english -> "Ask a priest or something."
+"Malachin", "Malachín" -> "Fragt doch einen Priester oder so etwas."
+"Moshran", english -> "Ask a priest or something."
+"Moshran" -> "Fragt doch einen Priester oder so etwas."
+"Nargun", "Nargún", "Nargùn", english -> "Ask a priest or something."
+"Nargun", "Nargún", "Nargùn" -> "Fragt doch einen Priester oder so etwas."
+"Oldra", english -> "Ask a priest or something."
+"Oldra" -> "Fragt doch einen Priester oder so etwas."
+"Ronagan", english -> "Praise Ronagan. And thanks to him those thieves are far away from my coins."
+"Ronagan" -> "Gepriesen sei Ronagan. Und gedankt seis ihm, das die elenden Langfinger meinen Münzen fern bleiben."
+"Sirani", english -> "Ask a priest or something."
+"Sirani" -> "Fragt doch einen Priester oder so etwas."
+"Tanora", "Zelphia", english -> "The Norodaj are the children of the sea. Tanora blesses our ships."
+"Tanora", "Zelphia" -> "Die Norodaj, sind die Kinder der See. Und Tanora schütze unsere Schiffe."
+"Ushara", english -> "One of the treehugger gods. Don't ask me."
+"Ushara" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut."
+"Zhambra", english -> "Bless my brothers and friends, Zhambra."
+"Zhambra" -> "Schütze meine Brüder und Freunde, Zhambra."
 
--- Gods - use the triggers of the god the NPC worships or fights 
-"god" -> "I'm Norodaj. Zhambra and Tanora are those of my choice. And Ronagan, to keep my tavern safe! Aye." 
-"Gott", "Götter" -> "Ich bin Norodaj. Zhambra und Tanora sind meine Wahl. Und Ronagan, damit meine Taverne sicher ist. Aye." 
-"Adron", english -> "Adron? Well, for sure... I had his shrine here - somewhere. Uhm.." 
-"Adron" -> "Adron? Ja Sicherlich... Ich hatte seinen Schrein hier - irgendwo. Uhm.." 
-"Bragon", "Brágon", english -> "One of the treehugger gods. Don't ask me." 
-"Bragon", "Brágon" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut." 
-"Cherga", english -> "Ask a priest or something." 
-"Cherga" -> "Fragt doch einen Priester oder so etwas." 
-"Elara", english -> "Ask a priest or something." 
-"Elara" -> "Fragt doch einen Priester oder so etwas." 
-"Eldan", english -> "One of the treehugger gods. Don't ask me." 
-"Eldan" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut." 
-"Findari", english -> "One of the treehugger gods. Don't ask me." 
-"Findari" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und ich hab nichtmal nen Hut." 
-"Irmorom", english -> "The Merchants and dwarves. Ask them, it's their god." 
-"Irmorom" -> "Die Händler und Zwerge, ja-ja. Frag die. Irmorom ist deren Gott." 
-"Malachin", "Malachín", english -> "Ask a priest or something." 
-"Malachin", "Malachín" -> "Fragt doch einen Priester oder so etwas." 
-"Moshran", english -> "Ask a priest or something." 
-"Moshran" -> "Fragt doch einen Priester oder so etwas." 
-"Nargun", "Nargún", "Nargùn", english -> "Ask a priest or something." 
-"Nargun", "Nargún", "Nargùn" -> "Fragt doch einen Priester oder so etwas." 
-"Oldra", english -> "Ask a priest or something." 
-"Oldra" -> "Fragt doch einen Priester oder so etwas." 
-"Ronagan", english -> "Praise Ronagan. And thanks to him those thieves are far away from my coins." 
-"Ronagan" -> "Gepriesen sei Ronagan. Und gedankt seis ihm, das die elenden Langfinger meinen Münzen fern bleiben." 
-"Sirani", english -> "Ask a priest or something." 
-"Sirani" -> "Fragt doch einen Priester oder so etwas." 
-"Tanora", "Zelphia", english -> "The Norodaj are the children of the sea. Tanora blesses our ships." 
-"Tanora", "Zelphia" -> "Die Norodaj, sind die Kinder der See. Und Tanora schütze unsere Schiffe." 
-"Ushara", english -> "One of the treehugger gods. Don't ask me." 
-"Ushara" -> "Mit diesen Elfengöttern hab ich nichts am Hut. Und dich hab nichtmal nen Hut." 
-"Zhambra", english -> "Bless my brothers and friends, Zhambra." 
-"Zhambra" -> "Schütze meine Brüder und Freunde, Zhambra." 
+-- Catching typical NPC phrases
+"tell something" -> "At that time I was the inkeeper of the Dragon's Pond. But now - yes now I hold this moderate cottage.", "This is my tavern. 'The Winged Sow', that's the name. Aye that's right!", "Although the business in Galmair is much better, I tend to miss the old Drangon's Pond sometimes."
+"erzähl was", "erzähl etwas" -> "Damals war ich der Wirt der Drachentränke. Aber nun - ja nun gehört mir diese bescheidene Hütte.", "Dies ist meine Taverne. 'Zur geflügelten Sau' heißt sie. Aye, so ist's!", "Auch wenn das Geschäft in Galmair besser geht, vermiss ich die alte Drachentränke manchmal trozdem."
+"what sell", "what buy", "list wares", "price of", sex = female -> "I got virgin's delight, our applewine. Specially for you, my dear. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer."
+"was verkauf", "was kauf", "warenliste", "preis von", sex = female -> "Ich verkauf Jungfernglück, den beliebten Apfelwein. Wär das nichts für Euch, meine Liebe? Oder Gnollgift, den guten Rotwein. Bärenfalle, der beste Met der Gegend. Und Nordburger Schädelbrecher, unser Bier."
+"what sell", "what buy", "list wares", "price of" -> "I got virgin's delight, our applewine. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich hab Jungfernglück, den beliebten Apfelwein. Oder Gnollgift, den guten Rotwein. Bärenfalle, den besten Met der Gegend. Und Nordburger Schädelbrecher, unser Bier."
+"buy milk" -> "This is no monastery! get lost!"
+"milch kauf", "kauf milch" -> "Hier iss doch kein Kloster! Verschwinde!"
+"buy water" -> "ye can water yer cow outside! this ain't no stable here!"
+"wasser kauf", "kauf wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!"
 
--- Catching quest triggers 
-"quest", english -> "I haven't any tasks for you." 
-"quest", german -> "Ich hab keine Arbeit für Euch." 
-"task", "adventure" -> "I haven't any tasks for you." 
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe keine Arbeit für Euch." 
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "Aye!", "Whatever.", "Alright."
+"Ja" -> "Aye!", "Was auch immer.", "Alles klar."
+"No" -> "Aye!", "Whatever.", "Alright."
+"Nein" -> "Aye!", "Was auch immer.", "Alles klar."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here 
-"Yes" -> "Aye!", "Whatever.", "Alright." 
-"Ja" -> "Aye!", "Was auch immer.", "Alles klar." 
-"No" -> "Aye!", "Whatever.", "Alright." 
-"Nein" -> "Aye!", "Was auch immer.", "Alles klar." 
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "The gods may bless you.", "Have fun in my tavern.", "Aye."
+".*", german, chance(20) -> "Dann sag ich mal Prost.", "Viel Spass in meiner Taverne!", "Aye."
 
--- Absolutely last catch: Everything a player says and is not caught earlier 
--- This response should give the player a hint about what to ask the NPC 
--- Optional Trigger / Response is only given 1/5 of the time 
-".*", english, chance(20) -> "The gods may bless you.", "Have fun in my tavern.", "Aye." 
-".*", german, chance(20) -> "Dann sag ich mal Prost.", "Viel Spass in meiner Taverne!", "Aye." 
+-- Cycletext
 
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
--- Cycletext 
-
-------------------------------------------------------------------------------AC 
--- Cycle Texts - Messages spoken automatically in random intervals. 
--- Every NPC should contain at least 10 of those messages. 
--- Emotes are possible also starting with "#me ....". 
-
-cycletext "wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord.... In den Kesseln da faulte das Wassah... da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!" 
-cycletext "#me verwischt den Dreck auf dem Tisch.", "#me wipes in the dirt on the table." 
-cycletext "#me steht in einer Wolke übler Gerüche.", "#me stands in a cloud of bad smells." 
-cycletext "#me trocknet einen Krug mit einem Drecklappen.", "#me dries a mug with a dirty rag." 
-cycletext "#me klaubt sich Krümel aus dem Bart.", "#me picks crumbs out of his beard." 
-cycletext "#me pustet den Staub aus einem Bierkrug.", "#me blows dust out of a mug." 
-cycletext "#me reisst sich Haare aus der Nase.", "#me picks hair out of his nose." 
-cycletext "Von den blauen Wellen kommen wir!... unser Käpt'n iss so blöd wie wir!... an den Rudern unsrer Boote, krieg'n wir Blasen anner Pfote.... von den blauen Wellen kommen wir!...", "oh beat the drum slowly, an' play the flute only, as they carry me along... cause I'm a young pirate, an' I surely done wrong..." 
-cycletext "#me riecht nach vergammeltem Fleisch und feuchtem Schafsfell.", "#me smells of putrefied meat and wet sheepskin." 
-cycletext "#me kratzt sich abwesend unterm Kilt.", "#me scratches himself below his kilt absently." 
-cycletext "#me sieht sich gelangweilt um.", "#me looks around bored." 
-cycletext "#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag." 
+cycletext "wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord.... In den Kesseln da faulte das Wassah... da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!"
+cycletext "#me verwischt den Dreck auf dem Tisch.", "#me wipes in the dirt on the table."
+cycletext "#me steht in einer Wolke übler Gerüche.", "#me stands in a cloud of bad smells."
+cycletext "#me trocknet einen Krug mit einem Drecklappen.", "#me dries a mug with a dirty rag."
+cycletext "#me klaubt sich Krümel aus dem Bart.", "#me picks crumbs out of his beard."
+cycletext "#me pustet den Staub aus einem Bierkrug.", "#me blows dust out of a mug."
+cycletext "#me reisst sich Haare aus der Nase.", "#me picks hair out of his nose."
+cycletext "Von den blauen Wellen kommen wir!... unser Käpt'n iss so blöd wie wir!... an den Rudern unsrer Boote, krieg'n wir Blasen anner Pfote.... von den blauen Wellen kommen wir!...", "oh beat the drum slowly, an' play the flute only, as they carry me along... cause I'm a young pirate, an' I surely done wrong..."
+cycletext "#me riecht nach vergammeltem Fleisch und feuchtem Schafsfell.", "#me smells of putrefied meat and wet sheepskin."
+cycletext "#me kratzt sich abwesend unterm Kilt.", "#me scratches himself below his kilt absently."
+cycletext "#me sieht sich gelangweilt um.", "#me looks around bored."
+cycletext "#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag."
 cycletext "#me's Atem riecht nach schalem Bier.", "#me's breath smells of stale beer."
-
 
 --"buy a virgen's delight", "buy a cyder", money < 6 -> "Yer 'ave not enuff money, come back, when yer can pay."
 --"buy a virgen's delight", "buy a cyder" -> "Here yer got it. drink, before the goblet gets rusty!", money - 6, item(1844, 1, 333, 0)
