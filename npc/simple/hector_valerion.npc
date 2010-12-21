@@ -32,6 +32,26 @@ useMsgUS = "You won't lay hand on a man of the queen, will you?"
 wrongLangDE = "Pardon?"
 wrongLangUS = "Pardon?"
 radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- QuestID=108
 
@@ -67,115 +87,20 @@ radius = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, Siegel, Befehle.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Farewell", "Bye", "Fare well", "See you" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
 "How are you", "How feel", "How do you do" -> "Just work! But what do I say, you look like somebody with lost of esteem. How about you fulfill a royal mission?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
 "your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann."
-"tell something" -> "Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy."
-"erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
-"beruf" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
-"job", english -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
-"job" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
-"Gobaith", "Gobiath", english -> "You aren't from Gobaith, are you? If so, my condolescence."
-"Gobaith", "Gobiath" -> "Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid."
-"I am", "my name" -> "You are none of the officals, right? So, what do you require - orders?"
-"Ich bin", "mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
-
--- More small talk; add at least five triggers
-"seal" -> "Never ever even think about breaking the queen's seal. You'll regret it..."
-"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.", "I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
-"lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
-"Order" -> "The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
-"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
-"Hastings", "Baron", english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
-"diplomat", english -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
-"siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
-"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...", "Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.", "Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
-"faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
-"Befehl" -> "Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?"
-"Depesche" -> "Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
-"Hastings", "Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
-"Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
-"Daerbur", "Wimbert", english -> "You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
-"Daerbur", "Wimbert" -> "Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
-"Robertus", english -> "Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
-"Robertus" -> "Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
-"Arenius", "Batavius", english -> "A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard."
-"Arenius", "Batavius" -> "Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen."
-
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten."
-"Runewick", english -> "Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it."
-"Runewick" -> "Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert."
-"Valerio", "Guilianni", "Don", english -> "Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed."
-"Valerio", "Guilianni", "Don" -> "Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat."
-"Galmair", english -> "Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it."
-"Galmair" -> "Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen."
-"rosaline", "königin", "queen", "edwards", english -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
-"rosaline", "königin", "queen", "edwards" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
-"Cadomyr", english -> "Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while."
-"Cadomyr" -> "Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder."
-
--- Main land factions
-"albar", english -> "Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards."
-"albar" -> "Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt."
-"gynk", "gync", english -> "Diplomacy is not a skill of the Gynkeesh. They have many, but not that one."
-"gync", "gynk" -> "Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese."
-"salkama", english -> "I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!"
-"salkama" -> "Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!"
-
--- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Gott", "Götter" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Adron", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Adron" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Bragon", "Brágon", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Bragon", "Brágon" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Cherga", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Cherga" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Elara", english -> "You think I worship Elara because I read books? I worship books, isn't that obvious?"
-"Elara" -> "Ihr denkt also, ich bin ein Anbete Elaras, weil ich Bücher lese? Ich bin ein Anbeter guter Literatur, ist das nicht offensichtlich?"
-"Eldan", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Eldan" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Findari", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Findari" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Irmorom", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Irmorom" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Malachin", "Malachín", english -> "Malachín is the patron of Cadomyr... But I doubt I have to tell you that."
-"Malachin", "Malachín" -> "Malachín ist der Schutzgott Cadomyrs... Aber wem erzähle ich das?"
-"Moshran", english -> "Out of my embassy!"
-"Moshran" -> "Raus aus meiner Botschaft!"
-"Nargun", "Nargún", "Nargùn", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Nargun", "Nargún", "Nargùn" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Oldra", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Oldra" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Ronagan", english -> "Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?"
-"Ronagan" -> "Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?"
-"Sirani", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Sirani" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Tanora", "Zelphia", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Tanora", "Zelphia" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Ushara", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
-"Ushara" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
-"Zhambra", english -> "I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty."
-"Zhambra" -> "Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun."
-
+-- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 quills (463), reward 200cp
 
 -- Give out quest 1
@@ -282,11 +207,113 @@ radius = 0
 "Task", "Adventure", "Message", queststatus(108) = 14 -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
 "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht", queststatus(108) = 14 -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"beruf" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
+"job", english -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"job" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
+"Gobaith", "Gobiath", english -> "You aren't from Gobaith, are you? If so, my condolescence."
+"Gobaith", "Gobiath" -> "Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid."
+"my name" -> "You are none of the officals, right? So, what do you require - orders?"
+"mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
+
+-- More small talk; add at least five triggers
+"seal" -> "Never ever even think about breaking the queen's seal. You'll regret it..."
+"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.", "I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
+"lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
+"Order" -> "The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
+"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
+"Hastings", "Baron", english -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
+"diplomat", english -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
+"siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
+"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...", "Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.", "Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
+"faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
+"Befehl" -> "Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?"
+"Depesche" -> "Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
+"Hastings", "Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
+"Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
+"Daerbur", "Wimbert", english -> "You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
+"Daerbur", "Wimbert" -> "Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
+"Robertus", english -> "Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
+"Robertus" -> "Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
+"Arenius", "Batavius", english -> "A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard."
+"Arenius", "Batavius" -> "Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen."
+
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "Duplo", english -> "They are pretty long, aren't they?"
 "Duplo" -> "Die sind verdammt lang, nicht wahr?"
 
+-- Faction stuff
+"archmage" -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
+"Erzmagier" -> "Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten."
+"Elvaine", "Morgan", english -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
+"Elvaine", "Morgan" -> "Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten."
+"Runewick", english -> "Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it."
+"Runewick" -> "Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert."
+"Valerio", "Guilianni", "Don", english -> "Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed."
+"Valerio", "Guilianni", "Don" -> "Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat."
+"Galmair", english -> "Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it."
+"Galmair" -> "Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen."
+"Queen" -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
+"Königin" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
+"rosaline", "edwards", english -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
+"rosaline", "edwards" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
+"Cadomyr", english -> "Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while."
+"Cadomyr" -> "Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder."
+
+-- Main land factions
+"albar", english -> "Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards."
+"albar" -> "Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt."
+"gynk", "gync", english -> "Diplomacy is not a skill of the Gynkeesh. They have many, but not that one."
+"gync", "gynk" -> "Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese."
+"salkama", english -> "I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!"
+"salkama" -> "Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Gott", "Götter" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Adron", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Adron" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Bragon", "Brágon", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Bragon", "Brágon" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Cherga", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Cherga" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Elara", english -> "You think I worship Elara because I read books? I worship books, isn't that obvious?"
+"Elara" -> "Ihr denkt also, ich bin ein Anbete Elaras, weil ich Bücher lese? Ich bin ein Anbeter guter Literatur, ist das nicht offensichtlich?"
+"Eldan", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Eldan" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Findari", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Findari" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Irmorom", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Irmorom" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Malachin", "Malachín", english -> "Malachín is the patron of Cadomyr... But I doubt I have to tell you that."
+"Malachin", "Malachín" -> "Malachín ist der Schutzgott Cadomyrs... Aber wem erzähle ich das?"
+"Moshran", english -> "Out of my embassy!"
+"Moshran" -> "Raus aus meiner Botschaft!"
+"Nargun", "Nargún", "Nargùn", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Nargun", "Nargún", "Nargùn" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Oldra", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Oldra" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Ronagan", english -> "Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?"
+"Ronagan" -> "Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?"
+"Sirani", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Sirani" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Tanora", "Zelphia", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Tanora", "Zelphia" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Ushara", english -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Ushara" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+"Zhambra", english -> "I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty."
+"Zhambra" -> "Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann."
+"tell something" -> "Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy."
+"erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
+
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
+"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."
 "Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.", "Ich versuche hier zu lesen!", "#me seufzt."
 "No" -> "I guess I forgot on which page I was.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"

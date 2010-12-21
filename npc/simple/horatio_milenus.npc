@@ -45,6 +45,14 @@ itemHands = 530
 itemTrousers = 367
 itemShoes = 771
 
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
 -- Name: Horatio Milenus
 -- Age: 29
 -- Occupation: Gate Guard
@@ -132,25 +140,7 @@ itemShoes = 771
 "my name" -> "Nice to meet you. Pass along.", "Very well.", "Pass along."
 "mein Name" -> "Freut mich euch kennenzulernen. Weitergehen.", "Na wunderbar.", "Weitergehen."
 
--- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
-"Erzmagier" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-"Elvaine", "Morgan", english -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
-"Elvaine", "Morgan" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
-"Runewick", english -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
-"Runewick" -> "Runewick ist eine Feste der Magie, vier mächtige Türme, die in das Meer gebaut wurden.", "Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen."
-"Valerio", "Guilianni", "Don", english -> "I overheard the crest of the Don is a pig. That fits!"
-"Valerio", "Guilianni", "Don" -> "Ich habe gehört, dass Wappen des Dons zeigt ein Schwein. Wie passend!"
-"Galmair", english -> "Galmair is a dirty town where money washes hands clean from any sin."
-"Galmair" -> "Galmair ist eine dreckige Stadt wo Gold eines jeden Hände von den Sünden reinwäscht."
-"Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
-"Königin" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
-"rosaline", "edwards", english -> "If Cadomyr is my heart then Queen Rosaline is my soul."
-"rosaline", "edwards" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
-"Cadomyr", english -> "My home and my heart: Cadomyr."
-"Cadomyr" -> "Mein ein und alles: Cadomyr."
-
--- Main concerns
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Gate" -> "Anyone or anything that passes between these walls are under my eyes. Remember that."
 "Tor" -> "Nichts und niemand, der durch dieses Tor geht, entgeht meinen Augen. Denkt immer daran."
 "Hastings", "Baron", english -> "I swear, on the day that the gods decide, that man's head will be fell by my blade."
@@ -169,6 +159,28 @@ itemShoes = 771
 "Reginals" -> "Reginald, der großartigste König der Vergangenheit. Alle ehrbaren Männer Cadomyrs wollen wie er sein."
 "Guard" -> "I guard the gate of this city. That it is the mission the queen assigned to me and I am proud to fulfill."
 "Wache" -> "Ich bewache das Tor dieser Stadt. Das ist die Aufgabe, die die Königin mir übertragen hat und es erfüllt mich mit Stolz, sie zu erfüllen."
+
+-- Easter egg
+"private" -> "I am not a private anymore! The queen promoted me, haha!"
+"Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
+"Erzmagier" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
+"Elvaine", "Morgan", english -> "He's quite a merry fellow.", "The towers the archmage of Runewick built must be easy to defend.", "The archmage of Runewick; I better keep my mouth shut now."
+"Elvaine", "Morgan" -> "Er ist ein ziemlich freundlicher Kerl.", "Die Türme, die der Erzmagier von Runewick hat bauen lassen, sind wohl recht einfach zu verteidigen.", "Der Erzmagier von Runewick; ich sag jetzt besser nichts mehr."
+"Runewick", english -> "Runewick is a stronghold of magicians, consisting of four magnificent towers, built in the ocean.", "Runewick is a strong city, but the inhabitants have no honour. They do whatever it takes to get what they want."
+"Runewick" -> "Runewick ist eine Feste der Magie, vier mächtige Türme, die in das Meer gebaut wurden.", "Runewick ist eine beeindruckende Stadt, aber ihre Einwohner sind ehrlos. Sie tun, was immer nötig ist, um ihre Ziele zu erreichen."
+"Valerio", "Guilianni", "Don", english -> "I overheard the crest of the Don is a pig. That fits!"
+"Valerio", "Guilianni", "Don" -> "Ich habe gehört, dass Wappen des Dons zeigt ein Schwein. Wie passend!"
+"Galmair", english -> "Galmair is a dirty town where money washes hands clean from any sin."
+"Galmair" -> "Galmair ist eine dreckige Stadt wo Gold eines jeden Hände von den Sünden reinwäscht."
+"Queen" -> "If Cadomyr is my heart then Queen Rosaline is my soul."
+"Königin" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
+"rosaline", "edwards", english -> "If Cadomyr is my heart then Queen Rosaline is my soul."
+"rosaline", "edwards" -> "Wenn Cadomyr mein Herz ist, dann ist Königin Rosaline mein Herz."
+"Cadomyr", english -> "My home and my heart: Cadomyr."
+"Cadomyr" -> "Mein ein und alles: Cadomyr."
 
 -- Main land factions
 "albar", english -> "I am Albarian, yes.", "You aren't in Albar. Look with your eyes.", "Please do not disturb me. I am at work."
@@ -220,29 +232,17 @@ itemShoes = 771
 "tell something" -> "Always carry double the water you think you'll need.", "I'm on duty and I am not paid for small talk.", "I am a town guard, not a story teller."
 "erzähl was", "erzähl etwas" -> "Nehmt immer genau die zweifache Menge an Wasser mit, die ihr meint, zu brauchen.", "Ich bin im Dienst und werde nicht für eine nette Plauderei bezahlt.", "Ich bin eine Stadtwache und kein Geschichtenerzähler."
 
--- Easter egg
-"private" -> "I am not a private anymore! The queen promoted me, haha!"
-"Gefreite" -> "Ich bin kein Gefreiter mehr! Die Königin hat mich befördert, haha!"
-
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Horatio", "Milenus", english -> "That is I. State your business."
+"Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
 "Yes" -> "Yes to what?", "Pardon?"
 "Ja" -> "Ja?", "Pardon?"
 "No" -> "Leave me now or suffer to be arrested."
 "Nein" -> "Geht nun oder ich werde euch unter Arrest stellen."
 
--- Absolutely last catch: Everything a player says and is not caught earlier
--- This response should give the player a hint about what to ask the NPC
--- Optional Trigger /  Response is only given 1/5 of the time
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
 ".*", chance(20) -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
-
--- The NPC should triggered by his own name. 'Yeah, what's up?' or 'Hm-h?' ...
-"Horatio", "Milenus", english -> "That is I. State your business."
-"Horatio", "Milenus" -> "Das bin ich. Was ist euer Begehr?"
-
--- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
-
--- Will change cycle text for Horatio when quests When I become more aware of Cadomyr.
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
