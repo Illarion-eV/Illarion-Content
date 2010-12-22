@@ -31,6 +31,27 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Rincewind
 -- Jack Stout sägt Bretter und verkauft Bolzen sowie Hobeln.
@@ -53,6 +74,7 @@ wrongLangUS = "#me looks at you confused."
 -- Verkauft/kauft: Suppenschüssel (2935)
 -- Verkauft/kauft: Seil (2760)
 -- Verkauft/kauft: Hobel (2715)
+
 "verdienen", "aufgabe", "abenteuer", "armbrust", "sehne", queststatus(302) =< 1 -> "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
 "quest", "job", "problem", queststatus(302) =< 1, german -> "Ja, ja. Ich könnte wirklich deine Hilfe brauchen. Die Sehne meiner Armbrust muss neu gemacht werden. Aber Mo'rurt ist ein bisschen stur. Wenn du ihn überredest mir eine neue zu machen, kann ich dir ja auch aushelfen.", queststatus(302) = 1
 "quest", "job", "problem", queststatus(302) =< 1, english -> "Yea.. I could need a helping hand. The string of my crossbow have to be changed. But Mo'rurt is kind of bullsih. If you make him to change my bowstring, I will help you too with something.", queststatus(302) = 1
