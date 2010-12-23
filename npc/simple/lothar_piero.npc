@@ -1,3 +1,15 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Lothar Piero                                                None --
+-- NPC Job:  Insert profession here                                           --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  896, 816, 1            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Author:   Rincewind                                                --
+--                                                                            --
+-- Last parsing: December ??, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
 name = "Lothar Piero"
 race = halfling
 sex = male
@@ -19,6 +31,27 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Estralis Seborian
 
@@ -42,69 +75,68 @@ wrongLangUS = "#me looks at you confused."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name hier> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
+"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja-ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weis das sie trozdem jeden neuen Tag am Himmel stehen wird.", "So Finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir Wilkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir, hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
+-- Catching quest triggers
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
+"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ANSWER1 wood is good"
 "beruf" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-"job", german -> "ANSWER1", "ANSWER2", "ANSWER3"
 "job", english -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-"Gobaith", english -> "ANSWER1", "ANSWER2", "ANSWER3"
-"Gobaith", german -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
-"I am", "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ich bin", "mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
-
-
+"job" -> "ANSWER1", "ANSWER2", "ANSWER3"
+"Gobaith", "Gobiath", english -> "ANSWER1", "ANSWER2", "ANSWER3"
+"Gobaith", "Gobiath" -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
+"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
 
 -- More small talk; add at least five triggers
-
-"Lothar","Piero",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Lothar","Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Pennymill"->"ENGLISH1"
 "Pfennigmühle"->"In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich kein Halbling, niemals vor Unruhestiftern und Grobianen fürchten.","Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man Abends nach Hause geht, gibt es kein schattiges Plätzchen wo sich Unholde verkreichen könnten.","Nachts sind die Tore innerhalb von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel Sicherer und kontrollierbar.","Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten, Illarions!"
-"Poesie"->"Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim schnitzen zu, glaube ich oft eine Melodie zu hören."
 "poetry"->"ENGLISH1"
+"Poesie"->"Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim schnitzen zu, glaube ich oft eine Melodie zu hören."
 "trader", "merchant", "collegue", "vendor", "market" -> "OTHER NPCs1", "OTHER NPCs2", "OTHER NPCs3"
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Wahren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.","Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!","Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.","Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!","Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.","Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!","Der Erzmagier ist der Weißeste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbraten Städten unsere Macht demonstrieren."
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer Seiner Konkruenten das Ruder Galmairs aus seinen Händen reißt."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
-"rosaline", "königin", "queen", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "königin", "queen", "edwards" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachin und Zhambra, doch sie schneken der Weisheit keinen Wert. Ist es Weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachin und Zhambra, doch sie schneken der Weisheit keinen Wert. Ist es Weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
+"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachin und Zhambra, doch sie schneken der Weisheit keinen Wert. Ist es Weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
 "Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Cadomyr" -> "Cadomyr ist eine Sandgrube, voller Barbaren die zu viel Sonne bekommen haben. Wer im Zweikampf obliegt, erfährt Ehre und Recht. Der Verlierer lebt in Schande."
 
 -- Main land factions
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar", german -> "Albar ist ein schrecklicher Ort. Seid froh, das ihr Euren Weg nach Runewick gefunden habt."
+"albar" -> "Albar ist ein schrecklicher Ort. Seid froh, das ihr Euren Weg nach Runewick gefunden habt."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk", german -> "Ich hörte  Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er, alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den bergen verkommen."
+"gync", "gynk" -> "Ich hörte  Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er, alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den bergen verkommen."
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama", german -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
+"salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -114,28 +146,29 @@ wrongLangUS = "#me looks at you confused."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "Oldra, ich danke für das Holz, deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
-
--- Catching quest triggers
-"quest", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", german -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir, hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Kennt Ihr meine Heimat?", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk, Runewick zu bewohnen. Immerzu ungiebt uns alle, eine betörende und fantastische Magie, die ich nicht missen mag."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>",english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "Sodar ihr das für Weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
 
--- Absolutely last catch: Everything a player says and is not caught earlier
--- This response should give the player a hint about what to ask the NPC
--- Optional Trigger /  Response is only given 1/5 of the time
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 
 ".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
 ".*",german,chance(20)->"Oldras segen, über Eure Gärten.","Elaras Weisheit sei mit Euch.","Hiho, das gefällt mir."
 
--- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
-
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "ENGLISH."
 cycletext "#me poliert mit einem öligen Laken einen gefinkelt verzeirten Gehstock.", "ENGLISH."

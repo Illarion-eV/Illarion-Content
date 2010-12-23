@@ -1,7 +1,7 @@
 --Litios in the tavern. He's having a drink instead of being on guard, the player gets the quest to search him.
 
 name="Litios"
-position=108,585,200 --Testserver
+position=108,585,0 --Testserver
 sex=male
 race=human
 direction=north
