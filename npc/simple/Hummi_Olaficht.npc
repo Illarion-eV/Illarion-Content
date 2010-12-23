@@ -56,6 +56,87 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
+"%NUMBER Zweig kaufen", %NUMBER => 50 -> "Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!"
+"%NUMBER Zweig kaufen", money < expr( %NUMBER*4) -> "#wAls ob du so viel Geld hättest! *grinst"
+"%NUMBER Zweig kaufen", money => expr( %NUMBER*4), queststatus(701) =< 10, %NUMBER =< 20 -> "#wHier. Bitte, aber nicht verraten!", money - expr( %NUMBER*4), item(2786, %NUMBER, 333, 0), queststatus(701) = 11
+"%NUMBER Zweig kaufen", money => 80, queststatus(701) =< 10, %NUMBER > 20 -> "#wSo viel kann ich nicht auf einmal beiseite schaffen! Nimm erst mal die 20 Zweige hier.", money - 80, item(2786, 20, 333, 0), queststatus(701) = 11
+"%NUMBER Zweig kaufen", money => expr( %NUMBER*4), queststatus(701) =< 20, %NUMBER =< 10 -> "#wDas war aber das letzte Mal!", money - expr( %NUMBER*4), item(2786, %NUMBER, 333, 0), queststatus(701) = 21
+"%NUMBER Zweig kaufen", money => 40, queststatus(701) =< 20, %NUMBER > 10 -> "#wSag mal, du bist ja unersättlich! Mehr als 10 Zweige würden auffallen.", money - 40, item(2786, 10, 333, 0), queststatus(701) = 21
+"%NUMBER Zweig kaufen", queststatus(701) > 20 -> "Ja, Zweige wachsen üblicherweise auf Kirschbäumen. Aber du könntest auch einen Holzfäller fragen. Vielleicht verkauft der dir %NUMBER Zweige"
+"by %NUMBER branch", %NUMBER => 50 -> "Hey! You are crazy, aren't you? It's even too heavy to carry!"
+"by %NUMBER branch", money < expr( %NUMBER*4) -> "#wAnd how do you want to pay? *grins"
+"by %NUMBER branch", money => expr( %NUMBER*4), queststatus(701) =< 10, %NUMBER =< 20 -> "#wThere you are. Please do not betray me!", money - expr( %NUMBER*4), item(2786, %NUMBER, 333, 0), queststatus(701) = 11
+"by %NUMBER branch", money => 80, queststatus(701) =< 10, %NUMBER > 20 -> "#wI can not take so much away at once! These 20 branches are all I can give you.", money - 80, item(2786, 20, 333, 0), queststatus(701) = 11
+"by %NUMBER branch", money => expr( %NUMBER*4), queststatus(701) =< 20, %NUMBER =< 10 -> "#wThat is the last time! My boss just is starting to notice.", money - expr( %NUMBER*4), item(2786, %NUMBER, 333, 0), queststatus(701) = 21
+"by %NUMBER branch", money => 40, queststatus(701) =< 20, %NUMBER > 10 -> "#wHow many you need doesn't matter! More then 10 branches would get attention.", money - 40, item(2786, 10, 333, 0), queststatus(701) = 21
+"by %NUMBER branch", queststatus(701) > 20, %NUMBER > 10 -> "Usually branches grows at cherry trees. But you could ask a lumberjack to sell you %NUMBER of branches too"
+"Zweig", queststatus(701) =< 10, chance(50) -> "#wIch hab ein paar Zweige beiseite gelegt. Vier handvoll kann mein Chef schon verschmerzen."
+"Zweig", queststatus(701) =< 20, chance(50) -> "#wDir hab ich doch schon mal Zweige gegeben. Na gut ein paar noch, höchstens 10, aber dann ist Schluss."
+"Zweig" -> "Zweige ... wachsen auf Baümen und sind zu vielen Sachen zu gebrauchen, ja, ja"
+"branch", queststatus(701) =< 10, chance(50) -> "#wI put some branches aside. If you want of course there might be 4 handful my boss could go without."
+"branch", queststatus(701) =< 20, chance(50) -> "#wYou've got branches yet. Ok just a few, so 10 ... but not more."
+"branch" -> "Branches ... you can get them from trees and they are very useful, really."
+"verkauf", queststatus(701) =< 10, chance(50) -> "#wIch hab nichts ... wobei 20 Zweige könnte ich Dir unter der Hand geben."
+"verkauf", queststatus(701) =< 20, chance(50) -> "#wIch hab nur noch 10 Zweige, sonst fällt es auf."
+"verkauf" -> "Ich darf nichts verkaufen. Das gehört mir doch gar nicht. Mein Boss schmeißt mich raus und dann ist das ruhige Leben zu Ende, ehrlich."
+"sell", queststatus(701) =< 10, chance(50) -> "#wI do not have anything ... erm ... maybe 20 branches I could sell privately."
+"sell", queststatus(701) =< 20, chance(50) -> "#wThere are 10 brances left only. Otherwise it may become public."
+"sell" -> "I'm not allowed to sell anything. This is not mine. My boss would dissmiss me and the nice life is over, forever."
+"Zweig kosten", "kosten Zweig" -> "#wUnter der Hand ... 4 Kupfer für einen Zweig"
+"how much branch", "cost branch" -> "#wPrivately I'd say 4 copper ... only for you!"
+"Verrat", "sage chef", "sage boss", queststatus(701) > 20 -> "#wIch warne dich Freundchen. Es sind schon ander Nichtschwimmer in der Dreifingerbucht baden gegangen! *zischt dich an"
+"betray", "say boss", queststatus(701) > 20 -> "#wYou should be alerted. I've heard about some people bathing in the three finger bay without knowing to swim! *sounds like snake"
+"Bretter", queststatus(701) =< 10, chance(20) -> "#wWer will schon Bretter? Aber ich hab ein paar Zweige beiseite gelegt!"
+"Bretter", chance(50) -> "Davon liegen hier im Lagerhaus jede Menge herum. Sind aber nicht meine."
+"Bretter" -> "Die Bretter hier die sind leider alle gezählt."
+"board", queststatus(701) =< 10, chance(20) -> "#wWho need boards? But I put some branches aside!"
+"board", chance(50) -> "There are a lot of boards in the warehouse around. But not mine."
+"board" -> "These boards? They are accounted for, sorry."
+"Holzfäller", "Waldarbeiter" -> "Ich kenne keinen persönich. Aber du erkennst die Gesellen meist schnell. Frag einfach rum."
+"Lumberjack", "cutter" -> "I do not know any personally. But you recognize them easily. Just ask around."
+"quest", german -> "Mal ehrlich, so was ist nichts für mich. Ich bleib lieber hier."
+"quest", english -> "I'll not join any quest. I'm lucky here. I like to stay in town "
+"aufpass", "bewach" -> "Na ja, die Stadtwachen schauen schon mal weg. Deshalb muss ich auch noch aufpassen, dass hier keiner was mitnimmt."
+"pay attention", "watch out", "guard" -> "You know the town guards look the other way sometimes. Therefore I have to take care of all these goods."
+"Ich bin Wache", "Ich zu Wache" -> "Es gibt ja nicht nur schwarze Schafe. Ihr seid sicher nicht so."
+"I[ a']+m guard" -> "Not all sheeps are black, you know. You are conscientious always, I know."
+"Troll[s ]+Bane", german, chance(40), sex = male -> "#me zwinkert 'Nicht schlecht die Mädels hier in Trollsbane, oder? Und Zwergenbier gibt es auch.'"
+"Troll[s ]+Bane", german, chance(20), sex = female -> "#me mustert dich und grinst"
+"Troll[s ]+Bane", german -> "Trollsbane, hier ist immer was los. Kannst kaufen was du willst ... wenn du Geld hast"
+"Troll[s ]+Bane", english, chance(40), sex = male -> "#me winks 'Nice girls in Trollsbane, aren't they? And dwarven beer you can get.'"
+"Troll[s ]+Bane", english, chance(20), sex = female -> "#me examines you and grins"
+"Troll[s ]+Bane", english -> "Trollsbane, there's always action. You can buy whatever you want ... if you have the money"
+"Varshikar", german -> "Nach Varshikar? Gleich durch das Tor hier dann nach Nordosten. Hinter der Wüste. Ist ein langer Weg dort hin."
+"Varshikar", english -> "Going to Varshikar? Pass that gate and turn to the northeast. Behind the desert. It's a long way to this place."
+"machst du", "tust du" -> "Ich mach hier sauber, sortier die Bretter ... was eben im Lager anfällt."
+"you do" -> "I do everything there is to do in a warehouse ... sweep, stack crates and so on."
+"Job" -> "Mein Job ist hier im Lager. Wenn du Arbeit suchst, darfst du mich nicht fragen", "I'm working in that warehouse. If you look for a job, I can not help"
+"Chef", "Boss", chance(1) -> "#wDer Banduk, der Händler der ist mein Chef", "#wIt's Banduk, the merchant. He's my boss"
+"Chef", "Boss" -> "Schön, du denkst doch nicht etwa, dass ich dir verrate wer mein Boss ist? Nacher willst du bloß meinen Job", "Nice try, but I'm not so silly to tell the name of my boss. Maybe you want my job."
+"Robberhauf" -> "Robberhauf ist ein bekanntes Handelshaus in Gynk. Gibt's auch hier.", "Robberhauf, that is a famous trading house in Gynk. You find it in Bane too"
+"wer bist", "dein Name" -> "Ich bin der %NPCNAME."
+"who are", "your name" -> "I'm %NPCNAME."
+"seid Ihr", "habt Ihr", "kauft ihr" -> "Ach komm, sag einfach Du. Ich bin der %NPCNAME."
+"Dieb", "R[äae]+uber", "stehle" -> "#sHilfe! Verbrecher"
+"Thief", "Robb", "steal" -> "#sHelp! Criminals"
+"Hilfe", "helfen" -> "Also ich steh hier nur so rum und bin zufrieden. Ich glaub nicht, dass das dir weiterhilft."
+"help" -> "Nun, I stand around over there and are satisfied. But I don't think, it could help you."
+"hello", "hi", "greetings" -> "#me waves aside 'Hello'"
+"Grüß", "hallo" -> "#me winkt ab 'Hallo'"
+"du", race = human, queststatus(700) < 5, chance(5), sex = female -> "#wVielleicht können wir uns ja mal zusammen draußem am Fluss spazierengehen wenn ich grade nicht hier stehen muss? Nur wir zwei?*zwinkert", queststatus(700) = 5
+"you", race = human, queststatus(700) < 5, chance(5), sex = female -> "#wHow about walking together along the riverside after work? Just the two of us? *winks", queststatus(700) = 5
+"e", race = human, queststatus(700) < 10, chance(10), sex = female -> "#wUnd? Wann kann ich Dich ausführen?*zwinkert", queststatus(700) = 10
+"e", race = human, queststatus(700) < 10, chance(10), sex = female -> "#wCome, let's go now! How about it?", queststatus(700) = 10
+"du", queststatus(700) < 5, chance(5), sex = male -> "Hey, wir könnten uns mal gemeinsam beim Bogate so richtig besaufen nach der Arbeit. Was sagste dazu?", queststatus(700) = 5
+"you", queststatus(700) < 5, chance(5), sex = male -> "Hey, let's get drunk at Borgate's if I do not have to stay here. How about it?", queststatus(700) = 5
+"e", queststatus(700) < 10, chance(10), sex = male -> "Hey Du, komm lass uns einen saufen gehn. Oder nicht?", queststatus(700) = 10
+"e", queststatus(700) < 10, chance(10), sex = male -> "Hey come, let's get drunk now. How about it?", queststatus(700) = 10
+"Ich neu" -> "Du bist neu hier? Geh am besten in die Stadt hier herum und suche nach Leuten, die dir helfen können."
+"I[ a']+m new" -> "You are new to Illarion? You should look within this city. Search for people who can help you."
+"e", chance(5) -> "#me schaut dich an", "#me looks to you"
+"e", chance(5) -> "hrm"
+"e", chance(5) -> "aha"
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keyphrases: faction, gods, race, craft, motive, landscape, leader, law")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz.")

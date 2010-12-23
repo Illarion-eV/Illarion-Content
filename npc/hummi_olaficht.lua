@@ -18,14 +18,669 @@ VALUES (2, 210, 140, 0, 4, 'Hummi Olaficht', 'npc.hummi_olaficht', 0, 2, 5, 254,
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.money")
+require("npc.base.condition.number")
+require("npc.base.condition.quest")
 require("npc.base.condition.race")
+require("npc.base.condition.sex")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.hummi_olaficht", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.number.number("=>", 50));
+talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.money.money("<", function(number) return (number*4); end));
+talkEntry:addResponse("#wAls ob du so viel Geld h‰ttest! *grinst");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.money.money("=>", function(number) return (number*4); end));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.number.number("=<", 20));
+talkEntry:addResponse("#wHier. Bitte, aber nicht verraten!");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", function(number) return (number*4); end));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.number.number(">", 20));
+talkEntry:addResponse("#wSo viel kann ich nicht auf einmal beiseite schaffen! Nimm erst mal die 20 Zweige hier.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 80));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, 20, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.money.money("=>", function(number) return (number*4); end));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.number.number("=<", 10));
+talkEntry:addResponse("#wDas war aber das letzte Mal!");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", function(number) return (number*4); end));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 21));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.number.number(">", 10));
+talkEntry:addResponse("#wSag mal, du bist ja uners‰ttlich! Mehr als 10 Zweige w¸rden auffallen.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 40));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, 10, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 21));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 20));
+talkEntry:addResponse("Ja, Zweige wachsen ¸blicherweise auf Kirschb‰umen. Aber du kˆnntest auch einen Holzf‰ller fragen. Vielleicht verkauft der dir %NUMBER Zweige");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.number.number("=>", 50));
+talkEntry:addResponse("Hey! You are crazy, aren't you? It's even too heavy to carry!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.money.money("<", function(number) return (number*4); end));
+talkEntry:addResponse("#wAnd how do you want to pay? *grins");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.money.money("=>", function(number) return (number*4); end));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.number.number("=<", 20));
+talkEntry:addResponse("#wThere you are. Please do not betray me!");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", function(number) return (number*4); end));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 80));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.number.number(">", 20));
+talkEntry:addResponse("#wI can not take so much away at once! These 20 branches are all I can give you.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 80));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, 20, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.money.money("=>", function(number) return (number*4); end));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.number.number("=<", 10));
+talkEntry:addResponse("#wThat is the last time! My boss just is starting to notice.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", function(number) return (number*4); end));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 21));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.money.money("=>", 40));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.number.number(">", 10));
+talkEntry:addResponse("#wHow many you need doesn't matter! More then 10 branches would get attention.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 40));
+talkEntry:addConsequence(npc.base.consequence.item.item(2786, 10, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 21));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("by (%d+) branch");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 20));
+talkEntry:addCondition(npc.base.condition.number.number(">", 10));
+talkEntry:addResponse("Usually branches grows at cherry trees. But you could ask a lumberjack to sell you %NUMBER of branches too");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zweig");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wIch hab ein paar Zweige beiseite gelegt. Vier handvoll kann mein Chef schon verschmerzen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zweig");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wDir hab ich doch schon mal Zweige gegeben. Na gut ein paar noch, hˆchstens 10, aber dann ist Schluss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zweig");
+talkEntry:addResponse("Zweige ... wachsen auf Ba¸men und sind zu vielen Sachen zu gebrauchen, ja, ja");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("branch");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wI put some branches aside. If you want of course there might be 4 handful my boss could go without.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("branch");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wYou've got branches yet. Ok just a few, so 10 ... but not more.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("branch");
+talkEntry:addResponse("Branches ... you can get them from trees and they are very useful, really.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("verkauf");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wIch hab nichts ... wobei 20 Zweige kˆnnte ich Dir unter der Hand geben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("verkauf");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wIch hab nur noch 10 Zweige, sonst f‰llt es auf.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("verkauf");
+talkEntry:addResponse("Ich darf nichts verkaufen. Das gehˆrt mir doch gar nicht. Mein Boss schmeiﬂt mich raus und dann ist das ruhige Leben zu Ende, ehrlich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wI do not have anything ... erm ... maybe 20 branches I could sell privately.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 20));
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("#wThere are 10 brances left only. Otherwise it may become public.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sell");
+talkEntry:addResponse("I'm not allowed to sell anything. This is not mine. My boss would dissmiss me and the nice life is over, forever.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zweig kosten");
+talkEntry:addTrigger("kosten Zweig");
+talkEntry:addResponse("#wUnter der Hand ... 4 Kupfer f¸r einen Zweig");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("how much branch");
+talkEntry:addTrigger("cost branch");
+talkEntry:addResponse("#wPrivately I'd say 4 copper ... only for you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Verrat");
+talkEntry:addTrigger("sage chef");
+talkEntry:addTrigger("sage boss");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 20));
+talkEntry:addResponse("#wIch warne dich Freundchen. Es sind schon ander Nichtschwimmer in der Dreifingerbucht baden gegangen! *zischt dich an");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("betray");
+talkEntry:addTrigger("say boss");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, ">", 20));
+talkEntry:addResponse("#wYou should be alerted. I've heard about some people bathing in the three finger bay without knowing to swim! *sounds like snake");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bretter");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("#wWer will schon Bretter? Aber ich hab ein paar Zweige beiseite gelegt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bretter");
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("Davon liegen hier im Lagerhaus jede Menge herum. Sind aber nicht meine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bretter");
+talkEntry:addResponse("Die Bretter hier die sind leider alle gez‰hlt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("board");
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("#wWho need boards? But I put some branches aside!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("board");
+talkEntry:addCondition(npc.base.condition.chance.chance(50));
+talkEntry:addResponse("There are a lot of boards in the warehouse around. But not mine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("board");
+talkEntry:addResponse("These boards? They are accounted for, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Holzf‰ller");
+talkEntry:addTrigger("Waldarbeiter");
+talkEntry:addResponse("Ich kenne keinen persˆnich. Aber du erkennst die Gesellen meist schnell. Frag einfach rum.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lumberjack");
+talkEntry:addTrigger("cutter");
+talkEntry:addResponse("I do not know any personally. But you recognize them easily. Just ask around.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Mal ehrlich, so was ist nichts f¸r mich. Ich bleib lieber hier.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'll not join any quest. I'm lucky here. I like to stay in town ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("aufpass");
+talkEntry:addTrigger("bewach");
+talkEntry:addResponse("Na ja, die Stadtwachen schauen schon mal weg. Deshalb muss ich auch noch aufpassen, dass hier keiner was mitnimmt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("pay attention");
+talkEntry:addTrigger("watch out");
+talkEntry:addTrigger("guard");
+talkEntry:addResponse("You know the town guards look the other way sometimes. Therefore I have to take care of all these goods.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich bin Wache");
+talkEntry:addTrigger("Ich zu Wache");
+talkEntry:addResponse("Es gibt ja nicht nur schwarze Schafe. Ihr seid sicher nicht so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I[ a']+m guard");
+talkEntry:addResponse("Not all sheeps are black, you know. You are conscientious always, I know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(40));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("#me zwinkert 'Nicht schlecht die M‰dels hier in Trollsbane, oder? Und Zwergenbier gibt es auch.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#me mustert dich und grinst");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Trollsbane, hier ist immer was los. Kannst kaufen was du willst ... wenn du Geld hast");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(40));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("#me winks 'Nice girls in Trollsbane, aren't they? And dwarven beer you can get.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#me examines you and grins");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Troll[s ]+Bane");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Trollsbane, there's always action. You can buy whatever you want ... if you have the money");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Varshikar");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Nach Varshikar? Gleich durch das Tor hier dann nach Nordosten. Hinter der W¸ste. Ist ein langer Weg dort hin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Varshikar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Going to Varshikar? Pass that gate and turn to the northeast. Behind the desert. It's a long way to this place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("machst du");
+talkEntry:addTrigger("tust du");
+talkEntry:addResponse("Ich mach hier sauber, sortier die Bretter ... was eben im Lager anf‰llt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("you do");
+talkEntry:addResponse("I do everything there is to do in a warehouse ... sweep, stack crates and so on.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Job");
+talkEntry:addResponse("Mein Job ist hier im Lager. Wenn du Arbeit suchst, darfst du mich nicht fragen");
+talkEntry:addResponse("I'm working in that warehouse. If you look for a job, I can not help");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chef");
+talkEntry:addTrigger("Boss");
+talkEntry:addCondition(npc.base.condition.chance.chance(1));
+talkEntry:addResponse("#wDer Banduk, der H‰ndler der ist mein Chef");
+talkEntry:addResponse("#wIt's Banduk, the merchant. He's my boss");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chef");
+talkEntry:addTrigger("Boss");
+talkEntry:addResponse("Schˆn, du denkst doch nicht etwa, dass ich dir verrate wer mein Boss ist? Nacher willst du bloﬂ meinen Job");
+talkEntry:addResponse("Nice try, but I'm not so silly to tell the name of my boss. Maybe you want my job.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Robberhauf");
+talkEntry:addResponse("Robberhauf ist ein bekanntes Handelshaus in Gynk. Gibt's auch hier.");
+talkEntry:addResponse("Robberhauf, that is a famous trading house in Gynk. You find it in Bane too");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wer bist");
+talkEntry:addTrigger("dein Name");
+talkEntry:addResponse("Ich bin der %NPCNAME.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("who are");
+talkEntry:addTrigger("your name");
+talkEntry:addResponse("I'm %NPCNAME.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("seid Ihr");
+talkEntry:addTrigger("habt Ihr");
+talkEntry:addTrigger("kauft ihr");
+talkEntry:addResponse("Ach komm, sag einfach Du. Ich bin der %NPCNAME.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dieb");
+talkEntry:addTrigger("R[‰ae]+uber");
+talkEntry:addTrigger("stehle");
+talkEntry:addResponse("#sHilfe! Verbrecher");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Thief");
+talkEntry:addTrigger("Robb");
+talkEntry:addTrigger("steal");
+talkEntry:addResponse("#sHelp! Criminals");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addTrigger("helfen");
+talkEntry:addResponse("Also ich steh hier nur so rum und bin zufrieden. Ich glaub nicht, dass das dir weiterhilft.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("help");
+talkEntry:addResponse("Nun, I stand around over there and are satisfied. But I don't think, it could help you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hello");
+talkEntry:addTrigger("hi");
+talkEntry:addTrigger("greetings");
+talkEntry:addResponse("#me waves aside 'Hello'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gr¸ﬂ");
+talkEntry:addTrigger("hallo");
+talkEntry:addResponse("#me winkt ab 'Hallo'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("du");
+talkEntry:addCondition(npc.base.condition.race.race(0));
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 5));
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#wVielleicht kˆnnen wir uns ja mal zusammen drauﬂem am Fluss spazierengehen wenn ich grade nicht hier stehen muss? Nur wir zwei?*zwinkert");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("you");
+talkEntry:addCondition(npc.base.condition.race.race(0));
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 5));
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#wHow about walking together along the riverside after work? Just the two of us? *winks");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.race.race(0));
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(10));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#wUnd? Wann kann ich Dich ausf¸hren?*zwinkert");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.race.race(0));
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(10));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addResponse("#wCome, let's go now! How about it?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("du");
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 5));
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("Hey, wir kˆnnten uns mal gemeinsam beim Bogate so richtig besaufen nach der Arbeit. Was sagste dazu?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("you");
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 5));
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("Hey, let's get drunk at Borgate's if I do not have to stay here. How about it?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(10));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("Hey Du, komm lass uns einen saufen gehn. Oder nicht?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.quest.quest(700, "<", 10));
+talkEntry:addCondition(npc.base.condition.chance.chance(10));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addResponse("Hey come, let's get drunk now. How about it?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(700, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ich neu");
+talkEntry:addResponse("Du bist neu hier? Geh am besten in die Stadt hier herum und suche nach Leuten, die dir helfen kˆnnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("I[ a']+m new");
+talkEntry:addResponse("You are new to Illarion? You should look within this city. Search for people who can help you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addResponse("#me schaut dich an");
+talkEntry:addResponse("#me looks to you");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addResponse("hrm");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("e");
+talkEntry:addCondition(npc.base.condition.chance.chance(5));
+talkEntry:addResponse("aha");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -1344,8 +1999,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hummi");
-talkEntry:addTrigger("Olaficht");
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
 talkEntry:addResponse("Das bin ich und ich weiﬂ viele wichtige Dinge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
