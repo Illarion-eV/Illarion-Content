@@ -43,6 +43,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.number.number("=", 50));
+talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen! geht nicht");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.number.number(">", 50));
+talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen geht nicht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
 talkEntry:addCondition(npc.base.condition.money.money("<", function(number) return (number*4); end));
 talkEntry:addResponse("#wAls ob du so viel Geld hättest! *grinst");
 talkingNPC:addTalkingEntry(talkEntry);
