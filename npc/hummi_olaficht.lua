@@ -36,13 +36,6 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("(%d+) Zweig kaufen");
-talkEntry:addCondition(npc.base.condition.number.number("=>", 50));
-talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("(%d+) Zweig kaufen");
 talkEntry:addCondition(npc.base.condition.number.number("=", 50));
 talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen! geht nicht");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -52,6 +45,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("(%d+) Zweig kaufen");
 talkEntry:addCondition(npc.base.condition.number.number(">", 50));
 talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen geht nicht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+) Zweig kaufen");
+talkEntry:addCondition(npc.base.condition.number.number("=>", 50));
+talkEntry:addResponse("Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -56,9 +56,10 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
-"%NUMBER Zweig kaufen", %NUMBER => 50 -> "Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!"
 "%NUMBER Zweig kaufen", %NUMBER = 50 -> "Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen! geht nicht"
 "%NUMBER Zweig kaufen", %NUMBER > 50 -> "Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen geht nicht!"
+"%NUMBER Zweig kaufen", %NUMBER => 50 -> "Sag mal, geht's dir nicht gut? Das kann ja kaum einer tragen!"
+
 "%NUMBER Zweig kaufen", money < expr( %NUMBER*4) -> "#wAls ob du so viel Geld hättest! *grinst"
 "%NUMBER Zweig kaufen", money => expr( %NUMBER*4), queststatus(701) =< 10, %NUMBER =< 20 -> "#wHier. Bitte, aber nicht verraten!", money - expr( %NUMBER*4), item(2786, %NUMBER, 333, 0), queststatus(701) = 11
 "%NUMBER Zweig kaufen", money => 80, queststatus(701) =< 10, %NUMBER > 20 -> "#wSo viel kann ich nicht auf einmal beiseite schaffen! Nimm erst mal die 20 Zweige hier.", money - 80, item(2786, 20, 333, 0), queststatus(701) = 11
