@@ -13,7 +13,7 @@
 name = "Brassius Meres"
 race = human
 sex = male
-position = 0, 0, 0
+position = 841, 821, 0
 direction = south
 affiliation = "Runewick"
 job = "Guard"
@@ -45,7 +45,7 @@ itemHands = 528
 itemTrousers = 2193
 itemShoes = 697
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
