@@ -96,10 +96,10 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
             base.playerdeath.playerKilled(Char);
                 -------------- Meldungen ausgeben ------------------
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me krampft zusammen und geht zu Boden.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english, "#me [color=#4040BF]convulses[/color] and falls to the ground.");
+                Char:talkLanguage( CCharacter.say, CPlayer.english, "#me convulses and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Dein Magen verkrampft sich und du merkst nur noch wie dein Körper auf dem Boden aufschlägt, bevor alles um dich dunkel wird.",
-                    "Your stomach [color=#4040BF]cramps[/color] and the last thing you feel is [color=#4040BF] your body hitting[/color] the ground before everything [color=#4040BF]goes[/color] dark.");
+                    "Your stomach cramps and the last thing you feel is  your body hitting the ground before everything goes dark.");
                 -------------- Meldungen fertig --------------------
             end
         end
@@ -111,7 +111,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
             -------------- Meldungen ausgeben ------------------
             base.common.InformNLS(Char,
                 "Du fühlst wie das Gift in deinem Körper seine Wirkung verliert",
-                "You feel [color=#4040BF]the[/color] poison in your body [color=#4040BF]losing[/color] its effect.");
+                "You feel the poison in your body losing its effect.");
             -------------- Meldungen fertig --------------------
         else
             Hitpoints = math.max( 0,Hitpoints - ( ( Poisonvalue * 0.07 ) * ( ( 30 - Const ) / 20 ) * 5 ) );
@@ -120,7 +120,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     -------------- Meldungen ausgeben ------------------
                     base.common.InformNLS(Char,
                         "Du fühlst wie dein Körper von innen heraus geschwächt wird.",
-                        "You [color=#4040BF]feel your[/color] body [color=#4040BF]becoming[/color] weaker.");
+                        "You feel your body becoming weaker.");
                     -------------- Meldungen fertig --------------------
                     Effect:addValue("poison",1);
                 end
@@ -130,10 +130,10 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
             
                 Poisonvalue = 0; -- Char Tod, Gift verfliegt
                 Char:talkLanguage( CCharacter.say, CPlayer.german,  "#me tropft etwas Speichel aus dem Mund und bricht zusammen.");
-                Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me [color=#4040BF]starts to drool [/color]and falls to the ground.");
+                Char:talkLanguage( CCharacter.say, CPlayer.english,  "#me starts to drool and falls to the ground.");
                 base.common.InformNLS(Char,
                     "Du fühlst ein Brennen in deinem Körper und wie sich der Speicheln in deinem Mund zusammen zieht, ehe die Welt um dich herum dunkel wird.",
-                    "You feel a [color=#4040BF]burning sensation[/color] in your body and [color=#4040BF]your mouth watering[/color] before [color=#4040BF]everything goes dark[/color].");
+                    "You feel a burning sensation in your body and your mouth watering before everything goes dark.");
             end
         end
     elseif Effect:findValue("poison") then
@@ -245,7 +245,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
                     if ( math.random(1,360) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 30 Minuten )
                         base.common.InformNLS(Char,
                         "Du fühlst ein leichtes Grummeln in deinem Magen.",
-                        "You feel a slight [color=#4040BF]grumble[/color] in your stomach.");
+                        "You feel a slight grumble in your stomach.");
                     end
                 elseif ( ( Foodvalue < 6000 ) and ( Foodvalue > 3000 ) ) then -- Noch 1 Stunde und 40 Minuten bis zum verhungern
                     if ( math.random(1,180) == 2 ) then -- Meldung nicht immer ausgeben (Spamschutz) ( Meldung theoretisch alle 15 Minuten )
@@ -355,7 +355,7 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around[color=#4040BF] you fades [/color]and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
+        base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
