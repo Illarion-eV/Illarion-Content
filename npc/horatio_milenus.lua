@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Quest, Where, Who, Guard."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Horatio Milenus the gate guardian. Keyphrases: Hello, Gate, Desert, Cadomyr, Guard."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: Hallo, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Horatio Milenus der Torwächter. Schlüsselwörter: Hallo, Tor, Wüste, Cadomyr, Wache."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -912,6 +912,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Ich bin in erster Linie der Wächter Cadomyrs.");
 talkEntry:addResponse("Erzählt das jemanden anderes.");
