@@ -1309,13 +1309,13 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Brassius Meres der Wächter.", "This NPC is Brassius Meres the Guard.");
 mainNPC:setUseMessage("Nehmt augenblicklich eure Hände von mir!", "Remove your hands from me this instant!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 2291);
+mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 362);
-mainNPC:setEquipment(11, 547);
+mainNPC:setEquipment(11, 55);
 mainNPC:setEquipment(5, 2708);
 mainNPC:setEquipment(6, 2708);
 mainNPC:setEquipment(4, 528);
-mainNPC:setEquipment(9, 2193);
+mainNPC:setEquipment(9, 183);
 mainNPC:setEquipment(10, 697);
 mainNPC:setAutoIntroduceMode(true);
 
