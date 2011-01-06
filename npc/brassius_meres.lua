@@ -653,7 +653,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("guard");
-talkEntry:addResponse("Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.");
+talkEntry:addResponse("Being a guard of Runewick is a rewarding job. The money is good, and it is a fine way to help the citizens.");
 talkEntry:addResponse("There is no greater way for me to serve my Gods than by guarding the people.");
 talkEntry:addResponse("Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -702,18 +702,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Gesetze hier sind streng, aber gerecht.");
+talkEntry:addResponse("Schaut mal in der Bibliothek vorbei, es sollte nicht schwierig sein, die Gesetze dort zu finden.");
+talkEntry:addResponse("Die Gesetze sind leicht zu erhalten. Schaut euch nur in der Stadt um, sie umgeben euch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wache");
 talkEntry:addTrigger("Wächter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein Wächter Runewicks zu sein ist ein lohenswerter Beruf. Man hilft den Bürgern und die Bezahlung stimmt auch.");
+talkEntry:addResponse("Es gibt keinen besseren Weg meinen Göttern zu dienen als Leute zu beschützen.");
+talkEntry:addResponse("Ein Wächter zu werden erschien mir als das einzig richtige. Ich habe nichts außer zu Kämpfen in meinem Leben gelernt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,9 +723,9 @@ talkEntry:addTrigger("Dieb");
 talkEntry:addTrigger("Verbrech");
 talkEntry:addTrigger("Angriff");
 talkEntry:addTrigger("Stehlen");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es ist verdächtig ruhig dieser Tage, kaum Aufruhr.");
+talkEntry:addResponse("Wenn ihr Opfer oder Zeuge eines Verbrechens werdet, so stellt bitte eine formale Eingabe an den Erzmagier.");
+talkEntry:addResponse("Der Erzmagier entscheidet darüber, wer einem Verbrechen nachgeht. Redet mit ihm, wenn ihr Probleme habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -733,9 +733,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ruhig");
 talkEntry:addTrigger("langweilig");
 talkEntry:addTrigger("Frieden");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ärger lauert hinter jeder Hausecke.");
+talkEntry:addResponse("Nun meint aber nicht, dass es an euch ist, für Krach zu sorgen.");
+talkEntry:addResponse("Die Ruhe kommt vor dem Sturm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

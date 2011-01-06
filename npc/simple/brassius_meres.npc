@@ -160,16 +160,17 @@ itemShoes = 697
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "law" -> "The laws are tough, but fair.", "Take a look in the library, it should not be difficult to find a copy of the town's laws.", "The laws are easily available. Take a look around, you'll find them eventually."
-"guard" -> "Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
+"guard" -> "Being a guard of Runewick is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
 "criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Archmage.", "The Archmage decides who investigates specific crimes. You should speak to him when you have trouble."
 "quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
 "Yewdale" -> "Yewdale is a small community of peasants. Just across the bridge, follow the road. You cannot miss it."
 "Bridge" -> "I guard this bridge and with it, I guard Runewick. The teleporter over there is the only way into town."
 "Teleport", english -> "Do you see that teleporter in the west? It takes you to Runewick, the most magnificient set of boulders in the ocean."
-"Gesetz" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Wache", "Wächter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Kriminell", "Dieb", "Verbrech", "Angriff", "Stehlen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"ruhig", "langweilig", "Frieden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"Gesetz" -> "Die Gesetze hier sind streng, aber gerecht.", "Schaut mal in der Bibliothek vorbei, es sollte nicht schwierig sein, die Gesetze dort zu finden.", "Die Gesetze sind leicht zu erhalten. Schaut euch nur in der Stadt um, sie umgeben euch!"
+"Wache", "Wächter" -> "Ein Wächter Runewicks zu sein ist ein lohenswerter Beruf. Man hilft den Bürgern und die Bezahlung stimmt auch.", "Es gibt keinen besseren Weg meinen Göttern zu dienen als Leute zu beschützen.", "Ein Wächter zu werden erschien mir als das einzig richtige. Ich habe nichts außer zu Kämpfen in meinem Leben gelernt."
+"Kriminell", "Dieb", "Verbrech", "Angriff", "Stehlen" -> "Es ist verdächtig ruhig dieser Tage, kaum Aufruhr.", "Wenn ihr Opfer oder Zeuge eines Verbrechens werdet, so stellt bitte eine formale Eingabe an den Erzmagier.", "Der Erzmagier entscheidet darüber, wer einem Verbrechen nachgeht. Redet mit ihm, wenn ihr Probleme habt."
+"ruhig", "langweilig", "Frieden" -> "Ärger lauert hinter jeder Hausecke.", "Nun meint aber nicht, dass es an euch ist, für Krach zu sorgen.", "Die Ruhe kommt vor dem Sturm."
 "Eibenthal" -> "Eibenthal ist eine kleine Gemeinde von Bauern. Überquert die Brücke und folgt der Straße - ihr könnt es nicht verfehlen."
 "Brücke" -> "Ich bewache diese Brücke und mit ihr bewache ich Runewick. Der Teleporter dort drüben ist der einzige Weg in die Stadt."
 "Teleport" -> "Seht ihr den Teleporter im Westen? Er bringt euch nach Runewick, den großartigsten Felsen in der Brandung."
