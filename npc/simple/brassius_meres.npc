@@ -2,12 +2,12 @@
 -- NPC Name: Brassius Meres                                          Runewick --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  841, 821, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Grokk, translation by Estralis Seborian                          --
+-- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: January 05, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 06, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brassius Meres"
@@ -23,7 +23,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Grokk, translation by Estralis Seborian"
+author = "Grokk & Estralis Seborian"
 
 lookatDE = "Dieser NPC ist Brassius Meres der Wächter."
 lookatUS = "This NPC is Brassius Meres the Guard."
@@ -59,121 +59,120 @@ itemShoes = 697
 -- 1: Quest 1 taken - bring five apples
 -- 2: Quest 1 solved, reward: 30cp
 -- 3: Quest 2 taken - bring 10 arrows
--- 4: Quest 2 solved - reward: 100cp, apple pie (353)
+-- 4: Quest 2 solved - reward: 100cp
 -- 5: Quest 3 taken - bring 10 furs
--- 6: Quest 3 solved, reward: legionaire's tower shield (2448)
-
--- TO BE DONE
-
--- Translation
--- Replace (391) with correct item values
-
--- --------------------------------------------------
+-- 6: Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(109) = 0
 ".+", queststatus(109) > 6 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keyphrases: hello, quest, profession, Salkamar, law, gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Salkamar, Gesetze, Götter.")
+"Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keyphrases: hello, quest, profession, Runewick, law, bridge, gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Runewick, Brücke, Gesetze, Götter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely, 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me bows his head politely: 'Be greeted.'", "Greetings to you.", "#me nods his head in greeting."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me deutet eine Verbeugung an: 'Seid gegrüßt.'", "Seid mir gegrüßt.", "#me nickt grüßend mit dem Kopf."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me frowns lightly, 'Yes, yes. Hello.'", "#me nods once.", "May I help you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me rümpft leicht die Nase: 'Ja, ja. Hallo.'", "#me nickt knapp.", "Kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Be well. And stay out of trouble.", "May Zhambra keep you safe from harm.", "#me raises his fist to his chest in salute."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Es möge euch gut ergehen und all Ärger fern von euch bleiben.", "Zhambra möge euch von jedem Leid bewahren.", "#me hebt seine Faust vor die Brust zum Gruß."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Aye. Be off with you.", "Stay out of trouble, I have enough work already.", "Be gone, then."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ja, nun geht schon.", "Haltet euch aus Keilereien raus, ich habe schon genug zu tun.", "Dann mal los."
 "How are you", "How feel", "How do you do" -> "I am well, thank you.", "Zhambra keeps me safe and in good health.", "I can not complain, the Gods care for me."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "My name is Brassius Meres. It is an honour to meet you.", "I am Brassius Meres, a guard of this town.", "Brassius Meres, faithful servant of the Lords Malachin and Zhambra."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es gut, danke der Nachfrage.", "Zhambra schützt mich und erhält mein Leben.", "Ich kann mich nicht beklagen, die Götter sorgen für mich."
+"your name", "who are you", "who art thou" -> "My name is Brassius Meres. It is an honour to meet you.", "I am Brassius Meres, a guard of Runewick.", "Brassius Meres, faithful servant of the Lords Malachín and Zhambra."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Brassius Meres. Es ist mir eine Ehre, eure Bekanntschaft zu machen.", "Ich bin Brassius Meres, Wächter Runewicks.", "Brassius Meres, frommer Diener der Herren Malachín und Zhambra."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring five APPLES (15)
 
 -- Give out quest 1
-"quest", "mission", queststatus(109) = 0, english -> inform("[New quest] Eating on the Job"), "Hmm...now that you mention it, I am feeling rather hungry. But I can't leave my post. Tell you what, bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-"quest", "mission", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "GERMAN.", queststatus(109) = 1
-"task", "adventure", queststatus(109) = 0 -> inform("[New quest] Eating on the Job"), "Hmm...now that you mention it, I am feeling rather hungry. But I can't leave my post. Tell you what, bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "GERMAN.", queststatus(109) = 1
+"quest", "mission", queststatus(109) = 0, english -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
+"quest", "mission", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
+"task", "adventure", queststatus(109) = 0 -> inform("[New quest] Eating on the Job"), "Now that you mention it, I am feeling rather hungry. But I can't leave my post. Please bring me five apples and I will reimburse you for your troubles.", queststatus(109) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 0 -> inform("[Neues Quest] Speisen im Dienst"), "Nun da ihr es sagt, ich bin ziemlich hungrig, aber ich kann meinen Posten nicht verlassen. Bringt mir bitte fünf Äpfel und ich werde euch für eure Mühen entlohnen.", queststatus(109) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 1, item(15, all) < 5, english -> "#me's stomach rumbles, 'I could really do with those five apples, if you've got a few moments to spare.'"
-"quest", "mission", queststatus(109) = 1, item(15, all) < 5 -> "GERMAN."
-"task", "adventure", queststatus(109) = 1, item(15, all) < 5 -> "#me's stomach rumbles, 'I could really do with those five apples, if you've got a few moments to spare.'"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 1, item(15, all) < 5 -> "GERMAN."
+"quest", "mission", queststatus(109) = 1, item(15, all) < 5, english -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
+"quest", "mission", queststatus(109) = 1, item(15, all) < 5 -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
+"task", "adventure", queststatus(109) = 1, item(15, all) < 5 -> "#me's stomach rumbles: 'I could really do with those five apples, if you've got a few moments to spare.'"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 1, item(15, all) < 5 -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
 
 -- Quest 1 solved, reward: 30cp
-".+", queststatus(109) = 1, item(15, all) > 4, english -> inform("[Quest solved] You are awarded 30 copper coins."), "#me quickly grabs the fruit, handing over a small purse of coins, 'Thank you kindly!' He raises one of the apples, taking a large bite, and stuffs the others into his bag as he chews.", money + 30, deleteItem(15, 5), queststatus(109) = 2
-".+", queststatus(109) = 1, item(15, all) > 4 -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "GERMAN.", money + 30, deleteItem(15, 5), queststatus(109) = 2
+".+", queststatus(109) = 1, item(15, all) > 4, english -> inform("[Quest solved] You are awarded 30 copper coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews.", money + 30, deleteItem(15, 5), queststatus(109) = 2
+".+", queststatus(109) = 1, item(15, all) > 4 -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 30, deleteItem(15, 5), queststatus(109) = 2
 
 -- 2nd quest: Bring 10 ARROWS (64)
 
 -- Give out quest 2
-"quest", "mission", queststatus(109) = 2, english -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help, if you are interested? My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
-"quest", "mission", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "GERMAN.", queststatus(109) = 3
-"task", "adventure", queststatus(109) = 2 -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help, if you are interested? My supply of arrows is running low, if you bring me ten more, then I have something that might interest you..", queststatus(109) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "GERMAN.", queststatus(109) = 3
+"quest", "mission", queststatus(109) = 2, english -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
+"quest", "mission", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
+"task", "adventure", queststatus(109) = 2 -> inform("[New quest] Resupply"), "Those apples were delicious, thank you once again. I could use some more help. My supply of arrows is running low, if you bring me ten more, then I have something that might interest you.", queststatus(109) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 2 -> inform("[Neues Quest] Nachschub"), "Die Äpfel waren köstlich, danke nochmal. Ich brauche aber weiterhin Hilfe. Mein Vorrat an Pfeilen nimmt ab, wenn ihr mir zehn Pfeile brächtet, wäre dies nicht zu eurem Nachteil.", queststatus(109) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 3, item(64, all) < 10, english -> "#me glances at his empty quiver, frowning lightly, 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
-"quest", "mission", queststatus(109) = 3, item(64, all) < 10 -> "GERMAN."
-"task", "adventure", queststatus(109) = 3, item(64, all) < 10 -> "#me glances at his empty quiver, frowning lightly, 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 3, item(64, all) < 10 -> "GERMAN."
+"quest", "mission", queststatus(109) = 3, item(64, all) < 10, english -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+"quest", "mission", queststatus(109) = 3, item(64, all) < 10 -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
+"task", "adventure", queststatus(109) = 3, item(64, all) < 10 -> "#me glances at his empty quiver, frowning lightly: 'I am in urgent need of those ten arrows, if it is not too much trouble.'"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 3, item(64, all) < 10 -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
 
--- Quest 2 solved, reward: 100cp, ITEM,
+-- Quest 2 solved, reward: 100cp
 ".+", queststatus(109) = 3, item(64, all) > 9, english -> inform("[Quest solved] You are awarded 100 copper coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 100, deleteItem(64, 10), queststatus(109) = 4
-".+", queststatus(109) = 3, item(64, all) > 9 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "GERMAN.", money + 100, deleteItem(64, 10), queststatus(109) = 4
+".+", queststatus(109) = 3, item(64, all) > 9 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 100, deleteItem(64, 10), queststatus(109) = 4
 
 -- 3rd quest: Bring 10 FUR (2586)
 
 -- Give out quest 3
-"quest", "mission", queststatus(109) = 4, english -> inform("[New quest] Wild Animals"), "My friend, I need your help once more. I’ve received reports of wild animals attacking villagers in the lands surrounding our town. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(109) = 5
-"quest", "mission", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "GERMAN.", queststatus(109) = 5
-"task", "adventure", queststatus(109) = 4 -> inform("[New quest] Wild Animals"), "My friend, I need your help once more. I’ve received reports of wild animals attacking villagers in the lands surrounding our town. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(109) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "GERMAN.", queststatus(109) = 5
+"quest", "mission", queststatus(109) = 4, english -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, Runewick shall be in your debt.", queststatus(109) = 5
+"quest", "mission", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
+"task", "adventure", queststatus(109) = 4 -> inform("[New quest] Wild Animals"), "I've received reports of wild animals attacking villagers of Yewdale. If you slay the animals, and bring me ten furs as evidence, the town shall be in your debt.", queststatus(109) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 4 -> inform("[Neues Quest] Wilde Tiere"), "Mir wurde gemeldet, dass wilde Tiere die Dorfbewohner von Eibenthal angegriffen haben. Wenn ihr diese Biester erschlagt und mir zehn Felle als Beweiß bringt, wäre Runewick in eurer Schuld.", queststatus(109) = 5
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(109) = 5, item(2586, all) < 10, english -> "I receive new attack reports daily. You must protect the citizens by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
-"quest", "mission", queststatus(109) = 5, item(2586, all) < 10 -> "GERMAN."
-"task", "adventure", queststatus(109) = 5, item(2586, all) < 10 -> "I receive new attack reports daily. You must protect the citizens by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 5, item(2586, all) < 10 -> "GERMAN."
+"quest", "mission", queststatus(109) = 5, item(2586, all) < 10, english -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+"quest", "mission", queststatus(109) = 5, item(2586, all) < 10 -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
+"task", "adventure", queststatus(109) = 5, item(2586, all) < 10 -> "I receive new attack reports daily. You must protect the citizens of Yewdale by killing the animals. If you bring me ten of their furs, then I shall ensure that your efforts are recognised."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 5, item(2586, all) < 10 -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
 
--- Quest 3 solved, reward: NICE ITEM
-".+", queststatus(109) = 5, item(2586, all) > 9, english -> inform("[Quest solved] You are awarded an ornated mage's staff."), "#me bows his head respectfully, 'You have done very well, thank you. The town and its citizens are safe once more. Please, take this gift as thanks for the risk you took.", item(208, 1, 799, 0), deleteitem (2586,10), queststatus(109) = 6
-".+", queststatus(109) = 5, item(2586, all) > 9 -> inform("[Quest gelöst] Du erhältst einen verzierten Magierstab."), "GERMAN.", item(208, 1, 799, 0), queststatus(109) = 6, deleteitem (2586,10)
+-- Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
+".+", queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6, rankpoints(Runewick) + 10
+".+", queststatus(109) = 5, item(2586, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6, rankpoints(Runewick) + 10
+".+", queststatus(109) = 5, item(2586, all) > 9, english -> inform("[Quest solved] You are awarded a legionaire's tower shield."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6
+".+", queststatus(109) = 5, item(2586, all) > 9 -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799, 0), queststatus(109) = 6
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(109) = 6, english -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
-"quest", "mission", queststatus(109) = 6 -> "GERMAN."
+"quest", "mission", queststatus(109) = 6 -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
 "task", "adventure", queststatus(109) = 6 -> "I shall not be needing your help at the moment, my friend. Go, rest. You have certainly earned it."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 6 -> "GERMAN."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(109) = 6 -> "Derzeit benötige ich eure Hilfe nicht. Ihr könnt euch ausruhen, das habt ihr euch verdient."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a town guard. I take care of troublemakers.", "I keep order 'round here, and make sure the citizens are safe.", "I'm a soldier, serving here as a town guard."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I am a town guard.", "I protect the town and its citizens.", "It's my job to keep the people safe and out of trouble."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "The people of this island are a hardy folk. Not much seems to faze them these days.", "I like it here. It's peaceful when it needs to be, but excitement is always just around the corner.", "This island is a breeding ground for crime, unfortunately. It's no wonder the Captain is always looking for more guards."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully, 'Well met.'"
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ich bin ein Wächter. Ich kümmere mich um Aufrührer.", "Ich sorge für Ordnung hier und stelle sicher, dass die Bürger sicher schlafen können.", "Ich bin ein Soldat, der hier Dienst als Wächter schiebt."
+"job", english -> "I am a town guard.", "I protect Runewick and its citizens.", "It's my job to keep the people safe and out of trouble."
+"job" -> "Ich bin ein Wächter.", "Ich beschütze Runewick und seine Bürger.", "Es ist meine Aufgabe, die Leute zu beschützen und das Böse abzuwehren."
+"Gobaith", "Gobiath", english -> "The people of this island were a hardy folk. Not much seemed to faze them in the past.", "I liked it there. It was peaceful when it needed to be, but excitement was always just around the corner.", "That island was a breeding ground for crime and sins, unfortunately."
+"Gobaith", "Gobiath" -> "Das Volk dieser Insel war hart im Nehmen. Nichts hat sie früher aus der Fassung gebracht.", "Es war schön dort. Friedlich, aber das Abenteuer lauerte hinter jeder Hausecke.", "Diese Insel war leider ein Nährboden für Verbrechen und Sünden."
+"my name" -> "An honour to meet you.", "A pleasure.", "#me bows his head respectfully: 'Well met.'"
+"mein Name" -> "Es ist mir eine Ehre, eure Bekanntschaft zu machen.", "Das Vergnügen ist auf meiner Seite.", "#me neigt respektvoll den Kopf: 'Angenehm.'"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "law" -> "The laws are tough, but fair.", "Take a look in the library, it should not be difficult to find a copy of the town's laws.", "The laws are easily available. Take a look around, you'll find them eventually."
-"captain" -> "The Captain runs the Town Guard. He does a good job, considering the number of guards he has to work with.", "You should have a look 'round town for the Captain or one of the deputies, I hear they are looking for recruits.", "#me suddenly straightens, standing at attention, 'Captain! What!? Where!?'."
 "guard" -> "Being a guard is a rewarding job. The money is good, and it is a fine way to help the citizens.", "There is no greater way for me to serve my Gods than by guarding the people.", "Becoming a guard seemed like the only sensible step for me to take. Fighting is the only thing I ever learned to do well."
-"criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Guard Captain.", "The Guard Captain decides who investigates specific crimes. You should speak to him when you have trouble."
+"criminal", "thief", "crime", "assault", "stole" -> "It has been rather quiet today, not too much trouble around.", "If you are a victim or witness of a crime, please submit a formal report to the Archmage.", "The Archmage decides who investigates specific crimes. You should speak to him when you have trouble."
 "quiet", "bored", "peace" -> "Trouble is always just around the corner.", "Don't go thinking that you have to be the one to make some noise.", "They say that it's always quiet before the storm."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yewdale" -> "Yewdale is a small community of peasants. Just across the bridge, follow the road. You cannot miss it."
+"Bridge" -> "I guard this bridge and with it, I guard Runewick. The teleporter over there is the only way into town."
+"Teleport", english -> ""
+"Gesetz" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wache", "Wächter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Kriminell", "Dieb", "Verbrech", "Angriff", "Stehlen" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"ruhig", "langweilig", "Frieden" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eibenthal" -> "Eibenthal ist eine kleine Gemeinde von Bauern. Überquert die Brücke und folgt der Straße - ihr könnt es nicht verfehlen."
+"Brücke" -> "Ich bewache diese Brücke und mit ihr bewache ich Runewick. Der Teleporter dort drüben ist der einzige Weg in die Stadt."
+"Teleport" -> ""
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -182,10 +181,10 @@ itemShoes = 697
 "Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "I overheard the real name of the Don's father is John. That makes the Don a John-son, har, har!", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "Ich habe gehört der echte Name des Vaters des Dons wäre John. Das würde den Don zum einem Johnson machen, har, har!", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "Galmair is far away. And that's good.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "Galmair ist fern von hier. Und das ist auch gut so.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -239,7 +238,7 @@ itemShoes = 697
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head, 'Not while I'm on duty, thank you.'"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "Hm. You look like you could wield a weapon. Perhaps the guard captain would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you."
+"tell something" -> "Hm. You look like you could wield a weapon. Perhaps the guard Archmage would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
@@ -251,8 +250,8 @@ itemShoes = 697
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "I should really be returning to my work.", "If the Captain catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", english, chance(20) -> "I should really be returning to my work.", "If the Archmage catches me chatting away, he will not be pleased.", "Please, you shall get me into trouble if I am caught standing here chatting."
+".*", german, chance(20) -> "Ich sollte mich wieder um meinen Dienst kümmern.", "Wenn der Erzmagier mich dabei erwischt, wie ich herumklöne, wird er nicht zufrieden sein.", "Bitte, ich bekomme noch Ärger, wenn man mich hier tratschen sieht."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -260,12 +259,13 @@ itemShoes = 697
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me rückt den Kinnriemen seines Helmes zurecht.", "#me adjusts the chin strap on his helm."
-cycletext "GERMAN.", "#me coughs into a closed fist."
-cycletext "GERMAN.", "#me glances into his quiver."
-cycletext "GERMAN.", "#me tightens the string of his bow."
-cycletext "GERMAN.", "#me places a hand upon the hilt of his sheathed blade."
-cycletext "GERMAN.", "#me's eyes wander over the scene before him."
-cycletext "GERMAN.", "#me looks around suspiciously."
+cycletext "#me hustet hinter vorgehaltener Hand.", "#me coughs into a closed fist."
+cycletext "#me schaut in seinen Köcher.", "#me glances into his quiver."
+cycletext "#me zieht die Sehne seines Bogens nach.", "#me tightens the string of his bow."
+cycletext "#me legt eine Hand auf den Griff seines ungezogenen Schwertes.", "#me places a hand upon the hilt of his sheathed blade."
+cycletext "#me schaut sich die Gegend um ihn herum an.", "#me's eyes wander over the scene before him."
+cycletext "#me schaut düster drein.", "#me looks around suspiciously."
 cycletext "Dann geht mal weiter.", "Move along, then."
-cycletext "GERMAN.", "Don't go causing any trouble 'round here."
-cycletext "GERMAN.", "We're watching."
+cycletext "Macht hier keinen Ärger.", "Don't go causing any trouble 'round here."
+cycletext "Wir sehen alles.", "We're watching."
+cycletext "Bleibt nicht länger auf der Brücke als nötig.", "Don't stay on the bridge longer than necessary."
