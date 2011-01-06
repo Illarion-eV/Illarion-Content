@@ -182,7 +182,7 @@ itemShoes = 697
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Valerio", "Guilianni", "Don", english -> "I overheard the real name of the Don's father is John. That makes the Don a John-son, har, har!", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "Ich habe gehört der echte Name des Vaters des Dons wäre John. Das würde den Don zum einem Johnson machen, har, har!", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Ich habe gehört der echte Name des Vaters des Dons wäre John. Das macht aus dem Don einen Johnson, har, har!", "GERMAN2.", "GERMAN3."
 "Galmair", english -> "Galmair is far away. And that's good.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Galmair ist fern von hier. Und das ist auch gut so.", "GERMAN2.", "GERMAN3."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -193,11 +193,11 @@ itemShoes = 697
 "Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
-"albar", english -> "I've been to Albar once before. I found it to be a rather...backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
+"albar", english -> "I've been to Albar once before. I found it to be a rather... backward place.", "Albar is a very corrupt land, from what I've heard.", "Albarian commoners seem pleasant enough. Their women are rather reserved though."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "Ah, yes...Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
+"gynk", "gync", english -> "Ah, yes... Gynk, the 'Pool of Sin'.", "I've never been to Gynk. They tell me that you will never see more criminals running 'round than there, though.", "The Thieves' Guilds of Gynk have far too much influence for my liking. Power must be held by the authorities, not by criminals."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "Ahh...Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
+"salkama", english -> "Ahh... Salkamar. It is my homeland, did you know?", "I was born and raised in the lands of Salkamar. You will struggle to find a more honourable and loyal people than we.", "You will never find a greater army than that of Salkamar. Its leaders are cunning, its men loyal, and its ranks ordered."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
