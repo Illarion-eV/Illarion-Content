@@ -61,9 +61,10 @@ end
 -- @param char The character whose faction is to be checked
 -- @param thisFaction The faction ID of the guard
 function GetMode(char, thisFaction)
-	if char:isAdmin() then
-		return ACTION_NONE;
-	end
+	
+	-- if char:isAdmin() then
+		-- return ACTION_NONE;
+	-- end
 
 	local f = base.factions.BF_get_Faction(char).tid;
 	return GetModeByFaction(thisFaction, f);
