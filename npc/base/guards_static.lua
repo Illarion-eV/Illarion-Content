@@ -49,7 +49,6 @@ function CheckForEnemies(guard)
 			Warp(guard, char);
 		end
 	end
-	guard:talk(CCharacter.say, s);
 end
 
 --- get the mode for this faction depending on the char's faction
