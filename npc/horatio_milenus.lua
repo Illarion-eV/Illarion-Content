@@ -990,13 +990,15 @@ function nextCycle()
 	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
-	thisNPC:talk(CCharacter.say, "spam ".. gCount .." -- ".. guards_init);
-	if gCount == 4 and guards_init == -1 then
-		gCount = 0;
-		npc.base.guards_static.CheckForEnemies(thisNPC);
-		thisNPC:talk(CCharacter.say, "check for enemies");
-	else
-		gCount = gCount + 1;
+	--thisNPC:talk(CCharacter.say, "spam ".. gCount .." -- ".. guards_init);
+	if guards_init == -1 then
+		if gCount == 4 then
+			gCount = 0;
+			npc.base.guards_static.CheckForEnemies(thisNPC);
+			thisNPC:talk(CCharacter.say, "check for enemies");
+		else
+			gCount = gCount + 1;
+		end
 	end
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
