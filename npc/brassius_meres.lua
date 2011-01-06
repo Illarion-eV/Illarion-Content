@@ -1250,7 +1250,7 @@ talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("My apologies, but I am on duty. I cannot trade with you at the moment.");
 talkEntry:addResponse("I do not wish to trade with you.");
-talkEntry:addResponse("#me holds his hand up, shaking his head, 'Not while I'm on duty, thank you.'");
+talkEntry:addResponse("#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1259,26 +1259,26 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, ich bin im Dienst, ich kann nicht mit euch handeln.");
+talkEntry:addResponse("Ich möchte nicht mit euch handeln.");
+talkEntry:addResponse("#me hebt die Hand und schüttelt mit dem Kopf: 'Nicht solange ich im Dienst bin.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Hm. You look like you could wield a weapon. Perhaps the guard Archmage would be interested in your services.");
+talkEntry:addResponse("Hm. You look like you could wield a weapon. Perhaps the  Archmage would be interested in your services.");
 talkEntry:addResponse("Have you read the town's laws? It shouldn't be too hard finding a copy.");
-talkEntry:addResponse("I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around one of them, I tell you.");
+talkEntry:addResponse("I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around or through one of them, I tell you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hm. Ihr seht aus, als wenn ihr eine Waffe tragen könntet. Vielleicht hat der Erzmagier ja Interesse an euren Diensten.");
+talkEntry:addResponse("Habt ihr schon die Gesetze der Stadt gelesen? Es sollte nicht sonderlich schwer sein, eine Ausgabe zu finden.");
+talkEntry:addResponse("Ich finde das die Turmschilde aus Salkamar, meiner Heimat, sehr effektiv sind. Um sie kommt kaum eine Waffe herum, geschweige denn hindurch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1295,9 +1295,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brassius");
 talkEntry:addTrigger("Meres");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.");
+talkEntry:addResponse("Ich sollte wieder an meinen Dienst denken.");
+talkEntry:addResponse("Ich bin derzeit recht beschäftigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1311,9 +1311,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.");
+talkEntry:addResponse("Ich sollte wieder an meinen Dienst denken.");
+talkEntry:addResponse("Ich bin derzeit recht beschäftigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1327,9 +1327,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Entschuldigt, aber ich bin im Dienst. Vielleicht kann euch jemand anderes helfen.");
+talkEntry:addResponse("Ich sollte wieder an meinen Dienst denken.");
+talkEntry:addResponse("Ich bin derzeit recht beschäftigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
