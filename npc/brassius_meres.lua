@@ -696,7 +696,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Teleport");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Do you see that teleporter in the west? It takes you to Runewick, the most magnificient set of boulders in the ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -753,7 +753,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Teleport");
-talkEntry:addResponse("");
+talkEntry:addResponse("Seht ihr den Teleporter im Westen? Er bringt euch nach Runewick, den großartigsten Felsen in der Brandung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -815,8 +815,6 @@ talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I overheard the real name of the Don's father is John. That makes the Don a John-son, har, har!");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -825,8 +823,6 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Ich habe gehört der echte Name des Vaters des Dons wäre John. Das macht aus dem Don einen Johnson, har, har!");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +942,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Ah... Salkamar, meine Heimat. Wußtet ihr, dass ich von dort stamme?");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -954,18 +950,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Zhambra and Malachin are my patron deities.");
-talkEntry:addResponse("I am protected by the Lords Malachin and Zhambra in battle. They have kept me safe so far.");
-talkEntry:addResponse("I worship Zhambra and Malachin.");
+talkEntry:addResponse("Zhambra and Malachín are my patron deities.");
+talkEntry:addResponse("I am protected by the Lords Malachín and Zhambra in battle. They have kept me safe so far.");
+talkEntry:addResponse("I worship Zhambra and Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zhambra und Malachín sind meine Schutzgötter.");
+talkEntry:addResponse("Die Herren Malachín und Zhambra wachen über mich in der Schlacht. Bis jetzt haben sie ihre Sache gut gemacht.");
+talkEntry:addResponse("Ich diene Zhambra und Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
