@@ -986,9 +986,11 @@ function nextCycle()
 	if guards_init == 0 then
 		guards_init = -1;
 		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
+		thisNPC:talk(CCharacter.say, "INIT");
 	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
+	thisNPC:talk(CCharacter.say, "spam");
 	if gCount == 4 and guards_init == -1 then
 		gCount = 0;
 		npc.base.guards_static.CheckForEnemies(thisNPC);
