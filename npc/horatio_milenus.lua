@@ -989,7 +989,7 @@ function nextCycle()
 	elseif guards_init > 0 then
 		guards_init = guards_init - 1;
 	end
-	if gCount == 4 and guards_init == 0 then
+	if gCount == 4 and guards_init == -1 then
 		gCount = 0;
 		npc.base.guards_static.CheckForEnemies(thisNPC);
 	else
