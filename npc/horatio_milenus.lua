@@ -995,7 +995,7 @@ function nextCycle()
 		if gCount == 4 then
 			gCount = 0;
 			npc.base.guards_static.CheckForEnemies(thisNPC);
-			thisNPC:talk(CCharacter.say, "check for enemies");
+			--thisNPC:talk(CCharacter.say, "check for enemies");
 		else
 			gCount = gCount + 1;
 		end

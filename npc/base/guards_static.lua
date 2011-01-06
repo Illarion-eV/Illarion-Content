@@ -38,17 +38,23 @@ function CheckForEnemies(guard)
 
 	-- check for player characters
 	local charList = world:getPlayersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
+	local s = "check: ";
 	for i,char in pairs(charList) do
+		s = s .. char.name;
 		local mode = GetMode(char, FactionId[guard.id]);
 		if (mode == ACTION_AGGRESSIVE) then
 			-- spawn monster guards
 			-- for now: just warp
 			Warp(guard, char);
+			s = s .. " attack";
 		elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
 			-- warp
 			Warp(guard, char);
+			s = s .. " warp";
 		end
+		s = s .. "; ";
 	end
+	guard:talk(CCharacter.say, s);
 end
 
 --- get the mode for this faction depending on the char's faction
