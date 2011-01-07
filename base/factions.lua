@@ -1,6 +1,11 @@
 require("base.common")
 --THE EDITABLE PART FOR NEW TOWNS OR GUILDS IS SOME LINES BELOW
 
+-- NOTE: town IDs for:
+--- Cadomyr: 1
+--- Runewick: 2
+--- Galmair: 3
+
 module("base.factions", package.seeall)
 
 function InitFactionLists()

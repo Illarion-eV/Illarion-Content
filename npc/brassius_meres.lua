@@ -28,6 +28,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
+require("npc.base.guards_static")
 module("npc.brassius_meres", package.seeall)
 
 function initNpc()
@@ -1370,8 +1371,32 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
+function receiveText(texttype, message, speaker)
+	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+	mainNPC:receiveText(speaker, message);
+end;
+function nextCycle()
+	mainNPC:nextCycle();
+	if not guards_init then
+		-- init after 10 cycles
+		guards_init = 10;
+		gCount = 0;
+	end
+	if guards_init == 0 then
+		guards_init = -1;
+		npc.base.guards_static.Init(thisNPC, 2, position(836, 823, 0), 2, position(840, 823, 0));
+	elseif guards_init > 0 then
+		guards_init = guards_init - 1;
+	end
+	if guards_init == -1 then
+		if gCount == 4 then
+			gCount = 0;
+			npc.base.guards_static.CheckForEnemies(thisNPC);
+		else
+			gCount = gCount + 1;
+		end
+	end
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
