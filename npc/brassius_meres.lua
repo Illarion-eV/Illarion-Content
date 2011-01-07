@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
 --                                                                            --
--- Last parsing: January 06, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 07, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -759,17 +759,17 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.");
+talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.");
+talkEntry:addResponse("I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Erzmagier tut alles, um Runewick zu einem sicheren Ort zu machen. Und auch ich trage meinen kleinen Teil dazu bei, indem ich diese Brücke bewache.");
+talkEntry:addResponse("Elvaine Morgan ist ein guter Anführer. Er hat eine Vision und wenn es euch interessiert, wird er sie euch erzählen. Wird allerdings eine Weile in Anspruch nehmen.");
+talkEntry:addResponse("Ich habe gehört, dass einige Leute Witze über den Vornamen des Erzmagiers, Elvaine, machen. Wenn ich ihr wäre, würde ich keine Witze über so einen mächtigen Magier machen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -777,35 +777,35 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The archmage does his best to keep Runewick safe. And I do my little share by guarding this bridge.");
+talkEntry:addResponse("Elvaine Morgan is a good leader. He has a vision and if you are interested, he tells it to you. Takes a while, though.");
+talkEntry:addResponse("I overheard some people make jokes about the first name of the Archmage, Elvaine. I would not make jokes about a magician, as powerful as him, if I were you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Erzmagier tut alles, um Runewick zu einem sicheren Ort zu machen. Und auch ich trage meinen kleinen Teil dazu bei, indem ich diese Brücke bewache.");
+talkEntry:addResponse("Elvaine Morgan ist ein guter Anführer. Er hat eine Vision und wenn es euch interessiert, wird er sie euch erzählen. Wird allerdings eine Weile in Anspruch nehmen.");
+talkEntry:addResponse("Ich habe gehört, dass einige Leute Witze über den Vornamen des Erzmagiers, Elvaine, machen. Wenn ich ihr wäre, würde ich keine Witze über so einen mächtigen Magier machen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Runewick is firm like a rock. No wonder, it was made of rocks.");
+talkEntry:addResponse("Runewick became my new home. I was born in Salkamar and spent my youth on an island called Gobaith. But that is no more...");
+talkEntry:addResponse("Runewick, well, look east and tell me what you see there. That is Runewick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick ist wie ein Fels in der Brandung. Kein Wunder, denn es wurde aus Steinen gebaut.");
+talkEntry:addResponse("Runewick ist meine neue Heimat. Ich wurde in Salkamar geboren und habe meine Jugend auf einer Insel namens Gobaith verbracht. Aber das war einmal...");
+talkEntry:addResponse("Runewick, nun, schaut doch mal nach Osten und sagt mir, was ihr da seht. Das ist Runewick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -830,32 +830,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Galmair is far away. And that's good.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair ist fern von hier. Und das ist auch gut so.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("The Queen of Cadomyr became queen because she was born. The Archmage became our leader because he is the best!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,35 +855,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Königin von Cadomyr wurde Königin, weil sie dazu geboren wurde. Der Erzmagier ist unser Anführer, weil er einfach der beste Mann ist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Cadomyr's people is inequitably, despiteous, dastard and blasphemous. But besides, the town is nice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Cadomyrs Volk ist ungerecht, unbarmherzig, niederträchtig und gotteslästernd. Aber ansonsten ist es eine schöne Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,9 +890,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich war früher einmal in Albar. Es machte auf mich einen ziemlich... rückständigen Eindruck.");
+talkEntry:addResponse("Albar ist ein sehr korruptes Land, so sagt man.");
+talkEntry:addResponse("Albarisches Landvolk ist eigenlich recht genügsam. Ihre Frauen sind allerdings recht zugeknöpft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -925,9 +909,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ah, ja, Gynk, der Sündenpfuhl.");
+talkEntry:addResponse("Ich war noch nie in Gynk. Man sagte mir, dass man dort so viele Gauner herumstreunern sieht wie nirgens anders.");
+talkEntry:addResponse("Die Diebesgilden von Gynk haben für meinen Geschmack viel zu viel Einfluß. Die Macht muss bei der Obrigkeit verbleiben, nicht bei Strolchdieben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -943,8 +927,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Ah... Salkamar, meine Heimat. Wußtet ihr, dass ich von dort stamme?");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich wurde in Salkamar geboren und erzogen. Ihr werdet niemals ehrenhaftere und loyalere Menschen als uns finden.");
+talkEntry:addResponse("Ihr werdet niemals eine großartigere Armee finden als die Salkamars. Die Heerführer sind intelligent, die Männer loyal und es herrscht Ordnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -976,9 +960,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Adron. Man sagt, seine Anhänger feiern heiligen Messen nur in Tavernen.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -995,9 +979,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über den Gott des Feuers.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1012,9 +996,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Cherga oder ihre Anhänger.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1029,9 +1013,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Elara, außer, dass sie einen guten Kleidergeschmack haben soll.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1046,9 +1030,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Eldan.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1063,9 +1047,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Findari.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1080,9 +1064,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere seine Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Irmorom. Redet mit den Zwergen, das ist mein Ratschlag-");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diesen Gott reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1090,7 +1074,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Malachin is the God of Battle. He watches over all those who fight with honour.");
+talkEntry:addResponse("Malachín is the God of Battle. He watches over all those who fight with honour.");
 talkEntry:addResponse("#me closes his eyes and tilts his head upward, whispering a silent prayer.");
 talkEntry:addResponse("The God of Battle is one of my patron Gods. It is He who ensures that my blade swings true.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1099,9 +1083,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Malachín ist der Gott der Schlacht. Er wacht über die, die ehrenhaft kämpfen.");
+talkEntry:addResponse("#me schließt die Augen und legt seinen Kopf in den Nacken um leise ein Gebet zu sprechen.");
+talkEntry:addResponse("Der Gott der Schlachten ist einer meiner Schutzgötter. Er ist es, der mein Schwert führt um Gerechtigkeit walten zu lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1116,9 +1100,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me spuckt voll Missachtung auf den Boden.");
+talkEntry:addResponse("Die Gefolgschaft des Blutgottes möge ein grausames Schicksal haben.");
+talkEntry:addResponse("Ihr solltet diesen Namen nicht so freimütig aussprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1128,7 +1112,7 @@ talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("His followers are all fools and madmen.");
-talkEntry:addResponse("I do not have time for the worshippers of Nargun.");
+talkEntry:addResponse("I do not have time for the worshippers of Nargún.");
 talkEntry:addResponse("Order is something that I greatly value. And something that the God of Chaos does not provide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1137,9 +1121,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Seine Anhänger sind Idioten und Schwachsinnige.");
+talkEntry:addResponse("Mir ist meine Zeit zu kostbar, um sie mit Anhängern Nargúns zu verschwenden.");
+talkEntry:addResponse("Ich liebe Ordnung. Was habe ich also für den Gott des Chaos übrig?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1154,16 +1138,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Oldra. Vielleicht kann euch ein Druide weiterhelfen.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me frowns lightly, 'His followers are thieves, petty criminals. Nothing but lowlife scum.'");
+talkEntry:addResponse("#me frowns lightly: 'His followers are thieves, petty criminals. Nothing but lowlife scum.'");
 talkEntry:addResponse("Ah, the God of Thieves. Not a supporter of my work, as I understand it. He keeps me in a job though, I suppose.");
 talkEntry:addResponse("I am paid to deal with Ronagan's followers. You'll find plenty of them behind bars. He causes far more harm than good, in my humble opinion.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1171,9 +1155,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me rümpft die Nase: 'Seine Anhänger sind Diebe und gemeine Gauner. Nichts als Abschaum!");
+talkEntry:addResponse("Ah, der Gott der Diebe. Er ist nicht gerade ein Förderer meiner Arbeit, möchte man meinen. Aber gleichzeitig sichert er mir auch meinen Posten.");
+talkEntry:addResponse("Ich werde dafür bezahlt, um mich mit Ronagans Anhängern rumzuplagen. Viele von ihnen landen hinter Gittern. Andere... nicht, falls ihr mich versteht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1183,6 +1167,14 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I respect Her followers, but I do not worship that Goddess.");
 talkEntry:addResponse("I confess to knowing little about Sirani.");
 talkEntry:addResponse("You would be better off speaking to someone else about that Goddess, I'm certain there are followers nearby.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Sirani.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1199,9 +1191,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über diese Göttin.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1216,9 +1208,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich respektiere ihre Anhänger, aber ich bin keiner von ihnen.");
+talkEntry:addResponse("Ich muss zugeben, ich weiß nur wenig über Ushara. Ich empfehle euch mit einem Elf über dieserlei Dinge zu reden.");
+talkEntry:addResponse("Ihr solltet lieber mit jemand anderem über diese Göttin reden, ich bin mir sicher, ihr werdet jemanden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1233,9 +1225,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Der Gott der Freundschaft und Loyalität ist einer meiner Schutzgötter. Er hält seine schützende Hand über mich, solange ich fromm bleibe.");
+talkEntry:addResponse("Ich verehre Zhambra und kann es kaum erwarten, dass er mich eines Tages in die Ewigkeit geleiten wird.");
+talkEntry:addResponse("Loyalität ist unerläßlich für einen Mann in meiner Position. Und der Herr Zhambra leitet meine Hand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
