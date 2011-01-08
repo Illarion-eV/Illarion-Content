@@ -7,8 +7,11 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
     end;
-    world:createDynamicNPC("Test1",50,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
-    world:createDynamicNPC("Test2",1,position(User.pos.x+1,User.pos.y,User.pos.z),0,"test.vilarion");
+    User:inform("performing world:getMonstersInRangeOf(position(0,0,0),2)");
+    local moblist = world:getMonstersInRangeOf(position(0,0,0),2);
+    User:inform("Type of moblist: "..type(moblist).."; Size of moblist: "..#moblist);
+--    world:createDynamicNPC("Test1",50,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+--    world:createDynamicNPC("Test2",1,position(User.pos.x+1,User.pos.y,User.pos.z),0,"test.vilarion");
 end
 
 function useNPC(User,counter,param)
