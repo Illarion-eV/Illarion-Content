@@ -17,7 +17,7 @@ module("content.lookat.custom", package.seeall)
 	addDescription(	id,	data,	"DE", "EN", NoQual, NoName, NewGender );
 	only extension:
 	addDescription(	,	,	"", "", false, false, false );
-]]
+]]	
 function InitCustomLookAt()
 
 	addDescription(	 16,	1,	"bemalt mit einem blutroten Schädel", "with a crimson skull painted on it", false, false, false );
@@ -86,6 +86,7 @@ function InitCustomLookAt()
 	addDescription(	293,	1,	"kunstvoll verzierten Wurfspeer", "elaborately ornamented throwing spear", true, true, false );
 	addDescription(	335,	1,	"Adrons Laute", "Adron's lute", true, true, false ); -- for Alsaya
 	addDescription(	362,	1,	"Lederweste, an den Ärmeln verziert mit grün schimmernden Ranken, welche ein G und D bilden", "leather vest, ornamented on the sleeves with green gleaming tendrils which form a G and D", false, true, false );
+	addDescription( 368,	1,	"mit dem Symbol Irmoroms auf der linken Brust", "with the symbol of Irmorom on the left chest", false, false, false );
 	addDescription(	383,	1,	"mit der Gravur 'Orkjäger'", "with the gravure 'Orc Hunter'", false, false, false );
 	addDescription(	385,	1,	"bestickt mit dem Wappen des Littlethorn Clans", "embroidered with the emblem of the Littlethorn Clan", false, false, false );
 	addDescription(	385,	2,	"seidenes, blaues Kleid mit roten Seidenbändern an den Rändern", " silken, blue dress with red silk ribbons lining the fringes", false, true, false );
@@ -121,11 +122,16 @@ function InitCustomLookAt()
 	addDescription(2400,	5,	"mit einem kleinen Wappen der Grovestrider auf der Brust", "with a tiny Grovestrider Coat of Arms on the chest", false, false, false );
 	addDescription(2402,	1,	"mit dem Wappen der Grovestrider auf der Brust", "with the Grovestrider coat of arms on the chest", false, false, false );
 	addDescription(2416,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
+	addDescription(2416,	2,	"mit dem silbernen Symbol Irmoroms auf der linken Brust", "with the silver symbol of Irmorom on the left chest", false, false, false );
+	addDescription(2418,	1,	"mit dem Symbol Irmoroms auf der linken Brust", "with the symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2418,	16,	"grauer Mantel mit einem gelbem, aufgebäumten Pferd", "grey mantle with yellow rampant horse", false, true, 0 );
 	addDescription(2419,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
+	addDescription(2419,	2,	"mit dem goldenen Symbol Irmoroms auf der linken Brust", "with the golden symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2420,	1,	"bestickt mit dem Wappen von Silberbrand", "embroidered with the Silverbrand coat of arms", false, false, false );
+	addDescription(2420,	2,	"mit dem silbernen Symbol Irmoroms auf der linken Brust", "with the silver symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2421,	1,	"weiße Robe mit der Stickerei der Druiden des Waldes", "white robe with the embroidery of the Druids of the Forest", false, true, false );
 	addDescription(2421,	2,	"langes weißes Gewand", "long white garment", false, true, 2 );
+	addDescription(2421,	3,	"mit dem goldenen Symbol Irmoroms auf der linken Brust", "with the golden symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2421,	16,	"weißer Mantel mit einem blauen, aufgebäumten Pferd", "white mantle with blue rampant horse", false, true, 0 );
 	addDescription(2547,	1,	"weißes Stück Leder mit einem grünen Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a green ribbon and the emblem of the Nordmark burnt in", true, true, false );
 	addDescription(2547,	2,	"weißes Stück Leder mit einem roten Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a red ribbon and the emblem of the Nordmark burnt in", true, true, false );
