@@ -1,0 +1,186 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Natiana Banius                                          Runewick --
+-- NPC Job:  Sickly Housewife                                                 --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Grokk                                                            --
+--                                                                            --
+-- Last parsing: January 10, 2011                        easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Natiana Banius"
+race = human
+sex = female
+position = 0, 0, 0
+direction = south
+affiliation = "Runewick"
+job = "Sickly Housewife"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Grokk"
+
+lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
+lookatUS = "This NPC is Natiana Banius the Farmer's Wife."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "#me shivers, 'D...d...don't...get...t...too...close.'"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me weakly shakes her head."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- CAVE: replace (1337) with valid queststatus
+
+-- TO BE DONE
+
+-- Position, direction, affiliation
+-- Translation
+-- Location: with NPC Rowan Banius. Should be indoors, seated (or lying down in a bed, if possible).
+-- Replace (1337) with valid quest status (The Farmer's Wife quest chain, same as NPC Rowan Banius)
+-- Tentatively assigned affiliation (Runewick), replace as desired (must be same as affiliation of NPC Rowan Banius)
+
+-- Debugging
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
+".+", queststatus(1337) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keyphrases: quest")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "#me struggles to open her eyes, looking up at you.", "#me smiles weakly.", "H...h...hello."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "T...t...take...care.", "#me lightly taps your hand in acknowledgment.", "#me slightly inclines her head."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "T...t...take...care.", "#me lightly taps your hand in acknowledgment.", "#me slightly inclines her head."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "I am...v...very...sick.", "T...the...medico does...doesn't know what...i...is wrong...with me.", "#me coughs into a handkerchief, stained red."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "I am...N...Natiana.", "M...m...my name...is Natiana...Banius.", "N...Natiana Banius. I...I am...the wife...o...of Rowan."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Aurora", english -> "#me forces a weak smile at the mention of the name."
+"Aurora" -> "German"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- The Farmer's Wife quest incomplete
+"quest", "mission", queststatus(1337) < 11, english -> "P...please...help my husband."
+"quest", "mission", queststatus(1337) < 11 -> "GERMAN."
+"task", "adventure", queststatus(1337) < 11 -> "M...my...husband."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) < 11 -> "GERMAN."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Natiana", "Banius", english -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- The Farmer's Wife quest completed
+".+", queststatus(1337) = 11, english -> "#me forces a smile, 'Thank you.'"
+".+", queststatus(1337) = 11 -> "GERMAN."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "F...forgive me...I...m...must rest.", "#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.", "P...please...let me...rest.", "#me's head slowly lolls about. She seems unfocused upon the conversation.", "I m...must save my...strength.", "I should...s...save...my breath.", "P...please...h...help...my husband.", "Rowan...n...needs help.", "#me coughs sharply, wincing in pain."
+".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "#me smiles weakly."
+cycletext "GERMAN.", "#me coughs into a stained-red handkerchief."
+cycletext "GERMAN.", "#me glances to her husband, a warm expression appearing upon her face."
+cycletext "GERMAN.", "#me closes her eyes, drifting into a fitful sleep."
+cycletext "GERMAN.", "#me sighs faintly."
+cycletext "GERMAN.", "#me smiles at her husband."
+cycletext "GERMAN.", "#me's eyes flicker a few times, before falling shut."
+cycletext "GERMAN.", "#me turns her head slightly."
+cycletext "GERMAN.", "#me nods weakly."
+cycletext "GERMAN.", "#me lets out a sharp cough, wincing in pain."
