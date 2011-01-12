@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Frobenius                                                   None --
--- NPC Job:  none                                                             --
+-- NPC Name: Frobenius                                                Cadomyr --
+-- NPC Job:  Blacksmith                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  119, 594, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: human                      NPC Position:  121, 599, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 12, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Frobenius"
@@ -149,8 +149,8 @@ itemShoes = 53
 "Malachin", "Malachín" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
 "Irmorom", english -> "Irmorom would be proud if he beheld my art. I'm his most hard working scholar."
 "Irmorom" -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
-"Sirani", english->"Oh, come on, you don't want to talk to a person like me about Sirani, do you!"
-"Sirani"->"Oh, ich denkt doch nicht etwas, dass ein Kerl wie ich gerne mit euch über Sirani reden will!"
+"Sirani", english -> "Oh, come on, you don't want to talk to a person like me about Sirani, do you!"
+"Sirani" -> "Oh, ich denkt doch nicht etwas, dass ein Kerl wie ich gerne mit euch über Sirani reden will!"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I sell swords!", "I sell helmets!", "I sell axes!", "I sell armour!"
@@ -178,8 +178,8 @@ cycletext "Was!", "What!"
 cycletext "Hört auf zu glotzen, kauft, oder geht weiter!", "Stop looking, buy something or go away."
 cycletext "Scharfe Klingen, beste Helme für die Schlacht!", "Sharp blades, best helmets for battle!"
 cycletext "Meine Klingen sind zum Töten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood."
-cycletext "Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!","Best weapons for killing orcs, goblins and Galmairians!"
-cycletext "Ihr da! Eure Waffe ist der letze Schrott. Ich hätte das was im Angebot für euch.","Lo! Your weapon is scrap. I'd have something for you."
-cycletext "#me poliert eine Schwertklinge.","#me polishes the blade of a sword."
-cycletext "Jeden Tag eine gute Tat.","An axe a day keeps the raptor away."
-cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!","Today is a good day to die for the foes of the queen."
+cycletext "Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!", "Best weapons for killing orcs, goblins and Galmairians!"
+cycletext "Ihr da! Eure Waffe ist der letze Schrott. Ich hätte das was im Angebot für euch.", "Lo! Your weapon is scrap. I'd have something for you."
+cycletext "#me poliert eine Schwertklinge.", "#me polishes the blade of a sword."
+cycletext "Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away."
+cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die for the foes of the queen."

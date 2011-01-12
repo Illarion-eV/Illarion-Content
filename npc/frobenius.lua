@@ -162,7 +162,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
