@@ -2,9 +2,9 @@
 --Race:        invisble
 --Town:        Cadomyr, Runewick, Galmair, Hemp Necktie Inn
 --Function:    Teleporter
---Position:    Cadomyr: 141, 631, 0 ,Runewick: 789, 825, 0, Galmair: 425, 246, 0, Wilderland (Hemp Necktie Inn): 685, 309, 0
+--Position:    Cadomyr: 127,647,0, Runewick: 788,826,0, Galmair: 425,246,0, Wilderland (Hemp Necktie Inn): 684,307,0
 --Facing:      North, doesn't matter, they are pretty much... invisble, you know.
---Last Update: 06/25/2010
+--Last Update: 01/12/2011
 --Update by:   Estralis Seborian
 
 module("npc.static_teleport", package.seeall)
