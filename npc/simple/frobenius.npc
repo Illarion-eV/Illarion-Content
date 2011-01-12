@@ -90,7 +90,7 @@ itemShoes = 53
 
 -- Catching quest triggers
 "quest", "mission", english -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
-"quest", "mission", german -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
+"quest", "mission" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 "task", "adventure" -> "Your quest today: Defend Cadomyr with my weapons. You have to buy one first..."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 
