@@ -13,10 +13,10 @@
 name = "Frobenius"
 race = human
 sex = male
-position = 119, 594, 0
-direction = east
-affiliation = "None"
-job = "none"
+position = 121, 599, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Blacksmith"
 
 language = common
 language = human
@@ -25,17 +25,17 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Schmied Frobenius."
+lookatUS = "This NPC is the blacksmith Frobenius."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 3
+colorHair = 255, 255, 255
+colorSkin = 181, 127, 85
 itemHead = 0
 itemChest = 365
 itemCoat = 2419
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -71,8 +71,8 @@ itemShoes = 53
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keyphrases: Hello, blacksmith.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: Hallo, Schmied.")
+"Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keyphrases: Hello, blacksmith, iron.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmied Frobenius. Schlüsselwörter: Hallo, Schmied, Eisen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Let's get to business, alright?"
@@ -99,10 +99,10 @@ itemShoes = 53
 "beruf" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
 "job", english -> "I am a blacksmith. That means I craft weapons of death."
 "job" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "That reminds me on a story I once heard... a very sad story."
+"Gobaith", "Gobiath" -> "Das erinnert mich an eine alte Geschichte, die ich einst hörte... eine traurige Geschichte."
+"my name" -> "Ah.", "Well?", "Need weapons?"
+"mein Name" -> "Aha.", "Nun?", "Braucht ihr eine Waffe?"
 
 -- More small talk; add at least five triggers
 "iron" -> "Iron is tough, stiff and hard. The perfect material for weapons."
@@ -143,12 +143,14 @@ itemShoes = 53
 "salkama" -> "Salkamaerische Rüstungen mögen funkeln und blitzen, aber sie sind nicht effektiv."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", english -> "Every sword I craft I craft for Malachin himself."
-"Malachin" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
+"god" -> "I just have faith in Malachín and Irmorom. I mean, what good does Sirani, the goddess of hugs?"
+"Gott", "Götter" -> "Ich vertraue nur auf Malachín und Irmorom. Ich meine, was ist der Nutzen von Sirani, Göttin der Umarmungen?"
+"Malachin", "Malachín", english -> "Every sword I craft I craft for Malachin himself."
+"Malachin", "Malachín" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
 "Irmorom", english -> "Irmorom would be proud if he beheld my art. I'm his most hard working scholar."
 "Irmorom" -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
+"Sirani", english->"Oh, come on, you don't want to talk to a person like me about Sirani, do you!"
+"Sirani"->"Oh, ich denkt doch nicht etwas, dass ein Kerl wie ich gerne mit euch über Sirani reden will!"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I sell swords!", "I sell helmets!", "I sell axes!", "I sell armour!"
@@ -157,8 +159,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Frobenius", english -> "That's me.", "Frobenius is my name and I am the local blacksmith.", "My weapons bring doom over the foes of Cadomyr."
+"Frobenius" -> "Das bin ich.", "Frobenius ist meine Name und ich bin der Schmied hier.", "Meine Waffen bringen Verderben über die Feinde Cadomyrs."
 "Yes" -> "What do you mean?", "What do you need?", "I have a good weapon for you."
 "Ja" -> "Was meint ihr?", "Was braucht ihr?", "Ich habe eine gute Waffe für euch."
 "No" -> "As you like.", "Per chance you want a helmet?", "My swords never go blunt."
@@ -176,3 +178,8 @@ cycletext "Was!", "What!"
 cycletext "Hört auf zu glotzen, kauft, oder geht weiter!", "Stop looking, buy something or go away."
 cycletext "Scharfe Klingen, beste Helme für die Schlacht!", "Sharp blades, best helmets for battle!"
 cycletext "Meine Klingen sind zum Töten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood."
+cycletext "Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!","Best weapons for killing orcs, goblins and Galmairians!"
+cycletext "Ihr da! Eure Waffe ist der letze Schrott. Ich hätte das was im Angebot für euch.","Lo! Your weapon is scrap. I'd have something for you."
+cycletext "#me poliert eine Schwertklinge.","#me polishes the blade of a sword."
+cycletext "Jeden Tag eine gute Tat.","An axe a day keeps the raptor away."
+cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!","Today is a good day to die for the foes of the queen."
