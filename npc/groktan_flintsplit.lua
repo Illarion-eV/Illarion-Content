@@ -1597,7 +1597,7 @@ mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 812);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 2664);
-mainNPC:setEquipment(6, 2664);
+mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 34);
 mainNPC:setEquipment(10, 53);
