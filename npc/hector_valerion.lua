@@ -2,8 +2,8 @@
 -- NPC Name: Hector Valerion                                          Cadomyr --
 -- NPC Job:  Ambassador                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  135, 552, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  139, 553, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 135, 552, 0, 0, 'Hector Valerion', 'npc.hector_valerion', 0, 2, 5, 200, 130, 40, 139, 90, 43);
+VALUES (0, 139, 553, 0, 4, 'Hector Valerion', 'npc.hector_valerion', 0, 1, 1, 200, 130, 40, 139, 90, 43);
 ---]]
 
 require("npc.base.basic")

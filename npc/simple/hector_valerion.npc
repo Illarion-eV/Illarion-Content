@@ -2,8 +2,8 @@
 -- NPC Name: Hector Valerion                                          Cadomyr --
 -- NPC Job:  Ambassador                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  135, 552, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  139, 553, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Hector Valerion"
 race = human
 sex = male
-position = 135, 552, 0
-direction = north
+position = 139, 553, 0
+direction = south
 affiliation = "Cadomyr"
 job = "Ambassador"
 
@@ -32,8 +32,8 @@ useMsgUS = "You won't lay hand on a man of the queen, will you?"
 wrongLangDE = "Pardon?"
 wrongLangUS = "Pardon?"
 radius = 0
-hairID = 2
-beardID = 5
+hairID = 1
+beardID = 1
 colorHair = 200, 130, 40
 colorSkin = 139, 90, 43
 itemHead = 0
