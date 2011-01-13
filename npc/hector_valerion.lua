@@ -1573,7 +1573,7 @@ mainNPC:setLookat("Dieser NPC ist der königliche Botschafter Hector Valerion.", 
 mainNPC:setUseMessage("Ihr werdet die Finger von einem Mann ihrere Majestät lassen.", "You won't lay hand on a man of the queen, will you?");
 mainNPC:setConfusedMessage("Pardon?", "Pardon?");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 849);
+mainNPC:setEquipment(3, 837);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
