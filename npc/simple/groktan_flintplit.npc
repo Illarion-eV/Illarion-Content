@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 13, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Groktan Flintsplit"
@@ -32,20 +32,20 @@ useMsgUS = "I'll teach yer touchin' meh!"
 wrongLangDE = "Schnauze!"
 wrongLangUS = "Shut it!"
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 4
+beardID = 1
+colorHair = 139, 69, 19
+colorSkin = 247, 183, 128
 itemHead = 0
-itemChest = 181
+itemChest = 812
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 2664
 itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -225,8 +225,8 @@ itemShoes = 53
 "Schuld" -> "Schulden bei Don Valerio sind so eine Sache. Wer loyal zum Don steht, dem gewährt er gerne Kredit oder Stundung. Aber wer seine Protektionsgebühr nicht rechtzeitig zahlt, der verliert auch seinen Schutz... vor mir!"
 "geld" -> "Kupfer, Silber und Gold. Mit dem ersten bewerfe ich Bettler, mitten in die Fresse. Das zweite behalte ich für mich. Das letzte gehört dem Don, vergiss das nie!"
 "Zins" -> "Zinsen? Was soll das denn sein? Entweder, du zahlst deine Schulden rechtzeitig zurück oder zu zahlst mit deinen Knochen. Ist es das, was man unter 'Zinsen' versteht?"
-"Dwarf"->"If you're here for the throwing competition, I have to dissapoint you. It was canceled due to a lack of healthy participants."
-"Zwerg"->"Wenn du wegen dem Weitwurfwettbewerb hier bist, muss ich dich enttäuschen. Der wurde mangels gesunder Teilnehmer abgesagt."
+"Dwarf" -> "If you're here for the throwing competition, I have to dissapoint you. It was canceled due to a lack of healthy participants."
+"Zwerg" -> "Wenn du wegen dem Weitwurfwettbewerb hier bist, muss ich dich enttäuschen. Der wurde mangels gesunder Teilnehmer abgesagt."
 
 -- Other NPCs
 "Miggs", english -> "Aye, Miggs. My best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
@@ -263,6 +263,7 @@ itemShoes = 53
 -- Main land factions
 "albar", english -> "I'm not so familiar with other lands. Albar you say? Sounds like a good sparkling wine."
 "albar" -> "Ich kenne mich nicht mit anderen Ländern aus. Albar sagst du? Klingt nach einem guten Schaumwein."
+
 -- Comment: Herzog Alba is a very cheap sparkling wine you can buy at ALDI
 "gynk", "gync", english -> "Gynk; oh yes, the land of my dreams. Freedom for everyone, at least if you can afford it."
 "gync", "gynk" -> "Gynk; oh ja, das Land meiner Träume. Freiheit für alle, solange man sie sich leisten kann."
@@ -312,12 +313,12 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Mir ist nicht danach.", "Sehe ich aus wie ein Elfenbarde?", "Weißt du eigentlich, wie schmerzhaft es ist, jemanden an der Zunge zu ziehen? Echsenwesen hassen das ganz besonders."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Groktan", "Flintsplit", english -> "Who asks for me?", "Arr!", "What do you want? Bruises?"
+"<NPC-Vorname>", "<NPC-Nachname>" -> "Wer fragt nach mir?", "Arr!", "Was wollt ihr? Ne Abreibung?"
 "Yes" -> "There is something I wanted to say, but I forgot...", "Can you rephrase that?", "Don't try to fool me or I fool you... in your face!"
 "Ja" -> "Ich wollte gerade noch etwas sagen, aber ich hab es vergessen.", "Kannst das anders ausdrücken?", "Veräppel mich und ich veräppel... dein Gesicht!"
-"No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell more about that?", "What!?","Eh?"
-"Nein" -> "Na und, ich mach was der Don mir sagt.", "Das ist sehr interessant, warum erzählst du nicht mehr darüber?", "Was!?","Eh?"
+"No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell more about that?", "What!?", "Eh?"
+"Nein" -> "Na und, ich mach was der Don mir sagt.", "Das ist sehr interessant, warum erzählst du nicht mehr darüber?", "Was!?", "Eh?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

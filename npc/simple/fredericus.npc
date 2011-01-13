@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Fredericus                                                  None --
--- NPC Job:  none                                                             --
+-- NPC Name: Fredericus                                               Cadomyr --
+-- NPC Job:  Fisherman                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  133, 581, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  117, 618, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 13, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
 race = human
 sex = male
-position = 133, 581, 0
-direction = south
-affiliation = "None"
-job = "none"
+position = 117, 618, 0
+direction = east
+affiliation = "Cadomyr"
+job = "Fisherman"
 
 language = common
 language = human
@@ -29,13 +29,13 @@ lookatDE = "Dieser NPC ist der Fischer Fredericus."
 lookatUS = "This NPC is the fisherman Fredericus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+wrongLangDE = "#me schaut verwirrt umher."
+wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 1
+colorHair = 192, 107, 5
+colorSkin = 180, 126, 84
 itemHead = 0
 itemChest = 182
 itemCoat = 0
@@ -45,7 +45,7 @@ itemHands = 2295
 itemTrousers = 183
 itemShoes = 369
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -65,8 +65,8 @@ itemShoes = 369
 -- 10% Fish: 73, 355, 455
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer.")
+"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
@@ -84,7 +84,7 @@ itemShoes = 369
 
 -- Catching quest triggers
 "quest", "mission", english -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
-"quest", "mission", german -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
+"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
 "task", "adventure" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
 
@@ -94,12 +94,12 @@ itemShoes = 369
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a fisherman. A hard job, but a honest and honourable job."
 "beruf" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"job", german -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"job" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"job", english -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"job" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
 "Gobaith", "Gobiath", english -> "I once sailed to Gobaith, the natives tossed onions at each other!"
 "Gobaith", "Gobiath" -> "Ich bin einmal nach Gobaith gesegelt, die Eingeborenen dort haben mit Zwiebeln aufeinander geworfen!"
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "Oh, interesting, and do you want to become a fisherman like me?", "A nice name, indeed."
+"mein Name" -> "Oh, interessant, wollt ihr auch ein Fischer wie ich werden?", "Ein netter Name."
 
 -- More small talk; add at least five triggers
 "Zerarisa", english -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
@@ -140,10 +140,14 @@ itemShoes = 369
 "salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure."
+"Gott", "Götter" -> "In Cadomyr betet man keinen Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
 "Tanora", "Zelphia", english -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail the goddess!", "I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell."
 "Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
+"Findari", english -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
+"Findari" -> "Findari bringt den vernichtenden Sturm oder den Wind, der die Segel aufbläht, je nach ihrer Stimmungslage."
+"Irmorom", english -> "Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari."
+"Irmorom" -> "Irmorom verhilft mir manches mal zu guten Geschäften, aber mein Leben liegt in Tanoras und Findaris Händen."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught."
@@ -152,12 +156,12 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Fredericus", english -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
+"Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 "Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
 "Ja" -> "Aye, aye, und eine Flunder dazu.", "Vielleicht einen Hering?", "Das ist gut auch so."
-"No" -> "Do you prefer salmon perhaps?", "Will bloaters make you content?"
-"Nein" -> "Mögt ihr lieber Lachs?", "Würde euch ein Bückling zufriedenstellen?"
+"No" -> "Do you prefer salmon perhaps?", "Will bloaters make you content?", "Mackerels?"
+"Nein" -> "Mögt ihr lieber Lachs?", "Würde euch ein Bückling zufriedenstellen?", "Makrelen?"
 "stinkt" -> "Das stimmt nicht.", "Mein Fisch ist lecker!"
 "stinks" -> "It does not!", "My fish is tasty!"
 

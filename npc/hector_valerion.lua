@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 13, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 135, 552, 0, 0, 'Hector Valerion', 'npc.hector_valerion', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 135, 552, 0, 0, 'Hector Valerion', 'npc.hector_valerion', 0, 2, 5, 200, 130, 40, 139, 90, 43);
 ---]]
 
 require("npc.base.basic")
@@ -61,8 +61,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
@@ -75,15 +73,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.");
 talkEntry:addResponse("#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'");
 talkEntry:addResponse("Sprecht oder schweigt, letzteres wäre mir lieber.");
@@ -94,8 +90,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Be greeted. You interrupt me, so it has to be important.");
 talkEntry:addResponse("#me closes a book and grumbles: 'What is it again?'");
@@ -107,8 +102,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.");
 talkEntry:addResponse("#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'");
 talkEntry:addResponse("Sprecht oder schweigt, letzteres wäre mir lieber.");
@@ -117,9 +111,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Can I continue reading now? Undisturbed? Thank you!");
 talkEntry:addResponse("Go and don't come back too early.");
 talkEntry:addResponse("There is the door.");
@@ -130,7 +124,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Kann ich jetzt weiterlesen? Ungestört? Danke!");
 talkEntry:addResponse("Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.");
 talkEntry:addResponse("Da ist die Tür.");
@@ -142,7 +136,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Can I continue reading now? Undisturbed? Thank you!");
 talkEntry:addResponse("Go and don't come back too early.");
@@ -155,7 +148,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addResponse("Kann ich jetzt weiterlesen? Ungestört? Danke!");
 talkEntry:addResponse("Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.");
 talkEntry:addResponse("Da ist die Tür.");
@@ -193,594 +185,6 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You aren't from Gobaith, are you? If so, my condolescence.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
-talkEntry:addTrigger("my name");
-talkEntry:addResponse("You are none of the officals, right? So, what do you require - orders?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
-talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("seal");
-talkEntry:addResponse("Never ever even think about breaking the queen's seal. You'll regret it...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("ambassador");
-talkEntry:addTrigger("embassador");
-talkEntry:addResponse("Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?");
-talkEntry:addResponse("Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.");
-talkEntry:addResponse("I used to travel a lot in diplomatic mission, but now I prefer to read a good book.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("lazy");
-talkEntry:addResponse("Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Order");
-talkEntry:addResponse("The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("despatch");
-talkEntry:addTrigger("dispatch");
-talkEntry:addResponse("Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hastings");
-talkEntry:addTrigger("Baron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("diplomat");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("siegel");
-talkEntry:addResponse("Brecht niemals ein königliches Siegel. Ihr würdet es bereuen...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Botschafter");
-talkEntry:addResponse("Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...");
-talkEntry:addResponse("Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.");
-talkEntry:addResponse("Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("faul");
-talkEntry:addResponse("Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Depesche");
-talkEntry:addResponse("Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hastings");
-talkEntry:addTrigger("Baron");
-talkEntry:addResponse("Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Diplomat");
-talkEntry:addResponse("Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Daerbur");
-talkEntry:addTrigger("Wimbert");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Daerbur");
-talkEntry:addTrigger("Wimbert");
-talkEntry:addResponse("Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Robertus");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Robertus");
-talkEntry:addResponse("Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Arenius");
-talkEntry:addTrigger("Batavius");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Arenius");
-talkEntry:addTrigger("Batavius");
-talkEntry:addResponse("Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Diplomacy is not a skill of the Gynkeesh. They have many, but not that one.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("god");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gott");
-talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You think I worship Elara because I read books? I worship books, isn't that obvious?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Ihr denkt also, ich bin ein Anbete Elaras, weil ich Bücher lese? Ich bin ein Anbeter guter Literatur, ist das nicht offensichtlich?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Malachín is the patron of Cadomyr... But I doubt I have to tell you that.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Malachín ist der Schutzgott Cadomyrs... Aber wem erzähle ich das?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Out of my embassy!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Raus aus meiner Botschaft!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargún");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1478,6 +882,195 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You aren't from Gobaith, are you? If so, my condolescence.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("You are none of the officals, right? So, what do you require - orders?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("seal");
+talkEntry:addResponse("Never ever even think about breaking the queen's seal. You'll regret it...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ambassador");
+talkEntry:addTrigger("embassador");
+talkEntry:addResponse("Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?");
+talkEntry:addResponse("Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.");
+talkEntry:addResponse("I used to travel a lot in diplomatic mission, but now I prefer to read a good book.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("lazy");
+talkEntry:addResponse("Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Order");
+talkEntry:addResponse("The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("despatch");
+talkEntry:addTrigger("dispatch");
+talkEntry:addResponse("Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("diplomat");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("siegel");
+talkEntry:addResponse("Brecht niemals ein königliches Siegel. Ihr würdet es bereuen...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Botschafter");
+talkEntry:addResponse("Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...");
+talkEntry:addResponse("Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.");
+talkEntry:addResponse("Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("faul");
+talkEntry:addResponse("Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Depesche");
+talkEntry:addResponse("Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hastings");
+talkEntry:addTrigger("Baron");
+talkEntry:addResponse("Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Diplomat");
+talkEntry:addResponse("Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Daerbur");
+talkEntry:addTrigger("Wimbert");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Daerbur");
+talkEntry:addTrigger("Wimbert");
+talkEntry:addResponse("Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Robertus");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Robertus");
+talkEntry:addResponse("Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Arenius");
+talkEntry:addTrigger("Batavius");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Arenius");
+talkEntry:addTrigger("Batavius");
+talkEntry:addResponse("Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Duplo");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("They are pretty long, aren't they?");
@@ -1487,6 +1080,438 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Duplo");
 talkEntry:addResponse("Die sind verdammt lang, nicht wahr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Diplomacy is not a skill of the Gynkeesh. They have many, but not that one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addTrigger("Brágon");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("You think I worship Elara because I read books? I worship books, isn't that obvious?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addResponse("Ihr denkt also, ich bin ein Anbete Elaras, weil ich Bücher lese? Ich bin ein Anbeter guter Literatur, ist das nicht offensichtlich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Malachín is the patron of Cadomyr... But I doubt I have to tell you that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Malachín ist der Schutzgott Cadomyrs... Aber wem erzähle ich das?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Out of my embassy!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("Raus aus meiner Botschaft!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addTrigger("Nargún");
+talkEntry:addTrigger("Nargùn");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addResponse("Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am proud of being a Valerion. Are you proud to be a...?");
+talkEntry:addResponse("Hector Valerion, at your service.");
+talkEntry:addResponse("I am the royal ambassador and my name is indeed Hector Valerion.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hector");
+talkEntry:addTrigger("Valerion");
+talkEntry:addResponse("Ich bin stolz darauf, ein Valerion zu sein. Seid ihr stolz darauf ein... was genau nochmal... zu sein?");
+talkEntry:addResponse("Hector Valerion, stets zu Diensten.");
+talkEntry:addResponse("Ich bin der königliche Botschafter und meine Name ist in der Tat Hector Valerion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1544,9 +1569,17 @@ talkingNPC:addCycleText("#me betrachtet missmutig eine Schriftrolle, die das kön
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Hector Valerion der königliche Botschafter.", "This NPC is Hector Valerion the royal ambassador.");
+mainNPC:setLookat("Dieser NPC ist der königliche Botschafter Hector Valerion.", "This NPC is the royal ambassador Hector Valerion.");
 mainNPC:setUseMessage("Ihr werdet die Finger von einem Mann ihrere Majestät lassen.", "You won't lay hand on a man of the queen, will you?");
 mainNPC:setConfusedMessage("Pardon?", "Pardon?");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 849);
+mainNPC:setEquipment(11, 195);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 827);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

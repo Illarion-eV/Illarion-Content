@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 13, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hector Valerion"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Hector Valerion der königliche Botschafter."
-lookatUS = "This NPC is Hector Valerion the royal ambassador."
+lookatDE = "Dieser NPC ist der königliche Botschafter Hector Valerion."
+lookatUS = "This NPC is the royal ambassador Hector Valerion."
 useMsgDE = "Ihr werdet die Finger von einem Mann ihrere Majestät lassen."
 useMsgUS = "You won't lay hand on a man of the queen, will you?"
 wrongLangDE = "Pardon?"
@@ -34,18 +34,18 @@ wrongLangUS = "Pardon?"
 radius = 0
 hairID = 2
 beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+colorHair = 200, 130, 40
+colorSkin = 139, 90, 43
 itemHead = 0
-itemChest = 181
-itemCoat = 0
+itemChest = 849
+itemCoat = 195
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemHands = 2295
+itemTrousers = 827
+itemShoes = 369
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -312,8 +312,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hector", "Valerion", english -> "I am proud of being a Valerion. Are you proud to be a...?", "Hector Valerion, at your service.", "I am the royal ambassador and my name is indeed Hector Valerion."
+"Hector", "Valerion" -> "Ich bin stolz darauf, ein Valerion zu sein. Seid ihr stolz darauf ein... was genau nochmal... zu sein?", "Hector Valerion, stets zu Diensten.", "Ich bin der königliche Botschafter und meine Name ist in der Tat Hector Valerion."
 "Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."
 "Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.", "Ich versuche hier zu lesen!", "#me seufzt."
 "No" -> "I guess I forgot on which page I was.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"
