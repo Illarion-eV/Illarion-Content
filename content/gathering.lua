@@ -125,7 +125,7 @@ function InitGathering()
 
 		--fishing
 
-		fishing:AddSpecialRandomItem(2554,1,333,0,0.5,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour, Tanora, the Godess of Water, awards you with a treasure of Pure Water."); --Pure water
+		fishing:AddSpecialRandomItem(2554,1,333,0,50.5,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labour, Tanora, the Godess of Water, awards you with a treasure of Pure Water."); --Pure water
 		fishing:AddSpecialRandomItem(284,1,333,1,0.005,"Im Wasser kaum auszumachen, erspähst du ein blaues Funkeln am Boden des Gewässers. Du findest einen magischen Blaustein.","In the water, you spot a barely noticeable blue sparkle at the bottom of the water. You find a magical bluestone."); --Magical bluestone
 		fishing:AddSpecialRandomItem(51,1,333,0,0.005,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","A bucket gets caught in your fishing line. Someone must have lost it here."); --Bucket
 		fishing:SetTreasureMap(0.015,"Statt eines Fisches hast du eine Karte am Haken hängen.","Instead of a fish you find a map hanging on your hook.");
