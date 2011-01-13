@@ -1574,7 +1574,7 @@ mainNPC:setUseMessage("Ihr werdet die Finger von einem Mann ihrere Majestät lass
 mainNPC:setConfusedMessage("Pardon?", "Pardon?");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 849);
-mainNPC:setEquipment(11, 195);
+mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
