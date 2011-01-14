@@ -26,7 +26,7 @@ autointroduce = on
 author = "not set"
 
 lookatDE = "Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn."
-lookatUS = "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!"
+lookatUS = "An hoary dwarf. In the corner of his mouth tucks a ornated pipe and small cloud of smoke surround him."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
