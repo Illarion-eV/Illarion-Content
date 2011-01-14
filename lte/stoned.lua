@@ -117,8 +117,8 @@ function callEffect(stonedEffect, Character)    -- Effect wird ausgeführt
             Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me fallen immer wieder die Augen zu.");
             Character:talkLanguage(CCharacter.say,CPlayer.english,"#me closes "..eText.." eyes every now and then.");
         else
-            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me murmelt unverständliches Zeug zu sich selbst.");
-            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me murmurs nothing but gibberish to "..eTextm.."self.");
+            Character:talkLanguage(CCharacter.say,CPlayer.german ,"#me murmelt unverständliches Zeug.");
+            Character:talkLanguage(CCharacter.say,CPlayer.english,"#me murmurs nothing but gibberish.");
         end
 
 

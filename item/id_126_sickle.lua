@@ -142,7 +142,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			skilluse=1;
 	        base.common.InformNLS( User,
                       "Deine Kenntnisse in der Kräuterkunde sind nicht ausreichend, um hier etwas Brauchbares zu sammeln.",
-                      "Your knowlege in herblore is not sufficiently to collect herbs here.");
+                      "Your knowlege in herblore is not sufficient to collect herbs here.");
             elseif ( harvest[ 4 ] ~= 0 ) then
                 if( math.random( 100 ) < 80 ) then
                     success = true;
@@ -240,7 +240,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 end
             end
 
-            if( (not success ) and (skilluse~=1) ) then
+            if( (not success ) and (skilluse~=1) ) and math.random(1,30) == 10 then --spam protection: 1/30 chance for message
                 if( boden == 1 ) then
                     base.common.InformNLS( User,
                     "Deine Hände graben durch die Erde, aber Du findest nichts.",

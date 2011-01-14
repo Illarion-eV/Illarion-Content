@@ -32,12 +32,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if base.common.Encumbrence(User) then -- Behinderung
         base.common.InformNLS(User,
-        "Deine R�stung behindert dich beim Honig Sammeln.",
+        "Deine Rüstung behindert dich beim Honigsammeln.",
         "Your armor disturbs you while collecting honeycombs.");
         return
     end
 	
-	if (ltstate == Action.none) then -- Unt�tig: Starte Honig Sammeln!
+	if (ltstate == Action.none) then -- Untätig: Starte Honig Sammeln!
         User:startAction(honeygathering:GenWorkTime(User, nil), 0, 0, 0, 0);
         User:talkLanguage(CCharacter.say, CPlayer.german, "#me beginnt nach Honig zu suchen.");
         User:talkLanguage(CCharacter.say, CPlayer.english, "#me starts to search for honey.");

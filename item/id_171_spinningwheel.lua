@@ -35,9 +35,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife R�stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine R�stung behindert beim spinnen.",
+        "Deine Rüstung behindert beim Spinnen.",
         "Your armour disturbes you while spinning." );
         return
     end
@@ -48,7 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",6)==0) then -- Schere
         base.common.InformNLS( User,
-        "Du ben�tigst eine Schere um die Wolle oder Sibanac zu spinnen.",
+        "Du benötigst eine Schere um die Wolle oder Sibanac zu spinnen.",
         "You need scissors to spin the wool or sibanac." );
         return
     end
@@ -68,7 +68,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ((User:countItemAt("belt",170) < 1) and (User:countItemAt("belt",155) < 3)) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du ben�tigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
+            "Du benötigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
             "You need some wool or sibanac to work at the spinning wheel." );
         end
         return
@@ -76,8 +76,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if ( ltstate == Action.none ) then
         User:startAction( GenWorkTime(User), 0, 0, 0, 0);
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt zu spinnen.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to spin.");
+        User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt Wolle zu spinnen.");
+        User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to spin wool.");
         return
     end
     

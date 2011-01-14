@@ -166,8 +166,8 @@ function initMessages()
     SetAttribute( "intelligence" );
     SetRace( CCharacter.human );
     SetMessage(-1,"Nachdem du heute Morgen längere Zeit brauchtest, um zu erkennen, dass deine Hände nicht in die Schuhe gehören, solltest du dich wohl gar nicht erst an anspruchsvolle Aufgaben heranwagen.");
-    SetMessage(2,"Nichts, was dir heute jemand sagt, kann dich verwirren, nicht mal das sinnloses Gebrabbel Aughams, denn du hast heute den Scharfsinn gepachtet!");
-    SetMessage(1,"Dein Kopf würde heute gerne etwas komplizierteres unternehmen, als nur den stumpfen Alltag mitzuerleben. Ließ doch mal ein Buch, du wirst sehen, so schwer fällt dir das nicht!");
+    SetMessage(2,"Nichts, was dir heute jemand sagt, kann dich verwirren, nicht mal sinnloses Gebrabbel, denn du hast heute den Scharfsinn gepachtet!");
+    SetMessage(1,"Deine heutige Verfassung: Dein Kopf würde heute gerne etwas komplizierteres unternehmen, als nur den stumpfen Alltag mitzuerleben. Lies doch mal ein Buch, du wirst sehen, so schwer fällt dir das nicht!");
     SetRace( CCharacter.orc );
     SetMessage(1,"Richtig! Ork schreibt man mit k! Hoffentlich behältst du das bis morgen.");
     SetMessage(2,"Heute sind dir drei Sätze ohne Rechtschreibfehler gelungen, Respekt.");
@@ -199,7 +199,7 @@ function initMessages()
     SetRace( CCharacter.lizardman );
     SetMessage(2,"Du solltest den Tanz der Fische vor der Küste beobachten, heute kannst du sicherlich mit Leichtigkeit einen Plan entwickeln, der dich in kürzerer Zeit mehr Fische fangen lässt.");
     SetMessage(-1,"Viel mehr als \"Fisch\" kannst du heute nicht groß denken.");
-    SetMessage(1,"Heute fühlst du die so richtig aufgeweckt. Zeit, den Landwesen mal zu zeigen, welche Rasse die schlauste ist.");
+    SetMessage(1,"Heute fühlst du dich so richtig aufgeweckt. Zeit, den Landwesen mal zu zeigen, welche Rasse die schlauste ist.");
 
     SetAttribute( "willpower" );
     SetRace( CCharacter.human );
@@ -319,7 +319,7 @@ function initMessages()
     SetRace( CCharacter.human );
     SetMessage(-1,"Als du versuchst, dir die Haare zu kämmen, fällt dir der Kamm aus der Hand zu Boden. Vielleicht solltest du deinen Fingern eine Pause gewähren.");
     SetMessage(2,"Deine Finger machen heute die verrücktesten Bewegungen mit, von denen du vorher gar nicht gedacht hättest, dass sie möglich sind.");
-    SetMessage(1,"Als du vorhin einen Popel weggeschnippt hast, ist er genau auf einem Astloch gelandet, wo es sonst kein anderes gibt, gut geschossen.");
+    SetMessage(1,"Als du vorhin einen Popel weggeschnippt hast, ist er genau in einem Astloch gelandet, wo es sonst kein anderes gibt, gut geschossen.");
     SetRace( CCharacter.dwarf );
     SetMessage(-1,"Beim Schmieden haust du dir öfters auf die Finger, als sonst.");
     SetMessage(2,"Deine Klingen werden heute so scharf und gerade wie noch nie!");
@@ -460,7 +460,7 @@ function initMessages()
     SetMessage(1,"The fresh air blowing across the fields is quite pleasant. Your head feels clear and prepared for new things.");
     SetMessage(-1,"If you were green, not that hairy and had larger ears ... you would have probably fit in quite perfectally in a goblin school today!");
     SetRace( CCharacter.elf );
-    SetMessage(1,"Today you really feel that you actually DO outsmart humans.");
+    SetMessage(1,"Even the memories of your early youth come to mind quickly; age and experience are with you today and you can solve any problem with ease.");
     SetMessage(-1,"You don't feel quite as intelligent as usual today. You wonder what may have happened.");
     SetMessage(2,"If you could share your intelligence today, half of the isle would be smart enough to study the arcane arts.");
     SetRace( CCharacter.lizardman );
