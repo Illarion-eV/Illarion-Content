@@ -107,10 +107,20 @@ itemShoes = 53
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "druid" -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment. But soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
 "aurora" -> "Aurora was kind enough to choose me as her apprentice. She is very slow to teach me, though.", "Mistress Aurora is teaching me the ways of the druids. I wish she would hurry up...", "Aurora tells me that I need to learn patience. I wish she would hurry up and teach me it."
+"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
 "albar", english -> "I don't know much about Albar.", "I hear that they don't respect women in Albar. Is that true?", "People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though."
