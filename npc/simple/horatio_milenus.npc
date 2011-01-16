@@ -265,3 +265,32 @@ cycletext "Galmair, Galmair, Galmair! Reden die anderen Völker über nichts and
 cycletext "Wer zur Königin will, muss zunächst ein den Palast, wer in den Palast will, muss erst in die Stadt und wer in die Stadt will, muss an mir vorbei.", "Those who wish to see the queen must first be allowed into the palace, those allowed into the palace must first enter the city, those entering the city must first speak to me."
 cycletext "Dies ist Cadomyr und der Palast der Edwards. Die derzeitige Regentin der königlichen albarischen Blutlinie ist die weise und wunderschöne Königin Rosaline.", "This is Cadomyr and the palace of the Edwards. The current regent of the Abarian royal Edward's bloodline is Queen Rosaline Edwards, a Queen who is both wise and beautiful."
 cycletext "Rosaline, ihr seid mein Herz und meine Seele.", "Rosaline, you're my heart, you're my soul, I keep it shining everywhere I go."
+
+--[[ replace the receiveText and nextCycle functions:
+function receiveText(texttype, message, speaker)
+	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
+	mainNPC:receiveText(speaker, message);
+end;
+function nextCycle()
+	mainNPC:nextCycle();
+	if not guards_init then
+		-- init after 10 cycles
+		guards_init = 10;
+		gCount = 0;
+	end
+	if guards_init == 0 then
+		guards_init = -1;
+		npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
+	elseif guards_init > 0 then
+		guards_init = guards_init - 1;
+	end
+	if guards_init == -1 then
+		if gCount == 4 then
+			gCount = 0;
+			npc.base.guards_static.CheckForEnemies(thisNPC);
+		else
+			gCount = gCount + 1;
+		end
+	end
+end;
+]]
