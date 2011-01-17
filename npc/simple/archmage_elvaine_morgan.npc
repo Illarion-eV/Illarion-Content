@@ -25,17 +25,17 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
-useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+lookatDE = "Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und  gewandt erscheinen seine Bewegungen.  "
+lookatUS = "translate!"
+useMsgDE = "Macht Euch doch keine Mühe, ihr verletzt Euch noch selbst."
+useMsgUS = "TRANSLATE"
+wrongLangDE = "#me schaut dich ausdruckslos an. 'Wie bitte?'"
+wrongLangUS = "#me looks at you motionless. 'Excuse me?'"
 radius = 0
 hairID = 2
 beardID = 0
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+colorHair = 209, 197, 199
+colorSkin = 250, 239, 237
 itemHead = 0
 itemChest = 181
 itemCoat = 0
@@ -44,6 +44,8 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+grau blau
+
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -58,6 +60,7 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan der Herrscher über Runewick. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1", "ENGLISH2.", "ENGLISH3."
@@ -166,34 +169,33 @@ itemShoes = 53
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Bitte verzeiht, aber ich handle nicht mit Euch.", "Eines Erzmagiers Geschäfte sind, nun ja - Geschäfte die nur für den Erzmagier von Revelanz sind.", "Der Marktplatz befindet sich gleich vor den Portalen zur Stadt. Es sollte unmöglich sein daran vorbei zu laufen."
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"erzähl was", "erzähl etwas" -> "Die Zeichen, die ich bemerkte sind eindeutig und schon bald werden sie auch weithin zu sehen sein.", "Nur der Narr ignoriert die unwahrscheinlichsten Möglichkeiten und versteift sich auf das was offensichtlich ist.", "An manchen Tagen denke ich... - Könnte das Menschenvolk Regenbögen in einen Käfig sperren, würden sie es vermutlich tun."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "Auf ein Wort?", "Welches Anliegen führt Euch zu mir?", "Bitte fasst Euch kurz."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "Auf ein Wort?", "Welches Anliegen führt Euch zu mir?", "Bitte fasst Euch kurz."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ja" -> "#me nickt sanft aber bestimmt.", "War das alles?", "Elaras Weisheit möge Euch erleuchten."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nein" -> "#me lächelt ein wenig und schweigt.", "Jene Dinge von denen einer glauben mag, er wolle sie, sind oft nicht die die einer braucht.", "Warum nicht?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", chance(20) -> "Wesshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt..."
 
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me's leuchtend graue Augen wandern aufmerksam durch den Raum.", "ENGLISH."
+cycletext "#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "ENGLISH."
+cycletext "#me", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
