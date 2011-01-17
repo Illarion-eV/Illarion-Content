@@ -160,9 +160,9 @@ itemShoes = 53
 "Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tanora", "Zelphia" -> "Tanora mag die unberührte Schönheit der Natur, deshalb ist sie auch die einzige der ältern Götter, welche nicht selten auf Illarion umherwandert.", "Die Gesellschaft der Echsenmenschen wird sehr stark von den glauben an Tenora geprägt. Allerdings nennen sie Tanora, Zelphia.", "Echsenmenschen, Fischer, Heiler, Seeleute. Das sind die Anhänger Tanoras, der Göttin des Wassers."
 "Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara" -> "Als Ushara Illarion verließ, ernannte sie Oldra zu ihrer Verteterin und so wird sie nun an Ihrer statt in neuen Tempeln verehrt.", "Ushara, die Mutter - die Erde, auf der die vier Türme Runewicks erbaut wurde. Wie mir selbst ist ihr die Vergänglichkeit der Dinge besonders bewusst.", "Ushara hat besonders wenige Anhänger, die meisten sind weibliche alte Druiden oder Elfen. Und einige wenige von ihnen scheinen Ushara persönlich begegnet zu sein."
 "Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra" -> "Zhambra der Brudergott. Freundschaft und Treue sind ihm das höchste Gut. Die Ehre eines Mannes ist ihm teuer, niemals würde er hinterlistige Tricks gut heißen.", "Der Gott der Freundschaft und Treue - Zhambra. Mit sicherheit findet ihr einen seiner Tempel in Cadomyr.", "Zhambras Anhänger sind eher, nun - geradlinig. Ritter, Höflinge und Krieger. In der Schlacht ist die Freundschaft der Mitstreiter eine ungleich wertvolle Kraftquelle."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
