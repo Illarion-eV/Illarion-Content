@@ -98,15 +98,79 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "Fosco Goodbarrel, at your service!", "Fosco Goodbarrel, halfling extraordinaire!", "You don't know me?! I'm Fosco Goodbarrel!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+-- 1st quest: Bring Fosco's flute
+
+-- Give out quest 1
+"quest", "mission", queststatus(13372) = 6, english -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(13372) = 7
+"quest", "mission", queststatus(13372) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 7
+"task", "adventure", "staff", queststatus(13372) = 6 -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(13372) = 7
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 7
+
+-- Quest 1 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(13372) = 7, english -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
+"quest", "mission", queststatus(13372) = 7 -> "GERMAN."
+"task", "adventure", "staff", queststatus(13372) = 7 -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 7 -> "GERMAN."
+
+-- Quest 1 solved, ornate dagger deleted, battle staff added
+".+", queststatus(13372) = 10, item(391, all) > 0, english -> inform("[Quest updated] Aurora's Staff: Part II."), "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.", deleteItem(391, 1), item(391, 1, 499, 0), queststatus(13372) = 11
+".+", queststatus(13372) = 10, item(391, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", deleteItem(391, 1), item(391, 1, 499, 0), queststatus(13372) = 11
+
+-- 2nd quest: Bring 1 black coat and 1 amulet
+
+-- Give out quest 2
+"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.", queststatus(1337) = 1
+"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
+"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..", queststatus(1337) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
+
+-- Quest 2 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 1, english -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 1 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(391, all) < 1 -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 1 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 1, item(392, all) < 1, english -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
+"quest", "mission", queststatus(1337) = 1, item(392, all) < 1 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(392, all) < 1 -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(392, all) < 1 -> "GERMAN."
+
+-- Quest 2 solved, reward: 120cp, strawberry cake
+".+", queststatus(1337) = 1, item(391, all) > 0, item(392, all) > 0, english -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 120, deleteItem(391, 1), deleteItem(392, 1), item(391, 1, 599, 0), queststatus(1337) = 2
+".+", queststatus(1337) = 1, item(391, all) > 0, item(392, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 1), deleteItem(392, 1), item(391, 1, 599, 0), queststatus(1337) = 2
+
+-- No more quests, just nice words of gratitude
+"quest", "mission", queststatus(1337) = 2, english -> "I've got to get busy studying for my new character. Take care, now!"
+"quest", "mission", queststatus(1337) = 2 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 2 -> "I've got to get busy studying for my new character. Take care, now!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> "GERMAN."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a charming rogue!", "When you are this handsome, people pay you for it!", "I steal from the rich. And I steal from the poor. And I give to ol' Fosco!"
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "job", english -> "I'm a charming rogue!", "When you are this handsome, people pay you for it!", "I steal from the rich. And I steal from the poor. And I give to ol' Fosco!"
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "It's an island, surrounded by water, not much more to say, really.", "Lots o' the people here are...hmm...well...slow to catch on.", "The name is strange. The land is stranger. The people are strangest."
+"Gobaith", "Gobiath", english -> "It was an island, surrounded by water, not much more to say, really.", "Lots o' the people there were...hmm...well...slow to catch on.", "The name was strange. The land was stranger. The people were strangest."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "Ah, well! The pleasure is yours!", "I guessed that!", "That was my mother's name!"
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Even I wouldn't dare say it to his face, but the fellow's a nut.", "Just your typical mage, that fellow. Prances around like his feet don't stink.", "Book smarts will only get you so far."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "Even I wouldn't dare say it to his face, but the fellow's a nut.", "Just your typical mage, that fellow. Prances around like his feet don't stink.", "Book smarts will only get you so far."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "They might be quick o' mind, but their feet are another story.", "That town has quite the interest in books. A fair penny can be made from providing them.", "Runewick is full of smarmy educated types. Not my poison."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "How could anyone not admire the Don?", "He knows what he wants, and how to get it.", "He knows that money is the only thing of value in this world. Can't fault him for that!"
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "Plenty of coin flowing through those streets.", "Ahh...Galmair. If you know where to look, you'll find what you need.", "Galmair? I try to lighten the purses of that town whenever I have a moment to help."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Quite the looker, that one.", "Perhaps I should show her some of the ol' Fosco charm.", "You didn't hear it from me, but I hear the Don has an eye for her."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "Quite the looker, that one.", "Perhaps I should show her some of the ol' Fosco charm.", "You didn't hear it from me, but I hear the Don has an eye for her."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "Nice and trusting, those folk. Makes things much easier.", "Big hearts, smaller minds.", "Wouldn't mind making ol' Rosaline my Queen."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
 "albar", english -> "Bo-ring.", "Humans are almost too easy. Almost.", "Albar...eh. Doesn't interest me."
@@ -157,52 +221,6 @@ itemShoes = 53
 "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "tell something" -> "Has anyone ever told you that you have a rather noticeable nose?", "While we've been standing here, I've stolen your purse, and then returned it, compeletely full. I know, it's amazing, thank you.", "If there is one thing I've learned during my travels, it's this: never trust a sober dwarf."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- 1st quest: Bring Fosco's flute
-
--- Give out quest 1
-"quest", "mission", queststatus(13372) = 6, english -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(13372) = 7
-"quest", "mission", queststatus(13372) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 7
-"task", "adventure", "staff", queststatus(13372) = 6 -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He’s in <town name>.", queststatus(13372) = 7
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 6 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 7
-
--- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(13372) = 7, english -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
-"quest", "mission", queststatus(13372) = 7 -> "GERMAN."
-"task", "adventure", "staff", queststatus(13372) = 7 -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 7 -> "GERMAN."
-
--- Quest 1 solved, ornate dagger deleted, battle staff added
-".+", queststatus(13372) = 10, item(391, all) > 0, english -> inform("[Quest updated] Aurora's Staff: Part II."), "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.", deleteItem(391, 1), item(391, 1, 499, 0), queststatus(13372) = 11
-".+", queststatus(13372) = 10, item(391, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", deleteItem(391, 1), item(391, 1, 499, 0), queststatus(13372) = 11
-
--- 2nd quest: Bring 1 black coat and 1 amulet
-
--- Give out quest 2
-"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.", queststatus(1337) = 1
-"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
-"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..", queststatus(1337) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
-
--- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 1, english -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 1 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(391, all) < 1 -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 1 -> "GERMAN."
-"quest", "mission", queststatus(1337) = 1, item(392, all) < 1, english -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
-"quest", "mission", queststatus(1337) = 1, item(392, all) < 1 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(392, all) < 1 -> "You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(392, all) < 1 -> "GERMAN."
-
--- Quest 2 solved, reward: 120cp, strawberry cake
-".+", queststatus(1337) = 1, item(391, all) > 0, item(392, all) > 0, english -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 120, deleteItem(391, 1), deleteItem(392, 1), item(391, 1, 599, 0), queststatus(1337) = 2
-".+", queststatus(1337) = 1, item(391, all) > 0, item(392, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 1), deleteItem(392, 1), item(391, 1, 599, 0), queststatus(1337) = 2
-
--- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(1337) = 2, english -> "I've got to get busy studying for my new character. Take care, now!"
-"quest", "mission", queststatus(1337) = 2 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 2 -> "I've got to get busy studying for my new character. Take care, now!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> "GERMAN."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Fosco", "Goodbarrel", english -> "Such a delightful name, don't you agree?", "Ahh...Fosco Goodbarrel. It just rolls off of the tongue.", "From here to Pennymill, that name will make any woman weak at the knees."

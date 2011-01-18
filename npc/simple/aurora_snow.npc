@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 10, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: December 17, 2010                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.03 by Estralis Seborian
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -93,68 +93,6 @@ itemShoes = 53
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "I am Aurora Snow, a priest of nature.", "My name is Aurora Snow.", "Aurora Snow. I am a druid."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "This island often slips into unbalance. It is the task of we druids to put it right, once more.", "Like many things, Gobaith is beautiful upon appearances, but filled with hate and darkness upon closer inspection.", "My kind, druids, are common upon this island. Many of us are well respected, though."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "It is a true honour to meet you.", "Ah, yes. I see it now.", "I am most pleased to have met you."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"apprentice" -> "Madeline Clarbelis is my apprentice...she is talented, though impatient."
-"german" -> "german"
-
--- Main land factions
-"albar", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The Elder Gods created all that ever was, and all that ever will be, upon Illarion.", "I worship all five of the Elder Gods, though Ushara is of most importance to me.", "The Elder Gods control the five elements. These elements are the very roots of existence."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "There shall never be a warrior to match the strength of Bragon.", "Bragon holds dominion over the element of fire. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "The wisest of all beings.", "Eldan holds dominion over the element of spirit. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "No kinder being, shall you ever meet.", "Findari holds dominion over the element of air. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "Though Tanora is the only Elder God who still walks this land, we sense the presence of each of the Five.", "Tanora holds dominion over the element of water. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "I have never met one so modest as the Mother Goddess.", "Ushara holds dominion over the element of earth. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to trade."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "#me closes her eyes and places a hand upon your shoulder.", "Hmm...I sense that you already know what I shall say.", "I shall do so. But I shall not reply upon mere words."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- 1st quest: Bring 5 entrails and 10 black thistles (The Farmer's Wife 4th quest)
 
@@ -242,8 +180,88 @@ itemShoes = 53
 "task", "adventure", queststatus(13372) = 12 -> "Thank you for all of your help, my friend. You have truly earned my respect."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(13372) = 12 -> "GERMAN."
 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I am a priest of nature.", "I am a druid.", "I am a child of Ushara."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "That island often slipped into unbalance. My fellow druids were tasked with putting it right. They were unsuccessful, I fear.", "Like many things, Gobaith was beautiful upon appearances, but filled with hate and darkness upon closer inspection.", "My kind, druids, were common upon that island."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "It is a true honour to meet you.", "Ah, yes. I see it now.", "I am most pleased to have met you."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"apprentice" -> "Madeline Clarbelis is my apprentice...she is talented, though impatient."
+"german" -> "german"
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Elvaine is a intelligent being.", "I have seen few more powerful beings than the Archmage.", "Elvaine, the Archmage, is the ruler of Runewick."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "Elvaine is a intelligent being.", "I have seen few more powerful beings than the Archmage.", "Elvaine, the Archmage, is the ruler of Runewick."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "Runewick is a place of learning.", "Many wise beings reside within the lands of Runewick.", "If it is knowledge you seek, Runewick would be a wise starting point."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "Mister Guilianni is concerned with nought but material possessions.", "The Don places that of least importance above all else.", "Mister Guilianni has yet to learn that true value is not to be found in a simple coin."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "The people of Galmair concern themselves with wealth, and little else.", "I would not waste my breath upon this place.", "If it is money you seek, perhaps Galmair should be your destination. Though, I must warn you, you shall find yourself unsatisfied with such a life."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Queen Rosaline is the ruler of Cadomyr.", "The Queen resides within a large castle in Cadomyr. I cannot agree with such extravagance.", "The town of Cadomyr is ruled by the Queen."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "Queen Rosaline is the ruler of Cadomyr.", "The Queen resides within a large castle in Cadomyr. I cannot agree with such extravagance.", "The town of Cadomyr is ruled by the Queen."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "The people of Cadomyr are pleasant, for the most part.", "Cadomyr often seems a misguided settlement.", "If you value honour above all else, you would do well to visit the lands of Cadomyr."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "The Elder Gods created all that ever was, and all that ever will be, upon Illarion.", "I worship all five of the Elder Gods, though Ushara is of most importance to me.", "The Elder Gods control the five elements. These elements are the very roots of existence."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Adron", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "There shall never be a warrior to match the strength of Bragon.", "Bragon holds dominion over the element of fire. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "The wisest of all beings.", "Eldan holds dominion over the element of spirit. Through Him, there is life.", "We must be thankful to the Five, our mothers and fathers."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "No kinder being, shall you ever meet.", "Findari holds dominion over the element of air. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "Though Tanora is the only Elder God who still walks this land, we sense the presence of each of the Five.", "Tanora holds dominion over the element of water. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "I have never met one so modest as the Mother Goddess.", "Ushara holds dominion over the element of earth. Through Her, there is life.", "We must be thankful to the Five, our mothers and fathers."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "Ah, yes. One of the Holy Ancestors.", "We wander the paths laid by our ancestors.", "There is much to be said about the Holy Ancestors."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to trade."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "#me closes her eyes and places a hand upon your shoulder.", "Hmm...I sense that you already know what I shall say.", "I shall do so. But I shall not reply upon mere words."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"corrupted blood" -> "WoW, really?"
+"corrupted blood" -> "Wow, really?"
 "GERMAN" -> "GERMAN."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
@@ -256,7 +274,7 @@ itemShoes = 53
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

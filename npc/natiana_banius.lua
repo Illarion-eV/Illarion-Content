@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 10, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -192,6 +192,55 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("P...please...help my husband.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addResponse("M...my...husband.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me forces a smile, 'Thank you.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("F...forgive me...I...m...must rest.");
 talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
@@ -277,6 +326,196 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("F...forgive me...I...m...must rest.");
+talkEntry:addResponse("#me's eyes flicker for a few moments, before falling completely shut. Faint breaths can only just be made out.");
+talkEntry:addResponse("P...please...let me...rest.");
+talkEntry:addResponse("#me's head slowly lolls about. She seems unfocused upon the conversation.");
+talkEntry:addResponse("I m...must save my...strength.");
+talkEntry:addResponse("I should...s...save...my breath.");
+talkEntry:addResponse("P...please...h...help...my husband.");
+talkEntry:addResponse("Rowan...n...needs help.");
+talkEntry:addResponse("#me coughs sharply, wincing in pain.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -820,40 +1059,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("P...please...help my husband.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
-talkEntry:addResponse("M...my...husband.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Natiana");
 talkEntry:addTrigger("Banius");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -919,21 +1124,6 @@ talkEntry:addTrigger("Nein");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me forces a smile, 'Thank you.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -546,9 +546,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("This island is...fine.");
-talkEntry:addResponse("The people here are so...nosy.");
-talkEntry:addResponse("I like Gobaith, I suppose.");
+talkEntry:addResponse("That island was...dull.");
+talkEntry:addResponse("The people there were so...nosy.");
+talkEntry:addResponse("I liked Gobaith, I suppose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

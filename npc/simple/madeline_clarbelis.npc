@@ -138,7 +138,7 @@ itemShoes = 53
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "job", english -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "This island is...fine.", "The people here are so...nosy.", "I like Gobaith, I suppose."
+"Gobaith", "Gobiath", english -> "That island was...dull.", "The people there were so...nosy.", "I liked Gobaith, I suppose."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "I...it is nice to meet you.", "A p...pleasure to meet you.", "I am glad to meet you."
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
