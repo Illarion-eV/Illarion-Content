@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Queen Rosaline Edwards                                   Cadomyr --
--- NPC Job:  Regent                                                           --
+-- NPC Name: Rosaline Edwards                                         Cadomyr --
+-- NPC Job:  Queen                                                            --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  122, 520, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -8,16 +8,16 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: November 04, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Queen Rosaline Edwards"
+name = "Rosaline Edwards"
 race = human
 sex = female
 position = 122, 520, 0
 direction = south
 affiliation = "Cadomyr"
-job = "Regent"
+job = "Queen"
 
 language = common
 language = human
@@ -49,12 +49,12 @@ itemShoes = 369
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Speak, what do you want from your queen? Make it quick or I'll make it quick.", "Ah, a servant of mine. Good, what news do you bear from my realm?", "You dare to disturb me? Fine, I needed a distraction."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Speak, what do you want from your queen? Make it quick or I'll make it quick.", "Ah, a servant of mine. Good, what news do you bear from my realm?", "You dare to disturb me? Fine, I needed a distraction."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Speak, what do you want from your queen? Make it quick or I'll make it quick.", "Ah, a servant of mine. Good, what news do you bear from my realm?", "You dare to disturb me? Fine, I needed a distraction."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name. And mine.", "Off, off, and serve me every minute of your life as I serve Cadomyr.", "Farewell, spread word about the marvellous kingdom of Cadomyr on your travels."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
 "Ciao", "Adieu", "Au revoir", english -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name. And mine.", "Off, off, and serve me every minute of your life as I serve Cadomyr.", "Farewell, spread word about the marvellous kingdom of Cadomyr on your travels."
-"Ciao", "Adieu", "Au revoir", german -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
+"Ciao", "Adieu", "Au revoir" -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
 "How are you", "How feel", "How do you do" -> "I am the undisputed monarch of a glorious realm of noble men. How do you think I feel?", "I would feel much better if you kneel down. Now.", "I could use a batch of donkey milk. All this sand hurts my soft skin."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin die unbestrittene Monarchin eines glorreichen Reiches der edelsten Leute. Wie geht es mir wohl?", "Mir würde es weit besser gehen, wenn ihr niederknien würdet. Jetzt!", "Mir käme ein Bad in Eselsmilch gerade recht. Dieser ganze Sand schadet meiner feinen Haut."
 "your name", "who are you", "who art thou" -> "Who am I? You dare to suggest that you do not know who I am? Out of my sight!", "If you really don't know who I am, ask one of my servants.", "Aren't you ashamed that you ask a queen of Albarian origin who she is?"
@@ -69,10 +69,10 @@ itemShoes = 369
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Let me see... I rule this place. Everything, as far as you can see!"
 "beruf" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
-"job", german -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
 "job", english -> "Let me see... I rule this place. Everything, as far as you can see!"
+"job" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
 "Gobaith", english -> "Don't come to me, whining about some smut in the ocean. Behold the glory of Cadomyr instead.", "Gobaith was doomed and I knew that. How did I know? I am the queen, did you forget?"
-"Gobaith", german -> "Ihr kommt doch nicht etwa zu mir, um über einen Schmutzfleck im Ozean zu heulen. Betrachtet stattdessen den Glanz Cadomyrs.", "Gobaith war dem Untergang geweiht. Woher ich das weiß? Ich bin die Königin, schon vergessen?"
+"Gobaith" -> "Ihr kommt doch nicht etwa zu mir, um über einen Schmutzfleck im Ozean zu heulen. Betrachtet stattdessen den Glanz Cadomyrs.", "Gobaith war dem Untergang geweiht. Woher ich das weiß? Ich bin die Königin, schon vergessen?"
 
 -- More small talk; add at least five triggers - english
 "bitch", "witch" -> "What? Somebody says I'm a witch? At the stake!"
@@ -132,26 +132,30 @@ itemShoes = 369
 "Ioannes", "Faber" -> "Ah, ihr redet von meinem königlichen Kämmerer. Er dient mir aufrichtig und treu. Ich vertraue ihm bei der Verwaltung der königlichen Reichtümer."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "A renegade mage who, I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "In fact, negotiations with him are more challenging than simply thrusting a pike into his stomach."
-"Elvaine", "Morgan", "archmage", "Erzmagier", german -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
+"Elvaine", "Morgan", english -> "A renegade mage who, I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "In fact, negotiations with him are more challenging than simply thrusting a pike into his stomach."
+"Elvaine", "Morgan" -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
+"archmage" -> "A renegade mage who, I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "In fact, negotiations with him are more challenging than simply thrusting a pike into his stomach."
+"Erzmagier" -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
 "Runewick", english -> "I have no problem with Runewick, as long as they don't set the feet ashore. And this happened too often a time recently."
-"Runewick", german -> "Ich habe keine Probleme mit Runewick, solange sie ihren Füße nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig."
+"Runewick" -> "Ich habe keine Probleme mit Runewick, solange sie ihren Füße nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig."
 "Valerio", "Guilianni", "Don", english -> "If you dare to remind me on the marriage proposal of the Don, I'll let my guards fill your mouth with scorpions!"
-"Valerio", "Guilianni", "Don", german -> "Wenn ihr es wagt, mich an den Heiratsantrag des Dons zu erinnern, dann lasse ich euren Mund mit Skorpionen füllen!"
+"Valerio", "Guilianni", "Don" -> "Wenn ihr es wagt, mich an den Heiratsantrag des Dons zu erinnern, dann lasse ich euren Mund mit Skorpionen füllen!"
 "Galmair", english -> "Galmair is like rose with thorns; it might look appealing, but grasping for it should be done carefully."
-"Galmair", german -> "Galmair ist wie eine dornenbewehrte Rose; es mag begehrenswert aussehen, aber wenn man danach greift, dann sollte man jeden Schriff genau überdenken."
-"rosaline", "königin", "queen", "edwards", english -> "That is me, I suppose: Queen Rosaline Edwards of Cadomyr. Now you better act accordingly.", "Commonly, my minions adress me by 'Your highness' or 'Allmighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
-"rosaline", "königin", "queen", "edwards", german -> "Das bin ich: Königin Rosaline Edwards von Cadomyr. Jetzt verhaltet euch entsprechend.", "Normalerweise sprechen mich meine Untertanen so an: 'Eure Hoheit' oder 'Allmächtige Königin'.", "Ich trage den Namen Edwards mit Stolz. Genauso solltet ihr ihn auch aussprechen."
+"Galmair" -> "Galmair ist wie eine dornenbewehrte Rose; es mag begehrenswert aussehen, aber wenn man danach greift, dann sollte man jeden Schriff genau überdenken."
+"rosaline", "edwards", english -> "That is me, I suppose: Queen Rosaline Edwards of Cadomyr. Now you better act accordingly.", "Commonly, my minions adress me by 'Your highness' or 'Allmighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
+"rosaline", "edwards" -> "Das bin ich: Königin Rosaline Edwards von Cadomyr. Jetzt verhaltet euch entsprechend.", "Normalerweise sprechen mich meine Untertanen so an: 'Eure Hoheit' oder 'Allmächtige Königin'.", "Ich trage den Namen Edwards mit Stolz. Genauso solltet ihr ihn auch aussprechen."
+"queen" -> "That is me, I suppose: Queen Rosaline Edwards of Cadomyr. Now you better act accordingly.", "Commonly, my minions adress me by 'Your highness' or 'Allmighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
+"königin" -> "Das bin ich: Königin Rosaline Edwards von Cadomyr. Jetzt verhaltet euch entsprechend.", "Normalerweise sprechen mich meine Untertanen so an: 'Eure Hoheit' oder 'Allmächtige Königin'.", "Ich trage den Namen Edwards mit Stolz. Genauso solltet ihr ihn auch aussprechen."
 "Cadomyr", english -> "Cadomyr means everything to me; I was born to serve Cadomyr and so was everyone born to serve me. Let us obey the old customs and the traditions."
-"Cadomyr", german -> "Cadomyr ist mein ein und alles. Ich wurde geboren, um Cadomyr zu dienen und so wurde ein jeder hier geboren, um mir zu dienen. Lasst uns diesen alten Gebräuchen gehorchen und die Tradition wahren."
+"Cadomyr" -> "Cadomyr ist mein ein und alles. Ich wurde geboren, um Cadomyr zu dienen und so wurde ein jeder hier geboren, um mir zu dienen. Lasst uns diesen alten Gebräuchen gehorchen und die Tradition wahren."
 
 -- Main land factions
 "albar", english -> "My blood is Albarian. My hair is Albarian. The people of Cadomyr are of Albarian origin. Cadomyr is the better Albar!", "I am proud of my Albarian origin, even though I was told that the old customs are more and more neglected in Albar."
-"albar", german -> "Mein Blut is albarisch. Mein Haar ist albarisch. Das Volk von Cadomyr hat albarische Wurzeln. Cadomyr ist das bessere Albar!", "Ich bin stolz auf meine albarische Herkunft, auch wenn mir zu Ohren kam, dass man dort die alten Sitten immer häufiger missachtet."
+"albar" -> "Mein Blut is albarisch. Mein Haar ist albarisch. Das Volk von Cadomyr hat albarische Wurzeln. Cadomyr ist das bessere Albar!", "Ich bin stolz auf meine albarische Herkunft, auch wenn mir zu Ohren kam, dass man dort die alten Sitten immer häufiger missachtet."
 "gynk", "gync", english -> "One should plunder and pillage Gynk! Such a cesspit of sin! No honour! To arms!"
-"gync", "gynk", german -> "Man sollte Gynk verwüsten und niederbrennen! Was für ein Sündenpfuhl! Zu den Waffen!"
+"gync", "gynk" -> "Man sollte Gynk verwüsten und niederbrennen! Was für ein Sündenpfuhl! Zu den Waffen!"
 "salkama", english -> "The Salkamaerians have their customs, we have ours. As long as they do not interfere with Cadomyrian issues, they may do whatever they think is right."
-"salkama", german -> "Die Salkamaerier haben ihre Gebräuche, wir haben unsere. Solange sie sich nicht in cadomyrische Angelegenheiten einmischen, sollen sie machen, was sie für richtig halten."
+"salkama" -> "Die Salkamaerier haben ihre Gebräuche, wir haben unsere. Solange sie sich nicht in cadomyrische Angelegenheiten einmischen, sollen sie machen, was sie für richtig halten."
 
 -- Gods; gods are relevant, so the faction leader has to have an opinion on ALL gods
 "Adron", english -> "It is common knowledge among my subjects that Adron blessed me and that he is whom I respect most among the Eleven."

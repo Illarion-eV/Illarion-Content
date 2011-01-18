@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Archmage Elvaine Morgan                                 Runewick --
--- NPC Job:  boss                                                             --
+-- NPC Name: Elvaine Morgan                                          Runewick --
+-- NPC Job:  Archmage                                                         --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  898, 775, 2            --
 -- NPC Sex:  male                       NPC Direction: east                   --
@@ -10,13 +10,13 @@
 -- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Archmage Elvaine Morgan"
+name = "Elvaine Morgan"
 race = elf
 sex = male
 position = 898, 775, 2
 direction = east
 affiliation = "Runewick"
-job = "boss"
+job = "Archmage"
 
 language = common
 language = elf
@@ -182,7 +182,7 @@ itemShoes = 53
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", chance(20) -> "Wesshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt..."
+".*", german, chance(20) -> "Wesshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt..."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

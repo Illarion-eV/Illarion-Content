@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Don Valerio Guilianni                                       None --
--- NPC Job:  none                                                             --
+-- NPC Name: Valerio Guilianni                                        Galmair --
+-- NPC Job:  Don                                                              --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  337, 215, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Don Valerio Guilianni"
+name = "Valerio Guilianni"
 race = human
 sex = male
 position = 337, 215, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Galmair"
+job = "Don"
 
 language = common
 language = human
@@ -94,6 +94,7 @@ itemShoes = 53
 "Rosie" -> "Sie mag den Namen nicht, ihr werdet sie eher als Königin Rosaline kennen.", "Glaubt mir, das Privileg sie so zu nennen ist allein mir vorbestimmt. Versucht es erst gar nicht."
 "Miggs", english -> "Every sucessful buisinessman needs two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
 "Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
+
 -- Easter egg
 "Corleone", english -> "Ach, a dazzler from Gynka, no honour. And throaty all the time, the gods know why."
 "Corleone", german -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
@@ -129,6 +130,7 @@ itemShoes = 53
 "Adron", english -> "Ahh, what would a tavern be without him? How could tempers run high over a game of cards if not due to Adron's gifts?"
 "Adron" -> "Ahh, was wäre eine Taverne ohne ihn? Wie könnten sich sonst die Gemüter so beim Kartenspiel erhitzen wenn nicht durch Adrons Gaben?"
 "Bragon", "Brágon", english -> "I wonder if he takes offence in my dragon leather boots. But didn't he leave this world already? If you can't stand the heat, get out of the kitchen, hehe."
+
 -- English and German translation doesn't match, but why bother?
 "Bragon", "Brágon" -> "Ich frage mich ob er meine Stiefel aus Drachenleder anstößig findet. Aber hat er diese Welt nicht schon verlassen? Und was er nicht weiß macht ihn nicht heiß."
 "Cherga", english -> "If you'd wake up to a dagger poking your throat every other night you'd also respect the lady in black."
@@ -148,6 +150,7 @@ itemShoes = 53
 "Nargun", "Nargún", english -> "Nargún blessed me many a times, when I had to play my cards right. On the other hand there's no reason not to tip luck into your favour, he's pretty unreliable after all."
 "Nargun", "Nargún" -> "Schon oft war mir Nargún hold, als es darum ging auf die richtige Karte zu setzen. Anderenseits spricht nichts dagegen dem Glück auch nachzuhelfen, immerhin ist er nicht sehr verlässlich."
 "Oldra", english -> "We live amidst a scarce mountain range and I shall pay reverence to Oldra? Puh-lease..."
+
 -- Puh-lease might be too informal, better go with 'You're kidding, right?'
 "Oldra" -> "Wir leben inmitten eines kargen Gebirges, und da soll ich Oldra Respekt erweisen? Pfft... also bitte."
 "Ronagan", english -> "No coin, no wares leave my posession before they're blessed in the face of Ronagan. You may figure out as to why I am doing that yourself."
@@ -159,6 +162,7 @@ itemShoes = 53
 "Ushara", english -> "Some of the dwarves pray to her. They say if we don't, the mountain will collapse upon us. Whatever."
 "Ushara" -> "Einige der Zwerge beten zu ihr. Sie sagen sonst stürzt uns der Berg auf den Kopf, was auch immer."
 "Zhambra", english -> "When you're smiling everyone smiles with you. Cry and you weep alone. I never needed friends."
+
 -- Possible copyright infringement?
 "Zhambra" -> "Wenn man lacht, lacht die Welt mit einem mit, aber weine und du weinst allein. Ich hatte nie eine Verwendung für Freunde."
 
