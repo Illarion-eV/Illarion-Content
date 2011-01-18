@@ -53,19 +53,6 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- Queststatus Overview
-
--- 0: No Quest taken
--- 1: Quest 1 taken - bring one INTERESTING ITEM
--- 2: Quest 1 solved, reward: 80cp
--- 3: Quest 2 taken - bring 10 RESOURCES
--- 4: Quest 2 solved - reward: 120cp, ITEM
--- 5: Quest 3 taken - kill 1 wraith
--- 6: Killing 1 wraith
--- 7: Quest 3 solved, reward: VERY NICE ITEM
-
--- CAVE: replace (1337) with valid queststatus
-
 -- TO BE DONE
 
 -- Translation
@@ -98,6 +85,54 @@ itemShoes = 53
 "your name", "who are you", "who art thou" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...my name is Madeline Clarbelis."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
+-- 1st quest: Deliver 'Aurora's staff': receive long staff handle
+
+-- Give out quest 1
+"quest", "mission", queststatus(13372) = 2, english -> inform("[Quest Update] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(391, 1, 599, 0), queststatus(13372) = 3
+"quest", "mission", queststatus(13372) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", item(391, 1, 599, 0), queststatus(13372) = 3
+"task", "adventure", queststatus(13372) = 2 -> inform("[New quest] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(391, 1, 599, 0), queststatus(13372) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(13372) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", item(391, 1, 599, 0), queststatus(13372) = 3
+
+-- Give out quest 1
+"quest", "mission", queststatus(13372) = 5, english -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the <terrain> east of here.", queststatus(13372) = 6
+"quest", "mission", queststatus(13372) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 6
+"task", "adventure", "staff", queststatus(13372) = 5 -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the <terrain> east of here.", queststatus(13372) = 6
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 6
+
+-- Quest 1 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(13372) = 6, english -> "You should go find the Halfling, Fosco Goodbarrel. He is in the <terrain> east of here. He has Aurora's staff."
+"quest", "mission", queststatus(13372) = 6 -> "GERMAN."
+"task", "adventure", "staff", queststatus(13372) = 6 -> "You should go find the Halfling, Fosco Goodbarrel. He is in the <terrain> east of here. He has Aurora's staff."
+"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 6 -> "GERMAN."
+
+-- 2nd quest: Bring 10 RESOURCES
+
+-- Give out quest 2
+"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(1337) = 1
+"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
+"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(1337) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
+
+-- Quest 2 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 4, english -> "I really need you to bring me those four foot leaves."
+"quest", "mission", queststatus(1337) = 1, item(391, all) < 4 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(391, all) < 4 -> "I really need you to bring me those four foot leaves."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 4 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 1, item(392, all) < 2, english -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
+"quest", "mission", queststatus(1337) = 1, item(392, all) < 2 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(392, all) < 2 -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(392, all) < 2 -> "GERMAN."
+
+-- Quest 2 solved, reward: 5 small healing potions
+".+", queststatus(1337) = 1, item(391, all) > 3, item(392, all) > 1, english -> inform("[Quest solved] You are awarded 5 small healing potions."), "ENGLISH.", deleteItem(391, 4), deleteItem(392, 2), item(391, 5, 599, 0), queststatus(1337) = 2
+".+", queststatus(1337) = 1, item(391, all) > 3, item(392, all) > 1 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 2
+
+-- No more quests, just nice words of gratitude
+"quest", "mission", queststatus(1337) = 2, english -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
+"quest", "mission", queststatus(1337) = 2 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 2 -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> "GERMAN."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I...I am training to be a druid.", "I am an apprentice druid.", "I will be a druid, one day."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -111,16 +146,25 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "druid" -> "Yes, one day I shall be a druid! I cannot wait for that day to come!", "I am only learning the ways of the druids at the moment. But soon I hope to be one myself!", "#me sighs faintly, 'It takes a long time to learn the true ways of nature.'"
 "aurora" -> "Aurora was kind enough to choose me as her apprentice. She is very slow to teach me, though.", "Mistress Aurora is teaching me the ways of the druids. I wish she would hurry up...", "Aurora tells me that I need to learn patience. I wish she would hurry up and teach me it."
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+"archmage" -> "Mistress Aurora says that he is missing something. I wonder what she means.", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "Mistress Aurora says that he is missing something. I wonder what she means.", "I hear that the Archmage is the most powerful mage to ever step foot on these lands.", "I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "There are so many books in Runewick. Can you read? I can.", "Mistress Aurora says that I should spend lots of time in Runewick, if I want to become wise like she is.", "Sometimes I can't understand what the people in Runewick are saying. They speak with really big words."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "They say he has a lot of money.", "Mistress Aurora says that money isn't important. The Don has a lot of it, though.", "The Don rules the town of Galmair."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "Mistress Aurora says that the people who live there are small-minded.", "People say that Galmair reminds them of Gynk. I've never been to Gynk, though.", "The town of Galmair is ruled by the Don."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "Mistress Aurora doesn't tell me too much about the Queen.", "Queen Rosaline is very pretty.", "Queen Rosaline is the ruler of Cadomyr."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "Mistress Aurora doesn't tell me too much about the Queen.", "Queen Rosaline is very pretty.", "Queen Rosaline is the ruler of Cadomyr."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "I think the people who live in Cadomyr are very nice.", "Mistress Aurora says that very good lessons can be learned from the people of Cadomyr. She won't tell me what the lessons are, though.", "The town of Cadomyr is ruled by the Queen Rosaline."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
 "albar", english -> "I don't know much about Albar.", "I hear that they don't respect women in Albar. Is that true?", "People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though."
@@ -171,54 +215,6 @@ itemShoes = 53
 "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- 1st quest: Deliver 'Aurora's staff': receive long staff handle
-
--- Give out quest 1
-"quest", "mission", queststatus(13372) = 2, english -> inform("[Quest Update] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(391, 1, 599, 0), queststatus(13372) = 3
-"quest", "mission", queststatus(13372) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", item(391, 1, 599, 0), queststatus(13372) = 3
-"task", "adventure", queststatus(13372) = 2 -> inform("[New quest] Aurora's Staff: Part I"), "#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.", item(391, 1, 599, 0), queststatus(13372) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(13372) = 2 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", item(391, 1, 599, 0), queststatus(13372) = 3
-
--- Give out quest 1
-"quest", "mission", queststatus(13372) = 5, english -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the <terrain> east of here.", queststatus(13372) = 6
-"quest", "mission", queststatus(13372) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 6
-"task", "adventure", "staff", queststatus(13372) = 5 -> inform("[Quest Update] Aurora's Staff: Part II"), "I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the <terrain> east of here.", queststatus(13372) = 6
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 5 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(13372) = 6
-
--- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(13372) = 6, english -> "You should go find the Halfling, Fosco Goodbarrel. He is in the <terrain> east of here. He has Aurora's staff."
-"quest", "mission", queststatus(13372) = 6 -> "GERMAN."
-"task", "adventure", "staff", queststatus(13372) = 6 -> "You should go find the Halfling, Fosco Goodbarrel. He is in the <terrain> east of here. He has Aurora's staff."
-"Auftrag", "Aufgabe", "Abenteuer", "german", queststatus(13372) = 6 -> "GERMAN."
-
--- 2nd quest: Bring 10 RESOURCES
-
--- Give out quest 2
-"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(1337) = 1
-"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
-"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Lazy Apprentice"), "Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.", queststatus(1337) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 1
-
--- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 4, english -> "I really need you to bring me those four foot leaves."
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 4 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(391, all) < 4 -> "I really need you to bring me those four foot leaves."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 4 -> "GERMAN."
-"quest", "mission", queststatus(1337) = 1, item(392, all) < 2, english -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
-"quest", "mission", queststatus(1337) = 1, item(392, all) < 2 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(392, all) < 2 -> "You've got the four foot leaves, but I also need you to bring me those two firnis blossoms."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(392, all) < 2 -> "GERMAN."
-
--- Quest 2 solved, reward: 5 small healing potions
-".+", queststatus(1337) = 1, item(391, all) > 3, item(392, all) > 1, english -> inform("[Quest solved] You are awarded 5 small healing potions."), "ENGLISH.", deleteItem(391, 4), deleteItem(392, 2), item(391, 5, 599, 0), queststatus(1337) = 2
-".+", queststatus(1337) = 1, item(391, all) > 3, item(392, all) > 1 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 2
-
--- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(1337) = 2, english -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"quest", "mission", queststatus(1337) = 2 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 2 -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> "GERMAN."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Madeline", "Clarbelis", english -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
