@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Archmage Elvaine Morgan                                     Runewick --
--- NPC Job:  boss                                                            --
+-- NPC Name: Archmage Elvaine Morgan                                 Runewick --
+-- NPC Job:  boss                                                             --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  898, 775, 2            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Archmage Elvaine Morgan"
@@ -20,12 +20,13 @@ job = "boss"
 
 language = common
 language = elf
+language = ancient
 defaultLanguage = common
 autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und  gewandt erscheinen seine Bewegungen.  "
+lookatDE = "Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und gewandt erscheinen seine Bewegungen."
 lookatUS = "translate!"
 useMsgDE = "Macht Euch doch keine Mühe, ihr verletzt Euch noch selbst."
 useMsgUS = "TRANSLATE"
@@ -37,15 +38,13 @@ beardID = 0
 colorHair = 209, 197, 199
 colorSkin = 250, 239, 237
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 807
+itemCoat = 558
+itemMainHand = 209
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
+itemHands = 0
+itemTrousers = 823
 itemShoes = 53
-grau blau
-
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -58,9 +57,8 @@ grau blau
 -- NPC by Rincewind
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan der Herrscher über Runewick. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-
+"Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: Runewick, quest, gods, tower, magic.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1", "ENGLISH2.", "ENGLISH3."
@@ -68,25 +66,25 @@ grau blau
 "Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
 "Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer kleiner Faden ist."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer und kleiner Faden ist."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer kleiner Faden ist."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer und kleiner Faden ist."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Im Großen und Ganzen gesehen, ist Eure Frage sehr höflich aber nicht besonders wichtig.", "Ich freue mich zu sehen, das ihr Euch um mein Wohlergehen sorgt. Dennoch möchte ich Euch versichern, es gibt nur wenige Probleme die ein Mann meiner Fähigkeiten nicht zu überwinden vermag.", "#me breitet in einer dramatischen Geste die Arme aus. 'Runewick ist mein Kind und es bereitet mir Sorge, so wie alle Kinder ihren Eltern Sorgen bereiten.'"
 "your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist so alt wie die Sagen aus vergangenen Zeiten und in manchen wird er wohl auch genannt werden. 'Elvaine Morgan', Gründer und Herr dieser Stadt.", "Morgan... Elvaine Morgen. Erzmagier der vier Türme von Runewick. Worüber wollt Ihr mit mir sprechen?", "Ich bin Erzmagier Morgan. - Ich hoffe Euer Anliegen ist es tatsächlich Wert beredet zu werden?"
 
 -- Quest 108: A message from Hector Valerion
-"message", "news", "letter", "scroll", "parchment", "despatch","task", "adventure", queststatus(108) = 12 -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "depesche","Auftrag", "Aufgabe", "Abenteuer", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
-"Hector", "Valerion","quest", "mission", queststatus(108) = 12, english -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
-"Hector", "Valerion","quest", "mission", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+"message", "news", "letter", "scroll", "parchment", "despatch", "task", "adventure", queststatus(108) = 12 -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "depesche", "Auftrag", "Aufgabe", "Abenteuer", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
+"Hector", "Valerion", "quest", "mission", queststatus(108) = 12, english -> inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."), "#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'", queststatus(108) = 13
+"Hector", "Valerion", "quest", "mission", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.","Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.","Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
+"quest", "mission" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 "task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.","Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.","Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -99,21 +97,20 @@ grau blau
 "mein Name" -> "#me nickt etwas steif. 'Sehr erfreut. Wie kann ich Euch helfen?'", "Ausgezeichnet. Ich dachte mir bereits das ihr Euch vorstellen wolltet.", "#me schmunzelt: 'Das weiß ich natürlich, schließlich bin ich hier der Erzmagier.'"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"holy","ancestors","path","seeker" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"tower","four" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mage","magic","wizard","theurgy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"holy", "ancestors", "path", "seeker" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"tower", "four" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"mage", "magic", "wizard", "theurgy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Lor Angur" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "Dies ist Runewick. Jeder der vier Türme steht für ein Element. Erde. Wasser. Feuer. Luft. Hier ist die Weisheit der Leute Gut.", "Runewick ist nicht nur eine Stadt, müsst Ihr wissen. Runewick's Name steht für Weisheit und die Kraft des Geistes.","Ich danke Elara jeden Tag für die starke geistige Kraft die sie den Bürgern der vier Türme verleiht. Denn die Weisheit selbst ist unser höchstes Gut."
-"Lor Angur" -> "Ja, ihr habt Euch wohl bereits umgehört, nicht wahr? Ich zog einst aus Lor Angur hier her und legte den Grundstein der vier Türme.","In der Tat, vor langer Zeit lebte ich in Lor Angur. Aber diese Zeit ist fern und es gibt wenig Gründe meine Zeit damit zu vertun, darüber zu sinnieren.", "Einst lebte ich in Lor Angur, ihr seid gut unterichtet. Aber es liegt mir fern mich mit Euch darüber zu unterhalten."
-"Magie","zauber" -> "Nun, Runewick ist durchwirkt von Magie und viele Gelehrte meinen sie könnten das Prickeln in den Fingerspitzen fühlen. *zwinkert*", "Magie und Zauberei, darauf hat sich Runewick seit je her besonnen. Nun schließlich leitet nicht umsonst ein Erzmagier das Geschick der vier Türme.", "Magie ist hier in den Türmen Runewicks allgegenwärtig. Fasst nicht die falschen Dinge an, oder es mag sein, dass Ihr Euch eines Tages in einen Frosch verwandelt."
-"turm","türme","vier" -> "Die vier Türme Runewicks. Der Turm der Erde. Der Turm des Wassers. Der Turm des Feuers und der Turm der Lüfte. Gemeinsam bilden sie eine mächtige arkane Struktur und sind außerdem auch noch sehr hübsch anzusehen."
-"heilig","Urahnen","suchenden","pfad" -> "Der traditionelle Glaube der Elfengemeinschaft. - Der Pfad der Suchenden.", "Durch meditationsbedingter geistiger Klarheit und einem Leben das über viele Lebensspannen der Menschen hinaus geht sehen wir Elfen die Dinge und Geschehnisse oft aus einer anderen Sichtweiße."
+"Runewick" -> "Dies ist Runewick. Jeder der vier Türme steht für ein Element. Erde. Wasser. Feuer. Luft. Hier ist die Weisheit der Leute Gut.", "Runewick ist nicht nur eine Stadt, müsst Ihr wissen. Runewick's Name steht für Weisheit und die Kraft des Geistes.", "Ich danke Elara jeden Tag für die starke geistige Kraft die sie den Bürgern der vier Türme verleiht. Denn die Weisheit selbst ist unser höchstes Gut."
+"Lor Angur" -> "Ja, ihr habt Euch wohl bereits umgehört, nicht wahr? Ich zog einst aus Lor Angur hier her und legte den Grundstein der vier Türme.", "In der Tat, vor langer Zeit lebte ich in Lor Angur. Aber diese Zeit ist fern und es gibt wenig Gründe meine Zeit damit zu vertun, darüber zu sinnieren.", "Einst lebte ich in Lor Angur, ihr seid gut unterichtet. Aber es liegt mir fern mich mit Euch darüber zu unterhalten."
+"Magie", "zauber" -> "Nun, Runewick ist durchwirkt von Magie und viele Gelehrte meinen sie könnten das Prickeln in den Fingerspitzen fühlen. *zwinkert*", "Magie und Zauberei, darauf hat sich Runewick seit je her besonnen. Nun schließlich leitet nicht umsonst ein Erzmagier das Geschick der vier Türme.", "Magie ist hier in den Türmen Runewicks allgegenwärtig. Fasst nicht die falschen Dinge an, oder es mag sein, dass Ihr Euch eines Tages in einen Frosch verwandelt."
+"turm", "türme", "vier" -> "Die vier Türme Runewicks. Der Turm der Erde. Der Turm des Wassers. Der Turm des Feuers und der Turm der Lüfte. Gemeinsam bilden sie eine mächtige arkane Struktur und sind außerdem auch noch sehr hübsch anzusehen."
+"heilig", "Urahnen", "suchenden", "pfad" -> "Der traditionelle Glaube der Elfengemeinschaft. - Der Pfad der Suchenden.", "Durch meditationsbedingter geistiger Klarheit und einem Leben das über viele Lebensspannen der Menschen hinaus geht sehen wir Elfen die Dinge und Geschehnisse oft aus einer anderen Sichtweiße."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-
 "Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "Es macht keinen Sinn vorzugeben ich hätte keine Differenzen mit Valerio, aber näheres geht Euch jetzt wirklich nicht's an.","Nun... ich denke, wenn ihr von diesen Dingen wissen solltet wüsstet Ihr es bereits. Also bin ich nicht bereit Auskünfte hierüber zu verteilen.","Sicherlich seid Ihr Euch im klaren darüber, dass meine Meinung über Don Guilianni eine Sache ist, die ausschließlich mich und Don Guilianni selbst betrifft."
+"Valerio", "Guilianni", "Don" -> "Es macht keinen Sinn vorzugeben ich hätte keine Differenzen mit Valerio, aber näheres geht Euch jetzt wirklich nicht's an.", "Nun... ich denke, wenn ihr von diesen Dingen wissen solltet wüsstet Ihr es bereits. Also bin ich nicht bereit Auskünfte hierüber zu verteilen.", "Sicherlich seid Ihr Euch im klaren darüber, dass meine Meinung über Don Guilianni eine Sache ist, die ausschließlich mich und Don Guilianni selbst betrifft."
 "Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Galmair" -> "Das Metall und die Kohlen in den Böden Galmairs nähren die Habgier seiner Bürger. Doch wenn die Minen erschöpft sind wird man erkennen müssen, dass Weisheit das einzige erstrebenswerte Gut ist.", "Galmair trachtet seit jäh her nach Wohlstand und Reichtum. Vernunft und Gemäßigtheit sind ihnen fremd. Zügellosigkeit und gierige Entscheidungen werden diese Stadt einmal zu Grunde richten.", "Ich halte die Bürger Galmairs keinesweges für besinnungloße Leichtgeistige. Doch ihre Ziele und Pläne die stehts von Gier dominiert werden, sind nur wenig undurchschaubar."
 "Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -133,25 +130,25 @@ grau blau
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "Die Götter der vier Türme lassen sich schnell benennen. Elara schenkt uns stets Weisheit und so mancher findet Erleuchtung bei Siranis Altaren. Aber natürlich geben viele Halblinge Oldra den Vorzug.","Vielleicht werdet Ihr bemerken das die Älteren unter uns Elfen die jungen Götter nicht als solche bezeichnen. Viel eher sind sie unsereins Heilige Urahnen.","Der Pfad der Suchenden ist ein Weg der Meditation, Spiritualität, geistiger Klarheit und Geduld."
+"Gott", "Götter" -> "Die Götter der vier Türme lassen sich schnell benennen. Elara schenkt uns stets Weisheit und so mancher findet Erleuchtung bei Siranis Altaren. Aber natürlich geben viele Halblinge Oldra den Vorzug.", "Vielleicht werdet Ihr bemerken das die Älteren unter uns Elfen die jungen Götter nicht als solche bezeichnen. Viel eher sind sie unsereins Heilige Urahnen.", "Der Pfad der Suchenden ist ein Weg der Meditation, Spiritualität, geistiger Klarheit und Geduld."
 "Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "Adron, fast schon die Hausgottheit aller Tavernen und Gaststätten. Vor allem junge Leute lassen sich von seiner Art begeistern.","Viele junge Leute begeistern sich für Bragon und auch einige Barden. Aber viele ändern ihre Meinung und ihren Glauben als Erwachsene.", "Nun fragt euch selbst, liegt im Wein die Warheit?"
+"Adron" -> "Adron, fast schon die Hausgottheit aller Tavernen und Gaststätten. Vor allem junge Leute lassen sich von seiner Art begeistern.", "Viele junge Leute begeistern sich für Bragon und auch einige Barden. Aber viele ändern ihre Meinung und ihren Glauben als Erwachsene.", "Nun fragt euch selbst, liegt im Wein die Warheit?"
 "Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "Man sagt Brágon sei der erste der Götter gewesen die Illarion verlassen haben. Aber ovn zeit zu Zeit soll er dennoch unerkannt unter den Sterblichen wandeln.","Brágon ist der Gott des Feuers. Manche Zwerge und Orks richten ihr Leben ihm zur Ehre. Dabei versuchen sie ihrem Gott in Stärke und Weisheit nach zu eifern.","Als Brágon Illarion verlies übergab er Malachín die Macht über seine Anhänger. Aber das ist mehr als drei Lebensspannen her und nun möget ihr sodar es Euch bestimmt ist, wieder auf Anhänger Brágons begegnen."
-"Cherga","Cheerga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga","Cheerga" -> "Einst schrieb man ihren Namen 'Cheerga', doch die Zeit vergeht und Illarion wandelt sich. Sie ist die Göttin der Nachwelten und Toten.","Cherga hat nicht viele Anhänger. Sie ist jene, welche die Toten begleitet und in ihre vorbestimmten Reiche führt. Manche beten zu ihr, um den ruhelosen Geistern den ewigen Frieden zu bringen.","Viele Nekromanten sind Chergas Anhänger und auch einige Wahrsager. Cherga selbst kümmert es nicht, was die Sterblichen mit dem von ihr verliehenen Wissen anfangen, doch ihr Beistand hat einen hohen Preis..."
+"Bragon", "Brágon" -> "Man sagt Brágon sei der erste der Götter gewesen die Illarion verlassen haben. Aber ovn zeit zu Zeit soll er dennoch unerkannt unter den Sterblichen wandeln.", "Brágon ist der Gott des Feuers. Manche Zwerge und Orks richten ihr Leben ihm zur Ehre. Dabei versuchen sie ihrem Gott in Stärke und Weisheit nach zu eifern.", "Als Brágon Illarion verlies übergab er Malachín die Macht über seine Anhänger. Aber das ist mehr als drei Lebensspannen her und nun möget ihr sodar es Euch bestimmt ist, wieder auf Anhänger Brágons begegnen."
+"Cherga", "Cheerga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga", "Cheerga" -> "Einst schrieb man ihren Namen 'Cheerga', doch die Zeit vergeht und Illarion wandelt sich. Sie ist die Göttin der Nachwelten und Toten.", "Cherga hat nicht viele Anhänger. Sie ist jene, welche die Toten begleitet und in ihre vorbestimmten Reiche führt. Manche beten zu ihr, um den ruhelosen Geistern den ewigen Frieden zu bringen.", "Viele Nekromanten sind Chergas Anhänger und auch einige Wahrsager. Cherga selbst kümmert es nicht, was die Sterblichen mit dem von ihr verliehenen Wissen anfangen, doch ihr Beistand hat einen hohen Preis..."
 "Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "Elara ist die Göttin des Wissens und der Weisheit. Viele der Scholare innerhalb der vier Türme beten zu ihr um zu lernen und um Wissen zu erlangen.","Die drei großen Fragen: Den Grund für die Gier, den Grund für Gewalt und den Grund für das Leiden. Es heißt Gelehrte die der Antwort nahe kommen sind sehr friedvolle, rechtsschaffende und nachdenkliche Personen.","Wir Anhänger Elaras glauben an die Macht der Weisheit. Alles folgt einem großen Plan und die göttin hilft uns all dies zu verstehen und zu lernen."
+"Elara" -> "Elara ist die Göttin des Wissens und der Weisheit. Viele der Scholare innerhalb der vier Türme beten zu ihr um zu lernen und um Wissen zu erlangen.", "Die drei großen Fragen: Den Grund für die Gier, den Grund für Gewalt und den Grund für das Leiden. Es heißt Gelehrte die der Antwort nahe kommen sind sehr friedvolle, rechtsschaffende und nachdenkliche Personen.", "Wir Anhänger Elaras glauben an die Macht der Weisheit. Alles folgt einem großen Plan und die göttin hilft uns all dies zu verstehen und zu lernen."
 "Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "Eldan ist der Gott des Geistes. Seine Anhänger sind meist Einsiedler oder Leute, die nicht nein zu einem Schluck Wein und einem langen, philosophischen Gespräch sagen.","Eldan einer der fünf 'älteren' Götter. Nur wenig ist über deren Ursprung in Erfahrung zu bringen. Sie selbst erzählen nur wenig und die meißten haben Illarion verlassen. Niemand mag sagen an welchen Tagen sie dennoch hier wandern.","Eldan hat sich nie persönlich um die Sterblichen gekümmert und nur wenige beten zu ihm. Alle behaupten, ihn schon einmal persönlich getroffenen zu haben, doch in Wirklichkeit haben sie sich einer Illusion hingegeben."
+"Eldan" -> "Eldan ist der Gott des Geistes. Seine Anhänger sind meist Einsiedler oder Leute, die nicht nein zu einem Schluck Wein und einem langen, philosophischen Gespräch sagen.", "Eldan einer der fünf 'älteren' Götter. Nur wenig ist über deren Ursprung in Erfahrung zu bringen. Sie selbst erzählen nur wenig und die meißten haben Illarion verlassen. Niemand mag sagen an welchen Tagen sie dennoch hier wandern.", "Eldan hat sich nie persönlich um die Sterblichen gekümmert und nur wenige beten zu ihm. Alle behaupten, ihn schon einmal persönlich getroffenen zu haben, doch in Wirklichkeit haben sie sich einer Illusion hingegeben."
 "Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "Findaris Anhänger waren immer wenige, da sie nicht viel Wert auf Tempel oder die Anbetung legt.","Ich ließ mir sagen manche Wahrsager und wandernde Prophetendie es zu Bekanntschaft brachten wurden von Findari ausgewählt."Findari eine der fünf 'älteren' Göttheiten. Nur wenig ist über deren Ursprung in Erfahrung zu bringen. Sie selbst erzählen nur wenig und die meißten haben Illarion verlassen. Niemand mag sagen an welchen Tagen sie dennoch hier wandern."
+"Findari" -> "Findaris Anhänger waren immer wenige, da sie nicht viel Wert auf Tempel oder die Anbetung legt.", "Ich ließ mir sagen manche Wahrsager und wandernde Prophetendie es zu Bekanntschaft brachten wurden von Findari ausgewählt.", "Findari eine der fünf 'älteren' Göttheiten. Nur wenig ist über deren Ursprung in Erfahrung zu bringen. Sie selbst erzählen nur wenig und die meißten haben Illarion verlassen. Niemand mag sagen an welchen Tagen sie dennoch hier wandern."
 "Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Irmorom" -> "Irmorom ist der Gott des Handwerks und des Handels. Sehr gesprächig und gesellig, so wie die Mannen dieser Zünfte.", "Nicht nur Zwerge beten zu ihm. Händler, Handwerker im selben Maße. Doch strebt man stehts nach materiellen Wohlstand. - Im Leben wie dannach.", "Mit Sicherheit werdet ihr hinter Galmairs Toren, eingeschlagen in den Berg einen Tempel Irmoroms finden."
 "Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Malachin", "Malachín" -> "Malachín ist der Gott der Jagd. Und das Volk bittet ihn stets um Erfolg bei der Jagd.", "Der Schutzpatron der Krieger und Söldner. Oftmals hört man einen von ihnen Malachín als den Schwarzen Wolf rufen, bevor ein schwerer Kampf ausbricht.", "Viele folgen dem ehrenwerten Malachín, Soldaten und Ritter beten zu ihm. Paladine und Kriegskleriker ziehen in seinen Namen aus um die dämonische Brut des Ungesagten zu bekämpfen...."
 "Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "Die Weltordnung des Blutgottes ist geprägt von Gewalt und Schmerz. Er ist gewalttätig, mächtig, blutrüstig und kriegsliebend.","Er ist der 'Blutgott' vieler wilder, blutrünstiger Orkkriegsstämme, die ihm zu Ehren Sterbliche opfern. Diese Altare sind blutgetränkte Zeugnisse seines Charakters und seine Anhänger sind abgrundtief böse Kreaturen.","Der Blutgott verfügt über ungeahntes, verborgenes Wissen und hat eine eigene, sehr rauhe Art von Humor. Wenn Ihr geneigt seid das Humor zu nennen..."
+"Moshran" -> "Die Weltordnung des Blutgottes ist geprägt von Gewalt und Schmerz. Er ist gewalttätig, mächtig, blutrüstig und kriegsliebend.", "Er ist der 'Blutgott' vieler wilder, blutrünstiger Orkkriegsstämme, die ihm zu Ehren Sterbliche opfern. Diese Altare sind blutgetränkte Zeugnisse seines Charakters und seine Anhänger sind abgrundtief böse Kreaturen.", "Der Blutgott verfügt über ungeahntes, verborgenes Wissen und hat eine eigene, sehr rauhe Art von Humor. Wenn Ihr geneigt seid das Humor zu nennen..."
 "Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nargun", "Nargún", "Nargùn" -> "Intrigen, gemeine oder vermeintlich lustige Tricks sind Nargùns Metier. Manchmal ist er hilfsbereit, manchmal zerstörerisch, stets aber verursacht sein Verhalten großes Aufsehen.", "Verrückte Propheten und Einsiedler, oder brabbelnde Idioten... dies sind diejenigen die Nargùn folgen. Glückspieler... Verrückte - und so weiter.", "Die Glaubensansichten von Nargùns Anhängern sind völlig uneinheitlich und verworren. Aber anders wäre es dem Gott des Chaos wohl nicht recht zu machen."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -187,19 +184,19 @@ grau blau
 ".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 ".*", chance(20) -> "Wesshalb? Was ist der Grund dafür?", "Ich verstehe.", "Wenn Ihr das auf diese Art ausdrücken wollt..."
 
-
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me's leuchtend graue Augen wandern aufmerksam durch den Raum.", "ENGLISH."
+cycletext "#me's leuchtend graue Augen mustern achtsam die Umgebung.", "ENGLISH."
 cycletext "#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "ENGLISH."
-cycletext "#me", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me streicht mit den Fingern über die Seiten seines Buches.", "ENGLISH."
+cycletext "#me's Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "ENGLISH."
+cycletext "#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "ENGLISH."
+cycletext "#me nickt sachte. Dann wirft er einen Blick zur Seite.", "ENGLISH."
+cycletext "#me greift sich kruz an den Kopf und seine Stirn legt sich in sanften Falten.", "ENGLISH."
+cycletext "#me reibt sich mit dem Zeigefigner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "ENGLISH."
+cycletext "#me's graue Augen scheinen für einen Moment hell auf zu leuchten.", "ENGLISH."
+cycletext "#me's lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "ENGLISH."
+cycletext "#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "ENGLISH."
