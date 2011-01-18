@@ -31,11 +31,31 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- NPC by Rincewind
 -- Ein Blinder orkischer Seher, der über berühmte Orks berichtet.
 -- Queststatus Overview (kein quest)
-
 
 -- tales n' storys of the ancestors
 "stop", german -> "Hrm, mirr soll erzählen etwas anderes?", state = 0
@@ -137,7 +157,6 @@ wrongLangUS = "#me looks at you confused."
 "murgo", english -> "Yes, Murgo. He is honorfull warrior. Important for Orcs. Lot of great doings. Lot of.", "Hurr, Murgo hired mes. Like most ob tha othas 'ere. All way from Kroch'gurak!", "Murgo, hurr hurr! 'eh honrorables Orc is. Was first played drum. Yubba.", " Murgo 's damn ace is! Ebbry orc wanna like he be.", "Yubba. Murgo very proud ob 'is doughtas is... Er'hja 'nd Ol'hja. Be stong 'n smart females are.", "Murgo be with Krudash. She 'is female. She be mum ob Er'hja 'nd Ol'hja.", "Uh, me guess Murgo hab sumtime hard, with 'is three females. Krudash. 'nd tha doughtas Er'hja 'nd Ol'hja. But all three pretty, yubba!", "Murgo best friend be Jag.", "Sum Orc joke Murgo, be Flower. Maybe was. But nuw 'eh stump all flowas!", " Murrrgo - dis beh name ob great warriar with great axe! But mes think he nub well in thinking. He be flowery flower orc was! Hurr! But nuw he stomps ob flowry! Harr, harrrr!"
 "erhja","er'hja","er hja", german -> "Er'hja glücklich sich schätzen kann. Hatt sein klugg von Mama. Sein Ass von Papa. Krudash 'nd Murgo sind.", "Er'hja gelernt hat bei MO'rurt. Und Jag. Tapfere, mutig Mädchen. Yubba!", "Er'hja 'nd Ol'hja Schwesta sind. Yubba, auseehn beinahe wie gleich.", "Jede Mann hoffen bekomm Er'hja oda Ol'hja zu Weibs. Sie gutte Weibs sind! Yubba.", "#me lacht heiser: 'Ha-hr. Welpen wie Er'hja 'nd Ol'hja machen vieles Sorge für Mama 'nd Papa.'", "#me lacht heiser: 'Ha-hr. Mirr kenne sie seit sie war winzig kleinig. Mirr konnte halten in eine Hand!'", "Lustig geschicht... Er'hjas Papa Murgo züchtn Hounds. Aba Er'hja fürchten diese wie Hasal!", "Uh, nix mirr frag. Er'hja, sie lieben Rabe! Sagen sie klugg sind. wasimma, mir sagt. Rabn Vogl sind. Vogl dummig."
 "erhja","er'hja","er hja", english -> "Er'hja could lucky be. Got tha smart ob 'er mom 'nd ace ob papy. Krudash 'nd Murgo are.", "Er'hja was trained by Mo'rurt. And Jag. Brave girl. Yubba!", "Er'hja 'nd Ol'hja be Sistahs. Yubba, almost look tha same.", "Each Male hope to get Er'hja or Ol'hja as'n female! They good females! Yubba.", "#me chukles hoarsely: 'Ha-hr. Whelps like Er'hja 'nd Ol'hja cuase musch trouble for tha mum and papy.'", "#me chukles hoarsely: 'Ha-hr. Mes know 'er since she was such puny, mes could hol'er with un hand!", "Funny tale... Er'hjas papy Murgo breeds hounds. But she fear those like rabbitz!", "Uh, nub ask mes. Er'hja, she love corbie! Mean they smart. Whubebba, mes say. Corbie be bird. Bird stupid."
-
 
 "ali[czs]", german -> "Alize, Gnarh. Sie jammernd Kind bei Schmieda. Sie Krudashs Sklave ist. Sie schmelzn Erz, muss.", "Du nix sein schwuach mit diesa jammernde Slkave. Sie lernen muss, zu sein STARK! Machen den Besitza Ehre. Yubba.", "Har! Krudash gefangen auf eine Harfen. jetzt ALize, Sklave ist. Aber Jammern viel tut."
 "ali[czs]", english -> "Alize, Gnarh. This bis thus weepy girl at forge. She be Krudash slave is. She hav to smelt you ore.", "Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honor! Yubba.", "Har! Krudash sacked her 'n sum harbour. Now she be her slave is. But weak weepy one."

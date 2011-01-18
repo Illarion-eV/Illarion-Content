@@ -18,20 +18,6 @@ direction = west
 affiliation = "None"
 job = "Priest"
 
--- appearance
-colorHair = 139, 87, 74
-colorSkin = 211, 137, 126
-hairID = 1
-beardID = 3
-itemHead = 358
-itemChest = 182
-itemCoat = 2419
-itemMainHand = 40
-itemSecondHand = 0
-itemHands = 2295
-itemTrousers = 34
-itemShoes = 53
-
 language = common
 language = human
 language = ancient
@@ -46,6 +32,27 @@ useMsgDE = "Dein Feuer berühre und erleuchte mich!"
 useMsgUS = "Your fire touches and enlightens me!"
 wrongLangDE = "#me blickt verwirrt."
 wrongLangUS = "#me looks confused."
+radius = 0
+hairID = 1
+beardID = 3
+colorHair = 139, 87, 74
+colorSkin = 211, 137, 126
+itemHead = 358
+itemChest = 182
+itemCoat = 2419
+itemMainHand = 40
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- queststatus(600) Overview
 -- QuestID=600
@@ -97,6 +104,20 @@ wrongLangUS = "#me looks confused."
 -- Help
 "Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keyphrases: Hello, quest, Bragon, god, information.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Priester Nobarg. Schlüsselwörter: Hallo, Quest, Bragon, Götter, information.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slightly and continuous praying.", "Hmm? Yes, yes.", "Bragon with you."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "#me nods slightly and continuous praying.", "Hmm? Yes, yes.", "Bragon with you."
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Bragon with you!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Good bye.", "Bragon with you!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
+"How are you", "How feel", "How do you do" -> "If Bragon listens to me today, better.", "Do you want pray with me?", "Fine, Bragen to honour!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Bragon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Bragon zu Ehren!"
+"your name", "who are you", "who art thou" -> "Nobarg.", "Nobarg, priest of Bragon"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
 
 -- 1st quest: Bring 1 pure fire.
 "task", "adventure", "know", "question", queststatus(600) < 5 -> "I don't have to do anything for you."
@@ -201,26 +222,6 @@ wrongLangUS = "#me looks confused."
 "goblet" -> "I'm sure a finesmith in Cadomyr or in Galmair can help regarding the goblet."
 "kelch" -> "Ich bin mir sicher ein Goldschmied in Cadomyr oder in Galmair kann euch bezüglich des Kelches helfen."
 
--- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slightly and continuous praying.", "Hmm? Yes, yes.", "Bragon with you."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "#me nods slightly and continuous praying.", "Hmm? Yes, yes.", "Bragon with you."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "#me nickt leicht und betet weiter.", "Hmm? Ja, ja.", "Bragon mit euch."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Bragon with you!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farewell.", "Good bye.", "Bragon with you!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Lebt wohl.", "Aufwiedersehen.", "Bragon sei mit euch!"
-"How are you", "How feel", "How do you do" -> "If Bragon listens to me today, better.", "Do you want pray with me?", "Fine, Bragen to honour!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Wenn Bragon mich heute erhört, besser.", "Möchtet ihr mit mir beten?", "Gut, Bragon zu Ehren!"
-"your name", "who are you", "who art thou" -> "Nobarg.", "Nobarg, priest of Bragon"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Do I look as I sell something?", "I don't sell something.", "I'm not a merchant, but priest."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus als würde ich etwas verkaufen?", "Ich verkaufe nichts.", "Ich bin kein Händler, sondern Priester."
-"tell something" -> "In Bragon I believe.", "Another time maybe. Now I have to pray.", "It is not the time for stories, yet."
-"erzähl was", "erzähl etwas" -> "An Bragon glaube ich.", "Vielleicht ein andermal. Jetzt muss ich beten.", "Nun ist nicht die Zeit um Geschichten zu erzählen."
-
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession","work" -> "Priest of Bragon of course.", "Priest, are you not seeing it?", "Bragon is my passion."
 "beruf","arbeit","was mach" -> "Priest von Bragon natürlich.", "Priester, seht ihr das nicht?", "Bragon ist meine Leidenschaft."
@@ -250,16 +251,20 @@ wrongLangUS = "#me looks confused."
 "Ebene" -> "Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion ist unsere Ebene. Für mehr Information fragt jemand anderen."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Does he believe in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er regiert Runewick soweit ich weiß.", "Ich denke er weiß viele Dinge über arkane Magie."
+"archmage" -> "Does he believe in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
+"Erzmagier" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er regiert Runewick soweit ich weiß.", "Ich denke er weiß viele Dinge über arkane Magie."
+"Elvaine", "Morgan", english -> "Does he believe in Bragon? Otherwise I do not care about him.", "He rules Runewick as far as I know.", "I think he knows many things about arcane magic."
+"Elvaine", "Morgan" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er regiert Runewick soweit ich weiß.", "Ich denke er weiß viele Dinge über arkane Magie."
 "Runewick", english -> "They are looking for wisdom. But I don't know why they are always looking for it in the west.", "They think, they are wise, but I don't know if I shall agree.", "I can remember a blue and a red gate when you enter the town."
 "Runewick" -> "Die suchen nach Weisheit. Aber warum sie sie ständig im Westen suchen, weiß ich nicht.", "Die denken, dass sie weise sind, aber ich weiß nicht ob ich darin zustimmen soll.", "Ich kann mich an ein blaues und ein rotes Tor erinnern wenn man die Stadt betritt."
 "Valerio", "Guilianni", "Don", english -> "Does he believe in Bragon? Otherwise I do not care about him.", "He is the richest man in Galmair.", "He is quite good with his daggers. In particular if he is comming from the backside."
 "Valerio", "Guilianni", "Don" -> "Glaubt er an Bragon? Ansonsten interessiert er mich nicht.", "Er ist der reichste Mann in Galmair.", "Er kann ganz gut mit Dolchen umgehen. Vor allem wenn er von hinten kommt."
 "Galmair", english -> "They are looking for coins and are not interested to sacrife those to Bragon.", "Take care of your belongings if you are there.", "Do not trust anyone there."
 "Galmair" -> "Die sind auf Geld aus und werden es bestimmt nicht Bragon spenden.", "Achtet auf euer Hab und Gut wenn ihr dort seid.", "Vertraut niemanden dort."
-"rosaline", "königin", "queen", "edwards", english -> "Does she believe in Bragon? Otherwise I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but not more."
-"rosaline", "königin", "queen", "edwards" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
+"Queen" -> "Does she believe in Bragon? Otherwise I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but not more."
+"Königin" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
+"rosaline", "edwards", english -> "Does she believe in Bragon? Otherwise I do not care about her.", "She is on a quick road to ruin Cadomyr.", "Lovely face, but not more."
+"rosaline", "edwards" -> "Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.", "Sie stürzt Cadomyr in den Ruin.", "Nettes Gesicht, aber nicht mehr."
 "Cadomyr", english -> "They are looking for honour, and it seems it can be find in the east, due to I have seen troupes coming from this town and passing this temple here.", "A very sandy town.", "I have no idea how do you get there."
 "Cadomyr" -> "Die suchen nach Ehre, und anscheinend dürfte sie im Osten liegen, da ich schon öfters Truppen dieser Stadt diesen Tempel passieren gesehen habe.", "Eine sehr sandige Stadt.", "Ich habe keine Ahnung wie ihr dort hinkommt."
 
@@ -308,6 +313,24 @@ wrongLangUS = "#me looks confused."
 "Ushara" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich.", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.", "Das ist einer der alten Götter wie Bragon."
 "Zhambra", english -> "Yes, this god exists but is not interesting for me but is not interesting for me.", "I heard about priests of this god, but I cannot remember the name of the priest.","That's one of the younger gods. Therefore nothing compared to Bragon."
 "Zhambra" -> "Ja, dieser Gott existiert aber ist nicht von Interesse für mich .", "Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.","Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Do I look as I sell something?", "I don't sell something.", "I'm not a merchant, but priest."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus als würde ich etwas verkaufen?", "Ich verkaufe nichts.", "Ich bin kein Händler, sondern Priester."
+"tell something" -> "In Bragon I believe.", "Another time maybe. Now I have to pray.", "It is not the time for stories, yet."
+"erzähl was", "erzähl etwas" -> "An Bragon glaube ich.", "Vielleicht ein andermal. Jetzt muss ich beten.", "Nun ist nicht die Zeit um Geschichten zu erzählen."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"<NPC first name>", "<NPC last name>", english -> "Yes? How can I help you? Do you like to know more about gods?"
+"<NPC-Vorname>", "<NPC-Nachname>" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
+"Yes" -> "Very well. I feared you would say no."
+"Ja" -> "Sehr gut. Ich fürchtete ihr sagt nein."
+"No" -> "No? Are you sure?"
+"Nein" -> "Nein? Seid ihr sicher?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Don't you think it is time for another pray now?"
+".*", german, chance(20) -> "Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?"
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 

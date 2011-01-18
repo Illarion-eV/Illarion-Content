@@ -169,7 +169,7 @@ itemShoes = 53
 
 --fraction race
 "elf","elves",race=elf,english -> "Elves can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
-"elf","elves" -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"elf","elves",race=elf -> "Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
 "elf","elves",english -> "Elves can be mainly found in Runewick."
 "elf","elves" -> "Elfen können vorallem in Runewick gefunden werden."
 "human",race=human -> "Humans can be found everywhere. Therefore you will feel quite at home everywhere. *giggles* But feel free to go somewhere else too!"
@@ -188,10 +188,10 @@ itemShoes = 53
 "echse",race=lizardman -> "Echsenmenschen können vorallem in Cadomyr gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
 "lizard",english -> "Lizardmen can be mainly found in Cadomyr."
 "echse" -> "Echsenmenschen können vorallem in Cadomyr gefunden werden."
-"halbing","halfing",race=halfling,english -> "Halfings as I am can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
-"halbing","halfing",race=halfling -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
-"halbing","halfing",english -> "Halfings as I am can be mainly found in Runewick."
-"halbing","halfing" -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden."
+"halbling","halfing",race=halfling,english -> "Halfings as I am can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!"
+"halbling","halfing",race=halfling -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!"
+"halbling","halfing",english -> "Halfings as I am can be mainly found in Runewick."
+"halbling","halfing" -> "Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden."
 
 -- Faction stuff
 "archmage" -> "He is the ruler of Runewick. Due to he is an Archmage and elf from Lor-Angur, he is very good in magic. *claps his hands* Nice fireworks! He is very wise and gives good advices. I recommend you to accept his advice."
@@ -277,7 +277,7 @@ itemShoes = 53
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*",english,chance(20)->"Duddli, duddla, ask me for help."
-".*",chance(20)->"Duddli, duddla, frag mich nach Hilfe."
+".*",german,chance(20)->"Duddli, duddla, frag mich nach Hilfe."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
