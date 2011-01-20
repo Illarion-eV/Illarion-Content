@@ -9,7 +9,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     SourceItem.quality = 90;
     world:changeItem(SourceItem);
---
+
 --    world:createDynamicNPC("Test1",50,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
 --    world:createDynamicNPC("Test2",1,position(User.pos.x+1,User.pos.y,User.pos.z),0,"test.vilarion");
 end
