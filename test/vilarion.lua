@@ -21,7 +21,7 @@ function nextCycle()  -- ~10 times per second
     if test.vilarion.user then
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
-            test.vilarion.user:inform( "Hallo " .. test.vilarion.user.name );
+            test.vilarion.user:inform("CRASH");
             test.vilarion.user = 0;
         end;
     end;
