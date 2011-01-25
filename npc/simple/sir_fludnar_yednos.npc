@@ -18,20 +18,6 @@ direction = south
 affiliation = "Runewick"
 job = "Scholar"
 
--- appearance
-colorHair = 33, 28, 25
-colorSkin = 180, 102, 102
-hairID = 2
-beardID = 0
-itemHead = 357
-itemChest = 182
-itemCoat = 193
-itemMainHand = 0
-itemSecondHand = 110
-itemHands = 2295
-itemTrousers = 34
-itemShoes = 369
-
 language = common
 language = human
 language = ancient
@@ -46,6 +32,27 @@ useMsgDE = "Psss! Ruhe bitte!"
 useMsgUS = "Psss! Silent please!"
 wrongLangDE = "Was sagtet ihr? Könntet ihr deutlicher sprechen?"
 wrongLangUS = "What are you saying? Could you say that again?"
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 33, 28, 25
+colorSkin = 180, 102, 102
+itemHead = 357
+itemChest = 182
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 110
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 369
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- queststatus(600) Overview
 -- QuestID=600
@@ -98,6 +105,20 @@ wrongLangUS = "What are you saying? Could you say that again?"
 -- Help
 "Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keyphrases: Hello, quest, god, orc.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Could you lower your tongue? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue to research."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Did you get lost?", "Leave me quick!", "Who is disturbing my work?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Vergesst nicht die Tür zu schließen!"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Get out!", "Finally!", "..."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Raus hier!", "Endlich!", "..."
+"How are you", "How feel", "How do you do" -> "If nobody would disturb me, it would be better!", "Could you keep silent please?", "Fine, fine, but let me continue my work now."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
+"your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Is this necessary to know?"
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
 
 -- quest - 1th step: gather some information about bragon and orcs
 -- 1. question
@@ -263,7 +284,29 @@ wrongLangUS = "What are you saying? Could you say that again?"
 "quest", "mission", queststatus(600) = 40, english -> "Hmm... You already had your task. There nothing to do for you here. Better ask someone else! Farewell."
 "quest", "mission", queststatus(600) = 40 -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
 
--- Last catch: Think about keyphrases the player might say and that are not caught until here
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession","work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"beruf","arbeit" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+"job", english -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"job" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+"Gobaith", english -> "Oh yes, the good, old times. *sigh*", "It was a small island somewhere in the east of the main land.", "It was a chaotic place with many wannabes!"
+"Gobaith" -> "Oh ja, die guten alten Zeiten. *seufzt*", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
+"I am", "my name" -> "Nice to meet you.", "Well, what do you want from me?", "Interesting, interesting, but never heard such a ridiculous name."
+"Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
+
+-- More small talk; add at least five triggers
+"five" -> "Altar of the Five? Ask people. I am sure someone knows it.", "Altar of the Five? I think it is in the west.", "Altar of the Five? I don't know, but shall I looking for by myself? ..."
+"altar",english -> "I would recommend the altar of the five. Ask people. I am sure someone knows it.", "I would recommend the altar of the five. I think it is in the west."
+"priest",english -> "I have no idea where they are hiding. Better you ask someone else or you look for an altar at least."
+"Northern", "Mountains", "krest" -> "A mighty clan. Better avoid to bother them.", "They have a very honourable chief.", "Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that."
+"halfing" -> "Halfings...the favourite food of orcs.", "Orcs have several recipes for them.", "Halflings are also very useful as slaves for orcs."
+"bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
+"Fünf" -> "Altar der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf? Ich denke der liegt im Westen.", "Altar der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ..."
+"altar" -> "Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen."
+"priest" -> "Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar."
+"Northern", "Mountains", "krest" -> "Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.", "Die haben einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
+"Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
+"Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
 
 "orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because they have a powerful shaman.","Green, strong, bloody.", "An interesting race for research, isn't?.", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
 "ork" -> "Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.","Grün, stark, Blutig.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
@@ -285,64 +328,24 @@ wrongLangUS = "What are you saying? Could you say that again?"
 "dring","drang","hundert" -> "Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen."
 "100", english -> "Orcs invaded in this area hundred years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
 "100" -> "Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen."
-
--- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Could you lower your tongue? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue to research."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?.", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Did you get lost?", "Leave me quick!", "Who is disturbing my work?"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Vergesst nicht die Tür zu schließen!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Get out!", "Finally!", "..."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Raus hier!", "Endlich!", "..."
-"How are you", "How feel", "How do you do" -> "If nobody would disturb me, it would be better!", "Could you keep silent please?", "Fine, fine, but let me continue my work now."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
-"your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Is this necessary to know?"
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Do I look as I sell something?", "Do you remember where the gate is? GET OUT!", "I can sell you this book for 1000 gold! *smirks* "
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus als würde ich etwas verkaufen?", "Erinnerst du dich wo die Türe ist? RAUS HIER!", "Ich kann dir das Buch hier um 1000 Goldmünzen verkaufen. *grinst frech*"
-"tell something" -> "I am working and you are disturbing me!", "The gate is behind you.", "Have somebody ever told you that you are disturbing?"
-"erzähl was", "erzähl etwas" -> "Ich arbeite und ihr stört.", "Die Tür ist hinter euch.", "Hat euch jemals jemand erzählt, dass ihr störend seid?"
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession","work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
-"beruf","arbeit" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
-"job", english -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
-"job" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
-"Gobaith", english -> "Oh yes, the good, old times. *sigh*", "It was a small island somewhere in the east of the main land.", "It was a chaotic place with many wannabes!"
-"Gobaith" -> "Oh ja, die guten alten Zeiten. *seufzt*", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
-"I am", "my name" -> "Nice to meet you.", "Well, what do you want from me?", "Interesting, interesting, but never heard such a ridiculous name."
-"Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
-"sir", "fludnar", "yednos", english -> "That's my name.","Impressing, you can pronounce my name correctly!"
-"sir", "fludnar", "yednos" -> "Das ist mein Name.","Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
-
--- More small talk; add at least five triggers
-"five" -> "Altar of the Five? Ask people. I am sure someone knows it.", "Altar of the Five? I think it is in the west.", "Altar of the Five? I don't know, but shall I looking for by myself? ..."
-"altar",english -> "I would recommend the altar of the five. Ask people. I am sure someone knows it.", "I would recommend the altar of the five. I think it is in the west."
-"priest",english -> "I have no idea where they are hiding. Better you ask someone else or you look for an altar at least."
-"Northern", "Mountains", "krest" -> "A mighty clan. Better avoid to bother them.", "They have a very honourable chief.", "Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that."
-"halfing" -> "Halfings...the favourite food of orcs.", "Orcs have several recipes for them.", "Halflings are also very useful as slaves for orcs."
-"bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
-"Fünf" -> "Altar der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf? Ich denke der liegt im Westen.", "Altar der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ..."
-"altar" -> "Altar der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.", "Altar der Fünf würde ich vorschlagen. Ich denke der liegt im Westen."
-"priest" -> "Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar."
-"Northern", "Mountains", "krest" -> "Ein mächtiger Klan. Besser ihr vermeidet diese zu ärgern.", "Die haben einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
-"Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
-"Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
+"hundred" -> "Orcs invaded in this area hundred years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
+"hundert" -> "Orks drangen in diesen Teil vor hundert Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen."
 
 -- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him.."
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
+"archmage" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him.."
+"Erzmagier" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
+"Elvaine", "Morgan", english -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him.."
+"Elvaine", "Morgan" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
 "Runewick", english -> "Nice towers do we have, haven't we? And many great books. Take a look.", "Our forest is so beautiful, isn't it?", "I enjoy it to live here."
 "Runewick" -> "Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.", "Unser Wald ist so wunderhübsch, oder?", "Ich genieße es hier zu leben."
 "Valerio", "Guilianni", "Don", english -> "Watch his daggers if you ever meet him!", "He has only one aim: more wealth!", "I think he believes in Nargun."
 "Valerio", "Guilianni", "Don" -> "Achte auf seine Dolche wenn du ihn jemals treffen solltest!", "Er hat nur ein einziges Interesse: mehr Reichtum!", "Ich denke er glaubt an Nargun."
 "Galmair", english -> "Only one word: Criminals.", "They are all greedy and moody.", "A disgusting place.", "Huuu, why do remember me that I still have to pay my debts there."
 "Galmair" -> "Nur ein Wort: Verbrecher.", "Die sind all gierig und launisch.", "Ein abscheulicher Platz.", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?"
-"rosaline", "königin", "queen", "edwards", english -> "I don't know how such a person could become queen.", "Wisdom is not one of her characteristics.", "I haven't seen her so far, but she should be very pretty."
-"rosaline", "königin", "queen", "edwards" -> "Ich weiß nicht wie so eine Person Königin werden konnte.", "Weisheit ist nicht gerade eine ihrer Eigenschaften.", "Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein."
+"Queen" -> "I don't know how such a person could become queen.", "Wisdom is not one of her characteristics.", "I haven't seen her so far, but she should be very pretty."
+"Königin" -> "Ich weiß nicht wie so eine Person Königin werden konnte.", "Weisheit ist nicht gerade eine ihrer Eigenschaften.", "Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein."
+"rosaline", "edwards", english -> "I don't know how such a person could become queen.", "Wisdom is not one of her characteristics.", "I haven't seen her so far, but she should be very pretty."
+"rosaline", "edwards" -> "Ich weiß nicht wie so eine Person Königin werden konnte.", "Weisheit ist nicht gerade eine ihrer Eigenschaften.", "Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein."
 "Cadomyr", english -> "They think they have honour, but to be honest, they only lack on wisdom.", "I think the have some quite good goldsmiths.", "I would not be surprised if they have some slaves."
 "Cadomyr" -> "Die denken, dass sie Ehre hätten, aber um ehrlich zu sein, denen mangelt es lediglich an Weisheit.", "Ich denke, dass sie ein paar ganz gute Goldschmiede haben.", "Ich wäre nicht überrascht wenn die nicht einige Sklaven hätten."
 
@@ -391,6 +394,25 @@ wrongLangUS = "What are you saying? Could you say that again?"
 "Ushara" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
 "Zhambra", english -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
 "Zhambra" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Do I look as I sell something?", "Do you remember where the gate is? GET OUT!", "I can sell you this book for 1000 gold! *smirks* "
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus als würde ich etwas verkaufen?", "Erinnerst du dich wo die Türe ist? RAUS HIER!", "Ich kann dir das Buch hier um 1000 Goldmünzen verkaufen. *grinst frech*"
+"tell something" -> "I am working and you are disturbing me!", "The gate is behind you.", "Have somebody ever told you that you are disturbing?"
+"erzähl was", "erzähl etwas" -> "Ich arbeite und ihr stört.", "Die Tür ist hinter euch.", "Hat euch jemals jemand erzählt, dass ihr störend seid?"
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+
+"sir", "fludnar", "yednos", english -> "That's my name.","Impressing, you can pronounce my name correctly!"
+"sir", "fludnar", "yednos" -> "Das ist mein Name.","Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
+"Yes" -> "And what shall I do now?", "Can you give a proper answer?"
+"Ja" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
+"No" -> "And what shall I do now?", "Can you give a proper answer?"
+"Nein" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "#me covers his nose and mumbles 'Maybe you should consider to clean your teeth. You have a very smelly breath'."
+".*", german, chance(20) -> "#me hält sich die Nase zu und murmelt 'Vielleicht solltet ihr euch die Zähne putzen. Ihr habt einen üblen Mundgeruch'."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
