@@ -18,20 +18,6 @@ direction = south
 affiliation = "Cadomyr"
 job = "priest"
 
--- appearance
-colorHair = 108, 86, 72
-colorSkin = 57, 138, 55
-hairID = 2
-beardID = 5
-itemHead = 0
-itemChest = 363
-itemCoat = 196
-itemMainHand = 0
-itemSecondHand = 0
-itemHands = 48
-itemTrousers = 2113
-itemShoes = 53
-
 language = common
 language = orc
 defaultLanguage = orc
@@ -45,6 +31,27 @@ useMsgDE = "Alt und zach aber genug fur Welpen!"
 useMsgUS = "Old and tough but strong enub for whelps!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 108, 86, 72
+colorSkin = 57, 138, 55
+itemHead = 0
+itemChest = 363
+itemCoat = 196
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 2113
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
 
 -- queststatus(601) Overview
 -- QuestID=601
@@ -54,14 +61,14 @@ wrongLangUS = "#me looks at you confused."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der alte Ork Tronruk. Schlüsselwörter: Hallo, Geschichte, ork, Götter.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
-"Hiho", "Hallo", "Hey","Greebas", "Greebhas", "Greebs", english -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
-"Hiho", "Hallo", "Hey","Greebas", "Greebhas", "Greebs" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farebrass."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Farebrass."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farebrass."
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farebrass."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "#me nods slighty and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Grebbha."
+"Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt leicht und schließt seine Augen wieder.", "Hurr? Yubbah, Yubbah", "Grebbha."
+"Farewell", "Bye", "Fare well", "See you" -> "Farebrass."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebrass."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farebrass."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebrass."
 "How are you", "How feel", "How do you do" -> "Hurr, meh beh fine.", "Tired as usuall", "#me scratches his ass."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Hurr, mich fein sein.", "Mude wia imma", "#me kratzt sich am Hintern."
 "your name", "who are you", "who art thou" -> "Tronruk.", "Tronruk, an old orc. Hurr"
@@ -69,13 +76,11 @@ wrongLangUS = "#me looks at you confused."
 "Tronruk", english -> "Yubba, dhat mina nam! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Meh hub nubbing.", "Meh nub selling sombhing.", "Yoo hub to ask broddhas and sisthas ib yoo want buh stuff."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Mich hub nix", "Mich nix verkaufen.", "Du müssa fragen Bruder und Schwesta wenn du wollen kaufen Sachen."
-"tell something" -> "Hurr, hurr!", "Meh nub maneh stories!"
-"erzähl was", "erzähl etwas" -> "Hurr, hurr!.", "Mich kennen viele Geschichten."
-"story", "stories" -> "Whub old story from old Gobaith yoo want hear? 'The Day of the Hammer' oder 'Day of Green Growl'?"
-"Geschichte" -> "Welche alt Geschichte von alt Gobaith du wollen hören? 'Der Tag des Hammer' oder 'Tag des Grünen Knurren'?"
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "Nubba quest, but storeh meh tell."
+"quest", "mission" -> "Nix Mission, aber Geschicht mich erzähl."
+"task", "adventure" -> "Nubba task, but storeh meh tell."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Nix Aufgab, aber Geschicht mich erzähl."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Meh nub work annehmore.", "Sitting and telling old storehs", "#me burps."
@@ -84,8 +89,8 @@ wrongLangUS = "#me looks at you confused."
 "job" -> "Ich nix mehr arbeiten.", "Sitzen und alte Geschichtn erzähla", "#me pfurzt."
 "Gobaith", "Gobiath", english -> "Hurr, hurr, Meh remember, yubba. *closes his eyes again*", "Dhea beh a clan beh. Berreh mighthe it beh!", "Dhat place beh ruled beh by broddhas and sisthas."
 "Gobaith", "Gobiath" -> "Hurr, hurr, mich erinnern, yubba.*schließt seien Augen wieder*", "Da war Klan. Sehr mächtig war der!", "Das Platz war beherrscht von Brudda and Schwesta."
-"I am", "my name" -> "Hurr, hurr!", "Guud to know."
-"Ich bin", "mein Name" -> "Hurr, hurr!", "Gut zu wissen."
+"my name" -> "Hurr, hurr!", "Guud to know."
+"mein Name" -> "Hurr, hurr!", "Gut zu wissen."
 
 -- More small talk; add at least five triggers
 "why are you sitting" -> "Dhea beh nubbing to do.", "Whub nub?"
@@ -99,6 +104,9 @@ wrongLangUS = "#me looks at you confused."
 "human" -> "Better nub trust dham!", "Meh nub know maneh ob dham."
 "Ommie town" -> "Maneh ob dham exist. Too maneh ib yoo ask meh!", "Hurr, Albar, Gynk or Salkama for exampla."
 "Hurr?", english -> "Hurr!"
+
+"story", "stories" -> "Whub old story from old Gobaith yoo want hear? 'The Day of the Hammer' oder 'Day of Green Growl'?"
+"Geschichte" -> "Welche alt Geschichte von alt Gobaith du wollen hören? 'Der Tag des Hammer' oder 'Tag des Grünen Knurren'?"
 "Father" -> "Dha Faddha makes us strong and powerful!"
 "Faddha", english -> "Dha Faddha makes us strong and powerful!"
 "sitzen" -> "Nix tun zu.", "Warum nicht?"
@@ -177,123 +185,101 @@ wrongLangUS = "#me looks at you confused."
 "Zhambra", english -> "Zhambra beh dha 'broddha-godness'."
 "Zhambra" -> "Zhambra sind 'Brüder-Göttin'."
 
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Meh hub nubbing.", "Meh nub selling sombhing.", "Yoo hub to ask broddhas and sisthas ib yoo want buh stuff."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Mich hub nix", "Mich nix verkaufen.", "Du müssa fragen Bruder und Schwesta wenn du wollen kaufen Sachen."
+"tell something" -> "Hurr, hurr!", "Meh nub maneh stories!"
+"erzähl was", "erzähl etwas" -> "Hurr, hurr!.", "Mich kennen viele Geschichten."
+
 -- story 1 - The Day of the Hammer
 "Hammer" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) + 1
 "Hammer" -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) + 1
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 1 -> "Meh tell dha story as dha Warlord once did. *His voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 1 -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 1 -> "Meh tell dha story as dha Warlord once did. *His voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 1 -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 1, english -> "Meh tell dha story as dha Warlord once did. *his voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 1 -> "Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!", queststatus(601) + 1
-"No", queststatus(1) = 1 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 1 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 1, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 1 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 2 -> "When the Warlord was about to enter the human city Trolls Bane after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt Trolls Bane betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 2 -> "When the Warlord was about to enter the human city Trolls Bane after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt Trolls Bane betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 2, english -> "When the Warlord was about to enter the human city after the meeting with the chief, he ran into the dwarven army, led by the queen herself!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 2 -> "Als der Kriegsherr die Menschenstadt betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!", queststatus(601) + 1
-"No", queststatus(601) = 2 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 2 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 2, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 2 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 3 -> "They thought that I, the Warlord, is an easy target for them!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 3 -> "Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 3 -> "They thought that I, the Warlord, is an easy target for them!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 3 -> "Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 3, english -> "They thought that I, the Warlord, is an easy target for them!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 3 -> "Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!", queststatus(601) + 1
-"No", queststatus(601) = 3 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 3 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 3, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 3 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 4 -> "I stood my ground to their insults and when they were just about to attack, Taliss, our allied lizard friend, appeared from the back and stood by my side!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 4 -> "Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 4 -> "I stood my ground to their insults and when they were just about to attack, Taliss, our allied lizard friend, appeared from the back and stood by my side!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 4 -> "Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 4, english -> "I stood my ground to their insults and when they were just about to attack, Taliss, our allied lizard friend, appeared from the back and stood by my side!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 4 -> "Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!", queststatus(601) + 1
-"No", queststatus(601) = 4 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 4 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 4, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 4 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 5 -> "Toghether we fought like bothers, slashing trough dwarves like a hot knife trough butter!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 5 -> "Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 5 -> "Toghether we fought like bothers, slashing trough dwarves like a hot knife trough butter!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 5 -> "Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 5, english -> "Toghether we fought like bothers, slashing trough dwarves like a hot knife trough butter!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 5 -> "Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!", queststatus(601) + 1
-"No", queststatus(601) = 5 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 5 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 5, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 5 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 6 -> "The queen herself started running arround like a scared pig sent to slaughter.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 6 -> "Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 6 -> "The queen herself started running arround like a scared pig sent to slaughter.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 6 -> "Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 6, english -> "The queen herself started running arround like a scared pig sent to slaughter and even though the dwarves used fierly, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 6 -> "Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.", queststatus(601) + 1
-"No", queststatus(601) = 6 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 6 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 6, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 6 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 7 -> "And even though the dwarves used fierily, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 7 -> "Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 7 -> "And even though the dwarves used fierily, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 7 -> "Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 7, english -> "And even though the dwarves used fierly, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 7 -> "Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!", queststatus(601) + 1
-"No", queststatus(601) = 7 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 7 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 7, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 7 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 8 -> "The queen dragged herself to the cross, where, me, Taliss and the human Tirrend, tied the queen up and dragged her all the way to the cave, shoving her into the jail! *He grins mischievous.*", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 8 -> "Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 8 -> "The queen dragged herself to the cross, where, me, Taliss and the human Tirrend, tied the queen up and dragged her all the way to the cave, shoving her into the jail! *He grins mischievous.*", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 8 -> "Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 8, english -> "The queen dragged herself to the cross, where, me, Taliss and the human Tirrend, tied the queen up and dragged her all the way to the cave, shoving her into the jail! *He grins mischievous.*", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 8 -> "Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*", queststatus(601) + 1
-"No", queststatus(601) = 8 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 8 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 8, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 8 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 9 -> "Brothers, rejoice! We have captured the queen! Now she will face the trial of the orcs, she will face our anger!...Yubba, it happened. Dham throw her from dah holy mountain!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 9 -> "Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 9 -> "Brothers, rejoice! We have captured the queen! Now she will face the trial of the orcs, she will face our anger!...Yubba, it happened. Dham throw her from dah holy mountain!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 9 -> "Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 9, english -> "Brothers, rejoice! We have captured the queen! Now she will face the trial of the orcs, she will face our anger!...Yubba, it happened. Dham throw her from dah holy mountain!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 9 -> "Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!", queststatus(601) + 1
-"No", queststatus(601) = 9 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 9 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 9, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 9 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 10 -> "Let this be known as the Day of the Hammer! The day when the dwarf army got crushed under the feet of those that fought for honor! *He closes the eyes after he has finished.*", queststatus(601) = 0
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 10 -> "Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*", queststatus(601) = 0
+"Sure", "Of course", "more", "continue", queststatus(601) = 10 -> "Let this be known as the Day of the Hammer! The day when the dwarf army got crushed under the feet of those that fought for honor! *He closes the eyes after he has finished.*", queststatus(601) = 0
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 10 -> "Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*", queststatus(601) = 0
 "Yeah", "Yubba", queststatus(601) = 10, english -> "Let this be known as the Day of the Hammer! , the day when the dwarf army got crushed under the feet of those that fought for honor! *He closes the eyes after he has finished.*", queststatus(601) = 0
 "Yeah", "Yubba", queststatus(601) = 10 -> "Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*", queststatus(601) = 0
-"No", queststatus(601) = 10 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 10 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 10, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 10 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
 -- story 2 - Day of Green Growl
 "Growl" -> "Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!", queststatus(601) = 11
 "Knurren" -> "Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!", queststatus(601) = 11
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 11 -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 11 -> "Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 11 -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 11 -> "Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 11, english -> "Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 11 -> "Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!", queststatus(601) + 1
-"No", queststatus(601) = 11 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 11, english -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 11, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 11 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 12 -> "Dese Orcs ob da Horde wus dere: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 12 -> "Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 12 -> "Dese Orcs ob da Horde wus dere: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 12 -> "Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 12, english -> "Dese Orcs ob da Horde wus dere: Silver Skull Murgo,Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 12 -> "Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.", queststatus(601) + 1
-"No", queststatus(601) = 2 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 12 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 12, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 12 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 13 -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen in Menschenstadt Trolls Bane organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 13 -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen in Menschenstadt Trolls Bane organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 13, english -> "Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 13 -> "Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!", queststatus(601) + 1
-"No", queststatus(601) = 13 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 13 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 13, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 13 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 14 -> "Hurr, meh remember dhat storeh hub two parts. Dha 'Tournament' and dha 'Aftermath'. Whub ona yoo want hear?", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 14 -> "Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 14 -> "Hurr, meh remember dhat storeh hub two parts. Dha 'Tournament' and dha 'Aftermath'. Whub ona yoo want hear?", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 14 -> "Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 14, english -> "Hurr, meh remember dhat storeh hub two parts. Dha 'Tournament' and dha 'Aftermath'. Whub ona yoo want hear?", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 14 -> "Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?", queststatus(601) + 1
-"No", queststatus(601) = 14 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 14 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 14, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 14 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Tournament" -> "Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!", queststatus(601) = 21
@@ -306,198 +292,150 @@ wrongLangUS = "#me looks at you confused."
 "Nachspiel", queststatus(601) = 15 -> "Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!", queststatus(601) = 31
 
 -- story 2a - Tournament
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 21 -> "First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one orcs quite soon!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 21 -> "Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 21 -> "First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one orcs quite soon!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 21 -> "Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 21 -> "First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one orcs quite soon!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 21 -> "Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!", queststatus(601) + 1
-"No", queststatus(601) = 21 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 21 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 21, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 21 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 22 -> "In a great battle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 22 -> "In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde  machte Horde böse!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 22 -> "In a great battle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 22 -> "In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde  machte Horde böse!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 22, english -> "In a great battle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 22 -> "In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde  machte Horde böse!", queststatus(601) + 1
-"No", queststatus(601) = 22 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 22 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 22, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 22 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 23 -> "In da first round da Chief got a weak halfer to smash. Da most difficult ting wus nub to kill da halfer wit heavy blow since it wus gauinst da rules.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 23 -> "In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 23 -> "In da first round da Chief got a weak halfer to smash. Da most difficult ting wus nub to kill da halfer wit heavy blow since it wus gauinst da rules.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 23 -> "In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 23, english -> "In da first round da Chief got a weak halfer to smash. Da most difficult ting wus nub to kill da halfer wit heavy blow since it wus gauinst da rules.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 23 -> "In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.", queststatus(601) + 1
-"No", queststatus(601) = 23 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 23 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 23, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 23 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 24 -> "Second rounds. In second round bruddah Jag fought gainst a brave oomie and won in gud fight! Da Chief had to fight da oomie Don Andrews. Usually an easy task, though, on dis day da Father decided to test da faith ob Orcs.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 24 -> "Zweit Runde. In zweit Runde Bruder Jag kämpft gegen tapfer Ommie und gewann in guter Kampf! Chief haben kämpfen müssen gegen Ommie Don Andrews. Normalerweise leichte Aufgabe, aber diesen Tag Vater entschied zu testen Glauben von Orks.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 24 -> "Second rounds. In second round bruddah Jag fought gainst a brave oomie and won in gud fight! Da Chief had to fight da oomie Don Andrews. Usually an easy task, though, on dis day da Father decided to test da faith ob Orcs.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 24 -> "Zweit Runde. In zweit Runde Bruder Jag kämpft gegen tapfer Ommie und gewann in guter Kampf! Chief haben kämpfen müssen gegen Ommie Don Andrews. Normalerweise leichte Aufgabe, aber diesen Tag Vater entschied zu testen Glauben von Orks.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 24, english -> "Second rounds. In second round bruddah Jag fought gainst a brave oomie and won in gud fight! Da Chief had to fight da oomie Don Andrews. Usually an easy task, though, on dis day da Father decided to test da faith ob Orcs.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 24 -> "Zweit Runde. In zweit Runde Bruder Jag kämpfte gegen taper Ommie und gewann in guter Kampf! Chief haben kämpfen müssen gegen Ommie Don Andrews. Normalerweise leichte Aufgabe, aber diesen Tag Vater entschied zu testen Glauben von Orks.", queststatus(601) + 1
-"No", queststatus(601) = 24 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 24 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 24, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 24 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 25 -> "In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled a bit and almost fell into the water.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 25 -> "In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 25 -> "In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled a bit and almost fell into the water.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 25 -> "In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 25, english -> "In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled a bit and almost fell into the water.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 25 -> "In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.", queststatus(601) + 1
-"No", queststatus(601) = 25 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 25 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 25, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 25 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 26 -> "By having lost his stance the Chief got more hard blows and finally lost the fight against Don. Orcs wus shocked and seeked for bloody revenge.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 26 -> "Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 26 -> "By having lost his stance the Chief got more hard blows and finally lost the fight against Don. Orcs wus shocked and seeked for bloody revenge.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 26 -> "Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 26, english -> "By having lost his stance the Chief got more hard blows and finally lost the fight against Don. Orcs wus shocked and seeked for bloody revenge.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 26 -> "Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.", queststatus(601) + 1
-"No", queststatus(601) = 26 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 26 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 26, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 26 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 27 -> "Final rounds. The Chief had to fight against a oomie warrior. Due to his anger it wus quick and blood fight. The Chief made the third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 27 -> "Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 27 -> "Final rounds. The Chief had to fight against a oomie warrior. Due to his anger it wus quick and blood fight. The Chief made the third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 27 -> "Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 27, english -> "Final rounds. The Chief had to fight against a oomie warrior. Due to his anger it wus quick and blood fight. The Chief made the third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 27 -> "Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.", queststatus(601) + 1
-"No", queststatus(601) = 27 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 27 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 27, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 27 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 28 -> "In a long fight they slashed for each other with such strength and speed dat one hardly could see deir weapons. Ib one ob deir blows whub hab missed and hit da wooden arena ground, dey certainly whub hab fell into water.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 28 -> "In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 28 -> "In a long fight they slashed for each other with such strength and speed dat one hardly could see deir weapons. Ib one ob deir blows whub hab missed and hit da wooden arena ground, dey certainly whub hab fell into water.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 28 -> "In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 28, english -> "In a long fight they slashed for each other with such strength and speed dat one hardly could see deir weapons. Ib one ob deir blows whub hab missed and hit da wooden arena ground, dey certainly whub hab fell into water.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 28 -> "In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.", queststatus(601) + 1
-"No", queststatus(601) = 28 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 28 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 28, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 28 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 29 -> "When it seemed dat Jag whub loose, da Orcs at da tribune shouted louder, growled and grunted from the side of the Arena. Jag heard that, felt the spirit ob da Father and did two sudden blows with his maces - Don was done!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 29 -> "Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 29 -> "When it seemed dat Jag whub loose, da Orcs at da tribune shouted louder, growled and grunted from the side of the Arena. Jag heard that, felt the spirit ob da Father and did two sudden blows with his maces - Don was done!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 29 -> "Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 29, english -> "When it seemed dat Jag whub loose, da Orcs at da tribune shouted louder, growled and grunted from the side of the Arena. Jag heard that, felt the spirit ob da Father and did two sudden blows with his maces - Don was done!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 29 -> "Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!", queststatus(601) + 1
-"No", queststatus(601) = 29 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 29 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 29, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 29 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 30 -> "Da Orcs became da glory winners ob da tournament!...yoo want hear dah rest ob dha gloreh day nuw?", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 30 -> "Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 30 -> "Da Orcs became da glory winners ob da tournament!...yoo want hear dah rest ob dha gloreh day nuw?", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 30 -> "Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 30, english -> "Da Orcs became da glory winners ob da tournament!...yoo want hear dah rest ob dha gloreh day nuw?", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 30 -> "Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?", queststatus(601) + 1
-"No", queststatus(601) = 30 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 30 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 30, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 30 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
 -- stpry 3b - Aftermath
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 31 -> "Naturally, after da tournament maneh othurr warriors wunted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 31 -> "Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 31 -> "Naturally, after da tournament maneh othurr warriors wunted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 31 -> "Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 31, english -> "Naturally, after da tournament maneh othurr warriors wunted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 31 -> "Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.", queststatus(601) + 1
-"No", queststatus(601) = 31 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 31 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 31, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 31 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 32 -> "One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 32 -> "Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 32 -> "One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 32 -> "Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 32, english -> "One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 32 -> "Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.", queststatus(601) + 1
-"No", queststatus(601) = 32 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 32 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 32, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 32 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 33 -> "Eben worse, he dared to attack da Orcs who wunted make him go and also smashed da Chief wit help ob a mage.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 33 -> "Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 33 -> "Eben worse, he dared to attack da Orcs who wunted make him go and also smashed da Chief wit help ob a mage.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 33 -> "Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 33, english -> "Eben worse, he dared to attack da Orcs who wunted make him go and also smashed da Chief wit help ob a mage.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 33 -> "Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.", queststatus(601) + 1
-"No", queststatus(601) = 33 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 33 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 33, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 33 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 34 -> "Habing dat in da mind ob da smart Chief, he called for all his brother and sisters available. Da Horde surrounded da oomie Gerron and blocked da gate.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 34 -> "Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 34 -> "Habing dat in da mind ob da smart Chief, he called for all his brother and sisters available. Da Horde surrounded da oomie Gerron and blocked da gate.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 34 -> "Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 34, english -> "Habing dat in da mind ob da smart Chief, he called for all his brother and sisters available. Da Horde surrounded da oomie Gerrun and blocked da gate.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 34 -> "Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.", queststatus(601) + 1
-"No", queststatus(601) = 34 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 34 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 34, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 34 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 35 -> "Orcs wus angry. Orcs hab fought all day. Orcs wus hungry for revenge. Den da slaughtering began.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 35 -> "Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 35 -> "Orcs wus angry. Orcs hab fought all day. Orcs wus hungry for revenge. Den da slaughtering began.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 35 -> "Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 35, english -> "Orcs wus angry. Orcs hab fought all day. Orcs wus hungry for revenge. Den da slaughtering began.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 35 -> "Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.", queststatus(601) + 1
-"No", queststatus(601) = 35 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 35 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 35, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 35 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 36 -> "Coward Gerron began to flee after few slashes, but da Horde chased him, blocked the way many times. Then a lizurd intervened and helped da oomie Gerron to reach the gates.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 36 -> "Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 36 -> "Coward Gerron began to flee after few slashes, but da Horde chased him, blocked the way many times. Then a lizurd intervened and helped da oomie Gerron to reach the gates.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 36 -> "Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 36, english -> "Coward Gerrun began to flee after few slashes, but da Horde chased him, blocked the way many times. Then a lizurd intervened and helped da oomie Gerrun to reach the gates.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 36 -> "Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.", queststatus(601) + 1
-"No", queststatus(601) = 36 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 36 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 36, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 36 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 37 -> "Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerrun fell to his knees, being nutting but a flaming oomie, his end wus sealed.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 37 -> "Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 37 -> "Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerrun fell to his knees, being nutting but a flaming oomie, his end wus sealed.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 37 -> "Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 37, english -> "Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerrun fell to his knees, being nutting but a flaming oomie, his end wus sealed.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 37 -> "Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.", queststatus(601) + 1
-"No", queststatus(601) = 37 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 37 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 37, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 37 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 38 -> "His gods might hab welcomed his fould soul on da othurr side. Though, da fight nub wus ober yet.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 38 -> "Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 38 -> "His gods might hab welcomed his fould soul on da othurr side. Though, da fight nub wus ober yet.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 38 -> "Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 38, english -> "His gods might hab welcomed his fould soul on da othurr side. Though, da fight nub wus ober yet.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 38 -> "Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.", queststatus(601) + 1
-"No", queststatus(601) = 38 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 38 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 38, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 38 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 39 -> "Da lizurd still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed one ob dem after da other!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 39 -> "Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 39 -> "Da lizurd still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed one ob dem after da other!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 39 -> "Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 39, english -> "Da lizurd still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed one ob dem after da other!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 39 -> "Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!", queststatus(601) + 1
-"No", queststatus(601) = 39 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 39 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 39, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 39 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 40 -> "In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whub beh oomies and da Temple nub whub beh da Temple ib dey nub beh very stoopid!", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 40 -> "In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 40 -> "In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whub beh oomies and da Temple nub whub beh da Temple ib dey nub beh very stoopid!", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 40 -> "In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 40, english -> "In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whub beh oomies and da Temple nub whub beh da Temple ib dey nub beh very stoopid!", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 40 -> "In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!", queststatus(601) + 1
-"No", queststatus(601) = 40 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 40 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 40, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 40 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 41 -> "So dey came back and wunted to fight da Orcs. But Orcs beh smart! We had our victory on dat day and left da oomie town. We returned to holy lands into our cave.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 41 -> "So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 41 -> "So dey came back and wunted to fight da Orcs. But Orcs beh smart! We had our victory on dat day and left da oomie town. We returned to holy lands into our cave.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 41 -> "So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 41, english -> "So dey came back and wunted to fight da Orcs. But Orcs beh smart! We had our victory on dat day and left da oomie town. We returned to holy lands into our cave.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 41 -> "So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.", queststatus(601) + 1
-"No", queststatus(601) = 41 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 41 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 41, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 41 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 42 -> "Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat dat wus trap. We knew dat Father whub judge dem fer entering Orc lands once again.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 42 -> "Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 42 -> "Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat dat wus trap. We knew dat Father whub judge dem fer entering Orc lands once again.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 42 -> "Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 42, english -> "Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat dat wus trap. We knew dat Father whub judge dem fer entering Orc lands once again.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 42 -> "Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.", queststatus(601) + 1
-"No", queststatus(601) = 42 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 42 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 42, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 42 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 43 -> "So we made jokes ob dem and let dem rot in front ob our gates under day eyes ob our brave gate guard.", queststatus(601) + 1
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 43 -> "So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.", queststatus(601) + 1
+"Sure", "Of course", "more", "continue", queststatus(601) = 43 -> "So we made jokes ob dem and let dem rot in front ob our gates under day eyes ob our brave gate guard.", queststatus(601) + 1
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 43 -> "So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 43, english -> "So we made jokes ob dem and let dem rot in front ob our gates under day eyes ob our brave gate guard.", queststatus(601) + 1
 "Yeah", "Yubba", queststatus(601) = 43 -> "So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.", queststatus(601) + 1
-"No", queststatus(601) = 43 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 43 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 43, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 43 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
-"Yes", "Sure", "Of course", "more", "continue", queststatus(601) = 44 -> "Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and keep silent.*", queststatus(601) = 0
-"Ja", "Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 44 -> "Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*", queststatus(601) = 0
+"Sure", "Of course", "more", "continue", queststatus(601) = 44 -> "Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and keep silent.*", queststatus(601) = 0
+"Klar", "Sicher", "Gerne", "Jawohl", "Weiter", queststatus(601) = 44 -> "Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*", queststatus(601) = 0
 "Yeah", "Yubba", queststatus(601) = 44, english -> "Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and keep silent.*", queststatus(601) = 0
 "Yeah", "Yubba", queststatus(601) = 44 -> "Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*", queststatus(601) = 0
-"No", queststatus(601) = 44 -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
-"Nein", "Nix", "Aufhören", queststatus(601) = 44 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 44, english -> "Nub more storeh? Hurrkeh, meh nub tell more.", queststatus(601) = 0
 "Nay", "Nubba", "Nope", "Stop", queststatus(601) = 44 -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
@@ -546,6 +484,18 @@ wrongLangUS = "#me looks at you confused."
 "friedl","Friedwulfa","Silberklinge" -> "Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*"
 "silverbrand" -> "Dhat beh Stumpietwon in Gobaith whib Stumpie queen whub fhink be able smashing Warlord. *smirks*"
 "silberbrand" -> "Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*"
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Tronruk", english -> "Yubba, dhat mina nam! *hits his chest and grunts*"
+"Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
+"Yes" -> "Hurr! Hurr!"
+"Ja" -> "Hurr! Hurr!"
+"No" -> "#me looks confused 'huw cann yoo saey no?'"
+"Nein" -> "#me schaut verwirrt 'wie du sagen können nein?'"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "Meh dhinks it beh betta nuw dhat yoo go and annoeh somona else."
+".*", german, chance(20) -> "Mich denken du besser gehen nun und anderen ärgern."
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
