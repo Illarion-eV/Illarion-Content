@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -177,6 +177,53 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißt, wer ich bin? Aus meinen Augen!");
 talkEntry:addResponse("Wenn ihr wirklich nicht wißt, wer ich bin, dann fragt einen meiner Diener.");
 talkEntry:addResponse("Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."));
+talkEntry:addResponse("#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."));
+talkEntry:addResponse("#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -991,53 +1038,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("message");
-talkEntry:addTrigger("news");
-talkEntry:addTrigger("letter");
-talkEntry:addTrigger("scroll");
-talkEntry:addTrigger("parchment");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."));
-talkEntry:addResponse("#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("nachricht");
-talkEntry:addTrigger("brief");
-talkEntry:addTrigger("Botschaft");
-talkEntry:addTrigger("Schriftrolle");
-talkEntry:addTrigger("Pergament");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Groktan");
-talkEntry:addTrigger("Flintsplit");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."));
-talkEntry:addResponse("#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Groktan");
-talkEntry:addTrigger("Flintsplit");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -1199,7 +1199,8 @@ mainNPC:setUseMessage("Was fällt euch ein!", "How dare you!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 225);
 mainNPC:setEquipment(3, 833);
-mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(5, 2295);
+mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(9, 827);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);

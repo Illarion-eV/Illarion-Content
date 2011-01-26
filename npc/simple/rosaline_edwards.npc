@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rosaline Edwards"
@@ -70,6 +70,12 @@ itemShoes = 369
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin die unbestrittene Monarchin eines glorreichen Reiches der edelsten Leute. Wie geht es mir wohl?", "Mir würde es weit besser gehen, wenn ihr niederknien würdet. Jetzt!", "Mir käme ein Bad in Eselsmilch gerade recht. Dieser ganze Sand schadet meiner feinen Haut."
 "your name", "who are you", "who art thou" -> "Who am I? You dare to suggest that you do not know who I am? Out of my sight!", "If you really don't know who I am, ask one of my servants.", "Aren't you ashamed that you ask a queen of Albarian origin who she is?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißt, wer ich bin? Aus meinen Augen!", "Wenn ihr wirklich nicht wißt, wer ich bin, dann fragt einen meiner Diener.", "Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?"
+
+-- Quest 107: A message from Groktan Flintsplit
+"message", "news", "letter", "scroll", "parchment", queststatus(107) = 12 -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
+"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
+"Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
+"Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Out of my sight! If you want to barter, off to the market place. Off I say!"
@@ -201,12 +207,6 @@ itemShoes = 369
 "Ushara" -> "Ich weiß immernoch nicht so recht, wen ich für all den Sand der Welt verantwortlich machen soll; Ushara oder Brágon? Ich ehre sie beiden trotzdem, mehr aber auch nicht."
 "Zhambra", english -> "Be loyal to your queen and Zhambra will smile upon you. Be disobedient and you will see what Zhambra will do to you if you ever pass to the afterlife..."
 "Zhambra" -> "Seid loyal gegenüber eurer Königin und Zhambra wird es gutheißen. Seid ungehorsam und ihr werdet schon sehen, was Zhambra für euch bereit hält, wenn ihr ins Jenseits übergeht..."
-
--- Quest 107: A message from Groktan Flintsplit
-"message", "news", "letter", "scroll", "parchment", queststatus(107) = 12 -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
-"Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
-"Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 
 -- Catching quest triggers
 "quest", "mission", english -> "Ah, a loyal subject. Fine. Please ask one of my servants what you can do for me today, I cannot be bothered with details; I have to rule a whole kingdom, not just you."
