@@ -74,8 +74,8 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me macht eine ausladende willkommende Geste 'Ah meine Manieren. Valerio Guilianni ist mein Name aber nennt mich 'Mein Don'.", "Hm, der hellste Blitz scheint ihr nicht zu sein. Und ich dachte die Residenz und Dienerschaft wären Hinweis genug.", "#me seufzt '%CHARNAME, wie kann man nur so blauäugig sein? Wo bleibt der Respekt? Ich bin der Don.'"
 
 -- Catching quest triggers
-"quest", english -> "The day will come, when the Don will ask you for a favour. Ask Miggs if that day is today."
-"quest", german -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
+"quest", "mission", english -> "The day will come, when the Don will ask you for a favour. Ask Miggs if that day is today."
+"quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
 "task", "adventure" -> "You know, the Don starts to like you. And he'll get you a task to do. Ask Miggs how you can earn the Don's favour."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
 
@@ -97,7 +97,7 @@ itemShoes = 53
 
 -- Easter egg
 "Corleone", english -> "Ach, a dazzler from Gynka, no honour. And throaty all the time, the gods know why."
-"Corleone", german -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
+"Corleone" -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
 
 -- Faction stuff
 "archmage", english -> "Tell me, what should I think of a man who wears womens clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. And if you ask me, that's a good thing."
