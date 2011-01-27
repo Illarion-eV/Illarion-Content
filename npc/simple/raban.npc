@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Raban                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Hermit                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  832, 107, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Raban"
