@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Schneider Thomas Dalenus."
+lookatUS = "This NPC is the tailor Thomas Dalenus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -79,8 +79,8 @@ itemShoes = 53
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Good day.", "Greetings.", "Hello"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Good day.", "Greetings.", "Hello"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Good day.", "Greetings.", "Hello"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag.", "Seid gegrüßt.", "Hallo."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Farewell, go with the gods.", "Good bye, my customer."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Gehabt euch wohl, geht mit den Göttern.", "Auf wiedersehen, mein Kunde."
 "Ciao", "Adieu", "Au revoir", english -> "Farewell, go with the gods.", "Good bye, my customer."
@@ -128,17 +128,17 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!"
-"albar", german -> "Einst bestellten die Herren von Albar eine Ladung Stoffe. Aber irgendwie wurde ich nie entlohnt. Ich vermute, dass Halunken aus Galmair dahinterstecken."
+"albar" -> "Einst bestellten die Herren von Albar eine Ladung Stoffe. Aber irgendwie wurde ich nie entlohnt. Ich vermute, dass Halunken aus Galmair dahinterstecken."
 "gynk", "gync", english -> "I will never trade with anyone from Gynk. They never fulfill a contract."
-"gync", "gynk", german -> "Ich werde niemals mit jemanden aus Gynk handeln. Die halten sich nicht an geschlossene Verträge."
+"gync", "gynk" -> "Ich werde niemals mit jemanden aus Gynk handeln. Die halten sich nicht an geschlossene Verträge."
 "salkama", english -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a dash?"
-"salkama", german -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
+"salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "Irmorom", english -> "Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!"
-"Irmorom", german -> "Irmorom führt meine Hand, wenn ich sticke. Ich frag mich, warum ich mich trotzdem so oft mit der Nadel steche."
+"Irmorom" -> "Irmorom führt meine Hand, wenn ich sticke. Ich frag mich, warum ich mich trotzdem so oft mit der Nadel steche."
 "Malachin", english -> "Malachin is the god of battles and hunting. I'd like to fight and hunt, too, but I'm better at tailoring."
-"Malachin", german -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
+"Malachin" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
 -- Catching quest triggers
 "quest", "mission", english -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
