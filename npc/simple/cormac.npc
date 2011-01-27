@@ -1,16 +1,17 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Cormac the Smuggler                                         None --
+-- NPC Name: Cormac                                                      None --
 -- NPC Job:  none                                                             --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  401, 242, 1            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Authors:  Cromwell                                                         --
+--           Estralis                                                         --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Cormac the Smuggler"
+name = "Cormac"
 race = dwarf
 sex = male
 position = 401, 242, 1
@@ -23,7 +24,8 @@ language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Cromwell"
+author = "Estralis"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -196,7 +198,6 @@ itemShoes = 53
 -- Gods - use the triggers of the god the NPC worships or fights
 "Irmorom" -> "Blah.", "Bleh.", "Blubb.", "Moep."
 "Ronagan" -> "Eh?", "Hmm?", "Shh!"
-
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
