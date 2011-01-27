@@ -77,6 +77,12 @@ itemShoes = 369
 "Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
 "Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 
+-- Catching quest triggers
+"quest", "mission", english -> "Ah, a loyal subject. Fine. Please ask one of my servants what you can do for me today, I cannot be bothered with details; I have to rule a whole kingdom, not just you."
+"quest", "mission" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
+"task", "adventure" -> "Ah, a loyal subject. Fine. Please ask one of my servants what you can do for me today, I cannot be bothered with details; I have to rule a whole kingdom, not just you."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Let me see... I rule this place. Everything, as far as you can see!"
 "beruf" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
@@ -201,12 +207,6 @@ itemShoes = 369
 "Ushara" -> "Ich weiß immernoch nicht so recht, wen ich für all den Sand der Welt verantwortlich machen soll; Ushara oder Brágon? Ich ehre sie beiden trotzdem, mehr aber auch nicht."
 "Zhambra", english -> "Be loyal to your queen and Zhambra will smile upon you. Be disobedient and you will see what Zhambra will do to you if you ever pass to the afterlife..."
 "Zhambra" -> "Seid loyal gegenüber eurer Königin und Zhambra wird es gutheißen. Seid ungehorsam und ihr werdet schon sehen, was Zhambra für euch bereit hält, wenn ihr ins Jenseits übergeht..."
-
--- Catching quest triggers
-"quest", "mission", english -> "Ah, a loyal subject. Fine. Please ask one of my servants what you can do for me today, I cannot be bothered with details; I have to rule a whole kingdom, not just you."
-"quest", "mission" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
-"task", "adventure" -> "Ah, a loyal subject. Fine. Please ask one of my servants what you can do for me today, I cannot be bothered with details; I have to rule a whole kingdom, not just you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Easter egg
 "Cleopatra", "Kleopatra", english -> "Who is that supposed to be?"
