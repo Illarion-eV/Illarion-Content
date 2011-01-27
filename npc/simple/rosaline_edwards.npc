@@ -215,13 +215,13 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Easter egg
-"Cleopatra", english -> "Who is that supposed to be?"
+"Cleopatra", "Kleopatra", english -> "Who is that supposed to be?"
 "Marc", "Anthony" -> "Once, a puny prince called Marc from a far, far away land came to my palace and proposed to me. I could not stop laughing for a whole day!"
 "Markus", "Marcus", "Anthonius", english -> "Once, a poor prince called Marc from a far, far away land came to my palace and proposed to me. I could not stop laughing for a whole day!"
 "STFU", english -> "I heard that, scum!"
 "hawt" -> "What?!"
 "I love you" -> "And I love Cadomyr."
-"Cleopatra" -> "Wer soll das denn wieder sein?"
+"Cleopatra", "Kleopatra" -> "Wer soll das denn wieder sein?"
 "Mark", "Anton" -> "Einst kam ein erbärmlicher Prinz namens Markus aus einem fernen Land an meinen Hof und wollte mich ehelichen. Wie habe ich gelacht, den ganzen Tag noch."
 "Markus", "Marcus", "Anthonius" -> "Einst kam ein erbärmlicher Prinz namens Markus aus einem fernen Land an meinen Hof und wollte mich ehelichen. Wie habe ich gelacht, den ganzen Tag noch."
 "STFU" -> "Ich hab das gehört, Abschaum!"

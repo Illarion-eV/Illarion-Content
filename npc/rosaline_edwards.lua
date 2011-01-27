@@ -1069,6 +1069,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cleopatra");
+talkEntry:addTrigger("Kleopatra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Who is that supposed to be?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1111,6 +1112,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cleopatra");
+talkEntry:addTrigger("Kleopatra");
 talkEntry:addResponse("Wer soll das denn wieder sein?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
