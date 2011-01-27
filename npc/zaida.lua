@@ -1,14 +1,20 @@
 --------------------------------------------------------------------------------
--- NPC Name: Zaida the Apprentice                                        None --
+-- NPC Name: Zaida                                                       None --
 -- NPC Job:  none                                                             --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 768, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Authors:  Cromwell                                                         --
+--           Estralis                                                         --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 900, 768, 0, 4, 'Zaida', 'npc.zaida', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.item")
@@ -17,10 +23,10 @@ require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-module("npc.zaida_the_apprentice", package.seeall)
+module("npc.zaida", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -29,21 +35,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
 talkEntry:addResponse("Quest status set to 0");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 1");
 talkEntry:addResponse("Quest status set to 1");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 2");
 talkEntry:addResponse("Quest status set to 2");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,7 +64,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick's Gossiper"));
 talkEntry:addResponse("#me nods her head respectfully: 'Be greeted, traveler. Should you wish to join my company, you must first bring me a glass filled with wine. Then, if it still pleases you, we may discuss.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -85,7 +91,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick's Gossiper"));
 talkEntry:addResponse("#me's lips form a somewhat condescending smile. 'Greetings, traveler. Should you wish to ask me something, you must first bring me a glass full of wine.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -108,7 +114,7 @@ talkEntry:addTrigger("How do you do");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick's Gossiper"));
 talkEntry:addResponse("#me frowns and brushes over the front of her apprentice's robe. 'I feel thirsty. Until I have a glas full of wine, I will not be much of assistance for you.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -128,7 +134,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick's Gossiper"));
 talkEntry:addResponse("#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,7 +163,7 @@ talkEntry:addTrigger("question");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Runewick's Gossiper"));
 talkEntry:addResponse("#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,7 +215,7 @@ talkEntry:addTrigger("Moin");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schwätzerin von Runewick"));
 talkEntry:addResponse("#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,7 +243,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schwätzerin von Runewick"));
 talkEntry:addResponse("#me lächelt herablassend. 'Seid gegrüßt, Reisender. Solltet ihr mich etwas fragen wollen, so müsst ihr mir zunächst ein Glas Wein bringen.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -260,7 +266,7 @@ talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schwätzerin von Runewick"));
 talkEntry:addResponse("#me blickt missbilligend drein und streicht über ihre Anwärterinnenrobe. 'Ich bin durstig. Solange ich kein Glas voll Wein habe, kann ich euch nicht wirklich beistehen.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +286,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schwätzerin von Runewick"));
 talkEntry:addResponse("#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +315,7 @@ talkEntry:addTrigger("Frage");
 talkEntry:addCondition(npc.base.condition.quest.quest(76, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schwätzerin von Runewick"));
 talkEntry:addResponse("#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +381,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaida will now answer your questions. You advance in archmage Elvaine Morgan's favour."));
 talkEntry:addResponse("#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions... be they about the town, our archmage, Runewick or our neighbours - whom the gods should bless with pox.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -388,7 +394,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaida will now answer your questions."));
 talkEntry:addResponse("#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions.. be they about the town, our lady, runewick or our neighbours - whom the gods should bless with pox.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,7 +407,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaida wird nun deine Fragen beantworten. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
 talkEntry:addResponse("#me nimmt das Glas und lächelt: 'Vielen, vielen dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -414,7 +420,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaida wird nun deine Fragen beantworten."));
 talkEntry:addResponse("#me nimmt das Glas und lächelt: 'Vielen, vielen dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(76, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,6 +688,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

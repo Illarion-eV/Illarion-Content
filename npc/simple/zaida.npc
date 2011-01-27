@@ -1,16 +1,17 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Zaida the Apprentice                                        None --
+-- NPC Name: Zaida                                                       None --
 -- NPC Job:  none                                                             --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 768, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Authors:  Cromwell                                                         --
+--           Estralis                                                         --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Zaida the Apprentice"
+name = "Zaida"
 race = human
 sex = female
 position = 900, 768, 0
@@ -23,7 +24,8 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Cromwell"
+author = "Estralis"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
