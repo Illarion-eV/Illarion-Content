@@ -2,7 +2,7 @@
 -- NPC Name: Rosaline Edwards                                         Cadomyr --
 -- NPC Job:  Queen                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  122, 520, 0            --
+-- NPC Race: human                      NPC Position:  122, 521, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
@@ -14,7 +14,7 @@
 name = "Rosaline Edwards"
 race = human
 sex = female
-position = 122, 520, 0
+position = 122, 521, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Queen"
@@ -76,12 +76,6 @@ itemShoes = 369
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 "Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and scrunches the letter: 'Tell that filthy bastard he won't get my throne this way! Over my dead body!", queststatus(107) = 13
 "Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
-
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Out of my sight! If you want to barter, off to the market place. Off I say!"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Aus meinen Augen! Wenn ihr feilschen wollt, ab zum Marktplatz. Hinfort!"
-"tell something" -> "I will tell you something; my realm is named Cadomyr and I will do anything to make it prosper."
-"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Let me see... I rule this place. Everything, as far as you can see!"
@@ -227,6 +221,12 @@ itemShoes = 369
 "STFU" -> "Ich hab das gehört, Abschaum!"
 "geil" -> "Was!"
 "Ich liebe dich", "Ich liebe euch" -> "Und ich liebe Cadomyr."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Out of my sight! If you want to barter, off to the market place. Off I say!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Aus meinen Augen! Wenn ihr feilschen wollt, ab zum Marktplatz. Hinfort!"
+"tell something" -> "I will tell you something; my realm is named Cadomyr and I will do anything to make it prosper."
+"erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Good.", "Wonderful.", "Right."

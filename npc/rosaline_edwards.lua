@@ -2,7 +2,7 @@
 -- NPC Name: Rosaline Edwards                                         Cadomyr --
 -- NPC Job:  Queen                                                            --
 --                                                                            --
--- NPC Race: human                      NPC Position:  122, 520, 0            --
+-- NPC Race: human                      NPC Position:  122, 521, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 122, 520, 0, 4, 'Rosaline Edwards', 'npc.rosaline_edwards', 1, 7, 0, 60, 30, 4, 251, 194, 157);
+VALUES (0, 122, 521, 0, 4, 'Rosaline Edwards', 'npc.rosaline_edwards', 1, 7, 0, 60, 30, 4, 251, 194, 157);
 ---]]
 
 require("npc.base.basic")
@@ -224,37 +224,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."));
 talkEntry:addResponse("#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Out of my sight! If you want to barter, off to the market place. Off I say!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Aus meinen Augen! Wenn ihr feilschen wollt, ab zum Marktplatz. Hinfort!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I will tell you something; my realm is named Cadomyr and I will do anything to make it prosper.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1148,6 +1117,37 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ich liebe dich");
 talkEntry:addTrigger("Ich liebe euch");
 talkEntry:addResponse("Und ich liebe Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Out of my sight! If you want to barter, off to the market place. Off I say!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Aus meinen Augen! Wenn ihr feilschen wollt, ab zum Marktplatz. Hinfort!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I will tell you something; my realm is named Cadomyr and I will do anything to make it prosper.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Lasst euch das gesagt sein; mein Reich nennt sich Cadomyr und ich werde alles in meiner Macht liegende tun, um es gedeihen zu lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
