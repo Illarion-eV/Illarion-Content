@@ -17,7 +17,7 @@ sex = male
 position = 401, 242, 1
 direction = west
 affiliation = "None"
-job = "none"
+job = "Smuggler"
 
 language = common
 language = dwarf

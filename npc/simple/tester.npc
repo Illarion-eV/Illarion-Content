@@ -1,0 +1,38 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Tester                                                      None --
+-- NPC Job:  Insert profession here                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: January 28, 2011                        easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Tester"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Insert profession here"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 0
+beardID = 0
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137

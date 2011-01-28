@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Cormac                                                      None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Smuggler                                                         --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  401, 242, 1            --
 -- NPC Sex:  male                       NPC Direction: west                   --
@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 28, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
