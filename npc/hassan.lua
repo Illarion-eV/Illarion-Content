@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 110, 574, 0, 2, 'Hassan', 'npc.hassan', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 110, 574, 0, 2, 'Hassan', 'npc.hassan', 0, 3, 4, 180, 180, 180, 182, 128, 86);
 ---]]
 
 require("npc.base.basic")
@@ -1294,11 +1294,11 @@ mainNPC:setLookat("Dies ist der NPC Hassan.", "This is the NPC Hassan.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 807);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 34);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
