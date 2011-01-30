@@ -1,31 +1,33 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Hassan the Servant                                       Cadomyr --
--- NPC Job:  fan waver                                                        --
+-- NPC Name: Hassan                                                   Cadomyr --
+-- NPC Job:  royal fan waver                                                  --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  110, 574, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Estralis Seborian                                                --
+-- Authors:  Cromwell                                                         --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: January 30, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "Hassan the Servant"
+name = "Hassan"
 race = human
 sex = male
 position = 110, 574, 0
 direction = east
 affiliation = "Cadomyr"
-job = "fan waver"
+job = "royal fan waver"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
+author = "Cromwell"
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatDE = "Dies ist der NPC Hassan."
 lookatUS = "This is the NPC Hassan."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
@@ -45,7 +47,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -153,16 +155,6 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "tavern", english -> "A lousy tavern, in the glorious Kingdom of Cadomyr!"
 "tavern" -> "Eine einfache Taverne im prächtigen Königreich Cadomyr."
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -233,16 +225,12 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hassan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hassan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
