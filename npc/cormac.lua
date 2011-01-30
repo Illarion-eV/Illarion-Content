@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: January 29, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: January 30, 2011                        easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -525,34 +525,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("question");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("town");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("#me chuckles: 'This town is a bloody fine place fer a man or woman with coin. Ye can live free and mind yer business, as long as ye let others mind theirs.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don");
-talkEntry:addTrigger("Lord");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Arr! Don Valerio Guilianni is in charge around here! He's tha richest n' most powerful man in tha land, or so they say! A fine leader!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ye've been keeping yer ears open, good! Aye, he's the man in charge. He keeps us free from tha oppressing neighbours and that bastard Urbano.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,13 +544,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("money");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("Ha! Money is a fine way o' measuring everything. When ye got more money, yer o' course more powerful too.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("god");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addResponse("#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -608,43 +576,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me grins: 'Welcome to tha land o' tha free, traveller! When ye got enough coins and show loyalty tha Don, yer free to mind yer own business as ye please.'");
-talkEntry:addResponse("Galmair, home o' tha free, land o' those who can take care o' themselves. Ha!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("smuggle");
 talkEntry:addTrigger("smuggling");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("By Ron... moron... I am a... Arr... 'river transportation entrepreneur', aye.. that's what I do fer living.");
 talkEntry:addResponse("#me scowls: 'ARR! I know nothing 'bout such things! I'm a decent n' hardworking... arr... river transportation entrepreneur.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick! Hah! They're a nation o' folks who sat on a bloody broomstick in tha morning, ruled by a bloody lass who waves a magic wand around.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They make a big fuss 'bout honour, bending over backwards to kiss arse and look down on people who like coins. Hehe... Ye know what they say, a man fights fer what he lacks tha most.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Frage");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addResponse("");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,28 +592,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Don");
-talkEntry:addTrigger("Lord");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Arr! Don Valerio Guilianni ist hier der Boss! Er ist der mächtigste und reichste Mann weit und breit, so sagt man. Ein guter Anführer!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich sehe, du hast dich schlau gemacht. Ja, das ist hier der Boss. Er hält uns den Rücken von unseren kontrollwütigen Nachbarn und diesem Bastard Urbano frei.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Urbano");
 talkEntry:addTrigger("Dorian");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#me grummelt: 'Dorian Urbano, so schimpft er sich. Früher mal ein mächtiges Tier hier, jetzt eher ein gemeiner Schurk, den Don Guillianni aus dem Geschäft gedrängt hat. Haha!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -686,14 +603,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("geld");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("Ha! Geld ist gut, um Dingen einen Wert zu geben. Aber Geld bedeutet auch Macht, lass dir das gesagt sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gott");
-talkEntry:addTrigger("götter");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addResponse("#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -727,35 +636,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Willkommen im Land der Freien, Reisender. Wenn du genug Gold hast und dem Don nicht in die Quere kommst, kannst du machen, was du willst.'");
-talkEntry:addResponse("Galmair, Heimat der Freien, Land derer, die für sich selbst sorgen können.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schmugg");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("Bei Ron... moron... Ich bin ein... Arr... 'Flussschiffahrtstransportunternehmer', ja, das ist, was ich mache.");
 talkEntry:addResponse("#me faucht: 'ARR! Ich weiß nichts über solche Machenschaften. Ich bin ein ehrlicher, hart arbeitender... Flussschiffahrtstransportunternehmer!'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Runewick! Hah! Ein Land von Knilchen, die morgens erstmal auf einem Besen reiten, regiert von einem Kerl, der mit seinem Zauberstab rumfuchtelt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Die machen einen riesen Aufstand über ihre Ehre, kriechen einander in den Allerwertesten und spucken auf geschäftstüchtige Leute. Aber wie sagt man, man kämpft am stärksten für etwas, was man gar nicht hat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -801,17 +685,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("That information is to vital to me I'll write it down immediatly... after my next beer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Diese Information ist so weltbewegend für mich, dass ich sie sofort niederschreiben werde... nach meinem nächsten Bier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,231 +703,164 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER2");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER3");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER4");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER5");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tavern");
-talkEntry:addResponse("Hast du dich nie gefragt, wo all das Gesöff hier herkommt? Nein? Gut so!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hast du dich nie gefragt, wo all der Schnaps hier herkommt? Nein? Gut so!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned her in a man... partially, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Manche behaupten, der Erzmagier Morgan von Runwick war einst eine Frau, aber ein geheimnisvoller, fehlgeschlagener Zauber hat sie in einen Mann verwandelt... zumindestens teilweise, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned him in a man... partially, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Manche behaupten, der Erzmagier Morgan von Runwick war einst eine Frau, aber ein geheimnisvoller, fehlgeschlagener Zauber hat sie in einen Mann verwandelt... zumindestens teilweise, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Runewick! Hah! They're a nation o' folks who sat on a bloody broomstick in tha morning, ruled by a bloody lass who waves a magic wand around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Runewick! Hah! Ein Land von Knilchen, die morgens erstmal auf einem Besen reiten, regiert von einem Kerl, der mit seinem Zauberstab rumfuchtelt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Don");
+talkEntry:addTrigger("Lord");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Arr! Don Valerio Guilianni is in charge around here! He's tha richest n' most powerful man in tha land, or so they say! A fine leader!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Ye've been keeping yer ears open, good! Aye, he's the man in charge. He keeps us free from tha oppressing neighbours and that bastard Urbano.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Don");
+talkEntry:addTrigger("Lord");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Arr! Don Valerio Guilianni ist hier der Boss! Er ist der mächtigste und reichste Mann weit und breit, so sagt man. Ein guter Anführer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Ich sehe, du hast dich schlau gemacht. Ja, das ist hier der Boss. Er hält uns den Rücken von unseren kontrollwütigen Nachbarn und diesem Bastard Urbano frei.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me grins: 'Welcome to tha land o' tha free, traveller! When ye got enough coins and show loyalty tha Don, yer free to mind yer own business as ye please.'");
+talkEntry:addResponse("Galmair, home o' tha free, land o' those who can take care o' themselves. Ha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Willkommen im Land der Freien, Reisender. Wenn du genug Gold hast und dem Don nicht in die Quere kommst, kannst du machen, was du willst.'");
+talkEntry:addResponse("Galmair, Heimat der Freien, Land derer, die für sich selbst sorgen können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("They make a big fuss 'bout honour, bending over backwards to kiss arse and look down on people who like coins. Hehe... Ye know what they say, a man fights fer what he lacks tha most.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
+talkEntry:addResponse("Die machen einen riesen Aufstand über ihre Ehre, kriechen einander in den Allerwertesten und spucken auf geschäftstüchtige Leute. Aber wie sagt man, man kämpft am stärksten für etwas, was man gar nicht hat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking about anything abroad, eh? No way. I know so much about these lands, everything!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Du willst über irgendwas in Weitwegland reden? Nichts da! Ich weiß so viel über diese Region, alles!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1055,35 +868,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("So, you think I'm from Gynk? Pah! Then I should think you come from a badger's burrow or what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("So, du denkst also, ich komme aus Gynk? Pah! Dann müßte ich ja glauben, du kommst aus einem Dachsbau oder wie?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking about anything abroad, eh? No way. I know so much about these lands, everything!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Du willst über irgendwas in Weitwegland reden? Nichts da! Ich weiß so viel über diese Region, alles!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1106,6 +911,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
+talkEntry:addResponse("#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'");
 talkEntry:addResponse("Gods are overrated.");
 talkEntry:addResponse("Do I look like I want to talk about faith and devotion?");
 talkEntry:addResponse("Go... to a temple if you want to talk about gods. Or just go... elsewhere.");
@@ -1115,6 +921,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
+talkEntry:addResponse("#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.");
 talkEntry:addResponse("Die Götter werden überschätzt.");
 talkEntry:addResponse("Sehe ich wie jemand aus, der über Glaube und Hingabe reden will?");
 talkEntry:addResponse("Geh doch in einen Tempel, wenn du über die Götter reden wollt. Oder geh... einfach weg!");
@@ -1126,9 +933,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Business, eh? Not here! Meet me... wait... Nevermind!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1137,75 +942,69 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Geschäfte, häh? Nicht hier! Triff mich... Moment mal... Vergiss es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Moep.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Moep.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cormac");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("So, you think you know my name? Did I tell it to you? Did I!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cormac");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("So, du denkst also, du kennst meinen Namen? Hab ich ihn dir gesagt? Hab ich etwas!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Fine.");
+talkEntry:addResponse("Moep.");
+talkEntry:addResponse("Got beer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Fein.");
+talkEntry:addResponse("Moep.");
+talkEntry:addResponse("Haste Bier?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Fine.");
+talkEntry:addResponse("Moep.");
+talkEntry:addResponse("Got beer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Pardon?");
+talkEntry:addResponse("Fein.");
+talkEntry:addResponse("Moep.");
+talkEntry:addResponse("Haste Bier?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ich war schon überall und woanders, aber verdammt nochmal, nichts ist schöner als das gute, alte Galmair.", "I've been all over the place and more, but damn... there's no place like good ol' Galmair!");
@@ -1217,6 +1016,8 @@ talkingNPC:addCycleText("Hey! Füll meinen Krug und wir können reden.", "Oy, fill
 talkingNPC:addCycleText("#me summt: Fässer voll Schnaps, fließen den Fluss entlang. Der Zollmann weiß von nichts, die Nacht beschützt meine Fracht. Mein Profit ist recht und Steuern gibts von mir nicht.'", "#me hums: 'Barrels o' booze, downstream they go! That tha bailiff don't know! The night protects my cargo n' coins, n' tha taxman can kiss my loins! Haha!'");
 talkingNPC:addCycleText("Borps!", "Burp!");
 talkingNPC:addCycleText("Ist der Krug leer, dann muss ein neuer her!", "An empty mug is not good!");
+talkingNPC:addCycleText("Sagt ein Mütterchen zum Wachtmeister: Können sie mir über den Fluss helfen? Der Wachtmeister: Ja, ich bringe euch zur Brücke dort. Das Mütterchen: Pah, da komm ich alleine rüber!", "An hag to the constable: Could you help me cross the river? The constable replies: Sure, I'll guide you to the bridge. The hag: Pah! There, I can do it on my own!");
+talkingNPC:addCycleText("Ein Bauer zum Wachtmeister: Man hat mir meinen Karren gestohlen! Der Wachtmeister: Hatte der Wagen eine Laterne und eine Tröte? Der Bauer: Nein, warum? Der Wachtmeister: Das macht dann dreißig Kupferstücke Strafe!", "A peasant to the constable: Someone stole my cart! The constable: Did the cart have a lantern and a horn? The peasant. No, why? The constable: That's thirty copper fine then!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
