@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: January 30, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1235,17 +1235,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hassan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("So, who sent you?");
+talkEntry:addResponse("Yes, yes, I know, I should be in the palace.");
+talkEntry:addResponse("No.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hassan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("So, wer schickt euch?");
+talkEntry:addResponse("Ja, ja, ich weiß, ich sollte im Palast sein.");
+talkEntry:addResponse("Nein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1280,6 +1280,7 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat. And you don't want to see this happen!");
 talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bags his fist on the counter: 'I demand service!'");
 talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'");
 talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?");
@@ -1290,7 +1291,7 @@ talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen K
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dies ist der NPC Hassan.", "This is the NPC Hassan.");
+mainNPC:setLookat("Dies ist der königliche Fechelwedler Hassan.", "This is the royal fan waver Hassan.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
