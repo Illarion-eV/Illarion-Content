@@ -16,10 +16,21 @@ VALUES (0, 1000, 2, 0, 4, 'Tester', 'npc.tester', 0, 0, 0, 123, 62, 9, 245, 180,
 ---]]
 
 require("npc.base.basic")
+require("npc.base.talk")
 module("npc.tester", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hi");
+talkEntry:addTrigger("help");
+talkEntry:addTrigger("hello");
+talkEntry:addTrigger("hallo");
+talkEntry:addResponse("MOEP!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

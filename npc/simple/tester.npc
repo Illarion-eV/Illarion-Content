@@ -36,3 +36,5 @@ hairID = 0
 beardID = 0
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
+
+"hi","help","hello","hallo"->"MOEP!"
