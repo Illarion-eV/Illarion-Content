@@ -2,18 +2,18 @@
 -- NPC Name: Cormac                                                   Galmair --
 -- NPC Job:  Smuggler                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  401, 242, 1            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: dwarf                      NPC Position:  391, 327, -6           --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: January 30, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 401, 242, 1, 6, 'Cormac', 'npc.cormac', 0, 1, 1, 192, 107, 5, 208, 159, 117);
+VALUES (1, 391, 327, -6, 4, 'Cormac', 'npc.cormac', 0, 1, 1, 192, 107, 5, 208, 159, 117);
 ---]]
 
 require("npc.base.basic")

@@ -14,8 +14,8 @@
 name = "Cormac"
 race = dwarf
 sex = male
-position = 401, 242, 1
-direction = west
+position = 391, 327, -6
+direction = south
 affiliation = "Galmair"
 job = "Smuggler"
 
