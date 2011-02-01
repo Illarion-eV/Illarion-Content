@@ -2,20 +2,20 @@
 -- NPC Name: Cormac                                                   Galmair --
 -- NPC Job:  Smuggler                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  401, 242, 1            --
+-- NPC Race: dwarf                      NPC Position:  391, 327, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: January 30, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Cormac"
 race = dwarf
 sex = male
 position = 391, 327, -6
-direction = south
+direction = west
 affiliation = "Galmair"
 job = "Smuggler"
 
