@@ -2,7 +2,7 @@
 -- NPC Name: Cormac                                                   Galmair --
 -- NPC Job:  Smuggler                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  391, 327, -6           --
+-- NPC Race: dwarf                      NPC Position:  392, 327, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Cromwell                                                         --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 391, 327, -6, 6, 'Cormac', 'npc.cormac', 0, 1, 1, 28, 28, 28, 208, 159, 117);
+VALUES (1, 392, 327, -6, 6, 'Cormac', 'npc.cormac', 0, 1, 1, 28, 28, 28, 208, 159, 117);
 ---]]
 
 require("npc.base.basic")
