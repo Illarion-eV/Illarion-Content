@@ -2,12 +2,12 @@
 -- NPC Name: Tester                                                      None --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  1000, 2, 0             --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: January 28, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Tester"
@@ -31,7 +31,7 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-radius = 0
+radius = 1
 hairID = 0
 beardID = 0
 colorHair = 123, 62, 9
