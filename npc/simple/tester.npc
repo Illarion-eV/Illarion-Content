@@ -13,7 +13,7 @@
 name = "Tester"
 race = human
 sex = male
-position = 0, 0, 0
+position = 1000, 2, 0
 direction = south
 affiliation = "None"
 job = "Insert profession here"
