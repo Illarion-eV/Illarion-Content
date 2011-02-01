@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 10, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Natiana Banius"
@@ -34,15 +34,15 @@ wrongLangUS = "#me weakly shakes her head."
 radius = 0
 hairID = 2
 beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+colorHair = 218, 162, 39
+colorSkin = 255, 228, 186
 itemHead = 0
-itemChest = 181
+itemChest = 182
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 841
 itemShoes = 53
 
 -- Template Version 1.03 by Estralis Seborian
@@ -60,12 +60,10 @@ itemShoes = 53
 -- Position, direction, affiliation
 -- Translation
 -- Location: with NPC Rowan Banius. Should be indoors, seated (or lying down in a bed, if possible).
--- Replace (1337) with valid quest status (The Farmer's Wife quest chain, same as NPC Rowan Banius)
--- Tentatively assigned affiliation (Runewick), replace as desired (must be same as affiliation of NPC Rowan Banius)
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
-".+", queststatus(1337) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Natiana Banius the farmer's wife. Keyphrases: quest")
@@ -86,10 +84,10 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- The Farmer's Wife quest incomplete
-"quest", "mission", queststatus(1337) < 11, english -> "P...please...help my husband."
-"quest", "mission", queststatus(1337) < 11 -> "GERMAN."
-"task", "adventure", queststatus(1337) < 11 -> "M...my...husband."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) < 11 -> "GERMAN."
+"quest", "mission", queststatus(322) < 11, english -> "P...please...help my husband."
+"quest", "mission", queststatus(322) < 11 -> "GERMAN."
+"task", "adventure", queststatus(322) < 11 -> "M...my...husband."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) < 11 -> "GERMAN."
 
 -- The Farmer's Wife quest completed
 ".+", queststatus(1337) = 11, english -> "#me forces a smile, 'Thank you.'"

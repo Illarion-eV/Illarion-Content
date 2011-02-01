@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Rowan Banius', 'npc.rowan_banius', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 0, 0, 0, 4, 'Rowan Banius', 'npc.rowan_banius', 0, 4, 3, 23, 23, 23, 238, 207, 161);
 ---]]
 
 require("npc.base.basic")
@@ -43,7 +43,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, ">", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, ">", 11));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -200,31 +200,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part I"));
 talkEntry:addResponse("You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part I"));
 talkEntry:addResponse("You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,18 +232,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -252,8 +252,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -261,8 +261,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
 talkEntry:addResponse("I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -271,67 +271,67 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", "<", 10));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 40 copper coins and a meat dish."));
 talkEntry:addResponse("Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 10));
+talkEntry:addConsequence(npc.base.consequence.item.item(557, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Kupferstücke."));
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 10));
+talkEntry:addConsequence(npc.base.consequence.item.item(557, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part II"));
 talkEntry:addResponse("Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part II"));
 talkEntry:addResponse("Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,18 +339,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -359,8 +359,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -368,8 +368,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
 talkEntry:addResponse("My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -378,67 +378,67 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", "=", 0));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."));
 talkEntry:addResponse("Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2380, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein ITEM."));
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2380, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part III"));
-talkEntry:addResponse("Though my wife's condition continues to worsen, we finally have some good news. I wrote to a druid in <town name> and she believes that she may have found a cure to my wife's illness. Please, go to <town name> and seek out the druid, Aurora Snow, for me.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
+talkEntry:addResponse("Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part III"));
-talkEntry:addResponse("Though my wife's condition continues to worsen, we finally have some good news. I wrote to a druid in <town name> and she believes that she may have found a cure to my wife's illness. Please, go to <town name> and seek out the druid, Aurora Snow, for me.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
+talkEntry:addResponse("Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,26 +446,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in <town name>. Please, hurry. My poor wife has not improved.");
+talkEntry:addResponse("Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -473,8 +473,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
-talkEntry:addResponse("Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in <town name>. Please, hurry. My poor wife has not improved.");
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
+talkEntry:addResponse("Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in Druidhouse. Please, hurry. My poor wife has not improved.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,19 +482,19 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a treasure map."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."));
 talkEntry:addResponse("Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -502,10 +502,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 10));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -514,7 +514,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -523,7 +523,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 11));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1316,12 +1316,12 @@ mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Ro
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 457);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(5, 271);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(4, 0);
+mainNPC:setEquipment(9, 2113);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

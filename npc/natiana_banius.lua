@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Natiana Banius', 'npc.natiana_banius', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 0, 0, 0, 4, 'Natiana Banius', 'npc.natiana_banius', 1, 2, 5, 218, 162, 39, 255, 228, 186);
 ---]]
 
 require("npc.base.basic")
@@ -37,7 +37,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, ">", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, ">", 11));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -194,7 +194,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("P...please...help my husband.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -203,7 +203,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -211,7 +211,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
 talkEntry:addResponse("M...my...husband.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -220,7 +220,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "<", 11));
+talkEntry:addCondition(npc.base.condition.quest.quest(322, "<", 11));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1169,12 +1169,12 @@ mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Na
 mainNPC:setUseMessage("Fasst mich nicht an!", "#me shivers, 'D...d...don't...get...t...too...close.'");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me weakly shakes her head.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 182);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(9, 841);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

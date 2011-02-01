@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 0, 0, 0, 4, 'Fosco Goodbarrel', 'npc.fosco_goodbarrel', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (2, 0, 0, 0, 4, 'Fosco Goodbarrel', 'npc.fosco_goodbarrel', 0, 5, 1, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -41,14 +41,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, ">", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, ">", 2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, ">", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -205,21 +205,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
 talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He?s in <town name>.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,10 +227,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
 talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He?s in <town name>.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,17 +239,17 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -258,7 +258,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -267,7 +267,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addResponse("You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -277,32 +277,32 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 7));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part II."));
 talkEntry:addResponse("That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 499, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(209, 1, 499, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(13372, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 499, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(209, 1, 499, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -310,31 +310,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Mischievous Halfling"));
 talkEntry:addResponse("Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Mischievous Halfling"));
 talkEntry:addResponse("Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,18 +342,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I need you to find me one black coat. Don't worry, I'll see to it that you are compensated.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -362,8 +362,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -371,8 +371,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
 talkEntry:addResponse("I need you to find me one black coat. Don't worry, I'll see to it that you are compensated.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -381,8 +381,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", "<", 1));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -390,8 +390,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -400,8 +400,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -409,8 +409,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
 talkEntry:addResponse("You've got one black coat for me, but I also need one amulet. Don't worry, I'll see to it that you are compensated.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -419,47 +419,47 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", "<", 1));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."));
 talkEntry:addResponse("Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2384, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(354, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."));
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2384, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(354, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I've got to get busy studying for my new character. Take care, now!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -468,7 +468,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -476,7 +476,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
 talkEntry:addResponse("I've got to get busy studying for my new character. Take care, now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -485,7 +485,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 2));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1178,12 +1178,12 @@ mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Fo
 mainNPC:setUseMessage("Fasst mich nicht an!", "I don't work like that!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 457);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(4, 384);
+mainNPC:setEquipment(9, 366);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 

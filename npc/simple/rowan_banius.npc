@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: January 10, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rowan Banius"
@@ -32,17 +32,17 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 4
+beardID = 3
+colorHair = 23, 23, 23
+colorSkin = 238, 207, 161
 itemHead = 0
-itemChest = 181
+itemChest = 457
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 271
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
+itemHands = 0
+itemTrousers = 2113
 itemShoes = 53
 
 -- Template Version 1.03 by Estralis Seborian
@@ -69,18 +69,12 @@ itemShoes = 53
 -- TO BE DONE
 
 -- Translation
--- Replace (1337) with valid quest status
--- Quest status also to be used for NPC Aurora Snow: quests 1 and 2 (part of 'The Farmer's Wife quest chain)
--- Replace (391) with correct item values (given in comment above each quest)
 -- Position, direction, affiliation
--- Location: on a farm, indoors, close to NPC Natiana Banius
--- Replace <town name> with name of town where NPC Aurora Snow is located
--- Make merchant NPC when queststatus(1337) = 11, sells basic farming equipment, vegetables, etc
--- Tentatively assigned affiliation (Runewick), replace to liking, and adjust rankpoints(Runewick) as necessary
+-- Location: on a farm near Runewick, indoors, close to NPC Natiana Banius. Paddock Farm, Merryglade, Yewdale?
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
-".+", queststatus(1337) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rowan Banius the farmer. Keyphrases: quest, profession, farm, wife, what sell.")
@@ -103,60 +97,60 @@ itemShoes = 53
 -- 1st quest: Bring 10 HAM
 
 -- Give out quest 1
-"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(1337) = 1
-"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
-"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(1337) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+"quest", "mission", queststatus(322) = 0, english -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
+"quest", "mission", queststatus(322) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(322) = 1
+"task", "adventure", queststatus(322) = 0 -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(322) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 10, english -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
-"quest", "mission", queststatus(1337) = 1, item(391, all) < 10 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(391, all) < 10 -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) < 10 -> "GERMAN."
+"quest", "mission", queststatus(322) = 1, item(306, all) < 10, english -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
+"quest", "mission", queststatus(322) = 1, item(306, all) < 10 -> "GERMAN."
+"task", "adventure", queststatus(322) = 1, item(306, all) < 10 -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 1, item(306, all) < 10 -> "GERMAN."
 
 -- Quest 1 solved, reward: 40cp, meat dish
-".+", queststatus(1337) = 1, item(391, all) > 9, english -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 40, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 2
-".+", queststatus(1337) = 1, item(391, all) > 9 -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke."), "GERMAN.", money + 40, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 2
+".+", queststatus(322) = 1, item(306, all) > 9, english -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 40, deleteItem(306, 10), item(557, 1, 599, 0), queststatus(322) = 2
+".+", queststatus(322) = 1, item(306, all) > 9 -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke."), "GERMAN.", money + 40, deleteItem(306, 10), item(557, 1, 599, 0), queststatus(322) = 2
 
 -- 2nd quest: Bring 1 blue coat
 
 -- Give out quest 2
-"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(1337) = 3
-"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
-"task", "adventure", queststatus(1337) = 2 -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(1337) = 3
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
+"quest", "mission", queststatus(322) = 2, english -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
+"quest", "mission", queststatus(322) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(322) = 3
+"task", "adventure", queststatus(322) = 2 -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(322) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 3, item(391, all) = 0, english -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
-"quest", "mission", queststatus(1337) = 3, item(391, all) = 0 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 3, item(391, all) = 0 -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 3, item(391, all) = 0 -> "GERMAN."
+"quest", "mission", queststatus(322) = 3, item(2380, all) = 0, english -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
+"quest", "mission", queststatus(322) = 3, item(2380, all) = 0 -> "GERMAN."
+"task", "adventure", queststatus(322) = 3, item(2380, all) = 0 -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 3, item(2380, all) = 0 -> "GERMAN."
 
 -- Quest 2 solved, reward: 60cp, SCYTHE
-".+", queststatus(1337) = 3, item(391, all) > 0, english -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 60, deleteItem(391, 1), item(391, 1, 599, 0), queststatus(1337) = 4
-".+", queststatus(1337) = 3, item(391, all) > 0 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein ITEM."), "GERMAN.", money + 60, deleteItem(391, 1), item(391, 1, 599, 0), queststatus(1337) = 4
+".+", queststatus(322) = 3, item(2380, all) > 0, english -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 60, deleteItem(2380, 1), item(271, 1, 599, 0), queststatus(322) = 4
+".+", queststatus(322) = 3, item(2380, all) > 0 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein ITEM."), "GERMAN.", money + 60, deleteItem(2380, 1), item(271, 1, 599, 0), queststatus(322) = 4
 
 -- 3rd quest: Obtain and deliver Natiana's medicine
 
 -- Give out quest 3
-"quest", "mission", queststatus(1337) = 4, english -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a druid in <town name> and she believes that she may have found a cure to my wife's illness. Please, go to <town name> and seek out the druid, Aurora Snow, for me.", queststatus(1337) = 5
-"quest", "mission", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
-"task", "adventure", queststatus(1337) = 4 -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a druid in <town name> and she believes that she may have found a cure to my wife's illness. Please, go to <town name> and seek out the druid, Aurora Snow, for me.", queststatus(1337) = 5
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
+"quest", "mission", queststatus(322) = 4, english -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
+"quest", "mission", queststatus(322) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(322) = 5
+"task", "adventure", queststatus(322) = 4 -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(322) = 5
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 5, english -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in <town name>. Please, hurry. My poor wife has not improved."
-"quest", "mission", queststatus(1337) = 5 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 5 -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in <town name>. Please, hurry. My poor wife has not improved."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "GERMAN."
+"quest", "mission", queststatus(322) = 5, english -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved."
+"quest", "mission", queststatus(322) = 5 -> "GERMAN."
+"task", "adventure", queststatus(322) = 5 -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival in Druidhouse. Please, hurry. My poor wife has not improved."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(322) = 5 -> "GERMAN."
 
 -- Quest 3 solved, reward: treasure map, +10 rankpoints (specify faction)
-".+", queststatus(1337) = 10, item(391, all) > 0, english -> inform("[Quest solved] You are awarded a treasure map."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(1337) = 11, rankpoints(Runewick) + 10, treasure(6)
-".+", queststatus(1337) = 10 -> inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."), "GERMAN.", queststatus(1337) = 11, rankpoints(Runewick) + 10, treasure(6)
+".+", queststatus(322) = 10, item(391, all) > 0, english -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
+".+", queststatus(322) = 10 -> inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."), "GERMAN.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
 
 -- No more quests, just nice words of gratitude
-"quest", "mission", queststatus(1337) = 11, english -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
-"quest", "mission", queststatus(1337) = 11 -> "GERMAN."
+"quest", "mission", queststatus(322) = 11, english -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
+"quest", "mission", queststatus(322) = 11 -> "GERMAN."
 "task", "adventure", queststatus(1337) = 11 -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 11 -> "GERMAN."
 
