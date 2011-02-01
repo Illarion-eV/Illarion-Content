@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Aurora Snow                                                 None --
+-- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  0, 0, 0                --

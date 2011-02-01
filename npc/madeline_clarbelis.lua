@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Madeline Clarbelis                                          None --
+-- NPC Name: Madeline Clarbelis                                      Runewick --
 -- NPC Job:  Druid Apprentice                                                 --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
