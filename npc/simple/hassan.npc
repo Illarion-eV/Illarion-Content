@@ -227,10 +227,10 @@ itemShoes = 53
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Hassan", english -> "So, who sent you?","Yes, yes, I know, I should be in the palace.","No."
 "Hassan" -> "So, wer schickt euch?","Ja, ja, ich weiß, ich sollte im Palast sein.","Nein."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "No.", "Not really.", "Peom!."
+"Ja" -> "Nein.", "Nicht wirklich.", "Peom!"
+"No" -> "Oh, I could tell you so many secrets of the queen, but I am loyal to her.", "Did I mention that I am thirsty?", "Wine is fine."
+"Nein" -> "Oh, ich könnte so viele Geheimnisse der Königin ausplaudern, aber ich bin ihr treu ergeben.", "Erwähnte ich, dass ich Durst habe?", "Wein ist fein."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
