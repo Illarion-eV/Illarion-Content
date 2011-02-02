@@ -45,30 +45,62 @@ function Init()
     Rocks[1273]  = 1257;
     Rocks[1276]  = 1278;
     Rocks[1250]  = 1251;
+	
+--[[
+1245: 60% Coal + 7% Blackstone + 3% Ruby
+1246: 40% Coal + 7% Amethyst + 3% Emerald
+232: 40% Copper + 10% Gold + 7% Diamond 3% Amethyst
+914: 60% Iron + 7% Ruby + 3% Topaz
+1273: 40% Iron + 7% Bluestone + 3% Blackstone
+1276: 60% Copper + 7% Emerald + 3% Bluestone
+1250: 10% Gold + 5% Merinium + 7% Topaz + 3% Diamond
 
-    ---------------- MINEN IN SILBERBRAND -----
-    ------SILBERBRAND 1 -----
-    AddArea( 1, position(106,-150,-3), 20 );
+Coalmine: Galmair "Dark Hole Mine"
+Coordinates: 406,159,-3
+Radius 20
+
+Iron/gold/coppermine: Galmair "Malachite Mine"
+Coordinates: 420,371,0
+Radius 30
+
+Coalmine: Cadomyr "Candour Foundation"
+Coordinates: 142,686,0
+Radius 15
+
+Iron/gold/coppermine: Cadomyr "Liberty Quarry"
+Coordinates: 165,603,0
+Radius 15
+
+Merinium/gold/coalmine: Wilderness "Glittering Cave"
+Coordinates: 548,371,0
+Radius 15
+
+Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift"
+Not on the Map yet, i'll add it soon though.]]--
+	
+    --Galmair "Dark Hole Mine" 
+    AddArea( 1, position(406,159,-3), 20 );
     AddStone( 1, 1245 );
-    SetRessource( 1, 1245,  21, 40,  0); -- coal
-    SetRessource( 1, 1245, 251, 5, 20); -- amethysts
+    SetRessource( 1, 1245,  21, 60,  0); -- coal
+	SetRessource( 1, 1245,  252, 7, 0); -- blackstone
+    SetRessource( 6, 1245,  255, 3,  0); -- rubys
     AddStone( 1, 1246 );
     SetRessource( 1, 1246, 21,  40, 0); -- coal
-    SetRessource( 1, 1246, 251,  5, 0); -- amethysts
-    SetRessource( 1, 1246, 255,  1, 0); -- rubys
-    AddStone( 1, 914 );
-    SetRessource( 1, 914, 22,  40, 0); -- iron ore
-    SetRessource( 1, 914, 234,  1, 0); -- gold nuggets
-    ------SILBERBRAND 2 -----
-    AddArea( 2, position(105,-163,-9), 15 );
-    AddStone( 2, 1245 );
-    SetRessource( 2, 1245,  21, 50,  0); -- coal
-    SetRessource( 2, 1245,  254, 1,  0); -- diamonds
-    AddStone( 2, 1246 );
-    SetRessource( 2, 1246, 21,  50, 0); -- coal
-    SetRessource( 2, 1246, 253,  2, 0); -- bluestone
-    AddStone( 2, 1273 );
-    SetRessource( 2, 1273, 22,  50, 0); -- iron ore
+    SetRessource( 1, 1246, 251,  7, 0); -- amethysts
+    SetRessource( 1, 232,  256,  3,  0); -- emerald
+
+	--Galmair "Malachite Mine"
+    AddArea( 2, position(420,371,0), 30 );
+    AddStone( 2, 232 );
+    SetRessource( 2, 232, 2536, 40,  0); -- copper
+    SetRessource( 2, 232, 234,  10,  0); -- gold nuggets
+	SetRessource( 2, 232, 254,  7,  0); -- diamonds
+	SetRessource( 2, 232, 251,  3, 0); -- amethysts
+    AddStone( 2, 914 );
+    SetRessource( 2, 914,  22, 60,  0); -- iron ore
+	SetRessource( 2, 914,  255, 7, 0); -- rubys
+	SetRessource( 2, 914,  257, 3, 10); -- topas
+		
     ------SILBERBRAND 3-----
     AddArea( 3, position(134,-144,-9), 10 );
     AddStone( 3, 232 );
@@ -103,7 +135,7 @@ function Init()
     AddStone( 6, 1245 );
     SetRessource( 6, 1245,  21, 60,  0); -- coal
     SetRessource( 6, 1245,  251, 2,  10); -- amethysts
-    SetRessource( 6, 1245,  255, 3,  10); -- rubys
+
     AddStone( 6, 1246 );
     SetRessource( 6, 1246,  21, 50,  0); -- coal
     SetRessource( 6, 1246,  255, 5, 10); -- rubys
@@ -118,7 +150,7 @@ function Init()
     AddStone( 7, 232 );
     SetRessource( 7, 232,  2536, 30, 0); -- copper
     SetRessource( 7, 232,  22, 30,   0); -- iron ore
-    SetRessource( 7, 232,  256, 5,  10); -- emerald
+
     SetRessource( 7, 232,  234, 1,   0); -- gold nuggets
     AddStone( 7, 914 );
     SetRessource( 7, 914,  2536, 20, 0); -- copper
@@ -176,7 +208,7 @@ function Init()
     AddStone( 11, 1246 );
     SetRessource( 11, 1246,  21, 40,  0); -- coal
     SetRessource( 11, 1246,  253, 5, 20); -- bluestone
-    SetRessource( 11, 1246,  252, 6, 0); -- blackstone
+
     ----------- Nordmine - FERTIG -----------
 
     ---------------- Merinium Mine in Tol Vanima ----
