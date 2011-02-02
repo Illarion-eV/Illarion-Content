@@ -54,6 +54,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 2));
+talkEntry:addResponse("Error! Something went wrong, please inform a developer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This is the NPC Hassan. To learn more about him, your should greet the NPC first."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1280,6 +1287,8 @@ talkEntry:addResponse("Erwähnte ich, dass ich Durst habe?");
 talkEntry:addResponse("Wein ist fein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+talkingNPC:addCycleText("#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffes.");
+talkingNPC:addCycleText("Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard that a tavern was called 'Happy Halfling'. 'Happy Hassan', that'd be a name!");
 talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat. And you don't want to see this happen!");
 talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bags his fist on the counter: 'I demand service!'");
 talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'");

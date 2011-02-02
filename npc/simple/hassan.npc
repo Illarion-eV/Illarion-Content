@@ -47,7 +47,7 @@ itemHands = 2295
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.03 Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -67,6 +67,7 @@ itemShoes = 53
 "set 0" -> "Quest status set to 0", queststatus(75) = 0
 "set 1" -> "Quest status set to 1", queststatus(75) = 1
 "set 2" -> "Quest status set to 2", queststatus(75) = 2
+".*", queststatus(75) > 2 -> "Error! Something went wrong, please inform a developer."
 
 -- Help
 "Help" -> inform("[Game help] This is the NPC Hassan. To learn more about him, your should greet the NPC first.")
@@ -237,6 +238,8 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
+cycletext "#me schwingt ein Weinglas und riecht daran.","#me swings a wine glass and sniffes."
+cycletext "Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!","I heard that a tavern was called 'Happy Halfling'. 'Happy Hassan', that'd be a name!"
 cycletext "Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...","Oh yes, I am indeed an important man. Without my service, the queen would sweat. And you don't want to see this happen!"
 cycletext "#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bags his fist on the counter: 'I demand service!'"
 cycletext "#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'"
