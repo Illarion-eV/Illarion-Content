@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
--- NPC Name: Zaida                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Name: Zaida                                                   Runewick --
+-- NPC Job:  Apprentice                                                       --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 768, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -8,12 +8,12 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 900, 768, 0, 4, 'Zaida', 'npc.zaida', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 900, 768, 0, 4, 'Zaida', 'npc.zaida', 1, 1, 0, 205, 102, 0, 198, 147, 105);
 ---]]
 
 require("npc.base.basic")
