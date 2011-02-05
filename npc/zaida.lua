@@ -689,7 +689,7 @@ mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibu
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 849);
+mainNPC:setEquipment(3, 846);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 57);
 mainNPC:setEquipment(6, 0);
