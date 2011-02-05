@@ -54,6 +54,25 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(76, ">", 2));
+talkEntry:addResponse("Error! Something went wrong, please inform a developer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is the apprentice Zaida. To learn more about her, your should greet the NPC first."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greetings");
 talkEntry:addTrigger("Be greeted");
@@ -688,7 +707,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(1, 465);
 mainNPC:setEquipment(3, 846);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 57);
