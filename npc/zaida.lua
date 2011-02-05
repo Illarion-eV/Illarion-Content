@@ -62,7 +62,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is the apprentice Zaida. To learn more about her, your should greet the NPC first."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,18 +682,6 @@ talkEntry:addTrigger("tavern");
 talkEntry:addResponse("Guter Wein, aber schlechter Service. Aber das habt ihr wohl selbst auch schon festgestellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 talkingNPC:addCycleText("Nur in Runewick kann man einer intelligenten Diskussion fröhnen. In Galmair wird man eher ausgeraubt und in Cadomyr haben sie nur Sand im Kopf.", "Only in Runewick it is possible to enjoy the delights of an intelligent discussion. In Galmair they are trying to rob you, and Cadomyrians have... sand for brains.");
 talkingNPC:addCycleText("#me blättert gedankenverloren in einem alten Buch. Sie starrt dabei auf ein leeres Weinglas, das leer erscheint.", "#me absently turns the page of an old journal, while glancing at a glass of wine that seems to be empty.");
 talkingNPC:addCycleText("#me räuspert sich: 'Wirt, etwas mehr Wein, bitte... Wirt? Bei den Göttern!", "#me clears her throat: 'Innkeeper, more wine, please... Innkeeper? Gods.'");
@@ -701,10 +689,13 @@ talkingNPC:addCycleText("#me ist eine junge Dame, gekleidet in der Tracht einer 
 talkingNPC:addCycleText("#me tippt mit ihren langen Fingernägeln gegen ihr leeres Glas, ein hohles, klirrendes Geräusch ist zu vernehmen.", "#me absently taps on the side of her empty glass with her long fingernail, causing a faint, hollow sound to be heard.");
 talkingNPC:addCycleText("#me murmelt genervt: 'Wenn ich es nicht besser wüßte, könnte man meinen, der Wirt wäre noch so ein Halunke aus Galmair mit Dung in den Ohren.", "#me mutters with an irritated voice: 'I swear that if I did not already know better, I would be certain that the innkeeper is another Galmairian crook with his ears full of manure.'");
 talkingNPC:addCycleText("#me lässt ihre Augen hochmütig durch die Taverne wandern. Jedem, der ihr fremd erscheint, wirft sie einen Blick mit einer Mischung aus Neugierde und Misstrauen zu.", "#me glances around the tavern with an air of haught surrounding her, eyeing all those who appear foreign with a gaze that is mixed with both curiosity and suspicion.'");
+talkingNPC:addCycleText("Einfältige Ignoranten, überall! Wie soll man so lernen?", "Stupid idiots, everywhere. How is one supposed to become educated this way?");
+talkingNPC:addCycleText("Jemand hat mal im Unterricht des Erzmagiers 'Bingo!' gerufen. Ich habe bis heute nicht verstanden, was er damit sagen wollte.", "Someone just yelled 'Bingo!' during the Archmage's class. I haven't understood what he ment by that by now.");
+talkingNPC:addCycleText("Alles, was ich weiß, ist, dass ich weiß, dass ich noch nicht alles weiß.", "All I know is that I know that I don't know it all.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist die Anwärterin Zaida.", "This NPC is the apprentice Zaida.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 465);
@@ -712,8 +703,8 @@ mainNPC:setEquipment(3, 846);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 57);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 827);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 0);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
