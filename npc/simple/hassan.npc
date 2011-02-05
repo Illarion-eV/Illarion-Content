@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 02, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hassan"
@@ -75,39 +75,51 @@ itemShoes = 53
 
 -- First part, the gossiper is thirsty--
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 0 -> inform("[New Quest] Cadomyr's Gossiper"), "#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine, I will gladly answer your questions.'", queststatus(75) = 1
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", queststatus(75) = 2 -> "Ah, hello again. Now that you quenched my thirst, ask whatever you like."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 0, english -> inform("[New Quest] Cadomyr's Gossiper"), "#me frowns: 'What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'", queststatus(75) = 1
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 1, item(2057, all) < 1, english -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 2, english -> "Hah! My friend, come, let us talk about important things, we're important persons, aren't we?"
 "How are you", "How feel", "How do you do", queststatus(75) = 0 -> inform("[New Quest] Cadomyr's Gossiper"), "I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!", queststatus(75) = 1
+"How are you", "How feel", "How do you do", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "How are you", "How feel", "How do you do", queststatus(75) = 2 -> "Now that you brought me wine: Fine."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.", queststatus(75) = 1
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", queststatus(75) = 2 -> "Ah, hallo nochmal. Nun, da mein Durst gestillt ist, fragt was immer ihr wollt."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.", queststatus(75) = 1
+"Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 "Hiho", "Hallo", "Hey", "Greeb", queststatus(75) = 2 -> "Hah! Mein Freund, lasst uns über wichtige Dinge Reden, denn wir sind wichtige Leute, nicht wahr?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell, traveller!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell, traveller!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Reise."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!", queststatus(75) = 1
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", queststatus(75) = 2 -> "Nun, da ihr mir Wein gebracht habt: Fein."
 "your name", "who are you", "who art thou" -> "Hassan, the royal fan-waver."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Hassan, der königliche Fächelwedler."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", queststatus(75) = 0, english -> inform("[New Quest] Cadomyr's Gossiper"), "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!", queststatus(75) = 1
+"quest", "mission", queststatus(75) = 1, item(2057, all) < 1, english -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "quest", "mission", queststatus(75) = 2, english -> "Just ask me and I will share my vast knowledge about the palace with you."
 "quest", "mission", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.", queststatus(75) = 1
+"quest", "mission", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 "quest", "mission", queststatus(75) = 2 -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
 "task", "adventure", "question", queststatus(75) = 0 -> inform("[New Quest] Cadomyr's Gossiper"), "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!", queststatus(75) = 1
+"task", "adventure", "question", queststatus(75) = 1, item(2057, all) < 1 -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 "task", "adventure", "question", queststatus(75) = 2 -> "Just ask me and I will share my vast knowledge about the palace with you."
+"Aufgabe", "Abenteuer", "Frage", queststatus(75) = 0 -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.", queststatus(75) = 1
+"Aufgabe", "Abenteuer", "Frage", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+"Aufgabe", "Abenteuer", "Frage", queststatus(75) = 2 -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
 
 -- bringing the wine--
 ".+", queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."), "#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
 ".+", queststatus(75) = 1, item(2057, all) > 0, english -> inform("[Quest solved] Hassan will now answer your questions."), "#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'", deleteItem(2057, 1), queststatus(75) = 2
-".+", queststatus(75) = 1, item(2057, all) > 0, german, town = Cadomyr -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
-".+", queststatus(75) = 1, item(2057, all) > 0, german -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2
+".+", queststatus(75) = 1, item(2057, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
+".+", queststatus(75) = 1, item(2057, all) > 0 -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2
 ".+", queststatus(75) = 1, item(2057, all) < 1, english -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
-".+", queststatus(75) = 1, item(2057, all) < 1, german -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+".+", queststatus(75) = 1, item(2057, all) < 1 -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
 
 -- questions--
 "town", queststatus(75) = 2 -> "Cadomyr is the most civilized and advanced community! I hear the others live in pitiful clay huts."
@@ -146,8 +158,8 @@ itemShoes = 53
 -- Small talk--
 "profession" -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
 "beruf" -> "Ich ein Diener der Königin.", "Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
+"job" -> "Ich ein Diener der Königin.", "Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"
 "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

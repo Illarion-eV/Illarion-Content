@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 02, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -93,6 +93,19 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Ah, hello again. Now that you quenched my thirst, ask whatever you like.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -116,6 +129,18 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hah! My friend, come, let us talk about important things, we're important persons, aren't we?");
@@ -130,6 +155,16 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addResponse("I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,6 +200,20 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Ah, hallo nochmal. Nun, da mein Durst gestillt ist, fragt was immer ihr wollt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -179,6 +228,17 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,6 +304,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Nun, da ihr mir Wein gebracht habt: Fein.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -280,6 +350,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Just ask me and I will share my vast knowledge about the palace with you.");
@@ -293,6 +373,15 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
 talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -319,8 +408,48 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("question");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Just ask me and I will share my vast knowledge about the palace with you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Frage");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
+talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Frage");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
+talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Frage");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +483,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
@@ -368,7 +496,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."));
 talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
@@ -389,7 +516,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -644,17 +770,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am a servant of the Queen herself!");
+talkEntry:addResponse("I am a royal fan-waver! A glorious task!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich ein Diener der Königin.");
+talkEntry:addResponse("Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
