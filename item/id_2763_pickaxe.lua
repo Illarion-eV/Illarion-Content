@@ -365,8 +365,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if (ltstate == Action.none) then
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me starts to hit the stone with a pick axe.");
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15); --TEMPORARY FIX FOR TESTDAY!
-		--User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
+		User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         return
     end
 
@@ -385,15 +384,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     Skill = GetModifiedSkill(User);
 	
---Lines below cause bailing out of the script; removed for TestDay
 
-	--[[if not base.gcraft.mining:FindRandomItem(User) then
+	if not base.gcraft.mining:FindRandomItem(User) then
 		return
-	end]]--
+	end
 	
     if not checkSucc(Skill) then
-        --User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
-		User:startAction( GenWorkTime(User), 0, 0, 8, 15); --TEMPORARY FIX FOR TESTDAY!
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
         User:learn(2,"mining",1,100);
         return
     end
@@ -414,8 +411,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if Ressource == 0 then     -- set resource to raw stone and continue script
         Ressource = 735
     elseif Ressource < 0 then  -- find nothing
-        --User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
-        User:startAction( GenWorkTime(User), 0, 0, 8, 15); --TEMPORARY FIX FOR TESTDAY!
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
 		base.common.GetHungry( User, 300 );
         return
     end
@@ -432,8 +428,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         "Du kannst nicht noch mehr halten.",
         "You can't carry any more.");
     else
-        --User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
-		User:startAction( GenWorkTime(User), 0, 0, 8, 15); --TEMPORARY FIX FOR TESTDAY!
+        User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
     end
 end
 
@@ -485,12 +480,11 @@ function UseItemWithCharacter(User,SourceItem,TargetChar,counter,param)
     "You shouldn't use a pick-axe as a weapon.");
 end
 
---THIS FUNCTION IS JUST A TEMPORARY FIX FOR THE TESTDAY! GENERIC GATHERING FUNCTIONS SHOULD BE USED!
--- Arbeitszeit generieren
+--[[ Arbeitszeit generieren
 -- 2s - 5.5s
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("constitution",0); -- Konstitution: 0 - 20
     local Skill  = math.min(100,User:getSkill("mining")*10);    -- Mining: 0 - 100
 
     return math.floor(-0.3 * (Attrib + Skill) + 60);
-end 
+end]]--
