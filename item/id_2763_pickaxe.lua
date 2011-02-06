@@ -384,10 +384,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
 
     Skill = GetModifiedSkill(User);
+	
+--Lines below cause bailing out of the script; removed for TestDay
 
-	if not base.gcraft.mining:FindRandomItem(User) then
+	--[[if not base.gcraft.mining:FindRandomItem(User) then
 		return
-	end
+	end]]--
 	
     if not checkSucc(Skill) then
         --User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
