@@ -219,7 +219,7 @@ itemShoes = 53
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Fosco", "Goodbarrel", english -> "Such a delightful name, don't you agree?", "Ahh...Fosco Goodbarrel. It just rolls off of the tongue.", "From here to Pennymill, that name will make any woman weak at the knees."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Fosco", "Goodbarrel" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "#me taps his foot impatiently.", "I knew you were going to say that!", "Yes, yes. Whatever. You should keep your purse in a less obvious place."

@@ -268,8 +268,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Über das Schneidern, darüber könnte ich dir einiges erzählen, aber gerade habe ich keine Lust.", "Wenn du mir bei einigen Aufgaben hilfst, erzähl ich dir gerne dies und das über das Schneidern, musst mich nur nach einem Auftrag fragen.", "Nein, ich will jetzt nichts erzählen. Ständig kommen Leute her und wollen das ich ihnen etwas erzähle, will ich aber nicht!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Aresilia", "Teleri", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Aresilia", "Teleri" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "How great. Hush hush!", "Great. you are a big help.", "Awesome!"
 "Ja" -> "Toll, dann auf auf!", "Wunderbar, du bist mir eine große Hile", "Ausgezeichnet!"
 "No" -> "How sad.", "Why not? What could be such important?", "No? waht shoul dthat mean? First you ask for a task... an then you are not willing to help, tzk, tzk, tzk."

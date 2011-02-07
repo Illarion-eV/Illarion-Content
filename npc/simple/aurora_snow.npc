@@ -264,7 +264,7 @@ itemShoes = 0
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Aurora", "Snow", english -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Aurora", "Snow" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
@@ -272,7 +272,7 @@ itemShoes = 0
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."
-".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

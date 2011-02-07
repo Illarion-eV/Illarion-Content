@@ -213,7 +213,7 @@ itemShoes = 53
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Madeline", "Clarbelis", english -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Madeline", "Clarbelis" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "I need a nap.", "Gosh, I am so tired.", "I suppose I should go visit Aurora soon."

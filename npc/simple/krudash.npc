@@ -167,8 +167,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "Hurr Hurr. Ciamar a'seibh! How goin?","Hurr Hurr. Do you need an axe, huh?"
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?","Hurr Hurr. Brauchst ne Axt, hä?"
+"Krudash", english -> "Hurr Hurr. Ciamar a'seibh! How goin?","Hurr Hurr. Do you need an axe, huh?"
+"Krudash" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?","Hurr Hurr. Brauchst ne Axt, hä?"
 "Yes"->"Taghtha? Is good! Yes.","There we go. Allrighty-right.","Hurr, hurr. Wahtever you say."
 "Ja"->"Taghta? Iss gut! Ja-h.","So machen wir's!","Hurr, hurr. Alles was du sagst."
 "No"->"Grâth! Are you sure?","Then... no, isn't it?","#me chuckles. 'Is all right.'"

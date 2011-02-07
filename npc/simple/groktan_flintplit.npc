@@ -314,7 +314,7 @@ itemShoes = 53
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
 "Groktan", "Flintsplit", english -> "Who asks for me?", "Arr!", "What do you want? Bruises?"
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Wer fragt nach mir?", "Arr!", "Was wollt ihr? Ne Abreibung?"
+"Groktan", "Flintsplit" -> "Wer fragt nach mir?", "Arr!", "Was wollt ihr? Ne Abreibung?"
 "Yes" -> "There is something I wanted to say, but I forgot...", "Can you rephrase that?", "Don't try to fool me or I fool you... in your face!"
 "Ja" -> "Ich wollte gerade noch etwas sagen, aber ich hab es vergessen.", "Kannst das anders ausdrücken?", "Veräppel mich und ich veräppel... dein Gesicht!"
 "No" -> "Whatever, I do what the Don wants.", "That is pretty interesting, why don't you tell more about that?", "What!?", "Eh?"

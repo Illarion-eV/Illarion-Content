@@ -194,8 +194,8 @@ itemShoes = 0
 "erzähl was", "erzähl etwas" -> "Aye... 'n rießiger Krake hat men Bein gefressn. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...", "Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...", "In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC-Vorname>", "<NPC-Nachname>", english -> "xxx"
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
+"Julio", "Canaille", english -> "xxx"
+"Julio", "Canaille" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
 "Yes" -> "Ch-h!", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "Ch-h!", "Aye! Klar machen zum entern! Hä-hä-hä...", "Du sollst 'Ja, Kapitän!' sagen..."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
