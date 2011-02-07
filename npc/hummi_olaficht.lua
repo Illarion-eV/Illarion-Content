@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: December 23, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 07, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -708,6 +708,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elves");
+talkEntry:addCondition(npc.base.condition.race.race(3));
 talkEntry:addResponse("Elfen können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -837,7 +838,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halbing");
+talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfing");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -846,7 +847,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halbing");
+talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfing");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addResponse("Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
@@ -854,7 +855,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halbing");
+talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfing");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Halfings as I am can be mainly found in Runewick.");
@@ -862,7 +863,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halbing");
+talkEntry:addTrigger("halbling");
 talkEntry:addTrigger("halfing");
 talkEntry:addResponse("Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1336,16 +1337,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("hummi");
+talkEntry:addTrigger("olaficht");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("That's me and I know many important things.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("hummi");
+talkEntry:addTrigger("olaficht");
 talkEntry:addResponse("Das bin ich und ich weiß viele wichtige Dinge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1392,6 +1393,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);

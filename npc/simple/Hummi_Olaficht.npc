@@ -268,8 +268,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Von mir bekommst du nur Informationen, und die sind umsonst!","Tut mir leid, aber ich verkaufe nichts."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "That's me and I know many important things."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Das bin ich und ich weiß viele wichtige Dinge."
+"hummi", "olaficht", english -> "That's me and I know many important things."
+"hummi", "olaficht" -> "Das bin ich und ich weiß viele wichtige Dinge."
 "Yes" -> "Yes?", "'Yes' is the opposite from 'no'. *giggles*","'Yes' means 'Ja' in the old language. *giggles*"
 "Ja" -> "Ja?", "'Ja' ist das Gegenteil von 'Nein'. *kichert*","'Ja' bedeutet 'Yes' in der neuen Sprache. *kichert*"
 "No" -> "No?", "'No' is the opposite of 'Yes'. *giggles*","'No' means 'Nein' in the old language. *giggles*"
