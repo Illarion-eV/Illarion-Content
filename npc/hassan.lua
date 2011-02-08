@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 08, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -528,39 +528,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("queen");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("We are ruled by the Queen in Cadomyr! She can trace her ancestors back a millenia or more, having the bluest of blue blood of us all.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rosaline");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, so you have heard about our Queen? Of course, not everyone thought that a woman should rule. Baron Hastings was quite vocal about that, but then he... disappeared.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Edwards");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albar's bluebloods! The queen's father, King Reginald, ruled the town with firm grip.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nobles");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Like any proper nation, below the Queen are her nobles, just like the men are below the Gods... just as the Gods themselves have intended!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gods");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me nods eagerly, spilling some wine on the table 'We are proper, honourful and Gods-fearing people in Cadomyr, unlike our wretched neighbours!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,14 +579,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs: 'Cadomyr, oh Cadomyr! We are the most honourful and magnificent nation around, held back only by the treachery of our cursed neighbours.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("palace");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("If Cadomyr is the crown of the land, then the palace is certainly the most magnificent crown jewel! Sadly not all the servants in the palace are as reliable and loyal as I am.");
@@ -624,61 +586,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("An false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap chartalans who try to twist the truth to justify their vile customs!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair! That treacherous pit! Filled by the most despicable scum imaginable. Any decent person should steer clear of the place! Of course, I was lucky to never visit it myself.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("stadt");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Cadomyr ist die zivilisierteste und fortschrittlichste Gesellschaft. Ich hörte, unsere Nachbarn wohnen in erbärmlichen Lehmhütten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Königin");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Wir werden von der Königin von Cadomyr regiert. Sie kann ihre Ahnen tausend Jahre zurückverfolgen und hat das blauste Blut von allen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rosaline");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Nun, was habt ihr über unsere Königin gehört? Nicht jeder stimmt damit überein, dass eine Frau die Macht hat. Baron Hastings war ihr Redelsführer, aber dann verschwand er...");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Edwards");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Cadomyr wird seit seiner Gründung von den Edwards regiert. Feinstes albarisches Blut! Der Vater der Königin, König Reginald, regierte mit harter Hand.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edel");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Wie in jeder gute Nation bedient sich die Königin ihrer Edelleute, wie die Götter sich den Menschen bedienen. Genauso wollen es die Götter.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gott");
-talkEntry:addTrigger("Götter");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me nickt heftig, etwas Wein verschüttend: 'Wir sind gute, ehrenhaft, götterfürchtige Leute hier in Cadomyr, nicht so unsere verdorbenen Nachbarn.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -726,30 +636,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegend, nur behindert durch unsere verräterischen Nachbarn.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Palast");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Wenn Cadomyr die Krone des Landes ist, dann ist der Palast das funkelnste Kronjuwel. Leider sind nicht alle Palastdiener so loyal und verlässlich wie ich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Ein falscher Magier regiert dort. Bah, sag ich! Sie reden über Weisheit, meinen aber Lügen. Sie sind nichts als Scharlatane welche die Wahrheit verdrehen, um ihre widerlichen Sitten zu rechtfertigen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Galmair! Eine Schlangengrube! Gefüllt mit dem widerlichsten Abschaum. Jeder ehrbare Mann sollte Galmair fern bleiben. Zum Glück war ich noch nie dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,7 +712,154 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("queen");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("We are ruled by the Queen in Cadomyr! She can trace her ancestors back a millenia or more, having the bluest of blue blood of us all.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rosaline");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, so you have heard about our Queen? Of course, not everyone thought that a woman should rule. Baron Hastings was quite vocal about that, but then he... disappeared.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Edwards");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albar's bluebloods! The queen's father, King Reginald, ruled the town with firm grip.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me sighs: 'Cadomyr, oh Cadomyr! We are the most honourful and magnificent nation around, held back only by the treachery of our cursed neighbours.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("stadt");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Cadomyr ist die zivilisierteste und fortschrittlichste Gesellschaft. Ich hörte, unsere Nachbarn wohnen in erbärmlichen Lehmhütten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Wir werden von der Königin von Cadomyr regiert. Sie kann ihre Ahnen tausend Jahre zurückverfolgen und hat das blauste Blut von allen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rosaline");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Nun, was habt ihr über unsere Königin gehört? Nicht jeder stimmt damit überein, dass eine Frau die Macht hat. Baron Hastings war ihr Redelsführer, aber dann verschwand er...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Edwards");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Cadomyr wird seit seiner Gründung von den Edwards regiert. Feinstes albarisches Blut! Der Vater der Königin, König Reginald, regierte mit harter Hand.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegend, nur behindert durch unsere verräterischen Nachbarn.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("An false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap chartalans who try to twist the truth to justify their vile customs!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair! That treacherous pit! Filled by the most despicable scum imaginable. Any decent person should steer clear of the place! Of course, I was lucky to never visit it myself.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Ein falscher Magier regiert dort. Bah, sag ich! Sie reden über Weisheit, meinen aber Lügen. Sie sind nichts als Scharlatane welche die Wahrheit verdrehen, um ihre widerlichen Sitten zu rechtfertigen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Galmair! Eine Schlangengrube! Gefüllt mit dem widerlichsten Abschaum. Jeder ehrbare Mann sollte Galmair fern bleiben. Zum Glück war ich noch nie dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("If the archmage of Runewick promises you something, invert his words and you get the truth. He's a lier!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Wenn euch der Erzmagier Runewicks etwas versprecht, dann dreht den Sinn der Worte herum und ihr erhaltet die Wahrheit. Er ist ein Lügner!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If the archmage of Runewick promises you something, invert his words and you get the truth. He's a lier!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Wenn euch der Erzmagier Runewicks etwas versprecht, dann dreht den Sinn der Worte herum und ihr erhaltet die Wahrheit. Er ist ein Lügner!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If I catch this bastard, laying his hand on my queen, I'll smack him with my fan!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Wenn ich diesen Bastard jemals dabei erwische, wie er meine Königin betatscht, zieh' ich ihm eins mit meinem Fächel über!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Did you ever realise Albar reads Rabla, spelled backwards?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -831,6 +867,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Habt ihr jemals bemerkt, dass Albar rückwärts gesprochen zu Rabla wird?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -838,6 +875,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Blasted Gynk-people! They have no honour and no queen, either.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -846,12 +884,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Verdammte Gynk-Leute! Sie haben weder Ehre, noch eine Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I heard many people talking about Salkamar being similar to the realm of Albar. They must be kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -859,7 +899,55 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addResponse("Manche Leute sagen, dass Salkamar so ähnlich wie das albarische Reich wäre. Selten so gelacht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gods");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me nods eagerly, spilling some wine on the table 'We are proper, honourful and Gods-fearing people in Cadomyr, unlike our wretched neighbours!'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me nickt heftig, etwas Wein verschüttend: 'Wir sind gute, ehrenhaft, götterfürchtige Leute hier in Cadomyr, nicht so unsere verdorbenen Nachbarn.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Zhambra, Zhambra, what shall I say! I am his minion, well, actually, I am the queen's royal fan waver, that's beyond being a humble minion I guess.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Zhambra, Zhambra, was soll ich sagen - ich bin sein Diener. Nun, genau genommen bin ich der königliche Fächelwedler ihrer Majestät, das macht mich zu mehr als einen Diener.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("All this talking about Malachín makes me... silent.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("All dieses Gerede über Malachín macht mich... verschwiegen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
