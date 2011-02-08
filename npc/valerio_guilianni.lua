@@ -2,17 +2,17 @@
 -- NPC Name: Valerio Guilianni                                        Galmair --
 -- NPC Job:  Don                                                              --
 --                                                                            --
--- NPC Race: human                      NPC Position:  337, 215, 0            --
+-- NPC Race: human                      NPC Position:  358, 235, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Someone                                                          --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 07, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 337, 215, 0, 4, 'Valerio Guilianni', 'npc.valerio_guilianni', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 358, 235, 0, 4, 'Valerio Guilianni', 'npc.valerio_guilianni', 0, 1, 1, 180, 180, 180, 210, 162, 120);
 ---]]
 
 require("npc.base.basic")
@@ -175,6 +175,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The day will come, when the Don will ask you for a favour. Ask Miggs if that day is today.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -182,7 +183,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("mission");
 talkEntry:addResponse("Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -295,7 +296,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Corleone");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -777,7 +777,7 @@ talkingNPC:addCycleText("Ich war niemals unvorsichtig. Frauen und Kinder dürfen 
 talkingNPC:addCycleText("Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Who doesn't honour theses, most probably simply hasn't them.");
 talkingNPC:addCycleText("Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some traders haven't paid their 'protection fee' this month.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(1);
+mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");

@@ -2,28 +2,28 @@
 -- NPC Name: Valerio Guilianni                                        Galmair --
 -- NPC Job:  Don                                                              --
 --                                                                            --
--- NPC Race: human                      NPC Position:  337, 215, 0            --
+-- NPC Race: human                      NPC Position:  358, 235, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Someone                                                          --
 --                                                                            --
--- Last parsing: January 18, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 07, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valerio Guilianni"
 race = human
 sex = male
-position = 337, 215, 0
+position = 358, 235, 0
 direction = south
 affiliation = "Galmair"
 job = "Don"
 
 language = common
-language = human
+language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Someone"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -32,10 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 1
+colorHair = 180, 180, 180
+colorSkin = 210, 162, 120
 itemHead = 0
 itemChest = 181
 itemCoat = 0
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
