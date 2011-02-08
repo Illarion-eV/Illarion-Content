@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: January 13, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: February 08, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1536,8 +1536,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
 talkEntry:addResponse("Wer fragt nach mir?");
 talkEntry:addResponse("Arr!");
 talkEntry:addResponse("Was wollt ihr? Ne Abreibung?");
