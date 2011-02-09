@@ -268,6 +268,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("morri");
 talkEntry:addTrigger("brother");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Aye, Morri is my favourite brother.");
 talkEntry:addResponse("I am very happy that Morri and I are able to have this market stall together.");
 talkEntry:addResponse("Morri can be moody so it's my job to make him laugh again. *laughs* That's not easy as you think!");
@@ -613,7 +614,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Snorri");
-talkEntry:addResponse("Aye. Welchen Fisch wollt ihr kaufen? Weichzwerg! lulululululul");
+talkEntry:addResponse("Aye. Welchen Fisch wollt ihr kaufen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
