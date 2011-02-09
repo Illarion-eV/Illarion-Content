@@ -613,7 +613,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Snorri");
-talkEntry:addResponse("Aye. Welchen Fisch wollt ihr kaufen?");
+talkEntry:addResponse("Aye. Welchen Fisch wollt ihr kaufen? Weichzwerg! lulululululul");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
