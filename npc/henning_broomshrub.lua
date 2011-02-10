@@ -1,454 +1,983 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),halfing,670,314,0,2,false,'Henning Broomshrub','npc_henning_broomshrub.lua',0);
+--------------------------------------------------------------------------------
+-- NPC Name: Henning Broomshrub                                          Free --
+-- NPC Job:  Thimblerig                                                       --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  670, 314, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (2, 670, 314, 0, 2, 'Henning Broomshrub', 'npc.henning_broomshrub', 0, 2, 0, 242, 182, 0, 225, 179, 137);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.chance")
+require("npc.base.condition.language")
+require("npc.base.condition.money")
+require("npc.base.condition.state")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.state")
+require("npc.base.talk")
 module("npc.henning_broomshrub", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is a thimblerig. You can see him shuffling three nuts over and over again. Say 'I bet.' to play for a silver coin. Then, say 'right', 'left' or 'middle' to choose a nut."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette.' um um ein Silberstück zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Hiho! Time for gambling, right?");
+talkEntry:addResponse("Shh, want to play with me?");
+talkEntry:addResponse("Hey, you look like somebody who is used to winning. Want to play?");
+talkEntry:addResponse("Hello. Thimblerig is my business. Want to bet, stranger?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Hiho! Zeit zum Zocken, nicht wahr?");
+talkEntry:addResponse("Shh, willst du mit mir spielen?");
+talkEntry:addResponse("Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?");
+talkEntry:addResponse("Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hiho! Time for gambling, right?");
+talkEntry:addResponse("Shh, want to play with me?");
+talkEntry:addResponse("Hey, you look like somebody who is used to winning. Want to play?");
+talkEntry:addResponse("Hello. Thimblerig is my business. Want to bet, stranger?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("Hiho! Zeit zum Zocken, nicht wahr?");
+talkEntry:addResponse("Shh, willst du mit mir spielen?");
+talkEntry:addResponse("Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?");
+talkEntry:addResponse("Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Yes, yes, and come back with more money!");
+talkEntry:addResponse("Bye! May your purse fill again.");
+talkEntry:addResponse("Goodbye and please don't tell what I am doing here.");
+talkEntry:addResponse("Ronagan may bless you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehab wohl");
+talkEntry:addResponse("Ja, ja, und komm mit mehr Geld zurück.");
+talkEntry:addResponse("Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.");
+talkEntry:addResponse("Tschüß! Erzähl bitte nichts von dem, was ich hier mache.");
+talkEntry:addResponse("Möge Ronagan dich segnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yes, yes, and come back with more money!");
+talkEntry:addResponse("Bye! May your purse fill again.");
+talkEntry:addResponse("Goodbye and please don't tell what I am doing here.");
+talkEntry:addResponse("Ronagan may bless you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("Ja, ja, und komm mit mehr Geld zurück.");
+talkEntry:addResponse("Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.");
+talkEntry:addResponse("Tschüß! Erzähl bitte nichts von dem, was ich hier mache.");
+talkEntry:addResponse("Möge Ronagan dich segnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("That is none of your business.");
+talkEntry:addResponse("I would feel way better with your money in my purse.");
+talkEntry:addResponse("I feel like playing. Time for some thimblerig?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befind");
+talkEntry:addResponse("Das geht dich nichts an.");
+talkEntry:addResponse("Es würde mir weit besser gehen mit deinem Geld in meiner Tasche.");
+talkEntry:addResponse("Mir ist nach Zocken. Zeit für ein kleines Hütchenspiel?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("Henning, yes, that's me. My friends call me Henni.");
+talkEntry:addResponse("Who wants to know? Nevermind, let's play!");
+talkEntry:addResponse("Well, I am Henning. Are you happy now?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Henning, ja, das bin ich. Meine Freunde nennen mich Henni.");
+talkEntry:addResponse("Wer will das wissen? Ach, was solls, lass uns spielen.");
+talkEntry:addResponse("Also ich bin Henning. Bist du jetzt glücklich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Let me see... I can send you on an epic quest to choose the right nut! Care to bet?");
+talkEntry:addResponse("No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.");
+talkEntry:addResponse("You are the hero, I am the thimblerig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?");
+talkEntry:addResponse("Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?");
+talkEntry:addResponse("Du bist der Held, ich der Hütchenspieler!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("Let me see... I can send you on an epic quest to choose the right nut! Care to bet?");
+talkEntry:addResponse("No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.");
+talkEntry:addResponse("You are the hero, I am the thimblerig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?");
+talkEntry:addResponse("Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?");
+talkEntry:addResponse("Du bist der Held, ich der Hütchenspieler!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bet");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addResponse("You already betted, choose a nut: Left, middle or right?");
+talkEntry:addResponse("You still have to choose a nut. Left, middle or maybe right?");
+talkEntry:addResponse("I await your decision. Under which nut might the ball be hidden?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bet");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addResponse("You don't even have a silver coin.");
+talkEntry:addResponse("You should not bet more than you have. One silver coin, c'mon!");
+talkEntry:addResponse("Are you kiddin' me? Count your money!");
+talkEntry:addResponse("Nice try, chap. Get your money before we play, right?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bet");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addCondition(npc.base.condition.money.money(">", 99));
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("right");
+talkEntry:addTrigger("left");
+talkEntry:addTrigger("middle");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addResponse("So, you want to play with me? You have to bet one silver coin.");
+talkEntry:addResponse("First, you have to bet, then I will shuffle the nuts.");
+talkEntry:addResponse("We did not start playing, did we?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("right");
+talkEntry:addTrigger("left");
+talkEntry:addTrigger("middle");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addCondition(npc.base.condition.chance.chance(33));
+talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your bet.");
+talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your won money.");
+talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("right");
+talkEntry:addTrigger("left");
+talkEntry:addTrigger("middle");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addResponse("#me lifts the nut. There is no ball, so you lost your bet.");
+talkEntry:addResponse("Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.");
+talkEntry:addResponse("#me lifts the nut with a grin. No ball is under it, so you've lost your bet");
+talkEntry:addResponse("Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("setze");
+talkEntry:addTrigger("wette");
+talkEntry:addTrigger("setz");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addResponse("Du hast doch schon gesetzt. Wähl' eine Nuß: Links, mitte oder vielleicht rechts?");
+talkEntry:addResponse("Ich warte noch auf deine Wahl. Unter welche Nuß verbirgt sich wohl die Kugel?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("setze");
+talkEntry:addTrigger("wette");
+talkEntry:addTrigger("setz");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addResponse("Du hast ja nichtmal eine Silbermünze.");
+talkEntry:addResponse("Du solltest nicht mehr setzen als du eigentlich hast. Zack, eine Silbermünze auf den Tisch!");
+talkEntry:addResponse("Willst du mich veräppeln? Zähl mal dein Geld!");
+talkEntry:addResponse("Netter Versuch. Hol erstmal dein Geld, bevor wir spielen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("setze");
+talkEntry:addTrigger("wette");
+talkEntry:addTrigger("setz");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addCondition(npc.base.condition.money.money(">", 99));
+talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der linken Nuß ist.");
+talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der rechten Nuß ist.");
+talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der mittleren Nuß ist.");
+talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.");
+talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rechts");
+talkEntry:addTrigger("links");
+talkEntry:addTrigger("mitte");
+talkEntry:addCondition(npc.base.condition.state.state("=", 0));
+talkEntry:addResponse("So, du willst also mit mir spielen? Wieviel setzt du denn?");
+talkEntry:addResponse("Erst mußt du was setzen. Dann schiebe ich die Nüße hin und her.");
+talkEntry:addResponse("Wir haben noch nicht zu spielen angefangen, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rechts");
+talkEntry:addTrigger("links");
+talkEntry:addTrigger("mitte");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addCondition(npc.base.condition.chance.chance(33));
+talkEntry:addResponse("#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.");
+talkEntry:addResponse("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.");
+talkEntry:addResponse("#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rechts");
+talkEntry:addTrigger("links");
+talkEntry:addTrigger("mitte");
+talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
+talkEntry:addResponse("#me hebt die Nuß. Es ist keine Kugel drunter, also hast du deinen Einsatz verloren.");
+talkEntry:addResponse("Kein Glück heute, was? Keine Kugel unter dieser Nuß, dein Einsatz ist mein.");
+talkEntry:addResponse("#me hebt die Kugel mit einem Grinsen. Keine Kugel ist drunter, also hast du deinen Einsatz verloren.");
+talkEntry:addResponse("Oh, wie schade, keine Kugel unter dieser Nuß. Vielleicht hast du beim nächsten mal mehr Glück?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("copper");
+talkEntry:addResponse("I play for silver coins, only.");
+talkEntry:addResponse("I don't gamble for copper coins, but feel free to bet some silver coins.");
+talkEntry:addResponse("Since you're winning anyway, please bet silver coins.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("silber");
+talkEntry:addResponse("Ich spiele nur um Silbermünzen.");
+talkEntry:addResponse("Ich spiele nicht um Kupfer, aber setz' doch ein paar Silbermünzen.");
+talkEntry:addResponse("Da du ja eh gewinnst, setze bitte Silbermünzen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gold");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I play for silver coins, only.");
+talkEntry:addResponse("I don't gamble for gold coins, but feel free to bet some silver coins.");
+talkEntry:addResponse("Since you're winning anyway, please bet silver coins.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gold");
+talkEntry:addResponse("Ich spiele nur um Silbermünzen.");
+talkEntry:addResponse("Ich spiele nicht um Gold, aber setz' doch ein paar Silbermünzen.");
+talkEntry:addResponse("Da du ja eh gewinnst, setze bitte Silbermünzen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rules");
+talkEntry:addTrigger("thimblerig");
+talkEntry:addTrigger("gamble");
+talkEntry:addTrigger("play");
+talkEntry:addTrigger("playing");
+talkEntry:addTrigger("betting");
+talkEntry:addTrigger("gambling");
+talkEntry:addTrigger("game");
+talkEntry:addTrigger("nuts");
+talkEntry:addResponse("Thimblerig is simple. You bet a silver coin and I place a ball under one of three nuts. I shuffle the nuts and you choose the right one. You get twice the money you bet in case you can follow my hands!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("regeln");
+talkEntry:addTrigger("Hütchenspiel");
+talkEntry:addTrigger("Hütchen");
+talkEntry:addTrigger("wetten");
+talkEntry:addTrigger("spielen");
+talkEntry:addTrigger("zocken");
+talkEntry:addTrigger("spiel");
+talkEntry:addTrigger("spielchen");
+talkEntry:addTrigger("nüsse");
+talkEntry:addTrigger("nüße");
+talkEntry:addTrigger("Einsatz");
+talkEntry:addResponse("Das Hütchenspiel ist eigentlich ganz einfach. Du setzt ein Silberstück und ich verstecke eine Kugel unter einer von drei Nüßen. Ich mische dann die Nüße und du wählst einfach die Richtige. Du bekommst deinen doppelten Einsatz, wenn du meinen Händen folgen kannst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I am an... entertainer.");
+talkEntry:addResponse("So, what do you think a halfling with three nuts and a ball does for a living?");
+talkEntry:addResponse("I am a thimblerig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin ein... Unterhaltungskünstler.");
+talkEntry:addResponse("Also, was glaubst du, macht ein Halbling mit drei Nüssen und einer Kugel?");
+talkEntry:addResponse("Ich bin ein Hütchenspieler!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am an... entertainer.");
+talkEntry:addResponse("So, what do you think a halfling with three nuts and a ball does for a living?");
+talkEntry:addResponse("I am a thimblerig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein... Unterhaltungskünstler.");
+talkEntry:addResponse("Also, was glaubst du, macht ein Halbling mit drei Nüssen und einer Kugel?");
+talkEntry:addResponse("Ich bin ein Hütchenspieler!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ah, yes Gobaith, good island, good money. I wonder what happened to good old Brendan... back then.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Ah, ja, Gobaith, eine gute Insel, gutes Geld. Ich frage mich nur, was damals aus dem guten alten Brendan geworden ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Stranger, do you want to bet or tell me about your entire life?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Willst du jetzt wetten oder mir deine ganze Lebensgeschichte erzählen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mason");
+talkEntry:addTrigger("Brendan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("What do you know about good ol' Brandy? Nah, don't tell me, let's play instead.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mason");
+talkEntry:addTrigger("Brendan");
+talkEntry:addResponse("Was weißt du denn schon vom guten alten Brandy? Nah, erzähls mir gar nicht erst, lass uns spielen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dwarf");
+talkEntry:addTrigger("dwarv");
+talkEntry:addResponse("Dwarves have lots of gold, don't they? I wish I'd be a dwarf...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zwerg");
+talkEntry:addResponse("Zwerge haben viel Gold, nicht wahr? Ich wünschte, ich wäre ein Zwerg...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cheater");
+talkEntry:addTrigger("cheat");
+talkEntry:addResponse("Well, ahm, uhm...");
+talkEntry:addResponse("I swear, I don't cheat! Well, apart from that dwarf back then, he just had too much gold.");
+talkEntry:addResponse("No cheating here, three nuts, one ball.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Betrüger");
+talkEntry:addTrigger("Betrug");
+talkEntry:addResponse("Nunja, äh, öh...");
+talkEntry:addResponse("Ich schwör dir, ich betrüge niemals! Naja, außer diesen einen Zwerg damals, der hatte einfach zu viel Gold.");
+talkEntry:addResponse("Hier geht alles mit rechten Dingen zu. Drei Nüße, eine Kugel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Beer");
+talkEntry:addTrigger("Drink");
+talkEntry:addTrigger("Food");
+talkEntry:addTrigger("Dish");
+talkEntry:addResponse("I don't serve here, I am just a guest. A guest with three nuts and a ball.");
+talkEntry:addResponse("Get your food yourself.");
+talkEntry:addResponse("Hmm?");
+talkEntry:addResponse("What do you want from me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bier");
+talkEntry:addTrigger("Getränk");
+talkEntry:addTrigger("Trank");
+talkEntry:addTrigger("Speise");
+talkEntry:addTrigger("Essen");
+talkEntry:addTrigger("Gericht");
+talkEntry:addResponse("Ich serviere hier nicht. Ich bin auch nur ein Gast. Ein Gast mit drei Nüßen und einer Kugel.");
+talkEntry:addResponse("Hol dir deinen Fraß alleine.");
+talkEntry:addResponse("Hmm?");
+talkEntry:addResponse("Was willst du von mir?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Halfling");
+talkEntry:addResponse("Without a doubt, I am a halfling. And a poor one.");
+talkEntry:addResponse("What is it you want from me?");
+talkEntry:addResponse("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Halbling");
+talkEntry:addResponse("Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.");
+talkEntry:addResponse("Was genau möchtest du von mir?");
+talkEntry:addResponse("Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Halfer");
+talkEntry:addTrigger("Hobbit");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Without a doubt, I am a halfling. And a poor one.");
+talkEntry:addResponse("What is it you want from me?");
+talkEntry:addResponse("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Halfer");
+talkEntry:addTrigger("Hobbit");
+talkEntry:addResponse("Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.");
+talkEntry:addResponse("Was genau möchtest du von mir?");
+talkEntry:addResponse("Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tavern");
+talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
+talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
+talkEntry:addResponse("A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Taverne");
+talkEntry:addResponse("Willkommen im Gasthof zur Hanfschlinge.");
+talkEntry:addResponse("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
+talkEntry:addResponse("Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Happy Halfling");
+talkEntry:addTrigger("Bar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
+talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
+talkEntry:addResponse("A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Happy Halfling");
+talkEntry:addTrigger("Bar");
+talkEntry:addResponse("Willkommen im Gasthof zur Hanfschlinge.");
+talkEntry:addResponse("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
+talkEntry:addResponse("Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wilderland");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Wilderland is a nice place for a thimblerig like me. You know, few guards, lots of money...");
+talkEntry:addResponse("There is no place like Wilderland. This tavern is a good place for gambling, isn't it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wilderland");
+talkEntry:addResponse("Wilderland ist schon ein netter Fleck für einen Hütchenspieler wie mich. Du weißt schon, wenige Wachen, viel Geld...");
+talkEntry:addResponse("Es geht doch nichts über Wilderland. Diese Taverne ist genau der richtige Ort für ein Spielchen, nicht wahr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("townguard");
+talkEntry:addTrigger("guard");
+talkEntry:addResponse("Guards? Uhm, I better be goin'...");
+talkEntry:addResponse("#me gathers his three nuts and grubs the money, hiding it.");
+talkEntry:addResponse("Oh, a thug just left the tavern, maybe you catch him when you leave now.");
+talkEntry:addResponse("#me whistles innocently.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Stadtwache");
+talkEntry:addTrigger("Wache");
+talkEntry:addTrigger("Wächter");
+talkEntry:addResponse("Wachen? Uhm, ich geh dann jetzt besser...");
+talkEntry:addResponse("#me rafft seine drei Nüße und etwas Geld zusammen und versteckt es schnell.");
+talkEntry:addResponse("Oh, ein Dieb ist eben gerade zur Tür heraus, wenn ihr euch beeilt, erwischt ihr ihn noch.");
+talkEntry:addResponse("#me pfeift unschuldig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Who is that supposed to be?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Wer soll das denn sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Who is that supposed to be?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Wer soll das denn sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Where is that supposed to be?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Wo soll das denn sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I prefer not to talk to or about the Don. That's better for my business.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Ich ziehe es vor, nicht mit oder über den Don zu reden. Das ist besser für mein Geschäft.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("No, I've never been to Galmair and I do not owe the Don a huge sum... Who sent you!? Groktan?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Nein, ich bin natürlich noch nie in Galmair gewesen und ich schulde dem Don auch keine große Summe... Wer schickt dich!? Groktan?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("I was told the fiancée of Don Valerio rules her own pile of sand in the south. Candymore or something.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Ich habe gehört, dass die Verlobte von Don Valerio im Süden über einen Sandhügel herscht. Candymore oder so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I was told the fiancée of Don Valerio rules her own pile of sand in the south. Candymore or something.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich habe gehört, dass die Verlobte von Don Valerio im Süden über einen Sandhügel herscht. Candymore oder so.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addTrigger("Candymore");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, please, I don't want to talk about a pile of sand. How about you win a pile of money?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addTrigger("Candymore");
+talkEntry:addResponse("Oh, bitte, ich möchte jetzt nicht über einen Sandhügel reden. Wollt ihr nicht viel lieber ein Berg Geld gewinnen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'll never play with an Albarian again. Last time, one slammed on the table so hard after losing that all three nuts flew around, revealing that there was no ball... uhm, nevermind.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Ich spiele nie wieder mit einem Albarier. Das letzte mal hat einer so stark vor Wut über seine Niederlage auf den Tisch geschlagem, dass alle drei Nüße herumgeflogen sind und er festgestellt hat, dass gar keine Kugel... uhm, egal.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'll never play with an Gynkeesh again. Last time, I lost thirty times in a row! If there is folk that can cheat better than me, it's the Gynkeesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Ich spiele nie wieder mit einem Gynkeesh. Das letzte mal hat einer dreißig mal in Folge gewonnen! Wenn es ein Volk gibt, dass besser im Schummel ist als ich, dann sind es die Gynkeesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'll never play with an Salkamaerian again. Last time, one argued half an hour with me that he ment the right nut from 'my' point of view, not 'his'...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Ich spiele nie wieder mit einem Salkamaerier. Das letzte mal hat einer mich eine halbe Stunde damit zugeredet, dass er die rechte Nuss von 'mir aus' gesehen meinte, nicht von 'sich aus'...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("My religion is called gold.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Meine Religion heißt Gold.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hail Ronagan!");
+talkEntry:addResponse("My religion is called gold.");
+talkEntry:addResponse("How come Ronagan has no temple on this island? ... He could not lift it as he tried to steal one!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Lobet Ronagan!");
+talkEntry:addResponse("Meine Religion heißt Gold.");
+talkEntry:addResponse("Warum hat Ronagan keinen Tempel auf dieser Insel? ... Er hat ihn nicht anheben können, als er versucht hat einen zu stehlen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Do I look like a trader!?");
+talkEntry:addResponse("Oh, I forgot my vendor's tray at home. Want to play a game instead?");
+talkEntry:addResponse("You must be kidding me. I am not a huckster!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Sehe ich aus wie ein Händler?");
+talkEntry:addResponse("Oh, gerade heute hab ich meinen Bauchladen zuhause vergessen. Willst du nicht viel lieber ein Spiel spielen?");
+talkEntry:addResponse("Willst du mich veräppeln? Ich bin kein Höker!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I don't tell no nothing, no!");
+talkEntry:addResponse("Who are you anyway, the town guard?");
+talkEntry:addResponse("I don't cheat! I would never, would I...?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich erzähl hier gar nichts.");
+talkEntry:addResponse("Wer bist du, die Stadtwache?");
+talkEntry:addResponse("Ich betrüge nicht! Ich doch nicht...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Henning");
+talkEntry:addTrigger("Broomshrub");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Henning, yes, that's me. My friends call me Henni.");
+talkEntry:addResponse("Who wants to know? Nevermind, let's play!");
+talkEntry:addResponse("Well, I am Henning. Are you happy now?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Henning");
+talkEntry:addTrigger("Broomshrub");
+talkEntry:addResponse("Henning, ja, das bin ich. Meine Freunde nennen mich Henni.");
+talkEntry:addResponse("Wer will das wissen? Ach, was solls, lass uns spielen.");
+talkEntry:addResponse("Also ich bin Henning. Bist du jetzt glücklich?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Yes? Fine, what was the question again? Anyway, if you want to play, say how many coins you want to bet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Ja? Fein, was war nochmal die Frage? Ach, egal, wenn du wetten willst, sag einfach, wieviele Münzen du setzen willst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("No... what?");
+talkEntry:addResponse("#me shrugs and replies: I don't quite understand...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Nein... was?");
+talkEntry:addResponse("#me zuckt mit den Schultern und erwidert: Ich versteh' nicht recht...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me schiebt gelangweilt drei Nüße hin und her.", "#me shuffels three nuts around, seeming rather bored.");
+talkingNPC:addCycleText("#me pfeift vor sich hin.", "#me whistles innocently.");
+talkingNPC:addCycleText("#me zählt sein Geld nach und grinst", "#me counts his money and grins.");
+talkingNPC:addCycleText("#me sitzt vor einem Brett mit drei Nüßen darauf. Seine Finger spielen mit einer kleinen, grauen Kugel.", "#me is sitting in front of a board. On the board are three nuts. He is playing around with a small, grey ball.");
+talkingNPC:addCycleText("Shh, Lust auf ein Spiel?", "Shh, want to play?");
+talkingNPC:addCycleText("Psst, du, komm mal her. Ich kann dich reich machen.", "Hush, you, come here. I can make you rich.");
+talkingNPC:addCycleText("Zeit für die Krötenwanderung. Die Kröten wandern von euren in meinen Geldbeutel.", "Time for a coin march from your purse to mine.");
+talkingNPC:addCycleText("#me nimmt ein Schluck aus seinem Krug.", "#me takes a sip from his mug.");
+talkingNPC:addCycleText("Denn Geld regiert die Welt...", "Money makes the world go round, the world go round...");
+talkingNPC:addCycleText("#me summt vor sich hin.", "#me hums silently.");
+talkingNPC:addCycleText("Finger weg von meinen Nüssen!", "Hands off my nuts!");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(1);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Dieser NPC ist Henning Broomshrub der Hütchenspieler.", "This NPC is Henning Broomshrub the thimblerig.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 809);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 2113);
+mainNPC:setEquipment(10, 369);
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 21;
-    -- Help
-   npc.base.autonpcfunctions.AddTraderTrigger("Help","[Game Help] This NPC is a thimblerig. You can see him shuffling three nuts over and over again. Say 'I bet X coins' to play. Then, say 'right', 'left' or 'middle' to choose a nut.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette X Münzen' um zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen.");
-    -- General speech
-
-   npc.base.autonpcfunctions.AddTraderTrigger("Hello","Hiho! Time for gambling, right?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("Shh, want to play with me?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hey, you look like somebody who is used to winning. Want to play?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hello. Thimblerig is my business. Want to bet, stranger?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Guten Tag","Hiho! Zeit zum Zocken, nicht wahr?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("Shh, willst du mit mir spielen?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Hiho! Time for gambling, right?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Shh, want to play with me?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hey, you look like somebody who is used to winning. Want to play?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hello. Thimblerig is my business. Want to bet, stranger?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Hiho! Zeit zum Zocken, nicht wahr?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Shh, willst du mit mir spielen?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?");
-    npc.base.autonpcfunctions.AddAdditionalText("Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","Yes, yes, and come back with more money!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("Bye! May your purse fill again.");
-    npc.base.autonpcfunctions.AddAdditionalText("Goodbye and please don't tell what I am doing here.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ronagan may bless you.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","Ja, ja, und komm mit mehr Geld zurück.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Tschüß! Erzähl bitte nichts von dem, was ich hier mache.");
-    npc.base.autonpcfunctions.AddAdditionalText("Möge Ronagan dich segnen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Yes, yes, and come back with more money!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Bye! May your purse fill again.");
-    npc.base.autonpcfunctions.AddAdditionalText("Goodbye and please don't tell what I am doing here.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ronagan may bless you.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","Ja, ja, und komm mit mehr Geld zurück.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Tschüß! Erzähl bitte nichts von dem, was ich hier mache.");
-    npc.base.autonpcfunctions.AddAdditionalText("Möge Ronagan dich segnen.");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","Do I look like a trader!?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("What buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, I forgot my vendor's tray at home. Want to play a game instead?");
-    npc.base.autonpcfunctions.AddAdditionalText("You must be kidding me. I am not a huckster!");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Sehe ich aus wie ein Händler?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, gerade heute hab ich meinen Bauchladen zuhause vergessen. Willst du nicht viel lieber ein Spiel spielen?");
-    npc.base.autonpcfunctions.AddAdditionalText("Willst du mich veräppeln? Ich bin kein Höker!");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Let me see... I can send you on an epic quest to choose the right nut! Care to bet?");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.");
-    npc.base.autonpcfunctions.AddAdditionalText("You are the hero, I am the thimblerig!");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?");
-    npc.base.autonpcfunctions.AddAdditionalText("Du bist der Held, ich der Hütchenspieler!");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Let me see... I can send you on an epic quest to choose the right nut! Care to bet?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddAdditionalText("No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.");
-    npc.base.autonpcfunctions.AddAdditionalText("You are the hero, I am the thimblerig!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Aufgabe","Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddAdditionalText("Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?");
-    npc.base.autonpcfunctions.AddAdditionalText("Du bist der Held, ich der Hütchenspieler!");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","I don't tell no nothing, no!");
-    npc.base.autonpcfunctions.AddAdditionalText("Who are you anyway, the town guard?");
-    npc.base.autonpcfunctions.AddAdditionalText("I don't cheat! I would never, would I...?");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Ich erzähl hier gar nichts.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    npc.base.autonpcfunctions.AddAdditionalText("Wer bist du, einer aus Cadomyr?");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich betrüge nicht! Ich doch nicht...");
-    -- Small talk
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Galmair is a nice place for a thimblerig like me. You know, few guards, lots of money... But somehow, I prefer this tavern.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("There is no place like Galmair. But this tavern is also a good place for gambling, isn't it?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Greenbriar","Galmair ist schon ein netter Fleck für einen Hütchenspieler wie mich. Du weißt schon, wenige Wachen, viel Geld... Aber ich bevorzuge irgendwie diese Taverne.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Es geht doch nichts über Galmair. Aber diese Taverne ist genau der richtige Ort für ein Spielchen, nicht wahr?");
-    npc.base.autonpcfunctions.AddTraderTrigger("townguard","Guards? Uhm, I better be goin'...");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("guard");
-    npc.base.autonpcfunctions.AddAdditionalText("#me gathers his three nuts and grubs the money, hiding it.");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, a thug just left the tavern, maybe you catch him when you leave now.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me whistles innocently.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Stadtwache","Wachen? Uhm, ich geh dann jetzt besser...");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wache");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wächter");
-    npc.base.autonpcfunctions.AddAdditionalText("#me rafft seine drei Nüße und etwas Geld zusammen und versteckt es schnell.");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, ein Dieb ist eben gerade zur Tür heraus, wenn ihr euch beeilt, erwischt ihr ihn noch.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me pfeift unschuldig.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tavern","Welcome to the Hostler Junction Inn.");
-    npc.base.autonpcfunctions.AddAdditionalText("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
-    npc.base.autonpcfunctions.AddAdditionalText("A nice name for a tavern: Hostler Junction Inn. Why don't you make me happy and do some thimblerig with me?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Taverne","Willkommen im Hostler Junction Inn.");
-    npc.base.autonpcfunctions.AddAdditionalText("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
-    npc.base.autonpcfunctions.AddAdditionalText("Ein netter Name für eine Taverne: Hostler Junction Inn. Warum machst du mich nicht zu einem glücklichen Halbling und spielst das Hütchenspiel mit mir?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hostler","Welcome to the Hostler Junction Inn.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bar");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
-    npc.base.autonpcfunctions.AddAdditionalText("A nice name for a tavern: Hostler Junction Inn. Why don't you make me happy and do some thimblerig with me?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Happy Halfling","Willkommen im Hostler Junction Inn.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bar");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
-    npc.base.autonpcfunctions.AddAdditionalText("Ein netter Name für eine Taverne: Hostler Junction Inn. Warum machst du mich nicht zu einem glücklichen Halbling und spielst das Hütchenspiel mit mir?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Beer","I don't serve here, I am just a guest. A guest with three nuts and a ball.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Drink");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Food");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Dish");
-    npc.base.autonpcfunctions.AddAdditionalText("Get your food yourself.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hmm?");
-    npc.base.autonpcfunctions.AddAdditionalText("What do you want from me?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Bier","Ich serviere hier nicht. Ich bin auch nur ein Gast. Ein Gast mit drei Nüßen und einer Kugel.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Getränk");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Trank");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Speise");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Essen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gericht");
-    npc.base.autonpcfunctions.AddAdditionalText("Hol dir deinen Fraß alleine.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hmm?");
-    npc.base.autonpcfunctions.AddAdditionalText("Was willst du von mir?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Halfling","Without a doubt, I am a halfling. And a poor one.");
-    npc.base.autonpcfunctions.AddAdditionalText("What is it you want from me?");
-    npc.base.autonpcfunctions.AddAdditionalText("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Halbling","Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.");
-    npc.base.autonpcfunctions.AddAdditionalText("Was genau möchtest du von mir?");
-    npc.base.autonpcfunctions.AddAdditionalText("Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Halfer","Without a doubt, I am a halfling. And a poor one.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hobbit");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("What is it you want from me?");
-    npc.base.autonpcfunctions.AddAdditionalText("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Halfer","Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hobbit");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Was genau möchtest du von mir?");
-    npc.base.autonpcfunctions.AddAdditionalText("Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?");
-    npc.base.autonpcfunctions.AddTraderTrigger("cheater","Well, ahm, uhm...");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("cheat");
-    npc.base.autonpcfunctions.AddAdditionalText("I swear, I don't cheat! Well, apart from that dwarf back then, he just had too much gold.");
-    npc.base.autonpcfunctions.AddAdditionalText("No cheating here, three nuts, one ball.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Betrüger","Nunja, äh, öh...");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Betrug");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich schwör dir, ich betrüge niemals! Naja, außer diesen einen Zwerg damals, der hatte einfach zu viel Gold.");
-    npc.base.autonpcfunctions.AddAdditionalText("Hier geht alles mit rechten Dingen zu. Drei Nüße, eine Kugel.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Brendan Mason","What do you know about good ol' Brandy? Nah, don't tell me, let's play instead.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Brendan");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Brendan Mason","Was weißt du denn schon vom guten alten Brandy? Nah, erzähls mir gar nicht erst, lass uns spielen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Brendan");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Dwarf","Dwarves have lots of gold, don't they? I wish I'd be a dwarf...");
-    npc.base.autonpcfunctions.AddTraderTrigger("Zwerg","Zwerge haben viel Gold, nicht wahr? Ich wünschte, ich wäre ein Zwerg...");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","That is none of your business.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddAdditionalText("I would feel way better with your money in my purse.");
-    npc.base.autonpcfunctions.AddAdditionalText("I feel like playing. Time for some thimblerig?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Das geht dich nichts an.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddAdditionalText("Es würde mir weit besser gehen mit deinem Geld in meiner Tasche.");
-    npc.base.autonpcfunctions.AddAdditionalText("Mir ist nach Zocken. Zeit für ein kleines Hütchenspiel?");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","Henning, yes, that's me. My friends call me Henni.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddAdditionalText("Who wants to know? Nevermind, let's play!");
-    npc.base.autonpcfunctions.AddAdditionalText("Well, I am Henning. Are you happy now?");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Henning, ja, das bin ich. Meine Freunde nennen mich Henni.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    npc.base.autonpcfunctions.AddAdditionalText("Wer will das wissen? Ach, was solls, lass uns spielen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Also ich bin Henning. Bist du jetzt glücklich?");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ronagan","Hail Ronagan!");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("My religion is called gold.");
-    npc.base.autonpcfunctions.AddAdditionalText("How come Ronagan has no temple around here...? He could not lift it as he tried to steal one!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ronagan","Lobet Ronagan!");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Meine Religion heißt Gold.");
-    npc.base.autonpcfunctions.AddAdditionalText("Warum hat Ronagan keinen in dieser Gegend? ... Er hat ihn nicht anheben können, als er versucht hat einen zu stehlen!");
-    -- Thimblerig!
-
-   npc.base.autonpcfunctions.AddTraderTrigger("silver","I play for copper coins, only.");
-    npc.base.autonpcfunctions.AddAdditionalText("I don't gamble for silver coins, but feel free to bet some copper coins.");
-    npc.base.autonpcfunctions.AddAdditionalText("Since you're winning anyway, please bet copper coins. I will be broke otherwise!");
-    npc.base.autonpcfunctions.AddTraderTrigger("silber","Ich spiele nur um Kupfermünzen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich spiele nicht um Silber, aber setz' doch ein paar Kupfermünzen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Da du ja eh gewinnst, setze bitte Kupfermünzen. Sonst geh' ich noch pleite!");
-    npc.base.autonpcfunctions.AddTraderTrigger("gold","I play for copper coins, only.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("I don't gamble for gold coins, but feel free to bet some copper coins.");
-    npc.base.autonpcfunctions.AddAdditionalText("Since you're winning anyway, please bet copper coins. I will be broke otherwise!");
-    npc.base.autonpcfunctions.AddTraderTrigger("gold","Ich spiele nur um Kupfermünzen.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Ich spiele nicht um Gold, aber setz' doch ein paar Kupfermünzen.");
-    npc.base.autonpcfunctions.AddAdditionalText("Da du ja eh gewinnst, setze bitte Kupfermünzen. Sonst geh' ich noch pleite!");
-    npc.base.autonpcfunctions.AddTraderTrigger("rules","Thimblerig is simple. You say how much you  want to bet and I place a ball under one of three nuts. I shuffle the nuts and you choose the right one. You get twice the money you bet in case you can follow my hands!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("thimblerig");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gamble");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("play");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("playing");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("betting");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gambling");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("game");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("nuts");
-    npc.base.autonpcfunctions.AddTraderTrigger("regeln","Das Hütchenspiel ist eigentlich ganz einfach. Du sagst mir, wie viel du setzen willst und ich verstecke eine Kugel unter einer von drei Nüßen. Ich mische dann die Nüße und du wählst einfach die Richtige. Du bekommst deinen doppelten Einsatz wenn du meinen Händen folgen kannst.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hütchenspiel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hütchen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wetten");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("spielen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("zocken");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("spiel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("spielchen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("nüsse");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("nüße");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Einsatz");
-
-   npc.base.autonpcfunctions.AddTraderTrigger("bet %NUMBER","You already betted, choose a nut: Left, middle or right?");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddAdditionalText("You still have to choose a nut. Left, middle or maybe right?");
-    npc.base.autonpcfunctions.AddAdditionalText("I await your decision. Under which nut might the ball be hidden?");
-
-   npc.base.autonpcfunctions.AddTraderTrigger("bet %NUMBER","I don't play with you anymore.");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddCondition("qpg",">",14);
-    npc.base.autonpcfunctions.AddAdditionalText("You won too often, you cheater. I don't play with you.");
-    npc.base.autonpcfunctions.AddAdditionalText("Others want to play, too. So, next one.");
-
-   npc.base.autonpcfunctions.AddTraderTrigger("right","So, you want to play with me? How much do you bet?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("left");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("middle");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddAdditionalText("First, you have to bet, then I will shuffle the nuts.");
-    npc.base.autonpcfunctions.AddAdditionalText("We did not start playing, did we?");
-    ------------------------to edit
-   npc.base.autonpcfunctions.AddTraderTrigger("bet %NUMBER","You don't even have %NUMBER coins.");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddCondition("money","<","%NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalText("You should not bet more than you have.");
-    npc.base.autonpcfunctions.AddAdditionalText("Are you kiddin' me? Count your money!");
-    npc.base.autonpcfunctions.AddAdditionalText("Nice try, chap. Get your money before we play, right?");
-
-   npc.base.autonpcfunctions.AddTraderTrigger("bet %NUMBER","Nah, I don't gamble for so much.");
-    npc.base.autonpcfunctions.AddCondition("number",">",100);
-   npc.base.autonpcfunctions.AddAdditionalText("That's too much, I won't be able to pay you in case you win. And you might win!");
-    npc.base.autonpcfunctions.AddAdditionalText("I cannot accept such a high bet, sorry.");
-    npc.base.autonpcfunctions.AddAdditionalText("No way, chap! That's too much.");
-
-   npc.base.autonpcfunctions.AddTraderTrigger("bet %NUMBER","#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
-    npc.base.autonpcfunctions.AddConsequence("money","-","%NUMBER");
-    npc.base.autonpcfunctions.AddConsequence("state","=","%NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalText("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
-
-
-   npc.base.autonpcfunctions.AddTraderTrigger("right","#me lifts the nut. You see... a ball! You won twice your bet.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("left");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("middle");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddCondition("chance",33);
-    npc.base.autonpcfunctions.AddAdditionalText("We have a winner! Here, the ball was under your nut. Take your won money.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
-    npc.base.autonpcfunctions.AddConsequence("money","+",function( a ) return 2*state; end);
-    npc.base.autonpcfunctions.AddConsequence("state","=",0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","+",1);
-
-    npc.base.autonpcfunctions.AddTraderTrigger("right","#me lifts the nut. There is no ball, so you lost your bet.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("left");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("middle");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me lifts the nut with a grin. No ball is under it, so you've lost your bet");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?");
-    npc.base.autonpcfunctions.AddConsequence("state","=",0);
-    npc.base.autonpcfunctions.AddTraderTrigger("setze %NUMBER","Du hast doch schon gesetzt. Wähl' eine Nuß: Links, mitte oder vielleicht rechts?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wette %NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("setz %NUMBER");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Ich warte noch auf deine Wahl. Unter welche Nuß verbirgt sich wohl die Kugel?");
-    npc.base.autonpcfunctions.AddTraderTrigger("setze %NUMBER","Mit dir spiel ich nicht mehr!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wette %NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("setz %NUMBER");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddCondition("qpg",">",14);
-    npc.base.autonpcfunctions.AddAdditionalText("Du hast schon viel zu oft gewonnen, du Trickser. Mit dir spiel ich nicht.");
-    npc.base.autonpcfunctions.AddAdditionalText("Andere wollen auch mal spielen. Also, der nächste bitte.");
-    npc.base.autonpcfunctions.AddTraderTrigger("setze %NUMBER","Du hast ja nichtmal %NUMBER Münzen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wette %NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("setz %NUMBER");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddCondition("money","<","%NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalText("Du solltest nicht mehr setzen als du eigentlich hast.");
-    npc.base.autonpcfunctions.AddAdditionalText("Willst du mich veräppeln? Zähl mal dein Geld!");
-    npc.base.autonpcfunctions.AddAdditionalText("Netter Versuch. Hol erstmal dein Geld, before wir spielen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("setze %NUMBER","Nah, um so viel spiele ich nicht.");
-    npc.base.autonpcfunctions.AddCondition("number",">",100);
-    npc.base.autonpcfunctions.AddAdditionalText("Das ist zu viel. Ich könnte dich nicht auszahlen, solltest du gewinnen. Und du könntest gewinnnen!");
-    npc.base.autonpcfunctions.AddAdditionalText("So einen hohen Einsatz kann ich leider nicht aktzeptieren.");
-    npc.base.autonpcfunctions.AddAdditionalText("Nichts da, das ist zu viel.");
-    npc.base.autonpcfunctions.AddTraderTrigger("setze %NUMBER","#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der linken Nuß ist.");
-    npc.base.autonpcfunctions.AddConsequence("money","-","%NUMBER");
-    npc.base.autonpcfunctions.AddConsequence("state","=","%NUMBER");
-    npc.base.autonpcfunctions.AddAdditionalText("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der rechten Nuß ist.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der mittleren Nuß ist.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.");
-    npc.base.autonpcfunctions.AddTraderTrigger("rechts","So, du willst also mit mir spielen? Wieviel setzt du denn?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("links");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mitte");
-    npc.base.autonpcfunctions.AddCondition("state","=",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Erst mußt du was setzen. Dann schiebe ich die Nüße hin und her.");
-    npc.base.autonpcfunctions.AddAdditionalText("Wir haben noch nicht zu spielen angefangen, oder?");
-    npc.base.autonpcfunctions.AddTraderTrigger("rechts","#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("links");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mitte");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddCondition("chance",33);
-    npc.base.autonpcfunctions.AddAdditionalText("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
-    npc.base.autonpcfunctions.AddConsequence("money","+",function( a ) return 2*state; end);
-    npc.base.autonpcfunctions.AddConsequence("state","=",0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","+",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("rechts","#me hebt die Nuß. Es ist keine Kugel drunter, also hast du deinen Einsatz verloren.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("links");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mitte");
-    npc.base.autonpcfunctions.AddCondition("state","<>",0);
-    npc.base.autonpcfunctions.AddAdditionalText("Kein Glück heute, was? Keine Kugel unter dieser Nuß, dein Einsatz ist mein.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me hebt die Kugel mit einem Grinsen. Keine Kugel ist drunter, also hast du deinen Einsatz verloren.");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, wie schade, keine Kugel unter dieser Nuß. Vielleicht hast du beim nächsten mal mehr Glück?");
-    npc.base.autonpcfunctions.AddConsequence("state","=",0);
-    -- Last catch
-    npc.base.autonpcfunctions.AddTraderTrigger("Yes","Yes? Fine, what was the question again? Anyway, if you want to play, say how many coins you want to bet.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ja","Ja? Fein, was war nochmal die Frage? Ach, egal, wenn du wetten willst, sag einfach, wieviele Münzen du setzen willst.");
-    npc.base.autonpcfunctions.AddTraderTrigger("No","No... what?");
-    npc.base.autonpcfunctions.AddAdditionalText("#me shrugs and replies: I don't quite understand...");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nein","Nein... was?");
-    npc.base.autonpcfunctions.AddAdditionalText("#me zuckt mit den Schultern und erwidert: Ich versteh' nicht recht...");
-    --DELETE THIS LINES ON REALSERVER!!!!!
-    npc.base.autonpcfunctions.AddTraderTrigger("debugging","Debugging - queststatus reset to 0");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",0);
-    ---------------------------------------
-    -- Cycletext
-    npc.base.autonpcfunctions.AddCycleText("#me schiebt gelangweilt drei Nüße hin und her.","#me shuffels three nuts around, seeming rather bored.");
-    npc.base.autonpcfunctions.AddCycleText("#me pfeift vor sich hin.","#me whistles innocently.");
-    npc.base.autonpcfunctions.AddCycleText("#me zählt sein Geld nach und grinst","#me counts his money and grins.");
-    npc.base.autonpcfunctions.AddCycleText("#me sitzt vor einem Brett mit drei Nüßen darauf. Seine Finger spielen mit einer kleinen, grauen Kugel.","#me is sitting in front of a board. On the board are three nuts. He is playing around with a small, grey ball.");
-    npc.base.autonpcfunctions.AddCycleText("Shh, Lust auf ein Spiel?","Shh, want to play?");
-    npc.base.autonpcfunctions.AddCycleText("Psst, du, komm mal her. Ich kann dich reich machen.","Hush, you, come here. I can make you rich.");
-    npc.base.autonpcfunctions.AddCycleText("Zeit für die Krötenwanderung. Die Kröten wandern von euren in meinen Geldbeutel.","Time for a coin march from your purse to mine.");
-    npc.base.autonpcfunctions.AddCycleText("#me nimmt ein Schluck aus seinem Krug.","#me takes a sip from his mug.");
-    npc.base.autonpcfunctions.AddCycleText("Denn Geld regiert die Welt...","Money makes the world go round, the world go round...");
-    npc.base.autonpcfunctions.AddCycleText("#me summt vor sich hin.","#me hums silently.");
-    npc.base.autonpcfunctions.AddCycleText("Finger weg von meinen Nüssen!","Hands off my nuts!");
-    npc.base.autonpcfunctions.AddCycleText("#me hebt seine Augenklappe hoch und blickt in die Gegend.","#me lifts his patch and looks around.");
-
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,6};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-
-               npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-
-      else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
-
-function lookAtNpc(Char, mode)
-    if initLook==nil then
-        output={};
-        output[0]="Er hat ein schmutziges Gesicht und trägt eine lange Hose. Über sein linkes Auge hat er eine Augenklappe.";
-        output[1]="He has a dirty face and wears some long trousers. Over his left eye he has an patch.";
-        initLook=1;
-    end
-
-    lang=Char:getPlayerLanguage();
-    Char:sendCharDescription( thisNPC.id , output[lang] );
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
