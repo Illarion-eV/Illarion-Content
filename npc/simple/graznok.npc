@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Graznok                                                     None --
--- NPC Job:  none                                                             --
+-- NPC Name: Graznok                                                     Free --
+-- NPC Job:  explorer                                                         --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  642, 456, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Graznok"
@@ -15,15 +15,15 @@ race = orc
 sex = male
 position = 642, 456, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Free"
+job = "explorer"
 
 language = common
 language = orc
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
