@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
--- NPC Name: Thud                                                        None --
--- NPC Job:  none                                                             --
+-- NPC Name: Thud                                                     Galmair --
+-- NPC Job:  circle quest - trophydeeler                                      --
 --                                                                            --
--- NPC Race: orc                        NPC Position: 394,188,-6              --
+-- NPC Race: orc                        NPC Position:  394, 188, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 10, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -25,6 +25,7 @@ require("npc.base.condition.skill")
 require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
@@ -36,23 +37,14 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hilfe");
-talkEntry:addResponse("Thud hilft bei 'Trophäe'. Sonst nix!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Thud the trophy collector. Keyphrases: trophy - answer with 'yes' or 'no'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("helfen");
-talkEntry:addResponse("Thud hilft bei 'Trophäe'. Sonst nix!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("help");
-talkEntry:addResponse("Thud help with 'trophy'. Nothing otha!");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Thud der Trophäensammler. Schlüsselwörter: Trophäe - Antworte mit 'Ja' oder 'Nein'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -994,8 +986,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
@@ -1008,15 +998,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr!");
 talkEntry:addResponse("Hullo!");
@@ -1027,8 +1015,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr!");
@@ -1040,9 +1027,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr!");
 talkEntry:addResponse("Hullo!");
@@ -1051,10 +1036,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Farebas!");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Farebba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1062,8 +1047,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
-talkEntry:addResponse("Farebas!");
+talkEntry:addTrigger("Gehab wohl");
+talkEntry:addResponse("Farebba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1072,9 +1057,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Farebas!");
+talkEntry:addResponse("Farebba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1083,8 +1067,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
-talkEntry:addResponse("Farebas!");
+talkEntry:addResponse("Farebba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1100,8 +1083,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("Ich Thud! Ich sammeln! Trophäe!");
+talkEntry:addTrigger("Wie Befind");
+talkEntry:addResponse("I Thud! I collect! Trophy!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1123,40 +1106,42 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Thud no trade. Thud collect. Trophy! Uh. You got Trophy?");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."));
+talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Thud nicht handelt. Thud sammelt. Trophäe! Uh. Du hast Trophäe?");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
+talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Thud like to thud things! With big club.");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."));
+talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich bin Thud. Ich mögen wenn, große Kabums mit Keule.");
-talkEntry:addResponse("Thud ist neue Sprache. Heißt 'der große Kabums.' Das mein Name. Thud mag große Kabums!");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
+talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I thud things. With my club.");
+talkEntry:addResponse("I thud things. - With my club.");
 talkEntry:addResponse("I collect trophy. Bring all of them here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1171,7 +1156,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I thud things. With my club.");
+talkEntry:addResponse("I thud things. - With my club.");
 talkEntry:addResponse("I collect trophy. Bring all of them here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1203,14 +1188,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("#me makes a stupid grin: 'And I Thud...'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("#me grinst blöde: 'Und ich Thud...'.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1244,13 +1227,6 @@ talkEntry:addTrigger("mo'rurt");
 talkEntry:addTrigger("morurt");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'm orc. You orc? Noo! You stupid!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("thud");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me grunts. 'I thud! That me be. Yubba.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1300,12 +1276,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("thud");
-talkEntry:addResponse("#me grunzt. 'Ich Thud! Das ich bin. Yubba.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Alice");
 talkEntry:addTrigger("alize");
 talkEntry:addTrigger("thom");
@@ -1319,10 +1289,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Silly elves. Silly-silly-silly-silly-silly...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Elfen dumm. Dummi-dummi-dummi-dummi-dummi...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Silly elves. Silly-silly-silly-silly-silly...");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1331,8 +1311,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Elfen dumm. Dummi-dummi-dummi-dummi-dummi...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1381,9 +1359,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("This is the queen? Thud's craps are more noble! He-he.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Das Königin sein? Thud's Kacke mehr königlich. He-he!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("This is the queen? Thud's craps are more noble! He-he.");
@@ -1392,8 +1380,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Das Königin sein? Thud's Kacke mehr königlich. He-he!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1486,31 +1472,47 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Thud no trade. Thud collect. Trophy! Uh. You got Trophy?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Thud nicht handelt. Thud sammelt. Trophäe! Uh. Du hast Trophäe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Thud like to thud things! With big club.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich bin Thud. Ich mögen wenn, große Kabums mit Keule.");
+talkEntry:addResponse("Thud ist neue Sprache. Heißt 'der große Kabums.' Das mein Name. Thud mag große Kabums!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("thud");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
+talkEntry:addResponse("#me grunts. 'I thud! That me be. Yubba.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
+talkEntry:addTrigger("thud");
+talkEntry:addResponse("#me grunzt. 'Ich Thud! Das ich bin. Yubba.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1601,8 +1603,8 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein dümmlicher aber kräftiger Ork, der etwas abwesend umher glotzt.", "A stupid but strong orc. He stares absently at the cave walls.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 7);
 mainNPC:setEquipment(3, 101);
 mainNPC:setEquipment(5, 2664);
