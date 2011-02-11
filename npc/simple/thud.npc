@@ -259,11 +259,11 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
-"albar", german -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+"albar" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
 "gynk", "gync", english -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
-"gync", "gynk", german -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+"gync", "gynk" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
 "salkama", english -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
-"salkama", german -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+"salkama" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Bonelord, be mes god! He father ob all orcs! Hurr. Ib Thud like know about god, he ask Grimlug. Grimlug is shaman! Shaman be wise."

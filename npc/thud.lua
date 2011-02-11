@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 11, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1407,7 +1407,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1423,7 +1422,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1437,7 +1435,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
