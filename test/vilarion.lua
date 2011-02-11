@@ -7,7 +7,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
     end;
-a=-
+
 --    SourceItem.quality = 90;
 --    world:changeItem(SourceItem);
     world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
