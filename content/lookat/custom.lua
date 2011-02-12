@@ -101,6 +101,7 @@ function InitCustomLookAt()
 	addDescription(2357,	1,	"Harnisch des Stammesfürsten", "Chieftain's Plate", false, true, false );
 	addDescription(2357,	2,	"finsteren Schattenharnisch mit dem Abbild eines roten Ork-Totenkopf auf der Brust", "sinister shadowplate with an image of a red orc skull on the chest", false, true, false );
 	addDescription(2357,	3,	"mit einem kleinen Wappen der Grovestrider auf der Brust", "with a tiny Grovestrider Coat of Arms on the chest", false, false, false );
+	addDescription(2357,	4,	"mit der Gravur eines Drachens", "with the gravure of a dragon", true, false, false );
 	addDescription(2377,	1,	"mit dem Wappen von Caelum auf der Rückseite", "with Caelum coat of arms on the back", false, false, false );
 	addDescription(2377,	2,	"bestickt mit dem Schriftzug 'Erzmagier'", "embroidered with the lettering 'Archmage'", false, false, false );
 	addDescription(2377,	3,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
