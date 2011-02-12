@@ -79,6 +79,7 @@ function InitCustomLookAt()
 	addDescription(	235,	20,	"mit der Gravur 'Alchemist des Silberbrand'schen Konzils '31'", "with the gravure 'Alchemist of the Council of Silverbrand '31'", false, false, false );
 	addDescription(	235,	21,	"mit der Gravur 'Sieger des Gruppenkampfes '31'", "with the gravure 'Winner of the Group Battle '31'", false, false, false );
 	addDescription(	235,	22,	"goldenen Siegelring der Noakes", "golden seal ring of the Noakes", false, true, false );
+	addDescription(	235,	23,	"mit der Gravur 'Für Felix, in Liebe Cay'", "with the gravure 'To Felix, Love Cay'", false, false, false );
 	addDescription(	277,	1,	"zierlicher Goldring, der mit einem herzförmigen Amethysten verziert ist", "graceful golden ring which is ornamented with an amethyst in the shape of a heart", false, true, false );
 	addDescription(	279,	1,	"mit der Gravur 'Sie entzog sich meinen Träumen'", "with the gravure 'She dodged my dreams'", false, false, false );
 	addDescription(	280,	1,	"mit einer eleganten Gravur auf der Innenseite: 'Vanima erwartet ~Khallimar'", "elegantly engraved on the inside with the words 'Vanima awaits ~Khallimar'", false, false, false );
