@@ -293,7 +293,7 @@ talkEntry:addTrigger("middle");
 talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addResponse("#me lifts the nut. There is no ball, so you lost your bet.");
 talkEntry:addResponse("Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.");
-talkEntry:addResponse("#me lifts the nut with a grin. No ball is under it, so you've lost your bet");
+talkEntry:addResponse("#me lifts the nut with a grin. No ball is under it, so you've lost your bet.");
 talkEntry:addResponse("Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
