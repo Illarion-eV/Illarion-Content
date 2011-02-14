@@ -8,10 +8,17 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
---    SourceItem.quality = 90;
---    world:changeItem(SourceItem);
-    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
---    world:createDynamicNPC("Test2",1,position(User.pos.x+1,User.pos.y,User.pos.z),0,"test.vilarion");
+    local ItemList = User:getItemList(1);
+    for i, item in pairs(ItemList) do
+        if (item == nil) then
+            User:inform("ItemList["..i.."] == nil" );
+        else
+            User:inform("ItemList["..i.."] == "..item.id );
+        end;
+    end;
+
+--    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+
 end
 
 function useNPC(User,counter,param)
