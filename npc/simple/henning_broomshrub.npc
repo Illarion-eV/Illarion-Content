@@ -13,7 +13,7 @@
 name = "Henning Broomshrub"
 race = halfling
 sex = male
-position = 670, 314, 0
+position = 711, 308, 0
 direction = east
 affiliation = "Free"
 job = "Thimblerig"
