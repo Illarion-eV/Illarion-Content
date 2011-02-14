@@ -8,16 +8,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    local ItemList = User:getItemList(1);
-    for i, item in pairs(ItemList) do
-        if (item == nil) then
-            User:inform("ItemList["..i.."] == nil" );
-        else
-            User:inform("ItemList["..i.."] == "..item.id );
-        end;
-    end;
-
---    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
 
 end
 
@@ -30,7 +21,7 @@ function nextCycle()  -- ~10 times per second
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
             test.vilarion.user:inform("CRASH");
-            test.vilarion.user = 0;
+            test.vilarion.user = nil;
         end;
     end;
 end
