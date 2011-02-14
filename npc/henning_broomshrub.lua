@@ -3,7 +3,7 @@
 -- NPC Job:  Thimblerig                                                       --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  711, 308, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 711, 308, 0, 2, 'Henning Broomshrub', 'npc.henning_broomshrub', 0, 2, 0, 242, 182, 0, 225, 179, 137);
+VALUES (2, 711, 308, 0, 6, 'Henning Broomshrub', 'npc.henning_broomshrub', 0, 2, 0, 242, 182, 0, 225, 179, 137);
 ---]]
 
 require("npc.base.basic")
