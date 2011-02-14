@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 11, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Henning Broomshrub"
@@ -122,10 +122,10 @@ itemShoes = 369
 "Halbling" -> "Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.", "Was genau möchtest du von mir?", "Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?"
 "Halfer", "Hobbit", english -> "Without a doubt, I am a halfling. And a poor one.", "What is it you want from me?", "Sure, I am a halfling, or do you see me having a beard and wielding an axe?"
 "Halfer", "Hobbit" -> "Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.", "Was genau möchtest du von mir?", "Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?"
-"Tavern" -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
-"Taverne" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
-"Happy Halfling", "Bar", english -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
-"Happy Halfling", "Bar" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
+"Hemp", "Necktie", "inn" -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
+"Gasthof", "Hanfschlinge" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
+"Tavern", "Bar", english -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
+"Tavern", "Bar" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
 "Wilderland", english -> "Wilderland is a nice place for a thimblerig like me. You know, few guards, lots of money...", "There is no place like Wilderland. This tavern is a good place for gambling, isn't it?"
 "Wilderland" -> "Wilderland ist schon ein netter Fleck für einen Hütchenspieler wie mich. Du weißt schon, wenige Wachen, viel Geld...", "Es geht doch nichts über Wilderland. Diese Taverne ist genau der richtige Ort für ein Spielchen, nicht wahr?"
 "townguard", "guard" -> "Guards? Uhm, I better be goin'...", "#me gathers his three nuts and grubs the money, hiding it.", "Oh, a thug just left the tavern, maybe you catch him when you leave now.", "#me whistles innocently."

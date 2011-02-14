@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 11, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -608,7 +608,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tavern");
+talkEntry:addTrigger("Hemp");
+talkEntry:addTrigger("Necktie");
+talkEntry:addTrigger("inn");
 talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
 talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
 talkEntry:addResponse("A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
@@ -616,7 +618,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Taverne");
+talkEntry:addTrigger("Gasthof");
+talkEntry:addTrigger("Hanfschlinge");
 talkEntry:addResponse("Willkommen im Gasthof zur Hanfschlinge.");
 talkEntry:addResponse("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
 talkEntry:addResponse("Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?");
@@ -624,7 +627,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Happy Halfling");
+talkEntry:addTrigger("Tavern");
 talkEntry:addTrigger("Bar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
@@ -634,7 +637,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Happy Halfling");
+talkEntry:addTrigger("Tavern");
 talkEntry:addTrigger("Bar");
 talkEntry:addResponse("Willkommen im Gasthof zur Hanfschlinge.");
 talkEntry:addResponse("In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!");
