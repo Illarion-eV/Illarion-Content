@@ -161,8 +161,8 @@ itemShoes = 697
 "beruf" -> "Mirr ist Kundschafter. Von Klan d' Knochenbeißer. Knochenbeißer suchen, neu Höhle für beißn Knochen! Höhle dort ist eine, aber mir Hilfe braucht... für Mission."
 "job", english -> "Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission."
 "job" -> "Mirr ist Kundschafter. Von Klan d' Knochenbeißer. Knochenbeißer suchen, neu Höhle für beißn Knochen! Höhle dort ist eine, aber mir Hilfe braucht... für Mission."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "Hurr!"
+"mein Name" -> "Hurr!"
 
 -- More small talk; add at least five triggers
 "tribe" -> "Nub hab tribe, hab clan. Bonegnawers, dey mes clan. Clan mighty, but widout cave."
@@ -217,10 +217,10 @@ itemShoes = 697
 "salkama" -> "Blah, bleh, blubb. Diese Menschz in Salk-zeug. Sie nix mache als sprechen. Nix mal gutt sprechen."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "Big Moshi, dat be mighty god. Moshi nub evil, Moshi power. Moshi gib mes power!"
-"Moshran" -> "Große Moschi, er mächtig Gott. Nix böß, er Kraft! Moschi geben mirr Kraft!"
+"god" -> "Mes be minion op dat mighty Moshi!"
+"Gott", "Götter" -> "Mirr Diener von große Moshi!"
+"Moshran", "Moshi", english -> "Big Moshi, dat be mighty god. Moshi nub evil, Moshi power. Moshi gib mes power!"
+"Moshran", "Moshi" -> "Große Moshi, er mächtig Gott. Nix böß, er Kraft! Moshi geben mirr Kraft!"
 "Malachin", english -> "Mala-dingy guide mes smasher. When hunt, den Mala-dingy bring gud game. Praise dat Mala-dingy!"
 "Malachin" -> "Mala-dings helfen mir matschn! Wenn jagen, Mala-dings machen gutt! Ehre fürr Mala-dings!"
 
@@ -231,8 +231,8 @@ itemShoes = 697
 "erzähl was", "erzähl etwas" -> "Es gewesen Ork. Und gewesen Drache. Ork zermatscht Drache! Gutt Geschicht, eh?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Graznok", english -> "Hurr? Whub want!?"
+"Graznok" -> "Hurr? Wat woll?"
 "Yes", "yub" -> "Whub want, yoos?", "Whubeva.", "Mes nub understand whub yoos be meanin'."
 "Ja" -> "Wat woll, yoos?", "Watauchimma.", "Mir nix versteh wat yoos meinen."
 "No", "nub" -> "Nub?", "Why nub?", "Whubeva."

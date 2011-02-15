@@ -585,17 +585,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,23 +926,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Mes be minion op dat mighty Moshi!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mirr Diener von große Moshi!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
+talkEntry:addTrigger("Moshi");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Big Moshi, dat be mighty god. Moshi nub evil, Moshi power. Moshi gib mes power!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -954,7 +947,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Große Moschi, er mächtig Gott. Nix böß, er Kraft! Moschi geben mirr Kraft!");
+talkEntry:addTrigger("Moshi");
+talkEntry:addResponse("Große Moshi, er mächtig Gott. Nix böß, er Kraft! Moshi geben mirr Kraft!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1003,21 +997,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Graznok");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Hurr? Whub want!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Graznok");
+talkEntry:addResponse("Hurr? Wat woll?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
