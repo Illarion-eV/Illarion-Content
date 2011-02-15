@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 893, 799, 1, 2, 'Fronita Emery', 'npc.fronita_emery', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (1, 893, 799, 1, 2, 'Fronita Emery', 'npc.fronita_emery', 1, 9, 0, 204, 144, 2, 213, 165, 123);
 ---]]
 
 require("npc.base.basic")
@@ -42,8 +42,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
@@ -55,15 +53,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?");
 talkEntry:addResponse("Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -73,8 +69,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
 talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
@@ -85,9 +80,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?");
 talkEntry:addResponse("Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -95,9 +88,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fair winds and clear sight to you!");
 talkEntry:addResponse("May Elara enlighten your path.");
 talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
@@ -108,7 +101,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Günstige Winde und klare Sicht!");
 talkEntry:addResponse("Möge Elara euren Pfad erleuchten.");
 talkEntry:addResponse("Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!");
@@ -120,7 +113,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Fair winds and clear sight to you!");
 talkEntry:addResponse("May Elara enlighten your path.");
@@ -133,7 +125,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addResponse("Günstige Winde und klare Sicht!");
 talkEntry:addResponse("Möge Elara euren Pfad erleuchten.");
 talkEntry:addResponse("Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!");
@@ -179,35 +170,79 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("You will be amazed by my stock of glass related wares.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I do not issue any quests, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Mein Angebot an Glaswaren wird euch begeistern.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich vergebe keine Questen, tut mir leid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I'd love to live in a house of glass but alas, the summer heat would be unbearable inside.");
-talkEntry:addResponse("Metal corrodes away, but glass is here to stay.");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("I do not issue any quests, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Wäre die Hitze im Sommer nicht unerträglich, ich würde in einem Haus aus Glas wohnen.");
-talkEntry:addResponse("Metall rostet, aber Glas ist zeitlos.");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Ich vergebe keine Questen, tut mir leid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("message");
+talkEntry:addTrigger("news");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("scroll");
+talkEntry:addTrigger("parchment");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("nachricht");
+talkEntry:addTrigger("brief");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Schriftrolle");
+talkEntry:addTrigger("Pergament");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Groktan");
+talkEntry:addTrigger("Flintsplit");
+talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,14 +262,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!");
-talkEntry:addResponse("Ich bin Glasbläserin und verkaufe hier meine Waren.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
 talkEntry:addResponse("I'm a glassblower and I sell my wares here");
@@ -242,42 +269,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("LOCATION");
-talkEntry:addResponse("You're in Runewick, enjoy the marvellous sight!");
-talkEntry:addResponse("#me smirks and winks: 'I'm taking a wild guess here, but you might be on the market.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("ORT");
-talkEntry:addResponse("Du bist in Runewick, der Stadt mit der schönsten Aussicht!");
-talkEntry:addResponse("#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("trader");
-talkEntry:addTrigger("merchant");
-talkEntry:addTrigger("collegue");
-talkEntry:addTrigger("vendor");
-talkEntry:addTrigger("market");
-talkEntry:addResponse("Speak right up. Just ask around and you'll find the wares you're looking for.");
-talkEntry:addResponse("I am sure it won't be hard for you to find the other merchants of Runewick.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("händler");
-talkEntry:addTrigger("kollege");
-talkEntry:addTrigger("höker");
-talkEntry:addTrigger("markt");
-talkEntry:addResponse("Seid nur nicht auf den Mund gefallen. Fragt und ihr findet was ihr an Waren sucht.");
-talkEntry:addResponse("Es wird euch sicher nicht schwer fallen, die anderen Händler in Runewick zu finden.");
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!");
+talkEntry:addResponse("Ich bin Glasbläserin und verkaufe hier meine Waren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I'm just a humble crafter. Ask a scholar about that.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -285,23 +285,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Ich bin nur eine einfache Händlerin. Fragt doch einen Gelehrten über sowas.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Nice to meet you, %CHARNAME! But don't expect a discount just because you told me your name.");
+talkEntry:addResponse("Nice to meet you! But don't expect a discount just because you told me your name.");
 talkEntry:addResponse("What a funny name. Somehow it gives away that you're not from around here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Schön dich kennenzulernen %CHARNAME! Erwarte aber keinen Preisnachlass deswegen.");
+talkEntry:addResponse("Schön dich kennenzulernen! Erwarte aber keinen Preisnachlass deswegen.");
 talkEntry:addResponse("Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -384,10 +382,57 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("LOCATION");
+talkEntry:addResponse("You're in Runewick, enjoy the marvellous sight!");
+talkEntry:addResponse("#me smirks and winks: 'I'm taking a wild guess here, but you might be on the market.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ORT");
+talkEntry:addResponse("Du bist in Runewick, der Stadt mit der schönsten Aussicht!");
+talkEntry:addResponse("#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trader");
+talkEntry:addTrigger("merchant");
+talkEntry:addTrigger("collegue");
+talkEntry:addTrigger("vendor");
+talkEntry:addTrigger("market");
+talkEntry:addResponse("Speak right up. Just ask around and you'll find the wares you're looking for.");
+talkEntry:addResponse("I am sure it won't be hard for you to find the other merchants of Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("händler");
+talkEntry:addTrigger("kollege");
+talkEntry:addTrigger("höker");
+talkEntry:addTrigger("markt");
+talkEntry:addResponse("Seid nur nicht auf den Mund gefallen. Fragt und ihr findet was ihr an Waren sucht.");
+talkEntry:addResponse("Es wird euch sicher nicht schwer fallen, die anderen Händler in Runewick zu finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
+talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
 talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
@@ -397,8 +442,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -454,9 +497,21 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
+talkEntry:addResponse("Two big childhood dreams combined: Queen of her own enormous sandbox.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!");
+talkEntry:addResponse("Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
@@ -466,8 +521,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!");
 talkEntry:addResponse("Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten.");
@@ -499,7 +552,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wie froh bin ich nicht dort zu leben. Als Frau hätte ich wohl nie Glasblasen lernen dürfen.");
 talkEntry:addResponse("Ein grobes aggressives Volk. ihre ganze Kultur lebt von Krieg und Unterdrückung.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -516,7 +568,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Pfui. Lass uns doch über etwas Schöneres reden. Mein Warenangebot zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -531,7 +582,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn der Handel genug Geld abgeworfen hat möchte ich Salkamar einmal besuchen.");
 talkEntry:addResponse("Es heißt, dort gibt es bunte Fenster mit Bildern aus Glas die Geschichten erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -775,79 +825,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("message");
-talkEntry:addTrigger("news");
-talkEntry:addTrigger("letter");
-talkEntry:addTrigger("scroll");
-talkEntry:addTrigger("parchment");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("You will be amazed by my stock of glass related wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("nachricht");
-talkEntry:addTrigger("brief");
-talkEntry:addTrigger("Botschaft");
-talkEntry:addTrigger("Schriftrolle");
-talkEntry:addTrigger("Pergament");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Mein Angebot an Glaswaren wird euch begeistern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Groktan");
-talkEntry:addTrigger("Flintsplit");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I'd love to live in a house of glass but alas, the summer heat would be unbearable inside.");
+talkEntry:addResponse("Metal corrodes away, but glass is here to stay.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Wäre die Hitze im Sommer nicht unerträglich, ich würde in einem Haus aus Glas wohnen.");
+talkEntry:addResponse("Metall rostet, aber Glas ist zeitlos.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC first name>");
+talkEntry:addTrigger("<NPC last name>");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Groktan");
-talkEntry:addTrigger("Flintsplit");
-talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I do not issue any quests, sorry.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich vergebe keine Questen, tut mir leid.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I do not issue any quests, sorry.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ich vergebe keine Questen, tut mir leid.");
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,6 +938,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist die Händlerin Fronita Emery.", "This NPC is Fronita Emery the merchant.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 806);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

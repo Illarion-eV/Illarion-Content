@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -32,20 +32,20 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 9
+beardID = 0
+colorHair = 204, 144, 2
+colorSkin = 213, 165, 123
 itemHead = 0
-itemChest = 181
+itemChest = 806
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemTrousers = 0
+itemShoes = 369
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -85,6 +85,7 @@ itemShoes = 53
 "quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
 "task", "adventure" -> "I do not issue any quests, sorry."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Questen, tut mir leid."
+
 -- Quest 107: A message from Groktan Flintsplit
 "message", "news", "letter", "scroll", "parchment", queststatus(107) = 9 -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 9 -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
