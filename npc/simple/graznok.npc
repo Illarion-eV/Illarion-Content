@@ -2,7 +2,7 @@
 -- NPC Name: Graznok                                                     Free --
 -- NPC Job:  explorer                                                         --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  642, 456, 0            --
+-- NPC Race: orc                        NPC Position:  672, 449, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Graznok"
 race = orc
 sex = male
-position = 642, 456, 0
+position = 672, 449, 0
 direction = south
 affiliation = "Free"
 job = "explorer"
@@ -101,7 +101,7 @@ itemShoes = 697
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 0 -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(3) = 1, english -> "Shuddup and bring mes torch! Hurr!"
+"quest", "mission", queststatus(3) = 1, item(391, all) < 1, english -> "Shuddup and bring mes torch! Hurr!"
 "quest", "mission", queststatus(3) = 1 -> "Maul halt und gibst mir Fackl! Hurr!"
 "task", "adventure", queststatus(3) = 1 -> "Shuddup and bring mes torch! Hurr!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 1 -> "Maul halt und gibst mir Fackl! Hurr!"

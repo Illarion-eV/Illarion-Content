@@ -2,7 +2,7 @@
 -- NPC Name: Graznok                                                     Free --
 -- NPC Job:  explorer                                                         --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  642, 456, 0            --
+-- NPC Race: orc                        NPC Position:  672, 449, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 642, 456, 0, 4, 'Graznok', 'npc.graznok', 0, 2, 0, 240, 50, 10, 248, 228, 95);
+VALUES (4, 672, 449, 0, 4, 'Graznok', 'npc.graznok', 0, 2, 0, 240, 50, 10, 248, 228, 95);
 ---]]
 
 require("npc.base.basic")
@@ -214,6 +214,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Shuddup and bring mes torch! Hurr!");
 talkingNPC:addTalkingEntry(talkEntry);
