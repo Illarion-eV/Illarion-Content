@@ -101,10 +101,10 @@ itemShoes = 697
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 0 -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(3) = 1, item(391, all) < 1, english -> "Shuddup and bring mes torch! Hurr!"
-"quest", "mission", queststatus(3) = 1, item(391, all) < 1 -> "Maul halt und gibst mir Fackl! Hurr!"
-"task", "adventure", queststatus(3) = 1, item(391, all) < 1 -> "Shuddup and bring mes torch! Hurr!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 1, item(391, all) < 1 -> "Maul halt und gibst mir Fackl! Hurr!"
+"quest", "mission", queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, english -> "Shuddup and bring mes torch! Hurr!"
+"quest", "mission", queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1 -> "Maul halt und gibst mir Fackl! Hurr!"
+"task", "adventure", queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1 -> "Shuddup and bring mes torch! Hurr!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1 -> "Maul halt und gibst mir Fackl! Hurr!"
 
 -- Quest 1 solved, reward: pork
 ".+", queststatus(3) = 1, item(391, all) > 0, english -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), "Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.", deleteItem(391, 1), item(307, 1, 333, 0), queststatus(3) = 2
