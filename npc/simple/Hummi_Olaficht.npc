@@ -2,8 +2,8 @@
 -- NPC Name: Hummi Olaficht                                              None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  200, 140, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  686, 313, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
@@ -16,8 +16,8 @@
 name = "Hummi Olaficht"
 race = halfling
 sex = male
-position = 210, 140, 0
-direction = south
+position = 686, 313, 0
+direction = west
 affiliation = "None"
 job = "none"
 
