@@ -839,33 +839,33 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
-talkEntry:addTrigger("halfing");
+talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.race.race(2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Halfings as I am can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!");
+talkEntry:addResponse("Halflings as I am can be mainly found in Runewick. Therefore you will feel quite at home there. *giggles* But feel free to go somewhere else too!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
-talkEntry:addTrigger("halfing");
+talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.race.race(2));
-talkEntry:addResponse("Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
+talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden. Daher wirst du dort gut aufgehoben sein. *kichert* Aber du kannst auch woanders hingehen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
-talkEntry:addTrigger("halfing");
+talkEntry:addTrigger("halfling");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Halfings as I am can be mainly found in Runewick.");
+talkEntry:addResponse("Halflings as I am can be mainly found in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halbling");
-talkEntry:addTrigger("halfing");
-talkEntry:addResponse("Halbinge wie ich es einer bin können vorallem in Runewick gefunden werden.");
+talkEntry:addTrigger("halfling");
+talkEntry:addResponse("Halblinge wie ich es einer bin können vorallem in Runewick gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
