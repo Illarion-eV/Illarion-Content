@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 642, 456, 0, 4, 'Graznok', 'npc.graznok', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (4, 642, 456, 0, 4, 'Graznok', 'npc.graznok', 0, 2, 0, 240, 50, 10, 248, 228, 95);
 ---]]
 
 require("npc.base.basic")
@@ -1059,17 +1059,17 @@ talkingNPC:addCycleText("#me schlägt zwei Steine gegeneinander und flucht: 'Dat 
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der orkische Kundschafter Graznok.", "This NPC is the orcish explorer Graznok.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(1, 7);
+mainNPC:setEquipment(3, 362);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(5, 2664);
+mainNPC:setEquipment(6, 2445);
 mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(9, 2114);
+mainNPC:setEquipment(10, 697);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
