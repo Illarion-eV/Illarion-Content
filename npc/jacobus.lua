@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Jacobus                                                     None --
--- NPC Job:  none                                                             --
+-- NPC Name: Jacobus                                                  Cadomyr --
+-- NPC Job:  Jeweller                                                         --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  134, 590, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 134, 590, 0, 6, 'Jacobus', 'npc.jacobus', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (0, 134, 590, 0, 6, 'Jacobus', 'npc.jacobus', 0, 1, 5, 158, 66, 6, 183, 129, 87);
 ---]]
 
 require("npc.base.basic")
@@ -39,8 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -52,9 +51,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -70,8 +68,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Welcome to Cadomyr.");
 talkEntry:addResponse("Be greeted.");
@@ -83,9 +80,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Willkommen in Cadomyr.");
 talkEntry:addResponse("Seid gegrüßt.");
 talkEntry:addResponse("Hallo, braucht ihr eine Rubinkette?");
@@ -94,9 +89,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("I hope you'll recommend my goods.");
 talkEntry:addResponse("Good bye.");
 talkEntry:addResponse("Have a nice day.");
@@ -107,7 +102,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Ich hoffe, ihr werdet meine Waren weiterempfehlen.");
 talkEntry:addResponse("Auf wiedersehen.");
 talkEntry:addResponse("Einen schönen Tag noch.");
@@ -118,6 +113,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I hope you'll recommend my goods.");
 talkEntry:addResponse("Good bye.");
@@ -129,7 +125,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Ich hoffe, ihr werdet meine Waren weiterempfehlen.");
 talkEntry:addResponse("Auf wiedersehen.");
 talkEntry:addResponse("Einen schönen Tag noch.");
@@ -174,35 +170,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell any kind of jewellery.");
-talkEntry:addResponse("Things of gold, of copper, of gems... What do you need?");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I don't have a quest for you, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich handele mit allerlei Juwelen.");
-talkEntry:addResponse("Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich habe keinen Auftrag für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I cannot tell you any interesting stories, sorry.");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("I don't have a quest for you, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich habe keine interessanten Geschichten zu erzählen.");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Ich habe keinen Auftrag für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,15 +213,66 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich bin ein Juwellier, manchmal suche ich auch nach Edelsteinen. Aber das ist ein Knochenjob.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I am a jeweller. I also search for gems, but it is a hard job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein Juwellier, manchmal suche ich auch nach Edelsteinen. Aber das ist ein Knochenjob.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I am a jeweller. I also search for gems, but it is a hard job.");
+talkEntry:addResponse("Gobaith was said to be a gem in the ocean. Now it is... a gem in the water.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Man sagt, Gobaith war ein Edelstein im Ozean. Nun ist es ein... Edelstein im Wasser.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Good to know, do you want a ring?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Gut zu wissen, benötigt ihr einen Ring?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Thief");
+talkEntry:addResponse("Thieves are a horrible pain for society.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dieb");
+talkEntry:addResponse("Diebe sind eine schreckliche Plage.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gold");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Gold is a fascinating material. It is soft though, but it does not corrode in a thousand years.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gold");
+talkEntry:addResponse("Gold ist ein faszinierendes Material. Es ist zwar recht weich, aber es verrottet in tausend Jahren nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,36 +310,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dieb");
-talkEntry:addResponse("Diebe sind eine schreckliche Plage.");
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Thief");
-talkEntry:addResponse("Thieves are a horrible pain for society.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gold");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Gold ist ein faszinierendes Material. Es ist zwar recht weich, aber es verrottet in tausend Jahren nicht.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gold");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Gold is a fascinating material. It is soft though, but it does not corrode in a thousand years.");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Der Erzmagier versteckt sich lieber hinter seinen Büchern als Runewick zu führen. Ich bin so glücklich, dass wir unsere Königin haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -304,9 +332,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Der Erzmagier versteckt sich lieber hinter seinen Büchern als Runewick zu führen. Ich bin so glücklich, dass wir unsere Königin haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -320,7 +345,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Runewick ist weit im Osten. Ihr müßt durch einen tiefen Wald gehen, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -338,7 +362,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich musste einst einen Ring für den Don fertigen. Es war ein schreckliches Erlebnis, den Ring diesem dreckigem Kerl zu überlassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -352,15 +375,24 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Galmair ist weit im Norden, aber nehmt besser nicht zuviel Geld mit, wenn ihr dorthin geht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("All of us like queen Rosaline, she rules Cadomyr like nobody else could.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addTrigger("queen");
+talkEntry:addResponse("Jederman liebt die Königin Rosaline, sie regiert Cadomyr wie es niemand sonst könnte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("All of us like queen Rosaline, she rules Cadomyr like nobody else could.");
@@ -369,10 +401,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Jederman liebt die Königin Rosaline, sie regiert Cadomyr wie es niemand sonst könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -386,7 +415,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Dies ist unsere Heimat: Cadomyr. Riecht ihr die See? Spürt ihr das Ehrgefühl?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -400,7 +428,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich höre nur das beste über Albar, aber ich war noch nie selbst dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -418,7 +445,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Irgendwas ist doch falsch in Gynk. Wenn die nur voneinander stehlen, wie ersetzen sie dann Zerbrochenes?");
 talkEntry:addResponse("Gynk ist ein dreckiger Ort.");
 talkEntry:addResponse("Wenn ihr nach Gynk geht, nun, denkt nicht, ihr kommt mit Gold zurück.");
@@ -434,8 +460,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich höre nur schlimme Dinge über Salkamar, aber ich war noch nie selbst dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Why don't you ask me about Zhambra? Might result in a special offer to you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Warum fragt ihr mich nicht nach Zhambra? Ich hätte da vielleicht ein Sonderangebot für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +486,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Oh, Ronagan! Nun, er mag Edelsteine genauso gerne wie ich und er sorgt dafür, dass die Leute auch immerwieder neue kaufen... dennoch kann ich keinem Gott huldigen, der Diebstahl fördert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -462,39 +499,53 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Zhambra ist der Gott der Freundschaft. Und was ist besser geeignet, um Freundschaft zu besiegeln, als ein Ring? Ich hätte da gerade einen im Angebot...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I sell any kind of jewellery.");
+talkEntry:addResponse("Things of gold, of copper, of gems... What do you need?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich handele mit allerlei Juwelen.");
+talkEntry:addResponse("Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I cannot tell you any interesting stories, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich habe keine interessanten Geschichten zu erzählen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Jacobus");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't have a quest for you, sorry.");
+talkEntry:addResponse("Jacobus' jewellery is the best from here to Salkamar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich habe keinen Auftrag für dich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I don't have a quest for you, sorry.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ich habe keinen Auftrag für dich.");
+talkEntry:addTrigger("Jacobus");
+talkEntry:addResponse("Die Geschmeide von Jakobus sind die besten von hier bis Salkamar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,6 +589,11 @@ talkingNPC:addCycleText("Habt ihr eure Frau enttäuscht? Kauft ihr einen Diamantr
 talkingNPC:addCycleText("Diamanten sind der beste Freund des Mannes.", "Diamonds are a man's best friend.");
 talkingNPC:addCycleText("Funkelnde Edelsteine im Angebot!", "Sparkling gems as special offer!");
 talkingNPC:addCycleText("Goldener Schmuck, genau das richtige für einen Damenhals.", "Golden jewellery, the right thing for a maiden's neck.");
+talkingNPC:addCycleText("Braucht ihr ein besonderes Geschenk? Eine Kette soll es sein!", "Need a special gift? A necklace will do!");
+talkingNPC:addCycleText("Ein Ring sie zu finden, ein Ring sie ins Licht zu treiben...", "One Ring to bring them all and in the light bind them.");
+talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem lasts for a lifetime.");
+talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Rings with inscriptions and magical powers for a few silver coins!");
+talkingNPC:addCycleText("Habt ihr Edelsteine?", "Got gems?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
