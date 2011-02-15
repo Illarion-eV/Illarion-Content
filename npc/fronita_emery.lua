@@ -5,7 +5,8 @@
 -- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   Faladron                                                         --
+-- Authors:  Faladron                                                         --
+--           Estralis                                                         --
 --                                                                            --
 -- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -858,21 +859,21 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Fronita");
+talkEntry:addTrigger("Emery");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("...and did I mention I sell glass goods?");
+talkEntry:addResponse("Buy something or get...");
+talkEntry:addResponse("Fronita Emery, at your service.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Fronita");
+talkEntry:addTrigger("Emery");
+talkEntry:addResponse("...und erwähnte ich, dass ich Glaswaren verkaufe?");
+talkEntry:addResponse("Kauf etwas oder...");
+talkEntry:addResponse("Fronita Emery, stets zu Diensten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -902,7 +903,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.");
 talkEntry:addResponse("Na dann halt nicht, pah!");
-talkEntry:addResponse("Du stehlst nur meine Zeit!");
+talkEntry:addResponse("Du stiehlst nur meine Zeit!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -932,6 +933,9 @@ talkingNPC:addCycleText("#me spielt mit ein paar Glasmurmeln.", "#me plays with 
 talkingNPC:addCycleText("Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them.");
 talkingNPC:addCycleText("Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!");
 talkingNPC:addCycleText("Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs.");
+talkingNPC:addCycleText("Beste Glaswaren!", "Best glas goods!");
+talkingNPC:addCycleText("Ich verkaufe Träume aus Glas und Kristall!", "I sell dreams of glass and crystal!");
+talkingNPC:addCycleText("Shh! Ich habe ein Sonderangebot!", "Shh! I have special offers!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
