@@ -5,7 +5,8 @@
 -- NPC Race: dwarf                      NPC Position:  893, 799, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   Faladron                                                         --
+-- Authors:  Faladron                                                         --
+--           Estralis                                                         --
 --                                                                            --
 -- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Faladron"
+author = "Estralis"
 
 lookatDE = "Dieser NPC ist die Händlerin Fronita Emery."
 lookatUS = "This NPC is Fronita Emery the merchant."
@@ -187,12 +189,12 @@ itemShoes = 369
 "erzähl was", "erzähl etwas" -> "Wäre die Hitze im Sommer nicht unerträglich, ich würde in einem Haus aus Glas wohnen.", "Metall rostet, aber Glas ist zeitlos."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Fronita", "Emery", english -> "...and did I mention I sell glass goods?", "Buy something or get...", "Fronita Emery, at your service."
+"Fronita", "Emery" -> "...und erwähnte ich, dass ich Glaswaren verkaufe?", "Kauf etwas oder...", "Fronita Emery, stets zu Diensten."
 "Yes" -> "Yes. True. Absolutely. And now buy my stuff!"
 "Ja" -> "Ja. Richtig. Aber wirklich. Und jetzt kauf was!", "Sehr schön. Jetzt einigen wir uns noch was du kaufst.", "Ich weiß, wunderbar nicht?"
 "No" -> "No? My heart just shattered like a piece of glass.", "Well whatever, bah!", "You're stealing my time!"
-"Nein" -> "Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.", "Na dann halt nicht, pah!", "Du stehlst nur meine Zeit!"
+"Nein" -> "Nein? Mein Herz ist grad wie ein Stück Glas zerbrochen.", "Na dann halt nicht, pah!", "Du stiehlst nur meine Zeit!"
 
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
@@ -214,3 +216,6 @@ cycletext "#me spielt mit ein paar Glasmurmeln.", "#me plays with some glass peb
 cycletext "Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them."
 cycletext "Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!"
 cycletext "Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs."
+cycletext "Beste Glaswaren!", "Best glas goods!"
+cycletext "Ich verkaufe Träume aus Glas und Kristall!", "I sell dreams of glass and crystal!"
+cycletext "Shh! Ich habe ein Sonderangebot!", "Shh! I have special offers!"
