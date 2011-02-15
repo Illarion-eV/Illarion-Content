@@ -171,8 +171,8 @@ itemShoes = 53
 "Galmair", queststatus(74) = 2 -> "Willkommen im Land der Freien, Reisender. Wenn du genug Gold hast und dem Don nicht in die Quere kommst, kannst du machen, was du willst.'", "Galmair, Heimat der Freien, Land derer, die für sich selbst sorgen können."
 "Queen", queststatus(74) = 2 -> "The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her."
 "Königin", queststatus(74) = 2 -> "Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist."
-"rosaline", "edwards", queststatus(74) = 2, english -> "Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist."
-"rosaline", "edwards", queststatus(74) = 2 -> "The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her."
+"rosaline", "edwards", queststatus(74) = 2, english -> "The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her."
+"rosaline", "edwards", queststatus(74) = 2 -> "Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist."
 "Cadomyr", queststatus(74) = 2, english -> "They make a big fuss 'bout honour, bending over backwards to kiss arse and look down on people who like coins. Hehe... Ye know what they say, a man fights fer what he lacks tha most."
 "Cadomyr", queststatus(74) = 2 -> "Die machen einen riesen Aufstand über ihre Ehre, kriechen einander in den Allerwertesten und spucken auf geschäftstüchtige Leute. Aber wie sagt man, man kämpft am stärksten für etwas, was man gar nicht hat."
 
@@ -185,10 +185,10 @@ itemShoes = 53
 "salkama" -> "Du willst über irgendwas in Weitwegland reden? Nichts da! Ich weiß so viel über diese Region, alles!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"Irmorom" -> "Blah.", "Bleh.", "Blubb.", "Moep."
-"Ronagan" -> "Eh?", "Hmm?", "Shh!"
-"god" -> "#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'", "Gods are overrated.", "Do I look like I want to talk about faith and devotion?", "Go... to a temple if you want to talk about gods. Or just go... elsewhere."
-"Gott", "Götter" -> "#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.", "Die Götter werden überschätzt.", "Sehe ich wie jemand aus, der über Glaube und Hingabe reden will?", "Geh doch in einen Tempel, wenn du über die Götter reden wollt. Oder geh... einfach weg!"
+"Irmorom", queststatus(74) = 2 -> "Blah.", "Bleh.", "Blubb.", "Moep."
+"Ronagan", queststatus(74) = 2 -> "Eh?", "Hmm?", "Shh!"
+"god", queststatus(74) = 2 -> "#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'", "Gods are overrated.", "Do I look like I want to talk about faith and devotion?", "Go... to a temple if you want to talk about gods. Or just go... elsewhere."
+"Gott", "Götter", queststatus(74) = 2 -> "#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.", "Die Götter werden überschätzt.", "Sehe ich wie jemand aus, der über Glaube und Hingabe reden will?", "Geh doch in einen Tempel, wenn du über die Götter reden wollt. Oder geh... einfach weg!"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Business, eh? Not here! Meet me... wait... Nevermind!"

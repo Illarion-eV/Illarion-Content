@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -824,7 +824,7 @@ talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist.");
+talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -832,7 +832,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
-talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
+talkEntry:addResponse("Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,6 +894,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("Blah.");
 talkEntry:addResponse("Bleh.");
 talkEntry:addResponse("Blubb.");
@@ -903,6 +904,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("Eh?");
 talkEntry:addResponse("Hmm?");
 talkEntry:addResponse("Shh!");
@@ -911,6 +913,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'");
 talkEntry:addResponse("Gods are overrated.");
 talkEntry:addResponse("Do I look like I want to talk about faith and devotion?");
@@ -921,6 +924,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
+talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addResponse("#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.");
 talkEntry:addResponse("Die Götter werden überschätzt.");
 talkEntry:addResponse("Sehe ich wie jemand aus, der über Glaube und Hingabe reden will?");

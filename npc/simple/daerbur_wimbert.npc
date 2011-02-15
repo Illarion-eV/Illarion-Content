@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 15, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Daerbur Wimbert"
@@ -33,19 +33,19 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 2
+colorHair = 192, 107, 5
+colorSkin = 206, 157, 115
 itemHead = 0
-itemChest = 181
+itemChest = 182
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 2763
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 459
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -97,99 +97,11 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Daerbur Wimbert.", "Daerbur.", "Daerbur Wimbert, Sohn von Dimbur Wimbert und Klemka Jebmil, Bruder von Turgen Wimbert und Nadla Wimbert. Das bin ich."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"miner" -> "I dig for gems, metals, and holes.", "Once, I dug a hole and some stinky, black fluid squirted out. Bah!", "If you find any gems, well, do not pick them up or nobody else can find them anymore."
-"Bergarbeiter" -> "Ich grabe nach Edelsteinen, Metallen und Löchern.", "Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!", "Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden."
-"dark hole", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
-"Dunkelloch" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
-"mine", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
-"Mine" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
-
--- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Runewick", english -> "Runewick, that makes me sick!"
-"Runewick" -> "In Runewick, da sind sie dick!"
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "Yes, Galmair, that is here!"
-"Galmair" -> "Ja, Galmair, das ist hier!"
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "Cadomyr, won't come here!"
-"Cadomyr" -> "Cadomyr, das verbitt' ich mir!"
-
--- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Catching quest triggers. Modify if the NPC does quests.
 -- Quest 108: A message from Hector Valerion
 "message", "news", "letter", "scroll", "parchment", queststatus(108) = 9 -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jidah!'", queststatus(108) = 10
 "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
 "Hector", "Valerion", queststatus(108) = 9, english -> inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."), "#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jida!'", queststatus(108) = 10
 "Hector", "Valerion", queststatus(108) = 9 -> inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."), "#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'", queststatus(108) = 10
-
--- Tool hints
-"pick", queststatus(68) = 0 -> "You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
-"hacke", queststatus(68) = 0 -> "Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen."
-"pick" -> "Need a pick, it has a nick. In Galmair, you get a new one."
-"hacke" -> "Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 "quest", "mission", queststatus(68) = 0, english -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
@@ -261,6 +173,66 @@ itemShoes = 53
 "task", "adventure", queststatus(68) = 8 -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 8 -> "Ich danke dir, für alles, was du getan hast. Du hast die Welt zu einem besseren Ort gemacht. Oder du hast nichts bewirkt, aber ordentlich abkassiert."
 
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a professional finder of things!"
+"beruf" -> "Ich bin ein professioneller Dingefinder!"
+"job", english -> "I am a professional finder of things!"
+"job" -> "Ich bin ein professioneller Dingefinder!"
+"Gobaith", "Gobiath", english -> "Islands are none of business."
+"Gobaith", "Gobiath" -> "Ich schere mich nicht um Inseln."
+"my name" -> "Oh, how great!"
+"mein Name" -> "Oh wie schön!"
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"miner" -> "I dig for gems, metals, and holes.", "Once, I dug a hole and some stinky, black fluid squirted out. Bah!", "If you find any gems, well, do not pick them up or nobody else can find them anymore."
+"Bergarbeiter" -> "Ich grabe nach Edelsteinen, Metallen und Löchern.", "Einmal hab ich ein Loch gegraben und da spritze so eine schwarze, stinkende Flüssigkeit raus. Bah!", "Wenn du Edelsteine findest, lass sie doch liegen, sonst kann sie kein anderer mehr finden."
+"dark hole", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+"Dunkelloch" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
+"mine", english -> "It is not dark down here, you just need a torch.", "A nice mine, isn't it? All mine in this mine, hehe."
+"Mine" -> "Es ist doch nicht dunkel hier unten, du brauchst nur eine Fackel.", "Eine schöne Mine, nicht wahr? Alles meins hier unten!"
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "He reminds me of a girl that I once knew."
+"Erzmagier" -> "Er erinnert mich an ein Mädchen, das ich einst kannte."
+"Elvaine", "Morgan", english -> "He reminds me of a girl that I once knew."
+"Elvaine", "Morgan" -> "Er erinnert mich an ein Mädchen, das ich einst kannte."
+"Runewick", english -> "Runewick, that makes me sick!"
+"Runewick" -> "In Runewick, da sind sie dick!"
+"Valerio", "Guilianni", "Don", english -> "I think I owe the Don something. Was it the content of a hole?"
+"Valerio", "Guilianni", "Don" -> "Ich befürchte, ich schulde dem Don noch etwas. War es etwa der Inhalt eines Loches?"
+"Galmair", english -> "Yes, Galmair, that is here!"
+"Galmair" -> "Ja, Galmair, das ist hier!"
+"Queen" -> "Do not tell me you were sent to fetch gems for the queen. Not again!"
+"Königin" -> "Jetzt sag nicht, dass du geschickt wurdest, um Edelsteine für die Königin abzuholen. Nicht schon wieder!"
+"rosaline", "edwards", english -> "Do not tell me you were sent to fetch gems for the queen. Not again!"
+"rosaline", "edwards" -> "Jetzt sag nicht, dass du geschickt wurdest, um Edelsteine für die Königin abzuholen. Nicht schon wieder!"
+"Cadomyr", english -> "Cadomyr, won't come here!"
+"Cadomyr" -> "Cadomyr, das verbitt' ich mir!"
+
+-- Main land factions
+"albar", english -> "I wish I could dig a hole to throw in the whole albarian kingdom."
+"albar" -> "Ich wünschte, ich könnte ein Loch graben, das groß genug ist, um ganz Albar darein zu werfen!"
+"gynk", "gync", english -> "Immigrants from Gynk you can easily recognize by the size of their purse before and after they go to a dark alley. It is bigger afterwards."
+"gync", "gynk" -> "Einwanderer aus Gynk erkennt man leicht an der Größe ihrer Geldbörse, bevor und nachdem sie durch eine dunkle Gasse gehen. Hinterher ist sie prall gefüllt."
+"salkama", english -> "They do not care about stones there!"
+"salkama" -> "Sie sorgen sich nicht um Steine in Salkamar."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "I want to become god one day, too. Just like Irmorom, Nargún or Ushara."
+"Gott", "Götter" -> "Ich möchte auch mal ein Gott werden, genauso wie Irmorom, Nargún und Ushara."
+"Irmorom", english -> "I have a beard and a pick axe and I dig for gems. Guess what I think about Irmorom!"
+"Irmorom" -> "Ich habe einen Bart und eine Spitzhacke und ich grabe nach Edelsteinen. Also, was halte ich wohl von Irmorom?"
+"Nargun", "Nargún", "Nargùn", english -> "I hereby declare officially that I do not - I repeat - do not worship Nargún. Not today, at least."
+"Nargun", "Nargún", "Nargùn" -> "Ich verkünde hiermit feierlich und an Eides statt, dass ich nicht - ich wiederhole - nicht ein Anhänger Nargúns bin. Zumindestens heute nicht."
+"Ushara", english -> "Ushi is really a nice goddess, isn't she?"
+"Ushara" -> "Die Uschi ist echt 'ne klasse Göttin, nicht wahr?"
+
+-- Tool hints
+"pick", queststatus(68) = 0 -> "You look like somebody who can swing a pick. Everybody does, at least I think so. Perhaps you can do a task for me."
+"hacke", queststatus(68) = 0 -> "Du siehst aus wie jemand, der eine Spitzhacke schwingen kann. Naja, jeder sieht so aus, denk ich. Vielleicht kannst du einen Auftrag für mich ausführen."
+"pick" -> "Need a pick, it has a nick. In Galmair, you get a new one."
+"hacke" -> "Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
+
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why trade?", "Bartering is so stupid, don't we all want to betray each other?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?", "Du hast genug, ich hab genug, also warum handeln?", "Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen."
@@ -268,15 +240,15 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.", "Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.", "Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Daerbur", "Wimbert", english -> "Us Wimberts have a long tradition as miners and gravediggers. Digging holes is our business!"
+"Daerbur", "Wimbert" -> "Wir Wimberts haben eine lange Tradition als Bergarbeiter und Totengräber. Löchergraben ist genau unser Ding!"
 "Yes" -> "What was first, yes or no? I mean, did people first think about how to agree or how to disagree?", "Indeed.", "Yes?"
 "Ja" -> "Was war wohl zuerst da, ja oder nein? Ich meine, haben sich die Leute zuerst überlegt, zuzustimmen oder abzulehnen?", "Jawohl.", "Ja?"
 "No" -> "I say yes, you say no, I say goodbye, you say hello!", "No?", "Why?"
 "Nein" -> "Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!", "Nein?", "Wieso?"
 "nuts", "nutty", "strange", "wierd", "loony" -> "I am what I am. And what are you, something else?", "That's all a matter of perspective.", "Points of view!"
 "komisch", "bescheuert", "dusselig" -> "Ich bin, was ich bin. Und was bist du, was anderes?", "Das ist alles Ansichtssache.", "Meinungen."
-"ROFL" -> "#me laughes out loud."
+"ROFL", "LOL" -> "#me laughes out loud."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
@@ -291,3 +263,8 @@ cycletext "#me hält einen funkelnden Edelstein vor seine zugekniffenen Augen un
 cycletext "Vorsicht vor den Steinen.", "Beware of rocks."
 cycletext "Wer braucht schon den Himmel, wenn man eine gut abgestützte Höhlendecke hat.", "Who needs the sky when you have a well supported ceiling."
 cycletext "Hela, heba, helloa.", "Hela, heba, helloa."
+cycletext "Jidah!", "Jidah!"
+cycletext "He, du! Runter von dem Kieselstein da!", "Hey you! Off that pebble, please!"
+cycletext "Wer klebt eigentlich all die Steine wieder zusammen, die ihr da zerhackt?", "Who repairs all the stones you are breaking with your pick, anyway?"
+cycletext "Lieber einen Fels im Genick als um den Hals einen Strick.", "With a boulder on my shoulder I'm feelin' kinda older!"
+cycletext "Ich frage mich, wo ich hinkomme, wenn ich immer tiefer und tiefer grabe. Ins Lochland vielleicht?", "I wonder what I find when I dig deeper and deeper. The hole land perhaps?"
