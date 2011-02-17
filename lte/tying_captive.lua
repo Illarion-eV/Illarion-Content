@@ -80,7 +80,7 @@ function callEffect( Tying, Captive )
 			Tying:addValue("logposy",PosY);
 			InformW(Captive,
 				"Deine Hände sind immernoch gefesselt, doch das Seil scheint sich langsam zu lösen.",
-				"Your hands are still tied together, but you feel that the rope gets more and more loose.");
+				"Your hands are still tied together, but you feel the rope becoming loose.");
 		end
 		if IsEffectInLogoutTime(Tying, Character) then
 			foundPosX, PosX = Tying:findValue("logposx");
@@ -341,7 +341,7 @@ function escapeSuccess( Effect, Captive, Capturer )
 							if math.random(50) <= math.min(20,perc) then
 								InformW(Char,
 									"Du spürst einen ungewöhnlichen Zug auf dem Seil. Ob das ein Fluchtversuch sein kann?",
-									"You feel an unusual pull on the rope. May that be an escape attempt?");
+									"You feel an unusual pull on the rope. Could that be an escape attempt?");
 							end
 						end
 					end

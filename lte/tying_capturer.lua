@@ -41,8 +41,8 @@ function callEffect( Tying, Capturer )
 				end
 				if HasEnoughCapturers(Captive,Capturer.id) then
 					InformW(Capturer,
-						"Der Gefangene ist nun schon ausreichend gefesselt.",
-						"The captive is now sufficiently tied up already.")
+						"Der Gefangene ist nun ausreichend gefesselt.",
+						"The captive is now adequately tied up.")
 					return false;
 				else
 					InformW(Capturer,
@@ -103,7 +103,7 @@ function callEffect( Tying, Capturer )
 								if tellEscape then
 									InformW(Capturer,
 										"Du spürst einen ungewöhnlichen Zug auf dem Seil. Ob das ein Fluchtversuch sein kann?",
-										"You feel an unusual pull on the rope. May that be an escape attempt?");
+										"You feel an unusual pull on the rope. Could that be an escape attempt?");
 								end
 							else -- count down escape cycle time
 								addVal = escape-1;
@@ -122,7 +122,7 @@ function callEffect( Tying, Capturer )
 		if not foundLogout then -- first call after captive disappeared, inform player
 			InformW(Capturer,
 				"Der Gefangene ist nicht mehr bei dir! Warte oder suche ihn oder benutze das Seil, um ihn freizulassen.",
-				"The captive isn't near you any more! Wait or seek him or use the rope to release him.");
+				"The captive isn't near you any more! Wait, search or use the rope to release the captive.");
 			Tying:addValue("logout",1);
 		end
 		return true;
