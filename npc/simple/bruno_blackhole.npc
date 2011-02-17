@@ -3,7 +3,7 @@
 -- NPC Job:  Miner                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  439, 359, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -14,7 +14,7 @@ name = "Bruno Blackhole"
 race = dwarf
 sex = male
 position = 439, 359, 0
-direction = south
+direction = west
 affiliation = "None"
 job = "Miner"
 

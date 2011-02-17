@@ -3,7 +3,7 @@
 -- NPC Job:  Miner                                                            --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  439, 359, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 439, 359, 0, 4, 'Bruno Blackhole', 'npc.bruno_blackhole', 0, 1, 1, 90, 90, 90, 205, 156, 114);
+VALUES (1, 439, 359, 0, 6, 'Bruno Blackhole', 'npc.bruno_blackhole', 0, 1, 1, 90, 90, 90, 205, 156, 114);
 ---]]
 
 require("npc.base.basic")
