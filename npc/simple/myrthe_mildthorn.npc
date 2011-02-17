@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Myrthe Mildthorn                                            None --
--- NPC Job:  none                                                             --
+-- NPC Name: Myrthe Mildthorn                                        Runewick --
+-- NPC Job:  washer-woman                                                     --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  784, 772, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 13, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 17, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Myrthe Mildthorn"
@@ -15,18 +15,18 @@ race = halfling
 sex = female
 position = 784, 772, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "washer-woman"
 
 language = common
 language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist das Waschweib Myrthe Mildthorn."
+lookatUS = "This NPC is the washer-woman Myrthe Mildthorn."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
