@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 17, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -436,23 +436,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(735, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I asked you to bring meh ten raw stones and not less. Try it at the rocks over there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(735, "all", "<", 10));
-talkEntry:addResponse("Du solltest mir zehn rohe Steine bringen und nicht weniger. Versuch es bei den Steinen dort drüben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 2));
@@ -641,23 +624,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 20));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Nah pal, I need twenty pieces and ya don't have that much yet, so go back to work.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "<", 20));
-talkEntry:addResponse("Ne Kumpel, zwanzig Brocken brauch ich. Soviel hast du noch nicht, also geh wieder an die Arbeit.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 4));
@@ -796,23 +762,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 5));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A pity that ya haven't found those five gold nuggets yet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "<", 5));
-talkEntry:addResponse("Schade, dass du die fünf Goldnuggets noch nicht gefunden hast.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 6));
@@ -947,23 +896,6 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(144, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(65, "=", 8));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(144, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Come back when ya have ten virgins weed for mah wife, than I will give you your money.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(65, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(144, "all", "<", 10));
-talkEntry:addResponse("Komm wieder wenn du zehn Jungfernkraut hast, dann werde ich dir dein Geld geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
