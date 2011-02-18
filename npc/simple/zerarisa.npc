@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Zerarisa                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Name: Zerarisa                                                 Cadomyr --
+-- NPC Job:  fisherwoman                                                      --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  46, 686, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 23, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zerarisa"
@@ -223,4 +223,4 @@ cycletext "Zsss.", "Zsss."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"
 cycletext "#me zischelt.", "#me hisses."
-cycletext "Willkommens am Kap desss Abschiedsss!","Welcome to Cape Farewell, zss!"
+cycletext "Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zss!"
