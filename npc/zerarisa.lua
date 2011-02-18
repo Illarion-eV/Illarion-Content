@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Zerarisa                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Name: Zerarisa                                                 Cadomyr --
+-- NPC Job:  fisherwoman                                                      --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  46, 686, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 23, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 46, 686, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (5, 46, 686, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -111,8 +111,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -124,9 +123,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -142,8 +140,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greetingsss to you.");
 talkEntry:addResponse("Yess, greetingss.");
@@ -155,9 +152,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Grüßsse dir.");
 talkEntry:addResponse("Ja, Grüßsse.");
 talkEntry:addResponse("Grüßsse.");
@@ -201,7 +196,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gut wiedersehensss.");
 talkEntry:addResponse("Abschied.");
 talkEntry:addResponse("#me nickt langsam: 'Gut wiedersehensss'.");
@@ -1025,8 +1019,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1034,8 +1028,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1054,7 +1048,6 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 8));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1126,12 +1119,21 @@ talkingNPC:addCycleText("Zsss.", "Zsss.");
 talkingNPC:addCycleText("Zsss!", "Zsss!");
 talkingNPC:addCycleText("Zsss?", "Zsss?");
 talkingNPC:addCycleText("#me zischelt.", "#me hisses.");
+talkingNPC:addCycleText("Willkommens am Kap desss Abschiedsss!", "Welcome to Cape Farewell, zss!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist die Fischerin Zerarisa.", "This NPC is the fisherwoman Zerarisa.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

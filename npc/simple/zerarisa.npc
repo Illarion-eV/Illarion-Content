@@ -15,18 +15,18 @@ race = lizardman
 sex = female
 position = 46, 686, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Cadomyr"
+job = "fisherwoman"
 
 language = common
 language = lizard
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist die Fischerin Zerarisa."
+lookatUS = "This NPC is the fisherwoman Zerarisa."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -84,14 +84,14 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Fischerin Zerarisa. Schlüsselwörter: Hallo, Quest, Angelrute, Fischer.")
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of Mother upon you, greetingss."
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of Mother upon you, greetingss."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "May the rainsss be heavy and frequent.", "May the ssea-Mother watch your path.", "Farewell, zsss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
 "Ciao", "Adieu", "Au revoir", english -> "Goodbye", "Farewell", "#me nods slowly: 'Goodbye'."
-"Ciao", "Adieu", "Au revoir", german -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
+"Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
 "How are you", "How feel", "How do you do" -> "Zerarisa iss fine, yess, but her paw hurtsss."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zerarisa issst gut, ja, aber Krallensss ssschmerzensss."
 "your name", "who are you", "who art thou" -> "I be Zerarisa, would you like to do a job for me?"
@@ -190,12 +190,12 @@ itemShoes = 53
 ".+", queststatus(71) = 7, item(2547, all) > 9, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thanksss you, here'ss money for your troubless.", skill(fishing) + 1, money + 200, deleteItem(2547, 10), queststatus(71) = 8, rankpoints(Cadomyr) + 20
 ".+", queststatus(71) = 7, item(2547, all) > 9, german -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Fischereifertigkeit steigt."), "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.", skill(fishing) + 1, money + 200, deleteItem(2547, 10), queststatus(71) = 8
 ".+", queststatus(71) = 7, item(2547, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your fishing skill increases."), "Zerarisa thanksss you, here'ss money for your troubless.", skill(fishing) + 1, money + 200, deleteItem(2547, 10), queststatus(71) = 8
-".+", queststatus(71) = 7, item(2547, all) < 10, german -> "Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf."
 ".+", queststatus(71) = 7, item(2547, all) < 10, english -> "Zerarisa sstill waitss for leather from Henry in Dewy Swampss."
+".+", queststatus(71) = 7, item(2547, all) < 10, german -> "Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", "job", queststatus(71) = 8, english -> "Zerarisa hass no more jobss for you, sshe hass enough fissh."
-"quest", "mission", "job", queststatus(71) = 8, german -> "Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch."
+"quest", "mission", "job", queststatus(71) = 8 -> "Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch."
 "task", "adventure", queststatus(71) = 8 -> "Zerarisa hass enough fissh, no more jobss for you."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(71) = 8 -> "Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch."
 
@@ -223,3 +223,4 @@ cycletext "Zsss.", "Zsss."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"
 cycletext "#me zischelt.", "#me hisses."
+cycletext "Willkommens am Kap desss Abschiedsss!","Welcome to Cape Farewell, zss!"
