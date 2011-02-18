@@ -135,7 +135,7 @@ function InitCustomLookAt()
 	addDescription(2421,	2,	"langes weißes Gewand", "long white garment", false, true, 2 );
 	addDescription(2421,	3,	"mit dem goldenen Symbol Irmoroms auf der linken Brust", "with the golden symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2421,	16,	"weißer Mantel mit einem blauen, aufgebäumten Pferd", "white mantle with blue rampant horse", false, true, 0 );
-	addDescription(2445,	1,	"verziert mit dem Wappen Galmairs", "decorated with the emblem of Galmair", false, true, false );
+	addDescription(2445,	1,	"verziert mit dem Wappen Galmairs", "decorated with the emblem of Galmair", false, false, false );
 	addDescription(2547,	1,	"weißes Stück Leder mit einem grünen Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a green ribbon and the emblem of the Nordmark burnt in", true, true, false );
 	addDescription(2547,	2,	"weißes Stück Leder mit einem roten Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a red ribbon and the emblem of the Nordmark burnt in", true, true, false );
 	addDescription(2547,	3,	"weißes Stück Leder mit einem blauen Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a blue ribbon and the emblem of the Nordmark burnt in", true, true, false );
