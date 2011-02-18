@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 17, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,8 +45,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -58,9 +57,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -76,8 +74,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, hello, got laundry? Excuse me, I thought you're one of my customers.");
 talkEntry:addResponse("#me looks up from her washing board and replies: 'Hiho! Didn't I see you yesterday at the Anthil brook?");
@@ -89,8 +86,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Oh, hallo, habt ihr Schmutzwäsche? Entschuldigt, ich dachte, ihr seid einer meiner Kunden.");
 talkEntry:addResponse("#me schaut von ihrem Waschbrett auf und erwidert: 'Hiho! Hab ich euch nicht gestern erst am Bach Anthil gesehen?");
@@ -180,354 +176,6 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin die Myrthe. Hallo!");
 talkEntry:addResponse("Myrthe Mildthorn, stets zu Diensten.");
 talkEntry:addResponse("Waschweib Myrthe Mildthorn meldet sich zur Stelle!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wash");
-talkEntry:addTrigger("laundry");
-talkEntry:addResponse("Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
-talkEntry:addResponse("As a washer-woman, I am an important member of the society. I make people look noble!");
-talkEntry:addResponse("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wasch");
-talkEntry:addTrigger("Wäsche");
-talkEntry:addResponse("Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
-talkEntry:addResponse("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
-talkEntry:addResponse("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("Oh, Yewdale is not far away. Just follow the road, you cannot miss it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nana");
-talkEntry:addTrigger("Winterbutter");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Nana... she lives in Yewdale, am I not right? She cooks the finest soups, indeed.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wolf");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wolves");
-talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("panther");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Spider");
-talkEntry:addResponse("Eeek! I once saw the web of a giant spider between two trees in the north. That was so scary!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("cave");
-talkEntry:addResponse("To the north, there is an abandoned bear cave. Now wolves, panthers and even terrible spiders dwell there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("bear");
-talkEntry:addResponse("A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Anthil");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Anthil's water is perfect for doing laundry. It could be a bit warmer, though.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("brook");
-talkEntry:addTrigger("river");
-talkEntry:addResponse("This brook here is the called the Anthil, didn't you know? The water is pure and clean, just as my laundry.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eibenthal");
-talkEntry:addResponse("Oh, Eibenthal ist nicht weit von hier. Geht einfach die Straße entlang, ihr könnte es nicht verfehlen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nana");
-talkEntry:addTrigger("Winterbutter");
-talkEntry:addResponse("Nana... Sie lebt in Eibenthal, nicht wahr? Sie kocht die besten Suppen, ohja.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wolf");
-talkEntry:addTrigger("Wölfe");
-talkEntry:addResponse("In der Nacht höre ich ihr Gejaule. Und sie haben sogar schon Yewdale heimgesucht!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Panther");
-talkEntry:addResponse("Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Spinne");
-talkEntry:addResponse("Eeek! Ich habe letztens ein riesiges Spinnennetz zwischen zwei Bäumen im Norden gesehen. Das war so schrecklich!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Höhle");
-talkEntry:addResponse("Im Norden gibt es eine alte Bärenhöhle. Jetzt hausen dort Wölfe, Panther und schreckliche Spinnen!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bär");
-talkEntry:addResponse("Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Anthil");
-talkEntry:addResponse("Das Wasser des Anthils ist perfekt, um Wäsche darin zu waschen. Es könnte nur ein wenig wärmer sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bach");
-talkEntry:addTrigger("Fluss");
-talkEntry:addTrigger("Fluß");
-talkEntry:addResponse("Dieser Bach hier ist der Anthil, wußtet ihr das nicht? Das Wasser ist sauber und klar, genauso wie meine Wäsche.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick is that magnificient town to the east. I wash the laundry of the citizens! Isn't that great?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, isn't that a cook from the north who cooks noodles of semolina?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me points to the west: 'There is Cadomyr! I've never been there, but I heard it is a barren place.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("#me deutet nach Westen: 'Dort liegt Cadomyr. Ich war noch nie dort, aber ich habe gehört, es ist ein staubtrockener Ort.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Albar... I am a simple washer-woman. How should I know about such things?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar... ich bin nur ein einfaches Waschweib. Warum sollte ich mich mit solchen Dingen auskennen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Gynk, that sounds funny, what is that?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Gynk, das klingt witzig, was ist denn das?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I think the archmage of Runewick is from... Salamander?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Ich glaube, der Erzmagier von Runewick kommt aus... Salamander?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I pray to Tanora every morning for leaving the water of the Anthil brook as clear as it is now.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -948,6 +596,354 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 22));
 talkEntry:addResponse("Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wash");
+talkEntry:addTrigger("laundry");
+talkEntry:addResponse("Doing the laundry is very important. Otherwise, all the mages and nobles wouldn't have clean robes. How would that look like!");
+talkEntry:addResponse("As a washer-woman, I am an important member of the society. I make people look noble!");
+talkEntry:addResponse("Oh, you have some laundry I should wash? Wait a bit, please, I am not done with today's batch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wasch");
+talkEntry:addTrigger("Wäsche");
+talkEntry:addResponse("Wäsche waschen ist sehr wichtig. Denn ansonsten hätten all die Magier und Edelleute keine sauberen Roben. Wir würde das denn aussehen!");
+talkEntry:addResponse("Als Waschweib bin ich ein wichtiges Mitglied der Gesellschaft. Ich sorge erst dafür, dass Leute so herrschaftlich aussehen können!");
+talkEntry:addResponse("Oh, ihr habt etwas Wäsche, die ich waschen soll? Wartet noch ein wenig, ich bin noch nicht mit dem Stapel für heute fertig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("Oh, Yewdale is not far away. Just follow the road, you cannot miss it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nana... she lives in Yewdale, am I not right? She cooks the finest soups, indeed.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wolf");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wolves");
+talkEntry:addResponse("In the night, I hear them howling! They even attacked Yewdale once!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("panther");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Spider");
+talkEntry:addResponse("Eeek! I once saw the web of a giant spider between two trees in the north. That was so scary!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("cave");
+talkEntry:addResponse("To the north, there is an abandoned bear cave. Now wolves, panthers and even terrible spiders dwell there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bear");
+talkEntry:addResponse("A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthil");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Anthil's water is perfect for doing laundry. It could be a bit warmer, though.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("brook");
+talkEntry:addTrigger("river");
+talkEntry:addResponse("This brook here is the called the Anthil, didn't you know? The water is pure and clean, just as my laundry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eibenthal");
+talkEntry:addResponse("Oh, Eibenthal ist nicht weit von hier. Geht einfach die Straße entlang, ihr könnte es nicht verfehlen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addResponse("Nana... Sie lebt in Eibenthal, nicht wahr? Sie kocht die besten Suppen, ohja.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wolf");
+talkEntry:addTrigger("Wölfe");
+talkEntry:addResponse("In der Nacht höre ich ihr Gejaule. Und sie haben sogar schon Yewdale heimgesucht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Panther");
+talkEntry:addResponse("Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Spinne");
+talkEntry:addResponse("Eeek! Ich habe letztens ein riesiges Spinnennetz zwischen zwei Bäumen im Norden gesehen. Das war so schrecklich!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Höhle");
+talkEntry:addResponse("Im Norden gibt es eine alte Bärenhöhle. Jetzt hausen dort Wölfe, Panther und schreckliche Spinnen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bär");
+talkEntry:addResponse("Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthil");
+talkEntry:addResponse("Das Wasser des Anthils ist perfekt, um Wäsche darin zu waschen. Es könnte nur ein wenig wärmer sein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bach");
+talkEntry:addTrigger("Fluss");
+talkEntry:addTrigger("Fluß");
+talkEntry:addResponse("Dieser Bach hier ist der Anthil, wußtet ihr das nicht? Das Wasser ist sauber und klar, genauso wie meine Wäsche.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The archmage trusts me - and only me! to wash his robes. I feel so honoured!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("archmage");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Der Erzmagier traut nur mir die Wäsche seiner Roben an. Ich fühle mich so geehrt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is that magnificient town to the east. I wash the laundry of the citizens! Isn't that great?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, isn't that a cook from the north who cooks noodles of semolina?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ui, the queen of Cadomyr? I wish I'd be a queen, too.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("königin");
+talkEntry:addTrigger("queen");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me points to the west: 'There is Cadomyr! I've never been there, but I heard it is a barren place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("#me deutet nach Westen: 'Dort liegt Cadomyr. Ich war noch nie dort, aber ich habe gehört, es ist ein staubtrockener Ort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Albar... I am a simple washer-woman. How should I know about such things?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Albar... ich bin nur ein einfaches Waschweib. Warum sollte ich mich mit solchen Dingen auskennen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Gynk, that sounds funny, what is that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Gynk, das klingt witzig, was ist denn das?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I think the archmage of Runewick is from... Salamander?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Ich glaube, der Erzmagier von Runewick kommt aus... Salamander?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I pray to Tanora every morning for leaving the water of the Anthil brook as clear as it is now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
