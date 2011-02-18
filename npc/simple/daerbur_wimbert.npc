@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Daerbur Wimbert"
@@ -108,64 +108,56 @@ itemShoes = 53
 "quest", "mission", queststatus(68) = 0 -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
 "task", "adventure", queststatus(68) = 0 -> inform("[New quest] Dark Hole Mine I"), "Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?", item(2763, 1, 399, 0), queststatus(68) = 1
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 0 -> inform("[Neues Quest] Dunkellochmine I"), "Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?", item(2763, 1, 399, 0), queststatus(68) = 1
-"quest", "mission", queststatus(68) = 1, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"quest", "mission", queststatus(68) = 1 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
-"task", "adventure", queststatus(68) = 1 -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 1 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
+"quest", "mission", queststatus(68) = 1, item(733, all) < 10, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+"quest", "mission", queststatus(68) = 1, item(733, all) < 10 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
+"task", "adventure", queststatus(68) = 1, item(733, all) < 10 -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 1, item(733, all) < 10 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
 ".+", queststatus(68) = 1, item(733, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
 ".+", queststatus(68) = 1, item(733, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2, rankpoints(Galmair) + 5
 ".+", queststatus(68) = 1, item(733, all) > 9, english -> inform("[Quest solved] You are awarded 50 copper coins and your mining skill increases."), "Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
 ".+", queststatus(68) = 1, item(733, all) > 9 -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."), "Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.", skill(mining) + 1, money + 50, deleteItem(733, 10), queststatus(68) = 2
-".+", queststatus(68) = 1, item(733, all) < 10, english -> "Away with those rocks! Bring me ten stone blocks and I'll reward you."
-".+", queststatus(68) = 1, item(733, all) < 10 -> "Weg mit den Steinen! Bring mir zehn Blöcke und ich belohne dich."
 
 -- 2nd quest: Gather 20 different raw materials for 100cp.
 "quest", "mission", queststatus(68) = 2, english -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
 "quest", "mission", queststatus(68) = 2 -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
 "task", "adventure", queststatus(68) = 2 -> inform("[New quest] Dark Hole Mine II"), "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?", queststatus(68) = 3
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 2 -> inform("[Neues Quest] Dunkellochmine II"), "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?", queststatus(68) = 3
-"quest", "mission", queststatus(68) = 3, english -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"quest", "mission", queststatus(68) = 3 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
-"task", "adventure", queststatus(68) = 3 -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 3 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+"quest", "mission", queststatus(68) = 3, item(21, all) < 20, english -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+"quest", "mission", queststatus(68) = 3, item(21, all) < 20 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
+"task", "adventure", queststatus(68) = 3, item(21, all) < 20 -> "There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 3, item(21, all) < 20 -> "Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?"
 ".+", queststatus(68) = 3, item(21, all) > 19, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
 ".+", queststatus(68) = 3, item(21, all) > 19, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4, rankpoints(Galmair) + 10
 ".+", queststatus(68) = 3, item(21, all) > 19, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
 ".+", queststatus(68) = 3, item(21, all) > 19 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", skill(mining) + 1, money + 100, deleteItem(21, 20), queststatus(68) = 4
-".+", queststatus(68) = 3, item(21, all) < 20, english -> "Dig some more, there is still so much coal atop the gems."
-".+", queststatus(68) = 3, item(21, all) < 20 -> "Grabe weiter, es liegt immernoch so viel Kohle über den Edelsteinen."
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
 "quest", "mission", queststatus(68) = 4, english -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
 "quest", "mission", queststatus(68) = 4 -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.", queststatus(68) = 5
 "task", "adventure", queststatus(68) = 4 -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 4 -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig", queststatus(68) = 5
-"quest", "mission", queststatus(68) = 5, english -> "Bring me five raw blackstones and you get money. I'm so excited!"
-"quest", "mission", queststatus(68) = 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-"task", "adventure", queststatus(68) = 5 -> "Bring me five raw blackstones and you get money. I'm so excited!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+"quest", "mission", queststatus(68) = 5, item(252, all) < 5, english -> "Bring me five raw blackstones and you get money. I'm so excited!"
+"quest", "mission", queststatus(68) = 5, item(252, all) < 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+"task", "adventure", queststatus(68) = 5, item(252, all) < 5 -> "Bring me five raw blackstones and you get money. I'm so excited!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 5, item(252, all) < 5 -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
 ".+", queststatus(68) = 5, item(252, all) > 4, english, town = Galmair -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
 ".+", queststatus(68) = 5, item(252, all) > 4, town = Galmair -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6, rankpoints(Galmair) + 15
 ".+", queststatus(68) = 5, item(252, all) > 4, english -> inform("[Quest solved] You are awarded 100 copper coins and your mining skill increases."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
 ".+", queststatus(68) = 5, item(252, all) > 4 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", skill(mining) + 1, money + 100, deleteItem(252, 5), queststatus(68) = 6
-".+", queststatus(68) = 5, item(252, all) < 5, english -> "Some more gems, please. I need five raw blackstones, not less, yes?"
-".+", queststatus(68) = 5, item(252, all) < 5 -> "Mehr Edelsteine, bitte. Ich brauche wenigstens fünf ungeschliffene Schwarzsteine, ja?"
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
 "quest", "mission", queststatus(68) = 6, english -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
 "quest", "mission", queststatus(68) = 6 -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
 "task", "adventure", queststatus(68) = 6 -> inform("[New quest] Dark Hole Mine IV"), "Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.", queststatus(68) = 7
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 6 -> inform("[Neues Quest] Dunkellochmine IV"), "Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.", queststatus(68) = 7
-"quest", "mission", queststatus(68) = 7, english -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"quest", "mission", queststatus(68) = 7 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
-"task", "adventure", queststatus(68) = 7 -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 7 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
+"quest", "mission", queststatus(68) = 7, item(3, all) < 10, english -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+"quest", "mission", queststatus(68) = 7, item(3, all) < 10 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
+"task", "adventure", queststatus(68) = 7, item(3, all) < 10 -> "Beware of the forester Valandil if you venture to Elstree forest to bring me logs of conifer wood."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(68) = 7, item(3, all) < 10 -> "Nimm dich vor dem Förster Valandil in acht, wenn du in den Elsbaumwald gehst, um mir Nadelholzstämme zu holen."
 ".+", queststatus(68) = 7, item(3, all) > 9, english, town = Galmair -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
 ".+", queststatus(68) = 7, item(3, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8, rankpoints(Galmair) + 20
 ".+", queststatus(68) = 7, item(3, all) > 9, english -> inform("[Quest solved] You are awarded 200 copper coins and your mining skill increases."), "Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
 ".+", queststatus(68) = 7, item(3, all) > 9 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."), "Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.", skill(mining) + 1, money + 200, deleteItem(3, 10), queststatus(68) = 8
-".+", queststatus(68) = 7, item(3, all) < 10, english -> "You come back without conifer wood? Did Valandil catch you, chopping trees?"
-".+", queststatus(68) = 7, item(3, all) < 10 -> "Du kommst ohne Nadelholz wieder? Hat Valandil dich beim Holzfällen erwischt?"
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(68) = 8, english -> "I thank you for all you did, you made the world a better place. Or you changed nothing, but got money."
@@ -247,7 +239,7 @@ itemShoes = 53
 "No" -> "I say yes, you say no, I say goodbye, you say hello!", "No?", "Why?"
 "Nein" -> "Ich sage ja, du sagst nein, ich sage tschüß, du sagst hallo!", "Nein?", "Wieso?"
 "nuts", "nutty", "strange", "wierd", "loony" -> "I am what I am. And what are you, something else?", "That's all a matter of perspective.", "Points of view!"
-"komisch", "bescheuert", "dusselig" -> "Ich bin, was ich bin. Und was bist du, was anderes?", "Das ist alles Ansichtssache.", "Meinungen."
+"komisch", "bescheuert", "dussel" -> "Ich bin, was ich bin. Und was bist du, was anderes?", "Das ist alles Ansichtssache.", "Meinungen."
 "ROFL", "LOL" -> "#me laughes out loud."
 
 -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
