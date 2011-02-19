@@ -11,7 +11,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 	if SourceItem.data==2 then --faction system trowel  
 		if string.find(User.lastSpokenText,"info") then
 			-- print some infos
-			local info = base.factions.BF_get_Faction(TargetCharacter);
+			local info = base.factions.get_Faction(TargetCharacter);
 			local townName = "None";
 			if info.tid == 1 then
 				townName = "Cadomyr";
@@ -33,12 +33,12 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 					
 					if (string.find(User.lastSpokenText,"removepoints")~=nil) then value = -value; end
 					
-					Factionvalues = base.factions.BF_get(TargetCharacter); --get rankpoints				
+					Factionvalues = base.factions.get(TargetCharacter); --get rankpoints
 						
-					Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
-					     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints
+					Factionvalues[ rp_index(CheckTown)]=
+					     		Factionvalues[ rp_index(CheckTown) ] +value; --add or remove rankpoints
 							
-					base.factions.BF_put(TargetCharacter,Factionvalues); --save rankpoints
+					base.factions.put(TargetCharacter,Factionvalues); --save rankpoints
 				--	LogGMAction(User,User.name.."("..User.id..") added "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..TargetCharacter.name.."("..TargetCharacter.id..")");
 			    	User:inform("Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." to the Player "..TargetCharacter.name);
 				end
@@ -50,9 +50,9 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 				
 				local CheckTown = CheckTownTrigger(User);
 				if CheckTown > 0 then
-					Factionvalues = base.factions.BF_get(TargetCharacter); --get Factionvalues
+					Factionvalues = base.factions.get(TargetCharacter); --get Factionvalues
 				    Factionvalues.tid = CheckTown;
-				    base.factions.BF_put(TargetCharacter,Factionvalues); --save changes
+				    base.factions.put(TargetCharacter,Factionvalues); --save changes
 				
 				--	LogGMAction(User,User.name.."("..User.id..") made "..TargetCharacter.name.."("..TargetCharacter.id..") member of the Town "..TownNameGList[CheckTown][1]);
 					User:inform(TargetCharacter.name.." is now member of "..TownNameGList[CheckTown][1]);
@@ -63,9 +63,9 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			if (value<10 and value>-1) then
 				local CheckTown = CheckTownTrigger(User);
 				if CheckTown > 0 then
-					Factionvalues = base.factions.BF_get(TargetCharacter); --get Rank
-					Factionvalues[DigitToIndex[CheckTown+RANK_OFFSET]] = value; --set rank to value
-					Factionvalues = base.factions.BF_put(TargetCharacter,Factionvalues); --write faction values
+					Factionvalues = base.factions.get(TargetCharacter); --get Rank
+					Factionvalues[r_index(CheckTown)] = value; --set rank to value
+					Factionvalues = base.factions.put(TargetCharacter,Factionvalues); --write faction values
 					User:inform(TargetCharacter.name.." has now the rank "..value.." in "..TownNameGList[CheckTown][1]);
 				
 				--	LogGMAction(User,User.name.."("..User.id..") set the rank of "..TargetCharacter.name.."("..TargetCharacter.id..") to "..value.." in "..TownNameGList[CheckTown][1]);		
@@ -79,10 +79,10 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			if (guildid<11 or guildid>99) then User:inform("Failed changing guild rank: guildid out of range, 11-99 only"); return; end
 			
 			if (value<3 and value >-1) then
-				Factionvalues = base.factions.BF_get(TargetCharacter);
+				Factionvalues = base.factions.get(TargetCharacter);
 				Factionvalues.gid = guildid;
 				Factionvalues.rankGuild = value;
-				Factionvalues = base.factions.BF_put(TargetCharacter,Factionvalues); --write faction values
+				Factionvalues = base.factions.put(TargetCharacter,Factionvalues); --write faction values
 				
 				User:inform(TargetCharacter.name.." has now the rank "..value.." in the Guild "..GuildNameGList[guildid][1].."(ID: "..guildid..")");
 					
