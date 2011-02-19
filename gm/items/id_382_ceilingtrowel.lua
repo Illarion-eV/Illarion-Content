@@ -446,12 +446,12 @@ function ChangeRankpoints(User, Counter, Increase,value)
 		player_list=world:getPlayersInRangeOf(User.pos, Counter);
 		if player_list[1]~=nil then
 			 for i, player in pairs(player_list) do
-			    Factionvalues = base.factions.BF_get(player_list[i]); --get rankpoints
+			    Factionvalues = base.factions.get(player_list[i]); --get rankpoints
 				
-				Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ]= 
-		     		Factionvalues[ DigitToIndex[CheckTown+RANKPOINTS_OFFSET] ] +value; --add or remove rankpoints
+				Factionvalues[ rp_index(CheckTown) ]=
+		     		Factionvalues[ rp_index(CheckTown) ] +value; --add or remove rankpoints
 				
-				base.factions.BF_put(player_list[i],Factionvalues); --save rankpoints
+				base.factions.put(player_list[i],Factionvalues); --save rankpoints
 		--		LogGMAction(User,User.name.."("..User.id..")"..text.." "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..player_list[i].name.."("..player_list[i].id..")");
 			 end
         	User:inform("Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." for the characters within "..Counter.." radius.");

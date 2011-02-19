@@ -159,7 +159,7 @@ end
 
     @return digit - the townID of the town the npc is placed in
 ]]
-function BF_setLocation(thisNPC)
+function setLocation(thisNPC)
 	local townID = 0;
 	if (border==nil) then
 		border={}
@@ -190,15 +190,31 @@ function BF_setLocation(thisNPC)
 	return townID;
 end
 
+--[[ returns "rankC", "rankG" ... for easier writing the faction values over the id in the faction struct
+example:
+	local factionv = get(originator);
+	factionv[r_index(1)] = 5; --sets factionvalue of cadomyr to 5
+
+]]--
+function r_index(townid)
+	return DigitToIndex[townid+RANK_OFFSET];
+end
+
+-- same like the above function, only for the rankpoints
+function rp_index(townid)
+	return DigitToIndex[townid+RANKPOINTS_OFFSET];
+end
+
+
 --[[
-    BF_get_Faction
+    get_Faction
 	Looks up to which Faction a Character belongs and checks also his rank
     @param originator -- the CharacterStruct
 
     @return Array - 1. a counter how often a Char changed the town, 2.the Town he belongs to ,
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
-function BF_get_Faction(originator)
+function get_Faction(originator)
 
 	local qpg = originator:getQuestProgress(200);
 	if qpg==nil or qpg == 0 then
@@ -220,13 +236,13 @@ function BF_get_Faction(originator)
 end
 
 --[[
-    BF_get_Guild
+    get_Guild
 	Looks up to which Guild a Character belongs and his Rank in this guild
     @param originator -- the CharacterStruct
 
     @return Array - 1.the Guild the Char belongs to, 2. the Rank in the Guild
 ]]
-function BF_get_Guild(originator)
+function get_Guild(originator)
 
 	local qpg = originator:getQuestProgress(201);
 	if qpg==nil or qpg == 0 then
@@ -239,13 +255,13 @@ function BF_get_Guild(originator)
 	return {rankGuild = rankGuild, gid = gid};
 end
 --[[
-    BF_get_Rankpoints
+    get_Rankpoints
 	Looks up how much Rankpoints a Character has
     @param originator -- the CharacterStruct
 
     @return Array - 1.the rankpoints in Cadomyr, 2.the Rankpoints for Runewick, 3.the Rankpoints for Galmair
 ]]
-function BF_get_Rankpoints(originator)
+function get_Rankpoints(originator)
 
 	local qpg = originator:getQuestProgress(202); -- digit 1&2 = rankCadomyr, digit 3&4 = rankRunewick, digit 5&6 = rankGalmair
 	if qpg==nil or qpg == 0 then
@@ -260,17 +276,17 @@ function BF_get_Rankpoints(originator)
 end
 
 --[[
-    BF_get
+    get
 	Looks up to which Guild and Town a Character belongs to and his Rank
     @param originator -- the CharacterStruct
 
     @return Array - all values about Factionmembership, Guildmembership and Rankpoints
 ]]--
-function BF_get(originator)
+function get(originator)
 
-	local Faction = BF_get_Faction(originator);
-	local Guild = BF_get_Guild(originator);
-	local Rankpoints = BF_get_Rankpoints(originator);
+	local Faction = get_Faction(originator);
+	local Guild = get_Guild(originator);
+	local Rankpoints = get_Rankpoints(originator);
 
 	return {towncnt = Faction.towncnt, tid = Faction.tid, rankC = Faction.rankC, rankR = Faction.rankR, rankG = Faction.rankG, rankTown = Faction.rankTown,
 			rankGuild = Guild.rankGuild, gid = Guild.gid,
@@ -278,15 +294,15 @@ function BF_get(originator)
 end
 
 --[[
-    BF_put_Faction//Guild
+    put_Faction//Guild
 	Saves the Factionchanges of the Char//Guildchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
     @param Faction//Guild - the Array which includes the values to be changed
 
 ]]
-function BF_put_Faction(originator,Faction)
+function put_Faction(originator,Faction)
 
-	oldFactionvalues=BF_get_Faction(originator);
+	oldFactionvalues=get_Faction(originator);
 	if oldFactionvalues.rankTown~=Faction.rankTown then
 			if	Faction.tid == 1 then Faction.rankC = Faction.rankTown;
 		elseif  Faction.tid == 2 then Faction.rankR = Faction.rankTown;
@@ -302,12 +318,12 @@ function BF_put_Faction(originator,Faction)
 	originator:setQuestProgress(200,qpg);
 end
 
-function BF_put_Guild(originator,Guild)
+function put_Guild(originator,Guild)
 	if Guild.gid ~= nil or Guild.rankGuild ~= nil then
 		local qpg=(Guild.rankGuild..Guild.gid)+1-1;
 		originator:setQuestProgress(201,qpg);
 	else
-		originator:inform("ERROR at BF_put_Guild, please inform a DEV");
+		originator:inform("ERROR at put_Guild, please inform a DEV");
 	end
 end
 
@@ -332,14 +348,14 @@ function DecreaseRank(rankpoints,rank)
 
 end
 --[[
-    BF_put_Rankpoints
+    put_Rankpoints
 	Saves the Factionchanges of the Char//Guildchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
     @param Rankpoints - the Array which includes the values Rankpoints
 
 ]]
-function BF_put_Rankpoints(originator,Rankpoints)
-	local Faction = BF_get_Faction(originator);
+function put_Rankpoints(originator,Rankpoints)
+	local Faction = get_Faction(originator);
 	 ---increase rank ----
 	if (Rankpoints.rankpointsC >99) then
 		local rank = Faction.rankC; Rankpoints.rankpointsC,Faction.rankC = IncreaseRank(Rankpoints.rankpointsC,Faction.rankC);
@@ -372,33 +388,33 @@ function BF_put_Rankpoints(originator,Rankpoints)
 		if Faction.rankG<rank then  base.common.InformNLS( originator, "#w Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in Galmair um eine Stufe gesunken.", "#w Because of your permanent conflicts with the law your rank sinks for a degree in Galmair." ) end
 	end
 	------save changes----------------
-	BF_put_Faction(originator,Faction);
+	put_Faction(originator,Faction);
 	local qpg=(Rankpoints.rankpointsC..Rankpoints.rankpointsR..Rankpoints.rankpointsG)+1-1;
 	originator:setQuestProgress(202,qpg);
 end
 --[[
-    BF_put_
+    put_
 	Saves the Factionchanges of the Char//Guildchanges of the Char//Rankpoints
     @param CharacterStruct - The character who gets the new Questprogress
     @param Faction - the Array which includes the values Rankpoints//Guild Values//Town Values
 
 ]]
-function BF_put(originator,Factionvalues)
+function put(originator,Factionvalues)
 	--town
-    BF_put_Faction(originator,Factionvalues);
+    put_Faction(originator,Factionvalues);
 	-----------------------
 	--guild
-    BF_put_Guild(originator,Factionvalues);
+    put_Guild(originator,Factionvalues);
 	-----------------------
 	--rankpoints town
-	BF_put_Rankpoints(originator,Factionvalues);
+	put_Rankpoints(originator,Factionvalues);
 end
 
 if not InitFaction then
 	InitFactionLists();
 	InitFaction = true;
-	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of BF_get)
-	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of BF_get)
+	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of get)
+	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of get)
     citizenRank = 1;
     outcastRank = 0;
     leaderRank = 9;
@@ -547,15 +563,15 @@ end
     @param Factionvalues -- the List with the Factionvalues of the Char
     @param theRank(number) -- the rank the char shall get in the town
 ]]
-function makeCharMemberOfTown(originator,Factionvalues,theRank, theTown)
+function makeCharMemberOfTown(originator,fv,theRank, theTown)
 	if theRank==leaderRank then --make char to leader of this town
-		Factionvalues.tid = theTown; --make him member of this town
-		Factionvalues.rankTown = leaderRank; --give him the leader rank
-		Factionvalues = BF_put_Faction(originator,Factionvalues);
+		fv.tid = theTown; --make him member of this town
+		fv.rankTown = leaderRank; --give him the leader rank
+		fv = put_Faction(originator,fv);
 		return;
 
 	elseif theRank==citizenRank then --make char to citizen
-		if (Factionvalues.tid == theTown) then --already citizen
+		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
 			outText=base.common.GetNLS(originator,gText,eText);
@@ -563,7 +579,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank, theTown)
 			return;
 		end
 
-		local GAmount, SAmount,CAmount = CalcSilverCopper(100*PriceListForTownChange[Factionvalues.towncnt]);
+		local GAmount, SAmount,CAmount = CalcSilverCopper(100*PriceListForTownChange[fv.towncnt]);
 		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
@@ -572,15 +588,15 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank, theTown)
 			return;
 		end
 		
-		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= --remove 80 rankpoints in old town
-		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] -80;
-		Factionvalues.tid = theTown; --set new Town ID
+		fv[ rp_index(fv.tid)]= --remove 80 rankpoints in old town
+		     fv[ rp_index(fv.tid) ] -80;
+		fv.tid = theTown; --set new Town ID
 		
-		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= 
-		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] +20;--add 20 rankpoints for new town
+		fv[ rp_index(fv.tid) ]=
+		     fv[ rp_index(fv.tid) ] +20;--add 20 rankpoints for new town
 				
-		if Factionvalues.towncnt ~=9 then Factionvalues.towncnt = Factionvalues.towncnt+1; end -- raise the town counter
-		Factionvalues = BF_put_Faction(originator,Factionvalues); --write Factionvalues in Questprogress
+		if fv.towncnt ~=9 then fv.towncnt = fv.towncnt+1; end -- raise the town counter
+		fv = put_Faction(originator,fv); --write fv in Questprogress
 		Pay(originator,GAmount,SAmount,CAmount); --take money
 
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
@@ -599,25 +615,25 @@ end
 ]]
 function deleteDecree(originator)
 	if not ((originator:countItem(3110))==0) then --does he really have decrees
-			Factionvalues = BF_get(originator); --read faction values
+			fv = get(originator); --read faction values
 			  decree= originator:getItemList(3110); --get a list of decrees
 
 			if decree[1].quality == 750 then --guild decree
 
-				Factionvalues.rankGuild = math.floor(decree[1].data/100); -- the rank in the Guild(1 digit)
-				Factionvalues.gid	    = (decree[1].data - Factionvalues.rankGuild*100);-- the Guild ID(2 digits(10-99))
+				fv.rankGuild = math.floor(decree[1].data/100); -- the rank in the Guild(1 digit)
+				fv.gid	    = (decree[1].data - fv.rankGuild*100);-- the Guild ID(2 digits(10-99))
 
-				gText="Gut, ich werde euch als "..GuildRanklist[Factionvalues.rankGuild].gusage.." in der Gilde "..GuildNameGList[Factionvalues.gid][1].." eintragen.";
-    			eText="Good, I will write your name down as "..GuildRanklist[Factionvalues.rankGuild].eusage.." in the guild "..GuildNameEList[Factionvalues.gid][1];
-            	Factionvalues = BF_put(originator,Factionvalues); --write faction values
+				gText="Gut, ich werde euch als "..GuildRanklist[fv.rankGuild].gusage.." in der Gilde "..GuildNameGList[fv.gid][1].." eintragen.";
+    			eText="Good, I will write your name down as "..GuildRanklist[fv.rankGuild].eusage.." in the guild "..GuildNameEList[fv.gid][1];
+            	fv = put(originator,fv); --write faction values
 				world:erase(decree[1],1); --deletes 1 decree
 			elseif decree[1].quality == 751 then -- unban decree
 			
-				if (Factionvalues[DigitToIndex[decree[1].data + RANK_OFFSET]] == 0) then --really banned in the town?
+				if (fv[r_index(decree[1].data)] == 0) then --really banned in the town?
 					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun könnt ihr Bürger dieser Stadt werden wenn Ihr es wollt.";
 					eText = "You're now deleted from the banned register, now you can join this town as citizen, if you want.";
-					Factionvalues[DigitToIndex[decree[1].data+RANK_OFFSET]] = 1; --set rank to 1
-					Factionvalues = BF_put(originator,Factionvalues); --write faction values
+					fv[r_index(decree[1].data)] = 1; --set rank to 1
+					fv = put(originator,fv); --write faction values
 					world:erase(decree[1],1);
 				else
 					gText = "Ihr seid in dieser Stadt nicht verbannt!";
@@ -629,7 +645,6 @@ function deleteDecree(originator)
 			end
 			
 			outText=base.common.GetNLS(originator,gText,eText);
-			originator:inform(outText);
 			thisNPC:talk(CCharacter.say, outText);
 			return;
 	else
@@ -637,7 +652,6 @@ function deleteDecree(originator)
 			eText="I'm sorry but you have no decree with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
             thisNPC:talk(CCharacter.say, outText);
-			originator:inform(outText);
 			return;
 	end
 end
