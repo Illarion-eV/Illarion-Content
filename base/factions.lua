@@ -269,8 +269,7 @@ end
 function BF_get(originator)
 	originator:inform("in bf_get");
 	local Faction = BF_get_Faction(originator);
-	originator:inform("Faction townid:");
-	originator:inform(Faction.tid);
+	originator:inform("Faction townid:"..Faction[1]..Faction[2]);
 	local Guild = BF_get_Guild(originator);
 	local Rankpoints = BF_get_Rankpoints(originator);
 
