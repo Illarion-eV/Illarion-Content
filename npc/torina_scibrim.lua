@@ -1021,7 +1021,7 @@ function mainTask(texttype,message,originator)
 	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
 			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
 
-				makeCharMemberOfTown(originator,Factionvalues,citizenRank);
+				base.factions.makeCharMemberOfTown(originator,Factionvalues,citizenRank);
 				flag[originator.id] = nil;
 				return true;
 
@@ -1037,7 +1037,7 @@ function mainTask(texttype,message,originator)
 				eText="You have a decree with you...let me have a look at it.";
 				outText=base.common.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say, outText);
-				deleteDecree(originator);
+				base.factions.deleteDecree(originator);
 				return true;
 
 	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
