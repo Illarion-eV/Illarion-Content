@@ -974,7 +974,7 @@ mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
 --------------explicit notary stuff----------
-base.factions.BF_setLocation(thisNPC); --look up where the npc is standing and store it in the NpcLocation list!
+npctown = 1;--town is standing in cadomyr
 flag = {};
 -------------------------------------
 
@@ -1001,15 +1001,7 @@ function mainTask(texttype,message,originator)
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
 
-			originator:inform("Npc location:");
-			if base.factions.NpcLocation[thisNPC.id] == 1 then originator:inform("1");
-			elseif base.factions.NpcLocation[thisNPC.id] == 2 then originator:inform("2");
-			elseif base.factions.NpcLocation[thisNPC.id] == 3 then originator:inform("3");
-			else originator:inform("0"); end
-
-			if base.factions.outcastRank == 0 then originator:inform("000"); end
-
-			if (Factionvalues[base.factions.NpcLocation[thisNPC.id]+base.factions.RANK_OFFSET] == base.factions.outcastRank) then
+			if (Factionvalues[npctown+base.factions.RANK_OFFSET] == 0) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
 				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
@@ -1021,8 +1013,8 @@ function mainTask(texttype,message,originator)
 
 			--if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
 			if ((flag[originator.id]==nil) or (flag[originator.id] == 0)) then
-			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
-				eText="Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
+			 	gText="Diese Eintragung wird "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
+				eText="Adding you to the citizenlist will cost "..base.factions.PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.GetNLS(originator,gText,eText);
                 thisNPC:talk(CCharacter.say, outText);
 				flag[originator.id] = 0;
@@ -1031,7 +1023,7 @@ function mainTask(texttype,message,originator)
 	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
 			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
 
-				base.factions.makeCharMemberOfTown(originator,Factionvalues,base.factions.citizenRank);
+				base.factions.makeCharMemberOfTown(originator,Factionvalues,1); --rank citizen
 				flag[originator.id] = nil;
 				return true;
 
@@ -1051,7 +1043,7 @@ function mainTask(texttype,message,originator)
 				return true;
 
 	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
-			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
+			if (Factionvalues.rankTown == base.factions.leaderRank) then --if Character is leader in this town
 				originator:createItem(3110,1,751,Factionvalues.tid);	--town id stored in the data
 
 				gText="Ein Entbannungsdekret, kommt sofort.";
