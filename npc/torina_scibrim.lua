@@ -996,7 +996,6 @@ initNpc = nil;
 
 function mainTask(texttype,message,originator)
 	Factionvalues = base.factions.BF_get(originator);
-	originator:inform("Bla1");
 	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
@@ -1008,11 +1007,14 @@ function mainTask(texttype,message,originator)
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				return true;
+			else
+           		originator:inform("Bla3");
 			end
 
 
 			--if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
 			if ((flag[originator.id]==nil) or (flag[originator.id] == 0)) then
+           		originator:inform("Bla4");
 			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
 				eText="Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
@@ -1043,9 +1045,8 @@ function mainTask(texttype,message,originator)
 				return true;
 
 	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
-            originator:inform("Bla3");
 			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-
+                originator:inform("Bla5");
 				originator:createItem(3110,1,751,Factionvalues.tid);	--town id stored in the data
 
 				gText="Ein Entbannungsdekret, kommt sofort.";
@@ -1055,6 +1056,7 @@ function mainTask(texttype,message,originator)
 
 
 			else
+                originator:inform("Bla6");
 				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
 				eText="Only the leader of the town can buy a unban decree!";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
