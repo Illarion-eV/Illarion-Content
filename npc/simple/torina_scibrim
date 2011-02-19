@@ -2,18 +2,18 @@
 -- NPC Name: Torina Scibrim                                           Cadomyr --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  109, 550, 0            --
+-- NPC Race: human                      NPC Position:  106, 553, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 19, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Torina Scibrim"
 race = human
 sex = female
-position = 109, 550, 0
+position = 106, 553, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Notary"
@@ -32,7 +32,7 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
+hairID = 1
 beardID = 0
 colorHair = 255, 250, 205
 colorSkin = 245, 222, 179
@@ -54,38 +54,38 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted.", "Greetings.", "Good day."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Good day."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
+"Farewell", "Bye", "Fare well", "See you" -> "Malachin with you.", "Farewell.", "Goodbye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Malachin with you.", "Farewell.", "Goodbye."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
+"How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und euch?"
+"your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Cadomyr.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.", "Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission", english -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
+"quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
+"task", "adventure" -> "I have no tasks for you right now, maybe another time."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am the notary of Cadomyr and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
+"beruf" -> "Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin."
+"job", english -> "I am the notary of Cadomyr and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
+"job" -> "Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin."
+"Gobaith", "Gobiath", english -> "Never heard of that. Is it something to eat?"
+"Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
+"my name" -> "I'm pleasured to meet you."
+"mein Name" -> "Ich freu mich euch kennenzulernen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

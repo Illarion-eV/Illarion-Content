@@ -2,24 +2,25 @@
 -- NPC Name: Torina Scibrim                                           Cadomyr --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  109, 550, 0            --
+-- NPC Race: human                      NPC Position:  106, 553, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
 --                                                                            --
--- Last parsing: February 05, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 19, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 109, 550, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 2, 0, 255, 250, 205, 245, 222, 179);
+VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 2, 0, 255, 250, 205, 245, 222, 179);
 ---]]
-require("base.factions")
+
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("base.factions")
 module("npc.torina_scibrim", package.seeall)
 
 function initNpc()
@@ -28,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', 'I want to buy an life insurance'"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keyphrases: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', 'Ich möchte eine Lebensversicherung kaufen'"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -104,7 +105,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Malachin mit Euch");
+talkEntry:addResponse("Malachin mit Euch.");
 talkEntry:addResponse("Auf bald.");
 talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -127,7 +128,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Malachin mit Euch");
+talkEntry:addResponse("Malachin mit Euch.");
 talkEntry:addResponse("Auf bald.");
 talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -137,9 +138,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I'm fine, thank you for your concern.");
+talkEntry:addResponse("I can't complain, even if some more action wouldn't be that bad.");
+talkEntry:addResponse("Very good, and you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,9 +149,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir geht es gut, danke der Nachfrage.");
+talkEntry:addResponse("Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.");
+talkEntry:addResponse("Ganz gut, und euch?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,9 +159,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("My name is Torina Scibrim, I take care of the new arrivals of this place.");
+talkEntry:addResponse("I'm Torina Scibrim, I am the notary of Cadomyr.");
+talkEntry:addResponse("You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,7 +172,7 @@ talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
 talkEntry:addResponse("Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.");
-talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen");
+talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,27 +180,23 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("At the moment I have everything, but thanks for asking.");
+talkEntry:addResponse("Maybe another time, I have already everything I need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Derzeit habe ich alles, aber danke für eure Sorge.");
+talkEntry:addResponse("Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I have no tasks for you right now, maybe another time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,42 +204,36 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
+talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
+talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,34 +241,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Never heard of that. Is it something to eat?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nie davon gehört. Ist es etwas zu Essen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I'm pleasured to meet you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich freu mich euch kennenzulernen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -990,9 +973,12 @@ mainNPC:setEquipment(9, 822);
 mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
-townID = base.factions.BF_setLocation(thisNPC); --look up where the npc is standing!
-
 mainNPC:initDone();
+--------------explicit notary stuff----------
+base.factions.BF_setLocation(thisNPC); --look up where the npc is standing and store it in the NpcLocation list!
+flag = {};
+-------------------------------------
+
 end;
 
 function receiveText(texttype, message, originator)
