@@ -6,6 +6,7 @@
 
 require("npc.base.autonpcfunctions")
 require("npc.base.trader_functions");
+require("base.factions")
 module("npc.torina_scibrim", package.seeall)
 
 function useNPC(user,counter,param)
@@ -177,167 +178,71 @@ end
 
 function mainTask(texttype,message,originator)
 	Factionvalues = base.factions.BF_get(originator);		
-		
-	if 	(string.find(message,"[Dd]ekret.+kaufen.*")~=nil or string.find(message,"[Bb]uy.+decree.*")~=nil or
-		 string.find(message,"[Dd]ekret.+erwerben.*")~=nil) then
-			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-		 		gText="Was für ein Dekret benötigt ihr? Eines für die Eintragung als 'Anführer', 'vollständiges Mitglied' oder 'Anwärter' einer Gilde oder doch ein 'Entbannungsdekret'?";
-				eText="What kind of decree do you need? For a entry as a 'leader', 'full member' or 'aspirant' of a guild or a 'unban decree'?";
-			else	
-				gText="Was für ein Dekret benötigt ihr? Eines für die Eintragung als 'Anführer', 'vollständiges Mitglied' oder 'Anwärter' einer Gilde?";
-				eText="What kind of decree do you need? For a entry as a 'leader', 'full member' or 'aspirant' of a guild?";
-			end
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-			return true;
 
-	elseif string.find(message,"[Aa]nführer.+[Ss]tadt")~=nil or string.find(message,"[Ll]eader.+ [Tt]own")~=nil or
-		   string.find(message,"[Aa]nfuehrer.+[Ss]tadt")~=nil or string.find(message,"[Ll]eader.+ [Cc]ity")~=nil or
-		   string.find(message,"[Hh]errscher.+[Ss]tadt")~=nil or string.find(message,"[Aa]nführer.+ [Oo]rt")~=nil then
-		 	if (originator:isAdmin()) then --only GMs can become faction leaders
-				gText="Gut, ich trage euch als neuen Anführer dieser Stadt ein.";
-				eText="Good, I will enregister you as new leader of this town.";
-				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-				makeCharMemberOfTown(originator,Factionvalues,leaderRank);
-			end
-			return true;
-	
-	elseif (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
+	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
-			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then -- the char is outcasted from this town
-			 	gText="Ihr seid aus der Stadt verbannt, kommt mit einem Entbannungsdekret des Anführers wieder wenn ihr Bürger werden wollt.";
-				eText="You're outcasted from this town, come back with a unban decree from the leader if you want to become a citizen.";
+
+			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
+			--OUTCASTED CHAR CHECK
+			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
+				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 				return true;
-			end				
-			if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then	
+			end
+
+
+			--if ((TextRepeatCnt[originator.id]==nil) or (TextRepeatCnt[originator.id] == 0)) then
+			if ((flag[originator.id]==nil) or (flag[originator.id] == 0)) then
 			 	gText="Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid ihr sicher dass ihr dieser Stadt beitreten wollt?";
 				eText="Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);	
-				TextRepeatCnt[originator.id] = 0;
-				return true;
-			end				
-	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Yy]es")~=nil) and (TextRepeatCnt[originator.id] == 0) then
-			makeCharMemberOfTown(originator,Factionvalues,citizenRank);
-			TextRepeatCnt[originator.id] = nil;
-			return true;
-	elseif (string.find(message,"[Nn]ein")~=nil or string.find(message,"[Nn]o")~=nil) and (TextRepeatCnt[originator.id] == 0) then
-			TextRepeatCnt[originator.id] = nil;
-			return true;			
-	elseif string.find(message,"[Aa]nw[äa][re][tr][et][re]")~=nil or string.find(message,"[Aa]spirant")~=nil then
-
-			choiceIndex[originator.id]=1; --aspirant of guild
-			gText="Das Dekret für eine Anwärtereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
-			eText="The decree for a aspirant entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-			return true;
-	elseif string.find(message,"[Mm]itglied")~=nil or string.find(message,"[Mm]ember")~=nil then
-		 	choiceIndex[originator.id]=2; --member of guild
-			gText="Das Dekret für eine Mitgliedseintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
-			eText="The decree for a member entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-			return true;
-	elseif string.find(message,"[Aa]nf[üu][he][rh][er][re]")~=nil or string.find(message,"[Ll]eader")~=nil then
-			choiceIndex[originator.id]=3; --leader of guild
-		 	gText="Das Dekret für eine Anführereintragung wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nur noch bitte den Namen der Gilde.";
-			eText="The decree for a leader entry will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-			return true;
-	elseif string.find(message,"[Hh]auptschlüssel")~=nil or string.find(message,"[Mm]ain.+[Kk]ey")~=nil then
-			if  (string.find(message,"[Ss]tadt")~=nil or string.find(message,"[Tt]own")~=nil) and (Factionvalues.rankTown == leaderRank) then			
-				if (TownMainKey[NpcLocation[thisNPC.id]]==nil) then
-		            gText="Für diese Stadt existiert kein Hauptschlüssel!";
-					eText="There does no main key exist for this town!";
-					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-				else
-		            gText="Bitte sehr, euer Hauptschlüssel.";
-					eText="Here is your main key.";
-					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-					originator:createItem(TownMainKey[NpcLocation[thisNPC.id]][1],1,TownMainKey[NpcLocation[thisNPC.id]][2],TownMainKey[NpcLocation[thisNPC.id]][3]); --creates Key
-				end
+				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+				flag[originator.id] = 0;
 				return true;
 			end
-			choiceIndex[originator.id] = 4; -- main key
-			gText="Der Hauptschlüssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
-			eText="The main key will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
+			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
 
-			return true;
-	elseif string.find(message,"[Kk]erkerschlüssel")~=nil or string.find(message,"[Jj]ail.+[Kk]ey")~=nil then
-			if  (string.find(message,"[Ss]tadt")~=nil or string.find(message,"[Tt]own")~=nil) and (Factionvalues.rankTown == leaderRank) then			
-				if (TownJailKey[NpcLocation[thisNPC.id]]==nil) then
-		            gText="Für diese Stadt existiert kein Kerkerschlüssel!";
-					eText="There does no jail key exist for this town!";
-					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-				else
-		            gText="Bitte sehr, euer Kerkerschlüssel.";
-					eText="Here is your jail key.";
-					outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-					npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-					originator:createItem(TownJailKey[NpcLocation[thisNPC.id]][1],1,TownJailKey[NpcLocation[thisNPC.id]][2],TownJailKey[NpcLocation[thisNPC.id]][3]); --creates Key
-				end
+				makeCharMemberOfTown(originator,Factionvalues,citizenRank);
+				flag[originator.id] = nil;
 				return true;
-			end
-			choiceIndex[originator.id] = 5; -- jail key
-			gText="Der Kerkerschlüssel wird "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." Silber kosten, nennt mir nun noch den Namen der Gilde bitte.";
-			eText="The jail key will cost "..PriceListForDecreeAndKey[choiceIndex[originator.id]].." silver coins, now please tell me the name of the guild.";
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+				
+	elseif (string.find(message,"[Nn]ein")~=nil or string.find(message,"[Nn]o")~=nil) and (flag[originator.id] == 0) then
 
-			return true;	
+				flag[originator.id] = nil;
+				return true;
+
+	elseif string.find(message,"[Dd]ekret.+einl[öo][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
+		   string.find(message,"[Dd]ecree.+[Ee]xchange")~=nil then
+
+				gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
+				eText="You have a decree with you...let me have a look at it.";
+				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
+				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
+				deleteDecree(originator);
+				return true;
+
 	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
 			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-				choiceIndex[originator.id]=6;
+
+				originator:createItem(3110,1,751,Factionvalues.tid);	--town id stored in the data
+				
 				gText="Ein Entbannungsdekret, kommt sofort.";
 				eText="A unban decree, right away.";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-				createChoice(originator,message,choiceIndex,Factionvalues);
+				
+				
 			else	
 				gText="Nur der Anführer dieser Stadt kann ein Entbannungsdekret erwerben!";
 				eText="Only the leader of the town can buy a unban decree!";
 				outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
 				npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			end
-			return true;				
-	elseif string.find(message,"[Ss]chl[üu][se][ss][es][le].*")~=nil or string.find(message,"[Kk]ey")~=nil then
-			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
-				gText="Was für einen Schlüssel benötigt ihr? Einen 'Kerkerschlüssel' oder 'Hauptschlüssel'? Und benötigt ihr diesen für diese Stadt oder eine Gilde?";
-				eText="What kind of key do you need? A 'jail key' or a 'main key'? And do you need it for this town or a guild?";
-			else	
-				gText="Was für einen Schlüssel benötigt ihr? Einen 'Kerkerschlüssel' oder 'Hauptschlüssel'?";
-				eText="What kind of key do you need? A 'jail key' or a 'main key'?";
-			end
-			outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-			npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
 			return true;
-	
-	elseif string.find(message,"[Dd]ekret.+einl[öo][se][es][ne]")~=nil or string.find(message,"[Ee]xchange.+[Dd]ecree")~=nil or
-		   string.find(message,"[Dd]ecree.+[Ee]xchange")~=nil then
-		gText="Ihr habt ein Dekret für mich...lasst mich mal nachschauen.";
-		eText="You have a decree with you...let me have a look at it.";
-		outText=base.common.npc.base.npcautofunction.GetNLS(originator,gText,eText);
-		npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);
-		deleteDecree(originator);
-		return true;
 	end
-	
-	if (choiceIndex[originator.id]~=nil) then
-		createChoice(originator,message,choiceIndex,Factionvalues);
-		return true;
-	end	
-	
 	return false;
 end
 
