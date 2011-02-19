@@ -452,7 +452,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank)
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
 			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+            thisNPC:talk(CCharacter.say, outText);
 			return;
 		end
 
@@ -461,7 +461,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank)
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+            thisNPC:talk(CCharacter.say, outText);
 			return;
 		end
 		
@@ -479,7 +479,7 @@ function makeCharMemberOfTown(originator,Factionvalues,theRank)
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
 		eText="You're now registered as citizen of this town.";
 		outText=base.common.GetNLS(originator,gText,eText);
-		NPCTalking(thisNPC,outText);
+        thisNPC:talk(CCharacter.say, outText);
 	end
 	return;
 end
@@ -522,13 +522,116 @@ function deleteDecree(originator)
 			end
 			
 			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+            thisNPC:talk(CCharacter.say, outText);
 			return;
 	else
 			gText="Es tut mir leid, aber ihr habt kein Dekret bei euch!";
 			eText="I'm sorry but you have no decree with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
-			NPCTalking(thisNPC,outText);
+            thisNPC:talk(CCharacter.say, outText);
 			return;
 	end
+end
+
+function CalcSilverCopper(CAmount)
+    local GAmount=math.floor(CAmount/10000);
+    local SAmount=math.floor((CAmount-GAmount*10000)/100);
+    local CAmount=CAmount-(SAmount*100+GAmount*10000);
+    return GAmount,SAmount,CAmount
+end
+
+-- Geldprüfung
+-- Return 1 (bool) genug Geld - nicht genug Geld
+function CheckMoney(User,Gold,Silber,Kupfer)
+    local UserGold=User:countItem(61);
+    local UserSilber=User:countItem(3077);
+    local UserKupfer=User:countItem(3076);
+    local Amount=(Gold*10000)+(Silber*100)+Kupfer;
+    local UserAmount=(UserGold*10000)+(UserSilber*100)+UserKupfer;
+    if (Amount<=UserAmount) then
+        return true
+    else
+        return false
+    end
+end
+
+-- Bezahlen Funktion
+-- Versucht Silber/Kupfermünzen passend zu nehmen
+-- Wenn nicht möglich: Weicht auf andere Münzen aus
+
+-- Folgende Liste wird nicht korrekt zurückgegeben (Gold fehlt). Die ts-Version hat sie nicht (Schlamperei).  An Vilarion wenden(dalli).
+-- Return 1: Liste {Bezahltes Silber (int), Bezahltes Kupfer (int)}
+function Pay(User,Gold,Silber,Kupfer)
+
+    local GoldID=61;
+    local SilberID=3077;
+    local KupferID=3076;
+    local PayGold=0;
+    local PaySilber=0;
+    local PayKupfer=0;
+    local MissGold=Gold;
+    local MissSilber=Silber;
+    local MissKupfer=Kupfer;
+    local UserGold=User:countItem(GoldID);
+    local UserSilber=User:countItem(SilberID);
+    local UserKupfer=User:countItem(KupferID);
+    local Amount=(Gold*10000)+(Silber*100)+Kupfer;
+    local GoldAlsKupfer=0;
+    local SilberAlsKupfer=0;
+    local GoldAlsSilber=0;
+
+    GoldAlsKupfer = math.min( MissGold, math.floor( UserKupfer/10000 ) );
+    PayKupfer = GoldAlsKupfer * 10000;
+    MissGold = MissGold - GoldAlsKupfer;
+    UserKupfer = UserKupfer - PayKupfer;
+
+    GoldAlsKupfer = math.floor( UserKupfer/100 );
+    GoldAlsSilber = 100 - GoldAlsKupfer;
+    if ((MissGold > 0) and (GoldAlsKupfer > 0) and (UserSilber >= GoldAlsSilber)) then
+        PayKupfer = PayKupfer + 100 * GoldAlsKupfer;
+        PaySilber = PaySilber + GoldAlsSilber;
+        MissGold = MissGold - 1;
+        UserKupfer = UserKupfer - 100 * GoldAlsKupfer;
+        UserSilber = UserSilber - GoldAlsSilber;
+    end;
+
+    SilberAlsKupfer = math.min( MissSilber, math.floor( UserKupfer/100 ) );
+    PayKupfer = PayKupfer + SilberAlsKupfer * 100;
+    MissSilber = MissSilber - SilberAlsKupfer;
+    UserKupfer = UserKupfer - SilberAlsKupfer * 100;
+
+    if (UserKupfer >= MissKupfer) then
+        PayKupfer = PayKupfer + MissKupfer;
+    else
+        MissSilber = MissSilber + 1;
+        PayKupfer = PayKupfer + MissKupfer - 100;
+    end;
+
+    GoldAlsSilber = math.min( MissGold, math.floor( UserSilber/100 ) );
+    PaySilber = PaySilber + GoldAlsSilber * 100;
+    MissGold = MissGold - GoldAlsSilber;
+    UserSilber = UserSilber - GoldAlsSilber * 100;
+
+    if (UserSilber >= MissSilber) then
+        PayGold = MissGold;
+        PaySilber = PaySilber + MissSilber;
+    else
+        PayGold = MissGold + 1;
+        PaySilber = PaySilber + MissSilber - 100;
+    end;
+
+
+    if (PayGold>0) then
+        User:eraseItem(GoldID,PayGold);
+    end
+    if (PaySilber>0) then
+        User:eraseItem(SilberID,PaySilber);
+    elseif (PaySilber<0) then
+        User:createItem(SilberID,PaySilber*(-1),333,0);
+    end
+    if (PayKupfer>0) then
+        User:eraseItem(KupferID,PayKupfer);
+    elseif (PayKupfer<0) then
+        User:createItem(KupferID,PayKupfer*(-1),333,0);
+    end
 end
