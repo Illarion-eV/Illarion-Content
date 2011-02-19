@@ -973,11 +973,12 @@ mainNPC:setEquipment(9, 822);
 mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
-mainNPC:initDone();
 --------------explicit notary stuff----------
 base.factions.BF_setLocation(thisNPC); --look up where the npc is standing and store it in the NpcLocation list!
 flag = {};
 -------------------------------------
+
+mainNPC:initDone();
 
 end;
 
@@ -999,6 +1000,8 @@ function mainTask(texttype,message,originator)
 	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
+			originator:inform("Bla");
+			originator:inform(RANK_OFFSET);
 			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
