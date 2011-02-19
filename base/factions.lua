@@ -433,107 +433,7 @@ AddGuild(15,"Stadtwache Galmair","Townguard Galmair");
 end
 --==================================END OF THE EDITABLE PART====================
 
---[[
-    makeCharMemberOfTown
-	makes the char citizen of the town//or leader if the char is a gm
-    @param originator -- the PlayerStruct
-    @param Factionvalues -- the List with the Factionvalues of the Char
-    @param theRank(number) -- the rank the char shall get in the town
-]]
-function makeCharMemberOfTown(originator,Factionvalues,theRank)
-	if theRank==leaderRank then --make char to leader of this town
-		Factionvalues.tid = NpcLocation[thisNPC.id]; --make him member of this town
-		Factionvalues.rankTown = leaderRank; --give him the leader rank
-		Factionvalues = BF_put_Faction(originator,Factionvalues);
-		return;
 
-	elseif theRank==citizenRank then --make char to citizen
-		if (Factionvalues.tid == NpcLocation[thisNPC.id]) then --already citizen
-		 	gText="Ihr seid bereits Bürger dieser Stadt!";
-			eText="You're already citizen of this town!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
-			return;
-		end
-
-		local GAmount, SAmount,CAmount = CalcSilverCopper(100*PriceListForTownChange[Factionvalues.towncnt]);
-		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
-		 	gText="Ihr habt nicht genug Geld dabei!";
-			eText="You don't have enough money with you!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
-			return;
-		end
-		
-		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= --remove 80 rankpoints in old town
-		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] -80;
-		Factionvalues.tid = NpcLocation[thisNPC.id]; --set new Town ID
-		
-		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= 
-		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] +20;--add 20 rankpoints for new town
-				
-		if Factionvalues.towncnt ~=9 then Factionvalues.towncnt = Factionvalues.towncnt+1; end -- raise the town counter
-		Factionvalues = BF_put_Faction(originator,Factionvalues); --write Factionvalues in Questprogress
-		Pay(originator,GAmount,SAmount,CAmount); --take money
-
-		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
-		eText="You're now registered as citizen of this town.";
-		outText=base.common.GetNLS(originator,gText,eText);
-        thisNPC:talk(CCharacter.say, outText);
-	end
-	return;
-end
-
-
---[[
-    deleteDecree
-	Exchanges a decree against guild membership etc., 
-    @param originator -- the PlayerStruct
-]]
-function deleteDecree(originator)
-	if not ((originator:countItem(3110))==0) then --does he really have decrees
-			Factionvalues = BF_get(originator); --read faction values
-			  decree= originator:getItemList(3110); --get a list of decrees
-
-			if decree[1].quality == 750 then --guild decree
-
-				Factionvalues.rankGuild = math.floor(decree[1].data/100); -- the rank in the Guild(1 digit)
-				Factionvalues.gid	    = (decree[1].data - Factionvalues.rankGuild*100);-- the Guild ID(2 digits(10-99))
-
-				gText="Gut, ich werde euch als "..GuildRanklist[Factionvalues.rankGuild].gusage.." in der Gilde "..GuildNameGList[Factionvalues.gid][1].." eintragen.";
-    			eText="Good, I will write your name down as "..GuildRanklist[Factionvalues.rankGuild].eusage.." in the guild "..GuildNameEList[Factionvalues.gid][1];
-            	Factionvalues = BF_put(originator,Factionvalues); --write faction values
-				world:erase(decree[1],1); --deletes 1 decree
-			elseif decree[1].quality == 751 then -- unban decree
-			
-				if (Factionvalues[DigitToIndex[decree[1].data + RANK_OFFSET]] == 0) then --really banned in the town?
-					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun könnt ihr Bürger dieser Stadt werden wenn Ihr es wollt.";
-					eText = "You're now deleted from the banned register, now you can join this town as citizen, if you want.";
-					Factionvalues[DigitToIndex[decree[1].data+RANK_OFFSET]] = 1; --set rank to 1
-					Factionvalues = BF_put(originator,Factionvalues); --write faction values
-					world:erase(decree[1],1);
-				else
-					gText = "Ihr seid in dieser Stadt nicht verbannt!";
-					eText = "You're not banned in this town!";
-				end
-			else
-				gText="Dieses Dekret ist nicht einlösbar";
-				eText="This decree is not exchangeable";
-			end
-			
-			outText=base.common.GetNLS(originator,gText,eText);
-			originator:inform(outText);
-			thisNPC:talk(CCharacter.say, outText);
-			return;
-	else
-			gText="Es tut mir leid, aber ihr habt kein Dekret bei euch!";
-			eText="I'm sorry but you have no decree with you!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
-			originator:inform(outText);
-			return;
-	end
-end
 
 function CalcSilverCopper(CAmount)
     local GAmount=math.floor(CAmount/10000);
@@ -636,4 +536,108 @@ function Pay(User,Gold,Silber,Kupfer)
     elseif (PayKupfer<0) then
         User:createItem(KupferID,PayKupfer*(-1),333,0);
     end
+end
+
+
+
+--[[
+    makeCharMemberOfTown
+	makes the char citizen of the town//or leader if the char is a gm
+    @param originator -- the PlayerStruct
+    @param Factionvalues -- the List with the Factionvalues of the Char
+    @param theRank(number) -- the rank the char shall get in the town
+]]
+function makeCharMemberOfTown(originator,Factionvalues,theRank, theTown)
+	if theRank==leaderRank then --make char to leader of this town
+		Factionvalues.tid = theTown; --make him member of this town
+		Factionvalues.rankTown = leaderRank; --give him the leader rank
+		Factionvalues = BF_put_Faction(originator,Factionvalues);
+		return;
+
+	elseif theRank==citizenRank then --make char to citizen
+		if (Factionvalues.tid == theTown) then --already citizen
+		 	gText="Ihr seid bereits Bürger dieser Stadt!";
+			eText="You're already citizen of this town!";
+			outText=base.common.GetNLS(originator,gText,eText);
+            thisNPC:talk(CCharacter.say, outText);
+			return;
+		end
+
+		local GAmount, SAmount,CAmount = CalcSilverCopper(100*PriceListForTownChange[Factionvalues.towncnt]);
+		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
+		 	gText="Ihr habt nicht genug Geld dabei!";
+			eText="You don't have enough money with you!";
+			outText=base.common.GetNLS(originator,gText,eText);
+            thisNPC:talk(CCharacter.say, outText);
+			return;
+		end
+		
+		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= --remove 80 rankpoints in old town
+		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] -80;
+		Factionvalues.tid = theTown; --set new Town ID
+		
+		Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ]= 
+		     Factionvalues[ DigitToIndex[Factionvalues.tid+RANKPOINTS_OFFSET] ] +20;--add 20 rankpoints for new town
+				
+		if Factionvalues.towncnt ~=9 then Factionvalues.towncnt = Factionvalues.towncnt+1; end -- raise the town counter
+		Factionvalues = BF_put_Faction(originator,Factionvalues); --write Factionvalues in Questprogress
+		Pay(originator,GAmount,SAmount,CAmount); --take money
+
+		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
+		eText="You're now registered as citizen of this town.";
+		outText=base.common.GetNLS(originator,gText,eText);
+        thisNPC:talk(CCharacter.say, outText);
+	end
+	return;
+end
+
+
+--[[
+    deleteDecree
+	Exchanges a decree against guild membership etc., 
+    @param originator -- the PlayerStruct
+]]
+function deleteDecree(originator)
+	if not ((originator:countItem(3110))==0) then --does he really have decrees
+			Factionvalues = BF_get(originator); --read faction values
+			  decree= originator:getItemList(3110); --get a list of decrees
+
+			if decree[1].quality == 750 then --guild decree
+
+				Factionvalues.rankGuild = math.floor(decree[1].data/100); -- the rank in the Guild(1 digit)
+				Factionvalues.gid	    = (decree[1].data - Factionvalues.rankGuild*100);-- the Guild ID(2 digits(10-99))
+
+				gText="Gut, ich werde euch als "..GuildRanklist[Factionvalues.rankGuild].gusage.." in der Gilde "..GuildNameGList[Factionvalues.gid][1].." eintragen.";
+    			eText="Good, I will write your name down as "..GuildRanklist[Factionvalues.rankGuild].eusage.." in the guild "..GuildNameEList[Factionvalues.gid][1];
+            	Factionvalues = BF_put(originator,Factionvalues); --write faction values
+				world:erase(decree[1],1); --deletes 1 decree
+			elseif decree[1].quality == 751 then -- unban decree
+			
+				if (Factionvalues[DigitToIndex[decree[1].data + RANK_OFFSET]] == 0) then --really banned in the town?
+					gText = "Ihr wurdet aus der Verbanntenliste gestrichen, nun könnt ihr Bürger dieser Stadt werden wenn Ihr es wollt.";
+					eText = "You're now deleted from the banned register, now you can join this town as citizen, if you want.";
+					Factionvalues[DigitToIndex[decree[1].data+RANK_OFFSET]] = 1; --set rank to 1
+					Factionvalues = BF_put(originator,Factionvalues); --write faction values
+					world:erase(decree[1],1);
+				else
+					gText = "Ihr seid in dieser Stadt nicht verbannt!";
+					eText = "You're not banned in this town!";
+				end
+			else
+				gText="Dieses Dekret ist nicht einlösbar";
+				eText="This decree is not exchangeable";
+			end
+			
+			outText=base.common.GetNLS(originator,gText,eText);
+			originator:inform(outText);
+			thisNPC:talk(CCharacter.say, outText);
+			return;
+	else
+			gText="Es tut mir leid, aber ihr habt kein Dekret bei euch!";
+			eText="I'm sorry but you have no decree with you!";
+			outText=base.common.GetNLS(originator,gText,eText);
+            thisNPC:talk(CCharacter.say, outText);
+			originator:inform(outText);
+			return;
+	end
 end
