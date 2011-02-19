@@ -975,7 +975,6 @@ mainNPC:setAutoIntroduceMode(true);
 
 --------------explicit notary stuff----------
 npctown = 1;--town is standing in cadomyr
-base.factions.NpcLocation[thisNPC.id] = npctown;
 flag = {};
 -------------------------------------
 
@@ -1024,7 +1023,7 @@ function mainTask(texttype,message,originator)
 	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
 			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
 
-				base.factions.makeCharMemberOfTown(originator,Factionvalues,1); --rank citizen
+				base.factions.makeCharMemberOfTown(originator,Factionvalues,1, npctown); --rank citizen
 				flag[originator.id] = nil;
 				return true;
 
