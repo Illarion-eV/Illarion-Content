@@ -996,11 +996,11 @@ initNpc = nil;
 
 function mainTask(texttype,message,originator)
 	Factionvalues = base.factions.BF_get(originator);
-
+	originator:inform("Bla1");
 	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
-
+           	originator:inform("Bla2");
 			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
@@ -1043,6 +1043,7 @@ function mainTask(texttype,message,originator)
 				return true;
 
 	elseif string.find(message,"[Ee]ntbannungsdekret")~=nil or string.find(message,"[Uu]nban.+[Dd]ecree")~=nil then
+            originator:inform("Bla3");
 			if (Factionvalues.rankTown == leaderRank) then --if Character is leader in this town
 
 				originator:createItem(3110,1,751,Factionvalues.tid);	--town id stored in the data
