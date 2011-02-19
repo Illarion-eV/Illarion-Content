@@ -522,13 +522,15 @@ function deleteDecree(originator)
 			end
 			
 			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(CCharacter.say, outText);
+			originator:inform(outText);
+			thisNPC:talk(CCharacter.say, outText);
 			return;
 	else
 			gText="Es tut mir leid, aber ihr habt kein Dekret bei euch!";
 			eText="I'm sorry but you have no decree with you!";
 			outText=base.common.GetNLS(originator,gText,eText);
             thisNPC:talk(CCharacter.say, outText);
+			originator:inform(outText);
 			return;
 	end
 end
