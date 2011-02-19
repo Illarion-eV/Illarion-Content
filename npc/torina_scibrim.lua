@@ -1002,14 +1002,14 @@ function mainTask(texttype,message,originator)
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
 
 			originator:inform("Npc location:");
-			if NpcLocation[thisNPC.id] == 1 then originator:inform("1");
-			elseif NpcLocation[thisNPC.id] == 2 then originator:inform("2");
-			elseif NpcLocation[thisNPC.id] == 3 then originator:inform("3");
+			if base.factions.NpcLocation[thisNPC.id] == 1 then originator:inform("1");
+			elseif base.factions.NpcLocation[thisNPC.id] == 2 then originator:inform("2");
+			elseif base.factions.NpcLocation[thisNPC.id] == 3 then originator:inform("3");
 			else originator:inform("0"); end
 
-			if outcastRank == 0 then originator:inform("000"); end
+			if base.factions.outcastRank == 0 then originator:inform("000"); end
 
-			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
+			if (Factionvalues[base.factions.NpcLocation[thisNPC.id]+base.factions.RANK_OFFSET] == base.factions.outcastRank) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
 				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
@@ -1031,7 +1031,7 @@ function mainTask(texttype,message,originator)
 	elseif (string.find(message,"[Jj]a")~=nil or string.find(message,"[Ss]icher")~=nil or
 			string.find(message,"[Yy]es")~=nil or string.find(message,"[Ss]ure")~=nil) and (flag[originator.id] == 0) then
 
-				base.factions.makeCharMemberOfTown(originator,Factionvalues,citizenRank);
+				base.factions.makeCharMemberOfTown(originator,Factionvalues,base.factions.citizenRank);
 				flag[originator.id] = nil;
 				return true;
 
