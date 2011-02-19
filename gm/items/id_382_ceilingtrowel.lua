@@ -35,8 +35,8 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 					
 					Factionvalues = base.factions.get(TargetCharacter); --get rankpoints
 						
-					Factionvalues[ rp_index(CheckTown)]=
-					     		Factionvalues[ rp_index(CheckTown) ] +value; --add or remove rankpoints
+					Factionvalues[ base.factions.rp_index(CheckTown)]=
+					     		Factionvalues[ base.factions.rp_index(CheckTown) ] +value; --add or remove rankpoints
 							
 					base.factions.put(TargetCharacter,Factionvalues); --save rankpoints
 				--	LogGMAction(User,User.name.."("..User.id..") added "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..TargetCharacter.name.."("..TargetCharacter.id..")");
@@ -64,7 +64,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 				local CheckTown = CheckTownTrigger(User);
 				if CheckTown > 0 then
 					Factionvalues = base.factions.get(TargetCharacter); --get Rank
-					Factionvalues[r_index(CheckTown)] = value; --set rank to value
+					Factionvalues[base.factions.r_index(CheckTown)] = value; --set rank to value
 					Factionvalues = base.factions.put(TargetCharacter,Factionvalues); --write faction values
 					User:inform(TargetCharacter.name.." has now the rank "..value.." in "..TownNameGList[CheckTown][1]);
 				
@@ -448,8 +448,8 @@ function ChangeRankpoints(User, Counter, Increase,value)
 			 for i, player in pairs(player_list) do
 			    Factionvalues = base.factions.get(player_list[i]); --get rankpoints
 				
-				Factionvalues[ rp_index(CheckTown) ]=
-		     		Factionvalues[ rp_index(CheckTown) ] +value; --add or remove rankpoints
+				Factionvalues[ base.factions.rp_index(CheckTown) ]=
+		     		Factionvalues[ base.factions.rp_index(CheckTown) ] +value; --add or remove rankpoints
 				
 				base.factions.put(player_list[i],Factionvalues); --save rankpoints
 		--		LogGMAction(User,User.name.."("..User.id..")"..text.." "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..player_list[i].name.."("..player_list[i].id..")");

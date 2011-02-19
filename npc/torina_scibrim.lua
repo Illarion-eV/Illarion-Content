@@ -1001,7 +1001,7 @@ function mainTask(texttype,message,originator)
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
 
-			if (Factionvalues[r_index(npctown)] == 0) then
+			if (Factionvalues[base.factions.r_index(npctown)] == 0) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
 				eText="You're outcasted from this town, you need to show me first a signed unban decree of the queen to sign you in in the citizen list.";
