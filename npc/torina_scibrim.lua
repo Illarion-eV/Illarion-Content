@@ -975,6 +975,7 @@ mainNPC:setAutoIntroduceMode(true);
 
 --------------explicit notary stuff----------
 npctown = 1;--town is standing in cadomyr
+base.factions.NpcLocation[thisNPC.id] = npctown;
 flag = {};
 -------------------------------------
 
