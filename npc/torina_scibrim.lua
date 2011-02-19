@@ -1000,8 +1000,15 @@ function mainTask(texttype,message,originator)
 	if (string.find(message,"[Bb]ürger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Cc]itizen")~=nil or
 		   string.find(message,"[Bb]uerger.+werden")~=nil or string.find(message,"[Bb]ecome.+[Mm]ember.+[Tt]own")~=nil or
 		   string.find(message,"[Mm]itglied.+Stadt")~=nil) then
-			originator:inform("Bla");
-			originator:inform(RANK_OFFSET);
+
+			originator:inform("Npc location:");
+			if NpcLocation[thisNPC.id] == 1 then originator:inform("1");
+			elseif NpcLocation[thisNPC.id] == 2 then originator:inform("2");
+			elseif NpcLocation[thisNPC.id] == 3 then originator:inform("3");
+			else originator:inform("0"); end
+
+			if outcastRank == 0 then originator:inform("000"); end
+
 			if (Factionvalues[NpcLocation[thisNPC.id]+RANK_OFFSET] == outcastRank) then
 			--OUTCASTED CHAR CHECK
 			 	gText="Ihr seid aus der Stadt verbannt, ihr müsst mir erst ein unterschriebenes Entbannungsdekret der Königin vorzeigen damit ich Euch in die Bürgerliste eintragen kann.";
