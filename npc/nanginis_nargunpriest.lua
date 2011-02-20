@@ -23,7 +23,24 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
+require("base.common")
 module("npc.nanginis", package.seeall)
+
+function RandomStart(thisNPC)
+	local r = math.random(0,100);
+	if (r<99) then
+		return;
+	end
+										  --cadomyr,                                                 (runewick),                     galmair and so on
+	local PossiblePositions = { position(123,567,0),position(94,573,0),position(127,598,0), position(371,257,0) , position(407,350,0), position(396,304,0) };
+	local rand=math.random(table.getn(PossiblePositions));
+
+	thisNPC:warp(PossiblePositions[rand]);
+	thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Nargun sei gepriesen, da bin ich!");
+	thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Praise Nargun, here I am!");
+
+end
+
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -1191,13 +1208,282 @@ mainNPC:setEquipment(9, 822);
 mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
+RandomStart(thisNPC);
+
 mainNPC:initDone();
 end;
 
-function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
-function nextCycle() mainNPC:nextCycle(); end;
+function receiveText(texttype, message, originator) 
+	if not mainTask(texttype,message,originator) then
+		mainNPC:receiveText(originator, message);
+	end 
+end;
+
+function nextCycle() 
+
+	if startPrayer then
+		if i==10 then
+			gText="#me streckt seine Arme nach links und rechts aus so weit er kann.";
+			eText="#me widens his arms as much as he can.";
+			thisNPC:talkLanguage(CCharacter.say,CPlayer.german,gText);
+			thisNPC:talkLanguage(CCharacter.say,CPlayer.english,eText);
+		elseif i==40 then
+		  	gText="Ich hab mal einen Fisch gefangen, der war SO GROß!"	
+			eText="Once I cought a fish THIS BIG!"
+			outText=base.common.GetNLS(User,gText,eText);
+            thisNPC:talk(CCharacter.say, outText);
+		elseif i==70 then --some sound and graphic
+			thePosition=base.common.GetFrontPosition(thisNPC);
+			world:gfx(45,thePosition);
+			world:makeSound(5,thePosition);
+		elseif i==90 then
+			GiveHimSomething();
+			base.common.InformNLS( User, "#w Vom Licht geblendet nimmst du verschwommen eine Bewegung neben dir wahr. Irgendetwas liegt nun auf dem Boden was vorher noch nicht da lag.",
+								   "#w Blinded by the light you observe a movement next to you with blurred eyes. Something lies on the ground now that has not been there before." );
+		elseif i==120 then
+			gText="Hihihi. Da, ich hoffe du hast bekommen was du wolltest. Es gibt keinen Ersatz, aber versuchs doch nochmal wenn du nicht zufrieden bist. Willst du nochmal?";
+			eText="Hihihi. There, I hope you got what you wanted. Remember, no refunds, but you're welcome to try again if you want. Want to try it again?";
+			outText=base.common.GetNLS(User,gText,eText);
+            thisNPC:talk(CCharacter.say, outText);
+			i=-1;
+			User:setQuestProgress(63,3);
+			startPrayer=false;
+		end
+	i=i+1;
+	end
+	
+	mainNPC:nextCycle(); 
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
+
+function mainTask(texttype,message,originator)
+		User = getCharForId(originator.id);
+		--stops npc.base.autonpcfunctions.walking--
+		currentTalk = User.id;
+		-----------------
+		if string.find(message,"[qQ]uestprogress")~=nil then
+    		User:inform("Questprogress="..User:getQuestProgress(63).."!");
+    	elseif string.find(message,"reset")~=nil then
+			User:setQuestProgress(63,0);
+    		User:inform("Reset done");
+		end
+		
+		if (User:getQuestProgress(63)==3) then
+				EnoughMoney = CheckMoney(User,500);
+				if not startPrayer then --already praying?
+					if string.find(message,"[Nn]ein")~=nil or string.find(message,"[Aa]kzep.+nicht")~=nil or
+					   string.find(message,"[Nn]o"  )~=nil or string.find(message,"I.+not.+accept")~=nil then
+			
+						gText="Pah! Langweiler, hinfort mit euch. Soll euch der Fisch holen.";
+		                eText="Pah! Boring, begone. The fish shall come after you.";
+						outText=base.common.GetNLS(User,gText,eText);
+            			thisNPC:talk(CCharacter.say, outText);
+						User:setQuestProgress(63,2);
+						return true;
+				        	
+					elseif string.find(message,"[Jj]a" )~=nil or string.find(message,"[Aa]kzep" )~=nil or
+					   	   string.find(message,"[Yy]es")~=nil or string.find(message,"[Aa]ccept")~=nil then
+					   
+					    if EnoughMoney then  
+							gText="Sehr schön! Ahja, die Summe stimmt. Dann werde ich sofort beginnen.";
+			                eText="Very good! Ah yes, the sum is correct. I shall begin immediately.";
+							outText=base.common.GetNLS(User,gText,eText);
+            				thisNPC:talk(CCharacter.say, outText);
+							PayTheNPC(User,500);
+							startPrayer=true; --starts the prayer
+							i=0;
+					    elseif not EnoughMoney then
+							gText="Möge Nargun dich kreuzbuckeln! Du hast nicht genug Geld, hinfort mit euch!";
+			                eText="Nargun shall smite you with angerberries! You don't have enough money, begone!";
+							outText=base.common.GetNLS(User,gText,eText);
+            				thisNPC:talk(CCharacter.say, outText);
+							User:setQuestProgress(63,2);
+						end
+					else
+						return false;
+					end
+				else
+					gText="Seht ihr nicht das ich beschäftigt bin? Wartet ein bisschen!";
+	                eText="Can't you see that I'm busy right now? Wait a bit!";
+					outText=base.common.GetNLS(User,gText,eText);
+            		thisNPC:talk(CCharacter.say, outText);
+            		return true;
+				end
+		else
+			return false; 
+		end  
+end
+
+function GiveHimSomething()
+	
+	winvar=math.random(10); -- decides whether the Char wins a magic gem or not
+	data = 0;  --initialize data value
+	thePosition=choosePosition();
+	if (winvar==5 or winvar==6) then --the player wins a gem, lets create Quality and ID
+		StoneList={285,45,46,283,284,197,198};
+		stonevar=math.random(7);
+		ItemID=StoneList[stonevar]; --the player gets the stone with the ItemID...
+
+		datavar=math.random(57);  --chooses the data(~quality of the magical gem)
+		if (datavar>=1 and datavar <=8) then
+			data=1;
+		elseif (datavar>=9 and datavar <=17) then
+			data=2;
+		elseif (datavar>=18 and datavar <=27) then
+			data=3;
+		elseif (datavar>=28 and datavar <=36) then
+			data=4;
+		elseif (datavar>=37 and datavar <=42) then
+			data=5;
+		elseif (datavar>=43 and datavar <=47) then
+			data=6;
+		elseif (datavar>=48 and datavar <=51) then
+			data=7;
+		elseif (datavar>=52 and datavar <=54) then
+			data=8;
+		elseif (datavar>=55 and datavar <=56) then
+			data=9;
+		elseif (datavar==57) then
+			data=10;
+		end
+		theItem=world:createItemFromId(ItemID,1,thePosition,true,333,data);
+		theItem.wear = 6;
+		world:changeItem(theItem);
+		
+	else
+		if winvar==4 then    --pigs,wasps,sheeps,cows, deers and rabbits
+				MonsterList={292,122,124,291,293,294,295,296};
+				monsterID=MonsterList[math.random(8)];
+				world:createMonster(monsterID,thePosition,2)
+				--create Tier
+		else
+			ItemList={2,5,6,9,15,16,21,23,26,34,35,49,50,51,53,73,74,75,80,86,95,96,101,118,119,155,159,168,172,201,202,220,224,225,
+					  227,236,266,276,290,292,206,315,319,325,333,335,337,353,355,356,372,385,506,516,559,694,735,1844,1853,1857,
+					  2278,2295,2588,2664,2744,2745,2746,2760,2850,2863,2916,3100};     --72 items
+			ItemID=ItemList[math.random(72)];
+			theItem=world:createItemFromId(ItemID,1,thePosition,true,222,data);
+			theItem.wear = 1; --lets the item rot really fast (2 server rot cycles needed)
+			world:changeItem(theItem);
+			
+		end	
+
+	end
+end
+
+function CalcSilverCopper(CAmount)
+    local GAmount=math.floor(CAmount/10000);
+    local SAmount=math.floor((CAmount-GAmount*10000)/100);
+    local CAmount=CAmount-(SAmount*100+GAmount*10000);
+    return GAmount,SAmount,CAmount
+end
+
+-- Geldprüfung
+-- Return 1 (bool) genug Geld - nicht genug Geld
+function CheckMoney(User,Gold,Silber,Kupfer)
+    local UserGold=User:countItem(61);
+    local UserSilber=User:countItem(3077);
+    local UserKupfer=User:countItem(3076);
+    local Amount=(Gold*10000)+(Silber*100)+Kupfer;
+    local UserAmount=(UserGold*10000)+(UserSilber*100)+UserKupfer;
+    if (Amount<=UserAmount) then
+        return true
+    else
+        return false
+    end
+end
+
+-- Bezahlen Funktion
+-- Versucht Silber/Kupfermünzen passend zu nehmen
+-- Wenn nicht möglich: Weicht auf andere Münzen aus
+
+-- Folgende Liste wird nicht korrekt zurückgegeben (Gold fehlt). Die ts-Version hat sie nicht (Schlamperei).  An Vilarion wenden(dalli).
+-- Return 1: Liste {Bezahltes Silber (int), Bezahltes Kupfer (int)}
+function Pay(User,Gold,Silber,Kupfer)
+
+    local GoldID=61;
+    local SilberID=3077;
+    local KupferID=3076;
+    local PayGold=0;
+    local PaySilber=0;
+    local PayKupfer=0;
+    local MissGold=Gold;
+    local MissSilber=Silber;
+    local MissKupfer=Kupfer;
+    local UserGold=User:countItem(GoldID);
+    local UserSilber=User:countItem(SilberID);
+    local UserKupfer=User:countItem(KupferID);
+    local Amount=(Gold*10000)+(Silber*100)+Kupfer;
+    local GoldAlsKupfer=0;
+    local SilberAlsKupfer=0;
+    local GoldAlsSilber=0;
+
+    GoldAlsKupfer = math.min( MissGold, math.floor( UserKupfer/10000 ) );
+    PayKupfer = GoldAlsKupfer * 10000;
+    MissGold = MissGold - GoldAlsKupfer;
+    UserKupfer = UserKupfer - PayKupfer;
+
+    GoldAlsKupfer = math.floor( UserKupfer/100 );
+    GoldAlsSilber = 100 - GoldAlsKupfer;
+    if ((MissGold > 0) and (GoldAlsKupfer > 0) and (UserSilber >= GoldAlsSilber)) then
+        PayKupfer = PayKupfer + 100 * GoldAlsKupfer;
+        PaySilber = PaySilber + GoldAlsSilber;
+        MissGold = MissGold - 1;
+        UserKupfer = UserKupfer - 100 * GoldAlsKupfer;
+        UserSilber = UserSilber - GoldAlsSilber;
+    end;
+
+    SilberAlsKupfer = math.min( MissSilber, math.floor( UserKupfer/100 ) );
+    PayKupfer = PayKupfer + SilberAlsKupfer * 100;
+    MissSilber = MissSilber - SilberAlsKupfer;
+    UserKupfer = UserKupfer - SilberAlsKupfer * 100;
+
+    if (UserKupfer >= MissKupfer) then
+        PayKupfer = PayKupfer + MissKupfer;
+    else
+        MissSilber = MissSilber + 1;
+        PayKupfer = PayKupfer + MissKupfer - 100;
+    end;
+
+    GoldAlsSilber = math.min( MissGold, math.floor( UserSilber/100 ) );
+    PaySilber = PaySilber + GoldAlsSilber * 100;
+    MissGold = MissGold - GoldAlsSilber;
+    UserSilber = UserSilber - GoldAlsSilber * 100;
+
+    if (UserSilber >= MissSilber) then
+        PayGold = MissGold;
+        PaySilber = PaySilber + MissSilber;
+    else
+        PayGold = MissGold + 1;
+        PaySilber = PaySilber + MissSilber - 100;
+    end;
+
+
+    if (PayGold>0) then
+        User:eraseItem(GoldID,PayGold);
+    end
+    if (PaySilber>0) then
+        User:eraseItem(SilberID,PaySilber);
+    elseif (PaySilber<0) then
+        User:createItem(SilberID,PaySilber*(-1),333,0);
+    end
+    if (PayKupfer>0) then
+        User:eraseItem(KupferID,PayKupfer);
+    elseif (PayKupfer<0) then
+        User:createItem(KupferID,PayKupfer*(-1),333,0);
+    end
+end
+
+function choosePosition()   --checks whether a character or item is on a field and looks for a new free field else chooses a field by random
+	FrontPos=base.common.GetFrontPosition(thisNPC); thePosition=FrontPos; z=thisNPC.pos.z;
+	if (world:isCharacterOnField(thePosition) or world:isItemOnField(thePosition)) then thePosition=position(FrontPos.x-1,FrontPos.y,z); end
+	if (world:isCharacterOnField(thePosition) or world:isItemOnField(thePosition)) then thePosition=position(FrontPos.x+1,FrontPos.y,z); end
+	if (world:isCharacterOnField(thePosition) or world:isItemOnField(thePosition)) then thePosition=position(thisNPC.pos.x+1,thisNPC.pos.y,z); end
+	if (world:isCharacterOnField(thePosition) or world:isItemOnField(thePosition)) then thePosition=position(thisNPC.pos.x-1,thisNPC.pos.y,z); end	
+	return thePosition;
+end
+
+
 initNpc();
 initNpc = nil;
 -- END
