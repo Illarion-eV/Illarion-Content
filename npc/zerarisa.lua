@@ -267,6 +267,58 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("I catch fisssh and ssell them to landlingss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Ich fangenss Fischss und verkaufensss Landlinge.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I catch fisssh and ssell them to landlingss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Ich fangenss Fischss und verkaufensss Landlinge.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Zerarisa wished ssshe could dive down to forsssaken issslands!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Zerarisa wünschensss dasss könnensss tauchen tief zssu verwunsschen Inselsss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("We all equalsss for the mother.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Wir sssinds alle gleich in Angesichtsss der Mutter.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fisher");
 talkEntry:addResponse("I catch fisssh and ssell them to landlingss.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -292,9 +344,37 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Hexenss sindss, Magier sindss. Runewick bössse!");
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,9 +386,29 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zahlenss gut, zahlenss pünktlich. Galmair gutss!");
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Hexenss sindss, Magier sindss. Runewick bössse!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,9 +420,43 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zss, Zerarisa lebenss hier. Königin gerecht, Königin hübschss, nicht wahr?");
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Zahlenss gut, zahlenss pünktlich. Galmair gutss!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,6 +464,101 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Zss, Zerarisa living here. Queen jussst, queen pretty, isss not ssshe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Zss, Zerarisa lebenss hier. Königin gerecht, Königin hübschss, nicht wahr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addTrigger("Zelphia");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -732,6 +961,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Have you the five roasst trout? Catch five trout and smoke them at an oven.");
+talkEntry:addResponse("Zerarisa ssstill waitss for roasst trout, sshe wantss five.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -741,6 +971,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Habenss fünf geräuchertss Forellenss? Fangenss und räuchernss in Räuchehütte.");
+talkEntry:addResponse("Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,6 +981,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addResponse("Have you the five roasst trout? Catch five trout and cook them at an oven.");
+talkEntry:addResponse("Zerarisa ssstill waitss for roasst trout, sshe wantss five.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -760,6 +992,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
 talkEntry:addResponse("Habenss fünf geräuchertss Forellenss? Fangenss und räuchernss in Räuchehütte.");
+talkEntry:addResponse("Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,24 +1057,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(455, "all", "<", 5));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(455, "all", "<", 5));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zerarisa ssstill waitss for roasst trout, sshe wantss five.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("job");
@@ -893,6 +1108,7 @@ talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("You findss Henry in Dewy Swampss? He owess me ten piecess of leather.");
+talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -903,6 +1119,7 @@ talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.");
+talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,6 +1128,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addResponse("You findss Henry in Dewy Swampss? He owess me ten piecess of leather.");
+talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -920,6 +1138,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
 talkEntry:addResponse("Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.");
+talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,24 +1199,6 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1))
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zerarisa sstill waitss for leather from Henry in Dewy Swampss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(2547, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
