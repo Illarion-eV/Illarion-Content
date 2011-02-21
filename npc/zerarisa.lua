@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 21, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 46, 686, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (5, 46, 686, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 3, 0, 200, 130, 0, 60, 140, 100);
 ---]]
 
 require("npc.base.basic")
@@ -443,8 +443,10 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Did you get the ten troutss for me yet?");
+talkEntry:addResponse("Zerarisa iss sstill waiting for the troutss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,8 +455,8 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Habenss zssehn Forellen? Nein?");
+talkEntry:addResponse("Zerarisa wartenss auf Forellen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,6 +465,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addResponse("Did you get the ten troutss for me yet?");
+talkEntry:addResponse("Zerarisa iss sstill waiting for the troutss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,6 +475,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addResponse("Habenss zssehn Forellen? Nein?");
+talkEntry:addResponse("Zerarisa wartenss auf Forellen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,7 +499,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
@@ -525,7 +528,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
@@ -536,24 +538,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zerarisa iss sstill waiting for the troutss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zerarisa wartenss auf Forellen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("job");
@@ -605,6 +589,7 @@ talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Twenty ssalmonss for Zerarisa, and you get coinss.");
+talkEntry:addResponse("Zerarisa sstill waitss for her ssalmonss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -615,6 +600,7 @@ talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Zsswanzigs Lachsess, kriegenss Münzssenss.");
+talkEntry:addResponse("Zerarisa immernoch wartenss für Lachsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,6 +609,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addResponse("Twenty ssalmonss for Zerarisa, and you get coinss.");
+talkEntry:addResponse("Zerarisa sstill waitss for her ssalmonss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,6 +619,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addResponse("Zsswanzigs Lachsess, kriegenss Münzssenss.");
+talkEntry:addResponse("Zerarisa immernoch wartenss für Lachsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,7 +643,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
@@ -685,31 +672,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 19));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Fischereifertigkeit steigt."));
 talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "fishing", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zerarisa sstill waitss for her ssalmonss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 20));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Zerarisa immernoch wartenss für Lachsss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1127,13 +1095,13 @@ mainNPC:setLookat("Dieser NPC ist die Fischerin Zerarisa.", "This NPC is the fis
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 803);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(5, 72);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(4, 0);
+mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
