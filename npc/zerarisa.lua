@@ -1095,12 +1095,12 @@ mainNPC:setLookat("Dieser NPC ist die Fischerin Zerarisa.", "This NPC is the fis
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 803);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 810);
+mainNPC:setEquipment(11, 55);
 mainNPC:setEquipment(5, 72);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
-mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(9, 367);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
