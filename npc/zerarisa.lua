@@ -2,7 +2,7 @@
 -- NPC Name: Zerarisa                                                 Cadomyr --
 -- NPC Job:  fisherwoman                                                      --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  46, 686, 0             --
+-- NPC Race: lizardman                  NPC Position:  46, 683, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 46, 686, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 3, 0, 200, 130, 0, 60, 140, 100);
+VALUES (5, 46, 683, 0, 4, 'Zerarisa', 'npc.zerarisa', 1, 3, 0, 200, 130, 0, 60, 140, 100);
 ---]]
 
 require("npc.base.basic")

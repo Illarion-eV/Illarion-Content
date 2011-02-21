@@ -2,7 +2,7 @@
 -- NPC Name: Zerarisa                                                 Cadomyr --
 -- NPC Job:  fisherwoman                                                      --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  46, 686, 0             --
+-- NPC Race: lizardman                  NPC Position:  46, 683, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Zerarisa"
 race = lizardman
 sex = female
-position = 46, 686, 0
+position = 46, 683, 0
 direction = south
 affiliation = "Cadomyr"
 job = "fisherwoman"
