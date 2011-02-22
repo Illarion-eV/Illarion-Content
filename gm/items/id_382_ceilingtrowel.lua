@@ -350,7 +350,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
 			Page = {};
-			Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 7 and use this Item again."
+			Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 8 and use this Item again."
 			Page[1] = "[Faction]: Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0(outcast) - 9(sovereign) ";
 			Page[2] = "[Faction]: Set hometown: \"settown <townname>\"";
 			Page[3] = "[Faction]: Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
@@ -373,8 +373,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         	end
 		elseif (string.find(User.lastSpokenText,"setradius (%d+)")~=nil) then
 			local a,b, radius = string.find(User.lastSpokenText,"setradius (%d+)");
-			if (radius~=nil) then
+			if (radius~=nil and radius>-1 and radius <101) then
 				radius=radius+1-1;
+				User:inform("[Faction]: Radius set on value"..radius)
+			else
+				User:inform("[Faction]: Invalid radius value, only numbers from 0 to 100 allowed!")
 			end
 			
 				
