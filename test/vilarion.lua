@@ -10,14 +10,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     
     if counter == 1 then
         local value;
-        ScriptVariables:find("fancyValue", value);
+        ScriptVars:find("fancyValue", value);
         if value == nil then
             User:inform( "fancyValue is nil" );
         else
             User:inform( "fancyValue: "..value );
         end;
     else
-        ScriptVariables:set("fancyValue", counter);
+        ScriptVars:set("fancyValue", counter);
     end;
 
 
