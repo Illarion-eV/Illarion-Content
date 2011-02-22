@@ -152,8 +152,14 @@ function initializeNpc()
 end
 
 function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
+-- DO NOT LEAVE NPCS RUNNING ON THE TESTSERVER WITH ERRORS IN NEXTCYCLE!
+
+-- Tue Feb 22 15:13:40 2011: ...ervers/testserver/scripts/npc/frederik_silvereye.lua:129: attempt to call field 'BF_setLocation' (a nil value)
+-- #1 called by: ...ervers/testserver/scripts/npc/frederik_silvereye.lua:129(global initializeNpc)
+-- #2 called by: ...ervers/testserver/scripts/npc/frederik_silvereye.lua:155
+
+    -- initializeNpc();
+    -- npc.base.autonpcfunctions.SpeakerCycle();
 end
 
 function receiveText(texttype, message, originator)
