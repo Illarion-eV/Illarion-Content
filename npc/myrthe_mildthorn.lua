@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 784, 772, 0, 4, 'Myrthe Mildthorn', 'npc.myrthe_mildthorn', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (2, 784, 772, 0, 4, 'Myrthe Mildthorn', 'npc.myrthe_mildthorn', 1, 2, 5, 205, 133, 63, 238, 195, 153);
 ---]]
 
 require("npc.base.basic")
@@ -1026,12 +1026,12 @@ mainNPC:setLookat("Dieser NPC ist das Waschweib Myrthe Mildthorn.", "This NPC is
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(3, 818);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(5, 72);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 824);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
