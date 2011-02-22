@@ -9,21 +9,7 @@ module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.l
 function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 	Init();
 	if SourceItem.data==2 then --faction system trowel  
-		if string.find(User.lastSpokenText,"info") then
-			-- print some infos
-			local info = base.factions.get_Faction(TargetCharacter);
-			local townName = "None";
-			if info.tid == 1 then
-				townName = "Cadomyr";
-			elseif info.tid == 2 then
-				townName = "Runewick";
-			elseif info.tid == 3 then
-				townName = "Galmair";
-			end
-			local txt = "#w Member of: ".. townName .." (".. info.tid .."); times changed: ".. info.towncnt .."; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
-			User:inform(txt);
-		
-		elseif (string.find(User.lastSpokenText,"addpoints")~=nil or string.find(User.lastSpokenText,"removepoints")~=nil) then --add rankpoints to TargetChar
+		if (string.find(User.lastSpokenText,"addpoints")~=nil or string.find(User.lastSpokenText,"removepoints")~=nil) then --add rankpoints to TargetChar
             a,b,value = string.find(User.lastSpokenText,"(%d+)");
             value=value+1-1;
 			if (value<101 and value>-1) then	    	
@@ -90,6 +76,20 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			else
                 User:inform("Failed changing Guild rank: town rank can be 0-2")
 			end			
+		else
+			-- print some infos
+			local info = base.factions.get_Faction(TargetCharacter);
+			local townName = "None";
+			if info.tid == 1 then
+				townName = "Cadomyr";
+			elseif info.tid == 2 then
+				townName = "Runewick";
+			elseif info.tid == 3 then
+				townName = "Galmair";
+			end
+			local txt = "#w "..TargetCharacter.name.." is member of ".. townName .." (".. info.tid .."); He changed his hometown ".. info.towncnt .." times; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
+			User:inform(txt);
+
 		end
 	else
 		User:setAttrib("strength",TargetCharacter:increaseAttrib("strength",0));
