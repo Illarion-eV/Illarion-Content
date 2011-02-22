@@ -1289,7 +1289,7 @@ function mainTask(texttype,message,originator)
 			                eText="Very good! Ah yes, the sum is correct. I shall begin immediately.";
 							outText=base.common.GetNLS(User,gText,eText);
             				thisNPC:talk(CCharacter.say, outText);
-							Pay(User,500);
+							Pay(User,G,S,C);
 							startPrayer=true; --starts the prayer
 							i=0;
 					    elseif not EnoughMoney then
