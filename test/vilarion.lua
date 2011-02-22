@@ -8,7 +8,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    local item = User:getBackPack():viewItemNr(2);
+    local found, item = User:getBackPack():viewItemNr(2);
     item.id = 100;
     world:changeItem(item);
 
