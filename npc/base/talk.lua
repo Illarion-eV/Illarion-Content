@@ -161,7 +161,7 @@ function talkNPCEntry:execute(player)
         local selectedResponse = math.random(1, self._responsesCount);
 
 		if (string.find(self._responses[selectedResponse],"%CHARNAME")~=nil) then
-			string.gsub (self._responses[selectedResponse], "%CHARNAME", player.name)
+			self._responses[selectedResponse]= string.gsub (self._responses[selectedResponse], "%CHARNAME", player.name)
 		end
 
 		thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
