@@ -159,7 +159,12 @@ end;
 function talkNPCEntry:execute(player)
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount);
-        thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
+
+		if (string.find(self._responses[selectedResponse],"%CHARNAME")~=nil) then
+			string.gsub (self._responses[selectedResponse], "%CHARNAME", player.name)
+		end
+
+		thisNPC:talk(CCharacter.say, self._responses[selectedResponse]);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
