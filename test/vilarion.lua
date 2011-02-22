@@ -17,7 +17,6 @@ function useNPC(User,counter,param)
 end
 
 function nextCycle()  -- ~10 times per second
-    thisNPC:talk(CCharacter.say, "TALKTEST");
     if test.vilarion.user then
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
