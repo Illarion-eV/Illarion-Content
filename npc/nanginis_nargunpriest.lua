@@ -1220,8 +1220,7 @@ function receiveText(texttype, message, originator)
 end;
 
 function nextCycle() 
--- DO NOT LEAVE NPCS RUNNING ON THE TESTSERVER WITH ERRORS IN NEXTCYCLE!
---[[
+
 	if startPrayer then
 		if i==10 then
 			gText="#me streckt seine Arme nach links und rechts aus so weit er kann.";
@@ -1254,8 +1253,6 @@ function nextCycle()
 	end
 	
 	mainNPC:nextCycle(); 
-	
-	]]
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
