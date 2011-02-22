@@ -124,7 +124,7 @@ itemShoes = 326
 "Vision", english -> "Yes! It only took 10 mugs of dwarven ale to please Nargun and make him speak to me. I still got that foul taste on my tongue!"
 "Nargun", "Nargún", "Nargùn", english -> "Ahh! Bless his name, we're close friends, you know. But that's what being a 'priest' is all about anyway."
 "Fisch" -> inform("Du fragst dich was er wohl damit meint."), "Oh ja! Mein 'Herr' liebt Fisch! Und 'Schneestürme'!", "Fisch ist die Antwort, alles 'Chaos' leitet sich aus dem Fisch ab!"
-"Schneest[uü]rm", "Chaos" -> "Nichts erfreut meinen Herren 'Nargun' mehr als etwas unvorhersehbare unbändige Zerstörung, nicht wahr? Hihihi.", "ENGLISH2.", "ENGLISH3."
+"Schneest[uü]rm", "Chaos" -> "Nichts erfreut meinen Herren 'Nargun' mehr als etwas unvorhersehbare unbändige Zerstörung, nicht wahr? Hihihi."
 "Herr", "Gott" -> "Gepriesen sei mein Herr 'Nargun'! Oder auch nicht, oder anders, oder überhaupt."
 "Priester" -> "In der Tat! Ich bin ein Priester meines Gottes, für eine kleine Spende lass ich dich an seinem 'Segen' teilhaben, wie siehts aus?"
 "Vision" -> "Ja! Es hat nur 10 Krüge Zwergenbräu gebraucht um 'Nargun' gnädig zu stimmen mit mir zu sprechen. Der bittere Geschmack liegt mir noch immer auf der Zunge!"

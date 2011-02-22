@@ -611,8 +611,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schneest[uü]rm");
 talkEntry:addTrigger("Chaos");
 talkEntry:addResponse("Nichts erfreut meinen Herren 'Nargun' mehr als etwas unvorhersehbare unbändige Zerstörung, nicht wahr? Hihihi.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1270,7 +1268,8 @@ function mainTask(texttype,message,originator)
 		end
 		
 		if (User:getQuestProgress(63)==3) then
-				EnoughMoney = CheckMoney(User,500);
+				local G,S,C = CalcSilverCopper(500)
+				EnoughMoney = CheckMoney(User,G,S,C);
 				if not startPrayer then --already praying?
 					if string.find(message,"[Nn]ein")~=nil or string.find(message,"[Aa]kzep.+nicht")~=nil or
 					   string.find(message,"[Nn]o"  )~=nil or string.find(message,"I.+not.+accept")~=nil then

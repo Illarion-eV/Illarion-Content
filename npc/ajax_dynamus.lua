@@ -108,10 +108,10 @@ function init()
     --myOrderNPC.orderPool.timemodifikators = { {9,11},{8,9},{7,9},{5,7},{3,5} };
     --myOrderNPC.orderPool.valuelossfortime = { {300,300},{200,400},{150,500},{100,600},{100,800} };
 	
-	myOrderNPC:setEquipment(3, 4);
-	myOrderNPC:setEquipment(5, 23);
-	myOrderNPC:setEquipment(9, 326);
-	myOrderNPC:setEquipment(11, 2377);
+	--myOrderNPC:setEquipment(3, 4);
+	--myOrderNPC:setEquipment(5, 23);
+	--myOrderNPC:setEquipment(9, 326);
+	--myOrderNPC:setEquipment(11, 2377);
 end
 
 function initializeNpc()
