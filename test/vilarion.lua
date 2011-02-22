@@ -7,8 +7,21 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
     end;
+    
+    if counter == 1 then
+        local value;
+        ScriptVariables:find("fancyValue", value);
+        if value == nil then
+            User:inform( "fancyValue is nil" );
+        else
+            User:inform( "fancyValue: "..value );
+        end;
+    else
+        ScriptVariables:set("fancyValue", counter);
+    end;
 
-    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+
+    -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
 
 end
 
