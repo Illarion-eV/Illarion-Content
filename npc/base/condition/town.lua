@@ -13,5 +13,5 @@ function(self, value)
 end);
 
 function _town_helper_equal(self, player)
-    return (base.factions.BF_get_Faction(player).tid == self.value);
+    return (base.factions.get_Faction(player).tid == self.value);
 end;
