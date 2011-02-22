@@ -7,7 +7,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("e-Vil says: You are not allowed to use this!");
         return;
     end;
-    
+
+    local item = User:getBackPack():viewItemNr(2);
+    item.id = 100;
+    world:changeItem(item);
+
+    --[[    
     if counter == 1 then
         local found, value;
         found, value = ScriptVars:find("fancyValue");
@@ -19,7 +24,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     else
         ScriptVars:set("fancyValue", counter);
     end;
-
+    --]]
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
 
