@@ -9,12 +9,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     end;
     
     if counter == 1 then
-        local value;
-        ScriptVars:find("fancyValue", value);
-        if value == nil then
-            User:inform( "fancyValue is nil" );
-        else
+        local found, value;
+        found, value = ScriptVars:find("fancyValue");
+        if found then
             User:inform( "fancyValue: "..value );
+        else
+            User:inform( "fancyValue is nil" );
         end;
     else
         ScriptVars:set("fancyValue", counter);
