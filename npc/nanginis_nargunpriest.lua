@@ -24,7 +24,7 @@ require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 require("base.common")
-module("npc.nanginis", package.seeall)
+module("npc.nanginis_nargunpriest", package.seeall)
 
 function RandomStart(thisNPC)
 	local r = math.random(0,100);
