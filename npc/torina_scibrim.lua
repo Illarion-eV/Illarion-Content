@@ -989,7 +989,9 @@ function receiveText(texttype, message, originator)
 
 end;
 
-function nextCycle() mainNPC:nextCycle(); end;
+function nextCycle() 
+-- mainNPC:nextCycle();
+end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
