@@ -26,10 +26,10 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 							
 					base.factions.put(TargetCharacter,Factionvalues); --save rankpoints
 				--	LogGMAction(User,User.name.."("..User.id..") added "..value.." Rankpoints for "..TownNameGList[CheckTown][1].." to the Player"..TargetCharacter.name.."("..TargetCharacter.id..")");
-			    	User:inform("Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." to the Player "..TargetCharacter.name);
+			    	User:inform("[Faction]: Added "..value.." rankpoints to "..TownNameGList[CheckTown][1].." to the Player "..TargetCharacter.name);
 				end
             else
-                User:inform("Failed adding rankpoints: rankpoint range can be 0-100")
+                User:inform("[Faction]: Failed adding rankpoints: rankpoint range can be 0-100")
 			end
 			
     	elseif (string.find(User.lastSpokenText,"settown")~=nil) then --set hometown of TargetChar
@@ -41,7 +41,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 				    base.factions.put(TargetCharacter,Factionvalues); --save changes
 				
 				--	LogGMAction(User,User.name.."("..User.id..") made "..TargetCharacter.name.."("..TargetCharacter.id..") member of the Town "..TownNameGList[CheckTown][1]);
-					User:inform(TargetCharacter.name.." is now member of "..TownNameGList[CheckTown][1]);
+					User:inform("[Faction]: "..TargetCharacter.name.." is now member of "..TownNameGList[CheckTown][1]);
 				end
     	elseif (string.find(User.lastSpokenText,"setrank")~=nil) then --set rank of TargetChar
             a,b,value = string.find(User.lastSpokenText,"(%d+)");
@@ -52,17 +52,17 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 					Factionvalues = base.factions.get(TargetCharacter); --get Rank
 					Factionvalues[base.factions.r_index(CheckTown)] = value; --set rank to value
 					Factionvalues = base.factions.put(TargetCharacter,Factionvalues); --write faction values
-					User:inform(TargetCharacter.name.." has now the rank "..value.." in "..TownNameGList[CheckTown][1]);
+					User:inform("[Faction]: "..TargetCharacter.name.." has now the rank "..value.." in "..TownNameGList[CheckTown][1]);
 				
 				--	LogGMAction(User,User.name.."("..User.id..") set the rank of "..TargetCharacter.name.."("..TargetCharacter.id..") to "..value.." in "..TownNameGList[CheckTown][1]);		
 				end
 			else
-                User:inform("Failed changing rank: town rank can be 0-9")
+                User:inform("[Faction]: Failed changing rank: town rank can be 0-9")
 			end	
     	elseif (string.find(User.lastSpokenText,"setguild")~=nil) then --set rank of TargetChar in Guild
 			a,b,guildid,value=string.find(User.lastSpokenText,"(%d+) (%d+)");
 			guildid = guildid+1-1; value = value+1-1;
-			if (guildid<11 or guildid>99) then User:inform("Failed changing guild rank: guildid out of range, 11-99 only"); return; end
+			if (guildid<11 or guildid>99) then User:inform("[Faction]: Failed changing guild rank: guildid out of range, 11-99 only"); return; end
 			
 			if (value<3 and value >-1) then
 				Factionvalues = base.factions.get(TargetCharacter);
@@ -70,11 +70,11 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 				Factionvalues.rankGuild = value;
 				Factionvalues = base.factions.put(TargetCharacter,Factionvalues); --write faction values
 				
-				User:inform(TargetCharacter.name.." has now the rank "..value.." in the Guild "..GuildNameGList[guildid][1].."(ID: "..guildid..")");
+				User:inform("[Faction]: "..TargetCharacter.name.." has now the rank "..value.." in the Guild "..GuildNameGList[guildid][1].."(ID: "..guildid..")");
 					
 			--	LogGMAction(User,User.name.."("..User.id..") made "..TargetCharacter.name.."("..TargetCharacter.id..") member of the Guild with the ID"..guildid.." and Rank"..value);		
 			else
-                User:inform("Failed changing Guild rank: town rank can be 0-2")
+                User:inform("[Faction]: Failed changing Guild rank: town rank can be 0-2")
 			end			
 		else
 			-- print some infos
@@ -87,7 +87,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			elseif info.tid == 3 then
 				townName = "Galmair";
 			end
-			local txt = "#w "..TargetCharacter.name.." is member of ".. townName .." (".. info.tid .."); He changed his hometown ".. info.towncnt .." times; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
+			local txt = "#w [Faction]: "..TargetCharacter.name.." is member of ".. townName .." (".. info.tid .."); He changed his hometown ".. info.towncnt .." times; Rank C/R/G: ".. info.rankC .."/".. info.rankR .."/".. info.rankG;
 			User:inform(txt);
 
 		end
@@ -350,44 +350,55 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
 			Page = {};
-			Page[0] = "To look through the commands say 'help X' where X is a number from 1 to 7 and use this Item again."
-			Page[1] = "Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0 - 9";
-			Page[2] = "Set hometown: \"settown <townname>\"";
-			Page[3] = "Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
-			Page[4] = "Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\" - range of value: 0 - 100";
-			Page[5] = "If you \"use\" the item without targeting a character with the command addpoints or removepoints...";
-			Page[6] = "...for ALL characters within a radius of <Counter> the rankpoints get added or removed!";
-			Page[7] = "Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
+			Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 7 and use this Item again."
+			Page[1] = "[Faction]: Set rank in faction: \"setrank <townname> <townrank>\" - range of townrank: 0(outcast) - 9(sovereign) ";
+			Page[2] = "[Faction]: Set hometown: \"settown <townname>\"";
+			Page[3] = "[Faction]: Add rankpoints for a Char in a town: \"addpoints <townname> <value>\" - range of value: 0 - 100";
+			Page[4] = "[Faction]: Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\" - range of value: 0 - 100";
+			
+			Page[5] = "[Faction]: Set the radius of influence of this trowel when adding or removing rankpoints: \"setradius <value>\" - range of value: 0 - 100, default: 5";
+			Page[6] = "[Faction]: If you \"use\" the item without targeting a character with the command addpoints or removepoints...";
+			Page[7] = "[Faction]: ...for ALL characters within a radius of the choosen radius the rankpoints get added or removed!";
+			Page[8] = "[Faction]: Set the guild: \"setguild <guildid> <guildrank>\" - range of guildrank: 0 - 2"
             
 			if value then
 				value = value *1;
-				if value <= 7 then
+				if value <= 8 then
 					User:inform(Page[value]);
 				else
-					User:inform("This documentation has only 7 pages!");
+					User:inform("[Faction]: This documentation has only 8 pages!");
 				end
 			else
 				User:inform(Page[0]);
         	end
-        end
-		
-		if (string.find(User.lastSpokenText,"radius (%d+)")~=nil) then
-			local a,b, radius = string.find(User.lastSpokenText,"radius (%d+)");
-			if (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
+		elseif (string.find(User.lastSpokenText,"setradius (%d+)")~=nil) then
+			local a,b, radius = string.find(User.lastSpokenText,"setradius (%d+)");
+			if (radius~=nil) then
+				radius=radius+1-1;
+			end
+			
+				
+		elseif (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
 				a,b,value = string.find(User.lastSpokenText,"addpoints (%d+)");
 				value=value+1-1;
 				if (value<101 and value>-1) then
-				   ChangeRankpoints(User,radius,true, value);
+				   	if radius == nil then
+				   		radius=5;
+				    	ChangeRankpoints(User,radius,true, value);
+					end
 				else
-					User:inform("Failed adding rankpoints: max. 100 rankpoints")
+					User:inform("[Faction]: Failed adding rankpoints: max. 100 rankpoints")
 				end
 			elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
 				a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
 				value=value+1-1;
 				if (value<101 and value>-1) then
-				   ChangeRankpoints(User,radius,false, value);
+					if radius == nil then
+				   		radius=5;
+				   		ChangeRankpoints(User,radius,false, value);
+				   	end
 				else
-					User:inform("Failed removing rankpoints: You can only remove 1-100 rankpoints")
+					User:inform("[Faction]: Failed removing rankpoints: You can only remove 1-100 rankpoints")
 				end
 			end
 		else
@@ -400,7 +411,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
         
 		
-	end
+	--end
 end
 
 function LookAtItem(User,Item)
