@@ -34,9 +34,9 @@ function nextCycle()  -- ~10 times per second
     end;
 --]]
 end
---[[
+
 function receiveText(texttype, message, originator)
     test.vilarion.counter = 0;
+    not_a_function_but_nil();
     test.vilarion.user = originator;
 end
---]]
