@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Krudash                                                     None --
--- NPC Job:  trader                                                            --
+-- NPC Name: Krudash                                                  Galmair --
+-- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  368, 260, 0            --
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 29, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: February 24, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -25,38 +25,23 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Eine sinnliche Orkfrau mit wilden schwarzen Haaren. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz."
-lookatUS = "A voluptous orcess with wild black hair. She has a cute nose and small pointy tusks. She watches the marketplace observantly."
+lookatDE = "Eine sinnliche Orkfrau mit druchdringenden rotbraunen Augen. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz."
+lookatUS = "A voluptous orcess with rebbrown eyes. She has a cute nose and small pointy tusks. She watches the marketplace observantly."
 useMsgDE = "Fass mich nicht an! Oder ich mach disch Kebab! Alda!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 3
+hairID = 0
 beardID = 0
 colorHair = 6, 18, 8
 colorSkin = 137, 123, 60
-itemHead = 0
 itemChest = 362
-itemCoat = 0
 itemMainHand = 23
-itemSecondHand = 0
-itemHands = 0
 itemTrousers = 366
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
--- Galmair
-
--- NPC by Rincewind
-
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Trader------------------------------------------------------------
 -- Tools (Blacksmith): 23, 2697, 2710, 2748, 2751
 -- Blades: 2526, 2542, 2562, 2563, 2564, 2565, 2568, 2569, 2707
@@ -72,25 +57,24 @@ itemShoes = 53
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
 
 -- Help
-"help" -> "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0,inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'Gurak, Alice, Tom")
-"hilfe" -> "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0,inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom")
-"helfen" -> "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0,inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom")
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keyphrases: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.","Sei willkommen, in 'Krudash's Hacken und Plündern'!"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.","Sei willkommen, in 'Krudash's Hacken und Plündern'!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Brauchst du was, hä?", "Hurr! Sei gegrüßt.", "Hurr. Ich, Krudash verkaufe alles, was 'ner wie du braucht für's hacken und plündarn! Hehe!", "Latha math! Grüße-Grüße, sag ich.", "Sei willkommen, in 'Krudash's Hacken und Plündern'!"
 "Farewell", "Bye", "Fare well", "See you" -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! - Would say the orcs tounge. Tagtha?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebas. Ne Gute Plünderung wünsch ich noch!", "Slàn leibhslàn! - So sagens wir Orks. Tagtha?"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farebas. Have a good sackin'!", "Slàn leibhslàn! - Would say the orcs tounge. Tagtha?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas. Ne Gute Plünderung wünsch ich noch!", "Slàn leibhslàn! - So sagens wir Orks. Tagtha?"
 "How are you", "How feel", "How do you do" -> "Hurr. Mes allrighty! Good shop. Good husband. Good whelps.", "Uh! I'm a rich and mighty orc! Lot's of snagas are mine!", "Hrmpf!"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Hurr. Mirr gehts gut. Hab nen feinen Laden. N'guten Mann. Und gute welpen!", "Hrmpf!", "Uh! Ich bin ne reiche und mächtige Ork. Und alle Snagas tun, was ich befehle."
 "your name", "who are you", "who art thou" -> "I am Krudash. And this my Shop. 'Hack'n Sack', sellin all stuff you need for good hack'n sack trip."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
--- Catching quest triggers
+-- Catching quest triggers. Modify if the NPC does quests.
 "quest", "mission", english -> "I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!"
 "quest", "mission" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
 "task", "adventure" -> "I trade... and my snagas do all the work. So there is nothing for a maggot like you to do!"
@@ -103,30 +87,30 @@ itemShoes = 53
 "job" -> "Ich bin der Waffenhändler in dieser Stadt! Und alle diese Snagas tun, was ich sag! Groch!"
 "Gobaith", "Gobiath", english -> "Hrmpf! What else is there to say?"
 "Gobaith", "Gobiath" -> "Hrmpf! Was gibts da zu sagn?"
-"I am", "my name" -> "Hurr, hurr. What do you buy?"
-"Ich bin", "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
+"my name" -> "Hurr, hurr. What do you buy?"
+"mein Name" -> "Hurr, hurr. Was willst du kaufen?"
 
--- More small talk; add at least five triggers
-"murgo", english -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'","Ch-h! Where's my husband, huh? For sure, he got another one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.","Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.","Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* And he always knew what was important."
-"murgo" -> "#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'","Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.","Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.","Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind."
-"er hja","erhja","er'hja", english -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's fiendishly clever. I will be her proud mommy forever!","#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers get them mixed up.'","#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommies and daddies...'"
-"er hja","erhja","er'hja" -> "Oh-h! Er'hja wird immer meine kleine Orkling bleiben. *grunzt glücklich* Sie ist ist ja so sehr schlau und gewifft. Ich werd immer ihre stolze Mami sein!","#me nickt. 'Tagtha. Er'hja ist meine Tochter. - Sie hat auch ne' Schwester, ja. Ol'hja, Fremde verwechseln die Beiden oft.'","#me lacht heiser. 'Ha-hr. Orklinge wie Er'hja 'nd Ol'hja machen Mamis und Papis viele Sorgen...'"
-"ali[czs]","ali[czs]e", english -> "Gâsh! Aliz' this weepy flimsy snaga! She complained again, huh? Listen! She's Krudash dirty Snaga, that for she has to follow Krudash's orders. And I'm Krudash!","Don't worry about the girl. She isn't worth it. She has to become strong and proud, do a good job. Ye-hs. But shes just going around crying like the puniest orclings...","I bought her for a few coins. Wasn't much money, no. But now she's sniveling and doesn't do a good job."
-"ali[czs]","ali[czs]e" -> "Gâsh! Aliz' diese jammernde schwache Snaga! Hat sie sich wieder bei jemanden mitleidig gemacht, hä? Hör zu! Sie's Krudashs dreckige Snaga, also tut sie was Krudash sagt. Und ich bin Krudash!","Kümmert Euch nich um das Mädchen. Das hat sie sich nämlich gar nicht verdient. Soll sie stark und stolz werden, ihre Arbeit gut tun! Ja-h. Aber sie flennt und häult nur! Wie die kleinsten Orkligne...","Ch-arr. Ich hab sie damals gekauft, war nicht viel Geld, nein. Aber jetzt ist sie weinerlich und tut ihre Arbeit nicht gut."
-"krudash","Hack","sack","hacken","plündern", english -> "Hurr Hurr. Ciamar a'seibh! How goin?","Hurr Hurr. Do you need an axe, huh?"
-"krudash","Hack","sack","hacken","plündern" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?","Hurr Hurr. Brauchst ne Axt, hä?"
-"tom","berry","thomas","berryard", english -> "Ha-ha! I caught this puny loudmouth on my own. Now he has to work, although he's not happy about it. Thomas Berryard is my snaga now!","#me smashes her fist upon the table angrily. 'Scheschnak! This sneaky dirty swine Berryar'! Once he tried to mix broken glass into my food.'","Choar! This seedy halfer escaped one day and got lost in the mountains. Now 'e hab to batter stones.","Garh! The dastardly halfer! Thoma' Berryar'! Watch his tiny fists! He'll try to smash them between your legs, whether you're a man or a woman."
-"tom","berry","thomas","berryard" -> "Hä-hä! Ich hab das kleine Großmaul selbst gefangen. Jetz muss er schuften, auch wenn ihm das nicht gefällt. Thomas Berryard, er ist jetzt mein Snaga!","#me schlägt verärgert mit der Faust auf den Tisch. 'Scheschnak! Dieser hinterlistige Dreckskerl Berryar', hat mir einmal Glasscherben ins Fleisch gemischt.'","Choar! Der miese Halbling ist 'nes Tags ausgebuchst und hat sich auf der Flucht in d'n Bergen verirrt. Jetzt muss er zur Strafe Steine kloppen.","Hurr, behalt seine kleinen Fäustchen im Aug! Sonst haut er sie dir zwischen die Beine, da ist's ihm egal ob Mann oder Weib."
-"ol hja","olhja","ol'hja", english -> "Hurr, its difficult to get good job. But Ol'hja became a scout. For a band of mercenaries. Kj'at, thats a good job for an orc!","Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All men want to become her husband, but she's very stubborn. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.","Me Krudash isn't very skillful in the wild far away from town. Where would a gynkesh learn it, anyway? Ol'hja was taught by Mo'rurt, he 's a great hunter. I would bet the best. Taghta?"
-"ol hja","olhja","ol'hja" -> "Hurr, is schwer gute Arbeit zu finden. Aber Ol'hja is Späher geworden. Für ne Söldnertruppe. Kj'at, dass is ne gute Arbeit für ne Ork!","Taghta, hast du Ol'hja mal getroffen? Sie's eine gute Ork nich? Alle Männer wolln sie zur Frau, aber sie hat'n sturen Kopf. Einen Dickschädl, wie'n Esel! Aber ihre Mamy is sehr stolz, ja das bin ich. Ja.","Ich, Krudash kenn mich nicht aus draußen, wo die Stadt weit weg ist. Aber woher soll's eine Gynkesh auch lernen? Ol'hja hat alles was sie weiß von Mo'rurt gelernt, der is n' guter Jäger. Ich würd sagen der Beste. Taghta?"
-"kroch","Gurak","Kroch'Gurak",english->"Kroch'Gurak isn't a town, actually. No. But in winter, uncounted orc tribes wander there. Then the whole west Norbuk Plateau lives in the giant Caves there. And there's pig hunting and wrestling.","Mes dropped my daughters at isle Gobaith. And as soon as they were big enough, their father decided, they should live in Kroch'Gurak. So they were able to grow up among other orcs."
-"kroch","Gurak","Kroch'Gurak"->"Kroch'Gurak is keine Stadt, würd ich sagen, nein. Aber im Winter lagern unzählige Orkstämme dort. Das westliche Norbuk Plateou zieht dann in die großen Höhlen dort. Und es gibt Schweinshats und Ringkämpfe.","Ich hab meine Töchter auf der Insel Gobaith geworfen. Und als sie groß genug waren entschied ihr Vater, das sie nach Kroch'Gurak ziehen sollten. Damit sie unter Orks großwachsen können."
-"snaga", english ->"Snagas! Those are monkeys... - basically. And weak puny orcs who need to be told what to do! A mighty orc like me, Krudash has many Snagas. Gâsh! Not for nothing, I'm the smartest here."
-"snaga" ->"Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"murgo", english -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'", "Ch-h! Where's my husband, huh? For sure, he got another one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.", "Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.", "Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* And he always knew what was important."
+"murgo" -> "#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'", "Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.", "Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.", "Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind."
+"er hja", "erhja", "er'hja", english -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's fiendishly clever. I will be her proud mommy forever!", "#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers get them mixed up.'", "#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommies and daddies...'"
+"er hja", "erhja", "er'hja" -> "Oh-h! Er'hja wird immer meine kleine Orkling bleiben. *grunzt glücklich* Sie ist ist ja so sehr schlau und gewifft. Ich werd immer ihre stolze Mami sein!", "#me nickt. 'Tagtha. Er'hja ist meine Tochter. - Sie hat auch ne' Schwester, ja. Ol'hja, Fremde verwechseln die Beiden oft.'", "#me lacht heiser. 'Ha-hr. Orklinge wie Er'hja 'nd Ol'hja machen Mamis und Papis viele Sorgen...'"
+"ali[czs]", "ali[czs]e", english -> "Gâsh! Aliz' this weepy flimsy snaga! She complained again, huh? Listen! She's Krudash dirty Snaga, that for she has to follow Krudash's orders. And I'm Krudash!", "Don't worry about the girl. She isn't worth it. She has to become strong and proud, do a good job. Ye-hs. But shes just going around crying like the puniest orclings...", "I bought her for a few coins. Wasn't much money, no. But now she's sniveling and doesn't do a good job."
+"ali[czs]", "ali[czs]e" -> "Gâsh! Aliz' diese jammernde schwache Snaga! Hat sie sich wieder bei jemanden mitleidig gemacht, hä? Hör zu! Sie's Krudashs dreckige Snaga, also tut sie was Krudash sagt. Und ich bin Krudash!", "Kümmert Euch nich um das Mädchen. Das hat sie sich nämlich gar nicht verdient. Soll sie stark und stolz werden, ihre Arbeit gut tun! Ja-h. Aber sie flennt und häult nur! Wie die kleinsten Orkligne...", "Ch-arr. Ich hab sie damals gekauft, war nicht viel Geld, nein. Aber jetzt ist sie weinerlich und tut ihre Arbeit nicht gut."
+"Hack", "sack" -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you need an axe, huh?"
+"hacken", "plündern" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?", "Hurr Hurr. Brauchst ne Axt, hä?"
+"tom", "berry", "thomas", "berryard", english -> "Ha-ha! I caught this puny loudmouth on my own. Now he has to work, although he's not happy about it. Thomas Berryard is my snaga now!", "#me smashes her fist upon the table angrily. 'Scheschnak! This sneaky dirty swine Berryar'! Once he tried to mix broken glass into my food.'", "Choar! This seedy halfer escaped one day and got lost in the mountains. Now 'e hab to batter stones.", "Garh! The dastardly halfer! Thoma' Berryar'! Watch his tiny fists! He'll try to smash them between your legs, whether you're a man or a woman."
+"tom", "berry", "thomas", "berryard" -> "Hä-hä! Ich hab das kleine Großmaul selbst gefangen. Jetz muss er schuften, auch wenn ihm das nicht gefällt. Thomas Berryard, er ist jetzt mein Snaga!", "#me schlägt verärgert mit der Faust auf den Tisch. 'Scheschnak! Dieser hinterlistige Dreckskerl Berryar', hat mir einmal Glasscherben ins Fleisch gemischt.'", "Choar! Der miese Halbling ist 'nes Tags ausgebuchst und hat sich auf der Flucht in d'n Bergen verirrt. Jetzt muss er zur Strafe Steine kloppen.", "Hurr, behalt seine kleinen Fäustchen im Aug! Sonst haut er sie dir zwischen die Beine, da ist's ihm egal ob Mann oder Weib."
+"ol hja", "olhja", "ol'hja", english -> "Hurr, its difficult to get good job. But Ol'hja became a scout. For a band of mercenaries. Kj'at, thats a good job for an orc!", "Tagtha, have you met Ol'hja recently? She's a good orc, isn't she? All men want to become her husband, but she's very stubborn. A pighead, like a donkey! But her mommy is very proud, yes I am. Yes.", "Me Krudash isn't very skillful in the wild far away from town. Where would a gynkesh learn it, anyway? Ol'hja was taught by Mo'rurt, he 's a great hunter. I would bet the best. Taghta?"
+"ol hja", "olhja", "ol'hja" -> "Hurr, is schwer gute Arbeit zu finden. Aber Ol'hja is Späher geworden. Für ne Söldnertruppe. Kj'at, dass is ne gute Arbeit für ne Ork!", "Taghta, hast du Ol'hja mal getroffen? Sie's eine gute Ork nich? Alle Männer wolln sie zur Frau, aber sie hat'n sturen Kopf. Einen Dickschädl, wie'n Esel! Aber ihre Mamy is sehr stolz, ja das bin ich. Ja.", "Ich, Krudash kenn mich nicht aus draußen, wo die Stadt weit weg ist. Aber woher soll's eine Gynkesh auch lernen? Ol'hja hat alles was sie weiß von Mo'rurt gelernt, der is n' guter Jäger. Ich würd sagen der Beste. Taghta?"
+"kroch", "Gurak", "Kroch'Gurak", english -> "Kroch'Gurak isn't a town, actually. No. But in winter, uncounted orc tribes wander there. Then the whole west Norbuk Plateau lives in the giant Caves there. And there's pig hunting and wrestling.", "Mes dropped my daughters at isle Gobaith. And as soon as they were big enough, their father decided, they should live in Kroch'Gurak. So they were able to grow up among other orcs."
+"kroch", "Gurak", "Kroch'Gurak" -> "Kroch'Gurak is keine Stadt, würd ich sagen, nein. Aber im Winter lagern unzählige Orkstämme dort. Das westliche Norbuk Plateou zieht dann in die großen Höhlen dort. Und es gibt Schweinshats und Ringkämpfe.", "Ich hab meine Töchter auf der Insel Gobaith geworfen. Und als sie groß genug waren entschied ihr Vater, das sie nach Kroch'Gurak ziehen sollten. Damit sie unter Orks großwachsen können."
+"snaga", english -> "Snagas! Those are monkeys... - basically. And weak puny orcs who need to be told what to do! A mighty orc like me, Krudash has many Snagas. Gâsh! Not for nothing, I'm the smartest here."
+"snaga" -> "Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
 "where com", "krochgurak", english -> "Hrach. I come frome Khenserra. But most orcs come frome Kroch'gurak where the Clans camp in winter."
 "where com", "krochgurak" -> "Hrach. Ich komme aus Khenserra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
 
---faction stuff
+-- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Pfft! Astute wizard... Runewick rat!"
 "Erzmagier" -> "Ch-h! Der listige Zauberer... Runewickratte!"
 "Elvaine", "Morgan", english -> "Pfft! Astute wizard... Runewick rat!"
@@ -161,20 +145,20 @@ itemShoes = 53
 "cherga", "icy witch", "eis Hex", german -> "Hurr. Eisig Hexe, Gottin von Ahnen ist. Du fragst Grimlug!"
 
 -- Catching typical NPC phrases
-"what sell","what buy","list wares","price of","weapon"->"Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armors! And best tools. Uh!"
-"was verkauf","was kauf","warenliste","preis von","waffe"->"Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
+"what sell", "what buy", "list wares", "price of", "weapon" -> "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armors! And best tools. Uh!"
+"was verkauf", "was kauf", "warenliste", "preis von", "waffe" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
 "tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
 "erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Krudash", english -> "Hurr Hurr. Ciamar a'seibh! How goin?","Hurr Hurr. Do you need an axe, huh?"
-"Krudash" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?","Hurr Hurr. Brauchst ne Axt, hä?"
-"Yes"->"Taghtha? Is good! Yes.","There we go. Allrighty-right.","Hurr, hurr. Wahtever you say."
-"Ja"->"Taghta? Iss gut! Ja-h.","So machen wir's!","Hurr, hurr. Alles was du sagst."
-"No"->"Grâth! Are you sure?","Then... no, isn't it?","#me chuckles. 'Is all right.'"
-"Nein"->"Grâth! Bisst du sicher?","Dann nicht, nicht wahr?","#me kichert. 'Ist gut, is' gu-ht.'"
+"Krudash", english -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you need an axe, huh?"
+"Krudash" -> "Hurr Hurr. Ciamar a'seibh! Wie geht's?", "Hurr Hurr. Brauchst ne Axt, hä?"
+"Yes" -> "Taghtha? Is good! Yes.", "There we go. Allrighty-right.", "Hurr, hurr. Wahtever you say."
+"Ja" -> "Taghta? Iss gut! Ja-h.", "So machen wir's!", "Hurr, hurr. Alles was du sagst."
+"No" -> "Grâth! Are you sure?", "Then... no, isn't it?", "#me chuckles. 'Is all right.'"
+"Nein" -> "Grâth! Bisst du sicher?", "Dann nicht, nicht wahr?", "#me kichert. 'Ist gut, is' gu-ht.'"
 
--- Absolutely last catch: Everything a player says and is not caught earlier
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "Taghta!", "Puny little Maggot.", "Uh-h?"
 ".*", german, chance(20) -> "Taghta!", "Winzige kleine Made.", "Uh-h?"
 
@@ -194,7 +178,7 @@ cycletext "#me kichert und nuschelt: 'Snu-snu...'", "#me chuckles and mumbles: '
 cycletext "#me krazt sich knurrend am Kopf.", "#me scratches her head with a annoyed snarl."
 cycletext "#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air."
 cycletext "#me klappert in einem einfachen ansteckenden Rythmus auf dem Holztisch.", "#me taps out a simple, catchy rhythm on the wooden table."
-cycletext "Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...","Hurr, buy the thickest armor at Krudash! I make you the best price..."
+cycletext "Hurr, kauft die dicksten Rüstungen von Krudash! Ich mach euch den besten Preis...", "Hurr, buy the thickest armor at Krudash! I make you the best price..."
 cycletext "Schwerta! Äxte! Hämmer! Hossa, kauft ihr alles bei mir! Krudash!", "Swords! Axes! Hammers! Hossa, buy everything at Krudash's shop!"
 cycletext "Ich hab das reinste Erz! Und die besten Preise in ganz Galmair! Gosh!", "I hold the purest ore! And the best price in whole Galmair! Gosh!"
 cycletext "Schmiede, Eisenbieger... mit Krudash's Werkzeug macht ihr die besten Stücke!", "Smiths, Iron worker... Krudash's tools make the best goods!"
