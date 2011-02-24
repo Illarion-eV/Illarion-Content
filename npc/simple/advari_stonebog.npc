@@ -15,15 +15,15 @@ race = dwarf
 sex = male
 position = 261,250,0
 direction = east
-affiliation = "None"
-job = "trader"
+affiliation = "Galmair"
+job = "Trader"
 
 language = common
 language = dwarf
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn."
 lookatUS = "An hoary dwarf. In the corner of his mouth tucks a ornated pipe and small cloud of smoke surround him."
@@ -36,49 +36,35 @@ hairID = 2
 beardID = 5
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
-itemHead = 0
 itemChest = 2390
-itemCoat = 0
-itemMainHand = 0
-itemSecondHand = 0
 itemHands = 48
 itemTrousers = 2116
 itemShoes = 326
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
 -- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
--- Galmair
-
--- NPC by Rincewind
--- Tools (Farmer): 51, 126, 258, 271
--- Animal skins: 69, 2547, 2586
--- Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
--- Fruits: 15, 80, 81, 147, 151, 199, 302, 388
--- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
--- Raw meat: 307, 552, 553, 2934
--- Milk: 330
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Keyphrases: usual trading trigers.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen Handelstrigger.")
+"Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Dwarf, Beer, Orcs, Name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Zwerg, Bier, Orks, Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Abundance and Wealth, my friend.", "Arr."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk. "
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Abundance and Wealth, my friend.", "Arr.", "G'hruk."
+"Hiho", "Hallo", "Hey", "Greeb", english ->"Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Hiho", "Hallo", "Hey", "Greeb" ->"Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Farewell", "Bye", "Fare well", "See you" ->  "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"Ciao", "Adieu", "Au revoir", "Farebba", english ->  "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
-"How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" ->"Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" ->  "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
+"your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you need to know."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
 -- Catching quest triggers
