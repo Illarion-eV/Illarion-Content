@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Sogg Beermug                                             Galmair --
--- NPC Job:  trader                                                           --
+-- NPC Job:  Trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  374, 249, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: November 17, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Sogg Beermug"
@@ -16,7 +16,7 @@ sex = male
 position = 374, 249, 0
 direction = west
 affiliation = "Galmair"
-job = "trader"
+job = "Trader"
 
 language = common
 language = orc
@@ -27,38 +27,20 @@ author = "Rincewind"
 
 lookatDE = "Ein schwankender Ork, mit tränenden Augen und roter Nase."
 lookatUS = "A drunken orc with watery eyes and a red nose."
-useMsgDE = "Fass mich nicht an!"
+useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
-itemHead = 0
+beardID = 0
+colorHair = 119, 56, 3
+colorSkin = 137, 123, 60
 itemChest = 811
-itemCoat = 0
-itemMainHand = 0
-itemSecondHand = 0
-itemHands = 0
 itemTrousers = 821
 itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
--- Galmair
-
--- Please assign an ID if you use queststatus. Do not use an ID twice unless intended.
-
--- NPC by Rincewind
-
 -- Tradersstuff--
 -- Tools (Alchemist): 58, 164, 1008
 -- Tools (Brewer): 51, 227
@@ -69,22 +51,24 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: Beruf, Runewick, Galmair, Cadomyr"), "Hilfe brauschn wir alle!...'hick'", state = 0
 
 -- General speech
-"Hello", "Greetings", "Be greeted", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Cheers! Come over 'ere and drink with Sogg!"
-"Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
-"Farewell", "Good bye", "Bye", "Fare thee well" -> "Farebaaaa...!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Farebaaaa...!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you", english -> "Farebaaaa...!"
-"Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "Farebaaaa...!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr! Grüße.", "#me grunzt und winkt mit einem Krug Bier.", "Prost! Kommst du her, und trinkst mit Sogg!"
+"Farewell", "Bye", "Fare well", "See you" -> "Farebaaaa...!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebaaaa...!"
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farebaaaa...!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebaaaa...!"
 "How are you", "How feel", "How do you do" -> "Mes just a little bitty drunky..."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mirr nur kleinig bisschen bertrunkchen..."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mirr nur kleinig bisschen bertrunkchen..."
 "your name", "who are you", "who art thou" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
 
--- Catching typical NPC phrases
-"tell something" -> "#me glances around the area with dull eyes.", "#me belches loudly.", "Bean's Booze..."
-"erzähl was", "erzähl etwas" -> "#me rülpst herzhaft.", "#me schmatzt und blickt sich mit trüben Augen um.", "Bohn'nschnaps... "
+-- Catching quest triggers. Modify if the NPC does quests.
+"quest", "mission", english -> "I havn't any tashks for you."
+"quest", "mission" -> "Isch abe kene Aufgabn für disch."
+"task", "adventure" -> "I havn't any tashks for you."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Isch abe kene Aufgabn für disch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
@@ -93,14 +77,10 @@ itemShoes = 369
 "job" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
 "Gobaith", "Gobiath", english -> "I don' know some Gobiaths! But my granny was named Gobthe. Eh?"
 "Gobaith", "Gobiath" -> "Isch kenne keinen Gobiath! Aba mine Oma hiesch Gobthe. Ehj?"
-"I am", "my name" -> "Yuu, mes like you! Wan' some booze?"
-"Ich bin", "mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
-"sogg", "beermug", english -> "Hurr-hurr... want a beer, eh?", "Hu!?... - Mesch Sogg Beermug, whut do you want?"
-"sogg", "beermug" -> "Hurr-hurr... wilscht n' Bier, eh?", "Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
-"what sell", "what buy", "list wares", "price of" -> "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
+"my name" -> "Yuu, mes like you! Wan' some booze?"
+"mein Name" -> "Duhu, mirr dich mögen! Willschte wa' zu saufn?"
 
--- more smalltalk
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "murgo", german -> "Yubba... - Murgo ischn fener Kerl. Treibt sich aber imma rum, scheiner Frau der Krudash... gefällt dasch gar nich. *hick*"
 "murgo", english -> "Yubba... - Murgo is no good fella. He's always roaming the streets and his woman, Krudash, doesn't like it. *hic*"
 "er hja", "erhja", "er'hja", german -> "Eh, Er'hja? Sie's Tochta von Murgo 'nd Krudash. Ne feine Orkling, würd isch sage. Hu, die Eltern sin 'ute Freunde von misch."
@@ -112,17 +92,21 @@ itemShoes = 369
 "morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja", english -> "#me claps his chest with his left hand. 'Hurr, Sogg honour our clan!'"
 "morurt", "mo'rurt", "mor'urt", "olokwa", "thud", "grimlug", "ol hja", "olhja", "ol'hja", german -> "#me klopft sich mit der Faust schlecht gezielt auf die Brust. 'Hurr, Sogg steht zu scheinem Klan.'"
 
--- Faction stuff
-"Elvaine", "Morgan", "archmage", "Erzmagier", english -> "Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!"
-"Elvaine", "Morgan", "archmage", "Erzmagier" -> "Uh! Misch wettet, dieses Langbein kippt nach zwei Bier unterm Tisch! Bah-Gosch!"
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!"
+"Erzmagier" -> "Uh! Misch wettet, dieses Langbein kippt nach zwei Bier unterm Tisch! Bah-Gosch!"
+"Elvaine", "Morgan", english -> "Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!"
+"Elvaine", "Morgan" -> "Uh! Misch wettet, dieses Langbein kippt nach zwei Bier unterm Tisch! Bah-Gosch!"
 "Runewick", english -> "Let mes tell 'ou... that beer in Runewick taste like piss."
 "Runewick" -> "Lass dir sagn... dasch Bier in Runewick schmeckt wie Pisse."
 "Valerio", "Guilianni", "Don", english -> "Skoal! Let us drink for honor of the Don!"
 "Valerio", "Guilianni", "Don" -> "Prost! Lasch uns zur Ehre des Dons trinken!"
 "Galmair", english -> "Yubba. Here's the best place! The Dwarfsh brew the best beer. That's why I'm here! Taghta!"
 "Galmair" -> "Yubba. Hier isch esch am schönsten! Die Schwerge maschen dasch beschte Bier, drum bleib isch hier! Taghta!"
-"rosaline", "königin", "queen", "edwards", english -> "Seems to me this Queen never tried sum Beans Booze. Othawise she wouldn't be so pigheaded. Wug-wug!"
-"rosaline", "königin", "queen", "edwards" -> "Scheint mir... dische Könischin, hat noch nie 'n Bohnenschnaps getrunken. Schonst wär sie nich so verklemmt. Wug-wug!"
+"Queen" -> "Seems to me this Queen never tried sum Beans Booze. Othawise she wouldn't be so pigheaded. Wug-wug!"
+"Königin" -> "Scheint mir... dische Könischin, hat noch nie 'n Bohnenschnaps getrunken. Schonst wär sie nich so verklemmt. Wug-wug!"
+"rosaline", "edwards", english -> "Seems to me this Queen never tried sum Beans Booze. Othawise she wouldn't be so pigheaded. Wug-wug!"
+"rosaline", "edwards" -> "Scheint mir... dische Könischin, hat noch nie 'n Bohnenschnaps getrunken. Schonst wär sie nich so verklemmt. Wug-wug!"
 "Cadomyr", english -> "In Cadomyr, they may have good-looking warriors, but for sure we will able to drink the most booze! Gosch."
 "Cadomyr" -> "In Cadomyr, da wolln schie ja ornliche Kämfer sein, aber unterm Tisch saufn tun wir sie trozdem alle! Gosch."
 
@@ -133,6 +117,10 @@ itemShoes = 369
 "gync", "gynk", german -> "He-he! Dort gibtsch da' beschte Sibanac."
 "salkama", english -> "I heard in Salkamar the people piss into their beer to make it taste better. *laughs*"
 "salkama", german -> "Isch hab gehört, in Salkamar, pissen schie ins Bier, damits bescher schmekt. *gluckst lachend*"
+"wo .* her" -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
+"kroch", "gurak", "Kroch'gurak", german -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
+"where .* com" -> "Kroch'Gurak! Is where most ob us orcs come from."
+"kroch", "gurak", "Kroch'gurak", english -> "Kroch'Gurak! Is where most ob us orcs come from."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Me praise Adron! 'nd mes Ancestors for shure!"
@@ -141,26 +129,26 @@ itemShoes = 369
 "moshran", "god", english -> "Gosh! Nub say tha name! Bettu talk to Shaman about tha fatha."
 "cherga", "icy witch", "eis Hex", german -> "Hurr. Eisig Hexe, Göttin von Ahnen ist. Du fragst Grimlug!"
 "cherga", "icy witch", "eis Hex", english -> "Hurr. Tha icy witch, be god ob ancestors. Ask Grimlug about her!"
-"where com", "kroch", "gurak", "Kroch'gurak", german -> "Kroch'Gurak! Ist, wo meißte Orks von uns komme her von."
-"where com", "kroch", "gurak", "Kroch'gurak", english -> "Kroch'Gurak! Is where most ob us orcs come from."
 "adron", german -> "Honor to Adron, tha fat man with red nose! Yubba. May he help me, guarding all those barrels 'nd bottles!"
 "adron", english -> "Geerht sei Adron, der fette Mann mit roter Nase! Yubba. Möge er helfen, zu bewachen alle meine Flasch und Fässa!"
 
--- Catching quest triggers
-"quest", english -> "I havn't any tashks for you."
-"quest", german -> "Isch abe kene Aufgabn für disch."
-"task", "adventure" -> "I havn't any tashks for you."
-"Auftrag", "Aufgabe", "Abenteuer" -> "Isch abe kene Aufgabn für disch."
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
+"tell something" -> "#me glances around the area with dull eyes.", "#me belches loudly.", "Bean's Booze..."
+"erzähl was", "erzähl etwas" -> "#me rülpst herzhaft.", "#me schmatzt und blickt sich mit trüben Augen um.", "Bohn'nschnaps... "
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
+"sogg", "beermug", english -> "Hurr-hurr... want a beer, eh?", "Hu!?... - Mesch Sogg Beermug, whut do you want?"
+"sogg", "beermug" -> "Hurr-hurr... wilscht n' Bier, eh?", "Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?"
 "Yes" -> "Skoal!", "Hurr-hurr. Should be good with me.", "Alrighty-right!"
 "Ja" -> "Prost.", "Hurr-hurr. Solls mir recht sein.", "Alles-klarklar!"
 "No" -> "Gosch!", "Skeschmat! S' that your final answer?", "#me burps."
 "Nein" -> "Gosch!", "Skeschmat! Gneh... is das den letztes Wort?", "#me rülpst."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 ".*", english, chance(20) -> "Beer after Wine, is a no go. Better try Wine after Beer!", "Hurr hurr! That's it.", "Daily special... Bean's Booze!"
 ".*", german, chance(20) -> "Bier auf Wein, lasch das sein! Aber Wein auf Bier, das rat isch dier!", "Hehe! So ist's.", "Heut empfehl isch... Bohnenschnaps!"
-
--- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
