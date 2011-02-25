@@ -68,12 +68,12 @@ function Dropping(Char)
 end
 
 function SpellResistence( Char )
-    local CInt   = Char:increaseAttrib("intelligence",0);
+    local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
     local CSkill = Char:getSkill("magic resistance") ;
     CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
-    local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CInt*2 ) / 63 ), 0, 100 );
+    local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
 
     return base.common.Limit( math.floor( ResTry * math.random(8,12)/10 ), 0, 100 );
 end
