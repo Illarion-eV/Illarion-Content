@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Sogg Beermug                                             Galmair --
--- NPC Job:  trader                                                           --
+-- NPC Job:  Trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  374, 249, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: November 17, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: February 25, 2011                       easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 374, 249, 0, 6, 'Sogg Beermug', 'npc.sogg_beermug', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (4, 374, 249, 0, 6, 'Sogg Beermug', 'npc.sogg_beermug', 0, 2, 0, 119, 56, 3, 137, 123, 60);
 ---]]
 
 require("npc.base.basic")
@@ -45,8 +45,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
@@ -55,20 +53,18 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr! Greetings.");
 talkEntry:addResponse("#me grunts and waves a mug of beer.");
-talkEntry:addResponse("Cheers! Come over 'ere and drink with Sogg!");
+talkEntry:addResponse("Skoal! Come over 'ere and drink with Sogg!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr! Grüße.");
 talkEntry:addResponse("#me grunzt und winkt mit einem Krug Bier.");
@@ -80,8 +76,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr! Greetings.");
@@ -94,9 +89,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greebas!");
 talkEntry:addResponse("Hurr! Grüße.");
 talkEntry:addResponse("#me grunzt und winkt mit einem Krug Bier.");
@@ -106,9 +99,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebaaaa...!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -117,7 +110,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Farebaaaa...!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -127,7 +120,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farebaaaa...!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -138,7 +130,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebaaaa...!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -155,7 +146,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addTrigger("Wie Befinden");
+talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Mirr nur kleinig bisschen bertrunkchen...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -178,19 +169,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("#me glances around the area with dull eyes.");
-talkEntry:addResponse("#me belches loudly.");
-talkEntry:addResponse("Bean's Booze...");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I havn't any tashks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("#me rülpst herzhaft.");
-talkEntry:addResponse("#me schmatzt und blickt sich mit trüben Augen um.");
-talkEntry:addResponse("Bohn'nschnaps... ");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Isch abe kene Aufgabn für disch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("I havn't any tashks for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Isch abe kene Aufgabn für disch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,51 +239,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Yuu, mes like you! Wan' some booze?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Duhu, mirr dich mögen! Willschte wa' zu saufn?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sogg");
-talkEntry:addTrigger("beermug");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr-hurr... want a beer, eh?");
-talkEntry:addResponse("Hu!?... - Mesch Sogg Beermug, whut do you want?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sogg");
-talkEntry:addTrigger("beermug");
-talkEntry:addResponse("Hurr-hurr... wilscht n' Bier, eh?");
-talkEntry:addResponse("Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,10 +363,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Uh! Misch wettet, dieses Langbein kippt nach zwei Bier unterm Tisch! Bah-Gosch!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Uh! Mes bet this Longear is under the table after two beers. Bah-Gosch!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -408,8 +385,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Uh! Misch wettet, dieses Langbein kippt nach zwei Bier unterm Tisch! Bah-Gosch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -458,9 +433,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Seems to me this Queen never tried sum Beans Booze. Othawise she wouldn't be so pigheaded. Wug-wug!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Scheint mir... dische Könischin, hat noch nie 'n Bohnenschnaps getrunken. Schonst wär sie nich so verklemmt. Wug-wug!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Seems to me this Queen never tried sum Beans Booze. Othawise she wouldn't be so pigheaded. Wug-wug!");
@@ -469,8 +454,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Scheint mir... dische Könischin, hat noch nie 'n Bohnenschnaps getrunken. Schonst wär sie nich so verklemmt. Wug-wug!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -534,6 +517,36 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wo .* her");
+talkEntry:addResponse("Kroch'Gurak! Ist, wo meißte Orks von uns komme her von.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kroch");
+talkEntry:addTrigger("gurak");
+talkEntry:addTrigger("Kroch'gurak");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Kroch'Gurak! Ist, wo meißte Orks von uns komme her von.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("where .* com");
+talkEntry:addResponse("Kroch'Gurak! Is where most ob us orcs come from.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("kroch");
+talkEntry:addTrigger("gurak");
+talkEntry:addTrigger("Kroch'gurak");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Kroch'Gurak! Is where most ob us orcs come from.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("Me praise Adron! 'nd mes Ancestors for shure!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -581,26 +594,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("where com");
-talkEntry:addTrigger("kroch");
-talkEntry:addTrigger("gurak");
-talkEntry:addTrigger("Kroch'gurak");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Kroch'Gurak! Ist, wo meißte Orks von uns komme her von.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("where com");
-talkEntry:addTrigger("kroch");
-talkEntry:addTrigger("gurak");
-talkEntry:addTrigger("Kroch'gurak");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Kroch'Gurak! Is where most ob us orcs come from.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("adron");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Honor to Adron, tha fat man with red nose! Yubba. May he help me, guarding all those barrels 'nd bottles!");
@@ -615,31 +608,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("#me glances around the area with dull eyes.");
+talkEntry:addResponse("#me belches loudly.");
+talkEntry:addResponse("Bean's Booze...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("#me rülpst herzhaft.");
+talkEntry:addResponse("#me schmatzt und blickt sich mit trüben Augen um.");
+talkEntry:addResponse("Bohn'nschnaps... ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sogg");
+talkEntry:addTrigger("beermug");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I havn't any tashks for you.");
+talkEntry:addResponse("Hurr-hurr... want a beer, eh?");
+talkEntry:addResponse("Hu!?... - Mesch Sogg Beermug, whut do you want?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Isch abe kene Aufgabn für disch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I havn't any tashks for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Isch abe kene Aufgabn für disch.");
+talkEntry:addTrigger("sogg");
+talkEntry:addTrigger("beermug");
+talkEntry:addResponse("Hurr-hurr... wilscht n' Bier, eh?");
+talkEntry:addResponse("Hu!?... - Isch bin Sogg Beermug, wasch wollscht ihr von mir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,8 +725,8 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein schwankender Ork, mit tränenden Augen und roter Nase.", "A drunken orc with watery eyes and a red nose.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(3, 811);
 mainNPC:setEquipment(9, 821);
 mainNPC:setEquipment(10, 369);
