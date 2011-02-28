@@ -20,23 +20,13 @@ function nextCycle()  -- ~10 times per second
     if test.vilarion.user then
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
-            thisNPC:talk(CCharacter.say, "TALKTEST");
-            test.vilarion.counter = 0;
-        end;
-    end;
---[[
-    if test.vilarion.user then
-        test.vilarion.counter = test.vilarion.counter + 1;
-        if test.vilarion.counter > 100 then
             test.vilarion.user:inform("CRASH");
             test.vilarion.user = nil;
         end;
     end;
---]]
 end
 
 function receiveText(texttype, message, originator)
     test.vilarion.counter = 0;
-    not_a_function_but_nil();
     test.vilarion.user = originator;
 end
