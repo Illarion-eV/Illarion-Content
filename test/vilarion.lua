@@ -17,7 +17,7 @@ function useNPC(User,counter,param)
 end
 
 function nextCycle()  -- ~10 times per second
-    if test.vilarion.user then
+    if isValidChar(test.vilarion.user) and test.vilarion.user then
         test.vilarion.counter = test.vilarion.counter + 1;
         if test.vilarion.counter > 100 then
             test.vilarion.user:inform("CRASH");
