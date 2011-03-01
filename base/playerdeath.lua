@@ -7,12 +7,12 @@ end
 
 -- player got killed by another player / monster
 function playerKilledByFighting(Player, Killer)
-	base.common.InformNLS(User,"Killed by Nalcaryos");
+
 end
 
 -- death reason unknown
 function playerKilled(Player)
-	base.common.InformNLS(User,"Killed by Nalcaryos");
+
 end
 
 -- monster got killed by another player
