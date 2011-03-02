@@ -8,7 +8,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+    -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
+    e = CLongTimeEffect( 777, 30 );
+    User.effects:addEffect( e );
 
 end
 
@@ -30,3 +32,26 @@ function receiveText(texttype, message, originator)
     test.vilarion.counter = 0;
     test.vilarion.user = originator;
 end
+
+function addEffect( e, c )
+    c:inform("--- effect added ---");
+    e:addValue("n",4);
+end
+
+function callEffect( e, c )
+    local found, n = e:findValue("n");
+    c:inform("--- effect called, n == "..n.." ---");
+    if n>0 then
+        e:addValue("n",n-1);
+        e.nextCalled = 30;
+        return true;
+    else
+        e:removeValue("n");
+        return false;
+    end;
+end
+
+function doubleEffect( e, c )
+    local found, n = e:findValue("n");
+    c:inform("--- tried to add effect, but it is still active (n == "..n..") ---");
+end;
