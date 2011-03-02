@@ -84,7 +84,7 @@ function InitWegweiser()
     AddWeg({330,249,-6},"","",0,0);-- <Name hier> Schwarzmarkt -- <name here> black market
 
     --SE/Runewick-map
-	AddWeg({X,Y,Z},"German.","English.",1,0);
+	-- AddWeg({X,Y,Z},"German.","English.",1,0);
 
     --NE/Neutral-map
 
