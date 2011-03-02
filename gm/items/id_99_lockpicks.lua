@@ -4,6 +4,7 @@
 
 require("gm.base.log")
 require("base.common")
+require("item.id_x_tinderbox")
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
@@ -58,6 +59,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			out = out .. s .. " -- ";
 		end
 		User:inform(out);
+	elseif (string.find(User.lastSpokenText,"tinderbox")~=nil) then
+		item.id_x_tinderbox.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate);
 	elseif (string.find(User.lastSpokenText,"waypoint")~=nil) then
 		local fileName = "default";
 		local s,n = string.gsub(User.lastSpokenText,"waypoint ","");
