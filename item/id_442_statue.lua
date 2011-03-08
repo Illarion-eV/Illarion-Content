@@ -69,7 +69,7 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
-    lookAtItem(User,SourceItem);
+    LookAtItem(User,SourceItem);
 	
     --[[Init();
 	queststatus=User:getQuestProgress(110); --This queststatus counts the read laws
