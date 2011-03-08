@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Eugene Burton                                               None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Poacher                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  20, 1, 0               --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: March 09, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Eugene Burton"
@@ -16,14 +16,14 @@ sex = male
 position = 20, 1, 0
 direction = south
 affiliation = "None"
-job = "none"
+job = "Poacher"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
