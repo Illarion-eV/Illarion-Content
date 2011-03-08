@@ -70,26 +70,5 @@ end
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     LookAtItem(User,SourceItem);
-	
-    --[[Init();
-	queststatus=User:getQuestProgress(110); --This queststatus counts the read laws
 
-	if SourceItem.pos == position (125,566,0) then --Sir Reginald's statue
-	
-	    if messageG[queststatus] ~= nil and messageE[queststatus] ~= nil then
-	        base.common.InformNLS(User,messageG[queststatus],messageE[queststatus]); --sending the text
-	    else
-		    base.common.InformNLS(User,"[Fehler] Fehler im Queststatus 110, bitte einem Entwickler melden!","[Error] Error in queststatus 110, please report to a developer!"); --sending the message
-        end
-	
-        if queststatus<10 then 
-	        User:setQuestProgress(110,queststatus+1); --the player read a text
-	    else
-		    User:setQuestProgress(110,0); --start from the beginning
-		    User:setQuestProgress(111,1); --the player read all laws
-		    base.common.InformNLS(User,"Du hast nun alle Gesetze Cadomyrs gelesen.","You read all cadomyrian laws."); --sending the message
-        end	
-    else
-		    base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a ridder statue."); --default
-    end]]
 end
