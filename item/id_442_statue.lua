@@ -69,7 +69,9 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
-    Init();
+    lookAtItem(User,SourceItem);
+	
+    --[[Init();
 	queststatus=User:getQuestProgress(110); --This queststatus counts the read laws
 
 	if SourceItem.pos == position (125,566,0) then --Sir Reginald's statue
@@ -89,5 +91,5 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         end	
     else
 		    base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a ridder statue."); --default
-    end
+    end]]
 end
