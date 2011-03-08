@@ -67,7 +67,7 @@ Coalmine: Cadomyr "Candour Foundation"
 Coordinates: 142,686,0
 Radius 15
 
-Iron/gold/coppermine: Cadomyr "Independence Quarry"
+Iron/gold/coppermine: Cadomyr "Liberty Quarry"
 Coordinates: 165,603,0
 Radius 15
 
@@ -116,7 +116,7 @@ Not on the Map yet, i'll add it soon though.]]--
     SetRessource( 3, 1246, 251,  7, 0); -- amethysts
     SetRessource( 3, 1246,  256,  3,  0); -- emerald
 	
-	--Cadomyr "Independence Quarry"
+	--Cadomyr "Liberty Quarry"
 	AddArea( 4, position(165,603,0), 15 );
     AddStone( 4, 232 );
     SetRessource( 4, 232, 2536, 40,  0); -- copper
