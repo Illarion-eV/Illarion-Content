@@ -53,7 +53,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     Init();
 	queststatus=User:getQuestProgress(110); --This queststatus counts the read laws
 
-	if SourceItem.pos == position (1,2,0) then --Sir Reginald's statue
+	if SourceItem.pos == position (125,566,0) then --Sir Reginald's statue
 	
 	    if messageG[queststatus] ~= nil and messageE[queststatus] ~= nil then
 	        base.common.InformNLS(User,messageG[queststatus],messageE[queststatus]); --sending the text
