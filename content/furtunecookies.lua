@@ -129,7 +129,7 @@ function cookie(User)
         englText="Don't feed the troll.";
     elseif (luck==43) then
         germText="Erfahrung ist die Summe aller Misserfolge.";
-        englText="Experience is the sum of all failures.";
+        englText="Experience is the sum of all mistakes.";
     end
 
     return germText,englText;
