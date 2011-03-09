@@ -127,7 +127,7 @@ function initMessages()
 
     SetAttribute( "agility" );
     SetRace( CCharacter.human );
-    SetMessage(2,"Du bist heute gespannt wie ein Flitzebogen und hast das Gefühl, selbst Borgate könnte sein Bier heute nicht so schnell trinken, wie du drei Mal um die Taverne rennst.");
+    SetMessage(2,"Du bist heute gespannt wie ein Flitzebogen und hast das Gefühl, selbst Adron könnte sein Bier heute nicht so schnell trinken, wie du drei Mal um die Taverne rennst.");
     SetMessage(1,"Ausnahmsweise gelang es dir heute, eine anhängliche Fliege mit einer schnellen Bewegung deiner Hand zu plätten und du meinst, dies könnte nicht die letzte gewesen sein.");
     SetMessage(-1,"Beim Aufstehen hast du eine Schnecke bemerkt, die sich schneller anzog, als du es tatest... merkwürdig.");
     SetRace( CCharacter.lizardman );
@@ -144,7 +144,7 @@ function initMessages()
     SetMessage(-1,"So große Füße sind zwar gut für festen Stand aber auch eher für gemächliches Laufen gedacht, oder?");
     SetRace( CCharacter.dwarf );
     SetMessage(1,"Heute warst du als Erster in der Mine.");
-    SetMessage(2,"Keiner leert sein Bier heute so schnell wie du, nicht mal Borgate...");
+    SetMessage(2,"Keiner leert sein Bier heute so schnell wie du, nicht mal Adron...");
     SetMessage(-1,"Klein und dick bist du und was klein und dick ist, ist nicht schnell. Zumindest nicht heute!");
     SetRace( CCharacter.gnome );
     SetMessage(1,"Heute hast du dein Geld erstaunlich schnell durchgezählt.");
@@ -220,7 +220,7 @@ function initMessages()
     SetMessage(2,"Du bist heute mehr als zuversichtlich genug fürs Feilschen und wirst wohl die besten Preise für deine Waren heraus handeln.");
     SetRace( CCharacter.dwarf );
     SetMessage(-1,"Eine gierige Stimme in deinem Kopf singt lallend: Bier, Bier, Bier, gib mir Bier und ich gehorch nur dir!");
-    SetMessage(1,"Borgate schrieb dir eine Nachricht und lud dich zu Freibier ein aber du kannst sogar dem widerstehen.");
+    SetMessage(1,"Adron sandte dir ein göttliches Zeichen und lud dich zu Freibier ein aber du kannst sogar dem widerstehen.");
     SetMessage(2,"Du fühlst dich wie ein Fels in der Brandung, unbeugsam und stolz.");
     SetRace( CCharacter.fairy );
     SetMessage(1,"Riechst du grad nicht Kuchen?! Schnell, weiterfliegen! Ein bischen noch..jetzt..gnn..pfu, vorbei. Beinah hätte dich das von deinen heutigen Plänen abgelenkt aber du hast widerstanden!");
@@ -411,7 +411,7 @@ function initMessages()
     SetMessage(2,"Today you are confident enough to haggle and get the best prices for your wares.");
     SetRace( CCharacter.dwarf );
     SetMessage(-1,"A greedy voice inside your head keeps singing: Beer, beer is all I need, for a beer I'd do any deed.");
-    SetMessage(1,"Borgate sent you a dove and told you that there will be free beer today, but you could even resist that.");
+    SetMessage(1,"Adron sent you a divine sign and told you that there will be free beer today, but you could even resist that.");
     SetMessage(2,"Today your head is as hard as the rocks you are usually around.");
     SetRace( CCharacter.fairy );
     SetMessage(1,"Is that the smell of fresh cake? Hurry on, a bit further, phew, well done. This nearly spoiled your plans today, but you were able to resist.");
@@ -470,7 +470,7 @@ function initMessages()
 
     SetAttribute( "agility" );
     SetRace( CCharacter.human );
-    SetMessage(2,"Your nerves and muscles are tensed like the string of a bow. You have the feeling that you could run three times around the tavern before Borgate empties one mug of beer.");
+    SetMessage(2,"Your nerves and muscles are tensed like the string of a bow. You have the feeling that you could run three times around the tavern before Adron empties one mug of beer.");
     SetMessage(1,"You managed to get rid of an annoying fly just with a swift move of your hand ... and you feel like this was not the last one of those fast actions today.");
     SetMessage(-1,"After getting up this morning you noticed a snail getting dressed faster than you did ... very strange.");
     SetRace( CCharacter.lizardman );
@@ -487,7 +487,7 @@ function initMessages()
     SetMessage(-1,"Such huge feet are good for standing steadily, but also made for rather strolling than running, right?");
     SetRace( CCharacter.dwarf );
     SetMessage(1,"Today you were the first in the mine.");
-    SetMessage(2,"Today nobody manages to empty his mug faster than you, not even Borgate...");
+    SetMessage(2,"Today nobody manages to empty his mug faster than you, not even Adron...");
     SetMessage(-1,"You are small and fat and being small and fat does not go together well with being fast. At least not today.");
     SetRace( CCharacter.gnome );
     SetMessage(1,"Today you were really quick with counting your coins.");
