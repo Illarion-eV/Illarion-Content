@@ -21,7 +21,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local foundWood = false;
 	local frontItem = nil;
 	local frontPos = base.common.GetFrontPosition(User);
-	local posOkay = false;
+	local posOkay = true;
 	if world:isItemOnField(frontPos) then
 		local frontItem = base.common.GetFrontItem(User);
 		if frontItem and frontItem.id == 2488 then -- a kettle
@@ -31,6 +31,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			posOkay = true;
 		else
 			frontItem = nil;
+			posOkay = false;
 		end
 	end
 	if not posOkay or world:isCharacterOnField(frontPos) then
