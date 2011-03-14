@@ -71,7 +71,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		User:inform("1");
 		if woodNum > 0 then
 			User:inform("2");
-			User:eraseItem(WoodIds[woodIndex]);
+			User:eraseItem(WoodIds[woodIndex],1);
 			User:inform("3");
 			foundWood = true;
 			User:inform("4");
