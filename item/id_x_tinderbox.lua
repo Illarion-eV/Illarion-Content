@@ -27,6 +27,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if frontItem and frontItem.id == 2488 then -- a kettle
 			posOkay = true;
 		elseif IsWood(frontItem) then
+			User:inform("1");
 			foundWood = true;
 			posOkay = true;
 		else
@@ -40,12 +41,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			"You have to light a fire beneath a kettle or at a clear place.");
 		return;
 	end
-	
+	User:inform("2");
 	-- check for and remove wood
 	if foundWood then
 		-- already found wood in front
+		User:inform("3");
 		world:erase(frontItem, 1);
+		User:inform("4");
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
+		User:inform("5");
 		if frontItem.number > 0 then
 			-- there was more than one wood item, so put the rest on top
 			world:createItemFromId(frontItem.id,frontItem.number,frontPos,true,333,0);
@@ -66,21 +70,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		while ( woodNum == 0 and woodIndex < table.getn(WoodIds) ) do
 			woodIndex = woodIndex + 1;
 			woodNum = User:countItemAt("belt", WoodIds[woodIndex]);
-			User:inform("idx: ".. woodIndex .."; woodNum: ".. woodNum);
 		end
-		User:inform("1");
 		if woodNum > 0 then
-			User:inform("2");
 			User:eraseItem(WoodIds[woodIndex],1);
-			User:inform("3");
 			foundWood = true;
-			User:inform("4");
 		end
 	end
-	User:inform("5");
 	if foundWood then
 		-- light fire
-		User:inform("6");
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
 	else
 		base.common.TempInformNLS(User,
