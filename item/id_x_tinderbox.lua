@@ -66,6 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		while ( woodNum == 0 and woodIndex < table.getn(WoodIds) ) do
 			woodIndex = woodIndex + 1;
 			woodNum = User:countItemAt("belt", WoodIds[woodIndex]);
+			User:inform("idx: ".. woodIndex .."; woodNum: ".. woodNum);
 		end
 		if woodNum > 0 then
 			User:eraseItem(WoodIds[woodIndex]);
