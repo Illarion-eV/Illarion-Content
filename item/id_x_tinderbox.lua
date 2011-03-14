@@ -68,14 +68,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			woodNum = User:countItemAt("belt", WoodIds[woodIndex]);
 			User:inform("idx: ".. woodIndex .."; woodNum: ".. woodNum);
 		end
+		User:inform("1");
 		if woodNum > 0 then
+			User:inform("2");
 			User:eraseItem(WoodIds[woodIndex]);
+			User:inform("3");
 			foundWood = true;
+			User:inform("4");
 		end
 	end
-	
+	User:inform("5");
 	if foundWood then
 		-- light fire
+		User:inform("6");
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
 	else
 		base.common.TempInformNLS(User,
