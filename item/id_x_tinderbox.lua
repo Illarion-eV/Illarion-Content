@@ -46,6 +46,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if foundWood then
 		-- already found wood in front
 		User:inform("3");
+		local a = frontItem.wear;
+		User:inform("3.1");
 		world:erase(frontItem, 1);
 		User:inform("4");
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
