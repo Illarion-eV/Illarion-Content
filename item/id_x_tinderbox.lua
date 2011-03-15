@@ -61,6 +61,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		world:erase(woodItem, 1);
 		foundWood = true;
 	else
+		-- no wood in hand, so check the belt
 		local woodIndex = 0;
 		local woodNum = 0;
 		while ( woodNum == 0 and woodIndex < table.getn(WoodIds) ) do
