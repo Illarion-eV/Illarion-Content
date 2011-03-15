@@ -27,7 +27,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if frontItem and frontItem.id == 2488 then -- a kettle
 			posOkay = true;
 		elseif IsWood(frontItem) then
-			User:inform("1");
 			foundWood = true;
 			posOkay = true;
 		else
@@ -41,26 +40,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			"You have to light a fire beneath a kettle or at a clear place.");
 		return;
 	end
-	User:inform("2");
 	-- check for and remove wood
 	if foundWood then
 		-- already found wood in front
-		User:inform("3");
-		if frontItem ~= nil then
-			User:inform("3.1");
-			local a = frontItem.wear;
-			User:inform("3.2");
-		end
 		world:erase(frontItem, 1);
-		User:inform("4");
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
-		User:inform("5");
 		if frontItem.number > 0 then
 			-- there was more than one wood item, so put the rest on top
 			world:createItemFromId(frontItem.id,frontItem.number,frontPos,true,333,0);
 			-- and erase the rest
 			world:erase(frontItem,frontItem.number);
 		end
+		tryWildfire(User, SourceItem);
 		return;
 	end
 	
@@ -84,6 +75,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if foundWood then
 		-- light fire
 		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
+		tryWildfire(User, SourceItem);
 	else
 		base.common.TempInformNLS(User,
 			"Für ein Feuer brauchst du Holz. Lege es vor dich hin, nimm es in die Hand oder platziere es am Gürtel.",
@@ -107,4 +99,72 @@ function IsWood(item)
 	end
 	
 	return false;
+end
+
+function tryWildfire(User, SourceItem)
+	local logStrg=os.date()..": "..User.name.." tried "..SourceItem.pos.x.."/"..SourceItem.pos.y.."/"..SourceItem.pos.z.."\n";
+	logToFile(logStrg);
+	
+	if (math.random(1,100)==0) and (User.pos.z~=100 and User.pos.z~=101) then      -- Random wildfires deactivated. No fire on Noobia!
+		local fld=world:getField(SourceItem.pos);
+		local cnt=fld:countItems();
+		local SaveFireplace=false;
+		local i;
+		for i=0, cnt-1 do
+			TheItem=fld:getStackItem(i);
+			if (TheItem.id==1008) or (TheItem.id==2488) then --Kessel oder Feuerstelle
+				SaveFireplace=true;
+			end
+		end
+		if not SaveFireplace then
+			logStrg=os.date()..": "..User.name.." started fire at ("..SourceItem.pos.x.."/"..SourceItem.pos.y.."/"..SourceItem.pos.z.."\n";
+			logToFile(logStrg);
+			callFireMan(User,SourceItem);
+			SaveFireplace=false;
+		end
+	end
+end
+
+function callFireMan(User, fireItem)
+
+    --User:inform("checking NPC");
+    Npcs=world:getNPCSInRangeOf(position(-105,-84,0),1);
+    for i,fireMaster  in Npcs do
+        --User:inform("Name: "..fireMaster.name);
+        fndFir, firEffect = fireMaster.effects:find(8);
+        if not fndFir then                                  -- if not...
+            firEffect = CLongTimeEffect(8,300);              -- add effect
+            firEffect:addValue("fireX1",fireItem.pos.x+100000);
+            firEffect:addValue("fireY1",fireItem.pos.y+100000);
+            firEffect:addValue("fireZ1",fireItem.pos.z+100000);
+            firEffect:addValue("fireN1",0);                 -- next flame index
+            firEffect:addValue("lastNumber",1);             -- last flame number
+            firEffect:addValue("firstNumber",1);            -- first flame
+            fireMaster.effects:addEffect( firEffect );
+            --User:inform("NPC angesteckt");
+        else            -- if he has the effect already...
+            a, lastNumber = firEffect:findValue("lastNumber");
+            nextFree = lastNumber + 1;
+            firEffect:addValue("fireX"..nextFree,fireItem.pos.x+100000);
+            firEffect:addValue("fireY"..nextFree,fireItem.pos.y+100000);
+            firEffect:addValue("fireZ"..nextFree,fireItem.pos.z+100000);
+            firEffect:addValue("fireN"..lastNumber,nextFree);
+            firEffect:addValue("fireN"..nextFree,0);                 -- next flame index
+            firEffect:addValue("lastNumber",nextFree);             -- last flame number
+            --User:inform("er hats schon.");
+        end
+    end
+end
+
+function logToFile(theString)
+    retVal=false;
+    coldLog,errMsg=io.open("/home/martin/brandstifter.txt","a");
+    if (coldLog~=nil) then
+        coldLog:write(theString);
+        coldLog:close();
+        retVal=retVal;
+    else
+        retVal=retVal;
+    end
+    return retVal;
 end
