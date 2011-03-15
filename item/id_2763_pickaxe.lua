@@ -149,7 +149,7 @@ Not on the Map yet, i'll add it soon though.]]--
 	SetRessource( 5, 1250,  257,  3, 0); -- topas
 		
 	--Wilderness "Skewer Drift"
-	AddArea( 6, position(0,0,0), 15 ); --WRITE DOWN COORDINATES HERE, ZOT!
+	AddArea( 6, position(942,444,0), 15 );
     AddStone( 6, 232 );
     SetRessource( 6, 232, 2536, 40,  0); -- copper
     SetRessource( 6, 232, 234,  10,  0); -- gold nuggets

@@ -59,9 +59,11 @@ function LookAtItem(User,Item)
 	        User:setQuestProgress(110,queststatus+1); --the player read a text
 	    else
 		    User:setQuestProgress(110,0); --start from the beginning
-		    User:setQuestProgress(111,1); --the player read all laws
-		    base.common.InformNLS(User,"Du hast nun alle Gesetze Cadomyrs gelesen.","You read all cadomyrian laws."); --sending the message
-        end	
+			if User:getQuestProgress(111)~=1 then
+		        User:setQuestProgress(111,1); --the player read all laws
+		        base.common.InformNLS(User,"Du hast nun alle Gesetze Cadomyrs gelesen.","You read all cadomyrian laws."); --sending the message
+			end
+		end	
     else
 		    base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a ridder statue."); --default
     end
