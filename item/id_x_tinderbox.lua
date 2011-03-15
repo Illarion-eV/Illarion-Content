@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if foundWood then
 		-- already found wood in front
 		User:inform("3");
-		if frontItem then
+		if frontItem ~= nil then
 			User:inform("3.1");
 			local a = frontItem.wear;
 			User:inform("3.2");
