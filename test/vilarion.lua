@@ -8,9 +8,16 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
+    it = world:getItemOnField( position(1,1,0) );
+    User:inform( "it.id: " .. it.id );
+    User:inform( "it.number: " .. it.number );
+    User:inform( "it.wear: " .. it.wear );
+    User:inform( "it.quality: " .. it.quality );
+    User:inform( "it.data: " .. it.data );
+
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
-    e = CLongTimeEffect( 777, 30 );
-    User.effects:addEffect( e );
+    -- e = CLongTimeEffect( 777, 30 );
+    -- User.effects:addEffect( e );
 
 end
 
