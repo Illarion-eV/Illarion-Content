@@ -23,7 +23,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local frontPos = base.common.GetFrontPosition(User);
 	local posOkay = true;
 	if world:isItemOnField(frontPos) then
-		local frontItem = base.common.GetFrontItem(User);
+		frontItem = base.common.GetFrontItem(User);
 		if frontItem and frontItem.id == 2488 then -- a kettle
 			posOkay = true;
 		elseif IsWood(frontItem) then
