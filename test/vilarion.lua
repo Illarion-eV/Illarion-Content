@@ -14,6 +14,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     User:inform( "it.wear: " .. it.wear );
     User:inform( "it.quality: " .. it.quality );
     User:inform( "it.data: " .. it.data );
+    world:erase( it, 1 );
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
     -- e = CLongTimeEffect( 777, 30 );
