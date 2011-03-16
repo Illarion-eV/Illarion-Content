@@ -76,7 +76,9 @@ Coordinates: 548,371,0
 Radius 15
 
 Coal/Iron/Gold/coppermine: Wilderness "Skewer Drift"
-Not on the Map yet, i'll add it soon though.]]--
+Coordinates: 942,444,0
+Radius 15
+]]--
 	
     --Galmair "Dark Hole Mine" 
     AddArea( 1, position(406,159,-3), 20 );
