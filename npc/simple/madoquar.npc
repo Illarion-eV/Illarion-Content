@@ -1,0 +1,326 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Madoquar                                                   None --
+-- NPC Job:  Millennian                                                       --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Kawan Baxter                                                     --
+--                                                                            --
+-- Last parsing: March 16, 2011                          easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Madoquar"
+race = elf
+sex = female
+position = 3, 7, 0
+direction = south
+affiliation = "None"
+job = "Millennian"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = "Dieser NPC ist Madoquar die <Beruf/Funktion>."
+lookatUS = "This NPC is <Name> the <profession/function>."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather gloves and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- Name: Madoquar
+-- Race: Elf
+-- Sex:  Female
+-- age:  unknown
+-- hair: died brown
+-- Skin: white
+-- Height: small
+-- Weight: thin
+-- extra:  eye patch over right eye
+-- Cloth: simple green robe. Silver necklace of locking circles
+
+-- Personality: Madoquar is wise and motherly, though she still enjoys the
+-- feeling of being a women despite being so old. At this age simple things
+-- make her happy, like a nice berry wine and an apple. She lives by herself,
+-- but is sometimes visited by adventurers. Every few hundred or years or so
+-- she goes on a tour around the world to meet old people and new.
+
+-- Background:  One of if not the oldest elf alive. She is famed for her
+-- wisdom gained from being a live so long. Anyone who ever has the grace of
+-- meeting her offers Madoquar a meal and night stay. Madoquar is loved by
+-- all. She is characterized by an eye patch on her right eye that she got
+-- when her village flooded when she was a small child. Or that's what she
+-- wants people to think. In truth Quantisha Bakabrobaxt killed Madoquar 400
+-- years go and took over her life. No one knows, no one who would TRULY know
+-- The original essence of Madoquar are alive now.
+
+-- Goals:
+-- To live a happy and famous, but peaceful life.
+-- Methods:
+-- She does not really have to do anything. People come to her and give her
+-- stuff and attention.
+-- Goal: To make everyone believe she is Madoquar
+-- Method: impeccable acting skills + charismatic smile + elven magic +
+-- destroying all evidence.
+
+-- Queststatus Overview
+
+-- 0: No Quest taken
+-- 1: Quest 1 taken, Attempt to cut down the tree
+-- 2: Quest 1 solved, reward:
+-- 2.5 Quest 2 taken- Gather the 4 needed components
+-- Quest 2.5 solved-
+-- 4: Quest 2 solved -
+-- 5: Quest 3 taken - kill 1 wraith
+-- 6: Killing 1 wraith
+-- 7: Quest 3 solved, reward: VERY NICE ITEM
+
+-- CAVE: replace (1337) with valid queststatus
+
+-- Debugging
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
+".+", queststatus(1337) > 7 -> inform("[Error] Something went wrong, please inform a developer.")
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Madoquar the  millenian. Keyphrases: Hello, Good day, Old lady, Immortal elf, One eye")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Speak your mind child.", "Blessed day it is today. Like the last 800 years of my life everyday has been as fresh as a mountain stream, as relaxing as a field of lilies and as enjoyable as ripe peach", "Mighty nice of you come visit an old lady like me.", "I have no other business to attend to, when one reaches my age there is no business that hasn't already been attended to, so speak."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Speak your mind child.", "Blessed day it is today. Like the last 800 years of my life everyday has been as fresh as a mountain stream, as relaxing as a field of lilies and as enjoyable as ripe peach", "Mighty nice of you come visit an old lady like me.", "I have no other business to attend to, when one reaches my age there is no business that hasn't already been attended to, so speak."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Leaving so soon? Please be careful. The roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little more and have a spot of tea? "
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Leaving so soon? Please be careful, the roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little longer and have a spot of tea? "
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel" -> "Today I just gazed upon a sunset that took my breath away. I've seen that sun set behind that mountain more a thousand, ten thousand, one hundred thousand times maybe. Every time I see the last light of the morning star fall between the fingers of the earth. I learn something new about Illarion, and myself.", "I feel great, wonderful.", "I feel normal. I've felt like I've felt for how many years? I would call it normal by now. We elves learn to live with a balance, so I would say that I feel balanced.", "Something's been urking me. Not many things burden my soul at my old age, but there are just some things."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashion I know.", " Madoquar, A pleasure to meet you.", "Madoquar, the millenian."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- 1st quest: Bring one INTERESTING ITEM
+
+-- Give out quest 1
+-- Give the player an axe. Tell the player where to go
+"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the tree, but I want it cut down. Be a dear and go cut it for me please.", queststatus(1337) = 1
+"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the tree, but I want it cut down. Be a dear and go cut it for me please.", queststatus(1337) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+
+-- Quest 1 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 1, item(391, all) = 0, english -> "Oh you have not cut down the tree yet? Do you need to know where it is? It's NAME LOCATION."
+"quest", "mission", queststatus(1337) = 1, item(391, all) = 0 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 1, item(391, all) = 0 -> "Oh you have not cut down the tree yet? Do you need to know where it is? It's NAME LOCATION"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) = 0 -> "GERMAN."
+
+-- Quest 1 solved, reward: 80cp, +5 rankpoints
+".+", queststatus(1337) = 1, item(391, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded 80 copper coins. You advance in Don Valerio Guilianni's favour."), "So you tried to cut down the tree.", money + 80, deleteItem(391, 1), queststatus(1337) = 2, rankpoints(Galmair) + 5
+".+", queststatus(1337) = 1, item(391, all) > 0, english -> inform("[Quest solved] You are awarded 80 copper coins."), "ENGLISH.", money + 80, deleteItem(391, 1), queststatus(1337) = 2
+".+", queststatus(1337) = 1, item(391, all) > 0, town = Galmair -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 80, deleteItem(391, 1), queststatus(1337) = 2, rankpoints(Galmair) + 5
+".+", queststatus(1337) = 1, item(391, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", money + 80, deleteItem(391, 1), queststatus(1337) = 2
+
+-- 2nd quest: Bring 10 RESOURCES
+-- The player goes and tries to cut down the tree. The tree can't be cut down. --The axe breaks. A person with a high enough skill/lvl will be able to --detect the presence of a ghost.
+-- Give out quest 2
+"quest", "mission", queststatus(1337) = 2, english -> inform("[New quest] The Ghost Oak II"), "What!? The tree could not be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this. Let me think. Bring me a longaxe, a bar of silver, three grapes, the book of life, an onion and one more thing. I will tell you the last thing after you bring me these.", queststatus(1337) = 3
+"quest", "mission", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
+"task", "adventure", queststatus(1337) = 2 -> inform("[New quest] The Ghost Oak II"), "ENGLISH.", queststatus(1337) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 2 -> inform("[Neues Quest] Die Geistereiche II"), "GERMAN.", queststatus(1337) = 3
+
+-- Item 88, 104,388, new item for book,
+-- Quest 2 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 3, item(391, all) < 10, english -> " Bring me a longaxe, a bar of silver, three grapes, The book of life, an onion and one more thing. I will tell you the last thing after you bring me these."
+"quest", "mission", queststatus(1337) = 3, item(391, all) < 10 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 3, item(391, all) < 10 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 3, item(391, all) < 10 -> "GERMAN."
+
+-- Quest 2 solved, reward: 120cp, ITEM, +10 rankpoints
+-- All Items are gathered except for one.
+".+", queststatus(1337) = 3, item(391, all) > 9, english, town = Galmair -> inform(""""), "You warriors are a gift. That's all the items except for one. I honestly did not think you would get the book of life.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 3, item(391, all) > 9, english -> inform("[Quest solved] You are awarded 120 copper coins and a ITEM."), "ENGLISH.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
+".+", queststatus(1337) = 3, item(391, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 3, item(391, all) > 9 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
+
+-- Quest 2.5
+-- Go to an abandon house and retrieve the skull of the real Madoquar
+-- if can read elvan and reads the book of life, finds out that to kill a wraith you need a weapon forged from the body that the wraith's soul belongs too.
+"quest", "mission", queststatus(1337) = 4, english -> inform("[New quest] The Ghost Oak II/v"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South east of the tree is the remnants of a house. Somewhere below the ground of this house are remains. Whether it's, a bone, a hair, a tooth, it might all be dirt by now. I need you to search under that house for a piece of a dead body and bring it back here. ", queststatus(1337) = 5
+
+-- Quest 2.5 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 5, english -> " I need you to search under the ruined house south east of the tree for a piece of a dead body and bring it back here."
+"quest", "mission", queststatus(1337) = 5 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 5 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "GERMAN."
+".+", queststatus(1337) = 9999, item(391, all) > 9999, english, town = Galmair -> inform("[Quest solved]."), "I'm not in the mood to chit chat. Just give me the book and come back in one day.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
+
+-- 3rd quest: Kill 1 wraith
+-- Madoquar gave you a warm silver axe. She directs you to the wraith
+-- Give out quest 3
+"quest", "mission", queststatus(1337) = 4, english -> inform("[New quest] The Ghost Oak III"), "Here is the axe. It's silver so it can hurt the undead. The spirit of the tree is special. Nothing short of a specific weapon can kill it. Here it is. Please fix this disturbance for me, so that I can live the rest of my life in peace.", queststatus(1337) = 5
+"quest", "mission", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
+"task", "adventure", queststatus(1337) = 4 -> inform("[New quest] The Ghost Oak III"), "ENGLISH.", queststatus(1337) = 5
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
+
+-- Quest 3 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(1337) = 5, english -> "Kill that wraith now! Now! Please."
+"quest", "mission", queststatus(1337) = 5 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 5 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "GERMAN."
+
+-- Quest 3 solved, reward: SPECIAL RING THAT EFFECTS MOBILITY, +20 rankpoints
+".+", queststatus(1337) = 6, english, town = Galmair -> inform("[Quest solved]"), "I'll give you a ring and a secret, though you probably figured this out by now. I killed that wraith while it was alive. Don't tell a soul, but that wraith was once the real Madoquar. Don't look at me with such condescending eyes. This happened 400 years ago. Cadomyr laws were different then and I have already learned my lesson.", item(391, 1, 799, 0), queststatus(1337) = 7, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 6, english -> inform("[Quest solved] You are awarded a VERY NICE ITEM."), "ENGLISH.", item(391, 1, 799, 0), queststatus(1337) = 7
+".+", queststatus(1337) = 6, town = Galmair -> inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 799, 0), queststatus(1337) = 7, rankpoints(Galmair) + 20
+".+", queststatus(1337) = 6 -> inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."), "GERMAN.", item(391, 1, 799, 0), queststatus(1337) = 7
+
+-- No more quests, just nice words of gratitude
+"quest", "mission", queststatus(1337) = 7, english -> "It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years."
+"quest", "mission", queststatus(1337) = 7 -> "GERMAN."
+"task", "adventure", queststatus(1337) = 7 -> " It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 7 -> "GERMAN."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I had a job a long long time ago. What was it again?", "Sitting on my porch eating oranges and sipping tea. Does that count?", "I'm a part time traveler, once every three hundred years or so."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I had a job a long long time ago. What was it again?", "Sitting on my porch eating oranges and sipping tea. Does that count?", "I'm a part time traveler, once every three hundred years or so."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "I wish I remembered how I ended up here ", "This is no Emerald forest, but one cannot stay at mom tits forever."
+"Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
+"my name" -> "They call me Madoquar.", "I am Madoquar, my pleasure to meet you.", "Hello, I am Madoquar."
+"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
+"Nameless Mountains" -> "Come back in one thousand years and I will tell you all about it."
+"Burden", "urking", "urk", "bothering" -> "#me sighs: 'Two years ago on my latest pilgrimage through Illarion. I passed a tree. This tree needs to be cut down.'"
+"humans" -> "I met the fifth human ever born.", "What is a man, but a miserable pile of secrets.", "I love humans, like I love dwarves, like I love elves, like I love halflings, like I love gnomes, like I love orcs, like I love lizardmen."
+"Dwarves" -> "They make good weapons. That is always my first thought of them. I spent a great deal of my life forging weapons. Not for battle, but for the art of things. I am skilled at making a blade, but master dwarf, I fear in all my years I will never reach.", "I envy those little craftsmen."
+"gnomes" -> "Philosophically they are the opposite of everything we elves stand for. They are for change, we are for stability. They are for new, we are for old, they are for progress, we are for peace.", "They are kind of cute. They all look like children."
+"lizardman" -> "Lizard men are very hot. My first and only love was a lizardman.", "That thing on their heads. I like playing with it", "Servont was a lizardman. The hardest part of being an elf is watching those you love disappear."
+"orcs" -> "I love them, but I cannot say that I really like them.", "I of course have had some unfriendly communications with them, today is a new day though. Everyone gets along. It's for the better this way."
+"halflings" -> "They are like little people. I once thought they were people that were short. Halflings though are much more peaceful then man.", "Half a man should be should be twice the man a man should be half the time- Gerald Tealuv, an old hobbit friend of mine.", "Hobits make the best bread.", "I still remember the first time I stayed with a hobiit and bit into my first biscuit. There are two things in my life that I have ever truly loved and biscuits are one of them."
+"Servont" -> "Servont was my husband for almost 1000 years, back then I was a house wife. I would wait at home for him. He would kill beast for the goods we needed. He loved traveling. He's the reason I take my pilgrimages every few hundred years."
+
+-- Faction stuff.
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> "It's a town. I have been there.", "It is a place known for their mages. Human mages are very direct in their magic. They lack the gracefulness of an Elf's touch.", "On my next trip around the world that will be my first stop. Not because of any specific importance. It's just the closest city."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "I really have no opinion of her. I was here before her. I will be here after her.", "She was cute when she was a baby. Humans age so quickly. In the blink of an elvan eye she has grown from a cute baby to a bland looking human.", "She usually has tasks for other people to do. She is known to pay well."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr", english -> "To others' eyes the earth seems dead, but to an an elf, we see the life.", "I don't know if I will spend the end of my days here, but I do not know that I could not bring myself to leave this place, at least not for another 400 years.", "This city was once part of Albar. The land of man changes like the birth and death of flowers on the field."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", " Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", "Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "I do not care. I bother myself not with the fickle ways of man.", "What is war? What is it good for? Absolutely nothing.", "Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"Adron", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "The five with you.", "Haha, Cadomyr really worships this god.", "#me wipes sweat from his brows.", "He may be my favourite god. He may not be yours, but you don't remember a time before cooked food."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eldan", english -> "The five with you.", "I have nothing to say about him.", "#me Smiles warmly to herself."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "The five with you.", "Findari is strong in these parts. Humans think she's angry with them. They are just too young to see a woman at work.", "Today she is calm. Even gods need rest."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Malachin", "Malachín", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "There are no younger gods, there are five gods ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "The five with you.", "I do wish she would visit here more often, but her absence does keep this place from being overcrowded.", "It is my duty to worship the five gods, but It would be a lie if I did not say I had no resentment for her for taking my eye."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "The five with you.", "Most see her as a rock, but most don't see how fluid the sand is. They fail to see her lively side.", "Hahaha, she is my god now. People often mistake her for me."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell bad air and wisdom.", "I'm sorry, I have nothing of value.", "Shoo away with you. Go to a store if you want to sell something."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+"Meaning of life" -> "42"
+"GERMAN" -> "GERMAN."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Madoquar", english -> "Good day, how are you?", "The weather is ok today is it not?", "I think you might have dropped something, haha. I was kidding."
+"Madoquar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "ENGLISH.", "What a nice day today. I am prone to walk in the mountains me think."
+cycletext "ENGLISH.", "Apples leave such a pleasant after taste in my mouth. I wonder if there will ever be a fruit more aesthetically pleasing to the tongue then a fresh apple."
+cycletext "ENGLISH.", "I do not wish to be bothered today. Some days I just want to rest and nibble on my lunch in peace."
+cycletext "ENGLISH.", "That eerie feeling it's a burden on my soul."
+cycletext "ENGLISH.", "It seem as if it's about to rain today. Please Tanora do not be cruel to this land. "
+cycletext "ENGLISH.", "Tanora, you only touched us lightly, please visit us as sparingly as possible."
+cycletext "ENGLISH.", "This is beyond urking. I will not feel at peace until this burden is lifted from me."
+cycletext "ENGLISH.", "I have been all over Illarion. There may not be a River in Globaith I have not drunk from, or a mountain peak in Albar that I have not dined on top of."
+cycletext "ENGLISH.", "Did you see that lizardman over there. His legs were...hehehehehe. I may have to get him to visit me"
+cycletext "ENGLISH", "I see something dangerous in Humans. The lizard makes peace with the sea, the elf with the Forrest, the Halflings with the hills, the dwarf with his mountain, the gnome with his minerals and the Orc with his prey, but humans, destroy to destroy, they steal to create and those creations end up being destroyed."
+cycletext "#me rückt eine Augenklappe zurecht, die einen Teil ihrer rechten Gesichtshälfte abdeckt.","#me readjusts a patch that covers her right eye."
