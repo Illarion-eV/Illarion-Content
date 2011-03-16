@@ -109,7 +109,7 @@ itemShoes = 369
 ".+", queststatus(1337) > 7 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Madoquar the  millenian. Keyphrases: Hello, quest, harbour, humans.")
+"Help" -> inform("[Game Help] This NPC is Madoquar the millenian. Keyphrases: Hello, quest, harbour, humans.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: Hallo, Quest, Hafen, Menschen.")
 
 -- General speech
@@ -121,31 +121,31 @@ itemShoes = 369
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ihr geht schon? Seid bitte vorsichtig, die Straßen sind unsicher dieser Tage.","Du meine Güte, ich will ja nicht unhöflich sein, aber eine Elfe meines Alters braucht ihre Ruhe.","Ihr müßt schon gehen? Eine alte Frau wie ich ist die Stille gewohnt. Wollt ihr nicht noch etwas bleiben, vielleicht auf eine Tasse Tee?"
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Leaving so soon? Please be careful, the roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little longer and have a spot of tea?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ihr geht schon? Seid bitte vorsichtig, die Straßen sind unsicher dieser Tage.","Du meine Güte, ich will ja nicht unhöflich sein, aber eine Elfe meines Alters braucht ihre Ruhe.","Ihr müßt schon gehen? Eine alte Frau wie ich ist die Stille gewohnt. Wollt ihr nicht noch etwas bleiben, vielleicht auf eine Tasse Tee?"
-"How are you", "How feel" -> "Today I just gazed upon a sunset that took my breath away. I've seen that sun set behind that mountain more a thousand, ten thousand, one hundred thousand times maybe. Every time I see the last light of the morning star fall between the fingers of the earth. I learn something new about Illarion, and myself.", "I feel great, wonderful.", "I feel normal. I've felt like I've felt for how many years? I would call it normal by now. We elves learn to live with a balance, so I would say that I feel balanced.", "Something's been urking me. Not many things burden my soul at my old age, but there are just some things."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashion I know.", " Madoquar, a pleasure to meet you.", "Madoquar, the Ageless."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel" -> "Yesterday I just gazed upon a sunset that took my breath away. I've seen that sun set behind that mountain more a thousand, ten thousand, one hundred thousand times maybe, but never like this.","Every time I see the last light of the morning star fall between the fingers of the earth, I learn something new about Illarion, and myself.", "I feel great, wonderful.", "I feel normal. I've felt like I've felt for how many years? I would call it normal by now. We elves learn to live with a balance, so I would say that I feel balanced.", "Something's been urking me. Not many things burden my soul at my old age, but there are just some things."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gestern habe ich einen Sonnenuntergang gesehen, der mir die Sprache verschlagen hat. Ich habe die Sonne schon tausend, zehntausend, vielleicht einhundertausend mal schon versinken gesehen, aber noch nie so.", "Jedesmal, wenn ich das letzte Licht des Morgensterns zwischen die Finger der Welt verblassen sehe, lerne ich etwas neues über Illarion und mich selbst.", "Ich fühle mich großartig, danke.","Mir geht es wie immer. Mir geht nun schon seit wie vielen Jahren so? Ich denke, es ist ganz normal."
+"your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashion I know.", "Madoquar, a pleasure to meet you.", "Madoquar, the Ageless."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Madoquar, ich weiß ein altmodischer Name.", "Madoquar, schön euch zu treffen.", "Madoquar, die Alterslose."
 
 -- 1st quest: Bring one INTERESTING ITEM
 
 -- Give out quest 1
--- Give the player an axe. Tell the player where to go
-"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the tree, but I want it cut down. Be a dear and go cut it for me please.", queststatus(1337) = 1
-"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
-"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the tree, but I want it cut down. Be a dear and go cut it for me please.", queststatus(1337) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "GERMAN.", queststatus(1337) = 1
+-- Find the ghost oak. Tell the player where to go
+"quest", "mission", queststatus(1337) = 0, english -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.", queststatus(1337) = 1
+"quest", "mission", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.", queststatus(1337) = 1
+"task", "adventure", queststatus(1337) = 0 -> inform("[New quest] The Ghost Oak I"), "I can't tell you what is wrong with the world, but I feel a dark presence not far to the east. Be a dear and go explore it for me please.", queststatus(1337) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 0 -> inform("[Neues Quest] Die Geistereiche I"), "Ich kann euch nicht sagen, was mit der Welt nicht stimmt, aber ich spüre eine dunkle Präsenz nicht weit von hier im Osten. Seid so nett und erkundet den Ursprung für mich.", queststatus(1337) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 1, item(391, all) = 0, english -> "Oh you have not cut down the tree yet? Do you need to know where it is? It's NAME LOCATION."
-"quest", "mission", queststatus(1337) = 1, item(391, all) = 0 -> "GERMAN."
-"task", "adventure", queststatus(1337) = 1, item(391, all) = 0 -> "Oh you have not cut down the tree yet? Do you need to know where it is? It's NAME LOCATION"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1, item(391, all) = 0 -> "GERMAN."
+"quest", "mission", queststatus(1337) = 1, english -> "Oh, you have not found anything yet? Do you need to know where to search? To the east!"
+"quest", "mission", queststatus(1337) = 1 -> "Oh, ihr habt noch nichts gefunden? Ihr wisst nicht wo ihr suchen sollt? Im Osten!"
+"task", "adventure", queststatus(1337) = 1 -> "Oh, you have not found anything yet? Do you need to know where to search? To the east!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 1 -> "Oh, ihr habt noch nichts gefunden? Ihr wisst nicht wo ihr suchen sollt? Im Osten!"
+
+--BIS HIER!
 
 -- Quest 1 solved, reward: 80cp, +5 rankpoints
-".+", queststatus(1337) = 1, item(391, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded 80 copper coins. You advance in Don Valerio Guilianni's favour."), "So you tried to cut down the tree.", money + 80, deleteItem(391, 1), queststatus(1337) = 2, rankpoints(Galmair) + 5
-".+", queststatus(1337) = 1, item(391, all) > 0, english -> inform("[Quest solved] You are awarded 80 copper coins."), "ENGLISH.", money + 80, deleteItem(391, 1), queststatus(1337) = 2
-".+", queststatus(1337) = 1, item(391, all) > 0, town = Galmair -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 80, deleteItem(391, 1), queststatus(1337) = 2, rankpoints(Galmair) + 5
-".+", queststatus(1337) = 1, item(391, all) > 0 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", money + 80, deleteItem(391, 1), queststatus(1337) = 2
+".+", queststatus(1337) = 2, english -> inform("[Quest solved] You are awarded 80 copper coins."), "ENGLISH.", money + 80, queststatus(1337) = 3
+".+", queststatus(1337) = 2 -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "GERMAN.", money + 80, queststatus(1337) = 3
 
 -- 2nd quest: Bring 10 RESOURCES
 -- The player goes and tries to cut down the tree. The tree can't be cut down. --The axe breaks. A person with a high enough skill/lvl will be able to --detect the presence of a ghost.
