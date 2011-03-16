@@ -1,11 +1,12 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Madoquar                                                   None --
--- NPC Job:  Millennian                                                       --
+-- NPC Name: Madoquar                                                    None --
+-- NPC Job:  Ageless                                                          --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: elf                        NPC Position:  452, 111, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   Kawan Baxter                                                     --
+-- Authors:  Kawan Baxter                                                     --
+--           Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: March 16, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -13,7 +14,7 @@
 name = "Madoquar"
 race = elf
 sex = female
-position = 3, 7, 0
+position = 452, 111, 0
 direction = south
 affiliation = "None"
 job = "Ageless"
@@ -40,7 +41,7 @@ colorSkin = 238, 154, 73
 itemHead = 0
 itemChest = 803
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 323
 itemSecondHand = 0
 itemHands = 2295
 itemTrousers = 0
@@ -108,21 +109,21 @@ itemShoes = 369
 ".+", queststatus(1337) > 7 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Madoquar the  millenian. Keyphrases: Hello, Good day, Old lady, Immortal elf, One eye")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Madoquar the  millenian. Keyphrases: Hello, quest, harbour, humans.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: Hallo, Quest, Hafen, Menschen.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Speak your mind child.", "Blessed day it is today. Like the last 800 years of my life everyday has been as fresh as a mountain stream, as relaxing as a field of lilies and as enjoyable as ripe peach.", "Mighty nice of you come visit an old lady like me.", "I have no other business to attend to, when one reaches my age there is no business that hasn't already been attended to, so speak."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Speak your mind child.", "Blessed day it is today. Like the last 800 years of my life everyday has been as fresh as a mountain stream, as relaxing as a field of lilies and as enjoyable as ripe peach", "Mighty nice of you come visit an old lady like me.", "I have no other business to attend to, when one reaches my age there is no business that hasn't already been attended to, so speak."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Speak your mind child.", "Blessed day it is today. Like the last 800 years of my life everyday has been as fresh as a mountain stream, as relaxing as a field of lilies and as enjoyable as ripe peach.", "Mighty nice of you come visit an old lady like me.", "I have no other business to attend to, when one reaches my age there is no business that hasn't already been attended to, so speak."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "Leaving so soon? Please be careful. The roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little more and have a spot of tea? "
+"Farewell", "Bye", "Fare well", "See you" -> "Leaving so soon? Please be careful. The roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little more and have a spot of tea?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Leaving so soon? Please be careful, the roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little longer and have a spot of tea? "
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Leaving so soon? Please be careful, the roads can be dangerous this time of year.", "Thank goodness. Not to be rude, but even an elf if old enough needs her rest.", "Leaving already? An old woman like me is too used to the quiet. Won't you stay a little longer and have a spot of tea?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel" -> "Today I just gazed upon a sunset that took my breath away. I've seen that sun set behind that mountain more a thousand, ten thousand, one hundred thousand times maybe. Every time I see the last light of the morning star fall between the fingers of the earth. I learn something new about Illarion, and myself.", "I feel great, wonderful.", "I feel normal. I've felt like I've felt for how many years? I would call it normal by now. We elves learn to live with a balance, so I would say that I feel balanced.", "Something's been urking me. Not many things burden my soul at my old age, but there are just some things."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashion I know.", " Madoquar, A pleasure to meet you.", "Madoquar, the millenian."
+"your name", "who are you", "who art thou" -> "Madoquar, it's a bit old fashion I know.", " Madoquar, a pleasure to meet you.", "Madoquar, the Ageless."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- 1st quest: Bring one INTERESTING ITEM
@@ -163,7 +164,7 @@ itemShoes = 369
 
 -- Quest 2 solved, reward: 120cp, ITEM, +10 rankpoints
 -- All Items are gathered except for one.
-".+", queststatus(1337) = 3, item(391, all) > 9, english, town = Galmair -> inform(""""), "You warriors are a gift. That's all the items except for one. I honestly did not think you would get the book of life.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
+".+", queststatus(1337) = 3, item(391, all) > 9, english, town = Galmair -> inform("AAA"), "You warriors are a gift. That's all the items except for one. I honestly did not think you would get the book of life.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 3, item(391, all) > 9, english -> inform("[Quest solved] You are awarded 120 copper coins and a ITEM."), "ENGLISH.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
 ".+", queststatus(1337) = 3, item(391, all) > 9, town = Galmair -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4, rankpoints(Galmair) + 10
 ".+", queststatus(1337) = 3, item(391, all) > 9 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "GERMAN.", money + 120, deleteItem(391, 10), item(391, 1, 599, 0), queststatus(1337) = 4
@@ -254,6 +255,8 @@ itemShoes = 369
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "AAA"
+"Gott", "Götter" -> "AAA"
 "Adron", english -> "There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.", "Who is that?", "Why do you talk to me about such rubbish. Let an elf enjoy her day in peace."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Bragon", "Brágon", english -> "The five with you.", "Haha, Cadomyr really worships this god.", "#me wipes sweat from his brows.", "He may be my favourite god. He may not be yours, but you don't remember a time before cooked food."
@@ -324,4 +327,4 @@ cycletext "ENGLISH.", "This is beyond urking. I will not feel at peace until thi
 cycletext "ENGLISH.", "I have been all over Illarion. There may not be a River in Globaith I have not drunk from, or a mountain peak in Albar that I have not dined on top of."
 cycletext "ENGLISH.", "Did you see that lizardman over there. His legs were...hehehehehe. I may have to get him to visit me"
 cycletext "ENGLISH", "I see something dangerous in Humans. The lizard makes peace with the sea, the elf with the Forrest, the Halflings with the hills, the dwarf with his mountain, the gnome with his minerals and the Orc with his prey, but humans, destroy to destroy, they steal to create and those creations end up being destroyed."
-cycletext "#me rückt eine Augenklappe zurecht, die einen Teil ihrer rechten Gesichtshälfte abdeckt.","#me readjusts a patch that covers her right eye."
+cycletext "#me rückt eine Augenklappe zurecht, die einen Teil ihrer rechten Gesichtshälfte abdeckt.", "#me readjusts a patch that covers her right eye."
