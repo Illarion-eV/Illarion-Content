@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 16, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 17, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -51,13 +51,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madoquar the millenian. Keyphrases: Hello, quest, harbour, humans."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madoquar the millenian. Keyphrases: Hello, quest, harbour, humans, lizardmen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: Hallo, Quest, Hafen, Menschen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Madoquar die Uralte. Schlüsselwörter: Hallo, Quest, Hafen, Menschen, Echsen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,9 +284,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 80 copper coins."));
-talkEntry:addResponse("ENGLISH.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins."));
+talkEntry:addResponse("So, the origin of the evil presence is an oak? Let me think about this for a minute or a year and come back to me.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -294,51 +294,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
-talkEntry:addResponse("What!? The tree could not be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this. Let me think. Bring me a longaxe, a bar of silver, three grapes, the book of life, an onion and one more thing. I will tell you the last thing after you bring me these.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
-talkEntry:addResponse("ENGLISH.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke."));
+talkEntry:addResponse("Also der Ursprung der dunklen Präsenz ist eine Eiche? Lasst mich eine Minute oder auch ein Jahr darüber nachdenken und kommt dann zu mir zurück.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -347,9 +305,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse(" Bring me a longaxe, a bar of silver, three grapes, The book of life, an onion and one more thing. I will tell you the last thing after you bring me these.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
+talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,8 +316,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,8 +326,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
+talkEntry:addResponse("The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,66 +337,74 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", "<", 10));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addResponse("Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.item.item(88, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("AAA"));
-talkEntry:addResponse("You warriors are a gift. That's all the items except for one. I honestly did not think you would get the book of life.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a ruby amulet."));
+talkEntry:addResponse("You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(88, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(104, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.item.item(88, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.item.item(104, "all", ">", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."));
+talkEntry:addResponse("Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(88, 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(104, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 599, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a ITEM."));
-talkEntry:addResponse("ENGLISH.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
+talkEntry:addResponse("Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addResponse("Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 9));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 10));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 4));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addResponse("Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addResponse("Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -627,7 +596,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years.");
+talkEntry:addResponse("It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years as Madoquar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -643,7 +612,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 7));
-talkEntry:addResponse(" It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years.");
+talkEntry:addResponse(" It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years as Madoquar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,9 +635,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich übte einst einen Beruf aus. Was war es noch gleich?");
+talkEntry:addResponse("Auf meinem Hintern sitzen, Orangen essen und Tee schlürfen - zählt das als Beruf?");
+talkEntry:addResponse("Ich bin Teilzeitreisende, alle dreihundert Jahre in etwa.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,9 +652,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich übte einst einen Beruf aus. Was war es noch gleich?");
+talkEntry:addResponse("Auf meinem Hintern sitzen, Orangen essen und Tee schlürfen - zählt das als Beruf?");
+talkEntry:addResponse("Ich bin Teilzeitreisende, alle dreihundert Jahre in etwa.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,17 +662,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I wish I remembered how I ended up here ");
-talkEntry:addResponse("This is no Emerald forest, but one cannot stay at mom tits forever.");
+talkEntry:addResponse("I wish I remembered how I escaped from there.");
+talkEntry:addResponse("It was no Emerald forest, but one could stay there for a while.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich wüßte gerne, wie es mir gelungen ist, von dort zu entkommen.");
+talkEntry:addResponse("Es war kein Smaragdwald, aber man konnte es dort aushalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -717,9 +685,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Man nennt mich Madoquar.");
+talkEntry:addResponse("Ich bin Madoquar, schön euch zu treffen.");
+talkEntry:addResponse("Hallo, ich bin Madoquar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -742,7 +710,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("humans");
 talkEntry:addResponse("I met the fifth human ever born.");
 talkEntry:addResponse("What is a man, but a miserable pile of secrets.");
-talkEntry:addResponse("I love humans, like I love dwarves, like I love elves, like I love halflings, like I love gnomes, like I love orcs, like I love lizardmen.");
+talkEntry:addResponse("I hate humans, like I love dwarves, like I love elves, like I love halflings, like I love gnomes, like I love orcs, like I love lizardmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -761,10 +729,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("lizardman");
-talkEntry:addResponse("Lizard men are very hot. My first and only love was a lizardman.");
-talkEntry:addResponse("That thing on their heads. I like playing with it");
-talkEntry:addResponse("Servont was a lizardman. The hardest part of being an elf is watching those you love disappear.");
+talkEntry:addTrigger("lizard");
+talkEntry:addResponse("Lizardmen are very interesting. My first and only love was a lizardman.");
+talkEntry:addResponse("That thing on their heads. I like playing with it.");
+talkEntry:addResponse("My husband Servont was a lizardman. The hardest part of being an elf is watching those you love disappear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,6 +755,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Servont");
 talkEntry:addResponse("Servont was my husband for almost 1000 years, back then I was a house wife. I would wait at home for him. He would kill beast for the goods we needed. He loved traveling. He's the reason I take my pilgrimages every few hundred years.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Harbo");
+talkEntry:addResponse("This harbour wasn't here last century. Anyway, it will be gone again one day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hafen");
+talkEntry:addResponse("Dieser Hafen hier war vorheriges Jahrhundert noch nicht hier. Was soll's, er verschwindet auch wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -828,9 +808,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("It is a place known for their mages. Human mages are very direct in their magic. They lack the gracefulness of an elf's touch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,7 +845,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("It's a town. I have been there.");
-talkEntry:addResponse("It is a place known for their mages. Human mages are very direct in their magic. They lack the gracefulness of an Elf's touch.");
 talkEntry:addResponse("On my next trip around the world that will be my first stop. Not because of any specific importance. It's just the closest city.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -901,7 +878,7 @@ talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I really have no opinion of her. I was here before her. I will be here after her.");
-talkEntry:addResponse("She was cute when she was a baby. Humans age so quickly. In the blink of an elvan eye she has grown from a cute baby to a bland looking human.");
+talkEntry:addResponse("She was cute when she was a child. Humans age so quickly. In the blink of an elven eye she has grown from a cute girl to a bland looking human.");
 talkEntry:addResponse("She usually has tasks for other people to do. She is known to pay well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -919,8 +896,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("To others' eyes the earth seems dead, but to an an elf, we see the life.");
-talkEntry:addResponse("I don't know if I will spend the end of my days here, but I do not know that I could not bring myself to leave this place, at least not for another 400 years.");
-talkEntry:addResponse("This city was once part of Albar. The land of man changes like the birth and death of flowers on the field.");
+talkEntry:addResponse("I don't know if I will spend the end of my days there, but I do know that I could  bring myself to move to that place, at least for another 400 years.");
+talkEntry:addResponse("This city was once regarded a colony of Albar. The land of man changes like the birth and death of flowers on the field.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -937,15 +914,15 @@ talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I do not care. I bother myself not with the fickle ways of man.");
 talkEntry:addResponse("What is war? What is it good for? Absolutely nothing.");
-talkEntry:addResponse(" Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not.");
+talkEntry:addResponse("Men create factions and are never whole. Men lust, and have not. Men kill, and desire to have, and cannot obtain. Men fight and war, yet they have not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -962,9 +939,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -979,29 +956,29 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Mir egal, was gehen mich die Angelegenheiten der Menschen an?");
+talkEntry:addResponse("Krieg, was ist das eigentlich? Wofür ist er gut? Nichts!.");
+talkEntry:addResponse("Menschen verbünden sich, doch sind nie eins. Sie gelüsten, kriegen aber nicht. Töten um zu erlangen, aber können nichts behalten. Menschen kämpfen und streiten, doch haben sie nichts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("AAA");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("AAA");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1009,9 +986,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1038,7 +1015,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1046,16 +1023,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1063,9 +1040,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1074,7 +1051,7 @@ talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("The five with you.");
 talkEntry:addResponse("I have nothing to say about him.");
-talkEntry:addResponse("#me Smiles warmly to herself.");
+talkEntry:addResponse("#me smiles warmly to herself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1106,7 +1083,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1114,9 +1091,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1124,7 +1101,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1133,16 +1110,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1150,9 +1127,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1161,7 +1138,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1171,16 +1148,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1188,16 +1165,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1205,16 +1182,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1222,9 +1199,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,7 +1244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are no younger gods, there are five gods, ten, old, holy ancestors and uncalled ones.");
+talkEntry:addResponse("There are no younger gods, there are five gods, ten old, holy ancestors and uncalled ones.");
 talkEntry:addResponse("Who is that?");
 talkEntry:addResponse("Why do you talk to me about such rubbish. Let an elf enjoy her day in peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1275,9 +1252,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es gibt keine 'jungen Götter'. Es gibt fünf Götter, zehn altehrwürdige Vorfahren und den Ungenannten.");
+talkEntry:addResponse("Wer soll das sein?");
+talkEntry:addResponse("Warum redet ihr mir mir über solch einen Blödsinn? Verderbt einer Elfe bitte nicht den Tag.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1286,7 +1263,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell bad air and wisdom.");
+talkEntry:addResponse("I sell fresh air and wisdom.");
 talkEntry:addResponse("I'm sorry, I have nothing of value.");
 talkEntry:addResponse("Shoo away with you. Go to a store if you want to sell something.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1297,38 +1274,47 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich verkaufe frische Luft und Weisheit.");
+talkEntry:addResponse("Es tut mir leid, ich habe nichts von Wert.");
+talkEntry:addResponse("Husch, weg mich euch! Geht in einen Laden, wenn ihr etwas kaufen wollt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I could tell you about my husband, Servont, but only if you are really interested in stories of an old lady.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich könnte euch von meinem Ehemann Servont erzählen, aber nur, wenn euch die Geschichten einer alten Dame interessieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Meaning of life");
-talkEntry:addResponse("42");
+talkEntry:addResponse("42.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("GERMAN");
-talkEntry:addResponse("GERMAN.");
+talkEntry:addTrigger("Sinn des Lebens");
+talkEntry:addResponse("42.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dik");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Dik-Diks are cute, aren't they?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dik");
+talkEntry:addResponse("Dik-Diks sind süß, nicht wahr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1336,16 +1322,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Madoquar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Good day, how are you?");
-talkEntry:addResponse("The weather is ok today is it not?");
+talkEntry:addResponse("The weather is fine today is it not?");
 talkEntry:addResponse("I think you might have dropped something, haha. I was kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Madoquar");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Guten Tag, wie geht es euch?.");
+talkEntry:addResponse("Das Wetter ist ganz nett, oder?");
+talkEntry:addResponse("Ich glaube, ihr habt da was verloren, haha.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1359,9 +1345,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich habe eigentlich nichts gesagt.");
+talkEntry:addResponse("Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.");
+talkEntry:addResponse("Moment, wie bitte?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1375,9 +1361,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich habe eigentlich nichts gesagt.");
+talkEntry:addResponse("Ich glaube nicht, dass ich eine Frage gestellt habe, die mit 'Ja' oder 'Nein' zu beantworten wäre.");
+talkEntry:addResponse("Moment, wie bitte?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1385,8 +1371,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("This discussion is not relevant to me");
-talkEntry:addResponse("Maybe say something like Quest or Task. People respond well to those words.");
+talkEntry:addResponse("This discussion is not relevant to me.");
+talkEntry:addResponse("Maybe say something about quests or tasks. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1395,21 +1381,23 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Das geht mich nichts an.");
+talkEntry:addResponse("Erzählt doch mal etwas über Abenteuer und Aufgaben. Die Leute mögen sowas hören.");
+talkEntry:addResponse("Mir ist nicht danach, euch einen Bären aufzubinden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("ENGLISH.", "What a nice day today. I am prone to walk in the mountains me think.");
-talkingNPC:addCycleText("ENGLISH.", "Apples leave such a pleasant after taste in my mouth. I wonder if there will ever be a fruit more aesthetically pleasing to the tongue then a fresh apple.");
-talkingNPC:addCycleText("ENGLISH.", "I do not wish to be bothered today. Some days I just want to rest and nibble on my lunch in peace.");
-talkingNPC:addCycleText("ENGLISH.", "That eerie feeling it's a burden on my soul.");
-talkingNPC:addCycleText("ENGLISH.", "It seem as if it's about to rain today. Please Tanora do not be cruel to this land. ");
-talkingNPC:addCycleText("ENGLISH.", "Tanora, you only touched us lightly, please visit us as sparingly as possible.");
-talkingNPC:addCycleText("ENGLISH.", "This is beyond urking. I will not feel at peace until this burden is lifted from me.");
-talkingNPC:addCycleText("ENGLISH.", "I have been all over Illarion. There may not be a River in Globaith I have not drunk from, or a mountain peak in Albar that I have not dined on top of.");
-talkingNPC:addCycleText("ENGLISH.", "Did you see that lizardman over there. His legs were...hehehehehe. I may have to get him to visit me");
-talkingNPC:addCycleText("ENGLISH", "I see something dangerous in Humans. The lizard makes peace with the sea, the elf with the Forrest, the Halflings with the hills, the dwarf with his mountain, the gnome with his minerals and the Orc with his prey, but humans, destroy to destroy, they steal to create and those creations end up being destroyed.");
+talkingNPC:addCycleText("Was für ein netter Tag. Ich sollte eine kleine Bergwanderung machen.", "What a nice day today. I am prone to walk in the mountains me think.");
+talkingNPC:addCycleText("Äpfel hinterlassen immer so einen angenehmen Geschmack im Mund. Ich frage mich, ob es eine Frucht gibt, die meinem Gaumen noch mehr erquicken kann als ein frischer Apfel.", "Apples leave such a pleasant after taste in my mouth. I wonder if there will ever be a fruit more aesthetically pleasing to the tongue then a fresh apple.");
+talkingNPC:addCycleText("Ich möchte nicht gestört werden. An manchen Tagen möchte ich mich einfach ausruhen und meine Mahlzeiten genießen.", "I do not wish to be bothered today. Some days I just want to rest and nibble on my lunch in peace.");
+talkingNPC:addCycleText("Diese dunkle Vorahnung ist eine Last auf meiner Seele.", "That eerie feeling, it's a burden on my soul.");
+talkingNPC:addCycleText("Es wird Regen geben. Möge Tanora dieses Land nicht allzu sehr peinigen.", "It seem as if it's about to rain today. Please Tanora do not be cruel to this land.");
+talkingNPC:addCycleText("Tanora, mögest du uns nur sanft und so selten wie möglich behelligen.", "Tanora, you only touched us lightly, please visit us as sparingly as possible.");
+talkingNPC:addCycleText("Das ist schon mehr als unangenehm. Ich werde nicht eher meine Frieden finden, bevor diese Last von mir genommen wurde.", "This is beyond urking. I will not feel at peace until this burden is lifted from me.");
+talkingNPC:addCycleText("Ich war schon überall in Illarion. Es gibt wohlmöglich nicht einen Fluss, aus dem ich nicht schon getrunken hätte oder einen Berg, auf dessen Spitze ich nicht schon gespeist habe.", "I have been all over Illarion. There may not be a river I have not drunk from, or a mountain peak that I have not dined on top of.");
+talkingNPC:addCycleText("Habt ihr diesen Echsenmann gesehen? Seine Beine waren so... Ich sollte ihn mal zu mir einladen.", "Did you see that lizardman? His legs were... hehe. I may have to get him to visit me.");
+talkingNPC:addCycleText("Etwas böses liegt in der Natur der Menschen.", "I see something dangerous in humans.");
+talkingNPC:addCycleText("Die Echsen leben in Frieden mit dem Meer, die Elfen mit dem Wald, die Halblinge mit den Hügeln, die Zwerge mit den Bergen und die Orks mit ihrer Jagdbeute. Aber Menschen zerstören des Zerstörens wegen.", "The lizard makes peace with the sea, the elf with the forest, the halflings with the hills, the dwarf with his mountain and the orc with his prey. But humans destroy to destroy.");
+talkingNPC:addCycleText("Menschen stehlen, um zu schaffen und das, was sie schaffen, wird von anderen ihrer Art zerstört.", "Humans, they steal to create and those creations end up being destroyed.");
 talkingNPC:addCycleText("#me rückt eine Augenklappe zurecht, die einen Teil ihrer rechten Gesichtshälfte abdeckt.", "#me readjusts a patch that covers her right eye.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);

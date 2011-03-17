@@ -151,18 +151,18 @@ itemShoes = 369
 "task", "adventure", queststatus(1337) = 3 -> inform("[New quest] The Ghost Oak II"), "The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.", queststatus(1337) = 4
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 3 -> inform("[Neues Quest] Die Geistereiche II"), "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.", queststatus(1337) = 4
 
--- BIS HIER!
-
 -- Quest 2 solved, reward: 120cp, ITEM
 -- All Items are gathered except for one.
 ".+", queststatus(1337) = 4, item(88, all) > 0, item(104, all) > 0, english -> inform("[Quest solved] You are awarded 120 copper coins and a ruby amulet."), "You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.", money + 120, deleteItem(88, 1), deleteItem(104, 1), item(67, 1, 599, 0), queststatus(1337) = 5
-".+", queststatus(1337) = 4, item(88, all) > 0, item(104, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."), "GERMAN.", money + 120, deleteItem(88, 1), deleteItem(104, 1), item(67, 1, 599, 0), queststatus(1337) = 5
+".+", queststatus(1337) = 4, item(88, all) > 0, item(104, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."), "Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.", money + 120, deleteItem(88, 1), deleteItem(104, 1), item(67, 1, 599, 0), queststatus(1337) = 5
+
+-- BIS HIER!
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 4, english -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
-"quest", "mission", queststatus(1337) = 4 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
-"task", "adventure", queststatus(1337) = 4 -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+"quest", "mission", queststatus(1337) = 5, english -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
+"quest", "mission", queststatus(1337) = 5 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+"task", "adventure", queststatus(1337) = 5 -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
 
 -- Quest 3
 -- Go to an abandon house and retrieve the skull of the real Madoquar
