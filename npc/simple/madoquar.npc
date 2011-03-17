@@ -98,9 +98,12 @@ itemShoes = 369
 -- 3: Quest 1 solved, reward: 60cp
 -- 4: Quest 2 taken- Gather the needed components for banishing the ghost
 -- 5: Quest 2 solved - reward: 120cp, ruby amulet
--- 6: Quest 3 taken - kill 1 wraith
+-- X: Quest 3 taken - inspect the skeleton of the real Madoquar
+-- X: Skeleton inspected
+-- X: Quest 3 solved, reward:
+-- 6: Quest 4 taken - kill 1 wraith
 -- 7: Killing 1 wraith
--- 8: Quest 3 solved, reward: magical amethyst ring (277)
+-- 8: Quest 4 solved, reward: magical amethyst ring (277)
 
 -- CAVE: replace (1337) with valid queststatus
 
@@ -151,25 +154,25 @@ itemShoes = 369
 "task", "adventure", queststatus(1337) = 3 -> inform("[New quest] The Ghost Oak II"), "The oak cannot simply be cut down... I should have expected that much. The spirit of the tree is too strong. There is a way to solve this; Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.", queststatus(1337) = 4
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 3 -> inform("[Neues Quest] Die Geistereiche II"), "Diese Eiche kann man nicht einfach fällen... Ich hätte es wissen müssen. Der Geist in ihr ist zu stark. Aber es gibt einen Weg; bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.", queststatus(1337) = 4
 
--- Quest 2 solved, reward: 120cp, ITEM
+-- Quest 2 solved, reward: 120cp, ruby amulet
 -- All Items are gathered except for one.
 ".+", queststatus(1337) = 4, item(88, all) > 0, item(104, all) > 0, english -> inform("[Quest solved] You are awarded 120 copper coins and a ruby amulet."), "You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.", money + 120, deleteItem(88, 1), deleteItem(104, 1), item(67, 1, 599, 0), queststatus(1337) = 5
 ".+", queststatus(1337) = 4, item(88, all) > 0, item(104, all) > 0 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."), "Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.", money + 120, deleteItem(88, 1), deleteItem(104, 1), item(67, 1, 599, 0), queststatus(1337) = 5
 
--- BIS HIER!
-
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(1337) = 5, english -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
-"quest", "mission", queststatus(1337) = 5 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
-"task", "adventure", queststatus(1337) = 5 -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+"quest", "mission", queststatus(1337) = 4, english -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
+"quest", "mission", queststatus(1337) = 4 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+"task", "adventure", queststatus(1337) = 4 -> "Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> "Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt."
+
+-- BIS HIER!
 
 -- Quest 3
 -- Go to an abandon house and retrieve the skull of the real Madoquar
--- if can read elvan and reads the book of life, finds out that to kill a wraith you need a weapon forged from the body that the wraith's soul belongs too.
-"quest", "mission", queststatus(1337) = 4, english -> inform("[New quest] The Ghost Oak II/v"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South east of the tree is the remnants of a house. Somewhere below the ground of this house are remains. Whether it's, a bone, a hair, a tooth, it might all be dirt by now. I need you to search under that house for a piece of a dead body and bring it back here. ", queststatus(1337) = 5
+-- Find out that to kill a wraith you need a weapon forged from the body that the wraith's soul belongs too.
+"quest", "mission", queststatus(1337) = 5, english -> inform("[New quest] The Ghost Oak III"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South east of the tree is the remnants of a house. Somewhere below the ground of this house are remains. Whether it's, a bone, a hair, a tooth, it might all be dirt by now. I need you to search under that house for a piece of a dead body and bring it back here. ", queststatus(1337) = 5
 
--- Quest 2.5 taken but not solved, repeat the instructions
+-- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(1337) = 5, english -> " I need you to search under the ruined house south east of the tree for a piece of a dead body and bring it back here."
 "quest", "mission", queststatus(1337) = 5 -> "GERMAN."
 "task", "adventure", queststatus(1337) = 5 -> "ENGLISH."
@@ -184,13 +187,13 @@ itemShoes = 369
 "task", "adventure", queststatus(1337) = 4 -> inform("[New quest] The Ghost Oak III"), "ENGLISH.", queststatus(1337) = 5
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 4 -> inform("[Neues Quest] Die Geistereiche III"), "GERMAN.", queststatus(1337) = 5
 
--- Quest 3 taken but not solved, repeat the instructions
+-- Quest 4 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(1337) = 5, english -> "Kill that wraith now! Now! Please."
 "quest", "mission", queststatus(1337) = 5 -> "GERMAN."
 "task", "adventure", queststatus(1337) = 5 -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(1337) = 5 -> "GERMAN."
 
--- Quest 3 solved, reward: SPECIAL RING THAT EFFECTS MOBILITY, +20 rankpoints
+-- Quest 4 solved, reward: Magical amethyst ring
 ".+", queststatus(1337) = 6, english, town = Galmair -> inform("[Quest solved]"), "I'll give you a ring and a secret, though you probably figured this out by now. I killed that wraith while it was alive. Don't tell a soul, but that wraith was once the real Madoquar. Don't look at me with such condescending eyes. This happened 400 years ago. Cadomyr laws were different then and I have already learned my lesson.", item(391, 1, 799, 0), queststatus(1337) = 7, rankpoints(Galmair) + 20
 ".+", queststatus(1337) = 6, english -> inform("[Quest solved] You are awarded a VERY NICE ITEM."), "ENGLISH.", item(391, 1, 799, 0), queststatus(1337) = 7
 ".+", queststatus(1337) = 6, town = Galmair -> inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM. Dein Ansehen bei Don Valerio Guilianni steigt."), "GERMAN.", item(391, 1, 799, 0), queststatus(1337) = 7, rankpoints(Galmair) + 20

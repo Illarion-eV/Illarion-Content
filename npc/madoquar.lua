@@ -377,7 +377,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -386,7 +386,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addResponse("Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -394,7 +394,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addResponse("Bring me a longaxe, a bar of silver and one more thing. I will tell you the last thing after you bring me these.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -403,7 +403,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addResponse("Bringt mir eine Langaxt, einen Silberbarren und etwas anderes - ich werde euch sagen, was, wenn ihr die anderen Dinge gebracht habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -411,9 +411,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
+talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II/v"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak III"));
 talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South east of the tree is the remnants of a house. Somewhere below the ground of this house are remains. Whether it's, a bone, a hair, a tooth, it might all be dirt by now. I need you to search under that house for a piece of a dead body and bring it back here. ");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
