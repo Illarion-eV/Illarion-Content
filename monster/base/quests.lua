@@ -371,8 +371,8 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug II";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    germanRace[id]="mummies"; 
-    englishRace[id]="Mumien";
+    englishRace[id]="mummies"; 
+    germanRace[id]="Mumien";
     table.insert(questList[101],id); 
     table.insert(questList[102],id); 
     table.insert(questList[103],id); 
@@ -392,8 +392,8 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug III";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    germanRace[id]="skeletons"; 
-    englishRace[id]="Skelette";
+    englishRace[id]="skeletons"; 
+    germanRace[id]="Skelette";
     table.insert(questList[111],id); 
     table.insert(questList[112],id); 
     table.insert(questList[113],id); 
@@ -411,8 +411,8 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug IV";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    germanRace[id]="blood mages"; 
-    englishRace[id]="Blutmagier";
+    englishRace[id]="blood mages"; 
+    germanRace[id]="Blutmagier";
     table.insert(questList[4],id); 
     minimumQueststatus[id]=26; 
     maximumQueststatus[id]=28; 
@@ -426,8 +426,8 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug V";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    germanRace[id]="demon skeleton warrior"; 
-    englishRace[id]="Dämonenskelettkrieger";
+    englishRace[id]="demon skeleton warrior"; 
+    germanRace[id]="Dämonenskelettkrieger";
     table.insert(questList[173],id); 
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
@@ -441,13 +441,28 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug VI";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    germanRace[id]="ancient fire dragons"; 
-    englishRace[id]="uralter Feuerdrachen";
+    englishRace[id]="ancient fire dragons"; 
+    germanRace[id]="uralter Feuerdrachen";
     table.insert(questList[264],id); 
     minimumQueststatus[id]=33; 
     maximumQueststatus[id]=34; 
     questLocation[id]=position(665,415,-3); 
     radius[id]=100;
+	
+	--Quest 21: The Ghost Oak IV
+
+    local id=21;
+    germanTitle[id]="The Ghost Oak IV"; 
+    englishTitle[id]="Die Geistereiche IV";
+    NPCName[id]="Madoquar"; 
+    statusId[id]=112;
+    germanRace[id]="Geist der Eiche"; 
+    englishRace[id]="Oak Ghost";
+    table.insert(questList[231],id); 
+    minimumQueststatus[id]=9; 
+    maximumQueststatus[id]=10; 
+    questLocation[id]=position(501,107,0); 
+    radius[id]=15;
 
 end
 
