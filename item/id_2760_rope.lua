@@ -1,6 +1,6 @@
 -- Rope
 require("base.common")
-require("quest_aquest28")    
+require("quest.aquest28")    
 require("lte.tying_capturer") 
 module("item.id_2760_rope", package.seeall)      
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
@@ -70,7 +70,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	if TargetItem == nil or ( TargetItem.id ~= 2207 ) then
 		return;
     end
-    local dummy_1, task = quest_aquest28.split_questdata(User);
+    local dummy_1, task = quest.aquest28.split_questdata(User);
     
     if equapos(TargetItem.pos,position(-73,-108,0)) then
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
