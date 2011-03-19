@@ -81,7 +81,7 @@ function chooseTask(originator)
 end
 
 
-function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
+function Cow_useNPC(User, CowID, u_act_task,thisNPC)
 --base.common.TalkNLS(User, CCharacter.say, "#me muht.", "#me muht.");
 	local cow, task, counter = split_questdata(User);
 	local itemlist = getTaskItems();
@@ -110,7 +110,7 @@ function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
 		return;
 	end
 	--NO ACTIVE TASK CURRENTLY?
-	if ActiveTask>0 then
+	if u_act_task>0 then
 		return;
 	end
 
@@ -123,10 +123,10 @@ function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
 
 	if task < getNumberOfTasks() then
 		PrintTaskText(User, task);
-		ActiveTask = task; --activates task 1 in nextCycle
+		u_act_task = task; --activates task 1 in nextCycle
 	end
 	
-	return ActiveTask;
+	return u_act_task;
 end
 
 function Cow_receiveText(User,message, CowID,thisNPC)
@@ -143,12 +143,12 @@ function Cow_receiveText(User,message, CowID,thisNPC)
 	--]]
 end
 
-function Cow_NextCycle(User,ActiveTask,thisNPC)
-	if ActiveTask > 0 then --a task is active
+function Cow_NextCycle(User,n_active_task,thisNPC)
+	if n_active_task > 0 then --a task is active
     	if wait(15) then --wait 15 seconds
-        	ActiveTask = 0;
+        	n_active_task = 0;
 			if User == nil then   --is user still online?
-        		return ActiveTask;
+        		return n_active_task;
         	end
         	local cow, task, counter = split_questdata(User);
             local itemlist = getTaskItems();
@@ -212,7 +212,7 @@ function Cow_NextCycle(User,ActiveTask,thisNPC)
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2
 		end
 	end 
-	return ActiveTask;
+	return n_active_task;
 end
 
 function increaseLangSkill(LangList,thisNPC)

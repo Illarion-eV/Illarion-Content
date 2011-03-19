@@ -12,7 +12,7 @@ function InitNPC()
         InitDone = true;
         CowID = 2; --id of this cow NEEDS TO BE CHANGED AT EACH COW
         
-		ActiveTask = 0;
+		acttask2 = 0;
 		
 		TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
 		quest.aquest28.increaseLangSkill(TradSpeakLang,thisNPC);
@@ -27,7 +27,7 @@ end
 function useNPC(originator,counter,param)
   	User = getCharForId(originator.id);  --create a save copy of the char struct
   	
-	ActiveTask = quest.aquest28.Cow_useNPC(User, CowID, ActiveTask,thisNPC);
+	acttask2 = quest.aquest28.Cow_useNPC(User, CowID, acttask2,thisNPC);
 end
  
 
@@ -40,5 +40,5 @@ function nextCycle()
 
     InitNPC();
     
-    ActiveTask = quest.aquest28.Cow_NextCycle(User,ActiveTask,thisNPC);
+    acttask2 = quest.aquest28.Cow_NextCycle(User,acttask2,thisNPC);
 end
