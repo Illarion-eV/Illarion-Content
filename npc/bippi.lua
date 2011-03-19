@@ -1038,8 +1038,7 @@ function receiveText(texttype, message, speaker)
 	if string.find(message,"reset") then
 		speaker:setQuestProgress(29, 0);
 		speaker:setQuestProgress(28, 0);	
-		NPCStatus[speaker.id]=0;
-	
+
 		find, aquest28Effect =  speaker.effects:find(32);
 		if find then
 			speaker.aquest28Effect:removeEffect(32);
