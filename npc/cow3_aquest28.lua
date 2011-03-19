@@ -4,7 +4,7 @@
 
 require("base.common")
 require("quest.aquest28");    --the quest file
-module("npc.cow2_aquest28", package.seeall)
+module("npc.cow3_aquest28", package.seeall)
 			   
 
 function InitNPC()
