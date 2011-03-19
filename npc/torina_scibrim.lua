@@ -983,8 +983,10 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, originator)
-	if not mainTask(texttype,message,originator) then
-		mainNPC:receiveText(originator, message);
+	if base.common. BasicNPCChecks(originator,2, thisNPC) then
+		if not mainTask(texttype,message,originator) then
+			mainNPC:receiveText(originator, message);
+		end
 	end
 
 end;

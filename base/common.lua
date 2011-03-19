@@ -1431,3 +1431,26 @@ function GetRealDate()
 	second = timestamp - (minute * 60);
 	return year, month, day, hour, minute, second;
 end
+
+--[[
+- BasicNPCChecks
+- @param originator CharStruct Character to speaks with the NPC
+- @param NPCRange int Talking Range of the NPC
+- @return boolean true for talking is okay, false for not okay.
+]]
+function BasicNPCChecks(originator,NPCRange, npc)
+    if not npc:isInRange(originator,NPCRange) then
+        return false;
+    end
+
+    if (originator.id == npc.id) then
+        return false;
+    end
+
+    if ( originator:get_type() ~= 0 ) then
+        return false;
+    end
+
+    originator:introduce(npc);
+    return true;
+end

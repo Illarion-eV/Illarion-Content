@@ -1034,7 +1034,7 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) 
-
+if base.common. BasicNPCChecks(originator,2, thisNPC) then
 	if string.find(message,"reset") then
 		speaker:setQuestProgress(29, 0);
 		speaker:setQuestProgress(28, 0);	
@@ -1098,7 +1098,7 @@ function receiveText(texttype, message, speaker)
 	end
 
 
-
+end
 end;
 
 function nextCycle() mainNPC:nextCycle(); end;
