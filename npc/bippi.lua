@@ -1053,7 +1053,6 @@ function receiveText(texttype, message, speaker)
 		local task = 1; local cow = cowrnd; local counter = 6;
 	
 		quest.aquest28.glue_questdata(speaker, cow, task, counter);
-		NPCStatus[speaker.id] = 0;
 		speaker:setQuestProgress(28, 1);
 
 		--TELL WHAT TO DO AND WHICH COW HE HAS
