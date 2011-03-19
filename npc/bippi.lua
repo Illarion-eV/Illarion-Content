@@ -1025,7 +1025,7 @@ mainNPC:setAutoIntroduceMode(true);
 --------------explicit initialization----------
     if not ExtraInit then
 		ExtraInit= true;
-    	cowname = {"Betsy", "Mjilka", "Cheeseball"}; --the cow names	
+    	cowname = {"Betsy", "Mjilka", "Cheeseball"}; --the cow names
     end
 -------------------------------------
 
@@ -1034,7 +1034,7 @@ mainNPC:initDone();
 end;
 
 function receiveText(texttype, message, speaker) 
-if base.common. BasicNPCChecks(originator,2, thisNPC) then
+if base.common. BasicNPCChecks(speaker,2, thisNPC) then
 	if string.find(message,"reset") then
 		speaker:setQuestProgress(29, 0);
 		speaker:setQuestProgress(28, 0);	
