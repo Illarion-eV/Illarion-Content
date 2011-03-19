@@ -8,11 +8,12 @@ module("npc.cow2_aquest28", package.seeall)
 			   
 
 function InitNPC()
-    if not InitDone then
-        InitDone = true;
+    if not InitDone2 then
+        InitDone2 = true;
         CowID = 2; --id of this cow NEEDS TO BE CHANGED AT EACH COW
         
 		acttask2 = 0;
+		base.common.InformNLS(User, "acttask="..acttask2, "acttask="..acttask2);
 		
 		TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
 		quest.aquest28.increaseLangSkill(TradSpeakLang,thisNPC);
