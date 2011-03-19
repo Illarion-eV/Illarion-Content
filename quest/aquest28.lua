@@ -102,7 +102,7 @@ function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
 	end
 	--ITEM OKAY?
 	--local ItemOK = base.common.GetItemInInventory(User, itemlist[task], DataValue); --does he have the right Item for this task in Inventory?
-	local ItemOK = originator:countItem(itemlist[task]);
+	local ItemOK = User:countItem(itemlist[task]);
 	if ItemOK== 0 then
 		local gName = world:getItemName(itemlist[task],0); --german
 		local eName = world:getItemName(itemlist[task],1); --english
@@ -129,14 +129,14 @@ function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
 	return ActiveTask;
 end
 
-function Cow_receiveText(originator,message, CowID,thisNPC)
+function Cow_receiveText(User,message, CowID,thisNPC)
     --[[ Disabled by Nitram - Spams the error log. BasicNPCChecks is nil
- 	if BasicNPCChecks(originator,3) then --3 tiles radius
+ 	if BasicNPCChecks(User,3) then --3 tiles radius
 		if string.find(message,"lute")~=nil or string.find(message,"Laute")~=nil then --a char near the cow is playing lute
 
-			local cow, task, counter = split_questdata(originator);
+			local cow, task, counter = split_questdata(User);
 			if (cow == CowID and task ==3) then
-				useNPC(originator,0,0);
+				useNPC(User,0,0);
 			end
 		end
 	end
