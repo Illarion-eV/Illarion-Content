@@ -130,13 +130,13 @@ function Cow_useNPC(User, CowID, u_act_task,thisNPC)
 end
 
 function Cow_receiveText(User,message, CowID,thisNPC)
-    --[[ Disabled by Nitram - Spams the error log. BasicNPCChecks is nil
- 	if BasicNPCChecks(User,3) then --3 tiles radius
+    ----[[ Disabled by Nitram - Spams the error log. BasicNPCChecks is nil
+	if base.common. BasicNPCChecks(User,3, thisNPC) then
 		if string.find(message,"lute")~=nil or string.find(message,"Laute")~=nil then --a char near the cow is playing lute
 
 			local cow, task, counter = split_questdata(User);
 			if (cow == CowID and task ==3) then
-				useNPC(User,0,0);
+				useNPC(User,0,0); --buggy! 
 			end
 		end
 	end
@@ -145,7 +145,7 @@ end
 
 function Cow_NextCycle(User,n_active_task,thisNPC)
 	if n_active_task > 0 then --a task is active
-    	if wait(15) then --wait 15 seconds
+    	if wait(5) then --wait 5 seconds
         	n_active_task = 0;
 			if User == nil then   --is user still online?
         		return n_active_task;
