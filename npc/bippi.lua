@@ -1046,12 +1046,11 @@ function receiveText(texttype, message, speaker)
 		speaker:inform("Reset");
 	end	
 	
-	if ( (string.find(message,"Ich helfe euch")~=nil or string.find(message,"I help you")~=nil) and speaker:getQuestProgress(28)>0) then --here starts the quest with first task
+	if ( (string.find(message,"Ich helfe euch")~=nil or string.find(message,"I help you")~=nil) and speaker:getQuestProgress(28)==0) then --here starts the quest with first task
 	
 		-- INITIALIZE THE QUEST STATUS 29 WHICH HOLDS VARIABLES OF THE QUEST
-	    cowrnd = math.random(3); --choose cow by random
+		cowrnd = math.random(3); --choose cow by random
 		local task = 1; local cow = cowrnd; local counter = 6;
-	
 		quest.aquest28.glue_questdata(speaker, cow, task, counter);
 		speaker:setQuestProgress(28, 1);
 
