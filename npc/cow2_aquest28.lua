@@ -39,6 +39,10 @@ function nextCycle()
 -- disabled, does not work
 
     InitNPC();
-    
+    if acttask2==nil then
+		base.common.InformNLS(User, "acttask=nil", "acttask=nil");
+    else
+		base.common.InformNLS(User, "acttask="..acttask2, "acttask="..acttask2);
+	end
     acttask2 = quest.aquest28.Cow_NextCycle(User,acttask2,thisNPC);
 end

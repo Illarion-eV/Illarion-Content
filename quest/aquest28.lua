@@ -144,7 +144,13 @@ function Cow_receiveText(User,message, CowID,thisNPC)
 end
 
 function Cow_NextCycle(User,n_active_task,thisNPC)
+	if n_active_task == nil then
+		base.common.InformNLS(User, "var=nil", "var=nil");
+	else
+		base.common.InformNLS(User, "var!=nil", "var!=nil");
+	end
 	if n_active_task > 0 then --a task is active
+		base.common.InformNLS(User, "bla2", "bla2.");
     	if wait(15) then --wait 15 seconds
         	n_active_task = 0;
 			if User == nil then   --is user still online?
