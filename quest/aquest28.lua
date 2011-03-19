@@ -1,5 +1,7 @@
-require("base.common")
-module("quest_aquest28", package.seeall)
+require("base.common");
+require("base.factions");
+
+module("quest.aquest28", package.seeall)
 function split_questdata(originator)
 	local qpg = {};
 	local questid = originator:getQuestProgress(29);
@@ -79,9 +81,10 @@ function chooseTask(originator)
 end
 
 
-function Cow_useNPC(User, Counter, Param)
+function Cow_useNPC(User, CowID, ActiveTask,thisNPC)
 --base.common.TalkNLS(User, CCharacter.say, "#me muht.", "#me muht.");
 	local cow, task, counter = split_questdata(User);
+	local itemlist = getTaskItems();
 	-- DID PLAYER WAIT 1 DAY till next task?
 	aquest28Effect = User.effects:find(32); -- does effect #32 already exist?
 	if (aquest28Effect) then
@@ -122,9 +125,11 @@ function Cow_useNPC(User, Counter, Param)
 		PrintTaskText(User, task);
 		ActiveTask = task; --activates task 1 in nextCycle
 	end
+	
+	return ActiveTask;
 end
 
-function Cow_receiveText(texttype,message,originator)
+function Cow_receiveText(originator,message, CowID,thisNPC)
     --[[ Disabled by Nitram - Spams the error log. BasicNPCChecks is nil
  	if BasicNPCChecks(originator,3) then --3 tiles radius
 		if string.find(message,"lute")~=nil or string.find(message,"Laute")~=nil then --a char near the cow is playing lute
@@ -138,15 +143,15 @@ function Cow_receiveText(texttype,message,originator)
 	--]]
 end
 
-function Cow_NextCycle(User)
+function Cow_NextCycle(User,ActiveTask,thisNPC)
 	if ActiveTask > 0 then --a task is active
     	if wait(15) then --wait 15 seconds
         	ActiveTask = 0;
 			if User == nil then   --is user still online?
-        		return;
+        		return ActiveTask;
         	end
         	local cow, task, counter = split_questdata(User);
-
+            local itemlist = getTaskItems();
             if (math.random( 5 ) == 1) then  -- "Tool Break" by random
                	if task == 1 then
 	            	User:eraseItem( itemlist[task],1);
@@ -190,18 +195,11 @@ function Cow_NextCycle(User)
 				end
 
 				----------------give some rankpoints-----------------------
-				local PointsToGive = 20; --the amount of rankpoints the user earns for finishing this quest
-				Factionvalues = base.factions.get(User);
-				if Factionvalues.tid == 0 then --char has no hometown
-				    for i = 1, 3, 1 do   --give him 5 rankpoints in each town he is not banned
-				        if Factionvalues[DigitToIndex[RANK_OFFSET+i]] ~= 0 then
-				           Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+i]] = Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+i]] + (PointsToGive/4);
-						end
-					end
-				else
-					Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+Factionvalues.tid]] = Factionvalues[DigitToIndex[RANKPOINTS_OFFSET+Factionvalues.tid]] +PointsToGive;
-				end
-				Factionvalues = base.factions.put(User,Factionvalues);
+				local PointsToGive = 10; --the amount of rankpoints the user earns for finishing this quest in Runewick
+				local fv = base.factions.get(User);
+				
+				fv[base.factions.rp_index(2)] = fv[base.factions.rp_index(2)] + PointsToGive;
+				fv = base.factions.put(User,fv);
 				-----------------------------------------------------------
 			else
 				base.common.TalkNLS(thisNPC, CCharacter.say, "#me scheint sich über die Pflege zu freuen und muht zufrieden.", "#me seems to enjoy the care and gives a content and haunting \"Mooooo!\"");
@@ -213,5 +211,28 @@ function Cow_NextCycle(User)
 			aquest28Effect = CLongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2
 		end
-	end
+	end 
+	return ActiveTask;
+end
+
+function increaseLangSkill(LangList,thisNPC)
+    for i=1,table.getn(LangList) do
+        setLang=true;
+        if (LangList[i]==0) then LangSkill="common language";
+        elseif (LangList[i]==1) then LangSkill="human language";
+        elseif (LangList[i]==2) then LangSkill="dwarf language";
+        elseif (LangList[i]==3) then LangSkill="elf language";
+        elseif (LangList[i]==4) then LangSkill="lizard language";
+        elseif (LangList[i]==5) then LangSkill="orc language";
+        elseif (LangList[i]==6) then LangSkill="halfling language";
+        elseif (LangList[i]==7) then LangSkill="fairy language";
+        elseif (LangList[i]==8) then LangSkill="gnome language";
+        elseif (LangList[i]==9) then LangSkill="goblin language";
+        elseif (LangList[i]==10) then LangSkill="ancient language";
+        else setLang=false;
+        end
+        if (setLang==true) then
+            thisNPC:increaseSkill(1,LangSkill,100);
+        end
+    end
 end

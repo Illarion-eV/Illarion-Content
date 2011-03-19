@@ -1,9 +1,11 @@
 --37 cow id, faceto= 6 (west)
 --775,796,0
 --Cheeseball
-require("npc.base.autonpcfunctions")
-require("quest_aquest28");    --the quest file
-module("npc.cow3_aquest28", package.seeall)
+
+require("base.common")
+require("quest.aquest28");    --the quest file
+module("npc.cow2_aquest28", package.seeall)
+			   
 
 function InitNPC()
     if not InitDone then
@@ -11,30 +13,32 @@ function InitNPC()
         CowID = 3; --id of this cow NEEDS TO BE CHANGED AT EACH COW
         
 		ActiveTask = 0;
-		thisNPC:increaseSkill(1,"common language",100);
-		TradSpeakLang={0,1};
-		npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
+		
+		TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
+		quest.aquest28.increaseLangSkill(TradSpeakLang,thisNPC);
     	thisNPC.activeLanguage=0;
     	
                   --comb, water bucket, lute ,   nothing,bundle of grain, big empty bottle         
-        itemlist = quest_aquest28.getTaskItems();
+        itemlist = quest.aquest28.getTaskItems();
        -- npc_names = { "Betsy", "Mjilka", "Cheeseball"};
     end
 end 
 
-function useNPC(originator,Counter,Param)
+function useNPC(originator,counter,param)
   	User = getCharForId(originator.id);  --create a save copy of the char struct
-	quest_aquest28.Cow_useNPC(User, Counter, Param);
+  	
+	ActiveTask = quest.aquest28.Cow_useNPC(User, CowID, ActiveTask,thisNPC);
 end
-
+ 
 
 function receiveText(texttype, message, originator)
-	quest_aquest28.Cow_receiveText(texttype,message,originator);
-end
+	quest_aquest28.Cow_receiveText(originator,message, CowID,thisNPC);
+end                
 
 function nextCycle()
--- see cow2
---    InitNPC();
+-- disabled, does not work
 
---    quest_aquest28.Cow_NextCycle(User);
+    InitNPC();
+    
+    ActiveTask = quest.aquest28.Cow_NextCycle(User,ActiveTask,thisNPC);
 end
