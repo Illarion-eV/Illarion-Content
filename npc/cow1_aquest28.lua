@@ -10,7 +10,7 @@ function InitNPC()
         InitDone = true;
         CowID = 1; --id of this cow NEEDS TO BE CHANGED AT EACH COW
         
-		ActiveTask = 0;
+		ActiveTask = 0;  
 		
 		TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
 		quest.aquest28.increaseLangSkill(TradSpeakLang,thisNPC);
