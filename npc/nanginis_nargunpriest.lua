@@ -1233,7 +1233,7 @@ function nextCycle()
 		elseif i==70 then --some sound and graphic
 			thePosition=base.common.GetFrontPosition(thisNPC);
 			world:gfx(45,thePosition);
-			--world:makeSound(5,thePosition);  //SOUND NOT SUPPORTED IN NEW CLIENT YET
+			world:makeSound(5,thePosition);
 		elseif i==90 then
 			GiveHimSomething();
 			base.common.InformNLS( User, "#w Vom Licht geblendet nimmst du verschwommen eine Bewegung neben dir wahr. Irgendetwas liegt nun auf dem Boden was vorher noch nicht da lag.",
