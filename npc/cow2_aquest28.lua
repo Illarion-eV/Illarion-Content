@@ -19,7 +19,7 @@ function InitNPC()
     	thisNPC.activeLanguage=0;
     	
                   --comb, water bucket, lute ,   nothing,bundle of grain, big empty bottle         
-        itemlist = quest.aquest28.getTaskItems();
+        --itemlist = quest.aquest28.getTaskItems();
        -- npc_names = { "Betsy", "Mjilka", "Cheeseball"};
     end
 end 
@@ -32,7 +32,7 @@ end
  
 
 function receiveText(texttype, message, originator)
-	quest_aquest28.Cow_receiveText(originator,message, CowID,thisNPC);
+	quest.aquest28.Cow_receiveText(originator,message, CowID,thisNPC);
 end                
 
 function nextCycle()
