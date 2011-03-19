@@ -13,12 +13,13 @@ function InitNPC()
         CowID = 2; --id of this cow NEEDS TO BE CHANGED AT EACH COW
         
 		acttask2 = 0;
-		base.common.InformNLS(User, "acttask="..acttask2, "acttask="..acttask2);
-		
+
 		TradSpeakLang={0,1,2,3,4,5,6,7,8,9,10};
 		quest.aquest28.increaseLangSkill(TradSpeakLang,thisNPC);
     	thisNPC.activeLanguage=0;
-    	
+
+		thisNPC:talk(CCharacter.say, "acttask="..acttask2);
+		
                   --comb, water bucket, lute ,   nothing,bundle of grain, big empty bottle         
         --itemlist = quest.aquest28.getTaskItems();
        -- npc_names = { "Betsy", "Mjilka", "Cheeseball"};
@@ -41,9 +42,9 @@ function nextCycle()
 
     InitNPC();
     if acttask2==nil then
-		base.common.InformNLS(User, "acttask=nil", "acttask=nil");
+		thisNPC:talk(CCharacter.say, "acttask=nil");
     else
-		base.common.InformNLS(User, "acttask="..acttask2, "acttask="..acttask2);
+		thisNPC:talk(CCharacter.say, "acttask="..acttask2);
 	end
     acttask2 = quest.aquest28.Cow_NextCycle(User,acttask2,thisNPC);
 end
