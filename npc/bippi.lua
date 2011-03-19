@@ -1083,7 +1083,7 @@ function receiveText(texttype, message, speaker)
         
 	elseif ((string.find(message,"[Aa]ufgabe")~=nil or string.find(message,"[Tt]ask")~=nil) and speaker:getQuestProgress(28)>0) then
 	
-		aquest28Effect = User.effects:find(32); -- does effect #32 already exist?
+		aquest28Effect = speaker.effects:find(32); -- does effect #32 already exist?
 		local dummy_1, noTaskYet= quest.aquest28.split_questdata(speaker);
 		if (aquest28Effect == false and noTaskYet == 0) then --time delay of 1 day is finished, creat new task
 			quest.aquest28.chooseTask(speaker);
