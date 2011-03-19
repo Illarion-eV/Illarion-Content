@@ -88,17 +88,17 @@ function Cow_useNPC(User, CowID, u_act_task,thisNPC)
 	-- DID PLAYER WAIT 1 DAY till next task?
 	aquest28Effect = User.effects:find(32); -- does effect #32 already exist?
 	if (aquest28Effect) then
-	    return;
+	    return u_act_task;
 	end
 
  	-- TASK OKAY?
 	if task==0 then
-		return;
+		return u_act_task;
 	end
 	-- COW OKAY?
 	if cow~=CowID then
 		base.common.InformNLS(User, "Dies ist nicht die Kuh um du dich kümmern musst.", "This is not the cow you need to take care of.");
-		return;
+		return u_act_task;
 	end
 	--ITEM OKAY?
 	--local ItemOK = base.common.GetItemInInventory(User, itemlist[task], DataValue); --does he have the right Item for this task in Inventory?
@@ -107,18 +107,18 @@ function Cow_useNPC(User, CowID, u_act_task,thisNPC)
 		local gName = world:getItemName(itemlist[task],0); --german
 		local eName = world:getItemName(itemlist[task],1); --english
 		base.common.InformNLS(User, "Du benötigst den Gegenstand "..gName.." für diese Aufgabe.", "You need the item "..eName.." for this task.")
-		return;
+		return u_act_task;
 	end
 	--NO ACTIVE TASK CURRENTLY?
 	if u_act_task>0 then
-		return;
+		return u_act_task;
 	end
 
 	if task == 2 then -- task 2: Wash the cow with a water bucket 52
 		User:eraseItem( itemlist[task],1); --delete full bucket
 		User:createItem( 51, 1,333,0); --create an empty bucket
 	elseif task == 4 then  -- clear the water in the well
-		return; --  NOT IN COW SCRIPT, needs to kill monsters in the well
+		return u_act_task; --  NOT IN COW SCRIPT, needs to kill monsters in the well
 	end
 
 	if task < getNumberOfTasks() then
