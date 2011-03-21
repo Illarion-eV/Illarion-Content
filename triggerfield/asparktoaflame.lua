@@ -3,8 +3,12 @@ require("base.common")
 
 module("triggerfield.asparktoaflame", package.seeall)
 
-function ini()
-    if iniDone == false then
+function Init()
+
+    if InitDone then
+        return
+    end
+	
 	    altar={}; --a list with positions
 	    altar[1]=position(551,133,0); --1: Ushara Goddess of earth
 	    altar[2]=position(551,143,0); --2: Br·gon God of fire
@@ -12,23 +16,23 @@ function ini()
 	    altar[4]=position(549,138,0); --4: Tanora/Zelphia Goddess of water
 	    altar[5]=position(556,135,0); --5: Findari Goddess of air
 		messageG={};
-		messageG[1]="[Queststatus] Du n√§herst dich dem Altar Usharas. Eine beruhigende Stille umgibt dich.";
-		messageG[2]="[Queststatus] Du n√§herst dich dem Altar Br·gons. Hitze schl‰gt dir ins Gesicht.";
-		messageG[3]="[Queststatus] Du n√§herst dich dem Altar Eldans. Nachdenklich betrachtest du den Schrein.";
-		messageG[4]="[Queststatus] Du n√§herst dich dem Altar Tanoras. T‰uscht du dich oder liegt hier Nebel in der Luft?";
-		messageG[5]="[Queststatus] Du n√§herst dich dem Altar Findaris. Eine Winb√∂e streift durch deine Kleidung.";
+		messageG[1]="[Queststatus] Du n‰herst dich dem Altar Usharas. Eine beruhigende Stille umgibt dich.";
+		messageG[2]="[Queststatus] Du n‰herst dich dem Altar Br·gons. Hitze schl‰gt dir ins Gesicht.";
+		messageG[3]="[Queststatus] Du n‰herst dich dem Altar Eldans. Nachdenklich betrachtest du den Schrein.";
+		messageG[4]="[Queststatus] Du n‰herst dich dem Altar Tanoras. T‰uscht du dich oder liegt hier Nebel in der Luft?";
+		messageG[5]="[Queststatus] Du n‰herst dich dem Altar Findaris. Eine Winb√∂e streift durch deine Kleidung.";
 		messageE={};
 		messageE[1]="[Quest status] You approach the altar of Ushara. It is comfortably silent here.";
 		messageE[2]="[Quest status] You approach the altar of Br·gon. Heat engulfs you.";
 		messageE[3]="[Quest status] You approach the altar of Eldan. Thoughtfully, you behold the shrine.";
 		messageE[4]="[Quest status] You approach the altar of Tanora. You might be mistaken, but isn't the air here quite foggy?";		
 		messageE[5]="[Quest status] You approach the altar of Findari. A gust blows through your clothes.";
-	    iniDone = true;
-    end
+	    InitDone = true;
+    
 end
 
 function MoveToField(User)
-    ini();
+    Init();
 	if (User:getQuestProgress(113) == 1) then --OK, the player does the quest
 	
 	    queststatus=User:getQuestProgress(114); --here, we save which fields were visited
