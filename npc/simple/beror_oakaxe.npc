@@ -58,7 +58,7 @@ itemShoes = 770
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der Quartiermeister. Schlüsselwörter: Hallo, Quest, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ha! A new recruit. You came here to get your orders for today, right?","Attention! The queen issued new orders. And her majesty does not like to see any delay."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -186,7 +186,7 @@ itemShoes = 770
 
 cycletext "Willkommen in Cadomyr.", "Welcome to Cadomyr."
 cycletext "Zwerge sind ungewöhnlich für Cadomyr? Sehe ich ungewöhnlich aus? Ich zeig dir gleich ungewöhnlich!", "Dwarves are uncommon in Cadomyr? Do I look uncommon? I'll show you something uncommon!"
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Ich bin es gewohnt, Befehle zu schreien. Hier im Inneren eines Hauses, brauche ich nicht zu schreien. Ihr werdet es aber, solltet ihr meine Befehle missachten.", "I am used to yell orders. But inside this house, I won't yell - but you'll scream if you disobey!"
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
