@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-require("quest_aquest28");    --the quest file for the Farmer ques
+require("quest.aquest28");    --the quest file for the Farmer ques
 module("monster.mon_13_flies")
 
 
@@ -99,11 +99,11 @@ function onDeath(Monster)
         player_list = world:getPlayersInRangeOf(Monster.pos, 5);
         if (player_list[1]~=nil) then
             User = getCharForId(player_list[1].id);  --create a save copy of the char struct
-			User:inform("blub, monster dead");
-			local cow, task, counter = quest_aquest28.split_questdata(User);
+			--User:inform("blub, monster dead");
+			local cow, task, counter = quest.aquest28.split_questdata(User);
 			counter = counter - 1;
 			task = 0; --reset task
-			quest_aquest28.glue_questdata(User, cow,task,counter); --put the quest data with changes together
+			quest.aquest28.glue_questdata(User, cow,task,counter); --put the quest data with changes together
 
 			aquest28Effect = CLongTimeEffect(32,100); -- create new effect and initialize with nextcalled = 1s
 			User.effects:addEffect(aquest28Effect); -- add effect #3         2
