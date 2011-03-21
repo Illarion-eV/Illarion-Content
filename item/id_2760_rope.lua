@@ -80,10 +80,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
         User:warp(position(-131,-123,-3));
-	elseif equapos(TargetItem.pos,position(787,801,0)) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
-        User:warp(position(797,791,-3));
+	--elseif equapos(TargetItem.pos,position(787,801,0)) then
+    --    User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
+    --    User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
+    --    User:warp(position(797,791,-3));
 	elseif equapos(TargetItem.pos,position(528, 555, 0)) then
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
@@ -97,7 +97,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         	world:createMonster(133,position(801,795,-3), 14);--create a monster here
 		end
 		User:inform("blub, monsterlist was not nil");
-		User:warp(position(787,793,0));
+		User:warp(position(797,791,-3));
 	else
     	if ( User:getPlayerLanguage() == 0 ) then
             User:inform( "Das Wasser steht recht hoch im Brunnen. Hier hinein zu klettern bringt nichts." );
