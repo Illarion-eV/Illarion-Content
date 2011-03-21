@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Nik Nilo                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  365,260,0           --
--- NPC Sex:  male                       NPC Direction: northwest                   --
+-- NPC Race: human                      NPC Position:  365, 260, 0            --
+-- NPC Sex:  male                       NPC Direction: northwest              --
 --                                                                            --
--- Author:   Drathe                                                          --
+-- Author:   Drathe                                                           --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nik Nilo"
 race = human
 sex = male
-position = 365,260,0
+position = 365, 260, 0
 direction = northwest
 affiliation = "None"
 job = "trader"

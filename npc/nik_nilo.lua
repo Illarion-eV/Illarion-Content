@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Drathe                                                           --
 --                                                                            --
--- Last parsing: August 27, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 365, 260, 0, 7, 'Nik Nilo', 'npc.nik_nilo', 0, 1, 1, 153, 96, 28, 217, 154, 123);
+VALUES (0, 365, 260, 0, 7, 'Nik Nilo', 'npc.nik_nilo', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -612,6 +612,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt. Von Kohle und Steinen.", "A tall human. His hair are scummy and dusty by dust and coal.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
