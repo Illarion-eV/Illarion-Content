@@ -136,7 +136,7 @@ function Cow_receiveText(User,message, CowID,thisNPC)
 
 			local cow, task, counter = split_questdata(User);
 			if (cow == CowID and task ==3) then
-				useNPC(User,0,0); --buggy! 
+				Cow_useNPC(User, CowID, task,thisNPC);
 			end
 		end
 	end

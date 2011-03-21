@@ -91,10 +91,10 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then --FARMER WELL POSITION TO PUT HERE
         User:talkLanguage( CCharacter.say, CPlayer.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
-        local monster_list = world:getMonstersInRangeOf(position(787,791,0),3); --check if already a monster spawned there
+        local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
         	User:inform("blub, monsterlist was nil");
-        	world:createMonster(133,position(787,791,0), 14);--create a monster here
+        	world:createMonster(133,position(801,795,-3), 14);--create a monster here
 		end
 		User:inform("blub, monsterlist was not nil");
 		User:warp(position(787,793,0));
