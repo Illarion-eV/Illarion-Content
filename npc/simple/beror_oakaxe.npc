@@ -37,13 +37,13 @@ beardID = 1
 colorHair = 17, 17, 17
 colorSkin = 240, 175, 130
 itemHead = 0
-itemChest = 0
-itemCoat = 0
-itemMainHand = 0
+itemChest = 101
+itemCoat = 139
+itemMainHand = 226
 itemSecondHand = 0
-itemHands = 0
-itemTrousers = 0
-itemShoes = 0
+itemHands = 325
+itemTrousers = 2117
+itemShoes = 770
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -168,8 +168,8 @@ itemShoes = 0
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Beror", "Oakaxe", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Beror", "Oakaxe" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -184,7 +184,7 @@ itemShoes = 0
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Willkommen in Cadomyr.", "Welcome to Cadomyr."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
