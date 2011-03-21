@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 16, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -211,7 +211,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft I"));
-talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Omie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
+talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -234,7 +234,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft I"));
-talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Omie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
+talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -361,7 +361,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böß¸e geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
+talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -593,7 +593,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 22));
-talkEntry:addResponse("Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste misstat!");
+talkEntry:addResponse("Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -610,7 +610,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 22));
-talkEntry:addResponse("Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste misstat!");
+talkEntry:addResponse("Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1050,21 +1050,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Grakamesh");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Dat be mes, yubba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Grakamesh");
+talkEntry:addResponse("Das sein mir, yubba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
