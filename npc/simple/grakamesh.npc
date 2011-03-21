@@ -105,9 +105,9 @@ itemShoes = 53
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(78) > 0, queststatus(78) < 11, english -> "Dere be lotsa mummies dat haunt tomb op Reginald oomie. Dat be so disrespectful! Beat dem up so Reginald oomie can rest in peace."
-"quest", "mission", queststatus(78) > 0, queststatus(78) < 11 -> "Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß¸! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können."
+"quest", "mission", queststatus(78) > 0, queststatus(78) < 11 -> "Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können."
 "task", "adventure", queststatus(78) > 0, queststatus(78) < 11 -> "Dere be lotsa mummies dat haunt tomb op Reginald oomie. Dat be so disrespectful! Beat dem up so Reginald oomie can rest in peace."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 0, queststatus(78) < 11 -> "Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß¸! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 0, queststatus(78) < 11 -> "Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können."
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
 ".+", queststatus(78) = 11, english, town = Cadomyr -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Queen Rosaline Edwards' favour."), "Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...", money + 100, queststatus(78) = 12, rankpoints(Cadomyr) + 5
@@ -119,7 +119,7 @@ itemShoes = 53
 
 -- Give out quest 2
 "quest", "mission", queststatus(78) = 12, english -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
-"quest", "mission", queststatus(78) = 12 -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die schwebenden Schädel in der Gruft? Dies sinned böß¸e geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.", queststatus(78) = 13
+"quest", "mission", queststatus(78) = 12 -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die schwebenden Schädel in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.", queststatus(78) = 13
 "task", "adventure", queststatus(78) = 12 -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(78) = 12 -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die schwebenden Schädel in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.", queststatus(78) = 13
 
@@ -132,8 +132,8 @@ itemShoes = 53
 -- Quest 2 solved, reward: 100cp, skull staff, +10 rankpoints
 ".+", queststatus(78) = 18, english, town = Cadomyr -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff. You advance in Queen Rosaline Edwards' favour."), "Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!", money + 100, item(39, 1, 599, 0), queststatus(78) = 19, rankpoints(Cadomyr) + 10
 ".+", queststatus(78) = 18, english -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff."), "Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!", money + 100, item(39, 1, 599, 0), queststatus(78) = 19
-".+", queststatus(78) = 18, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der böß¸en Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599, 0), queststatus(78) = 19, rankpoints(Cadomyr) + 10
-".+", queststatus(78) = 18 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."), "Groß¸artig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599, 0), queststatus(78) = 19
+".+", queststatus(78) = 18, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der bößen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599, 0), queststatus(78) = 19, rankpoints(Cadomyr) + 10
+".+", queststatus(78) = 18 -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."), "Großartig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599, 0), queststatus(78) = 19
 
 -- 3rd quest: Kill 1 wraith
 
@@ -141,13 +141,13 @@ itemShoes = 53
 "quest", "mission", queststatus(78) = 19, english -> inform("[New quest] Sir Reginald's Tomb III"), "Cherga hab shown mes origin of all spook while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.", queststatus(78) = 20
 "quest", "mission", queststatus(78) = 19 -> inform("[Neues Quest] Sir Reginalds Gruft III"), "Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.", queststatus(78) = 20
 "task", "adventure", queststatus(78) = 19 -> inform("[New quest] Sir Reginald's Tomb III"), "Cherga hab shown mes origin of all spook while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.", queststatus(78) = 20
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) = 19 -> inform("[Neues Quest] Sir Reginalds Gruft III"), "Cherga ließ¸ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.", queststatus(78) = 20
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) = 19 -> inform("[Neues Quest] Sir Reginalds Gruft III"), "Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.", queststatus(78) = 20
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(78) > 19, queststatus(78) < 21, english -> "Meh still feel evil presence ob ghost ob foe ob old chief ob Cadomyr. Expel dat from plane ob mortals!"
-"quest", "mission", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoß¸e es von dem Land der Sterblichen!"
+"quest", "mission", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!"
 "task", "adventure", queststatus(78) > 19, queststatus(78) < 21 -> "Meh still feel evil presence ob ghost ob foe ob old chief ob Cadomyr. Expel dat from plane ob mortals!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoß¸e es von dem Land der Sterblichen!."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(78) > 19, queststatus(78) < 21 -> "Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!."
 
 -- Quest 3 solved, reward: brown priest robe, +20 rankpoints
 ".+", queststatus(78) = 21, english, town = Cadomyr -> inform("[Quest solved] You are awarded a brown priest robe. You advance in Queen Rosaline Edwards' favour."), "Hurr! Yoos hab done dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.", item(2416, 1, 799, 0), queststatus(78) = 22, rankpoints(Cadomyr) + 20
@@ -179,13 +179,13 @@ itemShoes = 53
 "orc" -> "Orc society complicated. Meh nub dink dat everyone understand. Shaman dance important fer society and afterlife."
 "dance", "salvation" -> "Dat dance mes be dancin', dat be dance ob death. When fallen ones nub can rest in peace, dancin' is all dat helps."
 "Hastings", "Baron", english -> "Hurr! Hastings oomie must be responsible fer spook. Dat be unloyal, honourless oomie! Plans evil dings all day long."
-"Schamane" -> "Yubba, michse ist der Schamane. Ich bete für die Toten, damit sie ruhen in Friede.", "Der Schamane ist wichtiger Teil von Orkische Gesellschaft. Der Schamane ist religöser Kopf. Ich binne der Schamane!", "Was du wissen willst? Ich binne der Schamane. Weiß¸ viel über Vieles."
-"Gruft" -> "Diese hinter mir, ist die Gruft von Reginald Edwards. Ich tanze, so der böß¸e Spuk wird vergehen"
+"Schamane" -> "Yubba, michse ist der Schamane. Ich bete für die Toten, damit sie ruhen in Friede.", "Der Schamane ist wichtiger Teil von Orkische Gesellschaft. Der Schamane ist religöser Kopf. Ich binne der Schamane!", "Was du wissen willst? Ich binne der Schamane. Weiß viel über Vieles."
+"Gruft" -> "Diese hinter mir, ist die Gruft von Reginald Edwards. Ich tanze, so der böße Spuk wird vergehen"
 "Reginald" -> "Er alte Häuptling der Oomies. Er bergraben ist, in dieser Gruft. Doch böser Spuk dort treibt es.", "Ich war dort, als sie den alten Häuptling begrubigten. Mir gab heiligen Segen! Doch es war nicht Nutze. Es Spukt!"
 "Spuk", "Geist", "Gespenst" -> "Dort issigt ein böser Spuk in der Gruft von alten Häuptling Reginald. Wirst du mir bei einer Aufgabe helfigen?"
 "Ork" -> "Die Orkische Gesellschaft ist eine Komplizierte. Ich nicht glaube, dass jeder es versteht. So, der Tanz des Schamanen ist von Wichtigkeit für das Nachleben."
 "Tanz", "Erlösung" -> "Der Tanz, welchen ich tanzige, ist der Tanz der Toten. Wenn die toten nicht liegen in Friede, der Tanz alleine ist jener der Hilfe brignen kann."
-"Hasting", "Baron" -> "Hurr! Oomie Hastings trägt Schuld an dem Spuk, mit Sicherheit. Er ehrlos! Er unloyal! Er plant den ganzen Tag, boß¸hafte Pläne."
+"Hasting", "Baron" -> "Hurr! Oomie Hastings trägt Schuld an dem Spuk, mit Sicherheit. Er ehrlos! Er unloyal! Er plant den ganzen Tag, boßhafte Pläne."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "nvidia", english -> "Dem nub like Ati, mes dink!"
@@ -213,7 +213,7 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Many oomies op Cadomyr be from Albar. Nub know dat place, but ib dat like Cadomyr, den dat gud place fer orc warriors. Even though oomies hab tell me dat nub true...."
-"albar" -> "Viele Oomies in Cadomyr kommen aus Albar. Ich nicht weiß¸, was dies für ein Ort ist, doch ist er so wie Cadomyr, ist er bestimmt ein guter Ort für Orks. Auch wenn sie mir sagen das dies nicht stimmig ist."
+"albar" -> "Viele Oomies in Cadomyr kommen aus Albar. Ich nicht weiß, was dies für ein Ort ist, doch ist er so wie Cadomyr, ist er bestimmt ein guter Ort für Orks. Auch wenn sie mir sagen das dies nicht stimmig ist."
 "gynk", "gync", english -> "Gynk place wibout honour! Nub go der, neva. When sumbody challenge yoos fer duel, yoo nub be sure dat udder oomie backstab yoos."
 "gync", "gynk" -> "In Gynk findet niemand Ehre. Geh nicht dort hin, nichtmals. Wenn du gefordert wirst zu einem Duell, du  nie in Sicherheit bist, der andere Oomie könnte in deinen Rücken fallen."
 "salkama", english -> "Ah, mes hab hear lots bout Salkamar. Proud realm, dat be. Mes dink also gud hunting dere."

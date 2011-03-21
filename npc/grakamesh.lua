@@ -255,7 +255,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 11));
-talkEntry:addResponse("Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß¸! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können.");
+talkEntry:addResponse("Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,7 +274,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 0));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 11));
-talkEntry:addResponse("Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß¸! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können.");
+talkEntry:addResponse("Viele Mumien spuken in der Gruft von Oomie Reginald. Dass ist respektloß! Hau sie in kleine Stücke! So wird Reginald in Frieden liegen können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böß¸e geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
+talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -435,7 +435,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Großartig! Die Splitter der böß¸en Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
+talkEntry:addResponse("Großartig! Die Splitter der bößen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -447,7 +447,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."));
-talkEntry:addResponse("Groß¸artig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
+talkEntry:addResponse("Großartig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -491,7 +491,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft III"));
-talkEntry:addResponse("Cherga ließ¸ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.");
+talkEntry:addResponse("Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,7 +511,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 21));
-talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoß¸e es von dem Land der Sterblichen!");
+talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 21));
-talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoß¸e es von dem Land der Sterblichen!.");
+talkEntry:addResponse("Ich spüre die Anwesenheit des Gespenstes, immernoch. Verstoße es von dem Land der Sterblichen!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -721,13 +721,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schamane");
 talkEntry:addResponse("Yubba, michse ist der Schamane. Ich bete für die Toten, damit sie ruhen in Friede.");
 talkEntry:addResponse("Der Schamane ist wichtiger Teil von Orkische Gesellschaft. Der Schamane ist religöser Kopf. Ich binne der Schamane!");
-talkEntry:addResponse("Was du wissen willst? Ich binne der Schamane. Weiß¸ viel über Vieles.");
+talkEntry:addResponse("Was du wissen willst? Ich binne der Schamane. Weiß viel über Vieles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gruft");
-talkEntry:addResponse("Diese hinter mir, ist die Gruft von Reginald Edwards. Ich tanze, so der böß¸e Spuk wird vergehen");
+talkEntry:addResponse("Diese hinter mir, ist die Gruft von Reginald Edwards. Ich tanze, so der böße Spuk wird vergehen");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -762,7 +762,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hasting");
 talkEntry:addTrigger("Baron");
-talkEntry:addResponse("Hurr! Oomie Hastings trägt Schuld an dem Spuk, mit Sicherheit. Er ehrlos! Er unloyal! Er plant den ganzen Tag, boß¸hafte Pläne.");
+talkEntry:addResponse("Hurr! Oomie Hastings trägt Schuld an dem Spuk, mit Sicherheit. Er ehrlos! Er unloyal! Er plant den ganzen Tag, boßhafte Pläne.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,7 +917,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Viele Oomies in Cadomyr kommen aus Albar. Ich nicht weiß¸, was dies für ein Ort ist, doch ist er so wie Cadomyr, ist er bestimmt ein guter Ort für Orks. Auch wenn sie mir sagen das dies nicht stimmig ist.");
+talkEntry:addResponse("Viele Oomies in Cadomyr kommen aus Albar. Ich nicht weiß, was dies für ein Ort ist, doch ist er so wie Cadomyr, ist er bestimmt ein guter Ort für Orks. Auch wenn sie mir sagen das dies nicht stimmig ist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
