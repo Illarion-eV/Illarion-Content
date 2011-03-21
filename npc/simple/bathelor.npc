@@ -54,8 +54,8 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(113) = 0
-".+", queststatus(113) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(113) = 0, queststatus(114) = 0
+".+", queststatus(113) > 7 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Bathelor the highpriest of Brágon. Keyphrases: Hello, Brágon, Quest, Priest, Temple.")

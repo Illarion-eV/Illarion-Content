@@ -34,12 +34,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(114, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(113, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(113, ">", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
