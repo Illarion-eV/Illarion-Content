@@ -2,7 +2,7 @@
 -- NPC Name: Bathelor                                                    None --
 -- NPC Job:  Highpriest                                                       --
 --                                                                            --
--- NPC Race: human                      NPC Position:  7, 9, 0                --
+-- NPC Race: human                      NPC Position:  519, 128, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Bathelor"
 race = human
 sex = male
-position = 7, 9, 0
+position = 519, 128, 0
 direction = south
 affiliation = "None"
 job = "Highpriest"
