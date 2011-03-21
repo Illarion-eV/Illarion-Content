@@ -1010,7 +1010,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Bathelor der Hohepriester Brágons.", "This NPC is Bathelor the highpriest of Brágon.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 832);
+mainNPC:setEquipment(1, 358);
 mainNPC:setEquipment(3, 818);
 mainNPC:setEquipment(11, 2419);
 mainNPC:setEquipment(5, 2783);
