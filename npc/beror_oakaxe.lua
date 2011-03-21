@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Beror Oakaxe                                                None --
+-- NPC Name: Beror Oakaxe                                             Cadomyr --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  135, 620, 0            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 135, 620, 0, 4, 'Beror Oakaxe', 'npc.beror_oakaxe', 0, 4, 2, 0, 0, 0, 245, 180, 137);
+VALUES (1, 135, 620, 0, 4, 'Beror Oakaxe', 'npc.beror_oakaxe', 0, 3, 1, 17, 17, 17, 240, 175, 130);
 ---]]
 
 require("npc.base.basic")

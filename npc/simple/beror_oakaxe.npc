@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Beror Oakaxe                                                None --
+-- NPC Name: Beror Oakaxe                                             Cadomyr --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  135, 620, 0            --
@@ -15,7 +15,7 @@ race = dwarf
 sex = male
 position = 135, 620, 0
 direction = south
-affiliation = "None"
+affiliation = "Cadomyr"
 job = "Insert profession here"
 
 language = common
@@ -32,10 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 4
-beardID = 2
-colorHair = 0, 0, 0
-colorSkin = 245, 180, 137
+hairID = 3
+beardID = 1
+colorHair = 17, 17, 17
+colorSkin = 240, 175, 130
 itemHead = 0
 itemChest = 0
 itemCoat = 0
