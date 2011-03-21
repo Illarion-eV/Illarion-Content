@@ -681,7 +681,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Reginald,english");
+talkEntry:addTrigger("Reginald");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Old oomie chief dat beh. He be buried here, in dat tomb over dere. But dat haunts dere!");
 talkEntry:addResponse("Meh was dere when old oomie chief was buried. Meh gib blessings! But blessings... nub hab work. Dat haunts!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -734,7 +735,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Reginald");
 talkEntry:addResponse("Er alte Häuptling der Oomies. Er bergraben ist, in dieser Gruft. Doch böser Spuk dort treibt es.");
-talkEntry:addResponse("Ich war dort, als sie den alten Häuptling begrubigten. Mir gab heiligen Segen! Doch es war nicht Nutze. Es Spukt!");
+talkEntry:addResponse("Ich war dort, als sie den alten Häuptling begrubigten. Mir gab heiligen Segen! Doch es war nicht Nutze. Es spukt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
