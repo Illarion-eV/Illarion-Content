@@ -2,17 +2,17 @@
 -- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: elf                        NPC Position:  1000, 2, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 0, 0, 0, 4, 'Aurora Snow', 'npc.aurora_snow', 1, 2, 5, 245, 245, 245, 255, 239, 219);
+VALUES (3, 1000, 2, 0, 4, 'Aurora Snow', 'npc.aurora_snow', 1, 2, 5, 245, 245, 245, 255, 239, 219);
 ---]]
 
 require("npc.base.basic")
@@ -36,7 +36,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +796,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
 talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."));
-talkEntry:addResponse("Ahh...my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.");
+talkEntry:addResponse("Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(209, 1));
 talkEntry:addConsequence(npc.base.consequence.item.item(2693, 1, 599, 0));
@@ -1486,8 +1487,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Aurora");
+talkEntry:addTrigger("Snow");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -1538,6 +1539,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");

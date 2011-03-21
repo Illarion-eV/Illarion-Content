@@ -2,17 +2,17 @@
 -- NPC Name: Rowan Banius                                            Runewick --
 -- NPC Job:  Farmer                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  1004, 10, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Rowan Banius', 'npc.rowan_banius', 0, 4, 3, 23, 23, 23, 238, 207, 161);
+VALUES (0, 1004, 10, 0, 4, 'Rowan Banius', 'npc.rowan_banius', 0, 4, 3, 23, 23, 23, 238, 207, 161);
 ---]]
 
 require("npc.base.basic")

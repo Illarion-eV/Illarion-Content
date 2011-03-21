@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Aurora Snow                                                 None --
+-- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: elf                        NPC Position:  1000, 2, 0             --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: February 01, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
 race = elf
 sex = female
-position = 0, 0, 0
+position = 1000, 2, 0
 direction = south
 affiliation = "Runewick"
 job = "Druid"
@@ -60,7 +60,7 @@ itemShoes = 0
 -- Druidhouse
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(333) = 0, queststatus(322) = 0
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 ".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
@@ -169,7 +169,7 @@ itemShoes = 0
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(333) > 3, queststatus(333) < 11 -> "GERMAN."
 
 -- Quest 4 solved, reward: 500cp, magical serinjah-sword
-".+", queststatus(333) = 11, item(209, all) > 0, english -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), "Ahh...my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
+".+", queststatus(333) = 11, item(209, all) > 0, english -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
 ".+", queststatus(333) = 11, item(209, all) > 0 -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein ITEM."), "GERMAN.", money + 200, deleteItem(209, 1), item(2693, 1, 599, 0), queststatus(333) = 12
 
 -- No more quests, just nice words of gratitude

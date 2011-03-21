@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Madeline Clarbelis                                      Runewick --
--- NPC Job:  Druid Apprentice                                                 --
+-- NPC Name: Kaitza                                                      None --
+-- NPC Job:  Temple Guard                                                     --
 --                                                                            --
--- NPC Race: human                      NPC Position:  1004, 2, 0             --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: lizardman                  NPC Position:  1000, 10, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 1004, 2, 0, 4, 'Madeline Clarbelis', 'npc.madeline_clarbelis', 1, 3, 5, 255, 236, 139, 255, 211, 155);
+VALUES (5, 1000, 10, 0, 4, 'Kaitza', 'npc.kaitza', 0, 0, 0, 154, 205, 50, 154, 205, 50);
 ---]]
 
 require("npc.base.basic")
@@ -26,7 +26,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.madeline_clarbelis", package.seeall)
+module("npc.kaitza", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -41,7 +41,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, ">", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(335, ">", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -55,7 +55,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keyphrases: quest, Aurora, profession, apprentice, Ushara."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Kaitza the temple guard. Keyphrases: quest, Zelphia, profession, Gobaith, gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,9 +72,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("#me blushes slightly, 'H...hello there.'");
-talkEntry:addResponse("#me glances toward her feet, 'Greetings.'");
-talkEntry:addResponse("G...greetings.");
+talkEntry:addResponse("Glory to ze Goddessss.");
+talkEntry:addResponse("Greetingsss, landwalker.");
+talkEntry:addResponse("#me lowers his head respectfully, 'Greetingsss.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,9 +98,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me blushes slightly, 'H...hello there.'");
-talkEntry:addResponse("#me glances toward her feet, 'Greetings.'");
-talkEntry:addResponse("G...greetings.");
+talkEntry:addResponse("Glory to ze Goddessss.");
+talkEntry:addResponse("Greetingsss, landwalker.");
+talkEntry:addResponse("#me lowers his head respectfully, 'Greetingsss.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -120,9 +120,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("#me purses her lips, nodding once.");
-talkEntry:addResponse("Take care.");
-talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Glory to ze Goddessss.");
+talkEntry:addResponse("Zss. May Zelphia keep your watersss calm.");
+talkEntry:addResponse("#me bows his head respectfully, 'Zss. Farewell.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -143,9 +143,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me purses her lips, nodding once.");
-talkEntry:addResponse("Take care.");
-talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Glory to ze Goddessss.");
+talkEntry:addResponse("Zss. May Zelphia keep your waters calm.");
+talkEntry:addResponse("#me bows his head respectfully, 'Zss. Farewell.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -164,9 +164,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I...I am fine.");
-talkEntry:addResponse("Well...of course. Why would I be otherwise?");
-talkEntry:addResponse("#me fidgets nervously, 'I cannot complain.'");
+talkEntry:addResponse("Zss. I am...well.");
+talkEntry:addResponse("Ze Goddessss watches over me. Zss.");
+talkEntry:addResponse("Zelphia keepsss me sssafe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,9 +185,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Madeline. Madeline Clarbelis.");
-talkEntry:addResponse("I am Madeline.");
-talkEntry:addResponse("M...my name is Madeline Clarbelis.");
+talkEntry:addResponse("I am Kaitza. Ssservant of ze Goddessss.");
+talkEntry:addResponse("My name isss Kaitza.");
+talkEntry:addResponse("I am Kaitza, ze temple guard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,67 +205,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part I"));
-talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
-talkEntry:addConsequence(npc.base.consequence.item.item(401, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III"));
+talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Aurora's Staff: Part I"));
-talkEntry:addResponse("#me's eyes dart around nervously as she hands across a long wooden staff, 'Oh? You are here for the staff? Here it is. Be...careful with it.");
-talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part II"));
-talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,10 +227,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Update] Aurora's Staff: Part II"));
-talkEntry:addResponse("I'm sorry. I shouldn't have lied. A Halfling, Fosco Goodbarrel, tricked me into giving up the staff. He told me that he could make me a powerful druid. I didn't want people to think I was stupid. You'll find him in the forest west of here.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addTrigger("dagger");
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III"));
+talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,26 +240,27 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
+talkEntry:addTrigger("german");
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff.");
+talkEntry:addResponse("Ze dagger isss important to me. Kaitza ssshall only let it go if you bring me zis emerald ring. Aurora Sssnow has it, in <town name>. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -312,9 +268,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("staff");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
-talkEntry:addResponse("You should go find the Halfling, Fosco Goodbarrel. He is in the forest west of here. He has Aurora's staff.");
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
+talkEntry:addResponse("Ze dagger isss important to me. I ssshall only let it go if you bring me zis emerald ring. Aurora Sssnow has it, in <town name>. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,181 +277,169 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("german");
-talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
-talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Apprentice"));
-talkEntry:addResponse("Mistress Snow wants me to gather some herbs for her. I don't really feel like it though. If you get them for me, I'll give you a nice present. I need four foot leaves and two firnis blossoms.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I really need you to bring me those four foot leaves.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4));
-talkEntry:addResponse("I really need you to bring me those four foot leaves.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", "<", 4));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You've got the four foot leaves, but I also need you to bring me those two firnis blossoms.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2));
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2));
-talkEntry:addResponse("You've got the four foot leaves, but I also need you to bring me those two firnis blossoms.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", "<", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(281, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
-talkEntry:addResponse("Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(153, 4));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 2));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III."));
+talkEntry:addResponse("Yesss...zis iss ze one. Gorgeousss...Here iss your dagger, as promisssed. Zss.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 499, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(153, "all", ">", 3));
-talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(281, "all", ">", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
+talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 499, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards"));
+talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
+talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Zss. Sstill hungry. Bring me ten trout, Kaitza will pay. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
+talkEntry:addResponse("Zss. Sstill hungry. Bring me ten trout, Kaitza will pay. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 80 copper coins."));
+talkEntry:addResponse("Yess...zis isss good. Very good. Zss. Here isss your money.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."));
 talkEntry:addResponse("GERMAN.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(153, 4));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 2));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 80));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards II"));
+talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 2));
-talkEntry:addResponse("Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora.");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards II"));
+talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,16 +447,117 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
+talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Pleassse, you mussst bring Kaitza five deliciousss sssalmon. Do not cook zem, zey mussst be raw.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
+talkEntry:addResponse("Pleassse, you mussst bring Kaitza five deliciousss sssalmon. Do not cook zem, zey mussst be raw.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a snake sword and 40 copper coins."));
+talkEntry:addResponse("Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(2788, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein VERY NICE ITEM."));
+talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(2788, 1, 799, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(355, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Zss. Be gone. Leave Kaitza to enjoy hisss fishiesss in peace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
+talkEntry:addResponse("Zss. Be gone. Leave Kaitza to enjoy hisss fishiesss in peace.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 4));
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I...I am training to be a druid.");
-talkEntry:addResponse("I am an apprentice druid.");
-talkEntry:addResponse("I will be a druid, one day.");
+talkEntry:addResponse("I ssserve ze Goddessss.");
+talkEntry:addResponse("Zss. I am a temple guard.");
+talkEntry:addResponse("I dessstroy evil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,9 +572,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I...I am training to be a druid.");
-talkEntry:addResponse("I am an apprentice druid.");
-talkEntry:addResponse("I will be a druid, one day.");
+talkEntry:addResponse("I ssserve ze Goddessss.");
+talkEntry:addResponse("Zss. I am a temple guard.");
+talkEntry:addResponse("I dessstroy evil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,9 +590,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That island was...dull.");
-talkEntry:addResponse("The people there were so...nosy.");
-talkEntry:addResponse("I liked Gobaith, I suppose.");
+talkEntry:addResponse("Zis land wasss very corrupt.");
+talkEntry:addResponse("Zis island had much evil. Much evil, yesss. Zss.");
+talkEntry:addResponse("Zss. Ze people zere, zey were weak.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,9 +607,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("I...it is nice to meet you.");
-talkEntry:addResponse("A p...pleasure to meet you.");
-talkEntry:addResponse("I am glad to meet you.");
+talkEntry:addResponse("Zss. It isss an honour to meet you.");
+talkEntry:addResponse("A pleasssure to meet you.");
+talkEntry:addResponse("Glory to ze Goddessss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -578,42 +622,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("druid");
-talkEntry:addResponse("Yes, one day I shall be a druid! I cannot wait for that day to come!");
-talkEntry:addResponse("I am only learning the ways of the druids at the moment. But soon I hope to be one myself!");
-talkEntry:addResponse("#me sighs faintly, 'It takes a long time to learn the true ways of nature.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("aurora");
-talkEntry:addResponse("Aurora was kind enough to choose me as her apprentice. She is very slow to teach me, though.");
-talkEntry:addResponse("Mistress Aurora is teaching me the ways of the druids. I wish she would hurry up...");
-talkEntry:addResponse("Aurora tells me that I need to learn patience. I wish she would hurry up and teach me it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means.");
-talkEntry:addResponse("I hear that the Archmage is the most powerful mage to ever step foot on these lands.");
-talkEntry:addResponse("I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid.");
+talkEntry:addResponse("Zss. Ze magicsss isss not to be trusssted.");
+talkEntry:addResponse("Zey sssay zat he wasss blesssed by ze human Goddesss Elara.");
+talkEntry:addResponse("Ze archmage rulesss ze town of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,9 +641,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mistress Aurora says that he is missing something. I wonder what she means.");
-talkEntry:addResponse("I hear that the Archmage is the most powerful mage to ever step foot on these lands.");
-talkEntry:addResponse("I wonder if he takes as long to teach magic as Mistress Aurora does to teach me the ways of a druid.");
+talkEntry:addResponse("Zss. Ze magicsss isss not to be trusssted.");
+talkEntry:addResponse("Zey sssay zat he wasss blesssed by ze human Goddesss Elara.");
+talkEntry:addResponse("Ze archmage rulesss ze town of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,9 +659,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("There are so many books in Runewick. Can you read? I can.");
-talkEntry:addResponse("Mistress Aurora says that I should spend lots of time in Runewick, if I want to become wise like she is.");
-talkEntry:addResponse("Sometimes I can't understand what the people in Runewick are saying. They speak with really big words.");
+talkEntry:addResponse("Zss. Runewick isss ze land of wisdom.");
+talkEntry:addResponse("Ze people of Runewick are ssstrong of mind, but not of body.");
+talkEntry:addResponse("Zese people know nozing of honour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,9 +678,9 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They say he has a lot of money.");
-talkEntry:addResponse("Mistress Aurora says that money isn't important. The Don has a lot of it, though.");
-talkEntry:addResponse("The Don rules the town of Galmair.");
+talkEntry:addResponse("Money...only zis isss important to zat human.");
+talkEntry:addResponse("Zis human knowsss no honour.");
+talkEntry:addResponse("Do not trussst a word ze Don uttersss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,9 +697,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mistress Aurora says that the people who live there are small-minded.");
-talkEntry:addResponse("People say that Galmair reminds them of Gynk. I've never been to Gynk, though.");
-talkEntry:addResponse("The town of Galmair is ruled by the Don.");
+talkEntry:addResponse("Zis town isss plagued by corruption.");
+talkEntry:addResponse("Gold isss ze only object zat mattersss zere.");
+talkEntry:addResponse("Zese people know nozing of honour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -701,9 +713,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Mistress Aurora doesn't tell me too much about the Queen.");
-talkEntry:addResponse("Queen Rosaline is very pretty.");
-talkEntry:addResponse("Queen Rosaline is the ruler of Cadomyr.");
+talkEntry:addResponse("Honour to ze Queen!");
+talkEntry:addResponse("Queen Rosssaline isss ze highest of ze humansss.");
+talkEntry:addResponse("Ze noble Queen rulesss ze town of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,9 +731,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mistress Aurora doesn't tell me too much about the Queen.");
-talkEntry:addResponse("Queen Rosaline is very pretty.");
-talkEntry:addResponse("Queen Rosaline is the ruler of Cadomyr.");
+talkEntry:addResponse("Honour to ze Queen!");
+talkEntry:addResponse("Queen Rosssaline isss ze highest of ze humansss.");
+talkEntry:addResponse("Ze noble Queen rulesss ze town of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,9 +749,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I think the people who live in Cadomyr are very nice.");
-talkEntry:addResponse("Mistress Aurora says that very good lessons can be learned from the people of Cadomyr. She won't tell me what the lessons are, though.");
-talkEntry:addResponse("The town of Cadomyr is ruled by the Queen Rosaline.");
+talkEntry:addResponse("Zss. A more honourable people ssshall never be ssseen.");
+talkEntry:addResponse("Zis town isss ruled by ze noble Queen Rosssaline. Zss.");
+talkEntry:addResponse("Ze enemiesss of Cadomyr ssshall fall beneath our bladesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,9 +766,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't know much about Albar.");
-talkEntry:addResponse("I hear that they don't respect women in Albar. Is that true?");
-talkEntry:addResponse("People tell me that Albar is a corrupt land. Aurora tells me that it is none of my concern, though.");
+talkEntry:addResponse("Zss. I know little of ze human sssettlementsss.");
+talkEntry:addResponse("I know nozing of zese placesss.");
+talkEntry:addResponse("I have no interessst in zis. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -772,9 +784,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't know much about Gynk.");
-talkEntry:addResponse("I've never been to Gynk. Do you think it's nice?");
-talkEntry:addResponse("Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though.");
+talkEntry:addResponse("Zss. I know little of ze human sssettlementsss.");
+talkEntry:addResponse("I know nozing of zese placesss.");
+talkEntry:addResponse("I have no interessst in zis. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,9 +802,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't know much about Salkamar.");
-talkEntry:addResponse("I used to enjoy listening to stories about the heroes from Salkamar.");
-talkEntry:addResponse("Mistress Aurora says that society is like a mask. Society doesn't make me laugh, though.");
+talkEntry:addResponse("Zss. I know little of ze human sssettlementsss.");
+talkEntry:addResponse("I know nozing of zese placesss.");
+talkEntry:addResponse("I have no interessst in zis. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,9 +818,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I like to listen to the stories about the Younger Gods. Aurora says that I must learn more about the Elder Ones, though.");
-talkEntry:addResponse("The Elder Ones gave birth to everything...that's what Aurora tells me.");
-talkEntry:addResponse("Aurora talks a lot about Ushara, one of the Elder Gods.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I worship ze Goddessss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,9 +836,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -842,9 +854,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,9 +872,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,9 +889,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,9 +906,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,9 +923,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -928,9 +940,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,9 +958,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,9 +976,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,9 +995,9 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1002,9 +1014,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,9 +1031,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1036,9 +1048,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1054,9 +1066,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("Glory to ze Goddessss!");
+talkEntry:addResponse("Zss. Zelphia watchesss over me.");
+talkEntry:addResponse("Ze Island of Eternity awaitsss me. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1072,9 +1084,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora always talks about Ushara. She is the Goddess of Earth.");
-talkEntry:addResponse("Aurora tells me that she has met Ushara. She must be so old.");
-talkEntry:addResponse("I have to learn a lot about Ushara. I wish it didn't take so long.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1089,9 +1101,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Aurora hasn't taught me much about that God yet.");
-talkEntry:addResponse("Aurora tells me to respect the followers of all of the Gods.");
-talkEntry:addResponse("Aurora sometimes mentions that God.");
+talkEntry:addResponse("All ze Godsss are acknowledged. Only Zelphia iss worshiped.");
+talkEntry:addResponse("Zelphia iss ze Goddessss of my people. Ze othersss are Godsss of ze other racesss.");
+talkEntry:addResponse("Zss. I ressspect zis Godsss followersss. But I do not worship zis God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1108,9 +1120,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I don't want to trade.");
-talkEntry:addResponse("I don't wish to trade today, thank you.");
-talkEntry:addResponse("Sorry, but Aurora tells me that I cannot be enticed by material possessions.");
+talkEntry:addResponse("Zss. I have nozing to trade.");
+talkEntry:addResponse("I do not ssseek to trade. Zss.");
+talkEntry:addResponse("Sssorry, I do not wisssh to trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1127,9 +1139,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.");
-talkEntry:addResponse("Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.");
-talkEntry:addResponse("If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though.");
+talkEntry:addResponse("Zss. What do you wisssh to know?");
+talkEntry:addResponse("Perhapsss I have a tasssk for you.");
+talkEntry:addResponse("Ssservice to ze Godsss isss ze most honourable life. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1143,18 +1155,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Madeline");
-talkEntry:addTrigger("Clarbelis");
+talkEntry:addTrigger("Kaitza");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I need a nap.");
-talkEntry:addResponse("Gosh, I am so tired.");
-talkEntry:addResponse("I suppose I should go visit Aurora soon.");
+talkEntry:addResponse("Zss. Kaitza mussst be working.");
+talkEntry:addResponse("#me hisses quietly.");
+talkEntry:addResponse("Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Madeline");
-talkEntry:addTrigger("Clarbelis");
+talkEntry:addTrigger("Kaitza");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -1163,9 +1173,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("I need a nap.");
-talkEntry:addResponse("Gosh, I am so tired.");
-talkEntry:addResponse("I suppose I should go visit Aurora soon.");
+talkEntry:addResponse("Zss. Kaitza mussst be working.");
+talkEntry:addResponse("#me hisses quietly.");
+talkEntry:addResponse("Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1179,9 +1189,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("I need a nap.");
-talkEntry:addResponse("Gosh, I am so tired.");
-talkEntry:addResponse("I suppose I should go visit Aurora soon.");
+talkEntry:addResponse("Zss. Kaitza mussst be working.");
+talkEntry:addResponse("#me hisses quietly.");
+talkEntry:addResponse("Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1197,9 +1207,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("I need a nap.");
-talkEntry:addResponse("Gosh, I am so tired.");
-talkEntry:addResponse("I suppose I should go visit Aurora soon.");
+talkEntry:addResponse("Zss. Kaitza mussst be working.");
+talkEntry:addResponse("#me hisses quietly.");
+talkEntry:addResponse("Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1212,30 +1222,30 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "#me yawns into the back of her hand.");
-talkingNPC:addCycleText("GERMAN.", "#me sneezes.");
-talkingNPC:addCycleText("GERMAN.", "#me sighs faintly.");
-talkingNPC:addCycleText("GERMAN.", "#me giggles quietly.");
-talkingNPC:addCycleText("GERMAN.", "#me plays with her hair.");
-talkingNPC:addCycleText("GERMAN.", "#me runs a finger through her hair.");
-talkingNPC:addCycleText("GERMAN.", "#me claps her hands together.");
-talkingNPC:addCycleText("GERMAN.", "#me whispers to herself.");
-talkingNPC:addCycleText("GERMAN.", "Erm.");
-talkingNPC:addCycleText("GERMAN.", "Hm...");
+talkingNPC:addCycleText("GERMAN.", "#me runs a finger along his blade.");
+talkingNPC:addCycleText("GERMAN.", "#me adjusts his armour.");
+talkingNPC:addCycleText("GERMAN.", "#me hoists up his shield.");
+talkingNPC:addCycleText("GERMAN.", "#me pushes his chest out.");
+talkingNPC:addCycleText("GERMAN.", "#me runs a clawed finger along his cheek.");
+talkingNPC:addCycleText("GERMAN.", "#me hisses quietly.");
+talkingNPC:addCycleText("GERMAN.", "#me closes his eyes for a few moments, breathing deeply.");
+talkingNPC:addCycleText("GERMAN.", "#me whispers a silent prayer.");
+talkingNPC:addCycleText("GERMAN.", "For ze Goddessss!");
+talkingNPC:addCycleText("GERMAN.", "Glory to ze Goddessss!");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(1);
+mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Madeline Clarbelis the apprentice druid.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "#me pulls away nervously.");
-mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me shakes her head, seemingly embarassed.");
+mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Kaitza the temple guard.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "#me hisses sharply.");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 385);
+mainNPC:setEquipment(3, 2407);
 mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(5, 2701);
+mainNPC:setEquipment(6, 95);
+mainNPC:setEquipment(4, 325);
+mainNPC:setEquipment(9, 2116);
+mainNPC:setEquipment(10, 326);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
