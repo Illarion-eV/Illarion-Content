@@ -93,10 +93,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
 		if (monster_list[1]==nil) then
-        	User:inform("blub, monsterlist was nil");
         	world:createMonster(133,position(801,795,-3), 14);--create a monster here
 		end
-		User:inform("blub, monsterlist was not nil");
 		User:warp(position(797,791,-3));
 	else
     	if ( User:getPlayerLanguage() == 0 ) then
