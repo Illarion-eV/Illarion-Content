@@ -982,7 +982,7 @@ mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
-mainNPC:setEquipment(11, 139);
+mainNPC:setEquipment(11, 195);
 mainNPC:setEquipment(5, 226);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 325);
