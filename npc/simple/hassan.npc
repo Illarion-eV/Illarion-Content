@@ -47,19 +47,6 @@ itemHands = 0
 itemTrousers = 34
 itemShoes = 53
 
--- ---------------------------------------------------------------------------AC
--- NPC Name: Hassan Cadomyr --
--- NPC Job: royal fan waver --
--- --
--- NPC Race: human NPC Position: 110, 574, 0 --
--- NPC Sex: male NPC Direction: east --
--- --
--- Authors: Cromwell --
--- Estralis Seborian --
--- --
--- Last parsing: February 08, 2011 easyNPC Parser v1.02 --
--- ------------------------------------------------------------------------------
-
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -78,8 +65,6 @@ itemShoes = 53
 
 -- Debugging
 "set 0" -> "Quest status set to 0", queststatus(75) = 0
-"set 1" -> "Quest status set to 1", queststatus(75) = 1
-"set 2" -> "Quest status set to 2", queststatus(75) = 2
 ".*", queststatus(75) > 2 -> "Error! Something went wrong, please inform a developer."
 
 -- Help
@@ -204,35 +189,35 @@ itemShoes = 53
 "Malachin", "Malachín", queststatus(75) = 2, english -> "All this talking about Malachín makes me... silent."
 "Malachin", "Malachín", queststatus(75) = 2 -> "All dieses Gerede über Malachín macht mich... verschwiegen."
 "Ushara", queststatus(75) = 2, english -> "Ushara... is that suppose to mean something?"
-"Ushara", queststatus(75) = 2 -> "Ushara... soll das irgend ein Name sein?"
-"Bragon", queststatus(75) = 2, english -> "Did I hear right? Brágon? Wine must be stronger than I thought because I don’t know who the Galmair that is."
-"Bragon", queststatus(75) = 2 -> "Habe ich richtig gehört? Brágon? Wer auch immer das sein mag, im Wein liegt die Wahrheit, mein Freund!"
-"Eldan", queststatus(75) = 2, english -> "Pretty sure that is a type of tree, but they don’t grow around here."
-"Eldan", queststatus(75) = 2 -> "Ich bin mir ziemlich sicher... das ist eine Art baum. Aber davon gibts nicht wirklich viele hier."
-"Tanora", queststatus(75) = 2, english -> "Tanora, sounds familiar but I can’t place where I’ve heard the name."
+"Ushara", queststatus(75) = 2 -> "Ushara... wollt ihr irgendwas andeuten?"
+"Bragon", queststatus(75) = 2, english -> "Did I hear right? Brágon? Wine must be stronger than I thought."
+"Bragon", queststatus(75) = 2 -> "Habe ich richtig gehört? Brágon? Im Wein liegt die Wahrheit, mein Freund!"
+"Eldan", queststatus(75) = 2, english -> "Pretty sure that is a type of tree, but they don't grow around here."
+"Eldan", queststatus(75) = 2 -> "Ich bin mir ziemlich sicher... das ist eine Art Baum. Aber davon gibts nicht wirklich viele hier."
+"Tanora", queststatus(75) = 2, english -> "Tanora, sounds familiar but I can't place where I've heard the name."
 "Tanora", queststatus(75) = 2 -> "Tanora, kommt mir bekannt vor, aber ich kann mich einfach nicht erinnern..."
-"Zelphia", queststatus(75) = 2, english -> "If you’re looking for answers about Zelphia go find the lizardfolks they’re always blabbing on and on about her."
+"Zelphia", queststatus(75) = 2, english -> "If you're looking for answers about Zelphia go find the lizardfolks, they’re always blabbing on and on about her."
 "Zelphia", queststatus(75) = 2 -> "Wenn du fragen über Zelphia hast, geh und such dir ne verdammte Echse, die brabbeln nämlich die ganze Zeit über sie."
-"Findari", queststatus(75) = 2, english -> "#me hiccups. ‘Huh? I think you need to lay off the wine traveler; you're talking jibberish.’"
+"Findari", queststatus(75) = 2, english -> "#me hiccups: 'Huh? I think you need to lay off the wine traveler; you're talking gibberish.'"
 "Findari", queststatus(75) = 2 -> "#me stößt leise auf. 'Huh? Du solltest nicht so viel Wein trinken, mein Freund! Dein Lallen ist ja kaum noch zu verstehn.'"
-"Nargun", queststatus(75) = 2, english -> "Do yourself a favor and forget that name. Only the filth from Galmair dare mention his name."
+"Nargun", queststatus(75) = 2, english -> "Do yourself a favour and forget that name. Only the filth from Galmair dares to mention his name."
 "Nargun", queststatus(75) = 2 -> "Tuhe dir selbst einen Gefallen und vergiss seinen Namen. Nur diese Idoten in Galmair sprechen von ihm."
-"Elara", queststatus(75) = 2, english -> "#me yawns. ‘Boring lets talk about something else.’"
+"Elara", queststatus(75) = 2, english -> "#me yawns. 'Boring, let's talk about something else.'"
 "Elara", queststatus(75) = 2 -> "#me gähnt herzhaft. 'Wie langweilig! Lass uns über etwas anderes sprechen.'"
-"Adron", queststatus(75) = 2, english -> "#me raises his glass of wine. ‘This is all anyone needs to know about Adron.’"
-"Adron", queststatus(75) = 2 -> "#me hebt sein Weinglas. 'Darum! Darum, sollen wir Adron ehren.'"
-"Oldra", queststatus(75) = 2, english -> "#me sighs in mild agitation. ‘Ask me something relevant please.’"
-"Oldra", queststatus(75) = 2 -> "#me seufzt langezogen. 'Sprechen wir lieber über irgendetwas wichtiges. Ich Bitte Euch.'"
-"Cherga", queststatus(75) = 2, english -> "Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn’t listening."
+"Adron", queststatus(75) = 2, english -> "#me raises his glass of wine: 'This is all anyone needs to know about Adron.'"
+"Adron", queststatus(75) = 2 -> "#me hebt sein Weinglas: 'Darum! Darum, sollen wir Adron ehren.'"
+"Oldra", queststatus(75) = 2, english -> "#me sighs in mild agitation. 'Ask me something relevant please.'"
+"Oldra", queststatus(75) = 2 -> "#me seufzt langezogen: 'Sprechen wir lieber über irgendetwas wichtiges. Ich bitte euch.'"
+"Cherga", queststatus(75) = 2, english -> "Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn't listening."
 "Cherga", queststatus(75) = 2 -> "Mmh... dieser Wein schmeckt vorzüglich. Entschuldigt, habt ihr über Cherga gesprochen? - Vermutlich habe ich desshalb nicht zugehört."
-"Irmorom", queststatus(75) = 2, english -> "#me stifles a yawn halfheartedly. ‘I suggest asking the greedy swine in Galmair about Irmorom, not me.’"
-"Irmorom", queststatus(75) = 2 -> "Ha! Fragt die Rattenfresser in Galmair, nach Irmorom! - Nicht mich."
-"Sirani", queststatus(75) = 2, english -> "The goddess of Love and Pleasure? If you don’t know her name than you have no business in Cadomyr!"
-"Sirani", queststatus(75) = 2 -> "Die Göttind der Liebe. - Und des Vergnügens! *Er grinst anzüglich.*"
-"Ronagan", queststatus(75) = 2, english -> "#me blinks. ‘One word of advice, never mention that name ever again in Cadomyr!’"
+"Irmorom", queststatus(75) = 2, english -> "#me stifles a yawn halfheartedly: 'I suggest asking the greedy swines in Galmair about Irmorom, not me.'"
+"Irmorom", queststatus(75) = 2 -> "Ha! Fragt die Rattenfresser in Galmair nach Irmorom - nicht mich."
+"Sirani", queststatus(75) = 2, english -> "The goddess of Love and Pleasure? If you don't know her name than you have no business in Cadomyr!"
+"Sirani", queststatus(75) = 2 -> "Die Göttin der Liebe - und des Vergnügens! *Er grinst anzüglich.*"
+"Ronagan", queststatus(75) = 2, english -> "#me blinks: 'One word of advice, never mention that name ever again in Cadomyr!'"
 "Ronagan", queststatus(75) = 2 -> "#me blinzelt. 'Besser du sprichst diesen Namen hier, in Gadomyr, nicht laut aus, mein Freund.'"
-"Moshran", queststatus(75) = 2, english -> "#me nearly drops his wine, clearly in shock. ‘Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.’"
-"Moshran", queststatus(75) = 2 -> "#me lässt beinahe sein Glas fallen, sichtlich erschrocken. 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'"
+"Moshran", queststatus(75) = 2, english -> "#me nearly drops his wine, clearly in shock: 'Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.'"
+"Moshran", queststatus(75) = 2 -> "#me lässt beinahe sein Glas fallen, sichtlich erschrocken: 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Do I look like the barkeeper!? Do not belittle my importance with your imprudent questioning!"

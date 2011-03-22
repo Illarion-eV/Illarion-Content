@@ -40,20 +40,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 1");
-talkEntry:addResponse("Quest status set to 1");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 2");
-talkEntry:addResponse("Quest status set to 2");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, ">", 2));
 talkEntry:addResponse("Error! Something went wrong, please inform a developer.");
@@ -962,7 +948,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Ushara... soll das irgend ein Name sein?");
+talkEntry:addResponse("Ushara... wollt ihr irgendwas andeuten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,14 +956,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did I hear right? Brágon? Wine must be stronger than I thought because I don?t know who the Galmair that is.");
+talkEntry:addResponse("Did I hear right? Brágon? Wine must be stronger than I thought.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Habe ich richtig gehört? Brágon? Wer auch immer das sein mag, im Wein liegt die Wahrheit, mein Freund!");
+talkEntry:addResponse("Habe ich richtig gehört? Brágon? Im Wein liegt die Wahrheit, mein Freund!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -985,14 +971,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Pretty sure that is a type of tree, but they don?t grow around here.");
+talkEntry:addResponse("Pretty sure that is a type of tree, but they don't grow around here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Ich bin mir ziemlich sicher... das ist eine Art baum. Aber davon gibts nicht wirklich viele hier.");
+talkEntry:addResponse("Ich bin mir ziemlich sicher... das ist eine Art Baum. Aber davon gibts nicht wirklich viele hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1000,7 +986,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Tanora, sounds familiar but I can?t place where I?ve heard the name.");
+talkEntry:addResponse("Tanora, sounds familiar but I can't place where I've heard the name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,7 +1001,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If you?re looking for answers about Zelphia go find the lizardfolks they?re always blabbing on and on about her.");
+talkEntry:addResponse("If you're looking for answers about Zelphia go find the lizardfolks, they?re always blabbing on and on about her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1030,7 +1016,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me hiccups. ?Huh? I think you need to lay off the wine traveler; you're talking jibberish.?");
+talkEntry:addResponse("#me hiccups: 'Huh? I think you need to lay off the wine traveler; you're talking gibberish.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,7 +1031,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Do yourself a favor and forget that name. Only the filth from Galmair dare mention his name.");
+talkEntry:addResponse("Do yourself a favour and forget that name. Only the filth from Galmair dares to mention his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1060,7 +1046,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me yawns. ?Boring lets talk about something else.?");
+talkEntry:addResponse("#me yawns. 'Boring, let's talk about something else.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1075,14 +1061,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me raises his glass of wine. ?This is all anyone needs to know about Adron.?");
+talkEntry:addResponse("#me raises his glass of wine: 'This is all anyone needs to know about Adron.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me hebt sein Weinglas. 'Darum! Darum, sollen wir Adron ehren.'");
+talkEntry:addResponse("#me hebt sein Weinglas: 'Darum! Darum, sollen wir Adron ehren.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1090,14 +1076,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs in mild agitation. ?Ask me something relevant please.?");
+talkEntry:addResponse("#me sighs in mild agitation. 'Ask me something relevant please.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me seufzt langezogen. 'Sprechen wir lieber über irgendetwas wichtiges. Ich Bitte Euch.'");
+talkEntry:addResponse("#me seufzt langezogen: 'Sprechen wir lieber über irgendetwas wichtiges. Ich bitte euch.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1105,7 +1091,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn?t listening.");
+talkEntry:addResponse("Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn't listening.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1120,14 +1106,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me stifles a yawn halfheartedly. ?I suggest asking the greedy swine in Galmair about Irmorom, not me.?");
+talkEntry:addResponse("#me stifles a yawn halfheartedly: 'I suggest asking the greedy swines in Galmair about Irmorom, not me.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Ha! Fragt die Rattenfresser in Galmair, nach Irmorom! - Nicht mich.");
+talkEntry:addResponse("Ha! Fragt die Rattenfresser in Galmair nach Irmorom - nicht mich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1135,14 +1121,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The goddess of Love and Pleasure? If you don?t know her name than you have no business in Cadomyr!");
+talkEntry:addResponse("The goddess of Love and Pleasure? If you don't know her name than you have no business in Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Die Göttind der Liebe. - Und des Vergnügens! *Er grinst anzüglich.*");
+talkEntry:addResponse("Die Göttin der Liebe - und des Vergnügens! *Er grinst anzüglich.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1150,7 +1136,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me blinks. ?One word of advice, never mention that name ever again in Cadomyr!?");
+talkEntry:addResponse("#me blinks: 'One word of advice, never mention that name ever again in Cadomyr!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1165,14 +1151,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me nearly drops his wine, clearly in shock. ?Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.?");
+talkEntry:addResponse("#me nearly drops his wine, clearly in shock: 'Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me lässt beinahe sein Glas fallen, sichtlich erschrocken. 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'");
+talkEntry:addResponse("#me lässt beinahe sein Glas fallen, sichtlich erschrocken: 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
