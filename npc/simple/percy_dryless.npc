@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  -489, -488, -40        --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Authors:  Estralis & Ardian                                                          --
+-- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
 -- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
@@ -121,13 +121,13 @@ itemShoes = 53
 "Auftrag", "Aufgabe", "Abenteuer" -> "#me zeigt mit dem Finger auf dich und lacht lauthals los.", "Äh, keine Queste für dich.", "Meine Bestimmung ist, die Faulen auszupeitschen.", "Wart mal... deine Bestimmung ist es, zu arbeiten."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I take care that scum like you, get punished!"
+"profession" -> "I take care that scum like you gets punished!"
 "beruf" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
 "job", english -> "I take care that bastards like you, get punished!"
 "job" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
-"Gobaith", "Gobiath", english -> "Shut up and keep woring."
+"Gobaith", "Gobiath", english -> "Shut up and keep working."
 "Gobaith", "Gobiath" -> "Halt's Maul und arbeite weiter."
-"my name" -> "Actually I don't care about your name.", "Aha? - So... waht?"
+"my name" -> "Actually I don't care about your name.", "Aha? - So... what?"
 "mein Name" -> "Tatsächlich interessiert mich dein Name weniger als der Dreck unter meinen Fingernägeln.", "Aha? - Also... was?"
 
 -- Easter egg
@@ -151,7 +151,7 @@ itemShoes = 53
 "Elvaine", "Morgan" -> "Bist du aus Runewick? Dann hat dich vermutlich Erzmagier Morgan hergeschickt."
 "Runewick", english -> "This prison gathers the scum of three nations! And now keep up working."
 "Runewick" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."
-"Valerio", "Guilianni", "Don", english -> "Do you come frome Galmair? Seems Don Valerio sent you here."
+"Valerio", "Guilianni", "Don", english -> "Do you come from Galmair? Seems Don Valerio sent you here."
 "Valerio", "Guilianni", "Don" -> "Bist du aus Galmair? Dann hat dich vermutlich Don Valerio hergeschickt."
 "Galmair", english -> "This prison gathers the scum of three nations! And now keep up working."
 "Galmair" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."

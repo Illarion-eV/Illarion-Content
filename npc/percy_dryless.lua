@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  -489, -488, -40        --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Authors:  Estralis & Ardian                                                           --
+-- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
 -- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
@@ -417,7 +417,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I take care that scum like you, get punished!");
+talkEntry:addResponse("I take care that scum like you gets punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Shut up and keep woring.");
+talkEntry:addResponse("Shut up and keep working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +458,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Actually I don't care about your name.");
-talkEntry:addResponse("Aha? - So... waht?");
+talkEntry:addResponse("Aha? - So... what?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,7 +589,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Do you come frome Galmair? Seems Don Valerio sent you here.");
+talkEntry:addResponse("Do you come from Galmair? Seems Don Valerio sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
