@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 10, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Thud"
@@ -74,11 +74,7 @@ itemShoes = 53
 "troph", skill(distance weapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english -> "Hurr, Thud like you. Take this stuff here!", item(62, 1, 999, 0), queststatus(301) + 5
 "troph", skill(distance weapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(62, 1, 999, 0), queststatus(301) + 5
 "troph", skill(distance weapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english -> "Hurr, Thud like you. Take this stuff here!", item(2445, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", skill(distance weapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2445, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", skill(distance weapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english -> "Hurr, Thud like you. Take this stuff here!", item(364, 1, 999, 0), queststatus(301) + 5
 "troph", skill(distance weapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(364, 1, 999, 0), queststatus(301) + 5
 "troph", skill(distance weapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english -> "Hurr, Thud like you. Take this stuff here!", item(322, 50, 333, 0), queststatus(301) + 5
@@ -103,11 +99,7 @@ itemShoes = 53
 "troph", skill(slashing weapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999, 0), queststatus(301) + 5
 "troph", skill(slashing weapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999, 0), queststatus(301) + 5
 "troph", skill(slashing weapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english -> "Hurr, Thud like you. Take this stuff here!", item(2448, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", skill(slashing weapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2448, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", skill(slashing weapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english -> "Hurr, Thud like you. Take this stuff here!", item(2286, 1, 999, 0), queststatus(301) + 5
 "troph", skill(slashing weapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2286, 1, 999, 0), queststatus(301) + 5
 "troph", skill(slashing weapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, english -> "Hurr, Thud like you. Take this stuff here!", item(2627, 1, 999, 0), queststatus(301) = 1
@@ -131,11 +123,7 @@ itemShoes = 53
 "troph", queststatus(301) => 120, queststatus(301) =< 124, english -> "Hurr, Thud like you. Take this stuff here!", item(39, 1, 999, 0), queststatus(301) + 5
 "troph", queststatus(301) => 120, queststatus(301) =< 124, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(39, 1, 999, 0), queststatus(301) + 5
 "troph", queststatus(301) => 165, queststatus(301) =< 169, english -> "Hurr, Thud like you. Take this stuff here!", item(95, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", queststatus(301) => 165, queststatus(301) =< 169, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(95, 1, 999, 1073741826), queststatus(301) + 5
-
--- gravur: Sein/Ihr schild ist mit dem Wappen Galmairs verziert. // His/her shield is decorated with the emblem of Galmair.
 "troph", queststatus(301) => 250, queststatus(301) =< 254, english -> "Hurr, Thud like you. Take this stuff here!", item(2742, 1, 999, 0), queststatus(301) = 1
 "troph", queststatus(301) => 250, queststatus(301) =< 254, german -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2742, 1, 999, 0), queststatus(301) = 1
 
