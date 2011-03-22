@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Alice                                                      None --
+-- NPC Name: Alice                                                    Galmair --
 -- NPC Job:  slave                                                            --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  389, 262, 0            --
@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 26, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Alice"
@@ -15,7 +15,7 @@ race = human
 sex = female
 position = 389, 262, 0
 direction = west
-affiliation = "None"
+affiliation = "Galmair"
 job = "slave"
 
 language = common
@@ -33,8 +33,8 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
+hairID = 1
+beardID = 0
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
 itemHead = 0
@@ -47,12 +47,6 @@ itemTrousers = 826
 itemShoes = 53
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
 -- Galmair forge
 
 -- Help
@@ -60,31 +54,31 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alice die versklavte Erzschmelzerin. Tausche ein Stück Kohle und einen Erzbrocken gegen einen eingeschmolzenen Barren. Gebühr: 1 Silberstück á Auftrag. Schlüsselwörter: schmelze 5 Gold, schmelze 3 Kupfer, schmelze 17 Silber, schmelze 8 Eisen.")
 
 -- oremelter
-"%NUMBER gold",money >= 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1),english -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1),english ->"#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
-"%NUMBER gold",english -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and gold nuggets.'"
-"%NUMBER gold",money >= 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(236, %NUMBER, 333, 0), deleteitem(234, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER gold", money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333, 0)
+"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1), english -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER gold", english -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and gold nuggets.'"
+"%NUMBER gold", money => 100, item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(234, %NUMBER), deleteItem(21, %NUMBER), item(236, %NUMBER, 333, 0)
+"%NUMBER gold", item(234, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER gold" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Goldnuggets.'"
-"%NUMBER copper",money >= 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER copper", money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333, 0)
+"%NUMBER copper", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
 "%NUMBER copper" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and copper ore.'"
-"%NUMBER kupfer",money >= 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2550, %NUMBER, 333, 0), deleteitem(2536, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER kupfer", money => 100, item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(2536, %NUMBER), deleteItem(21, %NUMBER), item(2550, %NUMBER, 333, 0)
+"%NUMBER kupfer", item(2536, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER kupfer" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Kupfererz.'"
-"%NUMBER iron",money >= 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER iron",item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
+"%NUMBER iron", money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.", money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333, 0)
+"%NUMBER iron", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-don't have enough coins to p-pay the fee. It's o-one silver coin.'"
 "%NUMBER iron" -> "#me answers in a whiny voice: 'I-I'm soo sorry. You d-didn't b-bring enough coal and iron ore.'"
-"%NUMBER eisen",money >= 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", item(2535, %NUMBER, 333, 0), deleteitem(22, %NUMBER), deleteitem(21, %NUMBER),money -100
-"%NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) ->"#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
+"%NUMBER eisen", money => 100, item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.", money - 100, deleteItem(22, %NUMBER), deleteItem(21, %NUMBER), item(2535, %NUMBER, 333, 0)
+"%NUMBER eisen", item(22, all) => expr( %NUMBER*1), item(21, all) => expr( %NUMBER*1) -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr h-habt nicht genug Münzen bei... bei Euch. E-es kostet e-ein Silberstück.'"
 "%NUMBER eisen" -> "#me antwortet mit weinerlicher Stimme: 'E-es tut mir sehr Leid. I-Ihr brachtet nicht genug Kohle und Eisenerz.'"
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" ->"#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "#me gives you a shy 'H-hello...'.", "#me nods in a frightened manner."
 "Hiho", "Hallo", "Hey", "Greeb" -> "#me gibt ein schhüchternes 'H-hallo...' von sich.", "#me nickt dir ängstlich zu."
-"Farewell", "Bye", "Fare well", "See you" ->"Uhm...hm.", "#me gives a quiet '...bye...'."
+"Farewell", "Bye", "Fare well", "See you" -> "Uhm...hm.", "#me gives a quiet '...bye...'."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Uhm...hm.", "#me gives a quiet '...bye...'."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me gibt ein leises '...tschüß...' von sich.", "Uhm, hm."
@@ -94,7 +88,7 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "I-ich b-bin Alice..."
 
 -- Catching quest triggers
-"quest", "mission", english ->"Y-you just can't help me. I h-have to w-work alone."
+"quest", "mission", english -> "Y-you just can't help me. I h-have to w-work alone."
 "quest", "mission" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
 "task", "adventure" -> "Y-you just can't help me. I h-have to w-work alone."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr, ihr k-könnt mir einfach nicht helfen. I-Ich muss m-meine Arbeit s-selbst machen."
@@ -111,10 +105,10 @@ itemShoes = 53
 
 -- More small talk; add at least five triggers
 "Slave" -> "#me jerks subtly. 'How m-may I h-help y-you?'"
-"Krudash","Murgo","er hja","erhja","er'hja",english -> "I h-have to do w-what the orcs say. I must not cry and h-have to be st-st-strong."
+"Krudash", "Murgo", "er hja", "erhja", "er'hja", english -> "I h-have to do w-what the orcs say. I must not cry and h-have to be st-st-strong."
 "orc" -> "I g-grew up w-with orcs my whole l-life. I c-can't remember a t-time when it was different...."
 "Sklave" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
-"Krudash","Murgo","er hja","erhja","er'hja" -> "I-ich muss h-hören was d-die Orks mir sagen. I-ich darf n-nicht j-jammern und m-muss t-tüchtig sein."
+"Krudash", "Murgo", "er hja", "erhja", "er'hja" -> "I-ich muss h-hören was d-die Orks mir sagen. I-ich darf n-nicht j-jammern und m-muss t-tüchtig sein."
 "ork" -> "Ich b-bin praktisch b-bei Orks aufgewachsen. S-schon mein... mein ganzes Leben. I-ich kann mich nicht erinnern d-das es je anders w-war. H-hab nie w-was anders ge-gemacht."
 
 -- Faction stuff
@@ -162,18 +156,18 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "E-einmal i-ist mir das Feuer während dem S-schmelzen ausgegangen. U-und Krudash hat es gesehen. *schnieft*", "Ma-manchmal wenn n-nichts zu tun ist, dann mach ich di-die Augen zu und d-denk mir, ich wäre wo anders."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Alice","Snaga",english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
-"Alice","Snaga" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
-"Yes",sex=female -> "#me gives a humble nod. 'Y-yes... yes madam!"
+"Alice", "Snaga", english -> "#me jerks subtly. 'How m-may I h-help y-you?'"
+"Alice", "Snaga" -> "#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'"
+"Yes", sex = female -> "#me gives a humble nod. 'Y-yes... yes madam!"
 "Yes" -> "#me gives a humble nod. 'Y-yes... yes sir!"
 "Ja" -> "#me nickt zaghaft. 'Z-zu... zu Befehl!'"
-"No",sex=female -> "#me gives a humble nod. 'Y-yes... yes madam!"
+"No", sex = female -> "#me gives a humble nod. 'Y-yes... yes madam!"
 "No" -> "#me gives a humble nod. 'Y-yes... yes sir!"
-"Nein" ->"#me nickt zaghaft. 'Z-zu... zu Befehl!'"
+"Nein" -> "#me nickt zaghaft. 'Z-zu... zu Befehl!'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*",english,chance(20)->"I-I'm sorry!","E-excuse m-me.","Y-yes. I w-will work h-harder from n-now on..."
-".*",german,chance(20)->"E-es tut m-mir Leid!","E-entschuldigung.","J-ja. I-ich werde m-mir mehr Mü-mühe geben."
+".*", english, chance(20) -> "I-I'm sorry!", "E-excuse m-me.", "Y-yes. I w-will work h-harder from n-now on..."
+".*", german, chance(20) -> "E-es tut m-mir Leid!", "E-entschuldigung.", "J-ja. I-ich werde m-mir mehr Mü-mühe geben."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
