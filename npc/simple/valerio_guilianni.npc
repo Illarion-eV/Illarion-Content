@@ -2,7 +2,7 @@
 -- NPC Name: Valerio Guilianni                                        Galmair --
 -- NPC Job:  Don                                                              --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  358, 235, 0            --
+-- NPC Race: dwarf                      NPC Position:  337, 215, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Faladron                                                         --
@@ -13,7 +13,7 @@
 name = "Valerio Guilianni"
 race = dwarf
 sex = male
-position = 358, 235, 0
+position = 337, 215, 0
 direction = south
 affiliation = "Galmair"
 job = "Don"
