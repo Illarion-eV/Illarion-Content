@@ -2,7 +2,7 @@
 -- NPC Name: Valerio Guilianni                                        Galmair --
 -- NPC Job:  Don                                                              --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  358, 235, 0            --
+-- NPC Race: dwarf                      NPC Position:  337, 215, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Faladron                                                         --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 358, 235, 0, 4, 'Valerio Guilianni', 'npc.valerio_guilianni', 0, 1, 1, 180, 180, 180, 210, 162, 120);
+VALUES (1, 337, 215, 0, 4, 'Valerio Guilianni', 'npc.valerio_guilianni', 0, 1, 1, 180, 180, 180, 210, 162, 120);
 ---]]
 
 require("npc.base.basic")
