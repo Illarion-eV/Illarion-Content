@@ -82,13 +82,14 @@ itemShoes = 53
 "mein Name" -> "Gut. Was wollt Ihr von mir?", "#me krächzt lachend: 'Und ich bin Bryan. Man hat mich zwei Mal gehängt und trotzdem steh ich vor Euch.'"
 
 -- More small talk; add at least five triggers
-"Borgate", "barkeeper", "innkeeper", "Northoff", english -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
+"Borgate", "Northoff", english -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
+"barkeeper", "innkeeper" -> "Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!"
 "inn", "guesthouse", "tavern", "necktie" -> "The inn is a free and independent place. City laws are of no interest here. The only law that counts is the law of Half-hung Bryan."
 "hang", "hung", "hemp", "neck", "gibbet" -> "The first time the rope broke. The second time the branch snapped."
 "Gowan", "Sam", "brute", "Booze", "hook", english -> "Here in my inn, no one asks questions. That's my law - the only law that counts this far away from the cities."
 "knecht", "bauer", "farmer", english -> "I once was a farmer. And during war times farmers become soldiers. Farmers live long, soldiers don't. I deserted and the punishment for that was the noose."
 "law" -> "Rule one, don't ask questions. Rule two, don't ask any questions. Rule three, Half-hung Bryan rents room to anyone he wants to rent rooms to. Rule four, Half-hung Bryan does what Half-hung Bryan wants to do."
-"Borgate", "wirt", "Northoff" -> "Borgate schenkt das Bier aus. Ein anständiger Kerl. Wollt ihr etwas trinken? Dann geht zu ihm."
+"Borgate", "Northoff","wirt" -> "Borgate schenkt das Bier aus. Ein anständiger Kerl. Wollt ihr etwas trinken? Dann geht zu ihm."
 "Gasthof", "Taverne", "hof", "Hanfschlinge" -> "Mein Hof war, zuerst nicht mehr als eine Scheune. Hab sie leer gefunden und darin übernachtet. Seit dem gehörte sie mir.", "Klar die Ersten Jahre wahren hart. Allerlei Untier läuft hier draußen rum, weit weg von den Städten. Aber ich bin nur mir selbst verpflichtet.", "Der Gasthof zur Hanfschlinge, ist keiner Stadt verpflichtet. Auch wenn das jemanden nicht gefällt, hier gelten Bryans Regeln."
 "hängen", "strick", "galgen", "Hanf", "Schlinge" -> "Das erste Mal ist der Strick gerissen. Und beim zweiten Mal, der Ast abgebrochen.", "Laßt Euch den Meisterbrief des Henkers zeigen, wenn man Euch einmal hinrichten sollte. Solche Leute stümpern dann wenigstens nicht herum.", "#me macht einen gurgelnden Laut. 'Desertation und schwerer Verrat am König. Albarische Soldaten knüpfen sie auch zweimal auf.'"
 "Gowan", "Sam", "brute", "Booze", "hook" -> "Hier im Gasthof zum Hanfstrick stellt man keine Fragen. So sagt's mein Gesetz. Und das ist das Einzige das hier, so weit außerhalb der Städte zählt."
