@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  -489, -488, -40        --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Authors:  Ardian                                                           --
+-- Authors:  Estralis & Ardian                                                           --
 --           Rincewind                                                        --
 --                                                                            --
 -- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
