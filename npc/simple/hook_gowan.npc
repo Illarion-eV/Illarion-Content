@@ -2,7 +2,7 @@
 -- NPC Name: Hook Gowan                                           None --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                     NPC Position:  674,323,0               --
+-- NPC Race: human                     NPC Position:  706, 308, 0               --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -14,7 +14,7 @@
 name = "Hook Gowan"
 race = human
 sex = male
-position = 674,323,0
+position = 706, 308, 0
 direction = southwest
 affiliation = "None"
 job = "trader"
