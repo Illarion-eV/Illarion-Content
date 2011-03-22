@@ -2,8 +2,8 @@
 -- NPC Name: Brute Booze                                                 None --
 -- NPC Job:  adventurer                                                       --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  674, 320, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Race: orc                        NPC Position:  710, 316, 0            --
+-- NPC Sex:  male                       NPC Direction: northwest             --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 674, 320, 0, 5, 'Brute Booze', 'npc.brute_booze', 0, 0, 2, 6, 18, 8, 137, 123, 60);
+VALUES (4, 710, 316, 0, 7, 'Brute Booze', 'npc.brute_booze', 0, 0, 2, 6, 18, 8, 137, 123, 60);
 ---]]
 
 require("npc.base.basic")
