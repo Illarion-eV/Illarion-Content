@@ -36,6 +36,7 @@ function InitCustomLookAt()
 	addDescription(	 82,	1,	"zerissene Schwarzsteinkette", "ripped blackstone amulet", true, true, false ); -- for Alsaya
 	addDescription(  82,	2,  "Auf dem Schwarzstein des Amulettes ist ein mysteriöses Zeichen eingraviert und um es herum die Worte 'Ab initio'.", "On the blackstone of the amulet is a mysterious sign engraved and around it the words 'Ab initio'.", true, true, false ); --for Alsaya
 	addDescription(	 83,	1,	"Firnisorden von Varshikar", "Firnis Medal of Varshikar", false, true, 0 );
+	addDescription(	 95,	1,	"verziert mit dem Wappen des geflügelten Schweines", "decorated with the emblem of the winged pig", false, false, false );
 	addDescription(	180,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription( 181,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription(	182,	1,	"mit dem Wappen von Caelum auf der Rückseite", "with Caelum coat of arms on the back", false, false, false );
@@ -135,7 +136,8 @@ function InitCustomLookAt()
 	addDescription(2421,	2,	"langes weißes Gewand", "long white garment", false, true, 2 );
 	addDescription(2421,	3,	"mit dem goldenen Symbol Irmoroms auf der linken Brust", "with the golden symbol of Irmorom on the left chest", false, false, false );
 	addDescription(2421,	16,	"weißer Mantel mit einem blauen, aufgebäumten Pferd", "white mantle with blue rampant horse", false, true, 0 );
-	addDescription(2445,	1,	"verziert mit dem Wappen Galmairs", "decorated with the emblem of Galmair", false, false, false );
+	addDescription(2445,	1,	"verziert mit dem Wappen des geflügelten Schweines", "decorated with the emblem of the winged pig", false, false, false );
+	addDescription(2448,	1,	"verziert mit dem Wappen des geflügelten Schweines", "decorated with the emblem of the winged pig", false, false, false );
 	addDescription(2547,	1,	"weißes Stück Leder mit einem grünen Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a green ribbon and the emblem of the Nordmark burnt in", true, true, false );
 	addDescription(2547,	2,	"weißes Stück Leder mit einem roten Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a red ribbon and the emblem of the Nordmark burnt in", true, true, false );
 	addDescription(2547,	3,	"weißes Stück Leder mit einem blauen Band und dem Zeichen der Nordmark eingebrandt", "white piece of leather with a blue ribbon and the emblem of the Nordmark burnt in", true, true, false );
