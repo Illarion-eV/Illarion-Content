@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: February 11, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -127,7 +127,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -139,7 +139,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 75));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 79));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2445, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -319,7 +319,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -331,7 +331,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 120));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 124));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -500,7 +500,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, Thud like you. Take this stuff here!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(95, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -511,7 +511,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(301, "=>", 165));
 talkEntry:addCondition(npc.base.condition.quest.quest(301, "=<", 169));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hurr, Thud mögen dich! Nimmst du diese Zeug!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(95, 1, 999, 1073741826));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(301, "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
