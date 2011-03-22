@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Alice                                                       None --
+-- NPC Name: Alice                                                    Galmair --
 -- NPC Job:  slave                                                            --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  389, 262, 0            --
@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: December 07, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 389, 262, 0, 6, 'Alice', 'npc.alice', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 389, 262, 0, 6, 'Alice', 'npc.alice', 1, 1, 0, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -413,10 +413,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Alice");
 talkEntry:addTrigger("Slave");
-talkEntry:addTrigger("Snaga");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me jerks subtly. 'How m-may I h-help y-you?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -439,9 +436,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Alice");
 talkEntry:addTrigger("Sklave");
-talkEntry:addTrigger("Snaga");
 talkEntry:addResponse("#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -710,6 +705,21 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("E-einmal i-ist mir das Feuer während dem S-schmelzen ausgegangen. U-und Krudash hat es gesehen. *schnieft*");
 talkEntry:addResponse("Ma-manchmal wenn n-nichts zu tun ist, dann mach ich di-die Augen zu und d-denk mir, ich wäre wo anders.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Alice");
+talkEntry:addTrigger("Snaga");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me jerks subtly. 'How m-may I h-help y-you?'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Alice");
+talkEntry:addTrigger("Snaga");
+talkEntry:addResponse("#me zuckt unmerklich zusammen. 'B-bitte, w-was soll i-ich machen?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
