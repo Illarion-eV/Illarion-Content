@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -81,7 +81,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("#me stares at you. 'Be greeted, traveller! I am much too thirsty to talk. If you bring me a glass with red wine, I will gladly answer your questions.'");
+talkEntry:addResponse("#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -95,7 +95,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1));
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories don?t you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -107,7 +107,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Ah, hello again. Now that you quenched my thirst, ask whatever you like.");
+talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -119,7 +119,7 @@ talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("#me frowns: 'What a peasantish way to greet a man of my stature! If you want to ask me something, bring me a glassful of red wine first to quench my thirst.'");
+talkEntry:addResponse("#me frowns: ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -143,7 +143,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hah! My friend, come, let us talk about important things, we're important persons, aren't we?");
+talkEntry:addResponse("Hah! My friend, come, let us talk about important things, we're important people, aren't we?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,7 +153,7 @@ talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("I am thirsty! If you bring bring me a glass of red wine, I will answer your questions... and I know plenty!");
+talkEntry:addResponse("I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -173,7 +173,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("Now that you brought me wine: Fine.");
+talkEntry:addResponse("Now that you?ve brought me wine, splendid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,8 +459,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."));
-talkEntry:addResponse("#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favor."));
+talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
@@ -473,7 +473,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions."));
-talkEntry:addResponse("#me takes the glass and smiles pleased 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr or even the vile neighbours.'");
+talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -537,7 +537,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hono[u]+r");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("We value honour above all in Cadomyr. If you have no honour, then you have nothing at all! Then you are nothing at all!");
+talkEntry:addResponse("We value honor above all in Cadomyr. If you have no honor, then you have nothing and will be nothing.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,28 +560,28 @@ talkEntry:addTrigger("baron");
 talkEntry:addTrigger("hastings");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Baron Hastings? He was not all too happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing...");
+talkEntry:addResponse("Baron Hastings? He was not at all happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wine");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me sips from the glass, smiling 'The wine is very good, thank you..'.");
+talkEntry:addResponse("#me sips from the glass, smiling 'The wine is very good, thank you...'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("neighbo");
+talkEntry:addTrigger("neighbor");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me grumbles: 'Oh! Galmair and Runewick! Pox on them! The ancient histories make it clear that the people of Cadomyr are the rightful lords of the land!");
+talkEntry:addResponse("#me grumbles. 'Oh! Galmair and Runewick! Pox on them! The ancient histories make it clear that the people of Cadomyr are the rightful lords of the land!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("palace");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("If Cadomyr is the crown of the land, then the palace is certainly the most magnificent crown jewel! Sadly not all the servants in the palace are as reliable and loyal as I am.");
+talkEntry:addResponse("If Cadomyr is the crown of the land, than the palace is certainly its most magnificent crown jewel! Sadly not all the servants in the palace are as reliable and loyal as I am.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -675,7 +675,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("It is a shame what happened to the Gobaithians. But blasphemous deeds need to be punished!");
+talkEntry:addResponse("It is a shame what happened to the Gobaithians, but blasphemous deeds need to be punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -714,7 +714,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("We are ruled by the Queen in Cadomyr! She can trace her ancestors back a millenia or more, having the bluest of blue blood of us all.");
+talkEntry:addResponse("We are ruled by the Queen in Cadomyr! She can trace her ancestry back a millennia or more, having the bluest of blue blood in all the land.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -730,7 +730,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edwards");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albar's bluebloods! The queen's father, King Reginald, ruled the town with firm grip.");
+talkEntry:addResponse("Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albarian bluebloods! The queen's father, King Reginald, ruled the town with a firm grip.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,7 +738,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me sighs: 'Cadomyr, oh Cadomyr! We are the most honourful and magnificent nation around, held back only by the treachery of our cursed neighbours.'");
+talkEntry:addResponse("#me sighs. 'Cadomyr, oh Cadomyr! We are the most honorable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,7 +781,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("An false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap chartalans who try to twist the truth to justify their vile customs!");
+talkEntry:addResponse("A false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap charlatans who try to twist the truth to justify their vile customs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,7 +810,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("If the archmage of Runewick promises you something, invert his words and you get the truth. He's a lier!");
+talkEntry:addResponse("If the archmage of Runewick promises you something, do the exact opposite to get the truth. He's a liar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -826,7 +826,7 @@ talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If the archmage of Runewick promises you something, invert his words and you get the truth. He's a lier!");
+talkEntry:addResponse("If the archmage of Runewick promises you something, do the exact opposite to get the truth. He's a liar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -844,7 +844,7 @@ talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("If I catch this bastard, laying his hand on my queen, I'll smack him with my fan!");
+talkEntry:addResponse("Let him try and touch my Queen and I shall smack him soundly with my fan!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -861,7 +861,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you ever realise Albar reads Rabla, spelled backwards?");
+talkEntry:addResponse("Did you ever realize Albar reads Rabla, spelled backwards?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,7 +877,7 @@ talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Blasted Gynk-people! They have no honour and no queen, either.");
+talkEntry:addResponse("Blasted Gynk-people! They have no honor and no enchanting queen either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -907,7 +907,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gods");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
-talkEntry:addResponse("#me nods eagerly, spilling some wine on the table 'We are proper, honourful and Gods-fearing people in Cadomyr, unlike our wretched neighbours!'");
+talkEntry:addResponse("#me nods eagerly, spilling some wine on the table. 'We are proper, honorable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -923,7 +923,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zhambra, Zhambra, what shall I say! I am his minion, well, actually, I am the queen's royal fan waver, that's beyond being a humble minion I guess.");
+talkEntry:addResponse("Zhambra, Zhambra, what shall I say! I am his minion, well actually, I am the queen's royal fan waver, that's beyond being a humble minion I guess.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,11 +952,236 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ushara... is that suppose to mean something?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Ushara... soll das irgend ein Name sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did I hear right? Brágon? Wine must be stronger than I thought because I don?t know who the Galmair that is.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragon");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Habe ich richtig gehört? Brágon? Wer auch immer das sein mag, im Wein liegt die Wahrheit, mein Freund!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Pretty sure that is a type of tree, but they don?t grow around here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eldan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Ich bin mir ziemlich sicher... das ist eine Art baum. Aber davon gibts nicht wirklich viele hier.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Tanora, sounds familiar but I can?t place where I?ve heard the name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tanora");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Tanora, kommt mir bekannt vor, aber ich kann mich einfach nicht erinnern...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If you?re looking for answers about Zelphia go find the lizardfolks they?re always blabbing on and on about her.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zelphia");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Wenn du fragen über Zelphia hast, geh und such dir ne verdammte Echse, die brabbeln nämlich die ganze Zeit über sie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me hiccups. ?Huh? I think you need to lay off the wine traveler; you're talking jibberish.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Findari");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me stößt leise auf. 'Huh? Du solltest nicht so viel Wein trinken, mein Freund! Dein Lallen ist ja kaum noch zu verstehn.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Do yourself a favor and forget that name. Only the filth from Galmair dare mention his name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nargun");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Tuhe dir selbst einen Gefallen und vergiss seinen Namen. Nur diese Idoten in Galmair sprechen von ihm.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me yawns. ?Boring lets talk about something else.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me gähnt herzhaft. 'Wie langweilig! Lass uns über etwas anderes sprechen.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me raises his glass of wine. ?This is all anyone needs to know about Adron.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me hebt sein Weinglas. 'Darum! Darum, sollen wir Adron ehren.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me sighs in mild agitation. ?Ask me something relevant please.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me seufzt langezogen. 'Sprechen wir lieber über irgendetwas wichtiges. Ich Bitte Euch.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn?t listening.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Mmh... dieser Wein schmeckt vorzüglich. Entschuldigt, habt ihr über Cherga gesprochen? - Vermutlich habe ich desshalb nicht zugehört.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me stifles a yawn halfheartedly. ?I suggest asking the greedy swine in Galmair about Irmorom, not me.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Ha! Fragt die Rattenfresser in Galmair, nach Irmorom! - Nicht mich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The goddess of Love and Pleasure? If you don?t know her name than you have no business in Cadomyr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("Die Göttind der Liebe. - Und des Vergnügens! *Er grinst anzüglich.*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me blinks. ?One word of advice, never mention that name ever again in Cadomyr!?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me blinzelt. 'Besser du sprichst diesen Namen hier, in Gadomyr, nicht laut aus, mein Freund.'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me nearly drops his wine, clearly in shock. ?Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Moshran");
+talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me lässt beinahe sein Glas fallen, sichtlich erschrocken. 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Do I look like the barkeeper!? I am a very important person here!");
+talkEntry:addResponse("Do I look like the barkeeper!? Do not belittle my importance with your imprudent questioning!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,8 +1195,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("It is a shame what happened to the Gobaithians. But blasphemous deeds need to be punished!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Es ist traurig, was den Gobaithianern widerfahren ist. Aber blasphemische Taten müssen bestraft werden!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Wine is fine.");
+talkEntry:addResponse("Wine is divine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1003,7 +1243,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("No.");
 talkEntry:addResponse("Not really.");
-talkEntry:addResponse("Peom!.");
+talkEntry:addResponse("Peon!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1011,7 +1251,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Nein.");
 talkEntry:addResponse("Nicht wirklich.");
-talkEntry:addResponse("Peom!");
+talkEntry:addResponse("Peon!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,7 +1259,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Oh, I could tell you so many secrets of the queen, but I am loyal to her.");
 talkEntry:addResponse("Did I mention that I am thirsty?");
-talkEntry:addResponse("Wine is fine.");
+talkEntry:addResponse("Wine is divine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1030,17 +1270,17 @@ talkEntry:addResponse("Erwähnte ich, dass ich Durst habe?");
 talkEntry:addResponse("Wein ist fein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffes.");
-talkingNPC:addCycleText("Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard that a tavern was called 'Happy Halfling'. 'Happy Hassan', that'd be a name!");
-talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat. And you don't want to see this happen!");
-talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bags his fist on the counter: 'I demand service!'");
+talkingNPC:addCycleText("#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffles.");
+talkingNPC:addCycleText("Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there?s a tavern called 'Happy Halfling'. I?d prefer Happy Hassan personally.");
+talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn?t have that could we?");
+talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bangs his fist on the counter: 'I demand service!'");
 talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'");
 talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?");
 talkingNPC:addCycleText("#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil.");
-talkingNPC:addCycleText("Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the the Royal Palace. Nothing there happens without my knowledge.");
-talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'");
-talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave the fan at the Queen, to keep her blue blood cool during in the heat of the desert. Now 'that' is an important duty!");
-talkingNPC:addCycleText("Wein ist fein.", "Wine is fine.");
+talkingNPC:addCycleText("Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens here without my knowledge.");
+talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favorite! She even looked at me two days ago!'");
+talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now 'that' is an important duty!");
+talkingNPC:addCycleText("Wein ist fein.", "Wine is divine.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
