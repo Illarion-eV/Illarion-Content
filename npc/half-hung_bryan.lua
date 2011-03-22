@@ -267,10 +267,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Borgate");
-talkEntry:addTrigger("barkeeper");
-talkEntry:addTrigger("innkeeper");
 talkEntry:addTrigger("Northoff");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("barkeeper");
+talkEntry:addTrigger("innkeeper");
 talkEntry:addResponse("Borgate pours the beer. A good guy. Do you want something to drink? Then ask Borgate!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -322,8 +327,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Borgate");
-talkEntry:addTrigger("wirt");
 talkEntry:addTrigger("Northoff");
+talkEntry:addTrigger("wirt");
 talkEntry:addResponse("Borgate schenkt das Bier aus. Ein anständiger Kerl. Wollt ihr etwas trinken? Dann geht zu ihm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
