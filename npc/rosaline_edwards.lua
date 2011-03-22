@@ -98,7 +98,7 @@ talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare thee well");
 talkEntry:addResponse("#me waves: 'Begone.'");
-talkEntry:addResponse("Go with Malachin's blessings and do deeds to honor Cadomyr's name.");
+talkEntry:addResponse("Go with Malachin's blessings and do deeds to honour Cadomyr's name.");
 talkEntry:addResponse("Very well, be off and serve me as I do Cadomyr.");
 talkEntry:addResponse("Fare thee well, and be sure to speak fondly of Cadomyr on your travels.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -122,7 +122,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me waves: 'Begone.'");
-talkEntry:addResponse("Go with Malachin's blessings and do deeds to honor Cadomyr's name.");
+talkEntry:addResponse("Go with Malachin's blessings and do deeds to honour Cadomyr's name.");
 talkEntry:addResponse("Very well, be off and serve me as I do Cadomyr.");
 talkEntry:addResponse("Fare thee well, and be sure to speak fondly of Cadomyr on your travels.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -144,7 +144,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("No queen could be better, I assure you, with the service of the noblest and truest of men at her side.");
-talkEntry:addResponse("Glorious, truly Zhambra has blessed me with the most honorable servants.");
+talkEntry:addResponse("Glorious, truly Zhambra has blessed me with the most honourable servants.");
 talkEntry:addResponse("Truth be told my skin is yearning for the soothing comfort of donkey milk, but that is neither here nor there I suppose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -259,7 +259,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Profession? Foolish traveler I am Queen, my profession is to safeguard this kingdom!");
+talkEntry:addResponse("Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +272,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Job? Foolish traveler I am Queen, my job is to safeguard this kingdom!");
+talkEntry:addResponse("Job? Foolish traveler, I am the Queen, my job is to rule this kingdom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,14 +314,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bounty");
-talkEntry:addResponse("There is no bounty on Baron Hastings' head. It is a matter of honor to slay this fiend of Cadomyr.");
+talkEntry:addResponse("There is no bounty on Baron Hastings' head. It is a matter of honour to slay this fiend of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milk");
 talkEntry:addTrigger("donkey");
-talkEntry:addResponse("A bath in donkey?s milk can do wonders for your skin. You should try it yourself, if you can afford it.");
+talkEntry:addResponse("A bath in donkey's milk can do wonders for your skin. You should try it yourself, if you can afford it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,7 +358,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("honor");
 talkEntry:addTrigger("honour");
-talkEntry:addResponse("Honor is everything for a nobleman of Cadomyr. If you should lose your honor, then you shall lose your life. Whatever you do, consider your fame and reputation first.");
+talkEntry:addResponse("Honour is everything for a nobleman of Cadomyr. If you should lose your honour, then you shall lose your life. Whatever you do, consider your fame and reputation first.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,7 +397,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("palace");
-talkEntry:addResponse("My palace is the grandeur of hard working slaves and artisans. But it was not built for me alone; it was built for the honor of Cadomyr and the glory of Malachin, Zhambra, and Sirani!");
+talkEntry:addResponse("My palace is the grandeur of hard working slaves and artisans. But it was not built for me alone; it was built for the honour of Cadomyr and the glory of Malachin, Zhambra, and Sirani!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,7 +431,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("That is me, the only rightful Queen in all of Sevenhill. Now you better act accordingly.");
+talkEntry:addResponse("That is me, the only rightful Queen in all of Cadomyr. Now you better act accordingly.");
 talkEntry:addResponse("Commonly, my minions address me as 'Your highness' or 'Almighty Queen'.");
 talkEntry:addResponse("I bear the name Edwards with pride. You should speak it likewise.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -796,7 +796,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Someone should plunder and pillage Gynk! Such a cesspool of sin! No honor!");
+talkEntry:addResponse("Someone should plunder and pillage Gynk! Such a cesspool of sin! No honour!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -837,7 +837,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("How can one worship the Lord of Fire? Of course, we all honor the Five, but fire has always been a city?s greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it.");
+talkEntry:addResponse("How can one worship the Lord of Fire? Of course, we all honour the Five, but fire has always been a city?s greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1013,7 +1013,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I still don't know who to blame for all the sand in the world. Most likely Ushara or Brágon. I'll honor them, either way, but not worship.");
+talkEntry:addResponse("I still don't know who to blame for all the sand in the world. Most likely Ushara or Brágon. I'll honour them, either way, but not worship.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1183,7 +1183,7 @@ talkEntry:addResponse("Wolltet ihr nicht vielmehr sagen: 'Ja, meine Königin!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me kämmt sich die Haare und flucht vor sich hin.", "#me combs her hair, cursing under her breath about sand.");
-talkingNPC:addCycleText("Auf die Knie! Sofort!", "Kneel before the gods and honor your Queen!");
+talkingNPC:addCycleText("Auf die Knie! Sofort!", "Kneel before the gods and honour your Queen!");
 talkingNPC:addCycleText("Vernünftige Diener zu finden wird auch immer schwieriger.", "Finding proper servants becomes harder and harder...");
 talkingNPC:addCycleText("Wo ist Hassan schon wieder! Schickt nach meinem Fächelwedler, mir ist heiß!", "Where is Hassan again? Send word to my fan waver, it is hot!");
 talkingNPC:addCycleText("#me starrt auf ihre in fein gefertigte Sandalen gekleideten Füße und murmelt: 'Blau könnte meinen Zehennägeln auch mal gut stehen.'", "#me stares at her feet, clad in fine sandals, murmuring: 'I should consider painting my toenails blue.'");
