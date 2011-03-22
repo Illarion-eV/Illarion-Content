@@ -1,31 +1,31 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Hagar Wernson                                               None --
--- NPC Job:  none                                                             --
+-- NPC Name: Hagar Wernson                                            Galmair --
+-- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  391, 334, -6           --
+-- NPC Race: human                      NPC Position:  391, 344, -6           --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind & kormkormsen                                          --
+-- Authors:  kormkormsen                                                      --
+--           Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 29, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
-
---Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
 
 name = "Hagar Wernson"
 race = human
 sex = male
 position = 391, 344, -6
 direction = west
-affiliation = "None"
-job = "none"
+affiliation = "Galmair"
+job = "Barkeeper"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "Rincewind & kormkormsen"
+author = "kormkormsen"
+author = "Rincewind"
 
 lookatDE = "Ein großgewachsener Norodaj, der mit einem schmierigen Lappen den Schmutz in einem gläsernen Bierkrug herumwischt."
 lookatUS = "A tall Norodaj. He uses a dirty rag to smear a glass beermug, 'clean'."
@@ -38,23 +38,12 @@ hairID = 1
 beardID = 1
 colorHair = 112, 74, 51
 colorSkin = 217, 154, 123
-itemHead = 0
-itemChest = 0
-itemCoat = 0
-itemMainHand = 0
-itemSecondHand = 0
-itemHands = 0
 itemTrousers = 823
-itemShoes = 0
+itemShoes = 369
+
+-- Hagar Wernson (tavern): 2185 wooden cup, 2187 cup with wine, 2188 cup with mead, 2189 cup with cider, 1908, 1909 beer, 2276 mulligan
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau'
 
 -- QuestID=306
@@ -206,8 +195,8 @@ itemShoes = 0
 "wasser kauf", "kauf wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hagar", "Wernson", english -> "Beer or wine?", "The usual?", "Hrmpf?"
+"Hagar", "Wernson", "Wirt" -> "Was darf's sein?", "S' übliche?", "Hrmpf?"
 "Yes" -> "Aye!", "Whatever.", "Alright."
 "Ja" -> "Aye!", "Was auch immer.", "Alles klar."
 "No" -> "Aye!", "Whatever.", "Alright."
@@ -224,7 +213,7 @@ itemShoes = 0
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord.... In den Kesseln da faulte das Wassah... da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!"
+cycletext "Wir laaagen vor Sor-Ann-Araah... und hatten 'nen Elf ahan Bord.... In den Kesseln da faulte das Wassah... da soffen wir Bier soohofort... ", "Blow wi-ind, blow... to Salkamar we go.... her hair was blond her eyes were blue... her lips were red, her axe was new... ter my hodae, ter my hodae, ter my hodae, hodae ho!"
 cycletext "#me verwischt den Dreck auf dem Tisch.", "#me wipes in the dirt on the table."
 cycletext "#me steht in einer Wolke übler Gerüche.", "#me stands in a cloud of bad smells."
 cycletext "#me trocknet einen Krug mit einem Drecklappen.", "#me dries a mug with a dirty rag."
@@ -237,6 +226,7 @@ cycletext "#me kratzt sich abwesend unterm Kilt.", "#me scratches himself below 
 cycletext "#me sieht sich gelangweilt um.", "#me looks around bored."
 cycletext "#me trocknet sich mit dem Geschirrtuch unter den Achseln.", "#me dries his armpits with the dishrag."
 cycletext "#me's Atem riecht nach schalem Bier.", "#me's breath smells of stale beer."
+
 
 --"buy a virgen's delight", "buy a cyder", money < 6 -> "Yer 'ave not enuff money, come back, when yer can pay."
 --"buy a virgen's delight", "buy a cyder" -> "Here yer got it. drink, before the goblet gets rusty!", money - 6, item(1844, 1, 333, 0)
