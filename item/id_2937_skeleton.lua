@@ -19,7 +19,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     queststatus=User:getQuestProgress(112);
 
-	if Item.pos == position (501,156,0) and queststatus == 6 then --The body of Madoquar
+	if SourceItem.pos == position (501,156,0) and queststatus == 6 then --The body of Madoquar
 	    User:setQuestProgress(112,7); --Bone found!
 		base.common.InformNLS(User,"[Quest status] Bei der Untersuchung der Leiche findest du einen Knochen. Madoquar sollte damit zufrieden sein.","[Quest status] While examining the skeleton, you find a bone. Madoquar should be satisfied with it."); --sending the message
     else
