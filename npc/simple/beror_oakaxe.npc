@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 23, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -90,12 +90,12 @@ itemShoes = 770
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "quartermaster" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"knight","page" -> "So, you want to become a queen's knight like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!"
+"knight", "page" -> "So, you want to become a queen's knight like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!"
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Quartiermeister" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ritter","Knappe" -> "So, du willst also ein Ritter der Königin werden, genauso wie all die Helden, von denen dir deine Mutter erzählt hat, bevor sie dich ins Bett gebracht hat? Ha! Das erste, was ein Ritter lernen muss, ist Befehlen zu gehorchen. Und ich hab davon eine Menge!"
+"Ritter", "Knappe" -> "So, du willst also ein Ritter der Königin werden, genauso wie all die Helden, von denen dir deine Mutter erzählt hat, bevor sie dich ins Bett gebracht hat? Ha! Das erste, was ein Ritter lernen muss, ist Befehlen zu gehorchen. Und ich hab davon eine Menge!"
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -168,12 +168,12 @@ itemShoes = 770
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Beror", "Oakaxe", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Beror", "Oakaxe" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Beror", "Oakaxe", english -> "At your service?", "What is it?", "Is this supposed to be a report!?"
+"Beror", "Oakaxe" -> "Stets zu Diensten?", "Was gibt es?", "Soll das eine Meldung sein?"
+"Yes" -> "Acknowledged.", "Affirmative.", "Confirmed."
+"Ja" -> "Zur Kenntnis genommen.", "Verstanden.", "Bestätigt."
+"No" -> "Acknowledged.", "Affirmative.", "Confirmed."
+"Nein" -> "Zur Kenntnis genommen.", "Verstanden.", "Bestätigt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -186,7 +186,7 @@ cycletext "Ich bin es gewohnt, Befehle zu schreien. Hier im Inneren eines Hauses
 cycletext "Achtung!", "Attention!"
 cycletext "Du da! Komm mal her.", "You! Come here."
 cycletext "Wo ist Gefreiter Rasselschwinger schon wieder!?", "Where is private Rattleswinger again!?"
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me grummelt vor sich hin.", "#me curses silently."
+cycletext "#me geht eine Liste durch und streicht einen Namen durch: 'Armer Kerl...'.", "#me browses a list and rules out a name: 'Poor fellow.'."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
