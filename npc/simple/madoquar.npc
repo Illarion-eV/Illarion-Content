@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 18, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 23, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Madoquar"
@@ -168,10 +168,10 @@ itemShoes = 369
 -- Quest 3
 -- Go to an abandon house and retrieve a bone of the real Madoquar
 -- Find out that to kill a wraith you need a weapon forged from the body that the wraith's soul belongs too.
-"quest", "mission", queststatus(112) = 5, english -> inform("[New quest] The Ghost Oak III"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here. Whether it's a bone, a tooth, it might all be dirt by now.", queststatus(112) = 6
-"quest", "mission", queststatus(112) = 5 -> inform("[Neues Quest] Die Geistereiche III"), "Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her. Sei es ein Knochen oder Zahn, alles andere dürfte schon zu Staub zerfallen sein.", queststatus(112) = 6
-"task", "adventure", queststatus(112) = 5, english -> inform("[New quest] The Ghost Oak III"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here. Whether it's a bone, a tooth, it might all be dirt by now.", queststatus(112) = 6
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(112) = 5 -> inform("[Neues Quest] Die Geistereiche III"), "Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her. Sei es ein Knochen oder Zahn, alles andere dürfte schon zu Staub zerfallen sein.", queststatus(112) = 6
+"quest", "mission", queststatus(112) = 5, english -> inform("[New quest] The Ghost Oak III"), "Before you make any judgements please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.", queststatus(112) = 6
+"quest", "mission", queststatus(112) = 5 -> inform("[Neues Quest] Die Geistereiche III"), "Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.", queststatus(112) = 6
+"task", "adventure", queststatus(112) = 5, english -> inform("[New quest] The Ghost Oak III"), "Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.", queststatus(112) = 6
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(112) = 5 -> inform("[Neues Quest] Die Geistereiche III"), "Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.", queststatus(112) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(112) = 6, english -> "I need you to search in the ruined house south of the oak for a piece of a dead body and bring it back here."

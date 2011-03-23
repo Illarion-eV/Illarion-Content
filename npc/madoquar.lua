@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 18, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 23, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -412,7 +412,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak III"));
-talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here. Whether it's a bone, a tooth, it might all be dirt by now.");
+talkEntry:addResponse("Before you make any judgements please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -422,7 +422,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her. Sei es ein Knochen oder Zahn, alles andere dürfte schon zu Staub zerfallen sein.");
+talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -433,7 +433,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak III"));
-talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here. Whether it's a bone, a tooth, it might all be dirt by now.");
+talkEntry:addResponse("Before you make any judgments please listen. This next part is not onerous, yet it will take an open mind. South of the oak is the remnants of a house. I need you to search in that house for a piece of a dead body and bring it back here.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -444,7 +444,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her. Sei es ein Knochen oder Zahn, alles andere dürfte schon zu Staub zerfallen sein.");
+talkEntry:addResponse("Hört bitte erstmal zu. Worum ich euch bitten werde ist nicht sonderlich schwierig, aber eventuell abstoßend. Südlich der Eiche sind die Überreste eines Hauses. Sucht bitte in dem Haus nach Leichenteilen und bringt sie her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
