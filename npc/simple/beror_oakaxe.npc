@@ -58,15 +58,11 @@ itemShoes = 770
 -- 0: No Quest taken
 -- 1: Quest 1 taken, visit ...
 -- 2: All locations visited
--- 3: Quest 1 solved, reward: 60cp
--- 4: Quest 2 taken- Gather the needed components for banishing the ghost
--- 5: Quest 2 solved - reward: 120cp, ruby amulet
--- 6: Quest 3 taken - inspect the skeleton of the real Madoquar
--- 7: Skeleton inspected
--- 8: Quest 3 solved, reward: elven wine
--- 9: Quest 4 taken - kill 1 wraith, player gets a silver battle axe (229)
--- 10: Killing 1 wraith
--- 11: Quest 4 solved, reward: magical amethyst ring (277)
+-- 3: Quest 1 solved, reward:
+-- 4: Quest 2 taken, read the Cadomyr laws
+-- 5: Cadomyr laws read
+-- 6: Quest 2 solved, reward:
+-- 7: Quest 3 taken,
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0
@@ -99,10 +95,34 @@ itemShoes = 770
 "quest", "mission", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
 "task", "adventure", town = Runewick -> "I do not issue quests to braindead people, sorry."
 "Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
-"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission", queststatus(111) = 0, town = Cadomyr -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", queststatus(111) = 0, town = Cadomyr -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Quest 1: Visit...
+"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1
+"quest", "mission", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1
+"task", "adventure", queststatus(111) = 0, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1
+"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1
+
+-- Quest 1 solved, reward:
+".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+
+-- Quest 2: Read the Cadomyr laws
+"quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
+"quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
+"task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
+"Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
+
+-- Quest 2 solved, reward:
+".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 6, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 6, rankpoints(Cadomyr) + 5
+
+-- Quest 3: Provide...
+"quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+"task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+
+-- BIS HIER!
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal quartermaster. Didn't I just mention that!?"

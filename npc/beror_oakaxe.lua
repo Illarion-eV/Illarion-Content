@@ -21,6 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.beror_oakaxe", package.seeall)
 
@@ -253,9 +254,9 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
 talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,9 +265,9 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
 talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,9 +276,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
 talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,9 +287,145 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
 talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
