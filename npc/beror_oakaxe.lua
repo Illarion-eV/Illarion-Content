@@ -17,13 +17,30 @@ VALUES (1, 135, 620, 0, 4, 'Beror Oakaxe', 'npc.beror_oakaxe', 0, 3, 1, 17, 17, 
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 module("npc.beror_oakaxe", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 0");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, ">", 11));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -166,6 +183,76 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addResponse("I do not issue quests to honourless people, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addResponse("Ich vergebe keine Aufgaben an ehrloses Gesindel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addResponse("I do not issue quests to honourless people, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addResponse("Ich vergebe keine Aufgaben an ehrloses Gesindel.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addResponse("I do not issue quests to braindead people, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addResponse("Ich vergebe keine Aufgaben an hirnverbrannte Leute.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addResponse("I do not issue quests to braindead people, sorry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addResponse("Ich vergebe keine Aufgaben an hirnverbrannte Leute.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -175,6 +262,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -184,6 +273,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -193,7 +284,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");

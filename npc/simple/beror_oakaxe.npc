@@ -53,6 +53,25 @@ itemShoes = 770
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
+-- Queststatus Overview (111)
+
+-- 0: No Quest taken
+-- 1: Quest 1 taken, visit ...
+-- 2: All locations visited
+-- 3: Quest 1 solved, reward: 60cp
+-- 4: Quest 2 taken- Gather the needed components for banishing the ghost
+-- 5: Quest 2 solved - reward: 120cp, ruby amulet
+-- 6: Quest 3 taken - inspect the skeleton of the real Madoquar
+-- 7: Skeleton inspected
+-- 8: Quest 3 solved, reward: elven wine
+-- 9: Quest 4 taken - kill 1 wraith, player gets a silver battle axe (229)
+-- 10: Killing 1 wraith
+-- 11: Quest 4 solved, reward: magical amethyst ring (277)
+
+-- Debugging
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0
+".+", queststatus(111) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+
 -- Help
 "Help" -> inform("[Game Help] This NPC is Beror Oakaxe the quartermaster. Keyphrases: Hello, Quest, Orders, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, TRIGGER4, TRIGGER5.")
@@ -71,11 +90,19 @@ itemShoes = 770
 "your name", "who are you", "who art thou" -> "I am the royal quartermaster Beror Oakaxe. And yes, I am a dwarf. An angry dwarf!"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der königliches Quartiermeister Beror Oakaxe. Und ja, ich bin ein Zwerg. Ein zorniger Zwerg!"
 
--- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Catching quest triggers of other factions' members
+"quest", "mission", english, town = Galmair -> "I do not issue quests to honourless people, sorry."
+"quest", "mission", town = Galmair -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
+"task", "adventure", town = Galmair -> "I do not issue quests to honourless people, sorry."
+"Auftrag", "Aufgabe", "Abenteuer", town = Galmair -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
+"quest", "mission", english, town = Runewick -> "I do not issue quests to braindead people, sorry."
+"quest", "mission", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
+"task", "adventure", town = Runewick -> "I do not issue quests to braindead people, sorry."
+"Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
+"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission", queststatus(111) = 0, town = Cadomyr -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", queststatus(111) = 0, town = Cadomyr -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal quartermaster. Didn't I just mention that!?"
