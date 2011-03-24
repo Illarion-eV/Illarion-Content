@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 23, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 24, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -92,12 +92,12 @@ itemShoes = 770
 "order" -> "How kind! You ask me kindly for an order. Stand still! Attention! I will send you on a mission for the glory of Cadomyr, not a walk in the park!"
 "knight", "page" -> "So, you want to become a queen's knight like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!"
 "gate" -> "So, Horatio let you pass? I trained him, so you cannot be a threat to Cadomyr."
-"Horatio","Milenus",english->"So, Horatio let you pass? I trained him, so you cannot be a threat to Cadomyr."
+"Horatio", "Milenus", english -> "So, Horatio let you pass? I trained him, so you cannot be a threat to Cadomyr."
 "Quartiermeister" -> "Ich nehme meine Aufgabe ernst und bin ein harter Hund. Mein Dienst sieht vor, mich um die neuen Rekruten Cadomyrs zu kümmern und sicherzustellen, dass es ihnen an nichts fehlt - insbesondere an Befehlen!"
 "Befehl" -> "Oh, wie lieb, du fragst mich ganz vornehm nach einem Befehl? Stillgestanden! Achtung! Ich werde dich auf eine Mission zu Ehren Cadomyrs schicken, nicht auf einen Spaziergang!"
 "Ritter", "Knappe" -> "So, du willst also ein Ritter der Königin werden, genauso wie all die Helden, von denen dir deine Mutter erzählt hat, bevor sie dich ins Bett gebracht hat? Ha! Das erste, was ein Ritter lernen muss, ist Befehlen zu gehorchen. Und ich hab davon eine Menge!"
 "tor" -> "Horatio hat dich also durchgelassen? Dann bist du keine Bedrohung Cadomyrs, denn ich hab ihn ausgebildet."
-"Horatio","Milenus"->"Horatio hat dich also durchgelassen? Dann bist du keine Bedrohung Cadomyrs, denn ich hab ihn ausgebildet."
+"Horatio", "Milenus" -> "Horatio hat dich also durchgelassen? Dann bist du keine Bedrohung Cadomyrs, denn ich hab ihn ausgebildet."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "'Archmage' sounds as if Mr. Morgan is in charge of Runewick. He is not. He just starts the discussions about probably doing something sometime."
@@ -110,10 +110,10 @@ itemShoes = 770
 "Valerio", "Guilianni", "Don" -> "Man kann von Don Valerio halten, was immer man will, aber eines ist klar: Er wird nicht zum Märchenprinz, solange ich noch atme."
 "Galmair", english -> "Galmair is a disturbing place. Everyone who can hold a sword holds also a grudge against Galmair... because... of the past."
 "Galmair" -> "Galmair ist ein widerlicher Ort. Jeder, der ein Schwert halten kann, hat ein Problem mit Galmair wegen... damals."
-"Queen" -> "I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.","Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands."
-"Königin" -> "Ich hab der Königin die Treue schon vor vielen Jahren geschworen und habe es nicht einen einzigen Tag bereut. Sie ist die beste Königin, die ein Königreich haben kann.","Manche Frauen sind zweimal so mutig wie Männer. Aber nur sehr, sehr wenige und Königinnen sind äußerst ungewöhnlich in diesen Landen."
-"rosaline", "edwards", english -> "I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.","Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands."
-"rosaline", "edwards" -> "Ich hab der Königin die Treue schon vor vielen Jahren geschworen und habe es nicht einen einzigen Tag bereut. Sie ist die beste Königin, die ein Königreich haben kann.","Manche Frauen sind zweimal so mutig wie Männer. Aber nur sehr, sehr wenige und Königinnen sind äußerst ungewöhnlich in diesen Landen."
+"Queen" -> "I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.", "Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands."
+"Königin" -> "Ich hab der Königin die Treue schon vor vielen Jahren geschworen und habe es nicht einen einzigen Tag bereut. Sie ist die beste Königin, die ein Königreich haben kann.", "Manche Frauen sind zweimal so mutig wie Männer. Aber nur sehr, sehr wenige und Königinnen sind äußerst ungewöhnlich in diesen Landen."
+"rosaline", "edwards", english -> "I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.", "Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands."
+"rosaline", "edwards" -> "Ich hab der Königin die Treue schon vor vielen Jahren geschworen und habe es nicht einen einzigen Tag bereut. Sie ist die beste Königin, die ein Königreich haben kann.", "Manche Frauen sind zweimal so mutig wie Männer. Aber nur sehr, sehr wenige und Königinnen sind äußerst ungewöhnlich in diesen Landen."
 "Cadomyr", english -> "Cadomyr is not just a town or a kingdom. It is an idea, a way of life. A vision and feeling - if you don't fit in, better leave us, now."
 "Cadomyr" -> "Cadomyr ist nicht bloß eine Stadt oder ein Königreich. Es ist eine Idee, ein Lebensgefühl mit einer Vision. Wenn du du dieser nicht entsprichst, hau besser ab."
 
@@ -162,10 +162,10 @@ itemShoes = 770
 "Zhambra" -> "Die Doktrin der Anhänger Zhambra's sind auch meine. Bin ich also ein Anhänger Zhambras? Ich weiß es nicht und es ist mir eigentlich auch egal."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "I issue orders, not in terms of trading but in terms of obeying!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich gebe Befehle aus, keine Waren."
+"tell something" -> "I would really enjoy talking to you all day long about soap and flowers, but meanwhile, our enemies would massacre Cadomyrs children."
+"erzähl was", "erzähl etwas" -> "Ich würde ja gerne den ganzen Tag mit dir über Seife und Blumen reden, aber derweilen würden die Feinde die Kinder Cadomyrs abschlachten."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Beror", "Oakaxe", english -> "At your service?", "What is it?", "Is this supposed to be a report!?"
@@ -188,5 +188,5 @@ cycletext "Du da! Komm mal her.", "You! Come here."
 cycletext "Wo ist Gefreiter Rasselschwinger schon wieder!?", "Where is private Rattleswinger again!?"
 cycletext "#me grummelt vor sich hin.", "#me curses silently."
 cycletext "#me geht eine Liste durch und streicht einen Namen durch: 'Armer Kerl...'.", "#me browses a list and rules out a name: 'Poor fellow.'."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "Es gibt nichts ehrbareres als ein Duell bis zum Tod. Seine Prinzipien bis in den Tod treu zu bleiben, das macht einen Mann aus.", "There is nothing more honourable than a duell to death. To be true to one's principles until death, that is what makes a man."
+cycletext "Alles in bester Ordnung.", "All clear."
