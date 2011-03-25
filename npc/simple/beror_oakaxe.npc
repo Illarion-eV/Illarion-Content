@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 24, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 25, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -96,17 +96,23 @@ itemShoes = 770
 "task", "adventure", town = Runewick -> "I do not issue quests to braindead people, sorry."
 "Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
 
--- Quest 1: Visit...
-"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1
-"quest", "mission", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1
-"task", "adventure", queststatus(111) = 0, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1
-"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1
+-- Quest 1: Read the Cadomyr laws
+"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1, queststatus(110) = 0
+"quest", "mission", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1, queststatus(110) = 0
+"task", "adventure", queststatus(111) = 0, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1, queststatus(110) = 0
+"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1, queststatus(110) = 0
 
 -- Quest 1 solved, reward:
 ".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
 ".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
 
--- Quest 2: Read the Cadomyr laws
+-- Quest 1 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 1, english -> "ENGLISH."
+"quest", "mission", queststatus(111) = 1 -> "GERMAN."
+"task", "adventure", queststatus(111) = 1 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1 -> "GERMAN."
+
+-- Quest 2: Patrol...
 "quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
 "quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
 "task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4

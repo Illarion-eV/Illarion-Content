@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 24, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 25, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -257,6 +257,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -268,6 +269,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,6 +281,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,6 +293,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -313,6 +317,40 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("ENGLISH.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
+talkEntry:addResponse("GERMAN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
+talkEntry:addResponse("ENGLISH.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
+talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
