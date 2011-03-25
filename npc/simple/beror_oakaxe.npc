@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 25, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 26, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -34,7 +34,7 @@ wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 3
 beardID = 1
-colorHair = 17, 17, 17
+colorHair = 79, 79, 79
 colorSkin = 240, 175, 130
 itemHead = 0
 itemChest = 101
