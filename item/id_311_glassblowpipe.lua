@@ -21,19 +21,19 @@ function InitCraftingTool( )
         glassblowing:AddTool( 313 ); -- Glasschmelzofen
 
         glassblowing:AddInterruptMessage(
-        "Du wischst dir den Schwei� von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
         
         glassblowing:AddInterruptMessage(
-        "Du verlierst einen Moment das Gleichgewicht und das Glas nimmt eine bedenklich krumme Form an. Nach kurzem Drehen und Balancieren gelingt es dir, das Werkst�ck zu retten.",
+        "Du verlierst einen Moment das Gleichgewicht und das Glas nimmt eine bedenklich krumme Form an. Nach kurzem Drehen und Balancieren gelingt es dir, das Werkstück zu retten.",
         "You lose your balance and the glowing glass bends worringly. By twisting and balancing, you manage to save the product.");
         
         glassblowing:AddInterruptMessage(
-        "Du st��t ein bereits fertiges St�ck an und es droht zu Boden zu fallen. Im letzten Moment gelingt es dir, das St�ck mit der Hand zu greifen.",
+        "Du stößt ein bereits fertiges Stück an und es droht zu Boden zu fallen. Im letzten Moment gelingt es dir, das Stück mit der Hand zu greifen.",
         "You touch a finished good and it almost drops to the floor. With luck, you manage to grap it with your hands, preventing the loss.");
         
         glassblowing:AddInterruptMessage(
-        "Du h�ltst einen Moment inne und �berlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
+        "Du hältst einen Moment inne und überlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
         "You interrupt to apply a gravure, but you reconsider.");
         
         --Small Empty Bottle
