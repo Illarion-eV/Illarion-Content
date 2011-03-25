@@ -58,17 +58,26 @@ itemShoes = 770
 -- 0: No Quest taken
 -- 1: Quest 1 taken, read the Cadomyr laws
 -- 2: Cadomyr laws read
--- 3: Quest 1 solved, reward:
+-- 3: Quest 1 solved, reward: +5 rankpoints
 -- 4: Quest 2 taken, patrol...
 -- 5: All locations visited
--- 6: Quest 2 solved, reward:
+-- 6: Quest 2 solved, reward: +10 rankpoints
 -- 7: Quest 3 taken, provide 30 units of quartz sand
--- 8: Quest 3 solved, reward:
--- 9: Quest 4 taken,
+-- 8: Quest 3 solved, reward: +10 rankpoints
+-- 9: Quest 4 taken, patrol...
+-- 10: All locations visited
+-- 11: Quest 4 solved, reward: +15 rankpoints
+-- 12: Quest 5 taken, reconnoitre...
+-- 13: All locations visited
+-- 14: Quest 5 solved, reward: +15 rankpoints
+-- 15: Quest 6 taken, provide...
+-- 16: Quest 6 solved, reward: +20 rankpoints
+-- 17: Quest 7 taken, provide...
+-- 18: Quest 7 solved, reward: +20 rankpoints
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0, queststatus(110) = 0
-".+", queststatus(111) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
+".+", queststatus(111) > 18 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Beror Oakaxe the quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate.")
@@ -109,10 +118,10 @@ itemShoes = 770
 ".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 1, english -> "ENGLISH."
-"quest", "mission", queststatus(111) = 1 -> "GERMAN."
-"task", "adventure", queststatus(111) = 1 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1 -> "GERMAN."
+"quest", "mission", queststatus(111) = 1, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 1, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 1, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1, town = Cadomyr -> "GERMAN."
 
 -- Quest 2: Patrol...
 "quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
@@ -125,10 +134,10 @@ itemShoes = 770
 ".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 6, rankpoints(Cadomyr) + 10
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 4, english -> "ENGLISH."
-"quest", "mission", queststatus(111) = 4 -> "GERMAN."
-"task", "adventure", queststatus(111) = 4 -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4 -> "GERMAN."
+"quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 4, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 4, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "GERMAN."
 
 -- Quest 3: Provide 30 units of quartz sand (316)
 "quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
@@ -141,12 +150,88 @@ itemShoes = 770
 ".*", queststatus(111) = 7, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
 
 -- Quest 3 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 7, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 7, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
+
+-- Quest 4: Patrol...
+"quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
+"quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
+"task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
+"Auftrag", "Aufgabe", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
+
+-- Quest 4 solved, reward:
+".*", queststatus(111) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
+".*", queststatus(111) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
+
+-- Quest 4 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 9, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 9, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
+
+-- Quest 5: Reconnoitre...
+"quest", "mission", queststatus(111) = 11, english, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
+"quest", "mission", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "GERMAN1.", queststatus(111) = 12
+"task", "adventure", queststatus(111) = 11, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
+"Auftrag", "Aufgabe", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "GERMAN1.", queststatus(111) = 12
+
+-- Quest 5 solved, reward:
+".*", queststatus(111) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 14, rankpoints(Cadomyr) + 15
+".*", queststatus(111) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 14, rankpoints(Cadomyr) + 15
+
+-- Quest 5 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 12, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 12, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
+
+-- bis hier
+
+-- Quest 6: Provide...
+"quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+"task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+
+-- Quest 6 solved, reward:
+".*", queststatus(111) = 7, item(316, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 7, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+
+-- Quest 6 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 7, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(111) = 7, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
+
+-- Quest 7: Provide...
+"quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+"task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
+"Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+
+-- Quest 7 solved, reward:
+".*", queststatus(111) = 7, item(316, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 7, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+
+-- Quest 7 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(111) = 7, english -> "ENGLISH."
 "quest", "mission", queststatus(111) = 7 -> "GERMAN."
 "task", "adventure", queststatus(111) = 7 -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7 -> "GERMAN."
 
--- BIS HIER!
+-- No more quests, just nice words of gratitude
+"quest", "mission", queststatus(111) = 7, english -> "ENGLISH."
+"quest", "mission", queststatus(111) = 7 -> "GERMAN."
+"task", "adventure", queststatus(111) = 7 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7 -> "GERMAN."
+
+-- Outlaw answer
+"quest", "mission", english -> "ENGLISH."
+"quest", "mission" -> "GERMAN."
+"task", "adventure" -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the royal quartermaster. Didn't I just mention that!?"
