@@ -67,7 +67,7 @@ itemShoes = 770
 -- 9: Quest 4 taken, patrol...
 -- 10: All locations visited
 -- 11: Quest 4 solved, reward: +15 rankpoints
--- 12: Quest 5 taken, reconnoitre...
+-- 12: Quest 5 taken, reconnoitre the other factions and the neutral tavern
 -- 13: All locations visited
 -- 14: Quest 5 solved, reward: +15 rankpoints
 -- 15: Quest 6 taken, provide...
@@ -171,7 +171,7 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 9, town = Cadomyr -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
 
--- Quest 5: Reconnoitre...
+-- Quest 5: Reconnoitre the other factions and the neutral tavern
 "quest", "mission", queststatus(111) = 11, english, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
 "quest", "mission", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "GERMAN1.", queststatus(111) = 12
 "task", "adventure", queststatus(111) = 11, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
@@ -189,15 +189,15 @@ itemShoes = 770
 
 -- bis hier
 
--- Quest 6: Provide...
+-- Quest 6: Provide 30 naldor wood boards (546)
 "quest", "mission", queststatus(111) = 14, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "ENGLISH1.", queststatus(111) = 15
 "quest", "mission", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "GERMAN1.", queststatus(111) = 15
 "task", "adventure", queststatus(111) = 14, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "ENGLISH1.", queststatus(111) = 15
 "Auftrag", "Aufgabe", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "GERMAN1.", queststatus(111) = 15
 
 -- Quest 6 solved, reward:
-".*", queststatus(111) = 15, item(316, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(316, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
-".*", queststatus(111) = 15, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
+".*", queststatus(111) = 15, item(546, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(546, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
+".*", queststatus(111) = 15, item(546, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(546, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
 
 -- Quest 6 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(111) = 15, english, town = Cadomyr -> "ENGLISH."

@@ -837,12 +837,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 29));
+talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addResponse("ENGLISH1.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(546, 30));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 16));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -851,11 +851,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 29));
+talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 29));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("GERMAN1.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(546, 30));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 16));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
