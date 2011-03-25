@@ -56,21 +56,23 @@ itemShoes = 770
 -- Queststatus Overview (111)
 
 -- 0: No Quest taken
--- 1: Quest 1 taken, visit ...
--- 2: All locations visited
+-- 1: Quest 1 taken, read the Cadomyr laws
+-- 2: Cadomyr laws read
 -- 3: Quest 1 solved, reward:
--- 4: Quest 2 taken, read the Cadomyr laws
--- 5: Cadomyr laws read
+-- 4: Quest 2 taken, patrol...
+-- 5: All locations visited
 -- 6: Quest 2 solved, reward:
--- 7: Quest 3 taken,
+-- 7: Quest 3 taken, provide 30 units of quartz sand
+-- 8: Quest 3 solved, reward:
+-- 9: Quest 4 taken,
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0, queststatus(110) = 0
 ".+", queststatus(111) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the quartermaster. Keyphrases: Hello, Quest, Orders, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The queen issued new orders. And her majesty does not like to see any delay."
@@ -119,14 +121,30 @@ itemShoes = 770
 "Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
 
 -- Quest 2 solved, reward:
-".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 6, rankpoints(Cadomyr) + 5
-".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 6, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 6, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 6, rankpoints(Cadomyr) + 10
 
--- Quest 3: Provide...
+-- Quest 2 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 4, english -> "ENGLISH."
+"quest", "mission", queststatus(111) = 4 -> "GERMAN."
+"task", "adventure", queststatus(111) = 4 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4 -> "GERMAN."
+
+-- Quest 3: Provide 30 units of quartz sand (316)
 "quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
 "quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
 "task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
 "Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+
+-- Quest 3 solved, reward:
+".*", queststatus(111) = 7, item(316, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 7, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+
+-- Quest 3 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(111) = 7, english -> "ENGLISH."
+"quest", "mission", queststatus(111) = 7 -> "GERMAN."
+"task", "adventure", queststatus(111) = 7 -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7 -> "GERMAN."
 
 -- BIS HIER!
 
@@ -171,12 +189,12 @@ itemShoes = 770
 "Cadomyr" -> "Cadomyr ist nicht bloß eine Stadt oder ein Königreich. Es ist eine Idee, ein Lebensgefühl mit einer Vision. Wenn du du dieser nicht entsprichst, hau besser ab."
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar", english -> "I know that the albarian kingdom does not really appreciate the existance of Cadomyr. But the albarians also accept that we are not the foe."
+"albar" -> "Ich weiß, dass das albarische Reich nicht gerade erfreut über die Existenz Cadomyrs ist. Aber die Albarier wissen, dass wir nicht der Feind sind."
+"gynk", "gync", english -> "Did you know what they do in Gynk to punish foreigners that commit a crime? They release them - in the slums of Gynk. A capital punishment..."
+"gync", "gynk" -> "Wußtest du, was sie in Gynk mit Fremden machen, die unangenehm auffallen? Sie lassen sie frei - in den Slums von Gynk. Kommt der Todesstrafe gleich."
+"salkama", english -> "Salkamar lacks organisation. Other than that, it seems to be quite a nice place."
+"salkama" -> "In Salkamar fehlt es an der nötigen Ordnung. Ansonsten soll es da ganz nett sein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I obey queen Rosaline alone and if she orders me to worship a god, I'll worship it."
