@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 26, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 27, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -477,7 +477,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -488,7 +488,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -499,7 +499,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -510,7 +510,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -518,12 +518,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 29));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addResponse("ENGLISH1.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -532,11 +532,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
-talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 29));
+talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("GERMAN1.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -548,7 +548,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -557,7 +557,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +566,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,7 +576,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

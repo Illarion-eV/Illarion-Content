@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 26, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 27, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -62,7 +62,7 @@ itemShoes = 770
 -- 4: Quest 2 taken, patrol...
 -- 5: All locations visited
 -- 6: Quest 2 solved, reward: +10 rankpoints
--- 7: Quest 3 taken, provide 30 units of quartz sand
+-- 7: Quest 3 taken, provide 20 bricks
 -- 8: Quest 3 solved, reward: +10 rankpoints
 -- 9: Quest 4 taken, patrol...
 -- 10: All locations visited
@@ -139,23 +139,23 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 4, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!"
 
--- Quest 3: Provide 30 units of quartz sand (316)
-"quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
-"quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
-"task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7
-"Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "GERMAN1.", queststatus(111) = 7
+-- Quest 3: Provide 20 bricks (2588)
+"quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
+"quest", "mission", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
+"task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
+"Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
 
--- Quest 3 solved, reward:
-".*", queststatus(111) = 7, item(316, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
-".*", queststatus(111) = 7, item(316, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(316, 30), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+-- Quest 3 solved, reward: 10 rankpoints
+".*", queststatus(111) = 7, item(2588, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 7, item(2588, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
 
 -- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 7, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 7, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 7, english, town = Cadomyr -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
+"quest", "mission", queststatus(111) = 7, town = Cadomyr -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
+"task", "adventure", queststatus(111) = 7, town = Cadomyr -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
 
--- Quest 4: Patrol...
+-- Quest 4: Patrol... the eastern border
 "quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
 "quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
 "task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
