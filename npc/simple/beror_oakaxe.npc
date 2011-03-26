@@ -114,30 +114,30 @@ itemShoes = 770
 "Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
 
 -- Quest 1 solved, reward: 5 rankpoints
-".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
-".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), "Very well, now you are ready for real missions. You didn't expect a reward, did you?", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), "Soweit, so gut. Du bist nun bereit für höhere Aufgaben. Du hast jetzt nicht mit einer Belohnung gerechnet, oder?", queststatus(111) = 3, rankpoints(Cadomyr) + 5
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 1, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 1, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 1, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 1, english, town = Cadomyr -> "You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace."
+"quest", "mission", queststatus(111) = 1, town = Cadomyr -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
+"task", "adventure", queststatus(111) = 1, town = Cadomyr -> "You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1, town = Cadomyr -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
 
--- Quest 2: Patrol...
-"quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
-"quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
-"task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "ENGLISH1.", queststatus(111) = 4
-"Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "GERMAN1.", queststatus(111) = 4
+-- Quest 2: Patrol the palace, the tavern and the town gate
+"quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.", queststatus(111) = 4
+"quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.", queststatus(111) = 4
+"task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.", queststatus(111) = 4
+"Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.", queststatus(111) = 4
 
--- Quest 2 solved, reward:
-".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 6, rankpoints(Cadomyr) + 10
-".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 6, rankpoints(Cadomyr) + 10
+-- Quest 2 solved, reward: Beer (1909), 10 rankpoints
+".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."), "Any uncommon events? I expect your written report later. Now let's have a beer before I send you on your next mission.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Report später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 4, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 4, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
+"quest", "mission", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!"
+"task", "adventure", queststatus(111) = 4, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!"
 
 -- Quest 3: Provide 30 units of quartz sand (316)
 "quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "ENGLISH1.", queststatus(111) = 7

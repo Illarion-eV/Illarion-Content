@@ -22,6 +22,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
@@ -306,7 +307,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Very well, now you are ready for real missions. You didn't expect a reward, did you?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -317,7 +318,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Soweit, so gut. Du bist nun bereit für höhere Aufgaben. Du hast jetzt nicht mit einer Belohnung gerechnet, oder?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -329,7 +330,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +339,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,7 +348,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,7 +358,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +369,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -379,7 +380,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -390,7 +391,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -401,7 +402,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -411,8 +412,9 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Any uncommon events? I expect your written report later. Now let's have a beer before I send you on your next mission.");
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -422,8 +424,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Report später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.");
+talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -435,7 +438,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("What are you waiting for? Patrol the tavern, the palace and the town gate!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +447,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,7 +456,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("What are you waiting for? Patrol the tavern, the palace and the town gate!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +466,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
