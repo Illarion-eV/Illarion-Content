@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist Beror Oakaxe der Quartiermeister."
-lookatUS = "This NPC is Beror Oakaxe the quartermaster."
+lookatDE = "Dieser NPC ist Beror Oakaxe der königliche Quartiermeister."
+lookatUS = "This NPC is Beror Oakaxe the royal quartermaster."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -80,8 +80,8 @@ itemShoes = 770
 ".+", queststatus(111) > 18 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
+"Help" -> inform("[Game Help] This NPC is Beror Oakaxe the royal quartermaster. Keyphrases: Hello, Quest, Orders, Knight, Gate.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der königliche Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The queen issued new orders. And her majesty does not like to see any delay."
@@ -103,19 +103,19 @@ itemShoes = 770
 "task", "adventure", town = Galmair -> "I do not issue quests to honourless people, sorry."
 "Auftrag", "Aufgabe", "Abenteuer", town = Galmair -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
 "quest", "mission", english, town = Runewick -> "I do not issue quests to braindead people, sorry."
-"quest", "mission", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
+"quest", "mission", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Idioten."
 "task", "adventure", town = Runewick -> "I do not issue quests to braindead people, sorry."
-"Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Leute."
+"Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "Ich vergebe keine Aufgaben an hirnverbrannte Idioten."
 
 -- Quest 1: Read the Cadomyr laws
-"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1, queststatus(110) = 0
-"quest", "mission", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1, queststatus(110) = 0
-"task", "adventure", queststatus(111) = 0, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "ENGLISH1.", queststatus(111) = 1, queststatus(110) = 0
-"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "GERMAN1.", queststatus(111) = 1, queststatus(110) = 0
+"quest", "mission", queststatus(111) = 0, english, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Sir Reginald's statue is where you can study them.", queststatus(111) = 1, queststatus(110) = 0
+"quest", "mission", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
+"task", "adventure", queststatus(111) = 0, town = Cadomyr -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Sir Reginald's statue is where you can study them.", queststatus(111) = 1, queststatus(110) = 0
+"Auftrag", "Aufgabe", queststatus(111) = 0, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
 
--- Quest 1 solved, reward:
-".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
-".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+-- Quest 1 solved, reward: 5 rankpoints
+".*", queststatus(111) = 2, english, town = Cadomyr -> inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
+".*", queststatus(111) = 2, town = Cadomyr -> inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 3, rankpoints(Cadomyr) + 5
 
 -- Quest 1 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(111) = 1, english, town = Cadomyr -> "ENGLISH."
@@ -186,8 +186,6 @@ itemShoes = 770
 "quest", "mission", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
 "task", "adventure", queststatus(111) = 12, town = Cadomyr -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
-
--- bis hier
 
 -- Quest 6: Provide 30 naldor wood boards (546)
 "quest", "mission", queststatus(111) = 14, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "ENGLISH1.", queststatus(111) = 15
