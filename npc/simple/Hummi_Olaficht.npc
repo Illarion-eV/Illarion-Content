@@ -1,20 +1,20 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Hummi Olaficht None --
--- NPC Job: none --
--- --
--- NPC Race: halfling NPC Position: 686, 313, 0 --
--- NPC Sex: male NPC Direction: west --
--- --
--- Author: envi --
--- --
--- Last parsing: February 15, 2011 easyNPC Parser v1.02 --
+-- NPC Name: Hummi Olaficht                                              None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  48, 970, 0             --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                                            --
+-- Last parsing: March 29, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hummi Olaficht"
 race = halfling
 sex = male
-position = 686, 313, 0
-direction = west
+position = 48, 970, 0
+direction = south
 affiliation = "None"
 job = "none"
 
@@ -102,7 +102,6 @@ itemShoes = 53
 "sevenhill" -> "That is to the south of the Sinking Mountains, just north of the Mountains of Khenserra, and generally speaking west of us. *Giggles*"
 "sinking" -> "Sinking Mountains? They lie somewhere in the north."
 "Khenserra", english -> "Mountains of Khenserra? They are somewhere to the south."
-
 "Fraktion" -> "Wir haben hier drei Fraktionen: Runewick, Cadomyr und Galmair. Jede mit bestimmten Rassen und Berufen. Wenn du mehr darüber wissen möchtest, dann sag den jeweiligen Namen."
 "Rasse" -> "In jeder Fraktion kannst du spezifische Rassen finden. In Runewick vorallem Elfen und Halblinge; in Galmair Zwerge; und in Cadomyr Orks und Echsenmenschen. Menschen sind überall zufinden."
 "Handwerk" -> "Welches meinst du? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?", "Jede Fraktion ist auf bestimmte Handwerke spezialisiert. Nenn mir dein Handwerk und ich sag in welcher Fraktion du es finden wirst.", ""
