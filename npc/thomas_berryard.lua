@@ -35,9 +35,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("(%d+).*");
 talkEntry:addResponse("I give you said number of coal!");
-talkEntry:addConsequence(npc.base.consequence.item.item(236, function(number) return (number+1); end, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(236, "%NUMBER", 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
-end; 
+end;
+
+
 
 
 if (true) then
