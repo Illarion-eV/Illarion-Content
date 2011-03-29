@@ -18,13 +18,11 @@ VALUES (1, 135, 620, 0, 4, 'Beror Oakaxe', 'npc.beror_oakaxe', 0, 3, 1, 79, 79, 
 require("npc.base.basic")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
-require("npc.base.condition.money")
 require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
-require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
@@ -33,27 +31,6 @@ module("npc.beror_oakaxe", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("give gold");
-talkEntry:addResponse("OK!");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("take gold");
-talkEntry:addCondition(npc.base.condition.money.money("<", 10000));
-talkEntry:addResponse("U R POOR OMG!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("take gold");
-talkEntry:addResponse("Taken by a stranger!");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 10000));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");

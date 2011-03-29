@@ -74,9 +74,6 @@ itemShoes = 770
 -- 16: Quest 6 solved, reward: coppered dagger, +20 rankpoints
 -- 17: Quest 7 taken, provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
 -- 18: Quest 7 solved, reward: +20 rankpoints
-"give gold" -> "OK!", money + 10000
-"take gold", money < 10000 -> "U R POOR OMG!"
-"take gold" -> "Taken by a stranger!", money - 10000
 
 -- Debugging
 "set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0, queststatus(110) = 0
