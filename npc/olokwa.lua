@@ -175,7 +175,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gabon Corad");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Gabon Corad maintained the Clan until Warrior Queen Kurga Wolfbane assumed control of the Clan as it?s first ?chiefess?. He currently serves as Red Skull as the eldest and most respected Bloodskull.");
+talkEntry:addResponse("Gabon Corad maintained the Clan until Warrior Queen Kurga Wolfbane assumed control of the Clan as it's first 'chiefess'. He currently serves as Red Skull as the eldest and most respected Bloodskull.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,7 +205,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kurga Wolfbane");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addResponse("Kriegerkönigin Kurga Wolfbane, ermordet wurde von Klanbruder ?Zub?. Er verraten hat Kurga, and Menschen und Elfen, in Hinterhalt...");
+talkEntry:addResponse("Kriegerkönigin Kurga Wolfbane, ermordet wurde von Klanbruder 'Zub'. Er verraten hat Kurga, and Menschen und Elfen, in Hinterhalt...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -378,7 +378,7 @@ talkEntry:addTrigger("Rugh'toh");
 talkEntry:addTrigger("Rugh tho");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addResponse("Chief Rugh?toh is a true Orcen Hero. Warrior, Lokh?um and brother...");
+talkEntry:addResponse("Chief Rugh'toh is a true Orcen Hero. Warrior, Lokh'um and brother...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -411,7 +411,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rugh'toh");
 talkEntry:addTrigger("Rugh tho");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addResponse("Chief Rugh?toh ein wahrer Held ist. Krieger, Lokh?um und Bruder...");
+talkEntry:addResponse("Chief Rugh'toh ein wahrer Held ist. Krieger, Lokh'um und Bruder...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -427,7 +427,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("weiter");
 talkEntry:addCondition(npc.base.condition.state.state("=", 17));
-talkEntry:addResponse("...Es der größte Klan war, man weiß von! Der Klan vom Berg Dark?rest. Rugh gebaut mächtige Tore von Orkhöhle, Halle der Ahnen und Kerker!");
+talkEntry:addResponse("...Es der größte Klan war, man weiß von! Der Klan vom Berg Dark'rest. Rugh gebaut mächtige Tore von Orkhöhle, Halle der Ahnen und Kerker!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -566,7 +566,7 @@ talkEntry:addResponse("Tha ancestors just dinning. Ask lather again.");
 talkEntry:addResponse("Tha ancestors busy with importent ancestor-stuff. Nub interupt with your foolish questions!");
 talkEntry:addResponse("Tha big claw be smarter than you think.");
 talkEntry:addResponse("Tha pointed teeth became rusty.");
-talkEntry:addResponse("One will come and change youbba live! Is good is bad? Who knows...");
+talkEntry:addResponse("One will come and change youbba live! Is good is bad' Who knows...");
 talkEntry:addResponse("Schut tha damn gate ib youb walking trough!");
 talkEntry:addResponse("Tha raw meat isn't well done yet.");
 talkEntry:addResponse("Stone 'll break. Wood'll root. Bone 'll slpash.");
@@ -1026,7 +1026,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ali[czs]");
 talkEntry:addResponse("Alize, Gnarh. Sie jammernd Kind bei Schmieda. Sie Krudashs Sklave ist. Sie schmelzn Erz, muss.");
 talkEntry:addResponse("Du nix sein schwuach mit diesa jammernde Slkave. Sie lernen muss, zu sein STARK! Machen den Besitza Ehre. Yubba.");
-talkEntry:addResponse("Har! Krudash gefangen auf eine Harfen. jetzt ALize, Sklave ist. Aber Jammern viel tut.");
+talkEntry:addResponse("Har! Krudash gefangen auf eine Harfen. jetzt Alize, Sklave ist. Aber Jammern viel tut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1042,7 +1042,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("krudash");
 talkEntry:addTrigger("Hacksack");
-talkEntry:addResponse("Krudash, hurr! Sie klugg. Hat vieles Münz. hat vieles Sklave. Hat gute Mann. Hat tapfere Tochtas.");
+talkEntry:addResponse("Krudash, hurr! Sie klugg. Hat vieles Münz. Hat vieles Sklave. Hat gute Mann. Hat tapfere Tochtas.");
 talkEntry:addResponse("Hurr, sie hatt Alize 'nd diese tükke Halbling als Skalve. Sklaven gutt! Machen viel Ehre.");
 talkEntry:addResponse("Sie Weibs von Murgo ist. Hurr. Er glucklich sein kann. Krudash hübsch 'nd klugg!");
 talkEntry:addResponse("Hurr, mirr mag ihre Nase! Sein süß. He-he. Aber nix  sagst Murgo!");
@@ -1129,10 +1129,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tom");
 talkEntry:addTrigger("berry");
 talkEntry:addResponse("Garh! Disa hintalistig Halbling! Thoma' Berryar'! Einmal er vermischt Glasscherbn mit Krudashs fressen.");
-talkEntry:addResponse("Garh! Disa hintalistig Halbling! Thoma' Berryar'! Einmal er geflohen durch Berge. Aber unsre Hounds ihn erlegt danieder! Jezt er muss kloppen Steins.");
-talkEntry:addResponse("Garh! Disa hintalistig Halbling! Thoma' Berryar'! Du im Auge hast sein kleine Fäuste. ergerne haut dirr zwischen Beine!");
-talkEntry:addResponse(" Sie gesagt, Thoma' Berryar'. er Grund ist, Murgo 'nd Krudas nix haben mehr Welpen. wassimma das heißen.");
-talkEntry:addResponse("Murgo geschnappt diese Halbling irgendwohig nahe von Briar Dorf. SCheint es nix erstemal, für Thoma' war.");
+talkEntry:addResponse("Garh! Disa hintalistig Halbling! Thoma' Berryar'! Einmal er geflohen durch Berge. Aber unsre Hunde ihn erlegt danieder! Jezt er muss kloppen Steins.");
+talkEntry:addResponse("Garh! Disa hintalistig Halbling! Thoma' Berryar'! Du im Auge hast sein kleine Fäuste. Er gerne haut dirr zwischen Beine!");
+talkEntry:addResponse(" Sie gesagt, Thoma' Berryar'. er Grund ist, Murgo 'nd Krudas nix haben mehr Welpen. Wassimma das heißen.");
+talkEntry:addResponse("Murgo geschnappt diese Halbling irgendwohig nahe von Briar Dorf. Scheint es nix erstemal, für Thoma' war.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1481,8 +1481,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("#me bohrt einen Finger ins Ohr. 'Is gut - is gut.");
-talkEntry:addResponse("Are you sure, young fella?");
-talkEntry:addResponse("I knew you would say that. - Cause I'm a seer.");
+talkEntry:addResponse("Bist du sicher, junge Kerl?");
+talkEntry:addResponse("Ich wusste, du sagen das. - Weil ich Seher binne.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1497,8 +1497,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("#me drills a finger into his ear. 'Is good- is good.'");
-talkEntry:addResponse("Bist du sicher, junge Kerl?");
-talkEntry:addResponse("Ich wusste, du sagen das. - Weil ich Seher binne.");
+talkEntry:addResponse("Are you sure, young fella?");
+talkEntry:addResponse("I knew you would say that. - Cause I'm a seer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
