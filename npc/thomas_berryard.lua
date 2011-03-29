@@ -33,6 +33,15 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("(%d+).*");
+talkEntry:addResponse("I give you said number of coal!");
+talkEntry:addConsequence(npc.base.consequence.item.item(236, function(number) return (number*1); end, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end; 
+
+
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Thomas Berryard the mason and dye mixer-slave. Fee: 1 silver coin each task. Keyphrases: make 15 buckets black/green/blue/red/yellow/white dye, make 10 pebbles, make 3 stone block."));
 talkingNPC:addTalkingEntry(talkEntry);
