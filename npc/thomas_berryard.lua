@@ -49,8 +49,8 @@ talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(735, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in schöne Quader gehauen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(733, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(733, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -61,7 +61,7 @@ talkEntry:addCondition(npc.base.condition.item.item(735, "all", "=>", function(n
 talkEntry:addResponse("#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, function(number) return (number/5); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(1266, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(1266, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,7 +72,7 @@ talkEntry:addCondition(npc.base.condition.item.item(733, "all", "=>", function(n
 talkEntry:addResponse("#me seufzt tief und steckt die erhaltene Silbermünze in seine Hosentasche, nach einer weile Arbeit hat er die Steine in handliche Kiesel Zerschlagen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, function(number) return (number/5); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(1266, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(1266, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,8 +141,8 @@ talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addCondition(npc.base.condition.item.item(735, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me sighs deeply as he puts the silver coin into his trouser pocket then slowly cuts the raw stones to smooth blocks.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(733, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(733, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -164,7 +164,7 @@ talkEntry:addCondition(npc.base.condition.item.item(735, "all", "=>", function(n
 talkEntry:addResponse("#me sighs deeply as he puts the silver coin into his trouser pocket then slowly cuts the stones into pebbles.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, function(number) return (number/5); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(1266, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(1266, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -175,7 +175,7 @@ talkEntry:addCondition(npc.base.condition.item.item(733, "all", "=>", function(n
 talkEntry:addResponse("#me sighs deeply as he puts the silver coin into his trouser pocket then slowly cuts the stones into pebbles.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(735, function(number) return (number/5); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(1266, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(1266, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,9 +233,9 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2678, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2678, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -246,9 +246,9 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2678, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2678, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,9 +323,9 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2678, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2678, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,9 +336,9 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2678, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2678, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,9 +413,9 @@ talkEntry:addCondition(npc.base.condition.item.item(290, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2679, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2679, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,9 +426,9 @@ talkEntry:addCondition(npc.base.condition.item.item(290, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2679, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2679, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,9 +503,9 @@ talkEntry:addCondition(npc.base.condition.item.item(290, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2679, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2679, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,9 +516,9 @@ talkEntry:addCondition(npc.base.condition.item.item(290, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2679, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(290, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2679, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -593,9 +593,9 @@ talkEntry:addCondition(npc.base.condition.item.item(147, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2680, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2680, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,9 +606,9 @@ talkEntry:addCondition(npc.base.condition.item.item(147, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2680, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2680, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,9 +683,9 @@ talkEntry:addCondition(npc.base.condition.item.item(147, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, function(number) return (number*3); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2680, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2680, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -696,9 +696,9 @@ talkEntry:addCondition(npc.base.condition.item.item(147, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, function(number) return (number*3); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2680, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2680, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -776,7 +776,7 @@ talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, function(number) return (number*2); end));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(302, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2681, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2681, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +790,7 @@ talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, function(number) return (number*2); end));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(302, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2681, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2681, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -874,7 +874,7 @@ talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, function(number) return (number*2); end));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(302, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2681, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2681, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +888,7 @@ talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, function(number) return (number*2); end));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(302, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2681, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2681, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -969,9 +969,9 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2682, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2682, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -982,9 +982,9 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2682, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2682, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1059,9 +1059,9 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2682, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2682, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1072,9 +1072,9 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2682, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2682, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1085,7 +1085,7 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", 1));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2682, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1098,7 +1098,7 @@ talkEntry:addCondition(npc.base.condition.item.item(157, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", 1));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(157, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2682, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1149,9 +1149,9 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2683, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2683, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1162,9 +1162,9 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2683, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2683, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1175,7 +1175,7 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", 1));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2683, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1188,7 +1188,7 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", 1));
 talkEntry:addResponse("Da hast du deine Farbe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2683, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1239,9 +1239,9 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2683, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2683, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1252,9 +1252,9 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, function(number) return (number*2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(2683, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2683, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1265,7 +1265,7 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(51, "all", "=>", 1));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2683, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1278,7 +1278,7 @@ talkEntry:addCondition(npc.base.condition.item.item(161, "all", "=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(52, "all", "=>", 1));
 talkEntry:addResponse("Here's your dye.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, "%NUMBER"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(51, number));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(161, 2));
 talkEntry:addConsequence(npc.base.consequence.item.item(2683, 1, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
