@@ -35,9 +35,9 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("(%d+).*");
-talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", number));
+talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", (number)));
 talkEntry:addResponse("I will give you %NUMBER coal, as long as you got the same amount of Stones with you.");
-talkEntry:addConsequence(npc.base.consequence.item.item(21, number, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(21, (number), 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
