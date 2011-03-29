@@ -52,9 +52,9 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(236, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(236, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +81,9 @@ talkEntry:addCondition(npc.base.condition.item.item(234, "all", "=>", function(n
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(236, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(236, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -108,9 +108,9 @@ talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2550, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2550, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,9 +135,9 @@ talkEntry:addCondition(npc.base.condition.item.item(2536, "all", "=>", function(
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2550, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2550, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -162,9 +162,9 @@ talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me takes the silver coin and starts to melt the ore, after a few moments she finishes her work.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2535, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2535, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,9 +189,9 @@ talkEntry:addCondition(npc.base.condition.item.item(22, "all", "=>", function(nu
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (number*1); end));
 talkEntry:addResponse("#me bekommt ein Silberstück und beginnt Erz einzuschmelzen. Nach einigen Augenblicken beendet sie ihre Arbeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, "%NUMBER"));
-talkEntry:addConsequence(npc.base.consequence.item.item(2535, "%NUMBER", 333, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, number));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, number));
+talkEntry:addConsequence(npc.base.consequence.item.item(2535, number, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
