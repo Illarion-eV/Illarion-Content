@@ -23,7 +23,7 @@ function _money_helper_add(self, player)
     base.money.GiveMoneyToChar(player, value);
 end;
 
-function _money_helper_lesser(self, player)
+function _money_helper_sub(self, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     base.money.TakeMoneyFromChar(player, value);
 end;
