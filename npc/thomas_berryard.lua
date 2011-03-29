@@ -33,20 +33,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("too much");
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (2+2); end));
-talkEntry:addResponse("Too much!!!");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, function(number) return (2+2); end));
-talkEntry:addConsequence(npc.base.consequence.item.item(1266, function(number) return (1+1); end, 333, 0));
+talkEntry:addTrigger("(%d+).*");
+talkEntry:addResponse("I will give you %NUMBER coal!");
+talkEntry:addConsequence(npc.base.consequence.item.item(21, saidNumber, 333, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("too much");
-talkEntry:addCondition(npc.base.condition.item.item(21, "all", "=>", function(number) return (1+1); end));
-talkEntry:addResponse("Du hast mehr als 2 Kohlestücke!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
+
+
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
