@@ -59,20 +59,20 @@ itemShoes = 770
 -- 1: Quest 1 taken, read the Cadomyr laws
 -- 2: Cadomyr laws read
 -- 3: Quest 1 solved, reward: +5 rankpoints
--- 4: Quest 2 taken, patrol...
+-- 4: Quest 2 taken, patrol the palace, the gate and the tavern
 -- 5: All locations visited
 -- 6: Quest 2 solved, reward: +10 rankpoints
 -- 7: Quest 3 taken, provide 20 bricks
--- 8: Quest 3 solved, reward: +10 rankpoints
--- 9: Quest 4 taken, patrol...
+-- 8: Quest 3 solved, reward: brick mould, +10 rankpoints
+-- 9: Quest 4 taken, patrol the eastern border, the Oasis of Stars,...
 -- 10: All locations visited
 -- 11: Quest 4 solved, reward: +15 rankpoints
 -- 12: Quest 5 taken, reconnoitre the other factions and the neutral tavern
 -- 13: All locations visited
 -- 14: Quest 5 solved, reward: +15 rankpoints
--- 15: Quest 6 taken, provide...
--- 16: Quest 6 solved, reward: +20 rankpoints
--- 17: Quest 7 taken, provide...
+-- 15: Quest 6 taken, provide 30 naldor wood boards (546)
+-- 16: Quest 6 solved, reward: coppered dagger, +20 rankpoints
+-- 17: Quest 7 taken, provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
 -- 18: Quest 7 solved, reward: +20 rankpoints
 
 -- Debugging
@@ -131,7 +131,7 @@ itemShoes = 770
 
 -- Quest 2 solved, reward: Beer (1909), 10 rankpoints
 ".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."), "Any uncommon events? I expect your written report later. Now let's have a beer before I send you on your next mission.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
-".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Report später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Bericht später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
 
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
@@ -145,9 +145,9 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 6, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
 "Auftrag", "Aufgabe", queststatus(111) = 6, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
 
--- Quest 3 solved, reward: 10 rankpoints
-".*", queststatus(111) = 7, item(2588, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
-".*", queststatus(111) = 7, item(2588, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+-- Quest 3 solved, reward: brick mould (734), 10 rankpoints
+".*", queststatus(111) = 7, item(2588, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."), "Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster the next time!", item(2388,1,599,0),deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
+".*", queststatus(111) = 7, item(2588, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst eine Ziegelform. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Rekrut! Stell dir mal vor, wir würden belagert werden und du brauchst wieder so lange, um ein paar gewöhnliche Ziegel zu besorgen! Nimm diese Ziegelform, damit du nächstes mal schneller bist!", item(2388,1,599,0), deleteItem(2588, 20), queststatus(111) = 8, rankpoints(Cadomyr) + 10
 
 -- Quest 3 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(111) = 7, english, town = Cadomyr -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
@@ -155,13 +155,13 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 7, town = Cadomyr -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
 
--- Quest 4: Patrol... the eastern border
+-- Quest 4: Patrol the eastern border, the oasis of stars,...
 "quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
 "quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
 "task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
 "Auftrag", "Aufgabe", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
 
--- Quest 4 solved, reward:
+-- Quest 4 solved, reward: 15 rankpoints
 ".*", queststatus(111) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
 ".*", queststatus(111) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
 
@@ -172,52 +172,52 @@ itemShoes = 770
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
-"quest", "mission", queststatus(111) = 11, english, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
-"quest", "mission", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "GERMAN1.", queststatus(111) = 12
-"task", "adventure", queststatus(111) = 11, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "ENGLISH1.", queststatus(111) = 12
-"Auftrag", "Aufgabe", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "GERMAN1.", queststatus(111) = 12
+"quest", "mission", queststatus(111) = 11, english, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
+"quest", "mission", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
+"task", "adventure", queststatus(111) = 11, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
+"Auftrag", "Aufgabe", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
 
--- Quest 5 solved, reward:
-".*", queststatus(111) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 14, rankpoints(Cadomyr) + 15
-".*", queststatus(111) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 14, rankpoints(Cadomyr) + 15
+-- Quest 5 solved, reward: 15 rankpoints
+".*", queststatus(111) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded enchanted albarian steelboots. You advance in Queen Rosaline Edwards' favour."), "Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.", item(771,1,699,61),queststatus(111) = 14, rankpoints(Cadomyr) + 15
+".*", queststatus(111) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst verzauberte albarische Stahlschuhe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Wie immer kannst du deinen Bericht später schreiben, Rekrut. Ich bin erstmal froh, dass du heil zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich.", item(771,1,699,61), queststatus(111) = 14, rankpoints(Cadomyr) + 15
 
 -- Quest 5 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 12, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 12, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 12, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 12, english, town = Cadomyr -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe."
+"quest", "mission", queststatus(111) = 12, town = Cadomyr -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick und finde heraus, wer Feind und wer Freund ist."
+"task", "adventure", queststatus(111) = 12, town = Cadomyr -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 12, town = Cadomyr -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick und finde heraus, wer Feind und wer Freund ist."
 
--- Quest 6: Provide 30 naldor wood boards (546)
-"quest", "mission", queststatus(111) = 14, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "ENGLISH1.", queststatus(111) = 15
-"quest", "mission", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "GERMAN1.", queststatus(111) = 15
-"task", "adventure", queststatus(111) = 14, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "ENGLISH1.", queststatus(111) = 15
-"Auftrag", "Aufgabe", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "GERMAN1.", queststatus(111) = 15
+-- Quest 6: Provide 20 naldor wood boards (546)
+"quest", "mission", queststatus(111) = 14, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.", queststatus(111) = 15
+"quest", "mission", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.", queststatus(111) = 15
+"task", "adventure", queststatus(111) = 14, town = Cadomyr -> inform("[New Quest] A Question of Honour VI"), "Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.", queststatus(111) = 15
+"Auftrag", "Aufgabe", queststatus(111) = 14, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VI"), "Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.", queststatus(111) = 15
 
--- Quest 6 solved, reward:
-".*", queststatus(111) = 15, item(546, all) > 29, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(546, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
-".*", queststatus(111) = 15, item(546, all) > 29, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(546, 30), queststatus(111) = 16, rankpoints(Cadomyr) + 20
+-- Quest 6 solved, reward: coppered dagger (398), 20 rankpoints
+".*", queststatus(111) = 15, item(546, all) > 19, english, town = Cadomyr -> inform("[Quest solved] You are awarded a coppered dagger. You advance in Queen Rosaline Edwards' favour."), "Good job, recruit! You did a good deed today for the glory of Cadomyr and Malachín. I award you this dagger which identifies you as a defender of Cadomyr.", deleteItem(546, 20), item(398,1,799,0),queststatus(111) = 16, rankpoints(Cadomyr) + 20
+".*", queststatus(111) = 15, item(546, all) > 19, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen Kupferdolch. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Gut gemacht, Rekrut! Du hast heute eine gute Tat im Namen Cadomyrs und Malachíns vollbracht. Ich verleihe dir hiermit diesen Dolch, welcher dich als Verteidiger Cadomyr ausweist.", deleteItem(546, 20), item(398,1,799,0), queststatus(111) = 16, rankpoints(Cadomyr) + 20
 
 -- Quest 6 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 15, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 15, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 15, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 15, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 15, english, town = Cadomyr -> "Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause.."
+"quest", "mission", queststatus(111) = 15, town = Cadomyr -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
+"task", "adventure", queststatus(111) = 15, town = Cadomyr -> "Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 15, town = Cadomyr -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
 
 -- Quest 7: Provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
-"quest", "mission", queststatus(111) = 16, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VII"), "ENGLISH1.", queststatus(111) = 17
-"quest", "mission", queststatus(111) = 16, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VII"), "GERMAN1.", queststatus(111) = 17
-"task", "adventure", queststatus(111) = 16, town = Cadomyr -> inform("[New Quest] A Question of Honour VII"), "ENGLISH1.", queststatus(111) = 17
-"Auftrag", "Aufgabe", queststatus(111) = 16, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VII"), "GERMAN1.", queststatus(111) = 17
+"quest", "mission", queststatus(111) = 16, english, town = Cadomyr -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
+"quest", "mission", queststatus(111) = 16, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
+"task", "adventure", queststatus(111) = 16, town = Cadomyr -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
+"Auftrag", "Aufgabe", queststatus(111) = 16, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
 
--- Quest 7 solved, reward:
-".*", queststatus(111) = 17, item(334, all) > 0, item(2559, all) > 0, item(315, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", deleteItem(334, 1), deleteItem(2559, 1), deleteItem(315, 1), queststatus(111) = 18, rankpoints(Cadomyr) + 20
-".*", queststatus(111) = 17, item(334, all) > 0, item(2559, all) > 0, item(315, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", deleteItem(334, 1), deleteItem(2559, 1), deleteItem(315, 1), queststatus(111) = 18, rankpoints(Cadomyr) + 20
+-- Quest 7 solved, reward: knight shield (20) with level 3 bluestone and level 1 diamond, 20 rankpoints
+".*", queststatus(111) = 17, item(334, all) > 0, item(2559, all) > 0, item(315, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded an enchanted knight shield. You advance in Queen Rosaline Edwards' favour."), "You are truly an altruistic knight of Cadomyr. Bear the crest of Cadomyr on your shield, the shield of a knight. I salute you!", deleteItem(334, 1), deleteItem(2559, 1), deleteItem(315, 1), item(20,1,999,5311), queststatus(111) = 18, rankpoints(Cadomyr) + 20
+".*", queststatus(111) = 17, item(334, all) > 0, item(2559, all) > 0, item(315, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen verzauberten Ritterschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Du bist wahrhaftig ein selbstloser Ritter Cadomyrs. Trage fortan das Wappen Cadomyrs auf deinem Schild, der Schild eines Ritters. Ich salutiere vor dir!", deleteItem(334, 1), deleteItem(2559, 1), deleteItem(315, 1), item(20,1,999,5311), queststatus(111) = 18, rankpoints(Cadomyr) + 20
 
 -- Quest 7 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 17, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 17, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 17, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 17, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 17, english, town = Cadomyr -> "The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself."
+"quest", "mission", queststatus(111) = 17, town = Cadomyr -> "Die Königin verlangt nach einem Eisvogelamulett, einem Erzmagierring und einer Vase. Bringt diese Dinge zu mir und wagt es nicht, sie mit dieser Angelegenheit zu behelligen."
+"task", "adventure", queststatus(111) = 17, town = Cadomyr -> "The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 17, town = Cadomyr -> "Die Königin verlangt nach einem Eisvogelamulett, einem Erzmagierring und einer Vase. Bringt diese Dinge zu mir und wagt es nicht, sie mit dieser Angelegenheit zu behelligen."
 
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(111) = 18, english, town = Cadomyr -> "You might become one of Cadomyr's heroes one day. Now set out and do good deeds in the name of the Queen!"
