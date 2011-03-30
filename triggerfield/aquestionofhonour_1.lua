@@ -10,16 +10,16 @@ function Init()
     end
 	
 	    waypoint={}; --a list with positions
-	    waypoint[1]=position(551,133,0); --1: Palace
-	    waypoint[2]=position(551,143,0); --2: Tavern
+	    waypoint[1]=position(121,547,0); --1: Palace
+	    waypoint[2]=position(107,558,0); --2: Notary
 	    waypoint[3]=position(114,634,0); --3: Gate
 		messageG={};
 		messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
-		messageG[2]="[Queststatus] In der Taverne ist alles bestens.";
+		messageG[2]="[Queststatus] Torina Scibrim scheint es gut zu gehen.";
 		messageG[3]="[Queststatus] Horatio Milenus bewacht das Tor wie eh und je.";
 		messageE={};
 		messageE[1]="[Quest status] All is quiet in the palace.";
-		messageE[2]="[Quest status] All is right in the tavern.";
+		messageE[2]="[Quest status] Torina Scibrim seems to be doing well.";
 		messageE[3]="[Quest status] Horatio Milenus guards the gate like ever before.";
 	    InitDone = true;
     

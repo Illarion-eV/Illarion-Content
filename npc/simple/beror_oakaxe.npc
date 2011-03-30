@@ -59,7 +59,7 @@ itemShoes = 770
 -- 1: Quest 1 taken, read the Cadomyr laws
 -- 2: Cadomyr laws read
 -- 3: Quest 1 solved, reward: +5 rankpoints
--- 4: Quest 2 taken, patrol the palace, the gate and the tavern
+-- 4: Quest 2 taken, patrol the palace, the gate and the notary's office
 -- 5: All locations visited
 -- 6: Quest 2 solved, reward: +10 rankpoints
 -- 7: Quest 3 taken, provide 20 bricks
@@ -126,21 +126,21 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 1, town = Cadomyr -> "You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 1, town = Cadomyr -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
 
--- Quest 2: Patrol the palace, the tavern and the town gate
-"quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.", queststatus(111) = 4
-"quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.", queststatus(111) = 4
-"task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the tavern, the palace and especially the gate.", queststatus(111) = 4
-"Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf die Taverne, den Palast und natürlich das Stadttor.", queststatus(111) = 4
+-- Quest 2: Patrol the palace, the notary's office and the town gate
+"quest", "mission", queststatus(111) = 3, english, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.", queststatus(111) = 4
+"quest", "mission", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.", queststatus(111) = 4
+"task", "adventure", queststatus(111) = 3, town = Cadomyr -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.", queststatus(111) = 4
+"Auftrag", "Aufgabe", queststatus(111) = 3, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.", queststatus(111) = 4
 
 -- Quest 2 solved, reward: Beer (1909), 10 rankpoints
 ".*", queststatus(111) = 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."), "Any uncommon events? I expect your written report later. Now let's have a beer before I send you on your next mission.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
 ".*", queststatus(111) = 5, town = Cadomyr -> inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Bericht später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.", item(1909, 1, 333, 0), queststatus(111) = 6, rankpoints(Cadomyr) + 10
 
 -- Quest 2 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
-"quest", "mission", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!"
+"quest", "mission", queststatus(111) = 4, english, town = Cadomyr -> "What are you waiting for? Patrol the notary's office, the palace and the town gate!"
+"quest", "mission", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe das Notarbüro, den Palast und das Stadttor!"
 "task", "adventure", queststatus(111) = 4, town = Cadomyr -> "What are you waiting for? Patrol the tavern, the palace and the town gate!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe die Taverne, den Palast und das Stadttor!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 4, town = Cadomyr -> "Worauf wartest du!? Überprüfe das Notarbüro, den Palast und das Stadttor!"
 
 -- Quest 3: Provide 20 bricks (2588)
 "quest", "mission", queststatus(111) = 6, english, town = Cadomyr -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
