@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 30, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -66,10 +66,10 @@ itemShoes = 770
 -- 8: Quest 3 solved, reward: brick mould, +10 rankpoints
 -- 9: Quest 4 taken, patrol the eastern border, the Oasis of Stars,...
 -- 10: All locations visited
--- 11: Quest 4 solved, reward: +15 rankpoints
+-- 11: Quest 4 solved, reward: albarian soldier helmet, +15 rankpoints
 -- 12: Quest 5 taken, reconnoitre the other factions and the neutral tavern
 -- 13: All locations visited
--- 14: Quest 5 solved, reward: +15 rankpoints
+-- 14: Quest 5 solved, reward: albarian steelboots, +15 rankpoints
 -- 15: Quest 6 taken, provide 20 naldor wood boards (546)
 -- 16: Quest 6 solved, reward: coppered dagger, +20 rankpoints
 -- 17: Quest 7 taken, provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
@@ -158,21 +158,21 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 7, town = Cadomyr -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 7, town = Cadomyr -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
 
--- Quest 4: Patrol the eastern border, the oasis of stars,...
-"quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
-"quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
-"task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "ENGLISH1.", queststatus(111) = 9
-"Auftrag", "Aufgabe", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "GERMAN1.", queststatus(111) = 9
+-- Quest 4: Patrol the eastern border, Circle of Blood Arena, Mine Candour Foundation and Bridge over the Envy Creek (ambush!)
+"quest", "mission", queststatus(111) = 8, english, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the bridge over the Envy Creek and the eastern border. Make Cadomyr's homeland a safe place!", queststatus(111) = 9
+"quest", "mission", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die Brücke über den Neidbach und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
+"task", "adventure", queststatus(111) = 8, town = Cadomyr -> inform("[New Quest] A Question of Honour IV"), "Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the bridge over the Envy Creek and the eastern border. Make Cadomyr's homeland a safe place!", queststatus(111) = 9
+"Auftrag", "Aufgabe", queststatus(111) = 8, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die Brücke über den Neidbach und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
 
--- Quest 4 solved, reward: 15 rankpoints
-".*", queststatus(111) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."), "ENGLISH1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
-".*", queststatus(111) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN1.", queststatus(111) = 11, rankpoints(Cadomyr) + 15
+-- Quest 4 solved, reward: Albarian soldier helmet (2287), 15 rankpoints
+".*", queststatus(111) = 10, english, town = Cadomyr -> inform("[Quest solved] You are awarded an albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."), "What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.", item(2287, 1, 699, 0), queststatus(111) = 11, rankpoints(Cadomyr) + 15
+".*", queststatus(111) = 10, town = Cadomyr -> inform("[Quest gelöst] Du erhältst einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.", item(2287, 1, 699, 0), queststatus(111) = 11, rankpoints(Cadomyr) + 15
 
 -- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(111) = 9, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(111) = 9, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(111) = 9, english, town = Cadomyr -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the bridge over the Envy Creek is in the north and your patrol should also lead you to the eastern border."
+"quest", "mission", queststatus(111) = 9, town = Cadomyr -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die Brücker über den Neidbach ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
+"task", "adventure", queststatus(111) = 9, town = Cadomyr -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the bridge over the Envy Creek is in the north and your patrol should also lead you to the eastern border."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(111) = 9, town = Cadomyr -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die Brücker über den Neidbach ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
 "quest", "mission", queststatus(111) = 11, english, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
@@ -180,7 +180,7 @@ itemShoes = 770
 "task", "adventure", queststatus(111) = 11, town = Cadomyr -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
 "Auftrag", "Aufgabe", queststatus(111) = 11, town = Cadomyr -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
 
--- Quest 5 solved, reward: 15 rankpoints
+-- Quest 5 solved, reward: albarian steelboots 15 rankpoints
 ".*", queststatus(111) = 13, english, town = Cadomyr -> inform("[Quest solved] You are awarded enchanted albarian steelboots. You advance in Queen Rosaline Edwards' favour."), "Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.", item(771, 1, 699, 61), queststatus(111) = 14, rankpoints(Cadomyr) + 15
 ".*", queststatus(111) = 13, town = Cadomyr -> inform("[Quest gelöst] Du erhältst verzauberte albarische Stahlschuhe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Wie immer kannst du deinen Bericht später schreiben, Rekrut. Ich bin erstmal froh, dass du heil zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich.", item(771, 1, 699, 61), queststatus(111) = 14, rankpoints(Cadomyr) + 15
 

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 30, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -612,7 +612,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the bridge over the Envy Creek and the eastern border. Make Cadomyr's homeland a safe place!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -623,7 +623,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre IV"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die Brücke über den Neidbach und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -634,7 +634,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the bridge over the Envy Creek and the eastern border. Make Cadomyr's homeland a safe place!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -645,7 +645,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre IV"));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die Brücke über den Neidbach und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -655,8 +655,9 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded... You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -666,8 +667,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst... Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("GERMAN1.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -679,7 +681,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the bridge over the Envy Creek is in the north and your patrol should also lead you to the eastern border.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -688,7 +690,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die Brücker über den Neidbach ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,7 +699,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("ENGLISH.");
+talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the bridge over the Envy Creek is in the north and your patrol should also lead you to the eastern border.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,7 +709,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addResponse("Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die Brücker über den Neidbach ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
