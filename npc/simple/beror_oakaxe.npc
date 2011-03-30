@@ -79,7 +79,7 @@ itemShoes = 770
 "give stuff" -> "CHEATER!", item(334, 1, 333, 0), item(2559, 1, 333, 0), item(315, 1, 333, 0)
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0, queststatus(110) = 0
+"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(111) = 0, queststatus(110) = 0, queststatus(115) = 0, queststatus(116) = 0, queststatus(117) = 0
 ".+", queststatus(111) > 18 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

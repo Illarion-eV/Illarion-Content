@@ -60,6 +60,9 @@ talkEntry:addTrigger("set 0");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(115, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(116, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(117, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
