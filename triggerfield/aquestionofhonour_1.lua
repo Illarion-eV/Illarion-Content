@@ -12,7 +12,7 @@ function Init()
 	    waypoint={}; --a list with positions
 	    waypoint[1]=position(551,133,0); --1: Palace
 	    waypoint[2]=position(551,143,0); --2: Tavern
-	    waypoint[3]=position(556,141,0); --3: Gate
+	    waypoint[3]=position(114,634,0); --3: Gate
 		messageG={};
 		messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
 		messageG[2]="[Queststatus] In der Taverne ist alles bestens.";
@@ -35,7 +35,7 @@ function MoveToField(User)
 		queststatuslist=base.common.Split_number(queststatus, 3); --reading the digits of the queststatus as table
 		
 		for i=1,3 do
-		    if User:isInRangeToPosition(waypoint[i],1) and queststatuslist[i] == 0 then
+		    if User:isInRangeToPosition(waypoint[i],2) and queststatuslist[i] == 0 then
 		        queststatuslist[i]=1; --found it!
 		        base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
 				User:setQuestProgress(115,queststatuslist[1]*100+queststatuslist[2]*10+ queststatuslist[3]*1); --saving the new queststatus
