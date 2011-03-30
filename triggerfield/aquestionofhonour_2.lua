@@ -10,20 +10,20 @@ function Init()
     end
 	
 	    waypoint={}; --a list with positions
-	    waypoint[1]=position(551,133,0); --1: Eastern border
-	    waypoint[2]=position(551,143,0); --2: ???
-	    waypoint[3]=position(556,141,0); --3: ???
-	    waypoint[4]=position(556,141,0); --3: ???
+	    waypoint[1]=position(470,795,0); --1: Eastern border
+	    waypoint[2]=position(261,679,0); --2: Arena Circle of Blood
+	    waypoint[3]=position(135,696,0); --3: Mine Candour Foundation
+	    waypoint[4]=position(236,440,0); --4: Bridge over the Envy Creek (ambush!)
 		messageG={};
-		messageG[1]="[Queststatus] TEXT.";
-		messageG[2]="[Queststatus] TEXT.";
-		messageG[3]="[Queststatus] TEXT.";
-		messageG[4]="[Queststatus] TEXT.";
+		messageG[1]="[Queststatus] Du erblickst einen betenden komischen Kauz, als du dich der Ostgrenze näherst.";
+		messageG[2]="[Queststatus] den Blutkreis, der Arena des Landes, scheint es nach frischem Blut zu dürsten.";
+		messageG[3]="[Queststatus] Der Grundstein der Aufrichtigkeit steht wie ein Fels in der Brandung der Dünen.";
+		messageG[4]="[Queststatus] Du überquerst den Neidbach. Banditen haben dir wohl aufgelauert, ein Hinterhalt!.";
 		messageE={};
-		messageE[1]="[Quest status] TEXT.";
-		messageE[2]="[Quest status] TEXT.";
-		messageE[3]="[Quest status] TEXT.";
-		messageE[4]="[Quest status] TEXT.";
+		messageE[1]="[Quest status] You spot a strange fellow, chanting prayers as you approach the eastern border.";
+		messageE[2]="[Quest status] The Circle of Blood, the arena of these lands, seems to thirst for fresh blood.";
+		messageE[3]="[Quest status] The Candour Foundation resists the waves of dunes vigilantly.";
+		messageE[4]="[Quest status] You cross the Envy Creek. Bandits must have awaited you. It's an ambush!";
 	    InitDone = true;
     
 end
@@ -43,6 +43,18 @@ function MoveToField(User)
 		        base.common.InformNLS(User,messageG[i],messageE[i]); --sending a message
 				User:setQuestProgress(116,queststatuslist[1]*1000+queststatuslist[2]*100+ queststatuslist[3]*10+ queststatuslist[4]*1); --saving the new queststatus
 				queststatus=User:getQuestProgress(116); --and reading it again
+				
+				if i==4 then --ambush!
+			        world:gfx(41,position(239,435,0));
+				    world:createMonster(5,position(239,435,0),20); --bandit
+			        world:gfx(41,position(234,430,0));
+				    world:createMonster(5,position(234,430,0),20); --bandit
+				    world:gfx(41,position(239,446,0));
+				    world:createMonster(1,position(239,446,0),20); --human
+			        world:gfx(41,position(230,441,0));					
+				    world:createMonster(3,position(230,441,0),20); --mage				
+				end
+				
 				if queststatus==1111 then --found all waypoints
 				    User:setQuestProgress(111, 10); --Quest solved!
 					base.common.InformNLS(User,"[Queststatus] Du hast deine Patroullie erfolgreich abgeschlossen.","[Quest status] You completed your patrol successfully."); --sending a message
