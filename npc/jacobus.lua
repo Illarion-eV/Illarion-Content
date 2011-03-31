@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: March 31, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -154,7 +154,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I am Jacobus, the jeweller.");
 talkEntry:addResponse("Jacobus.");
-talkEntry:addResponse("Jacobus. And do not call me Jack.");
+talkEntry:addResponse("Jacobus, so do not call me Jack.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,7 +253,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Thief");
-talkEntry:addResponse("Thieves are a horrible pain for society.");
+talkEntry:addResponse("Thieves are a horrible scourge of society.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gold");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Gold is a fascinating material. It is soft though, but it does not corrode in a thousand years.");
+talkEntry:addResponse("Gold is a fascinating material. Although it is soft, it still does not corrode in a thousand years.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -278,8 +278,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("jewel");
-talkEntry:addResponse("My jewels are the best you can get within a thousand miles. And I never travelled beyond.");
-talkEntry:addResponse("I can sell you any kinds of jewels, if you have any gems, I'll gladly purchase them.");
+talkEntry:addResponse("My jewels are the best you can get within a thousand miles and I have never travelled beyond that.");
+talkEntry:addResponse("I can sell you any kinds of jewels, and if you have any gems, I'll gladly purchase them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,7 +422,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I heard all the best about Albar, but I have never been there.");
+talkEntry:addResponse("I hear only the best about Albar, but I have never even been there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,9 +436,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Something is wrong with Gynk. If they just steal from each other, how do you they replace broken things?");
+talkEntry:addResponse("Something is wrong in Gynk. If they only steal from each other, how do you imagine they replace broken things?");
 talkEntry:addResponse("Gynk is a filthy place.");
-talkEntry:addResponse("If you go to Gynk, well, do not exspect to return with any gold.");
+talkEntry:addResponse("If you go to Gynk, well, do not expect to return with any gold.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,7 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I heard all the worst about Salkamar, but I have never been there.");
+talkEntry:addResponse("I hear only bad things about Salkamar, but I have never been there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +466,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Why don't you ask me about Zhambra? Might result in a special offer to you!");
+talkEntry:addResponse("Why don't you ask me about Zhambra? Might result in a special offer for you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, Ronagan! Well, he likes gems as much as I do and he guarantees that people buy new ones... still, I do not honour a god who promotes crimes.");
+talkEntry:addResponse("Oh, Ronagan! Well, he may just like precious stones as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,7 +493,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zhambra is the god of friendship. And the best token of friendship is a ring. I have a special offer for you...");
+talkEntry:addResponse("Zhambra is the god of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,7 +509,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I sell any kind of jewellery.");
-talkEntry:addResponse("Things of gold, of copper, of gems... What do you need?");
+talkEntry:addResponse("Things made of gold, of copper, of precious stones... What do you need?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -585,15 +585,15 @@ talkEntry:addResponse("Aber warum nicht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Feinste Juwelen!", "Finest jewellery!");
-talkingNPC:addCycleText("Habt ihr eure Frau enttäuscht? Kauft ihr einen Diamantring!", "Did you offend your wife? Buy her a diamond ring!");
+talkingNPC:addCycleText("Habt ihr eure Frau enttäuscht? Kauft ihr einen Diamantring!", "Have you upset your wife? Buy her a diamond ring!");
 talkingNPC:addCycleText("Diamanten sind der beste Freund des Mannes.", "Diamonds are a man's best friend.");
-talkingNPC:addCycleText("Funkelnde Edelsteine im Angebot!", "Sparkling gems as special offer!");
-talkingNPC:addCycleText("Goldener Schmuck, genau das richtige für einen Damenhals.", "Golden jewellery, the right thing for a maiden's neck.");
-talkingNPC:addCycleText("Braucht ihr ein besonderes Geschenk? Eine Kette soll es sein!", "Need a special gift? A necklace will do!");
+talkingNPC:addCycleText("Funkelnde Edelsteine im Angebot!", "Sparkling gem stones on special offer!");
+talkingNPC:addCycleText("Goldener Schmuck, genau das richtige für einen Damenhals.", "Gold jewellery, just the right thing for a maiden's neck.");
+talkingNPC:addCycleText("Braucht ihr ein besonderes Geschenk? Eine Kette soll es sein!", "Need a special gift? A necklace it should be!");
 talkingNPC:addCycleText("Ein Ring sie zu finden, ein Ring sie ins Licht zu treiben...", "One Ring to bring them all and in the light bind them.");
-talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem lasts for a lifetime.");
-talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Rings with inscriptions and magical powers for a few silver coins!");
-talkingNPC:addCycleText("Habt ihr Edelsteine?", "Got gems?");
+talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem stone lasts for a lifetime.");
+talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Gold rings with inscriptions and magical powers for a few silver coins!");
+talkingNPC:addCycleText("Habt ihr Edelsteine?", "Have you gem stones?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
