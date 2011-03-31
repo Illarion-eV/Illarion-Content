@@ -524,7 +524,7 @@ talkEntry:addCondition(npc.base.condition.money.money("=>", 2));
 talkEntry:addCondition(npc.base.condition.item.item(63, "all", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1));
 talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("The old orc takes the Items from you, now he seems ready to answer you any question."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("The old orc takes the items from you, now he seems ready to answer you any question."));
 talkEntry:addResponse("Hurr. Giv me the stuff... and now ask your question to tha ancestors.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 2));
@@ -1087,7 +1087,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("morurt");
-talkEntry:addResponse("Mo'rurt. Er bester Jäga von KLan ist. erimma draußn ist. Jagt.");
+talkEntry:addResponse("Mo'rurt. Er bester Jäga von Klan ist. erimma draußn ist. Jagt.");
 talkEntry:addResponse("Mo'rurt schießt Pfeile, schnell wie wind. Stark wie Meer.");
 talkEntry:addResponse("Mo'rurt Besitza von Stout ist. Stout sehr ehrenhaftiga Sklave ist. Yubba. Hat bekommen Armbrust und geht jagen mit Mo'rurt.");
 talkEntry:addResponse("Har-ar. Mo'rurt stur wie Esel. Abar mirr sagt, is gutt. Alle in alles, er gerechter Meister ist.");
@@ -1344,7 +1344,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Im Sand der Wüstenstadt, es lauern Tot und Verderben dort. Tief unten, böse Geister graben sich durch die Dünen. Wenn du dort bist, du hohlst dir nur Krankheit und Seuche. Grukthâ.");
+talkEntry:addResponse("Im Sand der Wüstenstadt, es lauern Tod und Verderben dort. Tief unten, böse Geister graben sich durch die Dünen. Wenn du dort bist, du hohlst dir nur Krankheit und Seuche. Grukthâ.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
