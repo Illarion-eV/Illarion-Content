@@ -20,68 +20,67 @@ function InitWegweiser()
 
 
     --SW/Cadomyr map
-    AddWeg({42,634,0},"","",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
-    AddWeg({50,640,0},"","",0,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
+    AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
+    AddWeg({50,640,0},"Faber's Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
     AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({126,611,0},"Marktplatz","Marketplace",0,0);
     AddWeg({130,583,0},"Werkstatt","Workshop",0,0);
-    AddWeg({116,589,0},"Taverne","Tavern",0,0);
-    AddWeg({91,586,0},"Gasthaus","Inn",0,0);
-    AddWeg({123,568,0},"Palast","Palace",0,0);
-    AddWeg({120,568,0},"Palast","Palace",0,0);
-    AddWeg({129,563,0},"Zhambratempel","Zhambratemple",0,0);
-    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit","Candour Foundation",0,0);  --<coal mine>
+    AddWeg({116,589,0},"Taverne 'Einhörniger Löwe'","Tavern 'Unicorn Lion'",0,0);
+    AddWeg({91,586,0},"Gasthaus 'Seeufer'","Inn 'Lakeshore'",0,0);
+    AddWeg({123,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+    AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
+    AddWeg({129,563,0},"Zhambratempel","Zhambratemple",2,0);
+    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit","Candour Foundation",2,0);  --<coal mine>
     AddWeg({174,609,0},"Freiheits Steinbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
-    AddWeg({209,552,0},"","",0,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
+    AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
     AddWeg({145,694,1},"Malachintempel","Malachin Temple",0,0);
-    AddWeg({90,690,0},"","",0,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
-    AddWeg({76,689,0},"Cape Farewell","Cape Farewell",0,0);
-    AddWeg({109,771,0},"Hafen","Harbour",0,0);
-    AddWeg({186,645,0},"","",0,0); -- <Name hier> Verlassene Farm -- <name here> abandonment farm
-    AddWeg({219,646,0},"","",0,0); -- <Name hier> Verlassene Farm, dahinter Cadomyr -- <name here> abandonment farm, behind Cadomyr
-    AddWeg({245,685,0},"","",0,0); -- <Name hier> Arena -- <name here> arena
-    AddWeg({235,686,0},"","",0,0); -- <Name hier>Gladiatorschule -- <name here> gladiatorschool
-    AddWeg({244,556,0},"","",0,0); -- <Name hier> Oase -- <name here> oasis
-    AddWeg({372,552,0},"","",0,0); -- <Name hier> Zerstörtes Gebäude -- <name here> destroyed building
-    AddWeg({389,590,0},"","",0,0); -- <Name hier> Nekromantenhöhle -- <name here> necromancer cave
-    AddWeg({399,619,0},"","",0,0); -- <Name hier> Moria/Vampirschloss -- <name here> moria/ vampirecastle
-    AddWeg({427,676,0},"","",0,0); -- <Name hier> Moria/Vampirschloss -- <name here> moria/ vampirecastle
-    AddWeg({439,638,0},"","",0,0); -- <Name hier> Vampirschloss -- <name here> moria/ vampirecastle
-    AddWeg({433,637,0},"Galmair","Galmair",0,0);
-    AddWeg({400,739,0},"","",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
-    AddWeg({208,774,0},"","",0,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
-    AddWeg({112,817,0},"","",0,0); -- <Name hier> Ruinen -- <name here> ruins
-    AddWeg({294,700,0},"","",0,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
-    AddWeg({347,692,0},"","",0,0); -- <Name hier> Sandcamp -- <name here> sandcamp
-    AddWeg({166,758,0},"Siranitempel","Temple of Sirani",0,0);
+    AddWeg({90,690,0},"Rosaline Pyramide","Rosaline Pyramide",2,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
+    AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
+    AddWeg({109,771,0},"Königlicher Hafen","Royal Harbour",4,0);
+    AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
+    AddWeg({245,685,0},"Die Blutkreis Arena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
+    AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); -- <Name hier> Gladiatorschule -- <name here> gladiatorschool
+    AddWeg({244,556,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",2,0); -- <Name hier> Zerstörtes Gebäude -- <name here> destroyed building
+    AddWeg({389,590,0},"Pellundria","Pellundria",2,0); -- <Name hier> Nekromantenhöhle -- <name here> necromancer cave
+    AddWeg({399,619,0},"Schattenland! Gefahr!","Shadowland! Danger!",2,0); -- <Name hier> Moria/Vampirschloss -- <name here> moria/ vampirecastle
+    AddWeg({427,676,0},"Schattenland! Gefahr!","Shadowland! Danger!",0,0); -- <Name hier> Moria/Vampirschloss -- <name here> moria/ vampirecastle
+	AddWeg({439,638,0},"Cadomyr","Cadomyr",0,0);
+	AddWeg({433,637,0},"Galmair","Galmair",6,0);
+    AddWeg({400,739,0},"Moshran's Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
+    AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
+    AddWeg({112,817,0},"Verlorener Hafen","Lost Harbour",4,0); -- <Name hier> Ruinen -- <name here> ruins
+    AddWeg({294,700,0},"Wüstenloch","Desert Hole",2,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
+    AddWeg({347,692,0},"Sternenoase","Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
+    AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Palast","palace",0,0);
+    AddWeg({365,247,0},"Don's Palast","Don's palace",0,0);
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
-    AddWeg({376,259,0},"","",0,0);-- <Name hier> Werkstatt -- <name here> workshop
-    AddWeg({401,293,0},"","",0,0);-- <Name hier> Gasthaus -- <name here> Inn
-    AddWeg({418,357,0},"Malachitmine","Malachite Mine",0,0);
-    AddWeg({421,251,0},"Galmair","Galmair",0,0);
-    AddWeg({421,247,0},"Galmair","Galmair",0,0);
-    AddWeg({343,259,0},"","",0,0);-- <Name hier> Taverne -- <name here> tavern
-    AddWeg({311,282,0},"","",0,0);-- <Name hier> Villa -- <name here> villa
+    AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
+    AddWeg({401,293,0},"Gasthaus 'Geflügeltes Schwein'","Inn 'Winged Pig'",2,0);-- <Name hier> Gasthaus -- <name here> Inn
+    AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
+    AddWeg({421,251,0},"Galmair","Galmair",6,0);
+    AddWeg({421,247,0},"Galmair","Galmair",6,0);
+    AddWeg({343,259,0},"Taverne 'Gynkesisches Feuer'","Taverne 'Gynkese Fire'",0,0);-- <Name hier> Taverne -- <name here> tavern
+    AddWeg({311,282,0},"Villa 'Brunnen der Träume'","Villa 'Well of Dreams'",6,0);-- <Name hier> Villa -- <name here> villa
     AddWeg({311,265,0},"Tempel Irmoroms","Tempel of Irmorom",0,0);
-    AddWeg({332,254,0},"","",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
-    AddWeg({474,251,0},"Galmair","Galmair",0,0);
-    AddWeg({474,248,0},"Galmair","Galmair",0,0);
-    AddWeg({499,208,0},"Hafen + Dunkellochmine","Harbour + Darkhole Mine",0,0);
+    AddWeg({332,254,0},"Festung Guilianni","Fortress Guilianni",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
+    AddWeg({474,251,0},"Galmair","Galmair",6,0);
+    AddWeg({474,248,0},"Galmair","Galmair",6,0);
+    AddWeg({499,208,0},"Hafen + Dunkellochmine","Harbour + Dark Hole Mine",0,0);
     AddWeg({444,123,0},"Hafen","Harbour",0,0);
-    AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",0,0);
-    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",0,0);
-    AddWeg({193,430,0},"","",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
-    AddWeg({417,385,0},"Cadomyr","Cadomyr",0,0);
-    AddWeg({338,238,-6},"","",0,0);-- <Name hier> Orksklavenhöhle - <name here> orcslavecave
-    AddWeg({342,243,-6},"","",0,0);-- <Name hier> Wohnfiertel
-    AddWeg({343,247,-6},"","",0,0);-- <Name hier> überflütetes Viertels(ronagan schrein)
-    AddWeg({337,248,-6},"Taverne","Tavern",0,0);
-    AddWeg({332,251,-6},"Kanalisation","Sewers",0,0);
-    AddWeg({330,249,-6},"","",0,0);-- <Name hier> Schwarzmarkt -- <name here> black market
+    AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
+    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
+    AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
+    AddWeg({417,385,0},"Cadomyr","Cadomyr",4,0);
+    AddWeg({338,238,-6},"Grünhautloch","Greenskin Hole",2,0);-- <Name hier> Orksklavenhöhle - <name here> orcslavecave
+    AddWeg({342,243,-6},"Goldader","Goldvein",2,0);-- <Name hier> Wohnviertel
+    AddWeg({343,247,-6},"Tempel des Ronagan - Achtung, überflutet!","Tempel of Ronagan - Attention, fluted!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
+    AddWeg({337,248,-6},"Taverne 'Gynkesisches Feuer'","Tavern 'Gynkese Fire'",4,0);
+    AddWeg({332,251,-6},"Kanalisation","Sewers",4,0);
+    AddWeg({330,249,-6},"Kammer der Möglichkeiten","Champer of Possibilities",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
 
     --SE/Runewick-map
 	-- AddWeg({X,Y,Z},"German.","English.",1,0);
