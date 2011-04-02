@@ -34,12 +34,12 @@ function InitWegweiser()
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit","Candour Foundation",2,0);  --<coal mine>
     AddWeg({174,609,0},"Freiheits Steinbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
-    AddWeg({145,694,1},"Malachintempel","Malachin Temple",0,0);
-    AddWeg({90,690,0},"Rosaline Pyramide","Rosaline Pyramide",2,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
+    AddWeg({145,694,1},"Malachíntempel","Malachín Temple",0,0);
+    AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",2,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
     AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
     AddWeg({109,771,0},"Königlicher Hafen","Royal Harbour",4,0);
     AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
-    AddWeg({245,685,0},"Die Blutkreis Arena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
+    AddWeg({245,685,0},"Die Blutkreisarena","The Blood Circle Arena",0,0); -- <Name hier> Arena -- <name here> arena
     AddWeg({235,686,0},"Für Ehre kämpfen wir, in Blut sterben wir! Die Königliche Akademie der Gladiatoren","For honour we fight, in blood we die! The Royal Academy of Gladiators",4,0); -- <Name hier> Gladiatorschule -- <name here> gladiatorschool
     AddWeg({244,556,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
     AddWeg({372,552,0},"Achtung! Verfluchter Ort","Attention! Cursed Place",2,0); -- <Name hier> Zerstörtes Gebäude -- <name here> destroyed building
@@ -56,7 +56,7 @@ function InitWegweiser()
     AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Don's Palast","Don's palace",0,0);
+    AddWeg({365,247,0},"Palast des Dons","Don's palace",0,0);
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
     AddWeg({401,293,0},"Gasthaus 'Geflügeltes Schwein'","Inn 'Winged Pig'",2,0);-- <Name hier> Gasthaus -- <name here> Inn
