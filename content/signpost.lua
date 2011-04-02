@@ -64,7 +64,7 @@ function InitWegweiser()
     AddWeg({421,251,0},"Galmair","Galmair",6,0);
     AddWeg({421,247,0},"Galmair","Galmair",6,0);
     AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);-- <Name hier> Taverne -- <name here> tavern
-    AddWeg({311,282,0},"Villa 'Goldader'","Goldvein'",6,0);-- <Name hier> Villa -- <name here> villa
+    AddWeg({311,282,0},"Villa 'Goldader'","Villa 'Goldvein'",6,0);-- <Name hier> Villa -- <name here> villa
     AddWeg({311,265,0},"Irmoroms Tempel","Tempel of Irmorom",0,0);
     AddWeg({332,254,0},"Schlackengrube","Scoria Mine",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
     AddWeg({474,251,0},"Galmair","Galmair",6,0);
@@ -80,7 +80,7 @@ function InitWegweiser()
     AddWeg({343,247,-6},"Ronagans Tempel - Achtung, überflutet!","Tempel of Ronagan - Attention, flooded!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
     AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);
     AddWeg({332,251,-6},"Abwasserschächte","Sewers",4,0);
-    AddWeg({330,249,-6},"Schimmersenke","Flicker Swale ",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
+    AddWeg({330,249,-6},"Schimmersenke","Flicker Swale",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
 
     --SE/Runewick-map
 	-- AddWeg({X,Y,Z},"German.","English.",1,0);
