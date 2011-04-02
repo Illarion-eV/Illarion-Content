@@ -35,7 +35,7 @@ function InitWegweiser()
     AddWeg({174,609,0},"Freiheits Steinbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
     AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
     AddWeg({145,694,1},"Malachíntempel","Malachín Temple",0,0);
-    AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",2,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
+    AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",4,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
     AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
     AddWeg({109,771,0},"Königlicher Hafen","Royal Harbour",4,0);
     AddWeg({219,646,0},"Katanbi Brücke; dahinter Cadomyr","Katanbi Bridge; behind Cadomyr",6,0);
@@ -56,17 +56,17 @@ function InitWegweiser()
     AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Palast des Dons","Don's palace",0,0);
+    AddWeg({365,247,0},"Guilianni Residenz","Guilianni Residence",0,0); -- Don's palace
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
-    AddWeg({401,293,0},"Gasthaus 'Geflügeltes Schwein'","Inn 'Winged Pig'",2,0);-- <Name hier> Gasthaus -- <name here> Inn
+    AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
     AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
     AddWeg({421,251,0},"Galmair","Galmair",6,0);
     AddWeg({421,247,0},"Galmair","Galmair",6,0);
-    AddWeg({343,259,0},"Taverne 'Gynkesisches Feuer'","Taverne 'Gynkese Fire'",0,0);-- <Name hier> Taverne -- <name here> tavern
-    AddWeg({311,282,0},"Villa 'Brunnen der Träume'","Villa 'Well of Dreams'",6,0);-- <Name hier> Villa -- <name here> villa
-    AddWeg({311,265,0},"Tempel Irmoroms","Tempel of Irmorom",0,0);
-    AddWeg({332,254,0},"Festung Guilianni","Fortress Guilianni",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
+    AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);-- <Name hier> Taverne -- <name here> tavern
+    AddWeg({311,282,0},"Villa 'Goldader'","Goldvein'",6,0);-- <Name hier> Villa -- <name here> villa
+    AddWeg({311,265,0},"Irmoroms Tempel","Tempel of Irmorom",0,0);
+    AddWeg({332,254,0},"Schlackengrube","Scoria Mine",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
     AddWeg({474,251,0},"Galmair","Galmair",6,0);
     AddWeg({474,248,0},"Galmair","Galmair",6,0);
     AddWeg({499,208,0},"Hafen + Dunkellochmine","Harbour + Dark Hole Mine",0,0);
@@ -75,12 +75,12 @@ function InitWegweiser()
     AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
     AddWeg({417,385,0},"Cadomyr","Cadomyr",4,0);
-    AddWeg({338,238,-6},"Grünhautloch","Greenskin Hole",2,0);-- <Name hier> Orksklavenhöhle - <name here> orcslavecave
-    AddWeg({342,243,-6},"Goldader","Goldvein",2,0);-- <Name hier> Wohnviertel
-    AddWeg({343,247,-6},"Tempel des Ronagan - Achtung, überflutet!","Tempel of Ronagan - Attention, fluted!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
-    AddWeg({337,248,-6},"Taverne 'Gynkesisches Feuer'","Tavern 'Gynkese Fire'",4,0);
-    AddWeg({332,251,-6},"Kanalisation","Sewers",4,0);
-    AddWeg({330,249,-6},"Kammer der Möglichkeiten","Champer of Possibilities",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
+    AddWeg({338,238,-6},"Schweinebaue","Hog Dens",2,0);-- <Name hier> Orkshöhle - <name here> orccave
+    AddWeg({342,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- <Name hier> Wohnviertel
+    AddWeg({343,247,-6},"Ronagans Tempel - Achtung, überflutet!","Tempel of Ronagan - Attention, flooded!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
+    AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);
+    AddWeg({332,251,-6},"Abwasserschächte","Sewers",4,0);
+    AddWeg({330,249,-6},"Schimmersenke","Flicker Swale ",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
 
     --SE/Runewick-map
 	-- AddWeg({X,Y,Z},"German.","English.",1,0);
