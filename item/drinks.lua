@@ -116,21 +116,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             foodLevel = foodLevel - food[1];
         end
         -- Abhandlung Foodlevel fertig
-        
+       
+	    --[[LTE 1 crasht den Server -> raus damit
         -- Alkohol Effekt
         -- Arbeitet mit LTE ID 1 - "alcohol"
         foundalc,alcEffect = User.effects:find(1); -- LTE 1 "alcohol" suchen
         if not foundalc then -- Spieler hat den Effekt nicht
-            oldAlcValue = 0; -- daher auch keinen alten Alkohol wert
+            oldAlcValue = 0; -- daher auch keinen alten Alkoholwert
         else -- Spieler hat den Effekt
-            found,value = alcEffect:findValue("alcohol"); -- alten Alkohol wert suchen
+            found,value = alcEffect:findValue("alcohol"); -- alten Alkoholwert suchen
             oldAlcValue = ( found and value or 0 ); -- und uebertragen
             User.alcEffect:removeEffect(1); -- alten Effekt entfernen
         end
-        alcEffect = CLongTimeEffect( 1, 300 ); -- Effekt Struktur erstellen
-        alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkohol Wert hinzufuegen
+        alcEffect = CLongTimeEffect( 1, 300 ); -- Effektstruktur erstellen
+        alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkoholwert hinzufuegen
         User.effects:addEffect(alcEffect); -- Effekt an User senden
-        -- Alkohol Abhandlung fertig
+        -- Alkoholabhandlung fertig
+		]]
     end
     if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden
         User:increaseAttrib("foodlevel",-(User:increaseAttrib("foodlevel",0)-foodLevel)); -- Änderung durchführen
