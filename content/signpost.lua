@@ -49,11 +49,16 @@ function InitWegweiser()
 	AddWeg({439,638,0},"Cadomyr","Cadomyr",0,0);
 	AddWeg({433,637,0},"Galmair","Galmair",6,0);
     AddWeg({400,739,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
+    AddWeg({389,771,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
     AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
     AddWeg({112,817,0},"Verlorener Hafen","Lost Harbour",4,0); -- <Name hier> Ruinen -- <name here> ruins
     AddWeg({294,700,0},"Wüstenloch","Desert Hole",2,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
+    AddWeg({294,680,0},"Wüstenloch","Desert Hole",6,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({347,692,0},"Sternenoase","Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
+    AddWeg({253,690,0},"Wüstenloch; Sternenoase","Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
+    AddWeg({468,794,0},"Katanbi Wüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
+    AddWeg({481,794,0},"Galmair; Runewick","Galmair; Runewick",2,0);
 
     --NW/Galmair-map
     AddWeg({365,247,0},"Guilianni-Residenz","Guilianni Residence",0,0); -- Don's palace
@@ -101,7 +106,9 @@ function InitWegweiser()
     -- 3 = all directions (column)
     -- 4 = coffin
 
-
+    --Moshran's Brood
+    AddGrave({410,726,0},"","", 1,0);
+    AddGrave({409,734,0},"","", 3,0);
 
 
     ---------------- BILDER ----------------
@@ -126,7 +133,13 @@ function InitWegweiser()
     -- 6 = scull post - west
     -- 7 = scull post - south
     
-
+    --Moshran's Brood
+    AddPennant({391,743,0},"","", 1,0);
+    AddPennant({393,743,0},"","", 1,0);
+    --Lumpskrums Band
+	AddPennant({361,752,0},"","", 1,0);
+    AddPennant({357,752,0},"","", 1,0);
+    
 
     ---------------- Bï¿½UME ----------------
 
@@ -148,9 +161,15 @@ function InitWegweiser()
     -- 1 = dark column
     -- 2 = statue (woman) south
 
-
-
+    --Chapel of the Five
+	AddPillar({476,800,0},"","", 1, 10);
+    AddPillar({476,791,0},"","", 1, 10);
+	AddPillar({470,793,0},"","", 1, 10);
+    AddPillar({470,798,0},"","", 1, 10);
+    --Moshran's Brood
+	AddPillar({408,733,0},"","", 1, 10);
 	
+		
 	---------------- Chimneys ~ Kamine -------------
 	-- AddChimney({X,Y,Z}, german text, english text, type, needed value of perception);
 	-- types:
