@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -260,7 +260,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rosie");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("She don?t like the name, what can I say? Prefers Rosaline and her fancy title o? Queen.");
+talkEntry:addResponse("She doesn't like the name, what can I say? Prefers Rosaline and her fancy title o' Queen.");
 talkEntry:addResponse("Believe me, it is my privilege alone to call her that. Best ta keep it outya mouth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

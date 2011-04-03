@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valerio Guilianni"
@@ -90,7 +90,7 @@ itemShoes = 53
 "mein Name" -> "Ich zahle gutes Geld um zu wissen was in meiner Stadt passiert, %CHARNAME. Euer Aufenthalt hier war mir bekannt."
 
 -- More small talk; add at least five triggers
-"Rosie", english -> "She don’t like the name, what can I say? Prefers Rosaline and her fancy title o’ Queen.", "Believe me, it is my privilege alone to call her that. Best ta keep it outya mouth."
+"Rosie", english -> "She doesn't like the name, what can I say? Prefers Rosaline and her fancy title o' Queen.", "Believe me, it is my privilege alone to call her that. Best ta keep it outya mouth."
 "Rosie" -> "Sie mag den Namen nicht, ihr werdet sie eher als Königin Rosaline kennen.", "Glaubt mir, das Privileg sie so zu nennen ist allein mir vorbestimmt. Versucht es erst gar nicht."
 "Miggs", english -> "Every successful businessman need two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
 "Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
