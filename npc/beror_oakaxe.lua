@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 02, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -57,7 +57,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(115, "=", 0));
