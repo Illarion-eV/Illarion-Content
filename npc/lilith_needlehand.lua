@@ -1,503 +1,993 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),2,892,761,0,4,false,'Lilith Needlehand','npc_lilith_needlehand.lua',1);
+--------------------------------------------------------------------------------
+-- NPC Name: Lilith Needlehand                                       Runewick --
+-- NPC Job:  Tailor                                                           --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  892, 761, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                                            --
+-- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
 
-require("npc.base.autonpcfunctions")
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (2, 892, 761, 0, 4, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
+---]]
+
+require("npc.base.basic")
+require("npc.base.condition.item")
+require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.town")
+require("npc.base.consequence.deleteitem")
+require("npc.base.consequence.inform")
+require("npc.base.consequence.item")
+require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.skill")
+require("npc.base.talk")
 module("npc.lilith_needlehand", package.seeall)
 
-function useNPC(user,counter,param)
-    thisNPC:increaseSkill(1,"common language",100);
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.german, "Finger weg!");
-    thisNPC:talkLanguage(CCharacter.say, CPlayer.english, "Don't you touch me!");
-end
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the tailor Lilith and may need help in a task. Keyphrases: Hello, Quest, Needle, Tailor."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Schneiderin Lilith. Sie könnte Hilfe bei einer Aufgabe gebrauchen. Schlüsselwörter: Hallo, Quest, Nadel, Schneider."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Hiho! You must have come to help me!");
+talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume.");
+talkEntry:addResponse("#me gives a charming smile.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Hiho! Du bist sicher hier, um mir zu helfen!");
+talkEntry:addResponse("Oh, hallo!");
+talkEntry:addResponse("#me lächelt freundlich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hiho! You must have come to help me!");
+talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume.");
+talkEntry:addResponse("#me gives a charming smile.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("Hiho! Du bist sicher hier, um mir zu helfen!");
+talkEntry:addResponse("Oh, hallo! Du kannst mir bestimmt helfen.");
+talkEntry:addResponse("#me lächelt freundlich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("#me waves excitedly.");
+talkEntry:addResponse("Good Bye!");
+talkEntry:addResponse("Come back soon and maybe we can have some cake!");
+talkEntry:addResponse("#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehab wohl");
+talkEntry:addResponse("#me winkt freudig zum Abschied.");
+talkEntry:addResponse("Auf wiedersehen!");
+talkEntry:addResponse("Komm bald zurück und dann essen wir Kuchen!");
+talkEntry:addResponse("#me wendet sich wieder den Schafen zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me waves excitedly.");
+talkEntry:addResponse("Good Bye!");
+talkEntry:addResponse("Come back soon and maybe we can have some cake!");
+talkEntry:addResponse("#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("#me winkt freudig zum Abschied.");
+talkEntry:addResponse("Auf wiedersehen!");
+talkEntry:addResponse("Komm bald zurück und dann essen wir Kuchen!");
+talkEntry:addResponse("#me wendet sich wieder den Schafen zu.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I'm in a hurry! The archmage ordered a robe and I didn't finish it yet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addResponse("Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("My name is Lilith Needlehand, and I am a tailor, and it is a pleasure to meet you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
+talkEntry:addResponse("I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein I"));
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
+talkEntry:addResponse("I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein I"));
+talkEntry:addResponse("Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Why thank you! I don't have a real reward for you, but you can have my spare needle.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a needle and your tailoring skill increases."));
+talkEntry:addResponse("Why thank you! I don't have a real reward for you, but you can have my spare needle.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(170, "all", ">", 19));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."));
+talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20));
+talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addResponse("Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
+talkEntry:addResponse("Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress II"));
+talkEntry:addResponse("Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein II"));
+talkEntry:addResponse("Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress II"));
+talkEntry:addResponse("Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein II"));
+talkEntry:addResponse("Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."));
+talkEntry:addResponse("Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(50, "all", ">", 14));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."));
+talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15));
+talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addResponse("Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addResponse("Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 3));
+talkEntry:addResponse("Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress III"));
+talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein III"));
+talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress III"));
+talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."));
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."));
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."));
+talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
+talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Das faule Schneiderlein III"));
+talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
+talkEntry:addResponse("Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I don't need anything else, but thank you! You saved my day!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
+talkEntry:addResponse("Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
+talkEntry:addResponse("I don't need anything else, but thank you! You saved my day!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
+talkEntry:addResponse("Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, what was that for a funny word? Grobi-at?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Oh, was war das denn für ein lustiges Wort? Grobi-at?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Hui! How exciting to meet you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Hui! Wie toll, dich kennenzulernen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tailor");
+talkEntry:addResponse("As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schneider");
+talkEntry:addResponse("Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bestellung");
+talkEntry:addResponse("Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("robe");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Robe");
+talkEntry:addResponse("Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("needle");
+talkEntry:addResponse("I use my needle to make clothes.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nadel");
+talkEntry:addResponse("Mit meiner Nadel nähe ich Kleidung.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("scissors");
+talkEntry:addResponse("To get scissors, I strongly suggest you talk to a smith, or you may purchase them from the nearby shop, I believe!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schere");
+talkEntry:addResponse("Wenn du eine Schere brauchst, geh doch zu einem Schmied oder frag im Laden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Archmage Morgan, yes, I think he ordered a new robe. I should work on it!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Erzmagier Morgan, ja, der hat eine neue Robe bei mir bestellt. Ich sollte besser mal an ihr arbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Archmage Morgan, yes, I think he ordered a new robe. I should work on it!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Erzmagier Morgan, ja, der hat eine neue Robe bei mir bestellt. Ich sollte besser mal an ihr arbeiten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("This is Runewick! I personally enjoy it here.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Dies hier ist Runewick. Mir gefällt es hier.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ui, they have no law in Galmair, but everyone knows the Don is the boss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Ui, es gibt kein Gesetz in Galmair, aber jeder weiß, dass der Don der Boss ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair is funny. I used to live there, but here, it is more pleasant.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Galmair ist echt komisch. Ich hab da früher mal gelebt, aber hier ist es schöner.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("A woman rules Cadomyr. That is so funny!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Eine Frau regiert Cadomyr. Das ist so lustig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A woman rules Cadomyr. That is so funny!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Eine Frau regiert Cadomyr. Das ist so lustig!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr is far away, somewhere in the west I think. They don't like women there, but are ruled by a queen. Strange, eh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Cadomyr ist weit weg, irgendwo im Westen meine ich. Die mögen keine Frauen da, aber trotzdem regiert da eine Königin. Komisch, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They are mad, those albarians.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("Die spinnen, die Albarier.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My aunt lives near Gynk. I always write her a letter, each month.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Meine Tante lebt bei Gynk. Ich schreibe ihr jeden Monat einen Brief.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The Archmage talks a lot about Salkamar, I know nothing about that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Der Erzmagier redet viel über Salkamar, ich weiß da nichts drüber.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Irmorom is the best god to worship for a tailor, believe me!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Irmorom ist der beste Gott für einen Schneiderin. Glaube mir!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Irmorom guides my needle. Sometimes, he's angry and I sting myself.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Irmorom führt meine Nadel. Manchmal ist er böse auf mich und dann picks ich mich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cherga");
+talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("Eeek!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lilith");
+talkEntry:addTrigger("Needlehand");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("That's me! Lilith! Do you like my name?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lilith");
+talkEntry:addTrigger("Needlehand");
+talkEntry:addResponse("Lilith, das bin ich! Magst du meinen Namen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I am not currently selling or buying anything. I need to finish an order first.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich kaufe oder verkaufe derzeit nichts. Ich muss erstmal eine Bestellung fertig bekommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Hrm? I don't know what you are talking about. Do you expect me to gossip like an old halfling woman?!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Hrm? Worüber sprichst du? Soll ich dir dummes Zeug erzählen wie ein Waschweib?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me summt ein Liedchen.", "#me hums a small song.");
+talkingNPC:addCycleText("#me schaut zum Himmel und murmelt: 'Fast schon Zeit für ein Stück Kuchen.'", "#me looks at the sky, and mumbles: 'Nearly time for pie...'");
+talkingNPC:addCycleText("#me streichelt ein Schaf.", "#me pats a sheep.");
+talkingNPC:addCycleText("Oh, ist schon wieder Essenszeit?", "Oh, is it nearly time to eat again?");
+talkingNPC:addCycleText("Hallo da drüben!", "Hello over there!");
+talkingNPC:addCycleText("#me kichert freudig.", "#me giggles.");
+talkingNPC:addCycleText("Ohje, ich muss fertig werden.", "Oh, I have to get things done.");
+talkingNPC:addCycleText("#me gähnt: 'So viel zu tun und so wenig Süßes zu essen!'.", "#me yawns: 'So much work and so little sweets!'.");
+talkingNPC:addCycleText("Ich bin hungrig!", "I feel hungry!");
+talkingNPC:addCycleText("Bestellungen, Bestellungen, Bestellungen. Warum kauft nicht einfach immer jemand das, was ich gerade fertig habe?", "Order, orders, orders. Why won't they buy what I complete anyway?");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(5);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Dieser NPC ist die Schneiderin Lilith.", "This NPC is the tailor Lilith.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 806);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(10, 369);
+mainNPC:setAutoIntroduceMode(true);
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
+mainNPC:initDone();
+end;
 
-    npc.base.autonpcfunctions.InitTalkLists();
-
-    -- ********* START DYNAMIC PART ********
-
-    QuestID = 73;
-    -- Author: Vern Kron (PO Artimer Fault), heavily revised by Estralis Seborian
-    -- Help
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Game Help] This NPC is the tailor Lilith and may need help in a task. Keyphrases: Hello, Quest, Needle, Tailor.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hilfe","");
-    npc.base.autonpcfunctions.AddConsequence("inform","[Spielhilfe] Dieser NPC ist die Schneiderin Lilith. Sie könnte Hilfe bei einer Aufgabe gebrauchen. Schlüsselwörter: Hallo, Quest, Nadel, Schneider.");
-    -- General speech
-    npc.base.autonpcfunctions.AddTraderTrigger("Hello","Hiho! You must have come to help me!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greetings");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Be greeted");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hail");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good day");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good morning");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good evening");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh my, hello there! You are here to assist me, I assume.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me gives a charming smile.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Grüße","Hiho! Du bist sicher hier, um mir zu helfen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gruß");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Tag");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guten Abend");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Mahlzeit");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tach");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moin");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, hallo!");
-    npc.base.autonpcfunctions.AddAdditionalText("#me lächelt freundlich.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Hiho! You must have come to help me!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh my, hello there! You are here to assist me, I assume.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me gives a charming smile.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Hiho","Hiho! Du bist sicher hier, um mir zu helfen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hallo");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Hey");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebas");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Greebs");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Oh, hallo! Du kannst mir bestimmt helfen.");
-    npc.base.autonpcfunctions.AddAdditionalText("#me lächelt freundlich.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Farewell","#me waves excitedly.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Good bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Bye");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Fare thy well");
-    npc.base.autonpcfunctions.AddAdditionalText("Good Bye!");
-    npc.base.autonpcfunctions.AddAdditionalText("Come back soon and maybe we can have some cake!");
-    npc.base.autonpcfunctions.AddAdditionalText("#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Tschüß","#me winkt freudig zum Abschied.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Tschüss");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Gehabt euch wohl");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf wiedersehen!");
-    npc.base.autonpcfunctions.AddAdditionalText("Komm bald zurück und dann essen wir Kuchen!");
-    npc.base.autonpcfunctions.AddAdditionalText("#me wendet sich wieder den Schafen zu.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","#me waves excitedly.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddAdditionalText("Good Bye!");
-    npc.base.autonpcfunctions.AddAdditionalText("Come back soon and maybe we can have some cake!");
-    npc.base.autonpcfunctions.AddAdditionalText("#me turns back to the sheep, saying over her shoulder 'Farewell' as she pets one.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Ciao","#me winkt freudig zum Abschied.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Adieu");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Au revoir");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf wiedersehen!");
-    npc.base.autonpcfunctions.AddAdditionalText("Komm bald zurück und dann essen wir Kuchen!");
-    npc.base.autonpcfunctions.AddAdditionalText("#me wendet sich wieder den Schafen zu.");
-    npc.base.autonpcfunctions.AddTraderTrigger("How are you","I'm in a hurry! The archmage ordered a robe and I didn't finish it yet.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How feel");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("How do you do");
-    npc.base.autonpcfunctions.AddTraderTrigger("Wie geht","Ich bin in Eile. Der Erzmagier hat eine Robe bestellt und ich habe sie noch nicht fertig.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie fühlst");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Wie ist es ergangen");
-    npc.base.autonpcfunctions.AddTraderTrigger("your name","My name is Lilith Needlehand, and I am a tailor, and it is a pleasure to meet you!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who are you");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("who art thou");
-    npc.base.autonpcfunctions.AddTraderTrigger("dein name","Mein Name ist Lilith Needlehand und ich bin eine Schneiderin. Es ist schön, deine Bekanntschaft zu machen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer bist du");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("wie heißt");
-    -- Catching typical NPC phrases
-    npc.base.autonpcfunctions.AddTraderTrigger("what sell","I am not currently selling or buying anything. I need to finish an order first.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("what buy");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("list wares");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("price of");
-    npc.base.autonpcfunctions.AddTraderTrigger("was verkauf","Ich kaufe oder verkaufe derzeit nichts. Ich muss erstmal eine Bestellung fertig bekommen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("was kauf");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("warenliste");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("preis von");
-    npc.base.autonpcfunctions.AddTraderTrigger("tell something","Hrm? I don't know what you are talking about. Do you expect me to gossip like an old halfling woman?!");
-    npc.base.autonpcfunctions.AddTraderTrigger("erzähl was","Hrm? Worüber sprichst du? Soll ich dir dummes Zeug erzählen wie ein Waschweib?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("erzähl etwas");
-    -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-    npc.base.autonpcfunctions.AddTraderTrigger("Tailor","As a tailor, I use wool, thread, and dye to create clothes. Some people only wear armor, but for a fancy evening nothing beats a fancy robe or dress.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Schneider","Als Schneiderin mache ich Kleidung aus Wolle, Garn und Färbemittel. Einige Leute tragen den ganzen Tag ihre Rüstung, aber für einen schönen Abend gibt es nichts feineres als ein tolles Kleid.");
-    npc.base.autonpcfunctions.AddTraderTrigger("order","Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Bestellung","Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen.");
-    npc.base.autonpcfunctions.AddTraderTrigger("robe","Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Robe","Ohje, der Erzmagier hat eine neue Robe bestellt. Ich hab vollkommen vergessen, daran zu arbeiten. Vielleicht kannst du mir mit dieser Aufgabe helfen.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Tool hints
-    npc.base.autonpcfunctions.AddTraderTrigger("needle","I use my needle to make clothes.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Nadel","Mit meiner Nadel nähe ich Kleidung.");
-    npc.base.autonpcfunctions.AddTraderTrigger("scissors","To get scissors, I strongly suggest you talk to a smith, or you may purchase them from the nearby shop, I believe!");
-    npc.base.autonpcfunctions.AddTraderTrigger("Schere","Wenn du eine Schere brauchst, geh doch zu einem Schmied oder frag im Laden.");
-    -- Faction stuff
-    npc.base.autonpcfunctions.AddTraderTrigger("Elvaine","Archmage Morgan, yes, I think he ordered a new robe. I should work on it!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Morgan");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("archmage");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Erzmagier");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Elvaine","Erzmagier Morgan, ja, der hat eine neue Robe bei mir bestellt. Ich sollte besser mal an ihr arbeiten.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Morgan");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("archmage");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Erzmagier");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","This is Runewick! I personally enjoy it here.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Runewick","Dies hier ist Runewick. Mir gefällt es hier.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Valerio","Ui, they have no law in Galmair, but everyone knows the Don is the boss.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guilianni");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Don");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Valerio","Ui, es gibt kein Gesetz in Galmair, aber jeder weiß, dass der Don der Boss ist.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Guilianni");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Don");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Galmair is funny. I used to live there, but here, it is more pleasant.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Galmair","Galmair ist echt komisch. Ich hab da früher mal gelebt, aber hier ist es schöner.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("rosaline","A woman rules Cadomyr. That is so funny!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("königin");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("queen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("edwards");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("rosaline","Eine Frau regiert Cadomyr. Das ist so lustig!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("königin");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("queen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("edwards");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Cadomyr is far away, somewhere in the west I think. They don't like women there, but are ruled by a queen. Strange, eh?");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cadomyr","Cadomyr ist weit weg, irgendwo im Westen meine ich. Die mögen keine Frauen da, aber trotzdem regiert da eine Königin. Komisch, oder?");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Main land factions
-    npc.base.autonpcfunctions.AddTraderTrigger("albar","They are mad, those albarians.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("albar","Die spinnen, die Albarier.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("gynk","My aunt lives near Gynk. I always write her a letter, each month.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gync");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("gync","Meine Tante lebt bei Gynk. Ich schreibe ihr jeden Monat einen Brief.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("gynk");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("salkama","The Archmage talks a lot about Salkamar, I know nothing about that.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("salkama","Der Erzmagier redet viel über Salkamar, ich weiß da nichts drüber.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    -- Gods; each NPC should at react on one god, being a follower of said god
-    npc.base.autonpcfunctions.AddTraderTrigger("Irmorom","Irmorom guides my needle. Sometimes, he's angry and I sting myself.");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("Irmorom","Irmorom führt meine Nadel. Manchmal ist er böse auf mich und dann picks ich mich.");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("Cherga","Eeek!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Moshran");
-    -- 1st quest: Gather 20 wool
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein I");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress I");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich könnte etwas Hilfe gebrauchen, um eine Robe für den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",0);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",1);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein I");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe für den Erzmagier rechtzeitig fertig kriegen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",170,20);
-    npc.base.autonpcfunctions.AddConsequence("item",47,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",5);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Why thank you! I don't have a real reward for you, but you can have my spare needle.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",170,20);
-    npc.base.autonpcfunctions.AddConsequence("item",47,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",5);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Oh, danke! Ich habe keine Belohnung für dich, aber du kannst meine Ersatznadel haben.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",170,20);
-    npc.base.autonpcfunctions.AddConsequence("item",47,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Why thank you! I don't have a real reward for you, but you can have my spare needle.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all",">",19);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",170,20);
-    npc.base.autonpcfunctions.AddConsequence("item",47,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a needle and your tailoring skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",2);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Hmm, das ist noch nicht genug Wolle.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all","<",19);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Hrm.. there is not enough wool here yet.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",1);
-    npc.base.autonpcfunctions.AddCondition("item",170,"all","<",19);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 2nd quest: Gather 15 thread
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein II");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress II");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",2);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",3);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein II");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",50,15);
-    npc.base.autonpcfunctions.AddConsequence("item",385,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",10);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",50,15);
-    npc.base.autonpcfunctions.AddConsequence("item",385,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a blue dress and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",10);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",50,15);
-    npc.base.autonpcfunctions.AddConsequence("item",385,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all",">",14);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",50,15);
-    npc.base.autonpcfunctions.AddConsequence("item",385,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a blue dress and your tailoring skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",4);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all","<",14);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thread, thread, my dear, I lack thread and you don't have enough!");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",3);
-    npc.base.autonpcfunctions.AddCondition("item",50,"all","<",14);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- 3rd quest: Gather 5 red cloth.
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein III");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[New quest] The Lazy Tailoress III");
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",4);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",5);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Neues Quest] Das faule Schneiderlein III");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",174,5);
-    npc.base.autonpcfunctions.AddConsequence("item",558,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",20);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("town","=","runewick");
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",174,5);
-    npc.base.autonpcfunctions.AddConsequence("item",558,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a master mage robe and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour.");
-    npc.base.autonpcfunctions.AddConsequence("rankpoints","runewick","+",20);
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",174,5);
-    npc.base.autonpcfunctions.AddConsequence("item",558,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all",">",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddConsequence("deleteitem",174,5);
-    npc.base.autonpcfunctions.AddConsequence("item",558,1,999,0);
-    npc.base.autonpcfunctions.AddConsequence("inform","[Quest solved] You are awarded a master mage robe and your tailoring skill increases.");
-    npc.base.autonpcfunctions.AddConsequence("skill","crafting","tailoring","+",1);
-    npc.base.autonpcfunctions.AddConsequence("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all","<",4);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger(".+","Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan.");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",5);
-    npc.base.autonpcfunctions.AddCondition("item",174,"all","<",4);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    -- Final dialogue: No more quests, just nice hints
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","I don't need anything else, but thank you! You saved my day!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","english");
-    npc.base.autonpcfunctions.AddTraderTrigger("quest","Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("mission");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddCondition("lang","german");
-    npc.base.autonpcfunctions.AddTraderTrigger("task","I don't need anything else, but thank you! You saved my day!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("adventure");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    npc.base.autonpcfunctions.AddTraderTrigger("Auftrag","Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schön aus der Patsche geholfen!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Aufgabe");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("Abenteuer");
-    npc.base.autonpcfunctions.AddCondition("qpg","=",6);
-    -- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
-    npc.base.autonpcfunctions.AddCycleText("#me summt ein Liedchen.","#me hums a small song.");
-    npc.base.autonpcfunctions.AddCycleText("#me schaut zum Himmel und murmelt: 'Fast schon Zeit für ein Stück Kuchen.'","#me looks at the sky, and mumbles: 'Nearly time for pie...'");
-    npc.base.autonpcfunctions.AddCycleText("#me streichelt ein Schaf.","#me pats a sheep.");
-    npc.base.autonpcfunctions.AddCycleText("Oh, ist schon wieder Essenszeit?","Oh, is it nearly time to eat again?");
-    npc.base.autonpcfunctions.AddCycleText("Hallo da drüben!","Hello over there!");
-    npc.base.autonpcfunctions.AddCycleText("#me kichert freudig.","#me giggles.");
-    npc.base.autonpcfunctions.AddCycleText("Ohje, ich muss fertig werden.","Oh, I have to get things done.");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0,1};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-end
-
-function nextCycle()  -- ~10 times per second
-    initializeNpc();
-    npc.base.autonpcfunctions.SpeakerCycle();
-end
-
-function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-        if npc.base.autonpcfunctions.LangOK(originator,TradSpeakLang) then
-            npc.base.autonpcfunctions.TellSmallTalk(message,originator);
-        else
-            npc.base.autonpcfunctions.Confused(
-               "#me sieht dich leicht verwirrt an",
-               "#me looks at you a little confused"
-            );
-        end
-    end
-end
+function receiveText(texttype, message, speaker) mainNPC:receiveText(speaker, message); end;
+function nextCycle() mainNPC:nextCycle(); end;
+function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
+function useNPC(char, counter, param) mainNPC:use(char); end;
+initNpc();
+initNpc = nil;
+-- END
