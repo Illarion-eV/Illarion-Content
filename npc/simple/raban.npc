@@ -31,19 +31,18 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-radius = 10
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
-itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+beardID = 3
+colorHair = 204, 144, 2
+colorSkin = 186, 133, 91
+itemHead = 829
+itemChest = 365
+itemCoat = 2416
+itemMainHand = 207
 itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
-itemShoes = 53
+itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -70,14 +69,6 @@ itemShoes = 53
 
 -- Debugging
 "set 0" -> "Quest status set to 0", queststatus(66) = 0
-"set 1" -> "Quest status set to 1", queststatus(66) = 1
-"set 2" -> "Quest status set to 2", queststatus(66) = 2
-"set 3" -> "Quest status set to 3", queststatus(66) = 3
-"set 4" -> "Quest status set to 4", queststatus(66) = 4
-"set 5" -> "Quest status set to 5", queststatus(66) = 5
-"set 6" -> "Quest status set to 6", queststatus(66) = 6
-"set 7" -> "Quest status set to 7", queststatus(66) = 7
-"set 8" -> "Quest status set to 8", queststatus(66) = 8
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs.")
@@ -86,12 +77,12 @@ itemShoes = 53
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, yes, an unsettled soul. Welcome to my grove.", "Who is there! Pardon me, I am not used to visitors.", "So, after all those summers, somebody comes here. I hope your intentions are good."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.", "Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.", "Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "Ciao", "Adieu", "Au revoir", english -> "Ushara may guide your way.", "Farewell.", "While leaving, do not stomp on any seedling, will you?"
-"Ciao", "Adieu", "Au revoir", german -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
+"Ciao", "Adieu", "Au revoir" -> "Möge Ushara deinen Weg begleiten.", "Gehabt euch wohl.", "Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?"
 "How are you", "How feel", "How do you do" -> "I always feel pacified when surrounded by plants and trees.", "I'd feel much better if everyone honors the woods. Aren't those trees lovely?", "I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Umgeben von Pflanzen und Bäumen fühle ich mich immer beruhigt.", "Es würde mir weit besser gehen, wenn ein Jeder die Wälder achten würde. Sind diese Bäume nicht wunderbar?", "Ich kann mich nicht beklagen. Meine Bäume wachsen wunderbar und der kleine dort ist gerade zehn geworden. Ich erinnere mich, wie ich ihn gepflanzt habe, als wenn es gestern wäre."
 "your name", "who are you", "who art thou" -> "They used to call me Raban when people still came here.", "Raban.", "I am an old man without an use for a name. The trees and plants have their own word for me. You may call me Raban."
@@ -104,8 +95,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"hermit", "forester", "ranger", "gardener", "hippie" -> "Nature can offer much more joy to me than any place, made of cold stone.", "I plant trees and watch them grow. Can you imagine anything more... relaxing?", "I enjoy the silence here. A branch in the wind can sing wonderful songs."
-"Einsiedler", "Förster", "Waldhüter", "Wildhüter", "Gärtner", "hippie" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
+"hermit", "forester", "ranger", "gardener" -> "Nature can offer much more joy to me than any place, made of cold stone.", "I plant trees and watch them grow. Can you imagine anything more... relaxing?", "I enjoy the silence here. A branch in the wind can sing wonderful songs."
+"Einsiedler", "Förster", "Waldhüter", "Wildhüter", "Gärtner" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
 "shrine", "grove" -> "Isn't this a lovely place? Most trees, I planted myself.", "Honor Ushara for this site is her gift.", "Welcome to the place where nature embraces you."
 "Schrein", "Hain" -> "Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.", "Ehret Ushara, denn all dies ist ihr Geschenk.", "Willkommen an dem Ort, wo die Natur dich umarmt."
 "Dürre" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung."
@@ -113,15 +104,15 @@ itemShoes = 53
 "oasis" -> "At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?"
 "oase" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
 "Rutrus", english -> "At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?"
-"Rutrus", german -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
-"Ushara", german -> "Ehret die Göttin!"
-"Ushara", english -> "Honor the goddess!"
-"Oldra", german -> "Oldra... I am sure I saw her one day, dancing during dawn on the grass.", "Oldra now takes care of all the wonders Ushara has left on the land."
-"Oldra", english -> "Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.", "Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
-"Bruno", german -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
+"Rutrus" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
+"Ushara", english -> "Honour the goddess!"
+"Ushara" -> "Ehret die Göttin!"
+"Oldra", english -> "Oldra... I am sure I saw her one day, dancing during dawn on the grass.", "Oldra now takes care of all the wonders Ushara has left on the land."
+"Oldra" -> "Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.", "Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
 "Bruno", english -> "That name sounds familiar, but living in solitude, I forgot about names with time."
-"Gobaith", german -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
+"Bruno" -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
 "Gobaith", english -> "I've been to Gobaith, but that is long ago.", "I do not want to talk about this with you, I hope you respect that."
+"Gobaith" -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
 
 -- Factions
 "Runewick", german -> "Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor."
@@ -205,9 +196,9 @@ itemShoes = 53
 
 -- Easteregg
 "Darlok", english -> "Could you please not mention that name in front of me?"
-"Darlok", german -> "Mögt ihr diesen Namen bitte nicht in meiner Gegenwart erwähnen?"
+"Darlok" -> "Mögt ihr diesen Namen bitte nicht in meiner Gegenwart erwähnen?"
 "Falkner", english -> "What did you say?", "That's not my name... anymore."
-"Falkner", german -> "Wie bitte?", "So heiße ich nicht... mehr."
+"Falkner" -> "Wie bitte?", "So heiße ich nicht... mehr."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Yes?", "Probably.", "I thought so.", "Are you sure?", "Maybe.", "What makes you so sure about this?", "Definitely.", "Whatever..."

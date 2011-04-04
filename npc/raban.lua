@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 832, 107, 0, 6, 'Raban', 'npc.raban', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 832, 107, 0, 6, 'Raban', 'npc.raban', 0, 2, 3, 204, 144, 2, 186, 133, 91);
 ---]]
 
 require("npc.base.basic")
@@ -36,62 +36,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("set 0");
 talkEntry:addResponse("Quest status set to 0");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 1");
-talkEntry:addResponse("Quest status set to 1");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 2");
-talkEntry:addResponse("Quest status set to 2");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 3");
-talkEntry:addResponse("Quest status set to 3");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 4");
-talkEntry:addResponse("Quest status set to 4");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 5");
-talkEntry:addResponse("Quest status set to 5");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 6");
-talkEntry:addResponse("Quest status set to 6");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 7");
-talkEntry:addResponse("Quest status set to 7");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 8");
-talkEntry:addResponse("Quest status set to 8");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -140,8 +84,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ah, yes, an unsettled soul. Welcome to my grove.");
 talkEntry:addResponse("Who is there! Pardon me, I am not used to visitors.");
@@ -153,9 +96,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ach ja, wieder eine rastlose Seele. Willkommen in meinem Hain.");
 talkEntry:addResponse("Wer ist da! Entschuldigt, ich bin es nicht gewohnt, Besucher zu empfangen.");
 talkEntry:addResponse("Nun, nach all diesen Sommern sucht wieder jemand diesen Ort auf. Ich hoffe, eure Absichten sind ehrbar.");
@@ -199,7 +140,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Möge Ushara deinen Weg begleiten.");
 talkEntry:addResponse("Gehabt euch wohl.");
 talkEntry:addResponse("Wenn ihr geht, mögt ihr Acht geben, nicht auf Setzlinge zu treten?");
@@ -291,7 +231,6 @@ talkEntry:addTrigger("hermit");
 talkEntry:addTrigger("forester");
 talkEntry:addTrigger("ranger");
 talkEntry:addTrigger("gardener");
-talkEntry:addTrigger("hippie");
 talkEntry:addResponse("Nature can offer much more joy to me than any place, made of cold stone.");
 talkEntry:addResponse("I plant trees and watch them grow. Can you imagine anything more... relaxing?");
 talkEntry:addResponse("I enjoy the silence here. A branch in the wind can sing wonderful songs.");
@@ -304,7 +243,6 @@ talkEntry:addTrigger("Förster");
 talkEntry:addTrigger("Waldhüter");
 talkEntry:addTrigger("Wildhüter");
 talkEntry:addTrigger("Gärtner");
-talkEntry:addTrigger("hippie");
 talkEntry:addResponse("Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.");
 talkEntry:addResponse("Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?");
 talkEntry:addResponse("Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen.");
@@ -362,28 +300,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rutrus");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ehret die Göttin!");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Honour the goddess!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Honor the goddess!");
+talkEntry:addResponse("Ehret die Göttin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oldra... I am sure I saw her one day, dancing during dawn on the grass.");
 talkEntry:addResponse("Oldra now takes care of all the wonders Ushara has left on the land.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -391,16 +327,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.");
 talkEntry:addResponse("Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bruno");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,10 +340,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
-talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
+talkEntry:addTrigger("Bruno");
+talkEntry:addResponse("Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,6 +350,13 @@ talkEntry:addTrigger("Gobaith");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
 talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
+talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1051,7 +984,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Darlok");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Mögt ihr diesen Namen bitte nicht in meiner Gegenwart erwähnen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1066,7 +998,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Falkner");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wie bitte?");
 talkEntry:addResponse("So heiße ich nicht... mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1132,14 +1063,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist der Einsiedler Raban.", "This NPC is the hermit Raban.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(1, 829);
+mainNPC:setEquipment(3, 365);
+mainNPC:setEquipment(11, 2416);
+mainNPC:setEquipment(5, 207);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
