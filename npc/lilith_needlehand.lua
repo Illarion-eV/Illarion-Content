@@ -2,7 +2,7 @@
 -- NPC Name: Lilith Needlehand                                       Runewick --
 -- NPC Job:  Tailor                                                           --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  892, 761, 0            --
+-- NPC Race: halfling                   NPC Position:  893, 756, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 892, 761, 0, 4, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
+VALUES (2, 893, 756, 0, 4, 'Lilith Needlehand', 'npc.lilith_needlehand', 1, 2, 0, 171, 73, 5, 237, 193, 151);
 ---]]
 
 require("npc.base.basic")
@@ -972,7 +972,7 @@ mainNPC:setLookat("Dieser NPC ist die Schneiderin Lilith.", "This NPC is the tai
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 806);
+mainNPC:setEquipment(3, 801);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
