@@ -2,7 +2,7 @@
 -- NPC Name: Jonathan Cyrus                                           Cadomyr --
 -- NPC Job:  glass goods trader                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  113, 599, 0            --
+-- NPC Race: human                      NPC Position:  125, 603, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Jonathan Cyrus"
 race = human
 sex = male
-position = 113, 599, 0
+position = 125, 603, 0
 direction = south
 affiliation = "Cadomyr"
 job = "glass goods trader"

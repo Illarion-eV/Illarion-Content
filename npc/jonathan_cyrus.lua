@@ -2,7 +2,7 @@
 -- NPC Name: Jonathan Cyrus                                           Cadomyr --
 -- NPC Job:  glass goods trader                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  113, 599, 0            --
+-- NPC Race: human                      NPC Position:  125, 603, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 113, 599, 0, 4, 'Jonathan Cyrus', 'npc.jonathan_cyrus', 0, 2, 6, 192, 107, 5, 183, 130, 88);
+VALUES (0, 125, 603, 0, 4, 'Jonathan Cyrus', 'npc.jonathan_cyrus', 0, 2, 6, 192, 107, 5, 183, 130, 88);
 ---]]
 
 require("npc.base.basic")
