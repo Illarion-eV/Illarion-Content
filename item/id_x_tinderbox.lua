@@ -5,25 +5,36 @@ require ("base.common")
 
 module("item.id_x_tinderbox", package.seeall)
 
-WoodIds = {3,543,544,2560};
+WoodIds = {544,543,2560,3};
+BC = base.common;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	
 	-- item in hand?
-	if not base.common.IsItemInHands(SourceItem) then
-		base.common.TempInformNLS(User,
+	if not BC.IsItemInHands(SourceItem) then
+		BC.TempInformNLS(User,
 			"Du musst die Zunderbüchse in die Hand nehmen.",
 			"You have to hold the tinderbox in your hands.");
+		return;
+	end
+	
+	local frontPos = BC.GetFrontPosition(User);
+	
+	-- check front position for proper ground tile
+	local groundType = BC.GetGroundType(world:getField(frontPos).tile);
+	if groundType == BC.GroundType.water or groundType == BC.GroundType.unknown then
+		BC.TempInformNLS(User,
+			"Auf diesem Untergrund kannst du kein Feuer machen.",
+			"You can't light a fire on this ground.");
 		return;
 	end
 	
 	-- check front position for wood, a kettle or if it's clear
 	local foundWood = false;
 	local frontItem = nil;
-	local frontPos = base.common.GetFrontPosition(User);
 	local posOkay = true;
 	if world:isItemOnField(frontPos) then
-		frontItem = base.common.GetFrontItem(User);
+		frontItem = BC.GetFrontItem(User);
 		if frontItem and frontItem.id == 2488 then -- a kettle
 			posOkay = true;
 		elseif IsWood(frontItem) then
@@ -35,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 	end
 	if not posOkay or world:isCharacterOnField(frontPos) then
-		base.common.TempInformNLS(User,
+		BC.TempInformNLS(User,
 			"Du kannst nur unter einem Kessel oder an einer freien Stelle ein Feuer machen.",
 			"You have to light a fire beneath a kettle or at a clear place.");
 		return;
@@ -44,19 +55,20 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	if foundWood then
 		-- already found wood in front
 		world:erase(frontItem, 1);
-		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
+		LightFire(User, frontPos);
 		if frontItem.number > 0 then
 			-- there was more than one wood item, so put the rest on top
 			world:createItemFromId(frontItem.id,frontItem.number,frontPos,true,333,0);
 			-- and erase the rest
 			world:erase(frontItem,frontItem.number);
 		end
-		tryWildfire(User, SourceItem);
+		--wildfires disabled
+		--tryWildfire(User, SourceItem);
 		return;
 	end
 	
 	-- first check the hand slot
-	local woodItem = base.common.GetTargetItem(User, SourceItem);
+	local woodItem = BC.GetTargetItem(User, SourceItem);
 	if IsWood(woodItem) then
 		world:erase(woodItem, 1);
 		foundWood = true;
@@ -66,7 +78,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		local woodNum = 0;
 		while ( woodNum == 0 and woodIndex < table.getn(WoodIds) ) do
 			woodIndex = woodIndex + 1;
-			woodNum = User:countItemAt("belt", WoodIds[woodIndex]);
+			woodNum = User:countItemAt("all", WoodIds[woodIndex]);
 		end
 		if woodNum > 0 then
 			User:eraseItem(WoodIds[woodIndex],1);
@@ -75,12 +87,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end
 	if foundWood then
 		-- light fire
-		world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
-		tryWildfire(User, SourceItem);
+		LightFire(User, frontPos);
+		-- wildfires disabled
+		--tryWildfire(User, SourceItem);
 	else
-		base.common.TempInformNLS(User,
-			"Für ein Feuer brauchst du Holz. Lege es vor dich hin, nimm es in die Hand oder platziere es am Gürtel.",
-			"For a fire you need wood. Put it on the ground in front of you, take it in your hand or put it at your belt.");
+		BC.TempInformNLS(User,
+			"Für ein Feuer brauchst du Holz.",
+			"For a fire you need wood.");
 	end
 end
 
@@ -100,6 +113,13 @@ function IsWood(item)
 	end
 	
 	return false;
+end
+
+function LightFire(User, FrontPos)
+	world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
+	BC.TempInformNLS(User,
+		"Du entzündest ein Feuer.",
+		"You light a fire.");
 end
 
 function tryWildfire(User, SourceItem)
