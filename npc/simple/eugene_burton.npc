@@ -2,8 +2,8 @@
 -- NPC Name: Eugene Burton                                               Free --
 -- NPC Job:  Poacher                                                          --
 --                                                                            --
--- NPC Race: human                      NPC Position:  707, 484, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  693, 493, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -13,8 +13,8 @@
 name = "Eugene Burton"
 race = human
 sex = male
-position = 707, 484, 0
-direction = south
+position = 693, 493, 0
+direction = west
 affiliation = "Free"
 job = "Poacher"
 
@@ -38,8 +38,8 @@ colorSkin = 190, 138, 96
 itemHead = 0
 itemChest = 364
 itemCoat = 55
-itemMainHand = 2714
-itemSecondHand = 0
+itemMainHand = 0
+itemSecondHand = 2714
 itemHands = 48
 itemTrousers = 2113
 itemShoes = 53

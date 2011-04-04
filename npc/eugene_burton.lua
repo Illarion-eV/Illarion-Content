@@ -2,8 +2,8 @@
 -- NPC Name: Eugene Burton                                               Free --
 -- NPC Job:  Poacher                                                          --
 --                                                                            --
--- NPC Race: human                      NPC Position:  707, 484, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  693, 493, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 707, 484, 0, 4, 'Eugene Burton', 'npc.eugene_burton', 0, 1, 1, 208, 125, 4, 190, 138, 96);
+VALUES (0, 693, 493, 0, 6, 'Eugene Burton', 'npc.eugene_burton', 0, 1, 1, 208, 125, 4, 190, 138, 96);
 ---]]
 
 require("npc.base.basic")
@@ -1224,8 +1224,8 @@ mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you con
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 364);
 mainNPC:setEquipment(11, 55);
-mainNPC:setEquipment(5, 2714);
-mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 2714);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2113);
 mainNPC:setEquipment(10, 53);
