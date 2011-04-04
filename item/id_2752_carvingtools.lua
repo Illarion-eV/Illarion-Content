@@ -24,11 +24,11 @@ function InitCraftingTool( )
         carpentery:AddTool( 725 ); -- Werkbank
 
         carpentery:AddInterruptMessage(
-        "Du wischst dir den Schwei� von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
 
         carpentery:AddInterruptMessage(
-        "Du pustest kurz die S�gesp�ne von deiner Kleidung.",
+        "Du pustest kurz die Sägespäne von deiner Kleidung.",
         "You blow some sawdust off your clothes.");
 
         carpentery:AddInterruptMessage(
@@ -40,15 +40,15 @@ function InitCraftingTool( )
         "You throw away some rubbish to get more working space.");
 
         carpentery:AddInterruptMessage(
-        "Du bekommst einige Sp�ne in den Mund und mu�t husten.",
+        "Du bekommst einige Späne in den Mund und mußt husten.",
         "Sawdust finds its way into your mouth, causing you to cough loudly.");
 
         carpentery:AddInterruptMessage(
-        "Du bekommst einen Holzsplitter in den Finger und mu�t Pause machen um ihn zu entfernen.",
+        "Du bekommst einen Holzsplitter in den Finger und mußt Pause machen um ihn zu entfernen.",
         "You get a splinter of wood in your finger and have to take a break to pull it out.");
 
         carpentery:AddInterruptMessage(
-        "Du �berpr�fst kurz die Ma�e des Werkst�cks.",
+        "Du überprüfst kurz die Maße des Werkstücks.",
         "You check the fine details of your work.");
 
         --------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ product:AddProductionSteps( { 2738, 5, "all" }, 1 ); -- Pins: 1x5
 
 --Pipe
 product = carpentery:AddProduct( CurrentCatID, 2744, { 4, 24}, 1, { 12, 24 } );
-product:AddProductionSteps( { 2543, 1, "all" }, 1 ); -- Conifer Wooden Boards: 1x1
+product:AddProductionSteps( { 2716, 1, "all" }, 1 ); -- Apple Wooden Boards: 1x1
 
 --Torch
 product = carpentery:AddProduct( CurrentCatID, 391, { 8, 28}, 1, { 14, 28 } );
@@ -75,16 +75,16 @@ product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
 --Rolling Pin
 product = carpentery:AddProduct( CurrentCatID, 118, { 12, 32}, 1, { 16, 32 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2543, 1, "all" }, 1 ); -- Conifer Wooden Boards: 1x1
+product:AddProductionSteps( { 2716, 1, "all" }, 1 ); -- Apple Wooden Boards: 1x1
 
 --Brick Mould
 product = carpentery:AddProduct( CurrentCatID, 734, { 16, 36}, 1, { 18, 36 } );
-product:AddProductionSteps( { 2543, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 2716, 1, "all" }, 2 ); -- Apple Wooden Boards: 2x1
 
 --Flail
 product = carpentery:AddProduct( CurrentCatID, 258, { 20, 40}, 1, { 20, 40 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2543, 1, "all" }, 1 ); -- Conifer Wooden Boards: 1x1
+product:AddProductionSteps( { 2716, 1, "all" }, 1 ); -- Apple Wooden Boards: 1x1
 
 --Dyeing Rod
 product = carpentery:AddProduct( CurrentCatID, 2781, { 24, 44}, 1, { 22, 44 } );
@@ -163,54 +163,54 @@ CurrentCatID = carpentery:AddCategory( 445 ) --weapons
 
 --Wooden Sword
 product = carpentery:AddProduct( CurrentCatID, 445, { 0, 20}, 1, { 10, 20 } );
-product:AddProductionSteps( { 2543, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2584, 1, "all" }, 1 ); -- Sword Handle: 1x1
 
 --Club
 product = carpentery:AddProduct( CurrentCatID, 2664, { 6, 26}, 1, { 13, 26 } );
-product:AddProductionSteps( { 2543, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2548, 1, "all" }, 1 ); -- Mace Handle: 1x1
 
 --Skull Staff
 product = carpentery:AddProduct( CurrentCatID, 39, { 12, 32}, 1, { 16, 32 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Cleric's Staff
 product = carpentery:AddProduct( CurrentCatID, 40, { 24, 44}, 1, { 22, 44 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Simple Mage Staff
 product = carpentery:AddProduct( CurrentCatID, 57, { 30, 50}, 1, { 25, 50 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Mage's Staff
 product = carpentery:AddProduct( CurrentCatID, 76, { 42, 62}, 1, { 31, 62 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 3 ); -- Conifer Wooden Boards: 3x1
+product:AddProductionSteps( { 546, 1, "all" }, 3 ); -- Naldor Wooden Boards: 3x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Elven Mage's Staff
 product = carpentery:AddProduct( CurrentCatID, 209, { 54, 74}, 1, { 37, 74 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 3 ); -- Conifer Wooden Boards: 3x1
+product:AddProductionSteps( { 546, 1, "all" }, 3 ); -- Naldor Wooden Boards: 3x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Ornate Mage's Staff
 product = carpentery:AddProduct( CurrentCatID, 208, { 60, 80}, 1, { 40, 80 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 3 ); -- Conifer Wooden Boards: 3x1
+product:AddProductionSteps( { 546, 1, "all" }, 3 ); -- Naldor Wooden Boards: 3x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 
 --Battle Staff
 product = carpentery:AddProduct( CurrentCatID, 207, { 66, 86}, 1, { 43, 86 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 546, 1, "all" }, 2 ); -- Naldor Wooden Boards: 2x1
 product:AddProductionSteps( { 2573, 1, "all" }, 1 ); -- Large Staff Handle: 1x1
 product:AddProductionSteps( { 2535, 1, "all" }, 2 ); -- Iron Ingot: 2x1
 
@@ -238,14 +238,14 @@ CurrentCatID = carpentery:AddCategory( 323 ) --Wands
 --Wand
 product = carpentery:AddProduct( CurrentCatID, 323, { 40, 60}, 1, { 30, 60 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 2 ); -- Conifer Wooden Boards: 2x1
+product:AddProductionSteps( { 545, 1, "all" }, 2 ); -- Cherry Wooden Boards: 2x1
 product:AddProductionSteps( { 2527, 1, "all" }, 1 ); -- Large Ornated Staff Handle: 1x1
 product:AddProductionSteps( { 46, 1, "all" }, 1 ); -- Ruby: 1x1
 
 --Wand of Earth
 product = carpentery:AddProduct( CurrentCatID, 2782, { 60, 80}, 1, { 40, 80 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 3 ); -- Conifer Wooden Boards: 3x1
+product:AddProductionSteps( { 545, 1, "all" }, 3 ); -- Cherry Wooden Boards: 3x1
 product:AddProductionSteps( { 2527, 1, "all" }, 1 ); -- Large Ornated Staff Handle: 1x1
 product:AddProductionSteps( { 283, 1, "all" }, 3 ); -- Blackstone: 3x1
 product:AddProductionSteps( { 2552, 1, "all" }, 1 ); -- Pure Earth: 1x1
@@ -253,7 +253,7 @@ product:AddProductionSteps( { 2552, 1, "all" }, 1 ); -- Pure Earth: 1x1
 --Wand of Fire
 product = carpentery:AddProduct( CurrentCatID, 2783, { 70, 90}, 1, { 45, 90 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 4 ); -- Conifer Wooden Boards: 4x1
+product:AddProductionSteps( { 545, 1, "all" }, 4 ); -- Cherry Wooden Boards: 4x1
 product:AddProductionSteps( { 2527, 1, "all" }, 1 ); -- Large Ornated Staff Handle: 1x1
 product:AddProductionSteps( { 46, 1, "all" }, 3 ); -- Ruby: 3x1
 product:AddProductionSteps( { 2553, 1, "all" }, 1 ); -- Pure Fire: 1x1
@@ -261,7 +261,7 @@ product:AddProductionSteps( { 2553, 1, "all" }, 1 ); -- Pure Fire: 1x1
 --Wand of Water
 product = carpentery:AddProduct( CurrentCatID, 2784, { 80, 100}, 1, { 50, 100 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 5 ); -- Conifer Wooden Boards: 5x1
+product:AddProductionSteps( { 545, 1, "all" }, 5 ); -- Cherry Wooden Boards: 5x1
 product:AddProductionSteps( { 2527, 1, "all" }, 1 ); -- Large Ornated Staff Handle: 1x1
 product:AddProductionSteps( { 284, 1, "all" }, 3 ); -- Bluestone: 3x1
 product:AddProductionSteps( { 2554, 1, "all" }, 1 ); -- Pure Water: 1x1
@@ -269,7 +269,7 @@ product:AddProductionSteps( { 2554, 1, "all" }, 1 ); -- Pure Water: 1x1
 --Water of Wind
 product = carpentery:AddProduct( CurrentCatID, 2785, { 90, 110}, 1, { 55, 110 } );
 product:AddProductionSteps( { 56, 1, "all" }, 1 ); -- Bough: 1x1
-product:AddProductionSteps( { 2584, 1, "all" }, 6 ); -- Conifer Wooden Boards: 6x1
+product:AddProductionSteps( { 545, 1, "all" }, 6 ); -- Cherry Wooden Boards: 6x1
 product:AddProductionSteps( { 2527, 1, "all" }, 1 ); -- Large Ornated Staff Handle: 1x1
 product:AddProductionSteps( { 285, 1, "all" }, 3 ); -- Diamond: 3x1
 product:AddProductionSteps( { 2551, 1, "all" }, 1 ); -- Pure Air: 1x1 
@@ -281,7 +281,7 @@ end
 
 
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DON'T EDIT THIS LINE!
     base.common.ResetInterruption( User, ltstate )
     carpenter = InitCraftingTool( );
     if not menstate then
@@ -307,7 +307,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if menstate[ User.id ]==nil then                           -- menustatus initialisieren.
+    if menstate[ User.id ]==nil then                           -- Menüstatus initialisieren.
         menstate[ User.id ]=0;
     end
 
@@ -322,14 +322,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 
     if ( SourceItem:getType() ~= 4 ) then -- Schnitzmesser in der Hand
         base.common.InformNLS( User,
-        "Du mu�t die Schnitzmesser in die Hand nehmen um damit zu arbeiten.",
+        "Du mußt die Schnitzmesser in die Hand nehmen um damit zu arbeiten.",
         "You have to take the carving tools in your hand, to work with it." )
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife R�stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine R�stung behindert beim schnitzen.",
+        "Deine Rüstung behindert beim schnitzen.",
         "Your armour disturbes you while carve." );
         carpenter:SwapToInactiveItem( User );
         return
