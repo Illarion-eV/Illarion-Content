@@ -1,21 +1,21 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Eugene Burton                                               None --
+-- NPC Name: Eugene Burton                                               Free --
 -- NPC Job:  Poacher                                                          --
 --                                                                            --
--- NPC Race: human                      NPC Position:  20, 1, 0               --
+-- NPC Race: human                      NPC Position:  707, 484, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 09, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Eugene Burton"
 race = human
 sex = male
-position = 20, 1, 0
+position = 707, 484, 0
 direction = south
-affiliation = "None"
+affiliation = "Free"
 job = "Poacher"
 
 language = common
@@ -31,21 +31,20 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-radius = 1
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 1
+beardID = 1
+colorHair = 208, 125, 4
+colorSkin = 190, 138, 96
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 364
+itemCoat = 55
+itemMainHand = 2714
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
+itemTrousers = 2113
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -193,14 +192,14 @@ itemShoes = 53
 "beruf" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
 "job", english -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
 "job" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "Sorry, I am a simple poach... poor man, I know nothing about the world across the ocean."
+"Gobaith", "Gobiath" -> "Entschuldigt, ich bin ein einfacher Wilder... Weidmann. Ich weiß nichts über die Länder jenseits des Ozeans."
+"my name" -> "My family is starving. Perhaps you can help me feed them?"
+"mein Name" -> "Meine Familie ist am verhungern. Vielleicht könnt uns helfen?"
 
 -- More small talk; add at least five triggers
 "poacher", "hunter" -> "People call me a poacher, because they don't like what I do. But what do I do? I take only what my family needs!"
-"wilderer", "jäger" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
+"wilderer", "jäger", "Weidmann" -> "Manche nennen mich einen Wilderer, denn ihnen misfällt, was ich tue. Aber was mache ich schon - ich nehme nur so viel, wie meine Familie benötigt."
 "valandil", "elensar", "elf", "elfen", "elves", english -> "Wicked elves! They think that the life of an animal is worth much more than the life of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!"
 "valandil", "elensar", "elf", "elfen", "elves" -> "Vermaledeite Elfen! Sie schätzen das Leben eines Tieres mehr als das Leben meiner vier Kinder. Valandial Elensar, der selbsternannte Hüter des Elsbaumwaldes, ist der schlimmste von allen."
 "law" -> "Legal, illegal... I give a damn!"
@@ -249,40 +248,14 @@ itemShoes = 53
 "salkama" -> "Hochwohlgeborenes Volk lebt dort; aber auch arme Leute wie ich. Und niemanden schert es, wie es denen ergeht!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "The gods don't feed my family, I do. But a little blessing never hurts."
+"Gott", "Götter" -> "Die Götter ernähren meine Familie nicht, das muss ich schon selbst tun. Ihr Segen schadet dabei aber sicher nicht."
+"Cherga", english -> "If I don't get enough food for my family, Cherga will await them..."
+"Cherga" -> "Wenn ich nicht bald etwas zu Essen für meine Familie auftreibe wird Cherga auf sie warten..."
 "Malachin", english -> "Praise Malachin, the god of all hunters. May he guide my bow."
 "Malachin" -> "Lobet Malachin, den Gott der Jagd. Möge er meinen Bogen führen."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "Oldra didn't do me any good. So, she is a goddess, but not my goddess if you know what I mean."
+"Oldra" -> "Oldra hat mir noch nie etwas Gutes getan. Sie bleibt eine Göttin, aber eben nicht meine Göttin, wir verstehen uns?"
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "If I had something for trading, I'd sell everything to feed my family, I swear."
@@ -291,8 +264,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Ich habe nicht die Zeit, mit euch zu plaudern; meine Familie ist am Verhungern. Vielleicht könnt ihr mir bei einer Aufgabe helfen?"
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Eugene", "Burton", english -> "Us Burtons aren't rich nor noble. And we refuse to be poor and dishonourable."
+"Eugene", "Burton" -> "Wir Burtons sind weder reich noch edel. Und wir weigern uns, arm und unredlich zu sein."
 "Yes" -> "Indeed?", "So, what?", "#me shakes his head slightly: 'Sorry, can you rephrase that?'"
 "Ja" -> "Ist dem so?", "Gut, und nun?", "#me schüttelt seinen Kopf: 'Entschuldigt, könnt ihr das anders ausdrücken?'"
 "No" -> "I don't quite understand, sorry.", "Pardon me?", "What?!"
@@ -318,3 +291,4 @@ cycletext "#me zählt die Pfeile in einem fein bestickten Köcher.", "#me counts
 cycletext "#me spitzt einen langen Stock mit einem Messer an.", "#me carves a long stick with a knife."
 cycletext "Psst, wollt ihr bestes Fell... oh! Ich habe nichts gesagt.", "Shh, want to have best fur... uh, nevermind!"
 cycletext "#me steckt grinsend einen Stock in eine sofort zuschnappende Falle.", "#me sticks a stick into a snapping trap, grinning."
+cycletext "Shh!", "Shh!"
