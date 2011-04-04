@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Jonathan Cyrus                                              None --
--- NPC Job:  none                                                             --
+-- NPC Name: Jonathan Cyrus                                           Cadomyr --
+-- NPC Job:  glass goods trader                                               --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  113, 599, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Jonathan Cyrus"
@@ -15,8 +15,8 @@ race = human
 sex = male
 position = 113, 599, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Cadomyr"
+job = "glass goods trader"
 
 language = common
 language = human
@@ -33,9 +33,9 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 6
+colorHair = 192, 107, 5
+colorSkin = 183, 130, 88
 itemHead = 0
 itemChest = 180
 itemCoat = 2416
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 827
 itemShoes = 770
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -93,10 +93,10 @@ itemShoes = 770
 "beruf" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
 "job", english -> "I trade glass goods.", "I trade candles and glass goods."
 "job" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "Pardon me? I don't know anything about that island Gobaith, just that some refugees came from there to Cadomyr."
+"Gobaith", "Gobiath" -> "Entschuldigt, aber ich weiß nicht viel über diese Insel Gobaith, lediglich, dass einige Flüchtling von dort nach Cadomyr einst kamen."
+"my name" -> "Nice to meet you. How about we talk about glass goods?"
+"mein Name" -> "Sehr erfreut. Wollen wir vielleicht über Glaswaren reden?"
 
 -- More small talk; add at least five triggers
 "Rutrus", english -> "I know Rutrus, he's living at the Oasis of Stars.", "Rutrus, well, I think his head spent too much time under the burning sun.", "In former times, I bought quartz sand from Rutrus, but then he started talking to his shovel."
@@ -137,8 +137,8 @@ itemShoes = 770
 "salkama" -> "Oh, bitte sprecht darüber nicht in aller Öffentlichkeit. Die Königin mag das nicht.", "Psst!", "Still!"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "I respect all gods, but those who I truly pray to are Irmorom and Adron."
+"Gott", "Götter" -> "Ich respektiere alle Götter, aber die, die ich anbete, sind Irmorom und Adron."
 "Irmorom", english -> "Of course I pray to Irmorom before I light the smelting furnace. But who I really adore, that is Adron."
 "Irmorom" -> "Natürlich betet ich stets zu Irmorom, bevor ich den Schmelzofen anfeuere. Aber wirklich verehren tu ich Adron."
 "Adron", english -> "Alas! Adron is my saviour. Without him, nobody would enjoy a good wine and I'd sell nothing anymore."
@@ -151,8 +151,8 @@ itemShoes = 770
 "erzähl was", "erzähl etwas" -> "Glas ist faszinierend. Es sieht aus wie Eis, funkelt wie ein Diamant und ist so hart wie Stein.", "Die Kunst der Glasbläserei ist sehr anspruchsvoll, aber ich werde sicherstellen, dass sie nicht in Vergessenheit gerät.", "Man hat mir mal berichtet, dass man die Strahlen der Sonne mit Glas zu einer tödlichen Waffe bündeln könnte. Was für ein Humbug."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Jonathan", "Cyrus", english -> "No, my daughter is not called Miley."
+"Jonathan", "Cyrus" -> "Nein, meine Tochter heißt nicht Miley."
 "Yes" -> "The queen's favourite word: 'Yes'.", "Fine.", "Perhaps you want to take a look at my goods."
 "Ja" -> "Das Lieblingswort der Königin: 'Ja'.", "Fein.", "Vielleicht wollt ihr einen Blick auf meine Waren werfen."
 "No" -> "Well, then, maybe I can interest you in some candles?", "No?", "How comes you disagree?", "You say 'no', as long as you don't face the queen, you may do so."
@@ -168,3 +168,8 @@ cycletext "Beste Glaswaren!", "Best glass goods!"
 cycletext "Kommt her, schaut euch an, was ich zu bieten habe.", "Come around, take a look at my offer."
 cycletext "Kerzen, helle Kerzen!", "Candles, bright candles!"
 cycletext "#me wischt einen Glaskelch mit einem seidenen Tuch ab.", "#me polishes a glass goblet with a silk tissue."
+cycletext "Glitzernde Glaswaren, nur heute, nur für euch!", "Sparkling glass goods, only today, only for you!"
+cycletext "#me schnüffelt an einer Kerze: 'Bestes Bienenwachs!'.", "#me sniffes on a candle: 'Best bee way!'."
+cycletext "Ich habe beste Kerzen im Angebot. Mögen sie euch ein Leuchtfeuer in der Dunkelheit sein.", "I offer best candles. May they be a beacon of hope in the darkest night."
+cycletext "Bierkrüge für Zwergenbier, feinste Kelche für Elfenwein - aus meinen Gütern schmeckt jedes Gebräu.", "Beer mugs for dwarven beer, finest cups for elven wine - with my goods, everything turns out to be tasty."
+cycletext "Das transparente Gold Cadomyrs: Glas!", "The transparent gold of Cadomyr: Glass!"
