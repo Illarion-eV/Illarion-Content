@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Gregor Remethar                                             None --
--- NPC Job:  none                                                             --
+-- NPC Name: Gregor Remethar                                         Runewick --
+-- NPC Job:  mortician                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  907, 804, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Gregor Remethar"
@@ -15,8 +15,8 @@ race = human
 sex = male
 position = 907, 804, 0
 direction = south
-affiliation = "None"
-job = "none"
+affiliation = "Runewick"
+job = "mortician"
 
 language = common
 language = human
@@ -32,20 +32,20 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 3
+beardID = 4
+colorHair = 90, 90, 90
+colorSkin = 192, 140, 98
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 809
+itemCoat = 194
+itemMainHand = 24
 itemSecondHand = 0
-itemHands = 48
+itemHands = 2295
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -159,8 +159,8 @@ itemShoes = 53
 "beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
 "job", english -> "I am the local mortician. I judge who earned himself most fame about wisdom and justice. For this is what determines our fame in the afterlife."
 "job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "Mind me taking your measures?"
+"mein Name" -> "Darf ich schonmal eure Maße aufnehmen?"
 
 -- More small talk; add at least five triggers
 "tomb" -> "The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners."
@@ -204,8 +204,8 @@ itemShoes = 53
 "salkama" -> "Einst sagte mir der Erzmagier, dass in Salkamar nur die Rechtschaffenden in Särgen begraben werden während die Niederträchtigen ein unbeschreibliches Schicksal erleiden."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "I do service to Cherga every day."
+"Gott", "Götter" -> "Ich diene Cherga jeden Tag."
 "Cherga", english -> "I do not love Cherga. But I honour her. Being the keeper of the afterlife, her deeds deserve our respect. Or would you like to do that job?"
 "Cherga" -> "Ich liebe Cherga nicht, aber ich ehre sie. Ihre Taten als Hüterin des Jenseits verdienen unseren Respekt. Oder möchtet ihr ihren Job übernehmen?"
 
@@ -216,8 +216,8 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gregor", "Remethar", english -> "I am the local mortician. Nobody loves me, but everyone needs me. One day."
+"Gregor", "Remethar" -> "Ich bin hier der Leichenbestatter. Niemand liebt mich, aber jeder braucht mich - eines Tages."
 "Yes" -> "Really.", "By Cherga, could you rephrase that?", "Honour the dead."
 "Ja" -> "Wirklich.", "Bei Cherga, könntet ihr das anders ausdrücken?", "Ehret die Toten."
 "No" -> "Shall I take your measurements for a coffin now or later?", "I do not understand. Do I have to?", "Pardon?"
