@@ -2,7 +2,7 @@
 -- NPC Name: Ehrom Goldhammer                                            Free --
 -- NPC Job:  smuggler                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  720, 175, 0            --
+-- NPC Race: dwarf                      NPC Position:  721, 171, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Ehrom Goldhammer"
 race = dwarf
 sex = male
-position = 720, 175, 0
+position = 721, 171, 0
 direction = south
 affiliation = "Free"
 job = "smuggler"
