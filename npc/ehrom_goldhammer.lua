@@ -1058,8 +1058,8 @@ mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you con
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(11, 194);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(5, 124);
+mainNPC:setEquipment(6, 186);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2112);
 mainNPC:setEquipment(10, 53);
