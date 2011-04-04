@@ -2,7 +2,7 @@
 -- NPC Name: Raban                                                       None --
 -- NPC Job:  Hermit                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  832, 107, 0            --
+-- NPC Race: human                      NPC Position:  819, 104, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 832, 107, 0, 6, 'Raban', 'npc.raban', 0, 2, 3, 204, 144, 2, 186, 133, 91);
+VALUES (0, 819, 104, 0, 6, 'Raban', 'npc.raban', 0, 2, 3, 204, 144, 2, 186, 133, 91);
 ---]]
 
 require("npc.base.basic")

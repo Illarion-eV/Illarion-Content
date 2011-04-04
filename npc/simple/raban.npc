@@ -2,7 +2,7 @@
 -- NPC Name: Raban                                                       None --
 -- NPC Job:  Hermit                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  832, 107, 0            --
+-- NPC Race: human                      NPC Position:  819, 104, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Raban"
 race = human
 sex = male
-position = 832, 107, 0
+position = 819, 104, 0
 direction = west
 affiliation = "None"
 job = "Hermit"
