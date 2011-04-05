@@ -110,9 +110,16 @@ function InitWegweiser()
     -- 3 = all directions (column)
     -- 4 = coffin
 
-    --Cursed Place
+    --Creek Settlement
+    AddGrave({187,509,0},"","", 1,0);
+    AddGrave({194,505,0},"","", 3,0);
+	--Cursed Place
     AddGrave({387,544,0},"","", 2,0);
     AddGrave({387,542,0},"","", 1,0);
+    --Glowing Gate
+    AddGrave({489,582,0},"","", 4,0);
+    --Hammerfall Mine
+    AddGrave({264,418},"","", 3,0);
 	--Moshran's Brood
     AddGrave({410,726,0},"","", 1,0);
     AddGrave({409,734,0},"","", 3,0);
@@ -152,7 +159,9 @@ function InitWegweiser()
     -- 7 = north wall wood picture
     -- 8 = east wall wood picture
 
-
+    --Galmair Plateau
+    AddPennant({318,357,1},"","", 1,0);
+    AddPennant({318,359,1},"","", 2,0);
 
     ---------------- STANDARTEN ----------------
 
@@ -185,6 +194,17 @@ function InitWegweiser()
     AddPennant({201,483,0},"","", 7,0);
     AddPennant({200,487,0},"","", 7,0);
     AddPennant({204,487,0},"","", 7,0);
+    --Galmair Plateau
+    AddPennant({358,378,1},"","", 4,0);
+    AddPennant({356,378,1},"","", 4,0);
+	--Glowing Gate
+    AddPennant({487,582,0},"","", 1,0);
+    AddPennant({485,582,0},"","", 1,0);
+    --Hammerfall Mine
+    AddPennant({257,419,0},"","", 1,0);
+    AddPennant({258,419,0},"","", 3,0);
+    AddPennant({260,419,0},"","", 3,0);
+	AddPennant({261,419,0},"","", 1,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"","", 1,0);
     AddPennant({393,743,0},"","", 1,0);
@@ -253,16 +273,23 @@ function InitWegweiser()
 	--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1, 10);
 	AddPillar({54,602,0},"","", 1, 10);
-	--Chapel of the Five
+    --Chapel of the Five
 	AddPillar({476,800,0},"","", 1, 10);
     AddPillar({476,791,0},"","", 1, 10);
 	AddPillar({470,793,0},"","", 1, 10);
     AddPillar({470,798,0},"","", 1, 10);
-    --Cursed Place
+    --Creek Settlement
+	AddPillar({189,511,0},"","", 1, 10);
+	AddPillar({195,511,0},"","", 1, 10);
+	AddPillar({186,495,0},"","", 1, 10);
+	AddPillar({186,493,0},"","", 1, 10);
+	--Cursed Place
     AddPillar({388,551,0},"","", 2, 10);
     AddPillar({376,553,0},"","", 1, 10);
     AddPillar({376,551,0},"","", 1, 10);
-    --Grugmutz's cave
+	--Galmair Plateau
+	AddPillar({357,365,1},"","", 4, 10);
+	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1, 10);
     AddPillar({169,561,0},"","", 1, 10);
 	--Kata Island
@@ -275,7 +302,7 @@ function InitWegweiser()
     --Lost Building (3)
 	AddPillar({284,476,0},"","", 2, 10);
 	AddPillar({285,477,0},"","", 2, 10);
-	--Lost Building (3)
+    --Lost Harbour
 	AddPillar({106,831,0},"","", 2, 10);
 	AddPillar({104,831,0},"","", 2, 10);
 	--Moshran's Brood
@@ -335,8 +362,12 @@ function InitWegweiser()
 	-- 1 = facing south
 	-- 2 = facing west
 	
-
-
+    --Galmair Plateau
+    AddChimney({326,366,1},"","", 2, 0);
+    AddChimney({311,351,1},"","", 1, 0);
+    
+    
+    
 
 	---------------- Mirrors ~ Spiegel -------------
 	-- AddMirror({X,Y,Z}, german text, english text, type, needed value of perception);
