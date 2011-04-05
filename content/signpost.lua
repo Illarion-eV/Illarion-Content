@@ -22,7 +22,10 @@ function InitWegweiser()
     --SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Faber's Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
-    AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
+    AddWeg({108,659,0},"Cape Farewell; Faber's Wache","Cape Farewell; Faber's Guardhouse",6,0);
+	AddWeg({110,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Harbour","Candour Foundation; Malachín Temple; Rosaline Cube; Harbour",4,0);
+	AddWeg({116,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
+	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({126,611,0},"Marktplatz","Marketplace",0,0);
     AddWeg({130,583,0},"Werkstatt","Workshop",0,0);
@@ -32,8 +35,9 @@ function InitWegweiser()
     AddWeg({120,568,0},"Palast Ihrer Majestät","Palace of Her Majesty",0,0);
     AddWeg({129,563,0},"Zhambratempel","Zhambratemple",2,0);
     AddWeg({129,699,0},"Grundstein der Aufrichtigkeit","Candour Foundation",2,0);  --<coal mine>
-    AddWeg({174,609,0},"Freiheits Steinbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
-    AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
+    AddWeg({176,612,0},"Freiheitsbruch","Liberty Quarry",6,0); --<copper/gold/iron mine>
+    AddWeg({174,635,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
+	AddWeg({209,552,0},"Grugmutz's Höhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
     AddWeg({145,694,1},"Malachíntempel","Malachín Temple",0,0);
     AddWeg({90,690,0},"Rosaline-Kubus","Rosaline Cube",4,0); -- <Name hier> Pyramide der Königin -- <name here> pyramid of the queen
     AddWeg({76,689,0},"Cape Farewell","Cape Farewell",6,0);
@@ -178,6 +182,8 @@ function InitWegweiser()
     --Abtruse Dwelling
     AddPennant({44,607,0},"","", 6,0);
     AddPennant({44,602,0},"","", 6,0);
+    AddPennant({46,634,0},"","", 7,0);
+    AddPennant({41,634,0},"","", 7,0);
 	--Buccaneers Lurk
     AddPennant({214,462,0},"","", 4,0);
     AddPennant({210,462,0},"","", 4,0);
@@ -273,7 +279,16 @@ function InitWegweiser()
 	--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1, 10);
 	AddPillar({54,602,0},"","", 1, 10);
-    --Chapel of the Five
+	--Cadomyr
+	AddPillar({88,655,1},"","", 6, 10);
+	AddPillar({88,659,1},"","", 6, 10);
+    AddPillar({108,655,1},"","", 5, 10);
+    AddPillar({117,655,1},"","", 5, 10);
+    AddPillar({108,637,1},"","", 5, 10);
+    AddPillar({117,637,1},"","", 5, 10);
+    AddPillar({165,642,1},"","", 6, 10);
+    AddPillar({165,638,1},"","", 6, 10);
+  	--Chapel of the Five
 	AddPillar({476,800,0},"","", 1, 10);
     AddPillar({476,791,0},"","", 1, 10);
 	AddPillar({470,793,0},"","", 1, 10);
