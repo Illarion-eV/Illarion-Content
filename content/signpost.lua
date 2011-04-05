@@ -111,7 +111,7 @@ function InitWegweiser()
 
     --Cursed Place
     AddGrave({387,544,0},"","", 1,0);
-    AddGrave({387,542,0},"","", 2,0);
+    AddGrave({387,542,0},"","", 1,0);
 	--Moshran's Brood
     AddGrave({410,726,0},"","", 1,0);
     AddGrave({409,734,0},"","", 3,0);
@@ -119,13 +119,13 @@ function InitWegweiser()
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 1,0);
 	--Lost Building (1)
-    AddGrave({252,722,0},"","", 2,0);
+    AddGrave({252,722,0},"","", 1,0);
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);
 	--Vrondus Farm
 	AddGrave({312,574,0},"","", 1,0);
 	--Zumbrass Tomb
-	AddGrave({331,471,0},"","", 2,0);
+	AddGrave({331,471,0},"","", 1,0);
 	AddGrave({323,467,0},"","", 3,0);
 	
 	
@@ -135,7 +135,12 @@ function InitWegweiser()
     --typs:
     -- 1 = east wall yellow picture
     -- 2 = east wall violett picture
-
+    -- 3 = north wall blue picture
+    -- 4 = east wall blue picture
+    -- 5 = north wall sea picture
+    -- 6 = east wall sea picture
+    -- 7 = north wall wood picture
+    -- 8 = east wall wood picture
 
 
 
@@ -218,6 +223,10 @@ function InitWegweiser()
     -- typs:
     -- 1 = dark column
     -- 2 = statue (woman) south
+    -- 3 = golden armor (north)
+    -- 4 = golden armor (east)
+    -- 5 = silver armor (north)
+    -- 6 = silver armor (east)
 
     --Chapel of the Five
 	AddPillar({476,800,0},"","", 1, 10);
@@ -416,15 +425,27 @@ function DirToItemID(Value)
     elseif (Value==11) then
         return 519
     elseif (Value==13) then
-        return 520
-    elseif (Value==12) then
         return 521
     elseif (Value==14) then
-        return 337
+        return 520
+    elseif (Value==12) then
+	    return 337
     elseif (Value==21) then
         return 1914
     elseif (Value==22) then
         return 1915
+    elseif (Value==23) then
+        return 264
+    elseif (Value==24) then
+        return 265
+    elseif (Value==25) then
+        return 748
+    elseif (Value==26) then
+        return 749
+    elseif (Value==27) then
+        return 750
+    elseif (Value==28) then
+        return 751
     elseif (Value==31) then
         return 2046
     elseif (Value==32) then
@@ -457,6 +478,14 @@ function DirToItemID(Value)
         return 2805
     elseif (Value==52) then
         return 272
+    elseif (Value==53) then
+        return 692
+    elseif (Value==54) then
+        return 693
+    elseif (Value==55) then
+        return 694
+    elseif (Value==56) then
+        return 695
     elseif (Value==61) then
 		return 268
 	elseif (Value==62) then
