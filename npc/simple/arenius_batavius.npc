@@ -1,22 +1,22 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Arenius Batavius                                            None --
--- NPC Job:  none                                                             --
+-- NPC Name: Arenius Batavius                                         Cadomyr --
+-- NPC Job:  Crusader                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  10, 15, 0              --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  116, 641, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: December 06, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
 race = human
 sex = male
-position = 10, 15, 0
-direction = south
-affiliation = "None"
-job = "none"
+position = 116, 641, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Crusader"
 
 language = common
 language = human
@@ -33,9 +33,9 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 3
+colorHair = 192, 107, 5
+colorSkin = 191, 139, 97
 itemHead = 0
 itemChest = 101
 itemCoat = 2419
@@ -45,7 +45,7 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
--- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
 -- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
@@ -95,7 +95,7 @@ itemShoes = 53
 "Farewell", "Bye", "Fare well", "See you" -> "Go with godspeed. And spread the old customs where you can."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Go with godspeed. And spread the old customs where you can."
-"Ciao", "Adieu", "Au revoir", "Farebba"  -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet mit dem Segen der Götter. Und verbreitet die alten Sitten überall, wo ihr könnt."
 "How are you", "How feel", "How do you do" -> "I underestimated my enemy and I have paid for it, barely made it out alive. Will you continue with my glorious endeavours?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich habe meinen Feind unterschätzt und dafür bezahlt - ich bin froh, mit dem Leben davongekommen zu sein. Werdet ihr meine ehrbaren Taten vollenden?"
 "your name", "who are you", "who art thou" -> "My name is Arenius Batavius. I came to this land not too long ago, but only misfortune I have received. Please stranger, will you help me in my crusade?"
@@ -135,6 +135,12 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 2 -> inform("[New quest] The Errant Crusade II"), "In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remains for investigation.", queststatus(104) = 3
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 2 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug II"), "Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.", queststatus(104) = 3
 
+-- Quest 2 solved, reward: mace (230), 60cp, 10 rankpoints if Cadomyr
+".+", queststatus(104) = 9, item(63, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded 60 copper coins and a mace. You advance in Queen Rosaline Edwards's favour."), "#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10, rankpoints(Cadomyr) + 10
+".+", queststatus(104) = 9, item(63, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10, rankpoints(Cadomyr) + 10
+".+", queststatus(104) = 9, item(63, all) > 0, english -> inform("[Quest solved] You are awarded 60 copper coins and a mace."), "#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10
+".+", queststatus(104) = 9, item(63, all) > 0 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben."), "#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10
+
 -- Quest 2 taken but not solved, repeat the instructions
 "quest", "mission", queststatus(104) > 2, queststatus(104) < 9, english -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remains."
 "quest", "mission", queststatus(104) > 2, queststatus(104) < 9 -> "Bitte rächt meine Niederlage. Gehet zum Unterschlupf des Kultes der Salavesh und streckt ein halbes Dutzend ihrer Diener nieder. Kommt zu mit mir ihren Überresten."
@@ -147,12 +153,6 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 9, item(63, all) < 1 -> "You are back, alive! But I cannot see any remains of the undead minions; I can gather much information from their entrails."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 9, item(63, all) < 1 -> "Ihr seid zurück und am Leben! Aber ihr habt keine Überreste der untoten Diener dabei; die meisten Informationen kann ich aus ihren Eingeweiden ablesen."
 
--- Quest 2 solved, reward: mace (230), 60cp, 10 rankpoints if Cadomyr
-".+", queststatus(104) = 9, item(63, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded 60 copper coins and a mace. You advance in Queen Rosaline Edwards's favour."), "#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10, rankpoints(Cadomyr) + 10
-".+", queststatus(104) = 9, item(63, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10, rankpoints(Cadomyr) + 10
-".+", queststatus(104) = 9, item(63, all) > 0, english -> inform("[Quest solved] You are awarded 60 copper coins and a mace."), "#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10
-".+", queststatus(104) = 9, item(63, all) > 0 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben."), "#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'", money + 60, deleteItem(63, 1), item(230, 1, 588, 0), queststatus(104) = 10
-
 -- 3rd quest: Kill 12 skeletons
 
 -- Give out quest 3
@@ -161,17 +161,17 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 10 -> inform("[New quest] The Errant Crusade III"), "It is about time to land a strike against the Cult of Salavesh. Head for its stronghold again and smite a dozen of the animated skeletons to teach them a lesson not to mess with the Order of the Silver Dragon!", queststatus(104) = 11
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 10 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug III"), "Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.", queststatus(104) = 11
 
--- Quest 3 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) > 10, queststatus(104) < 23, english -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
-"quest", "mission", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
-"task", "adventure", queststatus(104) > 10, queststatus(104) < 23 -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
-
 -- Quest 3 solved, reward: silvered longsword (98), 120cp, 10 rankpoints if Cadomyr
 ".+", queststatus(104) = 23, english, town = Cadomyr -> inform("[Quest solved] You are awarded 120 copper coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour."), "I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25, rankpoints(Cadomyr) + 10
 ".+", queststatus(104) = 23, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25, rankpoints(Cadomyr) + 10
 ".+", queststatus(104) = 23, english -> inform("[Quest solved] You are awarded 120 copper coins and silvered longsword."), "I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25
 ".+", queststatus(104) = 23 -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein versilbertes Langschwert."), "Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.", money + 120, item(98, 1, 688, 0), queststatus(104) = 25
+
+-- Quest 3 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(104) > 10, queststatus(104) < 23, english -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"quest", "mission", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
+"task", "adventure", queststatus(104) > 10, queststatus(104) < 23 -> "Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 10, queststatus(104) < 23 -> "Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette."
 
 -- 4th quest: Kill 2 human necromancer
 
@@ -181,17 +181,17 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 25 -> inform("[New quest] The Errant Crusade IV"), "While you were slaying the undead minions, I got word from a traveller that the Cult of Salavesh is preparing a foul ritual. Stop the blood mages who prepare the ritual, commonly, these cultists work as couples.", queststatus(104) = 26
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 25 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug IV"), "Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.", queststatus(104) = 26
 
--- Quest 4 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) > 25, queststatus(104) < 28, english -> "Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!"
-"quest", "mission", queststatus(104) > 25, queststatus(104) < 28 -> "Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!"
-"task", "adventure", queststatus(104) > 25, queststatus(104) < 28 -> "Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 25, queststatus(104) < 28 -> "Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!"
-
 -- Quest 4 solved, reward: albarian soldier's helmet (2287), 200cp, 15 rankpoints if Cadomyr
 ".+", queststatus(104) = 28, english, town = Cadomyr -> inform("[Quest solved] You are awarded 200 copper coins and an albarian soldier's helmet. You advance in Queen Rosaline Edwards's favour."), "#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'", money + 200, item(2287, 1, 788, 0), queststatus(104) = 29, rankpoints(Cadomyr) + 15
 ".+", queststatus(104) = 28, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'", money + 200, item(2287, 1, 788, 0), queststatus(104) = 29, rankpoints(Cadomyr) + 15
 ".+", queststatus(104) = 28, english -> inform("[Quest solved] You are awarded 200 copper coins and an albarian soldier's helmet."), "#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'", money + 200, item(2287, 1, 788, 0), queststatus(104) = 29
 ".+", queststatus(104) = 28 -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke und einen albarischen Soldatenhelm."), "#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'", money + 200, item(2287, 1, 788, 0), queststatus(104) = 29
+
+-- Quest 4 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(104) > 25, queststatus(104) < 28, english -> "Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!"
+"quest", "mission", queststatus(104) > 25, queststatus(104) < 28 -> "Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!"
+"task", "adventure", queststatus(104) > 25, queststatus(104) < 28 -> "Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 25, queststatus(104) < 28 -> "Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!"
 
 -- 5th quest: Kill 1 demon skeleton warrior
 
@@ -201,17 +201,17 @@ itemShoes = 53
 "task", "adventure", queststatus(104) = 29 -> inform("[New quest] The Errant Crusade V"), "I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Will you return to the cave and if you find this beast, end its existance?", queststatus(104) = 30
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 29 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"), "Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Werdet ihr in die Höhle zurückkehren und wenn ihr dieses Unwesen findet, sein Dasein beenden?", queststatus(104) = 30
 
--- Quest 5 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) > 29, queststatus(104) < 31, english -> "Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!"
-"quest", "mission", queststatus(104) > 29, queststatus(104) < 31 -> "Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!"
-"task", "adventure", queststatus(104) > 29, queststatus(104) < 31 -> "Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 29, queststatus(104) < 31 -> "Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!"
-
 -- Quest 5 solved, reward: steel tower shield with magical bluestone (96), 500cp, 15 rankpoints if Cadomyr
 ".+", queststatus(104) = 31, english, town = Cadomyr -> inform("[Quest solved] You are awarded 500 copper coins and a steel tower shield. You advance in Queen Rosaline Edwards's favour."), "Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.", money + 500, item(96, 1, 888, 51), queststatus(104) = 32, rankpoints(Cadomyr) + 15
 ".+", queststatus(104) = 31, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 500 Kupferstücke und einen Stahlturmschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.", money + 500, item(96, 1, 888, 51), queststatus(104) = 32, rankpoints(Cadomyr) + 15
 ".+", queststatus(104) = 31, english -> inform("[Quest solved] You are awarded 500 copper coins and a steel tower shield."), "Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.", money + 500, item(96, 1, 888, 51), queststatus(104) = 32
 ".+", queststatus(104) = 31 -> inform("[Quest gelöst] Du erhältst 500 Kupferstücke und einen Stahlturmschild."), "Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.", money + 500, item(96, 1, 888, 51), queststatus(104) = 32
+
+-- Quest 5 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(104) > 29, queststatus(104) < 31, english -> "Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!"
+"quest", "mission", queststatus(104) > 29, queststatus(104) < 31 -> "Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!"
+"task", "adventure", queststatus(104) > 29, queststatus(104) < 31 -> "Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 29, queststatus(104) < 31 -> "Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!"
 
 -- 6th quest: Kill 1 ancient fire dragon
 
@@ -227,12 +227,6 @@ itemShoes = 53
 "task", "adventure", queststatus(104) > 32, queststatus(104) < 34 -> "I am convinced that the demon skeleton guarded the source of all blood magic of the Cult of Salavesh. I command you to destroy it, whatever it is!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 32, queststatus(104) < 34 -> "Ich bin davon überzeugt, dass das Dämonenskelett die Quelle der Blutmagie des Kultes der Salavesh bewacht hat. Ich befehle euch, sie zu zerstören, was auch immer es ist!"
 
--- Quest 6 solved, reward: albarian noble's armor with magical topaz (2367), 2000cp, 20 rankpoints if Cadomyr
-".+", queststatus(104) = 34, english, town = Cadomyr -> inform("[Quest solved] You are awarded 2000 copper coins and an albarian noble's armour. You advance in Queen Rosaline Edwards's favour."), "You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.", money + 2000, item(2367, 1, 988, 72), queststatus(104) = 35, rankpoints(Cadomyr) + 20
-".+", queststatus(104) = 34, town = Cadomyr -> inform("[Quest gelöst] Du erhältst 2000 Kupferstücke und eine albarische Adeligenrüstung. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.", money + 2000, item(2367, 1, 988, 72), queststatus(104) = 35, rankpoints(Cadomyr) + 20
-".+", queststatus(104) = 34, english -> inform("[Quest solved] You are awarded 2000 copper coins and an albarian noble's armour."), "You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.", money + 2000, item(2367, 1, 988, 72), queststatus(104) = 35
-".+", queststatus(104) = 34 -> inform("[Quest gelöst] Du erhältst 2000 Kupferstücke und eine albarische Adeligenrüstung."), "Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.", money + 2000, item(2367, 1, 988, 72), queststatus(104) = 35
-
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(104) = 35, english -> "Now that you stopped the foul deeds of the Cult of Salavesh, there is nothing you can do for me, for I am battered and lost in this world. So, set out to new adventures!"
 "quest", "mission", queststatus(104) = 35 -> "Nun, da ihr dem niederträchtigen Kult der Salavesh das Handwerk gelegt habt, gibt es nichts, was ihr für mich tun könntet, denn ich bin geschlagen und fehl am Platz auf dieser Welt. Ihr, auf zu neuen Abenteuern!"
@@ -246,10 +240,10 @@ itemShoes = 53
 "job" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen. Ich bin in dieses Land gekommen um einem bösen Kult das Handwerk zu legen - aber ich habe versagt. Werdet ihr meine Mission vollenden?"
 "crusade", "knight" -> "Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so."
 "Ritter", "kreuzzug" -> "Wir Ritter vom Orden der Silberdrachen bekämpfen das, was nicht mit den alten Sitten vereinbar ist, wo immer es möglich ist. Und in diesem Land bietet sich hierfür allerlei Möglichkeit."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "I do not like to sail ashore, so I have never been to Gobaith."
+"Gobaith", "Gobiath" -> "Ich mag es nicht, fern der Küste zu segeln, also war ich noch nie auf Gobaith."
+"my name" -> "And I am Arenius Batavius of the Order of the Silver Dragon."
+"mein Name" -> "Und ich bin Arenius Batavius, Kreuzritter des Ordens der Silberdrachen."
 
 -- More small talk; add at least five triggers
 "Orden", "Silberdrache" -> "Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen."
@@ -277,7 +271,7 @@ itemShoes = 53
 "Runewick", english -> "Where is that?"
 "Runewick" -> "Wo soll das sein?"
 "Valerio", "Guilianni", "Don", english -> "I had to pay a huge amount of money for the grant to pass the land of this Don Guilianni; is that normal in this land?"
-"Valerio", "Guilianni", "Don" -> "Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?"
+"Valerio", "Guilianni", "Don" -> "Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchqueren zu dürfen. Ist dies üblich hier?"
 "Galmair", english -> "Money seems to be one of the favourite words of the people of Galmair. At least it was the word they used most when spoken to."
 "Galmair" -> "Geld scheint das Lieblingswort der Leute von Galmair zu sein. Zumindestens war es das Wort, was sie am häufigsten zu mir gesagt haben."
 "queen" -> "I do not question her authority. She is of noble birth, hence a suitable monarch. But I question the custom that brought her to power."
@@ -296,8 +290,8 @@ itemShoes = 53
 "salkama" -> "Oh nein, lasst uns doch lieber über das Wetter reden."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "I am merely a loyal tool of the gods. My blade strikes just and fair."
+"Gott", "Götter" -> "Ich bin eigentlich nur ein Werkzeug der Götter. Ich führe meine Klinge für die gerechte Sache."
 "Moshran", english -> "Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'."
 "Moshran" -> "Moshran wird gemeinhin unterschätzt; der böse Bube soll er sein. Die entspricht nun wirklich nicht der Wahrheit, Moshran ist weit mehr als einfach nur 'gut' und 'böse'."
 "Malachin", "Malachín", english -> "Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?"
@@ -316,8 +310,8 @@ itemShoes = 53
 "geschichte", "erzähl was", "erzähl etwas" -> "Ich habe eine interessante Geschichte zu erzählen, sie handelt von einem bösen Kult von Blutmagiern. Seht ihr meine Wunden? Sie erzählen die Geschichte."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here.
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Arenius", "Batavius", english -> "I am a crusader of the Order of the Silver Dragon."
+"Arenius", "Batavius" -> "Ich bin ein Kreuzritter des Ordens der Silberdrachen."
 "Yes", "yub" -> "Pardon?", "What do you mean?", "I don't quite know..."
 "Ja" -> "Pardon?", "Wie meinen?", "Ich weiß nicht recht..."
 "No", "nub" -> "Sorry?", "I cannot understand your words.", "What was that again?"

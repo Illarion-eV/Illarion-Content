@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Baron Hastings"
@@ -76,7 +76,7 @@ itemShoes = 53
 
 -- First player ends talk
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell to you.", "If you tell of my wherabouts to anyone, my men will get you.", "Good bye, traveler.", end
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl"  -> "Lebet wohl.", "Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.", "Auf Wiedersehen, Reisender.", end
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebet wohl.", "Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.", "Auf Wiedersehen, Reisender.", end
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell to you.", "If you tell of my wherabouts to anyone, my men will get you.", "Good bye, traveler.", end
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebet wohl.", "Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.", "Auf Wiedersehen, Reisender.", end
 "How are you", "How feel", "How do you do" -> "#me furrows his brows. 'I am upset, for the travesty continues and the bitch still sits on 'my' throne.'", "I weep for Cadomyr", end
@@ -130,11 +130,11 @@ itemShoes = 53
 "Galmair", english -> "Galmair is a den of decadence and dishonor. When I am the ruler of Cadomyr, I promise you that I will torch the vile den until nothing but cinders remain!"
 "Galmair" -> "Galmair ist eine Hütte der Dekadenz und Ehrlosigkeit. Wenn ich den Herrscher von Cadomyr bin, so verspreche ich dir, brenne ich diese erbärmliche Hütte ab, bis nur noch Asche zurückbleibt!"
 "Queen" -> "That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!"
-"Königin"  -> "Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
+"Königin" -> "Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
 "rosaline", "edwards", english -> "That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!"
 "rosaline", "edwards" -> "Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!"
-"Cadomyr", english -> "#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'","Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!"
-"Cadomyr" -> "#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir  durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards.","Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, Loyalität und Ehre. Wir sind die wahren und rechtmäßigen Besitzer dieser Insel; alles gehört uns...und Cadomyr gehört mir!"
+"Cadomyr", english -> "#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'", "Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!"
+"Cadomyr" -> "#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir  durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards.", "Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, Loyalität und Ehre. Wir sind die wahren und rechtmäßigen Besitzer dieser Insel; alles gehört uns...und Cadomyr gehört mir!"
 
 -- Main land factions
 "albar", english -> "We are all Albarianas here, except for that bastard bitch-queen of ours! Like all Albarians, we are full of courage and honor. More than can be said of any other race."

@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Arenius Batavius                                            None --
--- NPC Job:  none                                                             --
+-- NPC Name: Arenius Batavius                                         Cadomyr --
+-- NPC Job:  Crusader                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  10, 15, 0              --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  116, 641, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: December 07, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 10, 15, 0, 4, 'Arenius Batavius', 'npc.arenius_batavius', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 116, 641, 0, 6, 'Arenius Batavius', 'npc.arenius_batavius', 0, 2, 3, 192, 107, 5, 191, 139, 97);
 ---]]
 
 require("npc.base.basic")
@@ -391,6 +391,64 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a mace. You advance in Queen Rosaline Edwards's favour."));
+talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a mace."));
+talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".+");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
+talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben."));
+talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
+talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 2));
@@ -467,64 +525,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a mace. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a mace."));
-talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
-talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und einen Streitkolben."));
-talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 10));
@@ -563,44 +563,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 10));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug III"));
 talkEntry:addResponse("Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 11));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
-talkEntry:addResponse("Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
-talkEntry:addResponse("Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
-talkEntry:addResponse("Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -657,6 +619,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
+talkEntry:addResponse("Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
+talkEntry:addResponse("Lo! What are you waiting for? The Cult of Salavesh continues its foul deeds, head for its stronghold and smite a dozen of its animated skeletons.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 23));
+talkEntry:addResponse("Auf was wartet ihr! Der Kult der Salavesh treibt noch immer sein Unwesen, zieht aus zum Unterschlupf und erledigt ein Dutzend ihrer wiederbelebten Skelette.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 25));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade IV"));
@@ -693,44 +693,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 25));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug IV"));
 talkEntry:addResponse("Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 26));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
-talkEntry:addResponse("Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
-talkEntry:addResponse("Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
-talkEntry:addResponse("Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,6 +749,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
+talkEntry:addResponse("Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
+talkEntry:addResponse("Quick! With every minute passing, the blood mages can continue preparing their foul art. Slay both of them in the stronghold of the Cult of Salavesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 25));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 28));
+talkEntry:addResponse("Rasch! Mit jeder Minute, die vergeht, können die Blutmagier ihre Untaten fortsetzen. Erschlagt sie beide im Unterschlupf des Kultes der Salavesh!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade V"));
@@ -823,44 +823,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 29));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"));
 talkEntry:addResponse("Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Werdet ihr in die Höhle zurückkehren und wenn ihr dieses Unwesen findet, sein Dasein beenden?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 30));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
-talkEntry:addResponse("Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
-talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
-talkEntry:addResponse("Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,6 +879,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
+talkEntry:addResponse("Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
+talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
+talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
+talkEntry:addResponse("Dämonenskelette sind mächtige Feinde; ich verstehe, wenn ihr zögert, euch ihm zu stellen. Aber wenn der Kult der Salavesh wirklich so ein Wesen beherbergt, dann muss es abgeschlachtet werden!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 32));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade VI"));
@@ -991,56 +991,6 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 32));
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 34));
 talkEntry:addResponse("Ich bin davon überzeugt, dass das Dämonenskelett die Quelle der Blutmagie des Kultes der Salavesh bewacht hat. Ich befehle euch, sie zu zerstören, was auch immer es ist!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 2000 copper coins and an albarian noble's armour. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
-talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, 72));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 2000 Kupferstücke und eine albarische Adeligenrüstung. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
-talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, 72));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 2000 copper coins and an albarian noble's armour."));
-talkEntry:addResponse("You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
-talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, 72));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 2000 Kupferstücke und eine albarische Adeligenrüstung."));
-talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
-talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, 72));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1121,34 +1071,26 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not like to sail ashore, so I have never been to Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich mag es nicht, fern der Küste zu segeln, also war ich noch nie auf Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("And I am Arenius Batavius of the Order of the Silver Dragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Und ich bin Arenius Batavius, Kreuzritter des Ordens der Silberdrachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1308,7 +1250,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchquere zu dürfen. Ist dies üblich hier?");
+talkEntry:addResponse("Ich musste einen sehr hohen Wegzoll zahlen, um das Land dieses Don Guiliannis durchqueren zu dürfen. Ist dies üblich hier?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1408,18 +1350,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am merely a loyal tool of the gods. My blade strikes just and fair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin eigentlich nur ein Werkzeug der Götter. Ich führe meine Klinge für die gerechte Sache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1527,21 +1465,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Arenius");
+talkEntry:addTrigger("Batavius");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am a crusader of the Order of the Silver Dragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Arenius");
+talkEntry:addTrigger("Batavius");
+talkEntry:addResponse("Ich bin ein Kreuzritter des Ordens der Silberdrachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

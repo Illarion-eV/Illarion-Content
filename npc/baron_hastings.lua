@@ -7,15 +7,20 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 0, 0, 0, 4, 'Baron Hastings', 'npc.baron_hastings', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.basestate")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.baron_hastings", package.seeall)
@@ -38,8 +43,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
@@ -53,15 +56,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addCondition(npc.base.condition.basestate.basestate("idle"));
 talkEntry:addResponse("Seid mir gegrüßt. Ich werde Euch anhören, doch verschwendet nicht meine Zeit.");
 talkEntry:addResponse("Grüße. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?");
@@ -73,8 +74,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.basestate.basestate("idle"));
 talkEntry:addResponse("Be greeted. I will listen to you, but do not waste my time.");
@@ -87,9 +87,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.basestate.basestate("idle"));
 talkEntry:addResponse("Seid mir gegrüßt. Ich werde Euch anhören, doch verschwendet nicht meine Zeit.");
 talkEntry:addResponse("Grüße. Ich bin ein sehr wichtiger Mann. Was wollt Ihr von mir?");
@@ -115,9 +113,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farewell to you.");
 talkEntry:addResponse("If you tell of my wherabouts to anyone, my men will get you.");
 talkEntry:addResponse("Good bye, traveler.");
@@ -129,7 +127,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Lebet wohl.");
 talkEntry:addResponse("Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.");
 talkEntry:addResponse("Auf Wiedersehen, Reisender.");
@@ -142,7 +140,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Farewell to you.");
 talkEntry:addResponse("If you tell of my wherabouts to anyone, my men will get you.");
@@ -156,7 +153,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addResponse("Lebet wohl.");
 talkEntry:addResponse("Solltet Ihr irgendwem meinen Aufenthaltsort verraten, werden meine Männer Euch fassen.");
 talkEntry:addResponse("Auf Wiedersehen, Reisender.");
@@ -178,7 +174,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addTrigger("Wie Befinden");
+talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("#me runzelt die Stirn. 'Ich bin darüber erzürnt, dass diese lächerliche Burleske weitergeht und dieses Miststück noch immer auf 'meinem' Thron sitzt.");
 talkEntry:addResponse("Ich beweine Cadomyr.");
 talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
@@ -207,33 +203,45 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("How dare you? Do I look like some petty merchant?!");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] An usurper to the throne"));
+talkEntry:addResponse("So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(999, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Wie könnt Ihr es wagen? Sehe ich vielleicht wie ein läppischer Händler aus?!");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] An usurper to the throne"));
+talkEntry:addResponse("So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(999, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I will tell you something. They day shall come when Cadomyr belongs to me! You would do well to remember that!");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] Ein Usurpator greift nach dem Thron"));
+talkEntry:addResponse("So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(999, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich werde euch was erzählen. Es wird der Tagen kommen, an dem Cadomyr mein ist! Und Ihr würdet gut daran tun, Euch dessen zu erinnern.");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] Ein Usurpator greift nach dem Thron"));
+talkEntry:addResponse("So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(999, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,29 +288,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("I am 'Baron' Hastings. You would do well to remember that name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("I am 'Baron' Hastings. Ihr würdet gut daran tun, Euch dessen zu erinnern.");
+talkEntry:addResponse("Ich bin 'Baron' Hastings. Ihr würdet gut daran tun, Euch dessen zu erinnern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("King Edwards");
 talkEntry:addResponse("#me grimaces. 'Do not mention that name! He was for a long time a good king. Then he grew weak and let that bitch-daughter of hers poison his mind against me, now I curse his memory!'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,12 +356,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir – durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Thron");
 talkEntry:addResponse("Der Tradition nach gehört der Thron von Cadomyr dem nähsten männlichen Verwandten des vorherigen Königs. Es ist eine Burleske, dass einem solch ehrlosen Miststück wie Rosaline es erlaubt wurde zu behaupten, es sei  der ihre!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -406,10 +399,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Another bitch-witch-queen, dressed up in filthy robes instead of a Queenly gowns. I cannot fathom where they get the idea of putting a -woman- in charge, those idiots of Runewick.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Nur eine andere Miststück-Hexen-Königin, die sich in dreckigen Roben statt königlichen Gewändern kleidet. Ich kann nicht mal erahnen, wie diese Idioten von Runewick auf die Idee kamen, einer Frau die Macht zu geben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Another bitch-witch-queen, dressed up in filthy robes instead of a Queenly gowns. I cannot fathom where they get the idea of putting a -woman- in charge, those idiots of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -418,8 +421,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Nur eine andere Miststück-Hexen-Königin, die sich in dreckigen Roben statt königlichen Gewändern kleidet. Ich kann nicht mal erahnen, wie diese Idioten von Runewick auf die Idee kamen, einer Frau die Macht zu geben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -468,9 +469,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("That bitch! She used dark magics to sway her father into sidelining me! Me! The 'rightful' heir! I'll lock that wench into a monastery once I overthrow her... or just have her head. On a spike!");
@@ -479,8 +490,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Dieses Miststück! Sie wandte schwarze Magie an, um ihren Vater zu beeinflussen, damit er mich übergeht! Mich! Den 'rechtmäßigen' Erben! Ich werde diese Hüre in ein Kloster sperren, sobald ich sie gestürzt habe...oder einfach nur ihren Kopf. Auf einer Lanze!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -489,12 +498,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me exclaims: 'Cadomyr is the pearl of the island, and it belongs to me by right of tradition and blood! I am the closest male relative of King Edwards!'");
 talkEntry:addResponse("Cadomyr is the finest city of the Island. We believe in tradition, loyalty and honor. We are the true and rightful owners of the island; It all belongs to us... and Cadomyr belongs to me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("#me ruft heraus: 'Cadomyr ist die Perle dieser Insel und es gehört mir – durch das recht der Tradition und des Blutes. Ich bin der nähste männliche Verwandte von König Edwards.");
 talkEntry:addResponse("Cadomyr ist die feinste Stadt der Insel. Wir glauben an Tradition, Loyalität und Ehre. Wir sind die wahren und rechtmäßigen Besitzer dieser Insel; alles gehört uns...und Cadomyr gehört mir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -508,7 +519,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wir sind hier alle Albarianer, außer diese Miststück-Bastard-Königin! Wie alle Albarianer sind wir voll von Courage und Ehre. Mehr als man von irgendeiner anderen Rasse sagen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -524,7 +534,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Betrügerischer Dreck! So eine degenerierte Brut von Mördern, Dieben und Scharlatanen wird früher oder später an ihrem eigenen Dreck zugrunde gehen. Wir Albarianer werden immer da sein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -538,7 +547,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Die Salkamaerianer sind ungehobelte, lästige Schweine. Sie segeln übers Meer und stecken ihre großen Nasen in alles, was sie nichts angeht. Mögen die Götter sie mit einer Plage strafen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -773,43 +781,52 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("How dare you? Do I look like some petty merchant?!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Wie könnt Ihr es wagen? Sehe ich vielleicht wie ein läppischer Händler aus?!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("I will tell you something. They day shall come when Cadomyr belongs to me! You would do well to remember that!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Ich werde euch was erzählen. Es wird der Tagen kommen, an dem Cadomyr mein ist! Und Ihr würdet gut daran tun, Euch dessen zu erinnern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC first name>");
+talkEntry:addTrigger("<NPC last name>");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] An usurper to the throne"));
-talkEntry:addResponse("So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(999, "=", 1));
+talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("ENGLISH2.");
+talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] An usurper to the throne"));
-talkEntry:addResponse("So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(999, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] Ein Usurpator greift nach dem Thron"));
-talkEntry:addResponse("So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(999, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(999, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest started] Ein Usurpator greift nach dem Thron"));
-talkEntry:addResponse("So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(999, "=", 1));
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addResponse("GERMAN1.");
+talkEntry:addResponse("GERMAN2.");
+talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -854,7 +871,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Harold");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Meint Ihr den Mann, durch dessen Auge sich ein Pfeil bohrte?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -874,6 +890,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
