@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: October 10, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Gilbert"
@@ -80,9 +80,9 @@ itemShoes = 53
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" ->  "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Good day.", "Greetings.", "Greets.", "Hello.", "Be greeted."
-"Hiho", "Hallo", "Hey", "Greeb" ->  "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo.", "Grüße.", "Guten Tag.", "Gruß.", "Seid gegrüßt."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüß.", "Tschüss.", "Wiedersehen.", "Auf bald", "Gehabt euch wohl.", "Adieu...", "Au revoir..."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Good bye.", "Bye.", "Ciao.", "Adieu...", "You leave?"
