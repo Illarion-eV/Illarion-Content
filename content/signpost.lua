@@ -114,7 +114,20 @@ function InitWegweiser()
     -- 3 = all directions (column)
     -- 4 = coffin
 
-    --Creek Settlement
+    --Cadomyr
+    AddGrave({134,638,0},"","", 1,0);
+    AddGrave({134,640,0},"","", 2,0);
+	AddGrave({130,637,0},"","", 3,0);
+	AddGrave({133,637,0},"","", 3,0);
+	AddGrave({105,632,-4},"","", 4,0);
+	AddGrave({106,632,-4},"","", 4,0);
+	AddGrave({111,666,-4},"","", 3,0);
+	AddGrave({106,663,-4},"","", 3,0);
+	AddGrave({107,673,-4},"","", 3,0);
+	AddGrave({113,670,-4},"","", 1,0);
+	AddGrave({108,665,-4},"","", 1,0);
+	AddGrave({157,668,-4},"Ein leichtes Kratzen ist zu hören.","You can hear the sound of scratching.", 4,0);
+	--Creek Settlement
     AddGrave({187,509,0},"","", 1,0);
     AddGrave({194,505,0},"","", 3,0);
 	--Cursed Place
@@ -163,9 +176,34 @@ function InitWegweiser()
     -- 7 = north wall wood picture
     -- 8 = east wall wood picture
 
+    --Cadomyr
+    AddPicture({147,622,1},"","", 2,0); --flats
+    AddPicture({147,616,1},"","", 4,0); --flats
+    AddPicture({141,612,1},"","", 3,0); --flats
+    AddPicture({145,608,1},"","", 1,0); --flats
+    AddPicture({142,606,1},"","", 3,0); --flats
+    AddPicture({144,604,0},"","", 4,0); --flats
+    AddPicture({141,607,0},"","", 7,0); --flats
+    AddPicture({139,613,0},"","", 4,0); --flats
+    AddPicture({143,613,0},"","", 4,0); --flats
+    AddPicture({129,524,0},"","", 7,0); --palace
+    AddPicture({130,518,0},"","", 5,0); --queens room
+    AddPicture({135,516,0},"","", 3,0); --queens room
+    AddPicture({137,516,0},"","", 3,0); --queens room
+    AddPicture({117,579,0},"","", 4,0); --taverne
+    AddPicture({91,572,0},"","", 4,0); --inn
+    AddPicture({91,574,0},"","", 4,0); --inn
+    AddPicture({91,576,0},"","", 4,0); --inn
+    AddPicture({86,574,0},"","", 4,0); --inn
+    AddPicture({88,578,1},"","", 5,0); --inn
+    AddPicture({85,578,1},"","", 5,0); --inn
+    AddPicture({96,600,1},"","", 4,0); --building
+    AddPicture({96,599,1},"","", 4,0); --building
+    AddPicture({96,602,0},"","", 4,0); --building
+    AddPicture({100,611,1},"","", 3,0); --building
     --Galmair Plateau
-    AddPennant({318,357,1},"","", 1,0);
-    AddPennant({318,359,1},"","", 2,0);
+    AddPicture({318,357,1},"","", 1,0);
+    AddPicture({318,359,1},"","", 2,0);
 
     ---------------- STANDARTEN ----------------
 
@@ -200,7 +238,15 @@ function InitWegweiser()
     AddPennant({201,483,0},"","", 7,0);
     AddPennant({200,487,0},"","", 7,0);
     AddPennant({204,487,0},"","", 7,0);
-    --Galmair Plateau
+    --Cadomyr
+    AddPennant({121,519,0},"","", 1,0); --palace
+	AddPennant({122,519,0},"","", 1,0); --palace
+    AddPennant({123,519,0},"","", 1,0); --palace
+    AddPennant({130,528,0},"","", 2,0); --palace
+    AddPennant({130,530,0},"","", 2,0); --palace
+    AddPennant({109,551,0},"","", 1,0); --registration
+    AddPennant({104,552,0},"","", 1,0); --registration
+	--Galmair Plateau
     AddPennant({358,378,1},"","", 4,0);
     AddPennant({356,378,1},"","", 4,0);
 	--Glowing Gate
@@ -280,15 +326,77 @@ function InitWegweiser()
 	AddPillar({54,608,0},"","", 1, 10);
 	AddPillar({54,602,0},"","", 1, 10);
 	--Cadomyr
-	AddPillar({88,655,1},"","", 6, 10);
-	AddPillar({88,659,1},"","", 6, 10);
-    AddPillar({108,655,1},"","", 5, 10);
-    AddPillar({117,655,1},"","", 5, 10);
-    AddPillar({108,637,1},"","", 5, 10);
-    AddPillar({117,637,1},"","", 5, 10);
-    AddPillar({165,642,1},"","", 6, 10);
-    AddPillar({165,638,1},"","", 6, 10);
-  	--Chapel of the Five
+	AddPillar({88,655,1},"","", 6, 10); --outside
+	AddPillar({88,659,1},"","", 6, 10); --outside
+    AddPillar({108,655,1},"","", 5, 10); --outside
+    AddPillar({117,655,1},"","", 5, 10); --outside
+    AddPillar({108,637,1},"","", 5, 10); --outside
+    AddPillar({117,637,1},"","", 5, 10); --outside
+    AddPillar({165,642,1},"","", 6, 10); --outside
+    AddPillar({165,638,1},"","", 6, 10); --outside
+    AddPillar({86,620,1},"","", 6, 10); --guardtower
+    AddPillar({86,623,1},"","", 6, 10); --guardtower
+    AddPillar({84,619,1},"","", 6, 10); --guardtower
+    AddPillar({84,619,0},"","", 9, 10); --guardtower
+    AddPillar({91,623,0},"","", 3, 10); --guardtower
+    AddPillar({90,623,0},"","", 3, 10); --guardtower
+    AddPillar({128,631,0},"","", 6, 10); --townwall
+    AddPillar({128,634,0},"","", 6, 10); --townwall
+    AddPillar({132,619,1},"","", 9, 10); --
+    AddPillar({136,619,1},"","", 9, 10); --
+    AddPillar({129,619,1},"","", 6, 10); --
+    AddPillar({129,628,1},"","", 6, 10); --
+    AddPillar({139,626,1},"","", 4, 10); --
+    AddPillar({139,629,1},"","", 4, 10); --
+    AddPillar({139,632,1},"","", 4, 10); --
+    AddPillar({139,636,1},"","", 5, 10); --
+    AddPillar({136,636,1},"","", 5, 10); --
+  	AddPillar({132,566,0},"","", 1, 10); --temple
+    AddPillar({132,562,0},"","", 1, 10); --temple
+    AddPillar({136,560,0},"","", 1, 10); --temple
+    AddPillar({136,568,0},"","", 1, 10); --temple
+    AddPillar({137,560,0},"","", 9, 10); --temple
+    AddPillar({138,560,0},"","", 9, 10); --temple
+    AddPillar({139,560,0},"","", 9, 10); --temple
+    AddPillar({140,560,0},"","", 9, 10); --temple
+	AddPillar({137,568,0},"","", 8, 10); --temple
+	AddPillar({138,568,0},"","", 8, 10); --temple
+	AddPillar({139,568,0},"","", 8, 10); --temple
+	AddPillar({140,568,0},"","", 8, 10); --temple
+    AddPillar({143,566,0},"","", 6, 10); --temple
+    AddPillar({143,562,0},"","", 6, 10); --temple
+    AddPillar({144,566,0},"","", 1, 10); --temple
+    AddPillar({144,562,0},"","", 1, 10); --temple
+    AddPillar({124,548,0},"","", 1, 10); --palace
+    AddPillar({120,548,0},"","", 1, 10); --palace
+    AddPillar({122,547,1},"","", 2, 10); --palace
+    AddPillar({119,528,0},"","", 5, 10); --palace
+    AddPillar({124,528,0},"","", 5, 10); --palace
+    AddPillar({130,529,0},"","", 2, 10); --palace
+    AddPillar({149,512,-3},"","", 5, 10); --tresuray
+    AddPillar({153,516,-3},"","", 9, 10); --tresuray
+    AddPillar({150,516,-3},"","", 9, 10); --tresuray
+    AddPillar({147,516,-3},"","", 9, 10); --tresuray
+    AddPillar({145,516,-3},"","", 9, 10); --tresuray
+    AddPillar({145,520,-3},"","", 7, 10); --tresuray
+    AddPillar({145,522,-3},"","", 7, 10); --tresuray
+    AddPillar({149,519,-3},"","", 10, 10); --tresuray
+    AddPillar({149,521,-3},"","", 10, 10); --tresuray
+    AddPillar({80,577,1},"","", 2, 10); --inn
+    AddPillar({89,601,0},"","", 2, 10); --building
+    AddPillar({106,667,-4},"","", 1, 10); --dungeon
+    AddPillar({106,670,-4},"","", 1, 10); --dungeon
+    AddPillar({133,670,-4},"","", 5, 10); --dungeon
+    AddPillar({135,670,-4},"","", 5, 10); --dungeon
+    AddPillar({144,668,-4},"","", 6, 10); --dungeon
+    AddPillar({144,668,-4},"","", 6, 10); --dungeon
+    AddPillar({145,660,-4},"","", 5, 10); --dungeon
+    AddPillar({143,660,-4},"","", 5, 10); --dungeon
+    AddPillar({155,665,-3},"","", 9, 10); --dungeon
+    AddPillar({159,665,-3},"","", 9, 10); --dungeon
+    AddPillar({155,670,-3},"","", 8, 10); --dungeon
+    AddPillar({159,670,-3},"","", 8, 10); --dungeon
+	--Chapel of the Five
 	AddPillar({476,800,0},"","", 1, 10);
     AddPillar({476,791,0},"","", 1, 10);
 	AddPillar({470,793,0},"","", 1, 10);
@@ -377,6 +485,14 @@ function InitWegweiser()
 	-- 1 = facing south
 	-- 2 = facing west
 	
+    --Cadomyr
+    AddChimney({142,601,1},"","", 1, 0); --flats
+	AddChimney({146,623,0},"","", 2, 0); --flats
+    AddChimney({140,554,0},"","", 2, 0); --library
+    AddChimney({136,516,0},"","", 1, 0); --queens room
+    AddChimney({94,552,0},"","", 1, 0); --room
+    AddChimney({93,597,0},"","", 1, 0); --building
+    AddChimney({104,615,0},"","", 2, 0); --building
     --Galmair Plateau
     AddChimney({326,366,1},"","", 2, 0);
     AddChimney({311,351,1},"","", 1, 0);
@@ -390,6 +506,12 @@ function InitWegweiser()
 	-- 1 = facing south
 	-- 2 = facing west
 
+	--Cadomyr
+	AddMirror({149,516,0},"","", 2,0); --queens room
+    AddMirror({91,552,0},"","", 1,0); --room
+    AddMirror({84,576,1},"","", 2,0); --inn
+    AddMirror({92,597,1},"","", 1,0); --building
+    AddMirror({97,611,1},"","", 1,0); --building
 
 end
 
