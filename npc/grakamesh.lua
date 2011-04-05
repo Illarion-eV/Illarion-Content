@@ -1111,7 +1111,7 @@ mainNPC:setLookat("Dieser NPC ist der Schamane Grakamesh.", "This NPC is Grakame
 mainNPC:setUseMessage("Hand wech!", "Hands op!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 101);
+mainNPC:setEquipment(3, 818);
 mainNPC:setEquipment(11, 194);
 mainNPC:setEquipment(5, 39);
 mainNPC:setEquipment(6, 0);
