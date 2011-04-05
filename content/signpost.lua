@@ -22,9 +22,9 @@ function InitWegweiser()
     --SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
     AddWeg({50,640,0},"Faber's Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstörter Außenposten -- <name here> ruin of a outpost
-    AddWeg({108,659,0},"Cape Farewell; Faber's Wache","Cape Farewell; Faber's Guardhouse",6,0);
-	AddWeg({110,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Harbour","Candour Foundation; Malachín Temple; Rosaline Cube; Harbour",4,0);
-	AddWeg({116,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
+    AddWeg({110,659,0},"Cape Farewell; Faber's Wache","Cape Farewell; Faber's Guardhouse",6,0);
+	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; Malachíntempel; Rosaline-Kubus; Harbour","Candour Foundation; Malachín Temple; Rosaline Cube; Harbour",4,0);
+	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
 	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({126,611,0},"Marktplatz","Marketplace",0,0);
