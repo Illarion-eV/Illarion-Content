@@ -62,6 +62,7 @@ function InitWegweiser()
     AddWeg({481,794,0},"Galmair; Runewick","Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
+    AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
 
     --NW/Galmair-map
     AddWeg({365,247,0},"Guilianni-Residenz","Guilianni Residence",0,0); -- Don's palace
@@ -110,20 +111,29 @@ function InitWegweiser()
     -- 4 = coffin
 
     --Cursed Place
-    AddGrave({387,544,0},"","", 1,0);
+    AddGrave({387,544,0},"","", 2,0);
     AddGrave({387,542,0},"","", 1,0);
 	--Moshran's Brood
     AddGrave({410,726,0},"","", 1,0);
     AddGrave({409,734,0},"","", 3,0);
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
-    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 1,0);
+    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 3,0);
+	--Lonly Island
+	AddGrave({610,888,0},"","", 2,0);
+    AddGrave({610,886,0},"","", 1,0);
 	--Lost Building (1)
     AddGrave({252,722,0},"","", 1,0);
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);
+    --Pirate Cove
+    AddGrave({12,516,0},"","", 3,0);
+    AddGrave({30,525,0},"","", 1,0);
+    AddGrave({60,548,1},"","", 1,0);
+    AddGrave({57,555,1},"","", 3,0);
 	--Vrondus Farm
 	AddGrave({312,574,0},"","", 1,0);
+	AddGrave({308,559,0},"","", 3,0);
 	--Zumbrass Tomb
 	AddGrave({331,471,0},"","", 1,0);
 	AddGrave({323,467,0},"","", 3,0);
@@ -156,52 +166,60 @@ function InitWegweiser()
     -- 6 = scull post - west
     -- 7 = scull post - south
     
-    --Buccaneers Lurk
-    AddPennant({214,462,0},"","", 1,0);
-    AddPennant({210,462,0},"","", 1,0);
-    AddPennant({205,462,0},"","", 1,0);
-    AddPennant({200,462,0},"","", 1,0);
-    AddPennant({196,463,0},"","", 1,0);
-    AddPennant({196,467,0},"","", 1,0);
-    AddPennant({201,468,0},"","", 1,0);
-    AddPennant({196,471,0},"","", 1,0);
-    AddPennant({196,475,0},"","", 1,0);
-    AddPennant({196,479,0},"","", 1,0);
-    AddPennant({196,483,0},"","", 1,0);
-    AddPennant({196,487,0},"","", 1,0);
-    AddPennant({201,483,0},"","", 1,0);
-    AddPennant({200,487,0},"","", 1,0);
-    AddPennant({204,487,0},"","", 1,0);
+    --Abtruse Dwelling
+    AddPennant({44,607,0},"","", 6,0);
+    AddPennant({44,602,0},"","", 6,0);
+	--Buccaneers Lurk
+    AddPennant({214,462,0},"","", 4,0);
+    AddPennant({210,462,0},"","", 4,0);
+    AddPennant({205,462,0},"","", 4,0);
+    AddPennant({200,462,0},"","", 4,0);
+    AddPennant({196,463,0},"","", 6,0);
+    AddPennant({196,467,0},"","", 6,0);
+    AddPennant({201,468,0},"","", 7,0);
+    AddPennant({196,471,0},"","", 6,0);
+    AddPennant({196,475,0},"","", 6,0);
+    AddPennant({196,479,0},"","", 6,0);
+    AddPennant({196,483,0},"","", 6,0);
+    AddPennant({196,487,0},"","", 6,0);
+    AddPennant({201,483,0},"","", 7,0);
+    AddPennant({200,487,0},"","", 7,0);
+    AddPennant({204,487,0},"","", 7,0);
 	--Moshran's Brood
     AddPennant({391,743,0},"","", 1,0);
     AddPennant({393,743,0},"","", 1,0);
+    AddPennant({398,743,0},"","", 7,0);
     --Mount Zotmore
-    AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 1,0);
+    AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
     --Lost Building (2)
-    AddPennant({277,605,0},"","", 1,0);
-    AddPennant({277,596,0},"","", 1,0);
-    AddPennant({269,599,0},"","", 1,0);
-    AddPennant({265,605,0},"","", 1,0);
+    AddPennant({277,605,0},"","", 5,0);
+    AddPennant({277,596,0},"","", 5,0);
+    AddPennant({269,599,0},"","", 6,0);
+    AddPennant({265,605,0},"","", 6,0);
     --Lost Building (3)
-    AddPennant({290,474,0},"","", 1,0);
-    AddPennant({262,488,0},"","", 1,0);
+    AddPennant({290,474,0},"","", 5,0);
+    AddPennant({262,488,0},"","", 6,0);
 	--Lumpskrums Band
 	AddPennant({361,752,0},"","", 1,0);
     AddPennant({357,752,0},"","", 1,0);
     --Royal Slave Market
-	AddPennant({325,627,1},"","", 1,0);
-	AddPennant({325,629,1},"","", 1,0);
-	AddPennant({325,632,1},"","", 1,0);
-	AddPennant({325,624,1},"","", 1,0);
-	AddPennant({323,627,1},"","", 1,0);
-	AddPennant({323,629,1},"","", 1,0);
-	AddPennant({323,632,1},"","", 1,0);
-	AddPennant({323,634,1},"","", 1,0);
+	AddPennant({325,627,5},"","", 1,0);
+	AddPennant({325,629,5},"","", 1,0);
+	AddPennant({325,632,5},"","", 1,0);
+	AddPennant({325,624,5},"","", 1,0);
+	AddPennant({323,627,6},"","", 1,0);
+	AddPennant({323,629,6},"","", 1,0);
+	AddPennant({323,632,6},"","", 1,0);
+	AddPennant({323,634,6},"","", 1,0);
 	--The Royal Academy of Gladiators
-	AddPennant({210,701,0},"","", 1,0);
-    AddPennant({215,701,0},"","", 1,0);
+	AddPennant({210,701,0},"","", 7,0);
+    AddPennant({215,701,0},"","", 7,0);
+    --The Blood Circle Arena
+    AddPennant({248,668,1},"","", 3, 10);
+    AddPennant({250,690,0},"","", 2, 10);
+    AddPennant({250,685,0},"","", 2, 10);
     --Zumbrass Tomb
-	AddPennant({331,473,0},"","", 1,0);
+	AddPennant({331,473,0},"","", 7,0);
 
     ---------------- Bï¿½UME ----------------
 
@@ -216,7 +234,7 @@ function InitWegweiser()
     -- 7 = scandrel pine
 
 	--Irundar
-	AddTree({286,546,0},"","", 1,12);
+	AddTree({286,546,0},"","", 1,12); --tree check!!!
 
 -------------------- Sï¿½ulen/Statuen  ----------------
     --AddPillar({X,Y,Z},german text,english text, type, needed value of perception);
@@ -227,50 +245,45 @@ function InitWegweiser()
     -- 4 = golden armor (east)
     -- 5 = silver armor (north)
     -- 6 = silver armor (east)
+    -- 7 = riderstatue (east)
+    -- 8 = riderstatue (north)
+    -- 9 = riderstatue (south)
+    -- 10 = riderstatue (west)
 
-    --Chapel of the Five
+	--Abtruse Dwelling
+	AddPillar({54,608,0},"","", 1, 10);
+	AddPillar({54,602,0},"","", 1, 10);
+	--Chapel of the Five
 	AddPillar({476,800,0},"","", 1, 10);
     AddPillar({476,791,0},"","", 1, 10);
 	AddPillar({470,793,0},"","", 1, 10);
     AddPillar({470,798,0},"","", 1, 10);
     --Cursed Place
-    AddPillar({388,551,0},"","", 1, 10);
+    AddPillar({388,551,0},"","", 2, 10);
     AddPillar({376,553,0},"","", 1, 10);
     AddPillar({376,551,0},"","", 1, 10);
-	--Moshran's Brood
-	AddPillar({408,733,0},"","", 1, 10);
+    --Grugmutz's cave
+    AddPillar({169,558,0},"","", 1, 10);
+    AddPillar({169,561,0},"","", 1, 10);
+	--Kata Island
+	AddPillar({169,834,0},"","", 2, 10);
 	--Lost Building (1)
-    AddPillar({256,726,0},"","", 1, 10);
+    AddPillar({256,726,0},"","", 2, 10);
     --Lost Building (2)
 	AddPillar({272,602,0},"","", 1, 10);
     AddPillar({272,603,0},"","", 1, 10);
     --Lost Building (3)
-	AddPillar({284,476,0},"","", 1, 10);
-	AddPillar({285,477,0},"","", 1, 10);
+	AddPillar({284,476,0},"","", 2, 10);
+	AddPillar({285,477,0},"","", 2, 10);
+	--Lost Building (3)
+	AddPillar({106,831,0},"","", 2, 10);
+	AddPillar({104,831,0},"","", 2, 10);
+	--Moshran's Brood
+	AddPillar({401,733,0},"","", 1, 10);
 	--Mount Zotmore
 	AddPillar({361,495,0},"","", 1, 10);
 	AddPillar({357,495,0},"","", 1, 10);
-	--Queens Corner
-	AddPillar({301,502,0},"","", 1, 10);
-    --The Blood Circle Arena
-    AddPillar({256,665,0},"","", 1, 10);
-    AddPillar({261,665,0},"","", 1, 10);
-    AddPillar({261,670,0},"","", 1, 10);
-    AddPillar({256,670,0},"","", 1, 10);
-    AddPillar({250,683,0},"","", 1, 10);
-    AddPillar({266,683,0},"","", 1, 10);
-    --The Royal Academy of Gladiators
-    AddPillar({228,714,0},"","", 1, 10);
-    AddPillar({228,712,0},"","", 1, 10);
-    AddPillar({233,711,1},"","", 1, 10);
-    AddPillar({233,713,1},"","", 1, 10);
-    AddPillar({210,696,0},"","", 1, 10);
-    AddPillar({216,696,0},"","", 1, 10);
-    AddPillar({210,696,0},"","", 1, 10);
-    AddPillar({216,696,0},"","", 1, 10);
-    AddPillar({210,684,0},"","", 1, 10);
-    AddPillar({216,684,0},"","", 1, 10);
-    --Pyramide of Chaos
+	--Pyramide of Chaos
     AddPillar({227,581,0},"","", 1, 10);
     AddPillar({237,590,0},"","", 1, 10);
     AddPillar({233,590,0},"","", 1, 10);
@@ -286,9 +299,32 @@ function InitWegweiser()
     AddPillar({230,594,0},"","", 1, 10);
     AddPillar({227,598,0},"","", 1, 10);
     AddPillar({227,594,0},"","", 1, 10);
+	--Queens Corner
+	AddPillar({301,502,0},"","", 2, 10);
+ 	--Tempel of Sirani
+    AddPillar({176,759,0},"","", 2, 10);
+    AddPillar({176,764,0},"","", 2, 10);
+    --The Blood Circle Arena
+    AddPillar({256,665,0},"","", 7, 10);
+    AddPillar({261,665,0},"","", 9, 10);
+    AddPillar({261,670,0},"","", 10, 10);
+    AddPillar({256,670,0},"","", 8, 10);
+    AddPillar({250,683,0},"","", 5, 10);
+    AddPillar({266,683,0},"","", 5, 10);
+	--The Royal Academy of Gladiators
+    AddPillar({228,714,0},"","", 1, 10);
+    AddPillar({228,712,0},"","", 1, 10);
+    AddPillar({233,711,1},"","", 6, 10);
+    AddPillar({233,713,1},"","", 6, 10);
+    AddPillar({210,696,0},"","", 7, 10);
+    AddPillar({216,696,0},"","", 7, 10);
+    AddPillar({210,696,0},"","", 7, 10);
+    AddPillar({216,696,0},"","", 10, 10);
+    AddPillar({210,684,0},"","", 10, 10);
+    AddPillar({216,684,0},"","", 10, 10);
     --Vrondus Farm
-	AddPillar({310,572,0},"","", 1, 10);
-	AddPillar({308,559,0},"","", 1, 10);
+	AddPillar({310,572,0},"","", 2, 10);
+
     
     
     
@@ -486,6 +522,14 @@ function DirToItemID(Value)
         return 694
     elseif (Value==56) then
         return 695
+    elseif (Value==57) then
+        return 440
+    elseif (Value==58) then
+        return 441
+    elseif (Value==59) then
+        return 442
+    elseif (Value==60) then
+        return 443
     elseif (Value==61) then
 		return 268
 	elseif (Value==62) then
