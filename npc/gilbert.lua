@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Gilbert                                                     None --
+-- NPC Name: Gilbert                                                  Cadomyr --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  120, 642, 0            --
+-- NPC Race: human                      NPC Position:  87, 609, 0             --
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
 -- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 120, 642, 0, 3, 'Gilbert', 'npc.gilbert', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 87, 609, 0, 3, 'Gilbert', 'npc.gilbert', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
