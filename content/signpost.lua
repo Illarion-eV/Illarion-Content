@@ -126,7 +126,8 @@ function InitWegweiser()
 	AddGrave({107,673,-4},"","", 3,0);
 	AddGrave({113,670,-4},"","", 1,0);
 	AddGrave({108,665,-4},"","", 1,0);
-	AddGrave({157,668,-4},"Ein leichtes Kratzen ist zu hören.","You can hear the sound of scratching.", 4,0);
+	AddGrave({157,668,-4},"","", 4,0);
+	AddGrave({158,667,-4},"","", 3,0);
 	--Creek Settlement
     AddGrave({187,509,0},"","", 1,0);
     AddGrave({194,505,0},"","", 3,0);
