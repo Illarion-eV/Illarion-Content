@@ -63,7 +63,7 @@ function InitWegweiser()
     AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
     AddWeg({468,794,0},"Katanbi Wüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
-    AddWeg({481,794,0},"Galmair; Runewick","Galmair; Runewick",2,0);
+    AddWeg({481,794,0},"Wachstützpunkt; Galmair; Runewick","Sentry Outpost; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
@@ -96,7 +96,10 @@ function InitWegweiser()
     AddWeg({330,249,-6},"Schimmersenke","Flicker Swale",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
 
     --SE/Runewick-map
-	-- AddWeg({X,Y,Z},"German.","English.",1,0);
+    AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);
+	AddWeg({644,715,0},"Wachstützpunkt","Sentry Outpost",0,0);
+	AddWeg({528,782,0},"Wachstützpunkt","Sentry Outpost",2,0);
+	AddWeg({528,781,0},"Galmair; Runewick","Galmair; Runewick",0,0);
 
     --NE/Neutral-map
 
@@ -144,6 +147,9 @@ function InitWegweiser()
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 3,0);
+	--Lighthouse
+	--AddGrave({,,0},"","", 1,0);
+	--AddGrave({,,0},"","", 1,0);
 	--Lonly Island
 	AddGrave({610,888,0},"","", 2,0);
     AddGrave({610,886,0},"","", 1,0);
@@ -178,33 +184,33 @@ function InitWegweiser()
     -- 8 = east wall wood picture
 
     --Cadomyr
-    AddPicture({147,622,1},"","", 2,0); --flats
-    AddPicture({147,616,1},"","", 4,0); --flats
-    AddPicture({141,612,1},"","", 3,0); --flats
-    AddPicture({145,608,1},"","", 1,0); --flats
-    AddPicture({142,606,1},"","", 3,0); --flats
-    AddPicture({144,604,0},"","", 4,0); --flats
-    AddPicture({141,607,0},"","", 7,0); --flats
-    AddPicture({139,613,0},"","", 4,0); --flats
-    AddPicture({143,613,0},"","", 4,0); --flats
-    AddPicture({129,524,0},"","", 7,0); --palace
-    AddPicture({130,518,0},"","", 5,0); --queens room
-    AddPicture({135,516,0},"","", 3,0); --queens room
-    AddPicture({137,516,0},"","", 3,0); --queens room
-    AddPicture({117,579,0},"","", 4,0); --taverne
-    AddPicture({91,572,0},"","", 4,0); --inn
-    AddPicture({91,574,0},"","", 4,0); --inn
-    AddPicture({91,576,0},"","", 4,0); --inn
-    AddPicture({86,574,0},"","", 4,0); --inn
-    AddPicture({88,578,1},"","", 5,0); --inn
-    AddPicture({85,578,1},"","", 5,0); --inn
-    AddPicture({96,600,1},"","", 4,0); --building
-    AddPicture({96,599,1},"","", 4,0); --building
-    AddPicture({96,602,0},"","", 4,0); --building
-    AddPicture({100,611,1},"","", 3,0); --building
+    AddPicture({147,622,1},"","", 2,5); --flats
+    AddPicture({147,616,1},"","", 4,5); --flats
+    AddPicture({141,612,1},"","", 3,5); --flats
+    AddPicture({145,608,1},"","", 1,5); --flats
+    AddPicture({142,606,1},"","", 3,5); --flats
+    AddPicture({144,604,0},"","", 4,5); --flats
+    AddPicture({141,607,0},"","", 7,5); --flats
+    AddPicture({139,613,0},"","", 4,5); --flats
+    AddPicture({143,613,0},"","", 4,5); --flats
+    AddPicture({129,524,0},"","", 7,5); --palace
+    AddPicture({130,518,0},"","", 5,5); --queens room
+    AddPicture({135,516,0},"","", 3,5); --queens room
+    AddPicture({137,516,0},"","", 3,5); --queens room
+    AddPicture({117,579,0},"","", 4,5); --taverne
+    AddPicture({91,572,0},"","", 4,5); --inn
+    AddPicture({91,574,0},"","", 4,5); --inn
+    AddPicture({91,576,0},"","", 4,5); --inn
+    AddPicture({86,574,0},"","", 4,5); --inn
+    AddPicture({88,578,1},"","", 5,5); --inn
+    AddPicture({85,578,1},"","", 5,5); --inn
+    AddPicture({96,600,1},"","", 4,5); --building
+    AddPicture({96,599,1},"","", 4,5); --building
+    AddPicture({96,602,0},"","", 4,5); --building
+    AddPicture({100,611,1},"","", 3,5); --building
     --Galmair Plateau
-    AddPicture({318,357,1},"","", 1,0);
-    AddPicture({318,359,1},"","", 2,0);
+    AddPicture({318,357,1},"","", 1,5);
+    AddPicture({318,359,1},"","", 2,5);
 
     ---------------- STANDARTEN ----------------
 
@@ -219,80 +225,82 @@ function InitWegweiser()
     -- 7 = scull post - south
     
     --Abtruse Dwelling
-    AddPennant({44,607,0},"","", 6,0);
-    AddPennant({44,602,0},"","", 6,0);
-    AddPennant({46,634,0},"","", 7,0);
-    AddPennant({41,634,0},"","", 7,0);
+    AddPennant({44,607,0},"","", 6,5);
+    AddPennant({44,602,0},"","", 6,5);
+    AddPennant({46,634,0},"","", 7,5);
+    AddPennant({41,634,0},"","", 7,5);
 	--Buccaneers Lurk
-    AddPennant({214,462,0},"","", 4,0);
-    AddPennant({210,462,0},"","", 4,0);
-    AddPennant({205,462,0},"","", 4,0);
-    AddPennant({200,462,0},"","", 4,0);
-    AddPennant({196,463,0},"","", 6,0);
-    AddPennant({196,467,0},"","", 6,0);
-    AddPennant({201,468,0},"","", 7,0);
-    AddPennant({196,471,0},"","", 6,0);
-    AddPennant({196,475,0},"","", 6,0);
-    AddPennant({196,479,0},"","", 6,0);
-    AddPennant({196,483,0},"","", 6,0);
-    AddPennant({196,487,0},"","", 6,0);
-    AddPennant({201,483,0},"","", 7,0);
-    AddPennant({200,487,0},"","", 7,0);
-    AddPennant({204,487,0},"","", 7,0);
+    AddPennant({214,462,0},"","", 4,5);
+    AddPennant({210,462,0},"","", 4,5);
+    AddPennant({205,462,0},"","", 4,5);
+    AddPennant({200,462,0},"","", 4,5);
+    AddPennant({196,463,0},"","", 6,5);
+    AddPennant({196,467,0},"","", 6,5);
+    AddPennant({201,468,0},"","", 7,5);
+    AddPennant({196,471,0},"","", 6,5);
+    AddPennant({196,475,0},"","", 6,5);
+    AddPennant({196,479,0},"","", 6,5);
+    AddPennant({196,483,0},"","", 6,5);
+    AddPennant({196,487,0},"","", 6,5);
+    AddPennant({201,483,0},"","", 7,5);
+    AddPennant({200,487,0},"","", 7,5);
+    AddPennant({204,487,0},"","", 7,5);
     --Cadomyr
-    AddPennant({121,519,0},"","", 1,0); --palace
-	AddPennant({122,519,0},"","", 1,0); --palace
-    AddPennant({123,519,0},"","", 1,0); --palace
-    AddPennant({130,528,0},"","", 2,0); --palace
-    AddPennant({130,530,0},"","", 2,0); --palace
-    AddPennant({109,551,0},"","", 1,0); --registration
-    AddPennant({104,552,0},"","", 1,0); --registration
+    AddPennant({121,519,0},"","", 1,5); --palace
+	AddPennant({122,519,0},"","", 1,5); --palace
+    AddPennant({123,519,0},"","", 1,5); --palace
+    AddPennant({130,528,0},"","", 2,5); --palace
+    AddPennant({130,530,0},"","", 2,5); --palace
+    AddPennant({109,551,0},"","", 1,5); --registration
+    AddPennant({104,552,0},"","", 1,5); --registration
 	--Galmair Plateau
-    AddPennant({358,378,1},"","", 4,0);
-    AddPennant({356,378,1},"","", 4,0);
+    AddPennant({358,378,1},"","", 4,5);
+    AddPennant({356,378,1},"","", 4,5);
 	--Glowing Gate
-    AddPennant({487,582,0},"","", 1,0);
-    AddPennant({485,582,0},"","", 1,0);
+    AddPennant({487,582,0},"","", 1,5);
+    AddPennant({485,582,0},"","", 1,5);
     --Hammerfall Mine
-    AddPennant({257,419,0},"","", 1,0);
-    AddPennant({258,419,0},"","", 3,0);
-    AddPennant({260,419,0},"","", 3,0);
-	AddPennant({261,419,0},"","", 1,0);
+    AddPennant({257,419,0},"","", 1,5);
+    AddPennant({258,419,0},"","", 3,5);
+    AddPennant({260,419,0},"","", 3,5);
+	AddPennant({261,419,0},"","", 1,5);
 	--Moshran's Brood
-    AddPennant({391,743,0},"","", 1,0);
-    AddPennant({393,743,0},"","", 1,0);
-    AddPennant({398,743,0},"","", 7,0);
+    AddPennant({391,743,0},"","", 1,5);
+    AddPennant({393,743,0},"","", 1,5);
+    AddPennant({398,743,0},"","", 7,5);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
     --Lost Building (2)
-    AddPennant({277,605,0},"","", 5,0);
-    AddPennant({277,596,0},"","", 5,0);
-    AddPennant({269,599,0},"","", 6,0);
-    AddPennant({265,605,0},"","", 6,0);
+    AddPennant({277,605,0},"","", 5,5);
+    AddPennant({277,596,0},"","", 5,5);
+    AddPennant({269,599,0},"","", 6,5);
+    AddPennant({265,605,0},"","", 6,5);
     --Lost Building (3)
-    AddPennant({290,474,0},"","", 5,0);
-    AddPennant({262,488,0},"","", 6,0);
+    AddPennant({290,474,0},"","", 5,5);
+    AddPennant({262,488,0},"","", 6,5);
 	--Lumpskrums Band
-	AddPennant({361,752,0},"","", 1,0);
-    AddPennant({357,752,0},"","", 1,0);
+	AddPennant({361,752,0},"","", 1,5);
+    AddPennant({357,752,0},"","", 1,5);
     --Royal Slave Market
-	AddPennant({325,627,5},"","", 1,0);
-	AddPennant({325,629,5},"","", 1,0);
-	AddPennant({325,632,5},"","", 1,0);
-	AddPennant({325,624,5},"","", 1,0);
-	AddPennant({323,627,6},"","", 1,0);
-	AddPennant({323,629,6},"","", 1,0);
-	AddPennant({323,632,6},"","", 1,0);
-	AddPennant({323,634,6},"","", 1,0);
+	AddPennant({325,627,0},"","", 5,5);
+	AddPennant({325,629,0},"","", 5,5);
+	AddPennant({325,632,0},"","", 5,5);
+	AddPennant({325,624,0},"","", 5,5);
+	AddPennant({323,627,0},"","", 6,5);
+	AddPennant({323,629,0},"","", 6,5);
+	AddPennant({323,632,0},"","", 6,5);
+	AddPennant({323,634,0},"","", 6,5);
+	--Sentry Outpost
+	AddPennant({641,706,3},"","", 3,5);
 	--The Royal Academy of Gladiators
-	AddPennant({210,701,0},"","", 7,0);
-    AddPennant({215,701,0},"","", 7,0);
+	AddPennant({210,701,0},"","", 7,5);
+    AddPennant({215,701,0},"","", 7,5);
     --The Blood Circle Arena
-    AddPennant({248,668,1},"","", 3, 10);
-    AddPennant({250,690,0},"","", 2, 10);
-    AddPennant({250,685,0},"","", 2, 10);
+    AddPennant({248,668,1},"","", 3,5);
+    AddPennant({250,690,0},"","", 2,5);
+    AddPennant({250,685,0},"","", 2,5);
     --Zumbrass Tomb
-	AddPennant({331,473,0},"","", 7,0);
+	AddPennant({331,473,0},"","", 7,5);
 
     ---------------- Bï¿½UME ----------------
 
@@ -306,8 +314,16 @@ function InitWegweiser()
     -- 6 = eldan oak
     -- 7 = scandrel pine
 
+	--Gnuremground
+	AddTree({578,708,0},"","", 1,5);
+	AddTree({576,712,0},"","", 1,5);
+	AddTree({568,714,0},"","", 1,5);
+	AddTree({565,712,0},"","", 1,5);
+	AddTree({564,710,0},"","", 3,5);
 	--Irundar
-	AddTree({286,546,0},"","", 1,12); --tree check!!!
+	AddTree({286,546,0},"","", 6,5); --tree check!!!
+	--Oldra's Corner
+	AddTree({653,681,0},"","", 6,5);
 
 -------------------- Sï¿½ulen/Statuen  ----------------
     --AddPillar({X,Y,Z},german text,english text, type, needed value of perception);
@@ -324,157 +340,160 @@ function InitWegweiser()
     -- 10 = riderstatue (west)
 
 	--Abtruse Dwelling
-	AddPillar({54,608,0},"","", 1, 10);
-	AddPillar({54,602,0},"","", 1, 10);
+	AddPillar({54,608,0},"","", 1,5);
+	AddPillar({54,602,0},"","", 1,5);
 	--Cadomyr
-	AddPillar({88,655,1},"","", 6, 10); --outside
-	AddPillar({88,659,1},"","", 6, 10); --outside
-    AddPillar({108,655,1},"","", 5, 10); --outside
-    AddPillar({117,655,1},"","", 5, 10); --outside
-    AddPillar({108,637,1},"","", 5, 10); --outside
-    AddPillar({117,637,1},"","", 5, 10); --outside
-    AddPillar({165,642,1},"","", 6, 10); --outside
-    AddPillar({165,638,1},"","", 6, 10); --outside
-    AddPillar({86,620,1},"","", 6, 10); --guardtower
-    AddPillar({86,623,1},"","", 6, 10); --guardtower
-    AddPillar({84,619,1},"","", 6, 10); --guardtower
-    AddPillar({84,619,0},"","", 9, 10); --guardtower
-    AddPillar({91,623,0},"","", 3, 10); --guardtower
-    AddPillar({90,623,0},"","", 3, 10); --guardtower
-    AddPillar({128,631,0},"","", 6, 10); --townwall
-    AddPillar({128,634,0},"","", 6, 10); --townwall
-    AddPillar({132,619,1},"","", 9, 10); --
-    AddPillar({136,619,1},"","", 9, 10); --
-    AddPillar({129,619,1},"","", 6, 10); --
-    AddPillar({129,628,1},"","", 6, 10); --
-    AddPillar({139,626,1},"","", 4, 10); --
-    AddPillar({139,629,1},"","", 4, 10); --
-    AddPillar({139,632,1},"","", 4, 10); --
-    AddPillar({139,636,1},"","", 5, 10); --
-    AddPillar({136,636,1},"","", 5, 10); --
-  	AddPillar({132,566,0},"","", 1, 10); --temple
-    AddPillar({132,562,0},"","", 1, 10); --temple
-    AddPillar({136,560,0},"","", 1, 10); --temple
-    AddPillar({136,568,0},"","", 1, 10); --temple
-    AddPillar({137,560,0},"","", 9, 10); --temple
-    AddPillar({138,560,0},"","", 9, 10); --temple
-    AddPillar({139,560,0},"","", 9, 10); --temple
-    AddPillar({140,560,0},"","", 9, 10); --temple
-	AddPillar({137,568,0},"","", 8, 10); --temple
-	AddPillar({138,568,0},"","", 8, 10); --temple
-	AddPillar({139,568,0},"","", 8, 10); --temple
-	AddPillar({140,568,0},"","", 8, 10); --temple
-    AddPillar({143,566,0},"","", 6, 10); --temple
-    AddPillar({143,562,0},"","", 6, 10); --temple
-    AddPillar({144,566,0},"","", 1, 10); --temple
-    AddPillar({144,562,0},"","", 1, 10); --temple
-    AddPillar({124,548,0},"","", 1, 10); --palace
-    AddPillar({120,548,0},"","", 1, 10); --palace
-    AddPillar({122,547,1},"","", 2, 10); --palace
-    AddPillar({119,528,0},"","", 5, 10); --palace
-    AddPillar({124,528,0},"","", 5, 10); --palace
-    AddPillar({130,529,0},"","", 2, 10); --palace
-    AddPillar({149,512,-3},"","", 5, 10); --tresuray
-    AddPillar({153,516,-3},"","", 9, 10); --tresuray
-    AddPillar({150,516,-3},"","", 9, 10); --tresuray
-    AddPillar({147,516,-3},"","", 9, 10); --tresuray
-    AddPillar({145,516,-3},"","", 9, 10); --tresuray
-    AddPillar({145,520,-3},"","", 7, 10); --tresuray
-    AddPillar({145,522,-3},"","", 7, 10); --tresuray
-    AddPillar({149,519,-3},"","", 10, 10); --tresuray
-    AddPillar({149,521,-3},"","", 10, 10); --tresuray
-    AddPillar({80,577,1},"","", 2, 10); --inn
-    AddPillar({89,601,0},"","", 2, 10); --building
-    AddPillar({106,667,-4},"","", 1, 10); --dungeon
-    AddPillar({106,670,-4},"","", 1, 10); --dungeon
-    AddPillar({133,670,-4},"","", 5, 10); --dungeon
-    AddPillar({135,670,-4},"","", 5, 10); --dungeon
-    AddPillar({144,668,-4},"","", 6, 10); --dungeon
-    AddPillar({144,668,-4},"","", 6, 10); --dungeon
-    AddPillar({145,660,-4},"","", 5, 10); --dungeon
-    AddPillar({143,660,-4},"","", 5, 10); --dungeon
-    AddPillar({155,665,-3},"","", 9, 10); --dungeon
-    AddPillar({159,665,-3},"","", 9, 10); --dungeon
-    AddPillar({155,670,-3},"","", 8, 10); --dungeon
-    AddPillar({159,670,-3},"","", 8, 10); --dungeon
+	AddPillar({88,655,1},"","", 6,5); --outside
+	AddPillar({88,659,1},"","", 6,5); --outside
+    AddPillar({108,655,1},"","", 5,5); --outside
+    AddPillar({117,655,1},"","", 5,5); --outside
+    AddPillar({108,637,1},"","", 5,5); --outside
+    AddPillar({117,637,1},"","", 5,5); --outside
+    AddPillar({165,642,1},"","", 6,5); --outside
+    AddPillar({165,638,1},"","", 6,5); --outside
+    AddPillar({86,620,1},"","", 6,5); --guardtower
+    AddPillar({86,623,1},"","", 6,5); --guardtower
+    AddPillar({84,619,1},"","", 6,5); --guardtower
+    AddPillar({84,619,0},"","", 9,5); --guardtower
+    AddPillar({91,623,0},"","", 3,5); --guardtower
+    AddPillar({90,623,0},"","", 3,5); --guardtower
+    AddPillar({128,631,0},"","", 6,5); --townwall
+    AddPillar({128,634,0},"","", 6,5); --townwall
+    AddPillar({132,619,1},"","", 9,5); --
+    AddPillar({136,619,1},"","", 9,5); --
+    AddPillar({129,619,1},"","", 6,5); --
+    AddPillar({129,628,1},"","", 6,5); --
+    AddPillar({139,626,1},"","", 4,5); --
+    AddPillar({139,629,1},"","", 4,5); --
+    AddPillar({139,632,1},"","", 4,5); --
+    AddPillar({139,636,1},"","", 5,5); --
+    AddPillar({136,636,1},"","", 5,5); --
+  	AddPillar({132,566,0},"","", 1,5); --temple
+    AddPillar({132,562,0},"","", 1,5); --temple
+    AddPillar({136,560,0},"","", 1,5); --temple
+    AddPillar({136,568,0},"","", 1,5); --temple
+    AddPillar({137,560,0},"","", 9,5); --temple
+    AddPillar({138,560,0},"","", 9,5); --temple
+    AddPillar({139,560,0},"","", 9,5); --temple
+    AddPillar({140,560,0},"","", 9,5); --temple
+	AddPillar({137,568,0},"","", 8,5); --temple
+	AddPillar({138,568,0},"","", 8,5); --temple
+	AddPillar({139,568,0},"","", 8,5); --temple
+	AddPillar({140,568,0},"","", 8,5); --temple
+    AddPillar({143,566,0},"","", 6,5); --temple
+    AddPillar({143,562,0},"","", 6,5); --temple
+    AddPillar({144,566,0},"","", 1,5); --temple
+    AddPillar({144,562,0},"","", 1,5); --temple
+    AddPillar({124,548,0},"","", 1,5); --palace
+    AddPillar({120,548,0},"","", 1,5); --palace
+    AddPillar({122,547,1},"","", 2,5); --palace
+    AddPillar({119,528,0},"","", 5,5); --palace
+    AddPillar({124,528,0},"","", 5,5); --palace
+    AddPillar({130,529,0},"","", 2,5); --palace
+    AddPillar({149,512,-3},"","", 5,5); --tresuray
+    AddPillar({153,516,-3},"","", 9,5); --tresuray
+    AddPillar({150,516,-3},"","", 9,5); --tresuray
+    AddPillar({147,516,-3},"","", 9,5); --tresuray
+    AddPillar({145,516,-3},"","", 9,5); --tresuray
+    AddPillar({145,520,-3},"","", 7,5); --tresuray
+    AddPillar({145,522,-3},"","", 7,5); --tresuray
+    AddPillar({149,519,-3},"","", 10,5); --tresuray
+    AddPillar({149,521,-3},"","", 10,5); --tresuray
+    AddPillar({80,577,1},"","", 2,5); --inn
+    AddPillar({89,601,0},"","", 2,5); --building
+    AddPillar({106,667,-4},"","", 1,5); --dungeon
+    AddPillar({106,670,-4},"","", 1,5); --dungeon
+    AddPillar({133,670,-4},"","", 5,5); --dungeon
+    AddPillar({135,670,-4},"","", 5,5); --dungeon
+    AddPillar({144,668,-4},"","", 6,5); --dungeon
+    AddPillar({144,668,-4},"","", 6,5); --dungeon
+    AddPillar({145,660,-4},"","", 5,5); --dungeon
+    AddPillar({143,660,-4},"","", 5,5); --dungeon
+    AddPillar({155,665,-3},"","", 9,5); --dungeon
+    AddPillar({159,665,-3},"","", 9,5); --dungeon
+    AddPillar({155,670,-3},"","", 8,5); --dungeon
+    AddPillar({159,670,-3},"","", 8,5); --dungeon
 	--Chapel of the Five
-	AddPillar({476,800,0},"","", 1, 10);
-    AddPillar({476,791,0},"","", 1, 10);
-	AddPillar({470,793,0},"","", 1, 10);
-    AddPillar({470,798,0},"","", 1, 10);
+	AddPillar({476,800,0},"","", 1,5);
+    AddPillar({476,791,0},"","", 1,5);
+	AddPillar({470,793,0},"","", 1,5);
+    AddPillar({470,798,0},"","", 1,5);
     --Creek Settlement
-	AddPillar({189,511,0},"","", 1, 10);
-	AddPillar({195,511,0},"","", 1, 10);
-	AddPillar({186,495,0},"","", 1, 10);
-	AddPillar({186,493,0},"","", 1, 10);
+	AddPillar({189,511,0},"","", 1,5);
+	AddPillar({195,511,0},"","", 1,5);
+	AddPillar({186,495,0},"","", 1,5);
+	AddPillar({186,493,0},"","", 1,5);
 	--Cursed Place
-    AddPillar({388,551,0},"","", 2, 10);
-    AddPillar({376,553,0},"","", 1, 10);
-    AddPillar({376,551,0},"","", 1, 10);
+    AddPillar({388,551,0},"","", 2,5);
+    AddPillar({376,553,0},"","", 1,5);
+    AddPillar({376,551,0},"","", 1,5);
 	--Galmair Plateau
-	AddPillar({357,365,1},"","", 4, 10);
+	AddPillar({357,365,1},"","", 4,5);
 	--Grugmutz's cave
-    AddPillar({169,558,0},"","", 1, 10);
-    AddPillar({169,561,0},"","", 1, 10);
+    AddPillar({169,558,0},"","", 1,5);
+    AddPillar({169,561,0},"","", 1,5);
 	--Kata Island
-	AddPillar({169,834,0},"","", 2, 10);
+	AddPillar({169,834,0},"","", 2,5);
 	--Lost Building (1)
-    AddPillar({256,726,0},"","", 2, 10);
+    AddPillar({256,726,0},"","", 2,5);
     --Lost Building (2)
-	AddPillar({272,602,0},"","", 1, 10);
-    AddPillar({272,603,0},"","", 1, 10);
+	AddPillar({272,602,0},"","", 1,5);
+    AddPillar({272,603,0},"","", 1,5);
     --Lost Building (3)
-	AddPillar({284,476,0},"","", 2, 10);
-	AddPillar({285,477,0},"","", 2, 10);
+	AddPillar({284,476,0},"","", 2,5);
+	AddPillar({285,477,0},"","", 2,5);
     --Lost Harbour
-	AddPillar({106,831,0},"","", 2, 10);
-	AddPillar({104,831,0},"","", 2, 10);
+	AddPillar({106,831,0},"","", 2,5);
+	AddPillar({104,831,0},"","", 2,5);
 	--Moshran's Brood
-	AddPillar({401,733,0},"","", 1, 10);
+	AddPillar({401,733,0},"","", 1,5);
 	--Mount Zotmore
-	AddPillar({361,495,0},"","", 1, 10);
-	AddPillar({357,495,0},"","", 1, 10);
+	AddPillar({361,495,0},"","", 1,5);
+	AddPillar({357,495,0},"","", 1,5);
+    --Oldra's Corner
+	AddPillar({645,679,0},"","", 2, 5);
+	AddPillar({645,683,0},"","", 2, 5);
 	--Pyramide of Chaos
-    AddPillar({227,581,0},"","", 1, 10);
-    AddPillar({237,590,0},"","", 1, 10);
-    AddPillar({233,590,0},"","", 1, 10);
-    AddPillar({237,593,0},"","", 1, 10);
-    AddPillar({233,593,0},"","", 1, 10);
-    AddPillar({237,599,0},"","", 1, 10);
-    AddPillar({233,599,0},"","", 1, 10);
-    AddPillar({237,602,0},"","", 1, 10);
-    AddPillar({233,602,0},"","", 1, 10);
-    AddPillar({237,605,0},"","", 1, 10);
-    AddPillar({233,605,0},"","", 1, 10);
-    AddPillar({230,598,0},"","", 1, 10);
-    AddPillar({230,594,0},"","", 1, 10);
-    AddPillar({227,598,0},"","", 1, 10);
-    AddPillar({227,594,0},"","", 1, 10);
+    AddPillar({227,581,0},"","", 1,5);
+    AddPillar({237,590,0},"","", 1,5);
+    AddPillar({233,590,0},"","", 1,5);
+    AddPillar({237,593,0},"","", 1,5);
+    AddPillar({233,593,0},"","", 1,5);
+    AddPillar({237,599,0},"","", 1,5);
+    AddPillar({233,599,0},"","", 1,5);
+    AddPillar({237,602,0},"","", 1,5);
+    AddPillar({233,602,0},"","", 1,5);
+    AddPillar({237,605,0},"","", 1,5);
+    AddPillar({233,605,0},"","", 1,5);
+    AddPillar({230,598,0},"","", 1,5);
+    AddPillar({230,594,0},"","", 1,5);
+    AddPillar({227,598,0},"","", 1,5);
+    AddPillar({227,594,0},"","", 1,5);
 	--Queens Corner
-	AddPillar({301,502,0},"","", 2, 10);
+	AddPillar({301,502,0},"","", 2,5);
  	--Tempel of Sirani
-    AddPillar({176,759,0},"","", 2, 10);
-    AddPillar({176,764,0},"","", 2, 10);
+    AddPillar({176,759,0},"","", 2,5);
+    AddPillar({176,764,0},"","", 2,5);
     --The Blood Circle Arena
-    AddPillar({256,665,0},"","", 7, 10);
-    AddPillar({261,665,0},"","", 9, 10);
-    AddPillar({261,670,0},"","", 10, 10);
-    AddPillar({256,670,0},"","", 8, 10);
-    AddPillar({250,683,0},"","", 5, 10);
-    AddPillar({266,683,0},"","", 5, 10);
+    AddPillar({256,665,0},"","", 7,5);
+    AddPillar({261,665,0},"","", 9,5);
+    AddPillar({261,670,0},"","", 10,5);
+    AddPillar({256,670,0},"","", 8,5);
+    AddPillar({250,683,0},"","", 5,5);
+    AddPillar({266,683,0},"","", 5,5);
 	--The Royal Academy of Gladiators
-    AddPillar({228,714,0},"","", 1, 10);
-    AddPillar({228,712,0},"","", 1, 10);
-    AddPillar({233,711,1},"","", 6, 10);
-    AddPillar({233,713,1},"","", 6, 10);
-    AddPillar({210,696,0},"","", 7, 10);
-    AddPillar({216,696,0},"","", 7, 10);
-    AddPillar({210,696,0},"","", 7, 10);
-    AddPillar({216,696,0},"","", 10, 10);
-    AddPillar({210,684,0},"","", 10, 10);
-    AddPillar({216,684,0},"","", 10, 10);
+    AddPillar({228,714,0},"","", 1,5);
+    AddPillar({228,712,0},"","", 1,5);
+    AddPillar({233,711,1},"","", 6,5);
+    AddPillar({233,713,1},"","", 6,5);
+    AddPillar({210,696,0},"","", 7,5);
+    AddPillar({216,696,0},"","", 7,5);
+    AddPillar({210,696,0},"","", 7,5);
+    AddPillar({216,696,0},"","", 10,5);
+    AddPillar({210,684,0},"","", 10,5);
+    AddPillar({216,684,0},"","", 10,5);
     --Vrondus Farm
-	AddPillar({310,572,0},"","", 2, 10);
+	AddPillar({310,572,0},"","", 2,5);
 
     
     
@@ -487,16 +506,16 @@ function InitWegweiser()
 	-- 2 = facing west
 	
     --Cadomyr
-    AddChimney({142,601,1},"","", 1, 0); --flats
-	AddChimney({146,623,0},"","", 2, 0); --flats
-    AddChimney({140,554,0},"","", 2, 0); --library
-    AddChimney({136,516,0},"","", 1, 0); --queens room
-    AddChimney({94,552,0},"","", 1, 0); --room
-    AddChimney({93,597,0},"","", 1, 0); --building
-    AddChimney({104,615,0},"","", 2, 0); --building
+    AddChimney({142,601,1},"","", 1, 5); --flats
+	AddChimney({146,623,0},"","", 2, 5); --flats
+    AddChimney({140,554,0},"","", 2, 5); --library
+    AddChimney({136,516,0},"","", 1, 5); --queens room
+    AddChimney({94,552,0},"","", 1, 5); --room
+    AddChimney({93,597,0},"","", 1, 5); --building
+    AddChimney({104,615,0},"","", 2, 5); --building
     --Galmair Plateau
-    AddChimney({326,366,1},"","", 2, 0);
-    AddChimney({311,351,1},"","", 1, 0);
+    AddChimney({326,366,1},"","", 2, 5);
+    AddChimney({311,351,1},"","", 1, 5);
     
     
     
@@ -508,11 +527,11 @@ function InitWegweiser()
 	-- 2 = facing west
 
 	--Cadomyr
-	AddMirror({149,516,0},"","", 2,0); --queens room
-    AddMirror({91,552,0},"","", 1,0); --room
-    AddMirror({84,576,1},"","", 2,0); --inn
-    AddMirror({92,597,1},"","", 1,0); --building
-    AddMirror({97,611,1},"","", 1,0); --building
+	AddMirror({149,516,0},"","", 2,5); --queens room
+    AddMirror({91,552,0},"","", 1,5); --room
+    AddMirror({84,576,1},"","", 2,5); --inn
+    AddMirror({92,597,1},"","", 1,5); --building
+    AddMirror({97,611,1},"","", 1,5); --building
 
 end
 
