@@ -63,7 +63,7 @@ function InitWegweiser()
     AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
     AddWeg({468,794,0},"Katanbi Wüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
-    AddWeg({481,794,0},"Wachstützpunkt; Galmair; Runewick","Sentry Outpost; Galmair; Runewick",2,0);
+    AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
     AddWeg({226,646,0},"Perle der Sirani","Pearl of Sirani",0,0); -- <Name hier> Oase -- <name here> oasis
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
@@ -99,7 +99,10 @@ function InitWegweiser()
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);
 	AddWeg({644,715,0},"Wachstützpunkt","Sentry Outpost",0,0);
 	AddWeg({528,782,0},"Wachstützpunkt","Sentry Outpost",2,0);
-	AddWeg({528,781,0},"Galmair; Runewick","Galmair; Runewick",0,0);
+	AddWeg({528,781,0},"Leuchtturm; Galmair; Runewick","Lighthouse; Galmair; Runewick",0,0);
+    AddWeg({539,530,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
+    AddWeg({517,583,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
+
 
     --NE/Neutral-map
 
@@ -137,6 +140,26 @@ function InitWegweiser()
 	--Cursed Place
     AddGrave({387,544,0},"","", 2,0);
     AddGrave({387,542,0},"","", 1,0);
+    --Death Swath
+    AddGrave({501,462,0},"","", 1,0);
+    AddGrave({504,463,0},"","", 3,0);
+    AddGrave({509,467,0},"","", 3,0);
+    AddGrave({521,466,0},"","", 1,0);
+    AddGrave({528,476,0},"","", 1,0);
+    AddGrave({530,481,0},"","", 1,0);
+    AddGrave({521,490,0},"","", 3,0);
+    AddGrave({525,491,0},"","", 3,0);
+    AddGrave({519,494,0},"","", 1,0);
+    AddGrave({529,497,0},"","", 1,0);
+    AddGrave({532,489,0},"","", 1,0);
+    AddGrave({532,485,0},"","", 3,0);
+    AddGrave({537,492,0},"","", 1,0);
+    AddGrave({536,496,0},"","", 3,0);
+    AddGrave({545,501,0},"","", 3,0);
+    --Glowing Forest
+    AddGrave({503,536,0},"","", 3,0);
+    AddGrave({481,513,0},"","", 1,0);
+    AddGrave({520,523,0},"","", 3,0);
     --Glowing Gate
     AddGrave({489,582,0},"","", 4,0);
     --Hammerfall Mine
@@ -148,8 +171,16 @@ function InitWegweiser()
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 3,0);
 	--Lighthouse
-	--AddGrave({,,0},"","", 1,0);
-	--AddGrave({,,0},"","", 1,0);
+	AddGrave({536,608,0},"","", 1,0);
+	AddGrave({538,615,0},"","", 1,0);
+	AddGrave({532,609,0},"","", 3,0);
+	AddGrave({536,659,0},"","", 1,0);
+	AddGrave({539,660,0},"","", 3,0);
+	AddGrave({530,668,0},"","", 1,0);
+	AddGrave({528,666,0},"","", 3,0);
+	AddGrave({528,660,0},"","", 3,0);
+	AddGrave({528,658,0},"","", 1,0);
+	AddGrave({530,660,0},"","", 1,0);
 	--Lonly Island
 	AddGrave({610,888,0},"","", 2,0);
     AddGrave({610,886,0},"","", 1,0);
@@ -253,9 +284,19 @@ function InitWegweiser()
     AddPennant({130,530,0},"","", 2,5); --palace
     AddPennant({109,551,0},"","", 1,5); --registration
     AddPennant({104,552,0},"","", 1,5); --registration
+    --Firelimes
+    AddPennant({528,587,1},"","", 3,5);
+    AddPennant({525,587,1},"","", 3,5);
 	--Galmair Plateau
     AddPennant({358,378,1},"","", 4,5);
     AddPennant({356,378,1},"","", 4,5);
+    --Glowing Forest
+    AddPennant({483,561,0},"","", 5,5);
+    AddPennant({483,563,0},"","", 5,5);
+    AddPennant({487,520,0},"","", 7,5);
+    AddPennant({487,520,0},"","", 7,5);
+    AddPennant({526,523,0},"","", 6,5);
+    AddPennant({526,525,0},"","", 6,5);
 	--Glowing Gate
     AddPennant({487,582,0},"","", 1,5);
     AddPennant({485,582,0},"","", 1,5);
@@ -427,13 +468,48 @@ function InitWegweiser()
     AddPillar({388,551,0},"","", 2,5);
     AddPillar({376,553,0},"","", 1,5);
     AddPillar({376,551,0},"","", 1,5);
+    --Death Swath
+    AddPillar({507,465,0},"","", 1, 5);
+	AddPillar({512,465,0},"","", 1, 5);
+	AddPillar({512,468,0},"","", 1, 5);
+    --Firelimes
+    AddPillar({538,589,0},"","", 1,5);
+    AddPillar({538,590,0},"","", 1,5);
+    AddPillar({535,589,0},"","", 1,5);
+    AddPillar({535,590,0},"","", 1,5);
+    AddPillar({532,589,0},"","", 1,5);
+    AddPillar({532,590,0},"","", 1,5);
+    AddPillar({529,589,0},"","", 1,5);
+    AddPillar({529,590,0},"","", 1,5);
+    AddPillar({523,589,0},"","", 1,5);
+    AddPillar({523,590,0},"","", 1,5);
+    AddPillar({520,589,0},"","", 1,5);
+    AddPillar({520,590,0},"","", 1,5);
+    AddPillar({517,589,0},"","", 1,5);
+    AddPillar({517,590,0},"","", 1,5);
+    AddPillar({514,589,0},"","", 1,5);
+    AddPillar({514,590,0},"","", 1,5);
 	--Galmair Plateau
 	AddPillar({357,365,1},"","", 4,5);
 	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1,5);
     AddPillar({169,561,0},"","", 1,5);
+	--Harrowd Mount
+	AddPillar({541,681,2},"","", 1,5);
+	AddPillar({541,681,2},"","", 1,5);
+	AddPillar({547,685,2},"","", 7,5);
+    AddPillar({548,685,2},"","", 10,5);
+    AddPillar({547,687,2},"","", 10,5);
+    AddPillar({548,687,2},"","", 7,5);
+    AddPillar({547,689,2},"","", 7,5);
+    AddPillar({548,689,2},"","", 10,5);
+    AddPillar({524,692,2},"","", 1,5);
+	AddPillar({524,696,2},"","", 1,5);
 	--Kata Island
 	AddPillar({169,834,0},"","", 2,5);
+    --Lighthouse
+    AddPillar({535,605,0},"","", 2,5);
+    AddPillar({537,636,0},"","", 2,5);
 	--Lost Building (1)
     AddPillar({256,726,0},"","", 2,5);
     --Lost Building (2)
@@ -474,6 +550,11 @@ function InitWegweiser()
  	--Tempel of Sirani
     AddPillar({176,759,0},"","", 2,5);
     AddPillar({176,764,0},"","", 2,5);
+    --Tempel of Tanora
+    AddPillar({621,590,0},"","", 1,5);
+    AddPillar({621,599,0},"","", 1,5);
+    AddPillar({630,596,0},"","", 1,5);
+    AddPillar({630,592,0},"","", 1,5);
     --The Blood Circle Arena
     AddPillar({256,665,0},"","", 7,5);
     AddPillar({261,665,0},"","", 9,5);
