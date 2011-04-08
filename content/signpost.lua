@@ -105,6 +105,11 @@ function InitWegweiser()
 
 
     --NE/Neutral-map
+    AddWeg({680,311,0},"Galmair","Galmair",6,0);
+    AddWeg({685,317,0},"To the Cobweb","To the Cobweb",2,0);
+    AddWeg({676,326,0},"Cadomyr","Cadomyr",6,0);
+    AddWeg({682,328,0},"Runewick","Runewick",4,0);
+
 
 
 	-- Noobia --
@@ -134,12 +139,27 @@ function InitWegweiser()
 	AddGrave({108,665,-4},"","", 1,0);
 	AddGrave({157,668,-4},"","", 4,0);
 	AddGrave({158,667,-4},"","", 3,0);
+	--Craven cave
+    AddGrave({672,386,2},"","", 4,0);
+    AddGrave({671,386,2},"","", 4,0);
+    AddGrave({670,386,2},"","", 4,0);
+    AddGrave({669,386,2},"","", 4,0);
+    AddGrave({668,386,2},"","", 4,0);
+    AddGrave({667,386,2},"","", 4,0);
+    AddGrave({666,386,2},"","", 4,0);
+    AddGrave({665,386,2},"","", 4,0);
+    AddGrave({664,386,2},"","", 4,0);
+    AddGrave({663,386,2},"","", 4,0);
 	--Creek Settlement
     AddGrave({187,509,0},"","", 1,0);
     AddGrave({194,505,0},"","", 3,0);
 	--Cursed Place
     AddGrave({387,544,0},"","", 2,0);
     AddGrave({387,542,0},"","", 1,0);
+    --Elven Ruins
+    AddGrave({549,451,0},"","", 1,0);
+    AddGrave({547,439,0},"","", 1,0);
+    AddGrave({547,440,0},"","", 1,0);
     --Death Swath
     AddGrave({501,462,0},"","", 1,0);
     AddGrave({504,463,0},"","", 3,0);
@@ -193,6 +213,15 @@ function InitWegweiser()
     AddGrave({30,525,0},"","", 1,0);
     AddGrave({60,548,1},"","", 1,0);
     AddGrave({57,555,1},"","", 3,0);
+	--Snakehead Coast
+    AddGrave({621,463,0},"","", 1,0);
+    AddGrave({692,483,0},"","", 1,0); --Wilder Island
+    AddGrave({714,442,0},"","", 3,0);
+	--Spider's Mouth
+    AddGrave({665,293,0},"","", 1,0);
+    AddGrave({690,341,0},"","", 2,0);
+    AddGrave({725,369,0},"","", 1,0);
+    AddGrave({665,293,0},"","", 1,0);
 	--Vrondus Farm
 	AddGrave({312,574,0},"","", 1,0);
 	AddGrave({308,559,0},"","", 3,0);
@@ -242,6 +271,16 @@ function InitWegweiser()
     --Galmair Plateau
     AddPicture({318,357,1},"","", 1,5);
     AddPicture({318,359,1},"","", 2,5);
+    --Spider's Mouth
+    AddPicture({711,314,1},"","", 1,5); --Tavern 'To the Cobweb'
+    AddPicture({708,316,1},"","", 7,5); --Tavern 'To the Cobweb'
+    AddPicture({708,316,1},"","", 5,5); --Tavern 'To the Cobweb'
+    AddPicture({700,307,1},"","", 5,5); --Tavern 'To the Cobweb'
+    AddPicture({711,320,1},"","", 4,5); --Tavern 'To the Cobweb'
+    AddPicture({705,326,1},"","", 5,5); --Tavern 'To the Cobweb'
+    AddPicture({700,318,1},"","", 3,5); --Tavern 'To the Cobweb'
+	AddPicture({698,307,0},"","", 5,5); --Tavern 'To the Cobweb'
+	AddPicture({711,324,0},"","", 4,5); --Tavern 'To the Cobweb'
 
     ---------------- STANDARTEN ----------------
 
@@ -284,7 +323,14 @@ function InitWegweiser()
     AddPennant({130,530,0},"","", 2,5); --palace
     AddPennant({109,551,0},"","", 1,5); --registration
     AddPennant({104,552,0},"","", 1,5); --registration
-    --Firelimes
+    --Craven cave
+    AddPennant({674,389,2},"","", 6,5);
+	AddPennant({674,392,2},"","", 6,5);
+	AddPennant({670,389,2},"","", 6,5);
+	AddPennant({670,392,2},"","", 6,5);
+	AddPennant({666,448,0},"","", 7,5);
+	AddPennant({670,448,0},"","", 7,5);
+	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
 	--Galmair Plateau
@@ -333,6 +379,11 @@ function InitWegweiser()
 	AddPennant({323,634,0},"","", 6,5);
 	--Sentry Outpost
 	AddPennant({641,706,3},"","", 3,5);
+	--Snakehead Coast
+    AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
+    --Spider's Mouth
+    AddPennant({675,346,0},"","", 4,5);
+    AddPennant({678,346,0},"","", 4,5);
 	--The Royal Academy of Gladiators
 	AddPennant({210,701,0},"","", 7,5);
     AddPennant({215,701,0},"","", 7,5);
@@ -365,6 +416,11 @@ function InitWegweiser()
 	AddTree({286,546,0},"","", 6,5); --tree check!!!
 	--Oldra's Corner
 	AddTree({653,681,0},"","", 6,5);
+	--Snakehead Coast
+	AddTree({653,465,0},"","", 6,5);
+	AddTree({647,465,0},"","", 6,5);
+	AddTree({653,479,0},"","", 6,5);
+	AddTree({647,465,0},"","", 6,5);
 
 -------------------- S�ulen/Statuen  ----------------
     --AddPillar({X,Y,Z},german text,english text, type, needed value of perception);
@@ -459,7 +515,14 @@ function InitWegweiser()
     AddPillar({476,791,0},"","", 1,5);
 	AddPillar({470,793,0},"","", 1,5);
     AddPillar({470,798,0},"","", 1,5);
-    --Creek Settlement
+    --Craven cave
+	AddPillar({674,388,2},"","", 1, 5);
+	AddPillar({674,393,2},"","", 1, 5);
+    AddPillar({661,388,2},"","", 1, 5);
+    AddPillar({661,393,2},"","", 1, 5);
+    AddPillar({656,388,2},"","", 1, 5);
+    AddPillar({656,393,2},"","", 1, 5);
+	--Creek Settlement
 	AddPillar({189,511,0},"","", 1,5);
 	AddPillar({195,511,0},"","", 1,5);
 	AddPillar({186,495,0},"","", 1,5);
@@ -472,7 +535,15 @@ function InitWegweiser()
     AddPillar({507,465,0},"","", 1, 5);
 	AddPillar({512,465,0},"","", 1, 5);
 	AddPillar({512,468,0},"","", 1, 5);
-    --Firelimes
+    --Elven Ruins
+	AddPillar({556,447,0},"","", 2, 5);
+	AddPillar({547,431,0},"","", 2, 5);
+	AddPillar({530,425,0},"","", 2, 5);
+	AddPillar({531,425,0},"","", 1, 5);
+	AddPillar({532,425,0},"","", 2, 5);
+    AddPillar({583,452,0},"","", 1, 5);
+    AddPillar({570,420,0},"","", 2, 5);
+	--Firelimes
     AddPillar({538,589,0},"","", 1,5);
     AddPillar({538,590,0},"","", 1,5);
     AddPillar({535,589,0},"","", 1,5);
@@ -547,6 +618,21 @@ function InitWegweiser()
     AddPillar({227,594,0},"","", 1,5);
 	--Queens Corner
 	AddPillar({301,502,0},"","", 2,5);
+	--Snakehead Coast
+	AddPillar({598,496,0},"","", 2,5);
+	AddPillar({650,486,0},"","", 1, 5);
+	AddPillar({650,488,0},"","", 1, 5);
+	AddPillar({649,483,0},"","", 9, 5);
+	AddPillar({654,487,0},"","",10, 5);
+	AddPillar({649,492,0},"","", 8, 5);
+	AddPillar({644,487,0},"","", 7, 5);
+	--Spider's Mouth
+	AddPillar({733,310,0},"","", 2, 5);
+	AddPillar({733,314,0},"","", 2, 5);
+	AddPillar({696,316,0},"","", 2, 5); --Tavern 'To the Cobweb'
+	AddPillar({696,320,0},"","", 2, 5); --Tavern 'To the Cobweb'
+	AddPillar({698,315,1},"","", 2, 5); --Tavern 'To the Cobweb'
+	AddPillar({698,319,1},"","", 2, 5); --Tavern 'To the Cobweb'
  	--Tempel of Sirani
     AddPillar({176,759,0},"","", 2,5);
     AddPillar({176,764,0},"","", 2,5);
@@ -597,6 +683,10 @@ function InitWegweiser()
     --Galmair Plateau
     AddChimney({326,366,1},"","", 2, 5);
     AddChimney({311,351,1},"","", 1, 5);
+    --Spider's Mouth
+    AddChimney({705,311,1},"","", 2, 5); --Tavern 'To the Cobweb'
+    AddChimney({705,323,1},"","", 2, 5); --Tavern 'To the Cobweb'
+    AddChimney({711,320,0},"","", 2, 5); --Tavern 'To the Cobweb'
     
     
     
@@ -613,6 +703,11 @@ function InitWegweiser()
     AddMirror({84,576,1},"","", 2,5); --inn
     AddMirror({92,597,1},"","", 1,5); --building
     AddMirror({97,611,1},"","", 1,5); --building
+    --Spider's Mouth
+	AddMirror({703,319,1},"","", 1,5); --Tavern 'To the Cobweb'
+	AddMirror({708,319,1},"","", 1,5); --Tavern 'To the Cobweb'
+	AddMirror({707,307,1},"","", 1,5); --Tavern 'To the Cobweb'
+	AddMirror({705,309,1},"","", 2,5); --Tavern 'To the Cobweb'
 
 end
 
