@@ -109,8 +109,13 @@ function InitWegweiser()
     AddWeg({685,317,0},"To the Cobweb","To the Cobweb",2,0);
     AddWeg({676,326,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({682,328,0},"Runewick","Runewick",4,0);
-
-
+    AddWeg({723,385,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",6,0);
+    AddWeg({730,391,0},"Runewick","Runewick",4,0);
+	AddWeg({714,488,0},"Cadomyr","Cadomyr",6,0);
+    AddWeg({718,488,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",0,0);
+    AddWeg({717,455,0},"Cadomyr","Cadomyr",6,0);
+    AddWeg({729,459,0},"Runewick","Runewick",4,0);
+    AddWeg({729,448,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",0,0);
 
 	-- Noobia --
 
@@ -156,6 +161,15 @@ function InitWegweiser()
 	--Cursed Place
     AddGrave({387,544,0},"","", 2,0);
     AddGrave({387,542,0},"","", 1,0);
+    --Death Marsh
+    AddGrave({667,366,0},"","", 3,0);
+    AddGrave({686,356,0},"","", 3,0);
+    AddGrave({717,354,0},"","", 3,0);
+    AddGrave({725,369,0},"","", 1,0);
+    AddGrave({745,369,0},"","", 3,0);
+    AddGrave({773,369,0},"","", 2,0);
+    AddGrave({791,353,0},"","", 2,0);
+    AddGrave({712,371,0},"","", 1,0);
     --Elven Ruins
     AddGrave({549,451,0},"","", 1,0);
     AddGrave({547,439,0},"","", 1,0);
@@ -330,6 +344,13 @@ function InitWegweiser()
 	AddPennant({670,392,2},"","", 6,5);
 	AddPennant({666,448,0},"","", 7,5);
 	AddPennant({670,448,0},"","", 7,5);
+	--Death Marsh
+	AddPennant({795,361,0},"","", 7,5);
+    AddPennant({797,361,0},"","", 7,5);
+	AddPennant({795,356,0},"","", 7,5);
+    AddPennant({797,356,0},"","", 7,5);
+    --Elstree Plain
+    AddPennant({721,426,0},"","", 6,5); --Lost buidling(4)
 	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
@@ -531,6 +552,9 @@ function InitWegweiser()
     AddPillar({388,551,0},"","", 2,5);
     AddPillar({376,553,0},"","", 1,5);
     AddPillar({376,551,0},"","", 1,5);
+    --Death Marsh
+    AddPillar({748,337,0},"","", 1,5);
+    AddPillar({709,378,0},"","", 1,5);
     --Death Swath
     AddPillar({507,465,0},"","", 1, 5);
 	AddPillar({512,465,0},"","", 1, 5);
@@ -680,6 +704,8 @@ function InitWegweiser()
     AddChimney({94,552,0},"","", 1, 5); --room
     AddChimney({93,597,0},"","", 1, 5); --building
     AddChimney({104,615,0},"","", 2, 5); --building
+    --Death Marsh
+    AddChimney({795,347,0},"","", 1, 5);
     --Galmair Plateau
     AddChimney({326,366,1},"","", 2, 5);
     AddChimney({311,351,1},"","", 1, 5);
