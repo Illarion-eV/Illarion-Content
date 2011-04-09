@@ -102,20 +102,58 @@ function InitWegweiser()
 	AddWeg({528,781,0},"Leuchtturm; Galmair; Runewick","Lighthouse; Galmair; Runewick",0,0);
     AddWeg({539,530,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
     AddWeg({517,583,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
-
+    AddWeg({887,638,0},"Eastport","Eastport",0,0);
+    AddWeg({887,639,0},"Runewick","Runewick",4,0);
+    AddWeg({725,559,0},"To the Cobweb; Cadomyr; Galmair","To the Cobweb; Cadomyr; Galmair",0,0);
+    AddWeg({725,559,0},"To the Cobweb; Cadomyr; Galmair - Achtung! Diebe!","To the Cobweb; Cadomyr; Galmair - Attention! Thieves!",2,0);
+    AddWeg({758,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
+    AddWeg({755,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
+    AddWeg({749,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
+    AddWeg({746,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
+    AddWeg({743,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
+    AddWeg({760,632,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",2,0);
+    AddWeg({790,687,0},"Runewick - Viel Glück!","Runewick - Good luck!",4,0);
+    AddWeg({789,681,0},"Schlechte Wahl!","Bad choice!",6,0);
+    AddWeg({790,681,0},"Sehr schlechte Wahl!","Very bad choice!",2,0);
+    AddWeg({759,735,0},"Belagerungshöhle; Drachenbau; Norden","Cave of Siege; Dragon Lair; North",0,0);
+    AddWeg({847,728,0},"Heitere Lichtung","Merryglade",0,0);
+    AddWeg({847,730,0},"Osthafen","Eastport",2,0);
+    AddWeg({786,777,0},"Anthilbach","Anthil Brook",6,0);
+    AddWeg({786,777,0},"Heitere Lichtung; Osthafen","Merryglade; Eastport",2,0);
+    AddWeg({739,803,0},"Hafen","Harbour",6,0);
+    AddWeg({739,806,0},"Hafen","Harbour",6,0);
+    AddWeg({739,807,0},"Hafen","Harbour",6,0);
+    AddWeg({739,810,0},"Hafen","Harbour",6,0);
+    AddWeg({739,811,0},"Hafen","Harbour",6,0);
+    AddWeg({739,814,0},"Hafen","Harbour",6,0);
+    AddWeg({757,813,0},"Vierbeiniger Roter Vogel; Hafen","Quadruped Red Bird; Harbour",6,0);
+    AddWeg({762,801,0},"Bauernhöfe","Farmland",2,0);
+    AddWeg({761,800,0},"Belagerungshöhle; Drachenbau; Cadomyr; Galmair; Zum Spinnennetz","Cave of Siege; Dragon Lair; Cadomyr; Galmair; To the Cobweb",0,0);
+    AddWeg({783,798,0},"Erzmagier Elvaine Morgan; Vierbeiniger Roter Vogel; Hafen","Archmage Elvaine Morgan; Quadruped Red Bird; Harbour",6,0);
+    AddWeg({783,797,0},"Anthilbach; Heitere Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
+    AddWeg({761,813,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({791,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({840,821,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({840,824,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    AddWeg({853,821,0},"Hölzfällersiedlung; Zwillingsaugen Inseln","Woodcutter's Hut; Twin Eyes Islands",4,0);
+    AddWeg({855,814,0},"Heilige Eiche; Triumphfeuer","Holy Oak; Fire of Triumph",0,0);
+    AddWeg({851,816,0},"Vierbeiniger Roter Vogel; Hafen; Bauernhöfe; Cadomyr; Galmair; ...","Quadruped Red Bird; Harbour; Farmland; Cadomyr; Galmair; ...",6,0);
+    AddWeg({856,819,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
+    
 
     --NE/Neutral-map
     AddWeg({680,311,0},"Galmair","Galmair",6,0);
-    AddWeg({685,317,0},"To the Cobweb","To the Cobweb",2,0);
+    AddWeg({685,317,0},"Zum Spinnennetz","To the Cobweb",2,0);
     AddWeg({676,326,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({682,328,0},"Runewick","Runewick",4,0);
-    AddWeg({723,385,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",6,0);
+    AddWeg({723,385,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",6,0);
     AddWeg({730,391,0},"Runewick","Runewick",4,0);
 	AddWeg({714,488,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({718,488,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",0,0);
+    AddWeg({718,488,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",0,0);
     AddWeg({717,455,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({729,459,0},"Runewick","Runewick",4,0);
-    AddWeg({729,448,0},"To the Cobweb; Galmair","To the Cobweb; Galmair",0,0);
+    AddWeg({729,448,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",0,0);
+
 
 	-- Noobia --
 
@@ -170,6 +208,11 @@ function InitWegweiser()
     AddGrave({773,369,0},"","", 2,0);
     AddGrave({791,353,0},"","", 2,0);
     AddGrave({712,371,0},"","", 1,0);
+    --Death's Stench
+    AddGrave({805,586,0},"","", 3,0);
+    --Elstree Plain
+    AddGrave({751,378,0},"","", 1,0);
+    AddGrave({720,426,0},"","", 1,0);
     --Elven Ruins
     AddGrave({549,451,0},"","", 1,0);
     AddGrave({547,439,0},"","", 1,0);
@@ -227,6 +270,11 @@ function InitWegweiser()
     AddGrave({30,525,0},"","", 1,0);
     AddGrave({60,548,1},"","", 1,0);
     AddGrave({57,555,1},"","", 3,0);
+	--Runewick Hinterland
+	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
+	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
+	AddGrave({862,847,0},"","", 3,5); --Woodcutter's Hut
+	AddGrave({879,759,0},"","", 1,5); --Fire of Triumph
 	--Snakehead Coast
     AddGrave({621,463,0},"","", 1,0);
     AddGrave({692,483,0},"","", 1,0); --Wilder Island
@@ -282,9 +330,13 @@ function InitWegweiser()
     AddPicture({96,599,1},"","", 4,5); --building
     AddPicture({96,602,0},"","", 4,5); --building
     AddPicture({100,611,1},"","", 3,5); --building
+    --Eastland
+    AddPicture({894,540,0},"","", 2,5); --Paddock Farm
     --Galmair Plateau
     AddPicture({318,357,1},"","", 1,5);
     AddPicture({318,359,1},"","", 2,5);
+    --Runewick Harbour/Farm
+	AddPicture({756,797,0},"","", 4,5); --Taverne "Quadruped Red Bird"
     --Spider's Mouth
     AddPicture({711,314,1},"","", 1,5); --Tavern 'To the Cobweb'
     AddPicture({708,316,1},"","", 7,5); --Tavern 'To the Cobweb'
@@ -313,6 +365,9 @@ function InitWegweiser()
     AddPennant({44,602,0},"","", 6,5);
     AddPennant({46,634,0},"","", 7,5);
     AddPennant({41,634,0},"","", 7,5);
+    --Antil Brook
+    AddPennant({773,770,0},"","", 7,5);
+    AddPennant({775,770,0},"","", 7,5);
 	--Buccaneers Lurk
     AddPennant({214,462,0},"","", 4,5);
     AddPennant({210,462,0},"","", 4,5);
@@ -349,6 +404,21 @@ function InitWegweiser()
     AddPennant({797,361,0},"","", 7,5);
 	AddPennant({795,356,0},"","", 7,5);
     AddPennant({797,356,0},"","", 7,5);
+    --Dragon lair
+	AddPennant({837,677,1},"","", 7, 5);
+	AddPennant({837,677,1},"","", 7, 5);
+	AddPennant({742,667,0},"","", 7, 5);
+	AddPennant({745,667,0},"","", 7, 5);
+	AddPennant({748,667,0},"","", 7, 5);
+	AddPennant({751,667,0},"","", 7, 5);
+	AddPennant({754,667,0},"","", 7, 5);
+	AddPennant({757,667,0},"","", 7, 5);
+	AddPennant({760,667,0},"","", 7, 5);
+    --Eastland
+    AddPennant({885,479,0},"","", 3,5); --Eastport
+    AddPennant({885,491,0},"","", 2,5); --Eastport
+    AddPennant({885,494,0},"","", 2,5); --Eastport
+    AddPennant({902,622,1},"","", 6,5); --Ronagan Temple
     --Elstree Plain
     AddPennant({721,426,0},"","", 6,5); --Lost buidling(4)
 	--Firelimes
@@ -437,6 +507,8 @@ function InitWegweiser()
 	AddTree({286,546,0},"","", 6,5); --tree check!!!
 	--Oldra's Corner
 	AddTree({653,681,0},"","", 6,5);
+	--Runewick Hinterland
+	AddTree({853,778,0},"","", 6,5); --Holy Oak
 	--Snakehead Coast
 	AddTree({653,465,0},"","", 6,5);
 	AddTree({647,465,0},"","", 6,5);
@@ -460,6 +532,11 @@ function InitWegweiser()
 	--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1,5);
 	AddPillar({54,602,0},"","", 1,5);
+	--Anthil Brook
+	AddPillar({773,763,0},"","", 1,5);
+	AddPillar({774,763,0},"","", 5,5);
+	AddPillar({775,763,0},"","", 2,5);
+	AddPillar({776,763,0},"","", 1,5);
 	--Cadomyr
 	AddPillar({88,655,1},"","", 6,5); --outside
 	AddPillar({88,659,1},"","", 6,5); --outside
@@ -555,10 +632,18 @@ function InitWegweiser()
     --Death Marsh
     AddPillar({748,337,0},"","", 1,5);
     AddPillar({709,378,0},"","", 1,5);
+    --Death's Stench
+    AddPillar({804,549,0},"","", 5, 5);
+    AddPillar({784,581,0},"","", 2, 5);
     --Death Swath
     AddPillar({507,465,0},"","", 1, 5);
 	AddPillar({512,465,0},"","", 1, 5);
 	AddPillar({512,468,0},"","", 1, 5);
+	--Eastland
+	AddPillar({899,595,0},"","", 2, 5);
+	AddPillar({886,589,0},"","", 2, 5);
+	AddPillar({888,566,0},"","", 2, 5);
+	AddPillar({898,580,0},"","", 2, 5);
     --Elven Ruins
 	AddPillar({556,447,0},"","", 2, 5);
 	AddPillar({547,431,0},"","", 2, 5);
@@ -616,6 +701,9 @@ function InitWegweiser()
     --Lost Harbour
 	AddPillar({106,831,0},"","", 2,5);
 	AddPillar({104,831,0},"","", 2,5);
+	--Merryglade
+	AddPillar({848,704,0},"","", 2,5);
+	AddPillar({841,741,0},"","", 6,5);
 	--Moshran's Brood
 	AddPillar({401,733,0},"","", 1,5);
 	--Mount Zotmore
@@ -642,6 +730,28 @@ function InitWegweiser()
     AddPillar({227,594,0},"","", 1,5);
 	--Queens Corner
 	AddPillar({301,502,0},"","", 2,5);
+	--Runewick
+	AddPillar({958,788,0},"","", 1,5); --garden
+	AddPillar({759,789,0},"","", 1,5); --garden
+	AddPillar({759,791,0},"","", 1,5); --garden
+	AddPillar({758,792,0},"","", 1,5); --garden
+	--Runewick Harbour/Farm
+	AddPillar({748,795,0},"","", 2,5); --Taverne "Quadruped Red Bird"
+	AddPillar({755,800,0},"","", 2,5); --Taverne "Quadruped Red Bird"
+	AddPillar({744,796,2},"","", 9,5); --Lighttower
+	AddPillar({744,798,2},"","",10,5); --Lighttower
+	AddPillar({742,796,2},"","", 7,5); --Lighttower
+	AddPillar({742,798,2},"","", 8,5); --Lighttower
+	AddPillar({743,797,2},"","", 1,5); --Lighttower
+	--Runewick Hinterland
+	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
+	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands
+	AddPillar({833,864,0},"","", 2,5); --Mermaid
+	AddPillar({839,845,0},"","", 1,5); --Oldra's Column
+	AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
+	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
+	AddPillar({864,813,0},"","", 1,5); --Entrance
+	AddPillar({864,821,0},"","", 1,5); --Entrance
 	--Snakehead Coast
 	AddPillar({598,496,0},"","", 2,5);
 	AddPillar({650,486,0},"","", 1, 5);
@@ -683,6 +793,9 @@ function InitWegweiser()
     AddPillar({216,696,0},"","", 10,5);
     AddPillar({210,684,0},"","", 10,5);
     AddPillar({216,684,0},"","", 10,5);
+	--Three Fingertips
+	AddPillar({724,576,0},"","", 2,5);
+	AddPillar({724,580,0},"","", 2,5);
     --Vrondus Farm
 	AddPillar({310,572,0},"","", 2,5);
 
@@ -709,7 +822,9 @@ function InitWegweiser()
     --Galmair Plateau
     AddChimney({326,366,1},"","", 2, 5);
     AddChimney({311,351,1},"","", 1, 5);
-    --Spider's Mouth
+	--Runewick Harbour/Farm
+	AddChimney({789,789},"","", 1, 5);
+	--Spider's Mouth
     AddChimney({705,311,1},"","", 2, 5); --Tavern 'To the Cobweb'
     AddChimney({705,323,1},"","", 2, 5); --Tavern 'To the Cobweb'
     AddChimney({711,320,0},"","", 2, 5); --Tavern 'To the Cobweb'
@@ -729,6 +844,8 @@ function InitWegweiser()
     AddMirror({84,576,1},"","", 2,5); --inn
     AddMirror({92,597,1},"","", 1,5); --building
     AddMirror({97,611,1},"","", 1,5); --building
+    --Eastland
+    AddMirror({914,625,0},"","", 2,5); --Ronagan Temple
     --Spider's Mouth
 	AddMirror({703,319,1},"","", 1,5); --Tavern 'To the Cobweb'
 	AddMirror({708,319,1},"","", 1,5); --Tavern 'To the Cobweb'
