@@ -497,6 +497,11 @@ function InitWegweiser()
     -- 6 = eldan oak
     -- 7 = scandrel pine
 
+    --Adron's Covert
+    AddTree({734,764,0},"","", 6,5);
+	AddTree({734,770,0},"","", 6,5);
+	AddTree({754,764,0},"","", 6,5);
+	AddTree({754,770,0},"","", 6,5);
 	--Gnuremground
 	AddTree({578,708,0},"","", 1,5);
 	AddTree({576,712,0},"","", 1,5);
@@ -532,6 +537,11 @@ function InitWegweiser()
 	--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1,5);
 	AddPillar({54,602,0},"","", 1,5);
+	--Adron's Covert
+	AddPillar({725,769,0},"","", 2,5);
+	AddPillar({727,769,0},"","", 2,5);
+	AddPillar({725,772,0},"","", 2,5);
+	AddPillar({727,772,0},"","", 2,5);
 	--Anthil Brook
 	AddPillar({773,763,0},"","", 1,5);
 	AddPillar({774,763,0},"","", 5,5);
