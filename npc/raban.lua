@@ -188,246 +188,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
-talkEntry:addResponse("I have no use for money. So I do not trade.");
-talkEntry:addResponse("I am not a trader. Maybe you want to help me in a quest?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.");
-talkEntry:addResponse("Ich brauche kein Gold, also handele ich auch nicht.");
-talkEntry:addResponse("Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
-talkEntry:addResponse("I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.");
-talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
-talkEntry:addResponse("Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.");
-talkEntry:addResponse("Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hermit");
-talkEntry:addTrigger("forester");
-talkEntry:addTrigger("ranger");
-talkEntry:addTrigger("gardener");
-talkEntry:addResponse("Nature can offer much more joy to me than any place, made of cold stone.");
-talkEntry:addResponse("I plant trees and watch them grow. Can you imagine anything more... relaxing?");
-talkEntry:addResponse("I enjoy the silence here. A branch in the wind can sing wonderful songs.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Einsiedler");
-talkEntry:addTrigger("Förster");
-talkEntry:addTrigger("Waldhüter");
-talkEntry:addTrigger("Wildhüter");
-talkEntry:addTrigger("Gärtner");
-talkEntry:addResponse("Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.");
-talkEntry:addResponse("Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?");
-talkEntry:addResponse("Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("shrine");
-talkEntry:addTrigger("grove");
-talkEntry:addResponse("Isn't this a lovely place? Most trees, I planted myself.");
-talkEntry:addResponse("Honor Ushara for this site is her gift.");
-talkEntry:addResponse("Welcome to the place where nature embraces you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schrein");
-talkEntry:addTrigger("Hain");
-talkEntry:addResponse("Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.");
-talkEntry:addResponse("Ehret Ushara, denn all dies ist ihr Geschenk.");
-talkEntry:addResponse("Willkommen an dem Ort, wo die Natur dich umarmt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dürre");
-talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("drought");
-talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("oasis");
-talkEntry:addResponse("At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("oase");
-talkEntry:addResponse("Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rutrus");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Rutrus");
-talkEntry:addResponse("Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Honour the goddess!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Ehret die Göttin!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oldra... I am sure I saw her one day, dancing during dawn on the grass.");
-talkEntry:addResponse("Oldra now takes care of all the wonders Ushara has left on the land.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.");
-talkEntry:addResponse("Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bruno");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That name sounds familiar, but living in solitude, I forgot about names with time.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bruno");
-talkEntry:addResponse("Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
-talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
-talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The only place where you can find peace is Runewick. But I still prefer the forest.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Galmair? Ein Sündenpfuhl ist das!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair? A pool of sins, it is!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sickle");
-talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
-talkEntry:addResponse("With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sichel");
-talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
-talkEntry:addResponse("Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sickle");
-talkEntry:addResponse("In case you need a new sickle, ask for Wilhelminus in Runewick. If he is still alive after all those years we didn't meet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sichel");
-talkEntry:addResponse("Wenn du einen neue Sichel benötigst, fragt nach Wilhelminus in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
@@ -890,6 +650,259 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
+talkEntry:addResponse("I have no use for money. So I do not trade.");
+talkEntry:addResponse("I am not a trader. Maybe you want to help me in a quest?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.");
+talkEntry:addResponse("Ich brauche kein Gold, also handele ich auch nicht.");
+talkEntry:addResponse("Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
+talkEntry:addResponse("I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.");
+talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
+talkEntry:addResponse("Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.");
+talkEntry:addResponse("Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hermit");
+talkEntry:addTrigger("forester");
+talkEntry:addTrigger("ranger");
+talkEntry:addTrigger("gardener");
+talkEntry:addResponse("Nature can offer much more joy to me than any place, made of cold stone.");
+talkEntry:addResponse("I plant trees and watch them grow. Can you imagine anything more... relaxing?");
+talkEntry:addResponse("I enjoy the silence here. A branch in the wind can sing wonderful songs.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Einsiedler");
+talkEntry:addTrigger("Förster");
+talkEntry:addTrigger("Waldhüter");
+talkEntry:addTrigger("Wildhüter");
+talkEntry:addTrigger("Gärtner");
+talkEntry:addResponse("Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.");
+talkEntry:addResponse("Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?");
+talkEntry:addResponse("Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("shrine");
+talkEntry:addTrigger("grove");
+talkEntry:addResponse("Isn't this a lovely place? Most trees, I planted myself.");
+talkEntry:addResponse("Honor Ushara for this site is her gift.");
+talkEntry:addResponse("Welcome to the place where nature embraces you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schrein");
+talkEntry:addTrigger("Hain");
+talkEntry:addResponse("Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.");
+talkEntry:addResponse("Ehret Ushara, denn all dies ist ihr Geschenk.");
+talkEntry:addResponse("Willkommen an dem Ort, wo die Natur dich umarmt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dürre");
+talkEntry:addResponse("Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("drought");
+talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("oasis");
+talkEntry:addResponse("At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("oase");
+talkEntry:addResponse("Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rutrus");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Rutrus");
+talkEntry:addResponse("Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bruno");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("That name sounds familiar, but living in solitude, I forgot about names with time.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bruno");
+talkEntry:addResponse("Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I've been to Gobaith, but that is long ago.");
+talkEntry:addResponse("I do not want to talk about this with you, I hope you respect that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addResponse("Ich war einst auf Gobaith, aber das ist schon lange her.");
+talkEntry:addResponse("Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("In the solitude of the forest, one starts to think a lot about the gods - without conclusion so far.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("In der Einsamkeit des Waldes denkt man viel über sich und die Götter nach - doch bin ich noch zu keinem Schluss gekommen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Honour the goddess!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ushara");
+talkEntry:addResponse("Ehret die Göttin!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oldra... I am sure I saw her one day, dancing during dawn on the grass.");
+talkEntry:addResponse("Oldra now takes care of all the wonders Ushara has left on the land.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra");
+talkEntry:addResponse("Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.");
+talkEntry:addResponse("Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The only place where you can find peace is Runewick. But I still prefer the forest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Galmair? Ein Sündenpfuhl ist das!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair? A pool of sins, it is!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sickle");
+talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
+talkEntry:addResponse("With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sichel");
+talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
+talkEntry:addResponse("Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("sickle");
+talkEntry:addResponse("In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sichel");
+talkEntry:addResponse("Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("herbs");
 talkEntry:addResponse("You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -979,10 +992,13 @@ end;
 talkingNPC:addCycleText("#me klopft die Erde um einen frisch gepflanzten Setzling glatt.", "#me smoothes the soil around a newly planted seedling.");
 talkingNPC:addCycleText("Wachst und gedeiht, meine Kinder.", "Grow and prosper, my children.");
 talkingNPC:addCycleText("#me streicht sachte über die Blätter eines Strauches und seufzt.", "#me strokes gently the leaves of a bush and sighs.");
-talkingNPC:addCycleText("#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Ã„ste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response.");
+talkingNPC:addCycleText("#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Äste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response.");
 talkingNPC:addCycleText("Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.", "When we weren't even born, you already beheld all. When we are long gone, the land will be yours again.");
 talkingNPC:addCycleText("Ich habe etwas gehört.", "I heard something.");
 talkingNPC:addCycleText("Shh! Wenn ihr ganz still seid, könnt ihr dem Klang der Stille lauschen.", "Shh! If you're quiet, you can listen to the sound of silence.");
+talkingNPC:addCycleText("#me schaut sich um und nickt zufrieden.", "#me looks around contentedly.");
+talkingNPC:addCycleText("Wer wagt es, meine Ruhe zu stören?", "Who dares to disturb me?");
+talkingNPC:addCycleText("Willkommen in meinem Hain.", "Welcome to my grove.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Raban"
@@ -88,46 +88,6 @@ itemShoes = 369
 "your name", "who are you", "who art thou" -> "They used to call me Raban when people still came here.", "Raban.", "I am an old man without an use for a name. The trees and plants have their own word for me. You may call me Raban."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Sie haben mich Raban genannt, damals, als noch von Zeit zu Zeit Leute hierher kamen.", "Raban.", "Ich bin ein alter Mann, ohne Bedarf für einen Namen. Die Bäume und Pflanzen haben ihre eigene Bezeichnung für mich. Du kannst mich hingegen Raban nennen."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Is money all that matters for you? I abstain from it since decades and never missed it a single day.", "I have no use for money. So I do not trade.", "I am not a trader. Maybe you want to help me in a quest?"
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.", "Ich brauche kein Gold, also handele ich auch nicht.", "Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
-"tell something" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.", "I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.", "Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
-"erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
-
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"hermit", "forester", "ranger", "gardener" -> "Nature can offer much more joy to me than any place, made of cold stone.", "I plant trees and watch them grow. Can you imagine anything more... relaxing?", "I enjoy the silence here. A branch in the wind can sing wonderful songs."
-"Einsiedler", "Förster", "Waldhüter", "Wildhüter", "Gärtner" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
-"shrine", "grove" -> "Isn't this a lovely place? Most trees, I planted myself.", "Honor Ushara for this site is her gift.", "Welcome to the place where nature embraces you."
-"Schrein", "Hain" -> "Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.", "Ehret Ushara, denn all dies ist ihr Geschenk.", "Willkommen an dem Ort, wo die Natur dich umarmt."
-"Dürre" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung."
-"drought" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation."
-"oasis" -> "At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?"
-"oase" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
-"Rutrus", english -> "At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?"
-"Rutrus" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
-"Ushara", english -> "Honour the goddess!"
-"Ushara" -> "Ehret die Göttin!"
-"Oldra", english -> "Oldra... I am sure I saw her one day, dancing during dawn on the grass.", "Oldra now takes care of all the wonders Ushara has left on the land."
-"Oldra" -> "Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.", "Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
-"Bruno", english -> "That name sounds familiar, but living in solitude, I forgot about names with time."
-"Bruno" -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
-"Gobaith", english -> "I've been to Gobaith, but that is long ago.", "I do not want to talk about this with you, I hope you respect that."
-"Gobaith" -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
-
--- Factions
-"Runewick", english -> "The only place where you can find peace is Runewick. But I still prefer the forest."
-"Runewick" -> "Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor."
-"Galmair", german -> "Galmair? Ein Sündenpfuhl ist das!"
-"Galmair", english -> "Galmair? A pool of sins, it is!"
-"Cadomyr", german -> "Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält."
-"Cadomyr", english -> "Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place."
-
--- Tool hints
-"sickle", queststatus(66) = 0 -> "With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task."
-"Sichel", queststatus(66) = 0 -> "Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
-"sickle" -> "In case you need a new sickle, ask for Wilhelminus in Runewick. If he is still alive after all those years we didn't meet."
-"Sichel" -> "Wenn du einen neue Sichel benötigst, fragt nach Wilhelminus in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
-
 -- 1st quest: Take a tool and gather 10 raw materials for 40cp.
 "quest", "mission", queststatus(66) = 0, english -> inform("[New quest] Raban's Grove I"), "So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.", item(126, 1, 399, 0), queststatus(66) = 1
 "quest", "mission", queststatus(66) = 0, german -> inform("[Neues Quest] Rabans Hain I"), "So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.", item(126, 1, 399, 0), queststatus(66) = 1
@@ -182,6 +142,50 @@ itemShoes = 369
 "task", "adventure", queststatus(66) = 8 -> "There is nothing you can do for me. Just leave me alone, maybe you visit my old friend Rutrus at the oasis again?"
 "Aufgabe", "Auftrag", "Abenteuer", queststatus(66) = 8 -> "Es gibt nichts, was ihr noch für mich tun könntet. Lasst mich einfach alleine, vielleicht wollt ihr meinen Freund Rutrus bei der Oase erneut aufsuchen?"
 
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Is money all that matters for you? I abstain from it since decades and never missed it a single day.", "I have no use for money. So I do not trade.", "I am not a trader. Maybe you want to help me in a quest?"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.", "Ich brauche kein Gold, also handele ich auch nicht.", "Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
+"tell something" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.", "I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.", "Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
+"erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"hermit", "forester", "ranger", "gardener" -> "Nature can offer much more joy to me than any place, made of cold stone.", "I plant trees and watch them grow. Can you imagine anything more... relaxing?", "I enjoy the silence here. A branch in the wind can sing wonderful songs."
+"Einsiedler", "Förster", "Waldhüter", "Wildhüter", "Gärtner" -> "Die Natur bietet mir mehr Freuden als irgendein Ort aus kaltem Stein.", "Ich pflanze Bäume und bewundere, wie sie wachsen. Kann sich irgendetwas... entspannenderes vorstellen?", "Ich genieße die Stille hier. Ein Ast im Winde kann ein wunderbares Lied singen."
+"shrine", "grove" -> "Isn't this a lovely place? Most trees, I planted myself.", "Honor Ushara for this site is her gift.", "Welcome to the place where nature embraces you."
+"Schrein", "Hain" -> "Ist dies nicht ein bewundernswerter Ort? Die meisten Bäume habe ich selbst gepflanzt.", "Ehret Ushara, denn all dies ist ihr Geschenk.", "Willkommen an dem Ort, wo die Natur dich umarmt."
+"Dürre" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung."
+"drought" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation."
+"oasis" -> "At the Oasis of Hope, my good friend Rutrus has found his peace. Maybe you want to visit him?"
+"oase" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
+"Rutrus", english -> "At the Oasis of Stars, my good friend Rutrus has found his peace. Maybe you want to visit him?"
+"Rutrus" -> "Bei der Sternenoase hat mein guter Freund Rutrus seinen Frieden gefunden. Vielleicht wollt ihr ihn ja mal besuchen?"
+"Bruno", english -> "That name sounds familiar, but living in solitude, I forgot about names with time."
+"Bruno" -> "Der Name klingt vertraut, aber hier in der Einsamkeit vergißt man Namen mit der Zeit."
+"Gobaith", english -> "I've been to Gobaith, but that is long ago.", "I do not want to talk about this with you, I hope you respect that."
+"Gobaith" -> "Ich war einst auf Gobaith, aber das ist schon lange her.", "Darüber möchte ich mit euch nicht sprechen. Ich hoffe, ihr respektiert das."
+
+-- Gods
+"god" -> "In the solitude of the forest, one starts to think a lot about the gods - without conclusion so far."
+"Gott", "Götter" -> "In der Einsamkeit des Waldes denkt man viel über sich und die Götter nach - doch bin ich noch zu keinem Schluss gekommen."
+"Ushara", english -> "Honour the goddess!"
+"Ushara" -> "Ehret die Göttin!"
+"Oldra", english -> "Oldra... I am sure I saw her one day, dancing during dawn on the grass.", "Oldra now takes care of all the wonders Ushara has left on the land."
+"Oldra" -> "Oldra... Ich bin mir sicher, ich habe sie einst auf dem taufeuchtem Grass im Morgenlicht tanzen sehen.", "Oldra pflegt nun all die Wunder, die uns Ushara auf dem Land hinterlassen hat."
+
+-- Factions
+"Runewick", english -> "The only place where you can find peace is Runewick. But I still prefer the forest."
+"Runewick" -> "Der einzige Ort, wo es Frieden gibt ist Runewick. Dennoch ziehe ich den Wald vor."
+"Galmair", german -> "Galmair? Ein Sündenpfuhl ist das!"
+"Galmair", english -> "Galmair? A pool of sins, it is!"
+"Cadomyr", german -> "Cadomyr ist ein wüster Ort im Süden. Ich frage mich, wie Rutrus es dort aushält."
+"Cadomyr", english -> "Cadomyr is a rough place to the south. I wonder how Rutrus can stand this place."
+
+-- Tool hints
+"sickle", queststatus(66) = 0 -> "With sickles, you can cut fir tree seedlings to plant new trees. If you want to help me, ask me for a task."
+"Sichel", queststatus(66) = 0 -> "Mit einer Sichel könnt ihr Fichtensetzlinge schneiden um neue Bäume zu pflanzen. Wenn ihr mir dabei helfen wollt, fragt mich nach einem Auftrag."
+"sickle" -> "In case you need a new sickle, ask for William in Runewick. If he is still alive after all those years we didn't meet."
+"Sichel" -> "Wenn du einen neue Sichel benötigst, fragt nach William in Runewick. Ich hoffe, er ist nach all diesen Jahren, die wir uns nicht sahen, noch am Leben."
+
 -- Information about herb lore
 "herbs" -> "You can gather herbs with a sickle. But do not cut too many - Ushara won't be pleased when you plunder her treasury."
 "Kräuter" -> "Ihr könnt Kräuter mit einer Sichel sammeln. Aber schneidet nicht zu viele ab - Ushara wird nicht erfreut sein, wenn ihr ihren Garten plündert."
@@ -208,7 +212,10 @@ itemShoes = 369
 cycletext "#me klopft die Erde um einen frisch gepflanzten Setzling glatt.", "#me smoothes the soil around a newly planted seedling."
 cycletext "Wachst und gedeiht, meine Kinder.", "Grow and prosper, my children."
 cycletext "#me streicht sachte über die Blätter eines Strauches und seufzt.", "#me strokes gently the leaves of a bush and sighs."
-cycletext "#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Ãste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response."
+cycletext "#me flüstert kaum hörbar zu einer Fichte. Man kann sich einbilden, die Äste des Baumes würden antwortend im Wind rauschen.", "#me whispers to a fir tree, barely audible. One could imagine the branches of the tree sough in response."
 cycletext "Waren wir noch längst nicht geboren, saht ihr auf alles herab. Sind wir längst gegangen, gehört euch das Land erneut.", "When we weren't even born, you already beheld all. When we are long gone, the land will be yours again."
 cycletext "Ich habe etwas gehört.", "I heard something."
 cycletext "Shh! Wenn ihr ganz still seid, könnt ihr dem Klang der Stille lauschen.", "Shh! If you're quiet, you can listen to the sound of silence."
+cycletext "#me schaut sich um und nickt zufrieden.", "#me looks around contentedly."
+cycletext "Wer wagt es, meine Ruhe zu stören?", "Who dares to disturb me?"
+cycletext "Willkommen in meinem Hain.", "Welcome to my grove."
