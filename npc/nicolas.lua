@@ -7,14 +7,19 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, -281, 40, 0, 6, 'Nicolas', 'npc.nicolas', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.condition.state")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.nicolas", package.seeall)
@@ -68,7 +73,7 @@ talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addResponse("Nicht? Wie kann das sein, dieser Bote wurde doch von Marcus geschickt, oder? Jedenfalls sagte er das. Er ist Richtung Westen gegangen.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -146,7 +151,7 @@ talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addResponse("It didn't? How could that happen, Marcus sent that carrier, didn't he?At least that's what he said. He left heading west.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

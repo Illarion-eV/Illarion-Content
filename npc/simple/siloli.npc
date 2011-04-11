@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Siloli"
@@ -52,7 +52,6 @@ itemShoes = 53
 -- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
-
 ".+", queststatus(557) = 12, german, chance(20) -> "Geh mir aus den Augen!"
 ".+", queststatus(557) = 12, german, chance(25) -> "Verschwinde, ich will dich nicht mehr sehn!"
 ".+", queststatus(557) = 12, german, chance(33) -> "Mörder meiner Kinder, weg mit dir!"

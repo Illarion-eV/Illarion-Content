@@ -7,8 +7,13 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (2, -19, 0, 0, 4, 'Otto Sauerteig', 'npc.otto_sauerteig', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.item")
@@ -19,7 +24,7 @@ require("npc.base.condition.state")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.otto_sauerteig", package.seeall)
@@ -72,7 +77,7 @@ talkEntry:addCondition(npc.base.condition.state.state("<", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(27, "=<", 1));
 talkEntry:addResponse("Ja natürlich, dieser Fuchs, der macht mich wahnsinnig. Immerzu streift er hinterm Haus rum! Dann verjage ich ihn mit Steinen. Du könntest aber mit einem anderen Problem helfen. Bist du tapfer?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -85,7 +90,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ja natürlich, dieser Fuchs, der macht mich wahnsinnig. Immerzu streift er hinterm Haus rum! Dann verjage ich ihn mit Steinen. Du könntest aber mit einem anderen Problem helfen. Bist du tapfer?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,7 +103,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes of course, there is this fox which drives me crazy. All the time, it gazes around my house. Then I usually chase it away with stones. But you could help me with another problem. Are you brave?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -112,7 +117,7 @@ talkEntry:addCondition(npc.base.condition.state.state("<", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(27, "=<", 1));
 talkEntry:addResponse("Yes of course, there is this fox which drives me crazy. All the time, it gazes around my house. Then I usually chase it away with stones. But you could help me with another problem. Are you brave?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -159,7 +164,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The halfling slides the key of the cellar between your fingers. You better put on some good shoes before you go downstairs. Who knows what is waiting down there for you?"));
 talkEntry:addResponse("I'm so glad that you wanna give it a try. Take the key for the cellar and chase the nasty thing away. Ask me for 'Informations' when i shall repeat the details.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2161, 1, 333, 20));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,7 +175,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Der Halbling steckt dir den Schlüssel zum Keller des Hauses zwischen die Finger. Am besten ziehst du gute Schuhe an, bevor du nach unten gehst, wer weiß was auf dich wartet?"));
 talkEntry:addResponse("Ich bin so froh, das du das machen willst. Nimm diesen Kellerschlüssel und verjag das Ding. Frage mich nach 'Informationen' wenn ich die Details wiederholen soll.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2161, 1, 333, 20));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,7 +303,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("XXXInfo welche belohnungXXX"));
 talkEntry:addResponse("Ha! You did it! How awesome! A real heroic deed! Martin and Otto Sauerteig are in your debt forever! I'm so thankful, i'll give you something!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2161, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,7 +315,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("XXXInfo welche belohnungXXX"));
 talkEntry:addResponse("Ha! Du hast es Gschafft! Wie großartig! Eine wahre Heldentat! Martin und Otto Sauerteig stehen für immer in deiner Schuld! Komm lass dir etwas geben, ich bin dir so Dankbar!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2161, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +330,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("XXXInfo welche belohnungXXX"));
 talkEntry:addResponse("Ha! You did it! How awesome! A real heroic deed! Martin and Otto Sauerteig are in your debt forever! I'm so thankful, i'll give you something!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2161, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +345,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(27, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("XXXInfo welche belohnungXXX"));
 talkEntry:addResponse("Ha! Du hast es Gschafft! Wie großartig! Eine wahre Heldentat! Martin und Otto Sauerteig stehen für immer in deiner Schuld! Komm lass dir etwas geben, ich bin dir so Dankbar!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2161, 1));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(27, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(27, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -777,6 +782,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

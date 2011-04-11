@@ -1,35 +1,61 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Nicolas                                                     None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  -281, 40, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   not set                                                          --
+--                                                                            --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Nicolas"
+race = human
+sex = male
+position = -281, 40, 0
+direction = west
+affiliation = "None"
+job = "none"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "not set"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+
 -- QS=1: comes to npc
 -- QS=2: got to find thief
 
-name="Nicolas"
-sex=male
-race=human
-position=-281, 40, 0
-direction=west
-QuestID=557;
-
-"schinken", queststatus=1, state=0 -> "Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?", state=1
-"schinken", queststatus=1 -> "Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben."
-"liefer", queststatus=1, state=0 -> "Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?", state=1
-"liefer", queststatus=1 -> "Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben."
-"ja", state=1 -> "Sehr gut. Wie kann ich euch helfen?", state=0
-"nein", state=1 -> "Nicht? Wie kann das sein, dieser Bote wurde doch von Marcus geschickt, oder? Jedenfalls sagte er das. Er ist Richtung Westen gegangen.", state=2, queststatus=2
-"bote", state=2 -> "Hm. Irgendwie kam er mir eigenartig vor, er kannte Marcus' Namen nicht. Und er wußte glaube ich auch nicht so recht, in welche Richtung er eigentlich sollte."
-"dieb", state>0 -> "Meint ihr, der Bote war ein Dieb? Irgendwie würde das wohl passen, stimmt."
-"marcus", german, queststatus>0 -> "Marcus ist ein Händler in Troll's Bane, ich sollte ihm zehn Stück Schinken liefern."
-"westen",queststatus=2 -> "Ja. Dieser Bote ging nach Westen. Obwohl es doch nach Osten nach Trollsbane geht. Ich hoffe nur das war kein Dieb."
-
-"ham", queststatus=1, state=0 -> "I gave the delivery with ham to a one-armed carrier already. Did it arrive?", state=1
-"ham", queststatus=1 -> "I gave that ham for Marcus to that strange carrier he sent."
-"deliver", queststatus=1, state=0 -> "I gave the delivery with ham to a one-armed carrier already. Did it arrive?", state=1
-"deliver", queststatus=1 -> "I gave that ham for Marcus to that strange carrier he sent."
-"yes", state=1 -> "Very good. How can I help you?", state=0
-"no", state=1 -> "It didn't? How could that happen, Marcus sent that carrier, didn't he?At least that's what he said. He left heading west.", state=2, queststatus=2
-"carrier", state=2 -> "Hm. Somehow he appeared a little bit strange to me, he didn't know Marcus' name. And it seemed as if he didn't know in which direction to go."
-"thief", state>0 -> "You believe that this carrier was a thief in reality? That would fit somehow, right."
-"marcus", english, queststatus>0 -> "Marcus is a trader in Troll's Bane. I should deliver ten pieces of ham to him."
-"west",queststatus=2 -> "Yes. The carrier headed west. While Trollsbane is in the east. I hope this was no thief."
-
+-- QuestID=557;
+"schinken", state = 0, queststatus(557) = 1 -> "Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?", state = 1
+"schinken", queststatus(557) = 1 -> "Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben."
+"liefer", state = 0, queststatus(557) = 1 -> "Die Lieferung mit Schinken habe ich doch schon dem einarmigen Boten gegeben. Ist sie angekommen?", state = 1
+"liefer", queststatus(557) = 1 -> "Den Schinken für Marcus habe ich dem eigenartigen Boten gegeben."
+"ja", state = 1 -> "Sehr gut. Wie kann ich euch helfen?", state = 0
+"nein", state = 1 -> "Nicht? Wie kann das sein, dieser Bote wurde doch von Marcus geschickt, oder? Jedenfalls sagte er das. Er ist Richtung Westen gegangen.", state = 2, queststatus(557) = 2
+"bote", state = 2 -> "Hm. Irgendwie kam er mir eigenartig vor, er kannte Marcus' Namen nicht. Und er wußte glaube ich auch nicht so recht, in welche Richtung er eigentlich sollte."
+"dieb", state > 0 -> "Meint ihr, der Bote war ein Dieb? Irgendwie würde das wohl passen, stimmt."
+"marcus", queststatus(557) > 0, german -> "Marcus ist ein Händler in Troll's Bane, ich sollte ihm zehn Stück Schinken liefern."
+"westen", queststatus(557) = 2 -> "Ja. Dieser Bote ging nach Westen. Obwohl es doch nach Osten nach Trollsbane geht. Ich hoffe nur das war kein Dieb."
+"ham", state = 0, queststatus(557) = 1 -> "I gave the delivery with ham to a one-armed carrier already. Did it arrive?", state = 1
+"ham", queststatus(557) = 1 -> "I gave that ham for Marcus to that strange carrier he sent."
+"deliver", state = 0, queststatus(557) = 1 -> "I gave the delivery with ham to a one-armed carrier already. Did it arrive?", state = 1
+"deliver", queststatus(557) = 1 -> "I gave that ham for Marcus to that strange carrier he sent."
+"yes", state = 1 -> "Very good. How can I help you?", state = 0
+"no", state = 1 -> "It didn't? How could that happen, Marcus sent that carrier, didn't he?At least that's what he said. He left heading west.", state = 2, queststatus(557) = 2
+"carrier", state = 2 -> "Hm. Somehow he appeared a little bit strange to me, he didn't know Marcus' name. And it seemed as if he didn't know in which direction to go."
+"thief", state > 0 -> "You believe that this carrier was a thief in reality? That would fit somehow, right."
+"marcus", queststatus(557) > 0, english -> "Marcus is a trader in Troll's Bane. I should deliver ten pieces of ham to him."
+"west", queststatus(557) = 2 -> "Yes. The carrier headed west. While Trollsbane is in the east. I hope this was no thief."
 "Hafen" -> "Genau, das hier ist der Hafen. Ein netter Platz, wenn man den Ozean zu schätzen weiß!"
 "Harbo[u]*r" -> "Exactly, this is the harbor. A nice spot if you like the ocean!"
 "I am" -> "Greetings, %CHARNAME, nice to meet you."

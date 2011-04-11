@@ -5,9 +5,9 @@
 -- NPC Race: halfling                   NPC Position:  -417, 44, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Barney Haycrop"

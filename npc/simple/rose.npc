@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Rose                                                        None --
--- NPC Job:  Ambiente/Quest                                                   --
+-- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  404, 292, 0           --
+-- NPC Race: human                      NPC Position:  404, 292, 0            --
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
--- Author:   Rincewind                                                         --
+-- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 25, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rose"

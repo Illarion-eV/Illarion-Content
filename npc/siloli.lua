@@ -7,8 +7,13 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, -413, -145, 0, 6, 'Siloli', 'npc.siloli', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
@@ -17,7 +22,7 @@ require("npc.base.condition.quest")
 require("npc.base.condition.sex")
 require("npc.base.condition.state")
 require("npc.base.consequence.item")
-require("npc.base.consequence.queststatus")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.siloli", package.seeall)
@@ -164,7 +169,7 @@ talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("You accuse me of stealing ham? That's a bad accusation, can you prove that?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,7 +179,7 @@ talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,7 +189,7 @@ talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("I should have delivered ham? That would mean that I stole it? That's a bad accusation, can you prove that?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,7 +199,7 @@ talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich sollte Schinken liefern? Das würde ja heißen, dass ich ihn gestohlen habe! Das ist eine harte Beschuldigung, kannst du das beweisen?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,7 +237,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schinken gestohlen");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,7 +245,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schinken genommen");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +254,7 @@ talkEntry:addTrigger("gestohlen");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,7 +262,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("schinken geklaut");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +271,7 @@ talkEntry:addTrigger("geklaut");
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("Ich soll Schinken gestohlen haben? Das ist eine harte Beschuldigung, kannst du das beweisen?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,7 +279,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stole ham");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("You accuse me of stealing ham? That's a bad accusation, can you prove that?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +287,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("took ham");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("You accuse me of stealing ham? That's a bad accusation, can you prove that?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,7 +295,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("take ham");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("You accuse me of stealing ham? That's a bad accusation, can you prove that?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,7 +303,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ham stole");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 2));
 talkEntry:addResponse("You accuse me of stealing ham? That's a bad accusation, can you prove that?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,7 +346,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ja");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 3));
 talkEntry:addResponse("Oh... nun, ich habe den Schinken, der mir angeboten wurde, genommen, aber kann man das 'Stehlen' nennen? Ich brauche ihn doch für meine Familie! Willst du wirklich, dass meine Kinder hungern?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +354,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 3));
 talkEntry:addResponse("Na eben. Wenn du's nicht beweisen kannst, dann äußere solche Anschuldigungen besser nicht.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 11));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,7 +362,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ja");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 4));
 talkEntry:addResponse("Hast du keine Kinder? Du bist herzlos! Also gut, ich schlage dir ein Geschäft vor: Ich gebe dir die Hälfte des Schinkens, einverstanden?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +371,7 @@ talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 4));
 talkEntry:addResponse("Na eben, du bist ja doch nicht so herzlos wie ich dachte. Aber ich denke, ich kann dir zwei Stück Schinken abgeben.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 2, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +380,7 @@ talkEntry:addTrigger("ja");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addResponse("Gut, ich glaube, das ist fair, immerhin hast du ja Beweise. Und bis Übermorgen habe ich sicher im Wald einige Pilze für meine Kinder gesammelt. Hier, der Schinken.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 2, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,7 +389,7 @@ talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addResponse("Du willst wirklich meine Kinder sterben sehen! Hast du denn gar keine Vaterinstinkte?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +398,7 @@ talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addResponse("Du willst wirklich meine Kinder sterben sehen! Hast du denn gar keine Mutterinstinkte?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -402,7 +407,7 @@ talkEntry:addTrigger("doch");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 6));
 talkEntry:addResponse("Na eben. Ich gebe dir sechs Stück Schinken, dann bekommt jedes meiner Kinder noch ein halbes Stück.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 6, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,7 +416,7 @@ talkEntry:addTrigger("ja");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 6));
 talkEntry:addResponse("Na eben. Ich gebe dir sechs Stück Schinken, dann bekommt jedes meiner Kinder noch ein halbes Stück.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 6, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +425,7 @@ talkEntry:addTrigger("nein");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 6));
 talkEntry:addResponse("Nun gut, du erbarmungsloses Etwas. Ich werde dir eine Einladung zur Beerdigung meiner Kinder schicken... Hier, dein verdammter Schinken! Und jetzt geh mir aus den Augen!");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 10, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,7 +433,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("yes");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 3));
 talkEntry:addResponse("Oh... well, I took that ham that someone wanted to give to me, but can you consider that 'stealing'? I need it for my family! Or do you want to see my children starving?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,7 +441,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 3));
 talkEntry:addResponse("See? If you can't prove it, you shouldn't speak our such bad accusations.");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 11));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +449,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("yes");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 4));
 talkEntry:addResponse("Don't you have children? You are so heartless! Well, I propose a deal: I'll give you half of my ham, can you accept that?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,7 +458,7 @@ talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 4));
 talkEntry:addResponse("Ah, you're not so heartless than I thought. I think I can give you two pieces of my ham.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 2, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +467,7 @@ talkEntry:addTrigger("yes");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addResponse("Good, I think that's fair enough, I mean, you have a proof. I will surely find some mushrooms within the next days to feed my children. Here you are.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 2, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,7 +476,7 @@ talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addResponse("You really want to see my children starve! Don't you have paternal instinkts?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +485,7 @@ talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 5));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addResponse("You really want to see my children starve! Don't you have maternal instinkts?");
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +494,7 @@ talkEntry:addTrigger("yes");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 6));
 talkEntry:addResponse("Very good. I will give you six pieces of my ham, that way my children get half a piece each.");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 6, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -498,7 +503,7 @@ talkEntry:addTrigger("no");
 talkEntry:addCondition(npc.base.condition.quest.quest(557, "=", 6));
 talkEntry:addResponse("Well, you merciless something! I'll send you invitations for the burial of my children... Here, your damn ham! And now, get lost!");
 talkEntry:addConsequence(npc.base.consequence.item.item(306, 10, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.queststatus.queststatus(557, "=", 12));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(557, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -829,6 +834,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

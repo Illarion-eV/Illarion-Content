@@ -7,12 +7,12 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 25, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 404, 292, 0, 5, 'Rose', 'npc.rose', 1, 2, 0, 202, 93, 24, 234, 183, 156);
+VALUES (0, 404, 292, 0, 5, 'Rose', 'npc.rose', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -1061,7 +1061,7 @@ talkEntry:addTrigger("yes");
 talkEntry:addCondition(npc.base.condition.state.state("=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addResponse("#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,7 +1070,7 @@ talkEntry:addTrigger("ja");
 talkEntry:addCondition(npc.base.condition.state.state("=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addResponse("#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich.");
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1141,7 +1141,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 co
 talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1155,7 +1155,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100
 talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1189,7 +1189,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 co
 talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,7 +1204,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100
 talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1322,7 +1322,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier."));
 talkEntry:addResponse("#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.");
 talkEntry:addConsequence(npc.base.consequence.item.item(222, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1342,7 +1342,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She places a bundle of cloth in your hands. Inside you are able to feel a necklace."));
 talkEntry:addResponse("#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.");
 talkEntry:addConsequence(npc.base.consequence.item.item(222, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 5));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1402,7 +1402,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels also feels good, right?"));
 talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1416,7 +1416,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels also feels good, right?"));
 talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1428,7 +1428,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels again good, agree?"));
 talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1441,7 +1441,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 7));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"));
 talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 8));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1519,7 +1519,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1531,7 +1531,7 @@ talkEntry:addCondition(npc.base.condition.state.state("<", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1543,7 +1543,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("#w Do you want to earn some money?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1557,7 +1557,7 @@ talkEntry:addCondition(npc.base.condition.state.state("<", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addResponse("#w Do you want to earn some money?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
-talkEntry:addConsequence(npc.base.consequence.quest.queststatus(303, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2449,6 +2449,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Eine leicht bekleidete hübsche Frau, die dich verführerisch anzwinkert als sie deinen Blick bemerkt.", "A sexy dressed and pretty woman. As she notices your gaze, she winks seductively at you.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
