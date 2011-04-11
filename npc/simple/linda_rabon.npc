@@ -1,11 +1,12 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Linda Rabon                                                 None --
--- NPC Job:  none                                                             --
+-- NPC Name: Linda Rabon                                              Cadomyr --
+-- NPC Job:  Cook                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  116, 577, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
--- Author:   Regallo                                                          --
+-- Authors:  Regallo                                                          --
+--           Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
@@ -32,18 +33,17 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-
-hairID = 4
+hairID = 1
 beardID = 0
 colorHair = 238, 118, 33
 colorSkin = 139, 90, 43
 itemHead = 0
-itemChest = 0
+itemChest = 835
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 227
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 839
+itemTrousers = 0
 itemShoes = 369
 
 -- Glass Spiegel is a Cadomyrian tavern known for the bullington board, where paying clients look for others capable of helping them with their problems. There are 20 npc's in this bar and there are three main rooms, the main gathering room, with the bar, sitting space and stage, the top room, a clearing where the top tier missions are placed on a special bullington board and there is the Dark BB a secret room in the basement where there is a buillington board of quests that generally go against common laws and mores.

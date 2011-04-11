@@ -543,12 +543,12 @@ mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibu
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 0);
+mainNPC:setEquipment(3, 808);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
-mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(9, 367);
 mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 

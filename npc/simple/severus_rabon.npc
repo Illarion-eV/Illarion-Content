@@ -3,7 +3,7 @@
 -- NPC Job:  Waiter                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  113, 574, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
@@ -38,12 +38,12 @@ beardID = 1
 colorHair = 205, 102, 29
 colorSkin = 139, 90, 43
 itemHead = 0
-itemChest = 0
+itemChest = 808
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 0
-itemTrousers = 0
+itemTrousers = 367
 itemShoes = 369
 
 -- Waiter:  Kay Darknight
