@@ -1,0 +1,185 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Linda Rabon                                                 None --
+-- NPC Job:  none                                                             --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Regallo                                                          --
+--                                                                            --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Linda Rabon"
+race = human
+sex = female
+position = 116, 577, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Cook"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Regallo"
+author = "Estralis Seborian"
+
+lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
+lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+
+hairID = 4
+beardID = 0
+colorHair = 129, 29, 29
+colorSkin = 255, 162, 122
+itemHead = 0
+itemChest = 0
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 839
+itemShoes = 369
+
+-- Glass Spiegel is a Cadomyrian tavern known for the bullington board, where paying clients look for others capable of helping them with their problems. There are 20 npc's in this bar and there are three main rooms, the main gathering room, with the bar, sitting space and stage, the top room, a clearing where the top tier missions are placed on a special bullington board and there is the Dark BB a secret room in the basement where there is a buillington board of quests that generally go against common laws and mores.
+
+-- Staff
+
+-- Cook: human Ce(see) Darknight
+-- Occupation: cook
+-- Age: 9
+-- Race: Human
+-- Skin:  very dark
+-- Hair: long black(Afro)
+-- Hight: Normal, kid
+-- Weight: petite
+-- Clothes: cute light blue apron that says My kitchen in pink letters. Short sleeve black shirt. Brown Leather pants.
+-- Personality: There is not much complexity to this nine year old. She is happy, confident and extremely polite. She is a sole minded individual focused entirely on the art of cooking.
+-- Background: She's a nine year old girl with both her parents. She grew up watching her father cook. At about 5 she started experimenting with the stove with the help of a ladder. Her parents were worried and especially freaked out after she burned her left hand at six. They banned her from the stove for a year; afterwards she badgered her mother who eventually let her back into the kitchen. She practiced cooking every day when the customers were not around. She soon outclassed her father in cooking skills and took over as the cook. Together all three of them make just enough money to get by, but it's a happy life, especially for Ce who has her parents and the esteem of being famous as the best cook in Cadomyr.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is <Ce> the < Cook >. Keyphrases: Hello, Good day.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you want to order please talk to my mom.", "Oh hello. I'm very busy. I will have to talk to you later.", "Oh hello. I'm so tired. I feel like I'm going to pass out."
+"Hiho", "Hallo", "Hey", "Greeb", english -> ""
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> ""
+"Farewell", "Bye", "Fare well", "See you" -> "Please come again. I will cook better next time, I promise.", "Oh, You're leaving already? Was the food bad?", "Thank you, come again."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel" -> "I feel like a thousand sun shines upon a cloudless sky. Hehehhe, that's what daddy allays says.", "I'm very very very busy. No time to chit chat.", "AHH! The chicken is on fire! Why would you try to talk to me while I'm cooking."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "I'm Ce Darknight. I may not look it, but I am the best cook in Cadomyr.", "I am Ce. Hahhahahahaha. I'm sorry you made a funny face.", "I'm Ce I'll cook you something special if you ask."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm a cook. Well I'm the cook. Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job", english -> "I'm a cook. Well I'm the cook. Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.", "I make the food that you all eat.", "Daddy says that I am part owner of this shop."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath", english -> "We live there.", "Mommy says it's an island surrounded by water.", "Is Cadomyr in Golbaith? I don't know."
+"Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
+
+-- Cadomyr
+"Glass Spiegal" -> "Daddy and Mommy built this place", "This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it, get it?", "I want to get married here."
+"Daddy", "Kay" -> "He says he is the best dad in Cadomyr. I agree with him. His is the best dad. And if anyone says he's not. Well, they get no dinner from me.", "I wonder what daddy's going to get me for my birthday?", "Daddy wishes he could be as good of a cook as me."
+"Mommy", "Rose" -> "Daddy used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.", "Mommy say when I grow Up I'm going to be beautiful.", "Mommy is too nice. She is even nice to mean people."
+"Pal", "Por" -> "He's cute, don't you think?", "I love when Pal plays. Even his songs are beautiful.", "I wish he would tell stories too, but Pal never talks."
+"Ouchpan", "yang" -> "He's soooooo big. He picked me up once. I felt like I was touching the stars.", "Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.", "Mr Yang Is very nice. Him and my mother never get mad."
+"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair", english -> ""
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards", english -> "She is beautiful isn't she.", "My mom says that Rosaline is very smart.", "I want to be queen Rosaline when I grow up."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Main land factions
+"albar", english -> "What is Albar?", "Which way do I have to walk to go too Albar?", "I'm too busy, stop telling me stuff I don't know."
+"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"gynk", "gync", english -> "I don't know where that is.", "I'm trying to cook here, Yesh!", "What is gynk?"
+"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "That place has a cool name, where is it.", "Nope I've never been to Saikama.", "I've never left cadomyr."
+"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"Adron", english -> "The God of festivities and wine? Did I get it right?"
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bragon", "Brágon", english -> "He's a giant with a beard of fire. He is a good god."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cherga", english -> "I don't like Cherga. He's scary."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elara", english -> "The goddess of wisdom. That's all I know about her."
+"Elara" -> ""
+"Eldan", english -> "Mommy told me he has many forms, but he always carries a wooden pole."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Findari", english -> "The goddess of air. She is very beautiful."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Irmorom", english -> "There is a picture of him over there *points to the wall*."
+"Malachin", "Malachín", english -> "He's the wolf god. I want a wolf. I'm going to ask daddy tonight if I can have a wolf."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Moshran", english -> "I'm not afraid of old bone head. If he ever walks through these doors. I will punch him in the nose. Pow! Pow!"
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Nargun", "Nargún", "Nargùn", english -> "He is another bad one. People should make money honestly, like my mommya and daddy."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Oldra", english -> "I'm sorry I have not made it to that god yet."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ronagan", english -> "I'm sorry I have not made it to that god yet."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Sirani", english -> "I'm sorry I have not made it to that god yet."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "I'm sorry I have not made it to that god yet."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ushara", english -> "I'm sorry I have not made it to that god yet."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Zhambra", english -> "I'm sorry I have not made it to that god yet."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+"etymology" -> "Me, My daddy, my mommy, Mr. Yang and Pal Por's names come form Final Fantasy IV."
+"GERMAN" -> "GERMAN."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+"Linda", "Rabon", english -> "Good day, how are you?", "Today is a great day for cooking.", "That is me. Do you want something."
+"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait what?"
+"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+".*", english, chance(20) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "ENGLISH.", "Suger, spice, everything nice, rat, cat everthings great."
+cycletext "ENGLISH.", "It's almost my birthday. I CAN'T WAIT"
+cycletext "ENGLISH.", "Today I am cooking a unique dish. It requires smails lightly touched in flame. Pepper from the black forest. Juice for a sour fruit, and like three other things I can't tell you. Hahahahaha. This is going to be good."
+cycletext "ENGLISH.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking. I mean all my cooking goes to time. Wait what?"
+cycletext "ENGLISH.", "Daddy can you bring up more chicken please."
+cycletext "ENGLISH.", "Mr. Yang!"
+cycletext "ENGLISH.", "They eat to fast Upstairs. A patiently cooked meal is more important than the monsters they cook."
+cycletext "ENGLISH.", "What time is it. Shouldn't we be closing soon."
+cycletext "ENGLISH.", "Oh gods! Why is the chicken on fire again?"
+cycletext "ENGLISH", "I wonder if there are schools for cooking. I would be the best teacher ever."
