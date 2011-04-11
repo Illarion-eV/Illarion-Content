@@ -833,7 +833,7 @@ function InitWegweiser()
     AddChimney({326,366,1},"","", 2, 5);
     AddChimney({311,351,1},"","", 1, 5);
 	--Runewick Harbour/Farm
-	AddChimney({789,789},"","", 1, 5);
+	AddChimney({789,789,0},"","", 1, 5);
 	--Spider's Mouth
     AddChimney({705,311,1},"","", 2, 5); --Tavern 'To the Cobweb'
     AddChimney({705,323,1},"","", 2, 5); --Tavern 'To the Cobweb'
