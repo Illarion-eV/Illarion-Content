@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -298,7 +298,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You can help me butchering the pigs. Bring me ten pieces of pork. You will earn some money.");
+talkEntry:addResponse("Not less than ten pieces of pork!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 1));
-talkEntry:addResponse("Du kannst mir helfen die Schweine zu schlachten. Bring mir zehn Stücke Schweinefleisch. Du bekommst auch ein paar Münzen.");
+talkEntry:addResponse("Zehn Stücke Schweinefleisch und nicht weniger!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,7 +314,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 1));
-talkEntry:addResponse("You can help me butchering the pigs. Bring me ten pieces of pork. You will earn some money.");
+talkEntry:addResponse("Not less than ten pieces of pork!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +323,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 1));
-talkEntry:addResponse("Du kannst mir helfen die Schweine zu schlachten. Bring mir zehn Stücke Schweinefleisch. Du bekommst auch ein paar Münzen.");
+talkEntry:addResponse("Zehn Stücke Schweinefleisch und nicht weniger!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,7 +432,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me. Your reward will be a hundred copper coins.");
+talkEntry:addResponse("And? Where are my twenty slabs of raw leather?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,7 +440,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
-talkEntry:addResponse("Das Schweinefleisch hast du gut besorgt. Nun kannst du mir mal zwanzig Häute Rohleder auftreiben. Dein Lohn sollen hundert Kupferstücke sein.");
+talkEntry:addResponse("Na, wo bleiben meine zwanzig Häute Rohleder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
-talkEntry:addResponse("You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me. Your reward will be a hundred copper coins.");
+talkEntry:addResponse("And? Where are my twenty slabs of raw leather?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
-talkEntry:addResponse("Das Schweinefleisch hast du gut besorgt. Nun kannst du mir mal zwanzig Häute Rohleder auftreiben. Dein Lohn sollen hundert Kupferstücke sein.");
+talkEntry:addResponse("Na, wo bleiben meine zwanzig Häute Rohleder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +566,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You want another task? Well, bring me five pieces of deer meat and you will earn a hundred copper coins.");
+talkEntry:addResponse("Five fine pieces of deer meat, hurry up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,7 +574,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 5));
-talkEntry:addResponse("Du willst noch eine Aufgabe? Dann bring mir mal fünf Rehrücken und du erhälst hundert Kupfermünzen.");
+talkEntry:addResponse("Fünf feine Rehrücken. Los, los.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 5));
-talkEntry:addResponse("You want another task? Well, bring me five pieces of deer meat and you will earn a hundred copper coins.");
+talkEntry:addResponse("Five fine pieces of deer meat, hurry up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,7 +591,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 5));
-talkEntry:addResponse("Du willst noch eine Aufgabe? Dann bring mir mal fünf Rehrücken und du erhälst hundert Kupfermünzen.");
+talkEntry:addResponse("Fünf feine Rehrücken. Los, los.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -700,7 +700,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be two hundred copper coins!");
+talkEntry:addResponse("Where is my coal, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,7 +708,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 7));
-talkEntry:addResponse("Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden zweihundert Kupfermünzen sein.");
+talkEntry:addResponse("Wo ist denn meine Kohle, bitte schön?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -716,7 +716,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 7));
-talkEntry:addResponse("Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be two hundred copper coins!");
+talkEntry:addResponse("Where is my coal, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -725,7 +725,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 7));
-talkEntry:addResponse("Natürlich habe ich noch was für dich zutun. Für ein richtiges Grillfest brauche ich zehn Klumpen Kohle. Lauf mal zur Malachitmine, mein Kumpel Bruno wird dir helfen. Und glaub es oder nicht, dein Lohn werden zweihundert Kupfermünzen sein.");
+talkEntry:addResponse("Wo ist denn meine Kohle, bitte schön?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
