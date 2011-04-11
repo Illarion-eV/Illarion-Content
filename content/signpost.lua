@@ -240,7 +240,7 @@ function InitWegweiser()
     --Glowing Gate
     AddGrave({489,582,0},"","", 4,0);
     --Hammerfall Mine
-    AddGrave({264,418},"","", 3,0);
+    AddGrave({264,418,0},"","", 3,0);
 	--Moshran's Brood
     AddGrave({410,726,0},"","", 1,0);
     AddGrave({409,734,0},"","", 3,0);
