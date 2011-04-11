@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Severus Rabon                                               None --
--- NPC Job:  none                                                             --
+-- NPC Name: Severus Rabon                                            Cadomyr --
+-- NPC Job:  Waiter                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  113, 574, 0            --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
@@ -14,7 +14,7 @@
 name = "Severus Rabon"
 race = human
 sex = male
-position = 0, 0, 0
+position = 113, 574, 0
 direction = north
 affiliation = "Cadomyr"
 job = "Waiter"
@@ -33,7 +33,6 @@ useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
-
 hairID = 1
 beardID = 1
 colorHair = 129, 29, 29
