@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Lilith Needlehand"
@@ -97,10 +97,10 @@ itemShoes = 369
 ".+", queststatus(73) = 3, item(50, all) > 14, town = Runewick -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4, rankpoints(Runewick) + 10
 ".+", queststatus(73) = 3, item(50, all) > 14, english -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
 ".+", queststatus(73) = 3, item(50, all) > 14 -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."), "Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(73) = 4
-"quest", "mission", queststatus(73) = 3, english -> "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please."
-"quest", "mission", queststatus(73) = 3 -> "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen."
-"task", "adventure", queststatus(73) = 3 -> "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(73) = 3 -> "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn für die Robe brauchen. Bring mir doch bitte fünfzehn Spulen."
+"quest", "mission", queststatus(73) = 3, english -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+"quest", "mission", queststatus(73) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
+"task", "adventure", queststatus(73) = 3 -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(73) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
 
 -- 3rd quest: Gather 5 red cloth.
 "quest", "mission", queststatus(73) = 4, english -> inform("[New quest] The Lazy Tailoress III"), "I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?", queststatus(73) = 5
@@ -111,10 +111,10 @@ itemShoes = 369
 ".+", queststatus(73) = 5, item(174, all) > 4, english -> inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."), "Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
 ".+", queststatus(73) = 5, item(174, all) > 4 -> inform("[Quest gelöst] Du erhältst eine Meistermagierrobe und deine Schneidereifähigkeit steigt."), "Danke, genau, was ich gebraucht habe! Nun kann ich die Robe für den Erzmagier Morgan fertigstellen. Hier, dies war mein letzter Versuch, er hat sie zurückgeschickt, sie war ihm zu eng.", skill(tailoring) + 1, deleteItem(174, 5), item(558, 1, 999, 0), queststatus(73) = 6
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(73) = 4 -> inform("[Neues Quest] Das faule Schneiderlein III"), "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte", queststatus(73) = 5
-"quest", "mission", queststatus(73) = 5, english -> "I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?"
-"quest", "mission", queststatus(73) = 5 -> "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte."
-"task", "adventure", queststatus(73) = 5 -> "I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(73) = 5 -> "Mir ist der rote Stoff ausgegangen! Den brauch ich aber für die Robe für Elvaine Morgan. Bringst du mir fünf Bahnen, bitte."
+"quest", "mission", queststatus(73) = 5, english -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
+"quest", "mission", queststatus(73) = 5 -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
+"task", "adventure", queststatus(73) = 5 -> "Hrm... I need a little more red cloth. Otherwise, I cannot finish the robe for Archmage Morgan."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(73) = 5 -> "Uhm... ich brauche mehr roten Stoff. Anderenfalls kann ich die Robe für den Erzmagier Morgan nicht fertigstellen."
 
 -- Final dialogue: No more quests, just nice hints
 "quest", "mission", queststatus(73) = 6, english -> "I don't need anything else, but thank you! You saved my day!"
