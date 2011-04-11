@@ -35,8 +35,8 @@ wrongLangUS = "#me looks at you confused."
 
 hairID = 4
 beardID = 0
-colorHair = 129, 29, 29
-colorSkin = 255, 162, 122
+colorHair = 238, 118, 33
+colorSkin = 139, 90, 43
 itemHead = 0
 itemChest = 0
 itemCoat = 0

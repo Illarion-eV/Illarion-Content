@@ -3,7 +3,7 @@
 -- NPC Job:  Waiter                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  113, 574, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 113, 574, 0, 0, 'Severus Rabon', 'npc.severus_rabon', 0, 1, 1, 129, 29, 29, 255, 162, 122);
+VALUES (0, 113, 574, 0, 4, 'Severus Rabon', 'npc.severus_rabon', 0, 1, 1, 205, 102, 29, 139, 90, 43);
 ---]]
 
 require("npc.base.basic")
