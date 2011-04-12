@@ -8,13 +8,13 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    User:inform("- before -");
-    world:erase( it, 1 );
-    User:inform("- after -");
+    -- User:inform("- before -");
+    -- world:erase( it, 1 );
+    -- User:inform("- after -");
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
-    -- e = CLongTimeEffect( 777, 30 );
-    -- User.effects:addEffect( e );
+    e = CLongTimeEffect( 777, 30 );
+    User.effects:addEffect( e );
 
 end
 
@@ -39,12 +39,13 @@ end
 
 function addEffect( e, c )
     c:inform("--- effect added ---");
-    e:addValue("n",4);
+    e:addValue("n",9);
 end
 
 function callEffect( e, c )
     local found, n = e:findValue("n");
     c:inform("--- effect called, n == "..n.." ---");
+    c:inform("idleTime: "..c:idleTime());
     if n>0 then
         e:addValue("n",n-1);
         e.nextCalled = 30;
