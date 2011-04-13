@@ -111,8 +111,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -125,9 +124,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -158,7 +156,6 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Hallo, Hallo.");
 talkEntry:addResponse("Du grüßt mich und ich grüße zurück: Grüße!");
 talkEntry:addResponse("Guten Tag.");
@@ -192,6 +189,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Have a nice day!");
 talkEntry:addResponse("Goodbye, goodbye, come back soon!");
@@ -203,7 +201,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Einen schönen Tag auch.");
 talkEntry:addResponse("Leb wohl, leb wohl, komm bald wieder!");
 talkEntry:addResponse("Auf bald, du freundliches Wesen!");
@@ -224,6 +222,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie befind");
 talkEntry:addResponse("Ich habe Sand ins Auge bekommen - wie würdest du dich fühlen!?");
 talkEntry:addResponse("Gut, gut.");
 talkEntry:addResponse("Ich kann nur sagen, ich hoffe es geht dir so gut wie mir!");
@@ -248,163 +247,6 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin Rutrus und wer bist du?");
 talkEntry:addResponse("Grüße dich, ich bin der Gräber Rutrus.");
 talkEntry:addResponse("Ich bin Rutrus und das in meinen Händen ist meine Schaufel.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not a trader but a digger!");
-talkEntry:addResponse("I do not sell or buy anything, but I may have a quest for you.");
-talkEntry:addResponse("No trading! However, You could get some coins, if you do a task for me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich bin kein Händler sondern ein Gräber!");
-talkEntry:addResponse("Ich kaufe und verkaufe nichts, aber ich habe vielleicht eine Aufgabe für dich.");
-talkEntry:addResponse("Kein Handel! Wie auch immer, du kannst ein paar Münzen bekommen, wenn du einen Auftrag erledigst.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("We have to be very thankful that the shovel allows us to work with it.");
-talkEntry:addResponse("Without shovel; no clay, without clay; no bricks, without bricks; no house! The shovel if the beginning of everything.");
-talkEntry:addResponse("Dig for sand next to rocks. You can find the best sand to make glass there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Wir müssen dankbar sein, dass die Schaufel uns das Arbeiten mit ihr erlaubt.");
-talkEntry:addResponse("Ohne Schaufel kein Lehm, ohne Lehm keine Ziegel, ohne Ziegel kein Haus! Die Schaufel ist der Anfang von Allem.");
-talkEntry:addResponse("Grabe neben Steinen nach Sand. Da findet du den besten Sand zum Glasmachen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Profession");
-talkEntry:addResponse("I'm a digger. I dig. I dig in the sand and anywhere else you can dig.");
-talkEntry:addResponse("My job? I bring sand to glassblowers.");
-talkEntry:addResponse("I steal the sand from the desert.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Beruf");
-talkEntry:addResponse("Ich bin Gräber. Ich grabe. Ich grabe im Sand und wo man sonst noch graben kann.");
-talkEntry:addResponse("Mein Beruf? Ich bringe Glasbläsern Sand.");
-talkEntry:addResponse("Ich stehle der Wüste den Sand.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("oasis");
-talkEntry:addTrigger("desert");
-talkEntry:addResponse("This is the Oasis of Stars - a paradise for diggers.");
-talkEntry:addResponse("The desert is a nice place, aye, but you need to watch out for scorpions.");
-talkEntry:addResponse("Welcome to the desert! If your throat gets try, you can visit the tavern.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("oase");
-talkEntry:addTrigger("wüste");
-talkEntry:addResponse("Dies ist die Sternenoase - ein Paradies für Sandgräber!");
-talkEntry:addResponse("Obgleich unsere Wüste ein schöner Ort ist, sollte man sich vor den Skorpionen hüten.");
-talkEntry:addResponse("Willkommen in der Wüste! Sollte deine Kehle mal zu trocken werden, schau doch in der Taverne vorbei.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Raban");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Raban... I remember this name. It has been a while.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Raban");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Raban... Ich erinnere mich an diesen Namen. Lange ist's her.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ein verwunschener Ort. Traue keinem Elfen, sage ich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("A wicked place! Never trust an elf, I say.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Was soll das für ein Ort sein?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair, what's that?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Die lassen mich meist alleine.");
-talkEntry:addResponse("Manchmal gehe ich nach Cadomyr um meine Schaufel reparieren zu lassen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They leave me alone, usually.");
-talkEntry:addResponse("From time to time, I go to Cadomyr to get my shovel fixed.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tool");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
-talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Werkzeug");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
-talkEntry:addResponse("Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schaufel");
-talkEntry:addResponse("Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("shovel");
-talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +302,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You want to help me? Just bring me ten piles of coarse sand and you'll get fifty copper coins.");
+talkEntry:addResponse("I told you to bring me ten piles of coarse sand! Back to the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +311,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Oh! Du willst mir helfen? Bringe mir zehn Haufen groben Sand und dein Lohn sollen fünfzig Kupferlinge sein.");
+talkEntry:addResponse("Ich sagte, du sollest zehn Haufen groben Sand bringen! Zurück in die Wüste, husch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,24 +389,6 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "mining", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 10));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(67, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(726, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich sagte, du sollest zehn Haufen groben Sand bringen! Zurück in die Wüste, husch!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(726, "all", "<", 10));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I told you to bring me ten piles of coarse sand! Back to the desert!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1070,13 +894,170 @@ talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 8));
 talkEntry:addResponse("Du hast mir genug geholfen, wirklich. Ich habe keine Aufgaben mehr für dich. Aber vielleicht findest du in der Dunkellochmine jemanden, der etwas für dich zu tun hat. Und denk daran: Die Schaufel ist dein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I'm not a trader but a digger!");
+talkEntry:addResponse("I do not sell or buy anything, but I may have a quest for you.");
+talkEntry:addResponse("No trading! However, You could get some coins, if you do a task for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich bin kein Händler sondern ein Gräber!");
+talkEntry:addResponse("Ich kaufe und verkaufe nichts, aber ich habe vielleicht eine Aufgabe für dich.");
+talkEntry:addResponse("Kein Handel! Wie auch immer, du kannst ein paar Münzen bekommen, wenn du einen Auftrag erledigst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("We have to be very thankful that the shovel allows us to work with it.");
+talkEntry:addResponse("Without shovel; no clay, without clay; no bricks, without bricks; no house! The shovel if the beginning of everything.");
+talkEntry:addResponse("Dig for sand next to rocks. You can find the best sand to make glass there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Wir müssen dankbar sein, dass die Schaufel uns das Arbeiten mit ihr erlaubt.");
+talkEntry:addResponse("Ohne Schaufel kein Lehm, ohne Lehm keine Ziegel, ohne Ziegel kein Haus! Die Schaufel ist der Anfang von Allem.");
+talkEntry:addResponse("Grabe neben Steinen nach Sand. Da findet du den besten Sand zum Glasmachen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Profession");
+talkEntry:addResponse("I'm a digger. I dig. I dig in the sand and anywhere else you can dig.");
+talkEntry:addResponse("My job? I bring sand to glassblowers.");
+talkEntry:addResponse("I steal the sand from the desert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Beruf");
+talkEntry:addResponse("Ich bin Gräber. Ich grabe. Ich grabe im Sand und wo man sonst noch graben kann.");
+talkEntry:addResponse("Mein Beruf? Ich bringe Glasbläsern Sand.");
+talkEntry:addResponse("Ich stehle der Wüste den Sand.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("oasis");
+talkEntry:addTrigger("desert");
+talkEntry:addResponse("This is the Oasis of Stars - a paradise for diggers.");
+talkEntry:addResponse("The desert is a nice place, aye, but you need to watch out for scorpions.");
+talkEntry:addResponse("Welcome to the desert! If your throat gets try, you can visit the tavern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("oase");
+talkEntry:addTrigger("wüste");
+talkEntry:addResponse("Dies ist die Sternenoase - ein Paradies für Sandgräber!");
+talkEntry:addResponse("Obgleich unsere Wüste ein schöner Ort ist, sollte man sich vor den Skorpionen hüten.");
+talkEntry:addResponse("Willkommen in der Wüste! Sollte deine Kehle mal zu trocken werden, schau doch in der Taverne vorbei.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Raban... I remember this name. It has been a while.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raban");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Raban... Ich erinnere mich an diesen Namen. Lange ist's her.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Ein verwunschener Ort. Traue keinem Elfen, sage ich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("A wicked place! Never trust an elf, I say.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Was soll das für ein Ort sein?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair, what's that?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addResponse("Die lassen mich meist alleine.");
+talkEntry:addResponse("Manchmal gehe ich nach Cadomyr um meine Schaufel reparieren zu lassen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("They leave me alone, usually.");
+talkEntry:addResponse("From time to time, I go to Cadomyr to get my shovel fixed.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tool");
+talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
+talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Werkzeug");
+talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
+talkEntry:addResponse("Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schaufel");
+talkEntry:addResponse("Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("shovel");
+talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me streicht sich durch das Haar und lässt so einige Sandkörner herumfliegen.", "#me runs a hand through his hair and a few grains of sand fly from it.");
 talkingNPC:addCycleText("#me säubert seine Schaufel.", "#me cleans his shovel. ");
 talkingNPC:addCycleText("Na warte, Wüste. Ich grabe so lange, bis du erledigt bist!", "Just wait, desert. I'll keep on digging 'til you're gone!");
 talkingNPC:addCycleText("#me lässt seinen Blick durch die Gegend wandern, während er sich auf seiner Schaufel abstützt.", "#me leans on his shovel and looks around.");
 talkingNPC:addCycleText("Ein Mann ohne Schaufel ist nur ein halber Mann.", "A man without a shovel is just half a man.");
 talkingNPC:addCycleText("#me murmelt etwas zu seiner Schaufel.", "#me murmurs to his shovel.");
-talkingNPC:addCycleText("#me beginnt, ein Loch im Sand auszuheben.", "#me starts to dig a hole.");
+talkingNPC:addCycleText("Ich sollte beginnen, ein Loch im Sand auszuheben.", "I should start to dig a hole.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
