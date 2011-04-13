@@ -2,7 +2,7 @@ module("server.learn", package.seeall)
 
 -- called by the server when user:learn(...) is issued by a script
 
-function learn( user, skill, group, actionpoints, opponent, leadAttribute )
+function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
 end
 
