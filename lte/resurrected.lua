@@ -140,7 +140,7 @@ end;
 
 function removeEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-    Reborn:inform("removing...");
+    Reborn:inform("Admins do not suffer from resurrection.");
 	  return;
     end
 
@@ -164,7 +164,7 @@ end;
 -- NOTE: function is saved locally in npc_yellowcross.lua; Workaround for Mantis issue #451
 function doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-    Reborn:inform("double...");
+    Reborn:inform("The resurrection effect is already active.");
 	  return false;
     end
 
