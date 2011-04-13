@@ -168,8 +168,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				"You have had enough.");
 			elseif  (foodLevel > 40000) then
 				base.common.TempInformNLS( User,
-				"Du bist satt",
-				"You are stuffed");
+				"Du bist satt.",
+				"You are stuffed.");
 			elseif  (foodLevel > 30000) then
 				base.common.TempInformNLS( User,
 				"Du fühlst dich noch etwas hungrig.",
