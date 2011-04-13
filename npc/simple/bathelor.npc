@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 13, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Bathelor"
@@ -189,7 +189,7 @@ itemShoes = 53
 "god" -> "There are five gods: Brágon, Eldan, Findari, Tanora and Ushara. If you didn't know before, drop dead now."
 "Gott", "Götter" -> "Es gibt fünf Götter: Brágon, Eldan, Findari, Tanora und Ushara. Wenn ihr das nicht wußtet, fallt bitte tot um."
 "Bragon", "Brágon", english -> "Brágon is the heart; whatever we do, we do it because our heart tells us to. Be it good, be it bad, Brágon is in all we do. He is the esteem that makes our life worthy."
-"Bragon", "Brágon" -> "Brágon ist das Herz; was auch immer wir tun, er tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht."
+"Bragon", "Brágon" -> "Brágon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht."
 "Eldan", english -> "Eldan is the mind."
 "Eldan" -> "Eldan ist der Geist."
 "Findari", english -> "Findari is the breath."

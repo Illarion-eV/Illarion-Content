@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 13, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -861,7 +861,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Brágon ist das Herz; was auch immer wir tun, er tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht.");
+talkEntry:addResponse("Brágon ist das Herz; was auch immer wir tun, wir tun es, weil es unser Herz gebietet. Sei es gut, sei es böse, Brágon ist in allem, was wir tun. Er ist Funke, der unser Leben lebenswert macht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
