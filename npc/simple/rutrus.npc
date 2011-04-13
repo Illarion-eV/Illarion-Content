@@ -1,48 +1,48 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Rutrus                                                      None --
--- NPC Job:  none                                                             --
+-- NPC Name: Rutrus                                                   Cadomyr --
+-- NPC Job:  Digger                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  359, 692, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  359, 678, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: April 13, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rutrus"
 race = human
 sex = male
-position = 359, 692, 0
-direction = south
-affiliation = "None"
-job = "none"
+position = 359, 678, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Digger"
 
 language = common
 language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Gräber Rutrus."
+lookatUS = "This NPC is the digger Rutrus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+hairID = 3
+beardID = 4
+colorHair = 192, 107, 5
+colorSkin = 187, 134, 92
 itemHead = 0
-itemChest = 181
-itemCoat = 0
-itemMainHand = 0
+itemChest = 182
+itemCoat = 2419
+itemMainHand = 24
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
+itemHands = 526
+itemTrousers = 367
 itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
@@ -85,8 +85,8 @@ itemShoes = 53
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", english -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
-"Hiho", "Hallo", "Hey", "Greebas", "Greebs", german -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hello, Hello.", "You greet me and I greet back: Greetings!", "Good day.", "Welcome to this sandy area."
+"Hiho", "Hallo", "Hey", "Greeb", german -> "Hallo, Hallo.", "Du grüßt mich und ich grüße zurück: Grüße!", "Guten Tag.", "Willkommen in dieser sandigen Gegend."
 "Farewell", "Good bye", "Bye", "Fare thee well" -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehabt euch wohl" -> "Einen schönen Tag auch.", "Leb wohl, leb wohl, komm bald wieder!", "Auf bald, du freundliches Wesen!"
 "Ciao", "Adieu", "Au revoir", english -> "Have a nice day!", "Goodbye, goodbye, come back soon!", "Farewell, you friendly being!"
