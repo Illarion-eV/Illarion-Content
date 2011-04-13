@@ -176,7 +176,7 @@ itemShoes = 53
 "oasis", "desert" -> "This is the Oasis of Stars - a paradise for diggers.", "The desert is a nice place, aye, but you need to watch out for scorpions.", "Welcome to the desert! If your throat gets try, you can visit the tavern."
 "oase", "wüste" -> "Dies ist die Sternenoase - ein Paradies für Sandgräber!", "Obgleich unsere Wüste ein schöner Ort ist, sollte man sich vor den Skorpionen hüten.", "Willkommen in der Wüste! Sollte deine Kehle mal zu trocken werden, schau doch in der Taverne vorbei."
 "Raban", english -> "Raban... I remember this name. It has been a while."
-"Raban", german -> "Raban... Ich erinnere mich an diesen Namen. Lange ist's her."
+"Raban" -> "Raban... Ich erinnere mich an diesen Namen. Lange ist's her."
 
 -- Factions
 "Runewick", german -> "Ein verwunschener Ort. Traue keinem Elfen, sage ich."
@@ -187,8 +187,8 @@ itemShoes = 53
 "Cadomyr", english -> "They leave me alone, usually.", "From time to time, I go to Cadomyr to get my shovel fixed."
 
 -- Tool hints
-"Tool", queststatus(67) = 0 -> "The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me."
-"Werkzeug", queststatus(67) = 0 -> "Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst."
+"Tool" -> "The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me."
+"Werkzeug" -> "Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst."
 "Schaufel" -> "Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst."
 "shovel" -> "The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me."
 

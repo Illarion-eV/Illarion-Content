@@ -977,7 +977,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raban");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Raban... Ich erinnere mich an diesen Namen. Lange ist's her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1028,14 +1027,12 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tool");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
 talkEntry:addResponse("The shovel is my tool. It may seem like a normal object, but it is powerful in the right hands. I will give you one if you do a little task for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Werkzeug");
-talkEntry:addCondition(npc.base.condition.quest.quest(67, "=", 0));
 talkEntry:addResponse("Mein Werkzeug ist die Schaufel. Sie scheint gewöhnlich, aber in richtigen Händen ist sie mächtig. Ich gebe dir eine, wenn du Aufgaben für mich erledigst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
