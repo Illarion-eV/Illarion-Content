@@ -5,7 +5,7 @@ attribs={"strength","dexterity","constitution","agility","intelligence","percept
 
 function addEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-        Reborn:inform("woopss admin...");
+        Reborn:inform("Please avoid getting killed with an admin character.");
 	  return false;
     end
 
