@@ -48,7 +48,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param )
 	                -- test for seedlings
 	            else
 	                --User:inform( "calling sprouts" );
-	                MakeSprout( User, SourceItem, TargetItem )
+					--Planting trees deactivated. Players should not change the map.
+	                --MakeSprout( User, SourceItem, TargetItem )
 				end
 			end
 		else
