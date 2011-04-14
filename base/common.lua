@@ -291,6 +291,10 @@ end;
 -- @param User The character whos back area is searched
 -- @return The item that was found or nil
 function GetBackItem(User)
+
+        InformNLS(User,
+        "In der FUnktion!",
+        "In the function.");
     local Posi = GetBackPosition(User);
 
     if world:isItemOnField(Posi) then
