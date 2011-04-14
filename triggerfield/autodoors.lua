@@ -4,10 +4,13 @@ require("item.doors")
 
 module("triggerfield.autodoors", package.seeall)
 
+--This script opens a door when the player approaches it
+--Script currently unused. Effect may be used in dungeons/for quests.
+
 function MoveToField(User)
     frontItem=base.common.GetFrontItem(User);
 	if frontItem then
-	    if frontItem.id==708 then
+	    if frontItem.id==708 then --fill in your door ID!
 	        item.doors.UseItem(User,frontItem,nil,nil,nil);
 	    end
 	end
