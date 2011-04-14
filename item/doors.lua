@@ -7,11 +7,11 @@ module("item.doors", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
     if base.doors.CloseDoor(SourceItem) then
-        base.common.InformNLS(User,"Du schließt die Tür","You close the door.");
+        --base.common.InformNLS(User,"Du schließt die Tür","You close the door.");
     else
         local OpenDoor,OpenOK=base.doors.OpenDoor(SourceItem);
         if OpenOK then
-            base.common.InformNLS(User,"Du öffnest die Tür.","You open the door.");
+            --base.common.InformNLS(User,"Du öffnest die Tür.","You open the door.");
         elseif OpenDoor then
             base.common.InformNLS(User,"Du versuchst die Tür zu öffnen, doch sie ist verschlossen.","You try to open the door, but the door is locked.");
         end
