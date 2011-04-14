@@ -264,6 +264,10 @@ end;
 -- @param User The character the back position is wanted
 -- @return The position behind the character
 function GetBackPosition(User)
+
+        InformNLS(User,
+        "Du bist dafür zu erschöpft.",
+        "You are too exhausted for that.");
     local direct = User:get_face_to();
 
     if (direct == CCharacter.north) then
