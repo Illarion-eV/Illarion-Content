@@ -265,10 +265,7 @@ end;
 -- @return The position behind the character
 function GetBackPosition(User)
 
-        InformNLS(User,
-        "Du bist dafür zu erschöpft.",
-        "You are too exhausted for that.");
---[[    local direct = User:get_face_to();
+    local direct = User:get_face_to();
 
     if (direct == CCharacter.north) then
         return position(User.pos.x, User.pos.y + 1, User.pos.z);
@@ -286,7 +283,7 @@ function GetBackPosition(User)
         return position(User.pos.x + 1, User.pos.y, User.pos.z);
     elseif (direct == CCharacter.northwest) then
         return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
-    end;]]
+    end;
 
     return User.pos;
 end;
