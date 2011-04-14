@@ -11,10 +11,11 @@ function MoveToField(User)
 	        item.doors.UseItem(User,frontItem,nil,nil,nil);
 	    end
 	end
-    backItem=base.common.GetBehindItem(User);
+	--Automatic closing looks bad!
+    --[[backItem=base.common.GetBehindItem(User);
 	if backItem then
 	    if backItem.id==712 then
 	        item.doors.UseItem(User,backItem,nil,nil,nil);
         end
-	end
+	end]]
 end
