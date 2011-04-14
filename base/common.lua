@@ -265,6 +265,7 @@ function dingsda(User)
         InformNLS(User,
         "Du bist dafür zu erschöpft.",
         "You are too exhausted for that.");
+		return true;
 end
 --- Get the position right behind a character 
 -- @param User The character the back position is wanted

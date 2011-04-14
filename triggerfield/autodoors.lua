@@ -11,6 +11,7 @@ function MoveToField(User)
 	        item.doors.UseItem(User,frontItem,nil,nil,nil);
 	    end
 	end
+	whatever=base.common.dingsda(User);
 	backPos=base.common.GetBehindPosition(User);
 	backItemID=base.common.GetBehindItemID(User);
     backItem=base.common.GetBehindItem(User);
