@@ -11,5 +11,7 @@ end
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function reduceMC( user )
-
+    if user.id == 64 then
+        user:inform( "Time: " .. world:getTime("unix") );
+    end;
 end
