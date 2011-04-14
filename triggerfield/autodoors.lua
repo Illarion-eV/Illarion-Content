@@ -11,6 +11,8 @@ function MoveToField(User)
 	        item.doors.UseItem(User,frontItem,nil,nil,nil);
 	    end
 	end
+	backPos=base.common.GetBackPosition(User);
+	backItemID=base.common.GetBackItemID(User);
     backItem=base.common.GetBackItem(User);
 	if backItem then
 	    if backItem.id==712 then
