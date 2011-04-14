@@ -260,6 +260,72 @@ function GetFrontCharacter(User)
     end;
 end;
 
+--- Get the position right behind a character 
+-- @param User The character the back position is wanted
+-- @return The position behind the character
+function GetBackPosition(User)
+    local direct = User:get_face_to();
+
+    if (direct == CCharacter.north) then
+        return position(User.pos.x, User.pos.y + 1, User.pos.z);
+    elseif (direct == CCharacter.northeast) then
+        return position(User.pos.x - 1, User.pos.y + 1, User.pos.z);
+    elseif (direct == CCharacter.east) then
+        return position(User.pos.x - 1, User.pos.y, User.pos.z);
+    elseif (direct == CCharacter.southeast) then
+        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+    elseif (direct == CCharacter.south) then
+        return position(User.pos.x, User.pos.y - 1, User.pos.z);
+    elseif (direct == CCharacter.southwest) then
+        return position(User.pos.x + 1, User.pos.y - 1, User.pos.z);
+    elseif (direct == CCharacter.west) then
+        return position(User.pos.x + 1, User.pos.y, User.pos.z);
+    elseif (direct == CCharacter.northwest) then
+        return position(User.pos.x + 1, User.pos.y + 1, User.pos.z);
+    end;
+
+    return User.pos;
+end;
+
+--- Get the item that is behind the character in case there is one
+-- @param User The character whos back area is searched
+-- @return The item that was found or nil
+function GetBackItem(User)
+    local Posi = GetBackPosition(User);
+
+    if world:isItemOnField(Posi) then
+        return world:getItemOnField(Posi);
+    else
+        return nil;
+    end;
+end;
+
+--- Get the ID of the item that is behind the character in case there is one
+-- @param User The character whos back area is searched
+-- @return The ID of the item in front of the character or 0 in case there is none
+function GetBackItemID(User)
+    local theItem = GetBackItem(User);
+
+    if not theItem then
+        return 0;
+    else
+        return theItem.id;
+    end;
+end;
+
+--- Get character who is behind the character in case there is one
+-- @param User The character whos front area is searched
+-- @return The character in front of the parameter character or nil
+function GetBackCharacter(User)
+    local Posi = GetBackPosition(User);
+
+    if world:isCharacterOnField(Posi) then
+        return world:getCharacterOnField(Posi);
+    else
+        return nil;
+    end;
+end;
+
 --- Check if a character is within a area determined with 2 positions. The
 -- rectangle of the area is determined by the grid of the tiles
 -- @param User The character who is checked for being within the area
