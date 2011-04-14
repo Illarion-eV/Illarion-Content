@@ -263,7 +263,7 @@ end;
 --- Get the position right behind a character 
 -- @param User The character the back position is wanted
 -- @return The position behind the character
-function GetBackPosition(User)
+function GetBehindPosition(User)
 
     local direct = User:get_face_to();
 
@@ -291,8 +291,8 @@ end;
 --- Get the item that is behind the character in case there is one
 -- @param User The character whos back area is searched
 -- @return The item that was found or nil
-function GetBackItem(User)
-    local Posi = GetBackPosition(User);
+function GetBehindItem(User)
+    local Posi = GetBehindPosition(User);
 
     if world:isItemOnField(Posi) then
         return world:getItemOnField(Posi);
@@ -304,8 +304,8 @@ end;
 --- Get the ID of the item that is behind the character in case there is one
 -- @param User The character whos back area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
-function GetBackItemID(User)
-    local theItem = GetBackItem(User);
+function GetBehindItemID(User)
+    local theItem = GetBehindItem(User);
 
     if not theItem then
         return 0;
@@ -317,8 +317,8 @@ end;
 --- Get character who is behind the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The character in front of the parameter character or nil
-function GetBackCharacter(User)
-    local Posi = GetBackPosition(User);
+function GetBehindCharacter(User)
+    local Posi = GetBehindPosition(User);
 
     if world:isCharacterOnField(Posi) then
         return world:getCharacterOnField(Posi);
