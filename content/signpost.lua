@@ -104,8 +104,8 @@ function InitWegweiser()
     AddWeg({517,583,0},"Leuchttrum; Wachstützpunkt; Cadomyr","Lighthouse; Sentry Outpost; Cadomyr",4,0);
     AddWeg({887,638,0},"Eastport","Eastport",0,0);
     AddWeg({887,639,0},"Runewick","Runewick",4,0);
-    AddWeg({725,559,0},"To the Cobweb; Cadomyr; Galmair","To the Cobweb; Cadomyr; Galmair",0,0);
-    AddWeg({725,559,0},"To the Cobweb; Cadomyr; Galmair - Achtung! Diebe!","To the Cobweb; Cadomyr; Galmair - Attention! Thieves!",2,0);
+    AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair","The Hemp Necktie Inn; Cadomyr; Galmair",0,0);
+    AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair - Achtung! Diebe!","The Hemp Necktie Inn; Cadomyr; Galmair - Attention! Thieves!",2,0);
     AddWeg({758,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
     AddWeg({755,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
     AddWeg({749,669,0},"Drachenbau! Achtung heiß!","Dragon Lair! Dangerous heat!",0,0);
@@ -128,7 +128,7 @@ function InitWegweiser()
     AddWeg({739,814,0},"Hafen","Harbour",6,0);
     AddWeg({757,813,0},"Vierbeiniger Roter Vogel; Hafen","Quadruped Red Bird; Harbour",6,0);
     AddWeg({762,801,0},"Bauernhöfe","Farmland",2,0);
-    AddWeg({761,800,0},"Belagerungshöhle; Drachenbau; Cadomyr; Galmair; Zum Spinnennetz","Cave of Siege; Dragon Lair; Cadomyr; Galmair; To the Cobweb",0,0);
+    AddWeg({761,800,0},"Belagerungshöhle; Drachenbau; Cadomyr; Galmair; Gasthof zur Hanfschlinge","Cave of Siege; Dragon Lair; Cadomyr; Galmair; The Hemp Necktie Inn",0,0);
     AddWeg({783,798,0},"Erzmagier Elvaine Morgan; Vierbeiniger Roter Vogel; Hafen","Archmage Elvaine Morgan; Quadruped Red Bird; Harbour",6,0);
     AddWeg({783,797,0},"Anthilbach; Heitere Lichtung; Osthafen","Anthil Brook; Merryglade; Eastport",0,0);
     AddWeg({761,813,0},"Erzmagier Elvaine Morgan","Archmage Elvaine Morgan",2,0);
@@ -143,16 +143,16 @@ function InitWegweiser()
 
     --NE/Neutral-map
     AddWeg({680,311,0},"Galmair","Galmair",6,0);
-    AddWeg({685,317,0},"Zum Spinnennetz","To the Cobweb",2,0);
+    AddWeg({685,317,0},"Gasthof zur Hanfschlinge","The Hemp Necktie Inn",2,0);
     AddWeg({676,326,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({682,328,0},"Runewick","Runewick",4,0);
-    AddWeg({723,385,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",6,0);
+    AddWeg({723,385,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",6,0);
     AddWeg({730,391,0},"Runewick","Runewick",4,0);
 	AddWeg({714,488,0},"Cadomyr","Cadomyr",6,0);
-    AddWeg({718,488,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",0,0);
+    AddWeg({718,488,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",0,0);
     AddWeg({717,455,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({729,459,0},"Runewick","Runewick",4,0);
-    AddWeg({729,448,0},"Zum Spinnennetz; Galmair","To the Cobweb; Galmair",0,0);
+    AddWeg({729,448,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",0,0);
 
 
 	-- Noobia --
@@ -338,15 +338,15 @@ function InitWegweiser()
     --Runewick Harbour/Farm
 	AddPicture({756,797,0},"","", 4,5); --Taverne "Quadruped Red Bird"
     --Spider's Mouth
-    AddPicture({711,314,1},"","", 1,5); --Tavern 'To the Cobweb'
-    AddPicture({708,316,1},"","", 7,5); --Tavern 'To the Cobweb'
-    AddPicture({708,316,1},"","", 5,5); --Tavern 'To the Cobweb'
-    AddPicture({700,307,1},"","", 5,5); --Tavern 'To the Cobweb'
-    AddPicture({711,320,1},"","", 4,5); --Tavern 'To the Cobweb'
-    AddPicture({705,326,1},"","", 5,5); --Tavern 'To the Cobweb'
-    AddPicture({700,318,1},"","", 3,5); --Tavern 'To the Cobweb'
-	AddPicture({698,307,0},"","", 5,5); --Tavern 'To the Cobweb'
-	AddPicture({711,324,0},"","", 4,5); --Tavern 'To the Cobweb'
+    AddPicture({711,314,1},"","", 1,5); --The Hemp Necktie Inn
+    AddPicture({708,316,1},"","", 7,5); --The Hemp Necktie Inn
+    AddPicture({708,316,1},"","", 5,5); --The Hemp Necktie Inn
+    AddPicture({700,307,1},"","", 5,5); --The Hemp Necktie Inn
+    AddPicture({711,320,1},"","", 4,5); --The Hemp Necktie Inn
+    AddPicture({705,326,1},"","", 5,5); --The Hemp Necktie Inn
+    AddPicture({700,318,1},"","", 3,5); --The Hemp Necktie Inn
+	AddPicture({698,307,0},"","", 5,5); --The Hemp Necktie Inn
+	AddPicture({711,324,0},"","", 4,5); --The Hemp Necktie Inn
 
     ---------------- STANDARTEN ----------------
 
@@ -773,10 +773,10 @@ function InitWegweiser()
 	--Spider's Mouth
 	AddPillar({733,310,0},"","", 2, 5);
 	AddPillar({733,314,0},"","", 2, 5);
-	AddPillar({696,316,0},"","", 2, 5); --Tavern 'To the Cobweb'
-	AddPillar({696,320,0},"","", 2, 5); --Tavern 'To the Cobweb'
-	AddPillar({698,315,1},"","", 2, 5); --Tavern 'To the Cobweb'
-	AddPillar({698,319,1},"","", 2, 5); --Tavern 'To the Cobweb'
+	AddPillar({696,316,0},"","", 2, 5); --The Hemp Necktie Inn
+	AddPillar({696,320,0},"","", 2, 5); --The Hemp Necktie Inn
+	AddPillar({698,315,1},"","", 2, 5); --The Hemp Necktie Inn
+	AddPillar({698,319,1},"","", 2, 5); --The Hemp Necktie Inn
  	--Tempel of Sirani
     AddPillar({176,759,0},"","", 2,5);
     AddPillar({176,764,0},"","", 2,5);
@@ -835,9 +835,9 @@ function InitWegweiser()
 	--Runewick Harbour/Farm
 	AddChimney({789,789,0},"","", 1, 5);
 	--Spider's Mouth
-    AddChimney({705,311,1},"","", 2, 5); --Tavern 'To the Cobweb'
-    AddChimney({705,323,1},"","", 2, 5); --Tavern 'To the Cobweb'
-    AddChimney({711,320,0},"","", 2, 5); --Tavern 'To the Cobweb'
+    AddChimney({705,311,1},"","", 2, 5); --The Hemp Necktie Inn
+    AddChimney({705,323,1},"","", 2, 5); --The Hemp Necktie Inn
+    AddChimney({711,320,0},"","", 2, 5); --The Hemp Necktie Inn
     
     
     
@@ -857,10 +857,10 @@ function InitWegweiser()
     --Eastland
     AddMirror({914,625,0},"","", 2,5); --Ronagan Temple
     --Spider's Mouth
-	AddMirror({703,319,1},"","", 1,5); --Tavern 'To the Cobweb'
-	AddMirror({708,319,1},"","", 1,5); --Tavern 'To the Cobweb'
-	AddMirror({707,307,1},"","", 1,5); --Tavern 'To the Cobweb'
-	AddMirror({705,309,1},"","", 2,5); --Tavern 'To the Cobweb'
+	AddMirror({703,319,1},"","", 1,5); --The Hemp Necktie Inn
+	AddMirror({708,319,1},"","", 1,5); --The Hemp Necktie Inn
+	AddMirror({707,307,1},"","", 1,5); --The Hemp Necktie Inn
+	AddMirror({705,309,1},"","", 2,5); --The Hemp Necktie Inn
 
 end
 
