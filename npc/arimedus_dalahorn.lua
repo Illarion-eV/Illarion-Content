@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Kadiya                                                           --
 --                                                                            --
--- Last parsing: April 18, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 19, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,8 +45,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Greetings. Can I help you?");
+talkEntry:addResponse("Greetings in the name of Elara. Can I help you?");
 talkEntry:addResponse("Hush! This is a library, not a tavern.");
+talkEntry:addResponse("Please do not adress me informally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -70,9 +71,9 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Greetings in the name of Elara. Can I help you?");
+talkEntry:addResponse("Hush! This is a library, not a tavern.");
+talkEntry:addResponse("Please do not adress me informally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,9 +82,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Elara zum Gruße. Kann ich euch behilflich sein?");
+talkEntry:addResponse("Scht! Dies ist eine Bücherei, keine Taverne.");
+talkEntry:addResponse("Ich möchte euch bitten mich nicht so unformell anzusprechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,17 +224,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("You see, I work on some papers. I write on a elaboration about the meaning of all runes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wie ihr sicher seht, arbeite ich an einigen schriftlichen Ausarbeitungen. Ich arbeite an einer Zusammenfassung der Bedeutung aller Runen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
