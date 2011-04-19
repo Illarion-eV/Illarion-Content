@@ -7,6 +7,7 @@
 require("base.common")
 require("item.general.metal")
 require("base.treasure")
+require("content.gathering")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
@@ -17,13 +18,14 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         foundTreasureAt = {};
     end
 
-    if equapos( position( 99, 40, 0 ), TargetPos ) then
-        User:warp( position( 99, 40, -3 ) );
-        base.common.InformNLS(User,
-        "Du gräbst ein Loch und der Boden bricht unter dir weg und so fällst du in eine Höhle",
-        "You dig a hole and the ground under you collapses and you fall into a cave..." );
-        return
-    end
+	-- old Illarion: graveyard
+    -- if equapos( position( 99, 40, 0 ), TargetPos ) then
+        -- User:warp( position( 99, 40, -3 ) );
+        -- base.common.InformNLS(User,
+        -- "Du gräbst ein Loch und der Boden bricht unter dir weg und so fällst du in eine Höhle",
+        -- "You dig a hole and the ground under you collapses and you fall into a cave..." );
+        -- return
+    -- end
 
     local groundTile = world:getField( TargetPos ):tile();
     local GroundType = base.common.GetGroundType( groundTile );
@@ -52,13 +54,16 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         return
     end
 
-    if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
-                                                base.common.GetNLS( User,
-                                                    "Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
-                                                    "You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ), false ) then
-        return;
+    if (GroundType ~= 5) and
+			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
+			base.common.GetNLS( User,
+				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
+				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),
+			false ) then
+		return;
     end
 
+	-- neither sand nor dirt => find nothing
     if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
         if ( GroundType == 1 ) then
             base.common.InformNLS( User,
@@ -123,6 +128,9 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
         return
     end
 
+	local sanddigging = content.gathering.sanddigging;
+	local claydigging = content.gathering.claydigging;
+	
 	if ( groundTile == 3 ) then
 		if not sanddigging:FindRandomItem(User) then
 			return;
@@ -184,60 +192,9 @@ function checkSuccess( Char, skillValue )
     end
 end
 
-
--- dig out a tree stump
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    if (listofstumps == nil) then
-        listofstumps = {125,309,541,542,584,585,587};
-    end
 
-    local TargetItem = base.common.GetFrontItem( User );
-
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
-        return
-    end
-
-    local stumpOkay = false;
-    for i,stumpID in listofstumps do
-        if (stumpID == TargetItem.id) then
-            stumpOkay = true;
-        end
-    end
-
-    if not stumpOkay then
-        UseShovelWithField( User, SourceItem, TargetItem.pos, ltstate );
-        return
-    end
-
-    if not base.common.FitForWork( User ) then
-        base.common.InformNLS( User, "Du bist zu hungrig um jetzt große Arbeit zu verrichten.", "You are too hungry to do heavy work. " );
-        return
-    end
-
-    if ( SourceItem:getType() ~= 4 ) then
-        base.common.InformNLS( User, "Nimm die Schaufel fest in beide Hände.", "Take the shovel firmly in your hands." );
-        return
-    end
-
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then
-        base.common.TurnTo( User, TargetItem.pos );
-    end
-
-    local skill = User:getSkill( "lumberjacking" )+ User:increaseAttrib( "strength", 0 );
-    if ( skill > math.random( 100 ) ) then
-        world:erase( TargetItem, 1 )
-        if ( math.random(5) == 5 ) then
-            	world:createItemFromId( 152, 1, TargetItem.pos, true, 999 ,0);
-            	base.common.InformNLS(User,
-            	"Unter dem Baumstumpf findest du seltsame Wurzeln.",
-            	"Below the tree stump you find strange roots.");
-        end
-    else
-        base.common.InformNLS( User, "Die Wurzeln sind stark und tief und halten deiner Kraft stand.", "This roots are deep and strong. They resist you strength." );
-    end
-    User:learn( 2, "lumberjacking", 2, 50 )
-    base.common.GetHungry( User, 200 );
+	UseShovelWithField( User, SourceItem, base.common.GetFrontPosition( User ), ltstate );
 end
 
 -- Arbeitszeit generieren

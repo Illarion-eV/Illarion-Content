@@ -76,7 +76,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	end
 	
 	-- Spieler fischt bereits
-	local chance = math.random(10)
+	local chance = math.random(1,10)
 	if(chance <= 3) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 30% für Lachs
 		local notcreated = User:createItem(73, 1, 333, 0);
 		if(notcreated > 0) then
@@ -85,7 +85,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 			return false
 		end
 		User:learn(2, "fishing", 2, 100);
-	elseif(chance <= 8) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60% für Forelle
+	elseif(chance <= 9) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60% für Forelle
 		local notcreated = User:createItem(355, 1, 333, 0);
 		if(notcreated > 0) then
 			world:createItemFromId(355, notcreated, User.pos, true, 333, 0);
@@ -108,7 +108,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
 	
     User:startAction(content.gathering.fishing:GenWorkTime(User, SourceItem), 0, 0, 0, 0);
-
 end
 
 function LookAtItem( User, Item )
