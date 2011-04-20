@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Kadiya                                                           --
 --                                                                            --
--- Last parsing: April 18, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 20, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arimedus Dalahorn"
@@ -56,18 +56,18 @@ itemShoes = 0
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keyphrases: Hello, Runes, Magic, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Arimedus Dalahorn der Bibliothekar. Schlüsselwörter: Hallo, Runen, Magie, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Arimedus Dalahorn the librarian. Keyphrases: Hello, Runes, Magic, Library, Archmage Morgan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Arimedus Dalahorn der Bibliothekar. Schlüsselwörter: Hallo, Runen, Magie, Bibliothek, Erzmagier Morgan.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.","Please do not adress me informally."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.", "Please do not adress me informally."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Elara zum Gruße. Kann ich euch behilflich sein?", "Scht! Dies ist eine Bücherei, keine Taverne.", "Ich möchte euch bitten mich nicht so unformell anzusprechen."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.","Please do not adress me informally."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Greetings in the name of Elara. Can I help you?", "Hush! This is a library, not a tavern.", "Please do not adress me informally."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara zum Gruße. Kann ich euch behilflich sein?", "Scht! Dies ist eine Bücherei, keine Taverne.", "Ich möchte euch bitten mich nicht so unformell anzusprechen."
-"Farewell", "Bye", "Fare well", "See you" -> "May Elara guide your way.","Farewell and best of luck for your further studies."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge euch Elara den Weg weisen.","Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "May Elara guide your way.","Farewell and best of luck for your further studies."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge euch Elara den Weg weisen.","Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
+"Farewell", "Bye", "Fare well", "See you" -> "May Elara guide your way.", "Farewell and best of luck for your further studies."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge euch Elara den Weg weisen.", "Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "May Elara guide your way.", "Farewell and best of luck for your further studies."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge euch Elara den Weg weisen.", "Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
 "How are you", "How feel", "How do you do" -> "I am busy. I studied the runes of magic, so do not distract me too long."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin beschäftigt. Ich erforsche die magischen Runen, also lenkt mich nicht allzu lange ab."
 "your name", "who are you", "who art thou" -> "My name is Arimedus Dalahorn."
@@ -92,14 +92,14 @@ itemShoes = 0
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Interesting" -> "Indeed."
 "rune", english -> "Of which rune would you like to learn the meaning?"
-"magic" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"magic" -> "If you want to learn anything about magic, you first have to learn about runes. I can tell you all I know."
+"library" -> "This library is rather old, not as old as archmage Morgan, though. His wisdom is beyond what is written in these books."
+"book" -> "You can find many books in this library but no book will replace the guidance of a master - who tells you what to read."
 "Interessant" -> "Das ist es in der Tat."
 "Rune" -> "Von welcher Rune möchtet ihr die Bedeutung wissen?"
-"Magie" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Magie" -> "Wer die Magie studieren möchte muss zunächst die Runen studieren. Ich bin bereit, mein Wissen jederzeit zu teilen."
+"Bibliothek" -> "Diese Bibliothek ist schon sehr alt, aber nicht so alt wie Erzmagier Morgan. Seine Weisheit geht über den Inhalt all dieser Bücher weit hinaus."
+"Buch", "Bücher" -> "Man kann viele Bücher in dieser Bibliothek finden, aber kein Buch kann die Ratschläge eines Meisters ersetzen, der einem sagt, was man lesen sollte."
 
 -- Runes
 "HEPT", english -> "HEPT is the rune of ice. It can be used for offensive icespells and icebolts, create and put out iceflames."
@@ -164,26 +164,26 @@ itemShoes = 0
 "Erzmagier" -> "Ich bin Erzmagier Morgan sehr dankbar, dass er es mir ermöglicht hat, meine Studien fortzusetzen nach den... Ereignissen auf Gobaith."
 "Elvaine", "Morgan", english -> "I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith."
 "Elvaine", "Morgan" -> "Ich bin Erzmagier Morgan sehr dankbar, dass er es mir ermöglicht hat, meine Studien fortzusetzen nach den... Ereignissen auf Gobaith."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick", english -> "Runewick became my home, but before that, I had an important position at the magic academy of Gobaith."
+"Runewick" -> "Runewick ist nun meine Heimat, zuvor hatte ich eine wichtige Position bei der magischen Akademie Gobaiths inne."
+"Valerio", "Guilianni", "Don", english -> "I do not care about fat, greedy dwarves, sorry."
+"Valerio", "Guilianni", "Don" -> "Dicke und geizige Zwerge interessieren mich nicht wirklich."
+"Galmair", english -> "It is hopeless to bring books to Galmair. The citizens would most probably burn or eat them."
+"Galmair" -> "Bücher nach Galmair zu bringen ist recht sinnfrei. Die Bürger würden sie entweder verbrennen oder essen."
+"Queen" -> "Her majesty has an impressive charisma, but she lacks education."
+"Königin" -> "Ihre Majestät hat ein beeindruckendes Charisma, aber es mangelt ihr an guter Bildung."
+"rosaline", "edwards", english -> "Her majesty has an impressive charisma, but she lacks education."
+"rosaline", "edwards" -> "Ihre Majestät hat ein beeindruckendes Charisma, aber es mangelt ihr an guter Bildung."
+"Cadomyr", english -> "Cadomyr, Cadomyr... Can't we talk about something more relevant? Like runes?"
+"Cadomyr" -> "Cadomyr, Cadomyr... können wir nicht über etwas wichtiges reden? Runen zum Beispiel?"
 
 -- Main land factions
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"salkama", english -> "I studied in Lor Angur, not Salkamar. But isn't that obvious?"
+"salkama" -> "Ich habe in Lor Angur studiert, nicht in Salkamar. Aber das ist doch klar, oder?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -228,14 +228,14 @@ itemShoes = 0
 "erzähl was", "erzähl etwas" -> "Ich kann euch etwas über die Bedeutung von Runen erzählen, wenn ihr mögt."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Arimedus", "Dalahorn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Arimedus", "Dalahorn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"STFU","WTF","GTFO",english->"That's also quite a powerful rune."
-"STFU","WTF","GTFO"->"Das ist auch eine mächtige Rune."
+"Arimedus", "Dalahorn", english -> "I study the runes of magic. State your business."
+"Arimedus", "Dalahorn" -> "Ich studiere die magischen Runen. Was begehrt ihr?"
+"Yes" -> "YES? I do not know that rune."
+"Ja" -> "JA? Die Rune kenne ich nicht."
+"No" -> "'No' is one of the most powerful, non magical words. Think about that."
+"Nein" -> "'Nein' ist eines der machtvollsten, nichtmagischen Worte. Denkt mal drüber nach."
+"STFU", "WTF", "GTFO", english -> "That's also quite a powerful rune."
+"STFU", "WTF", "GTFO" -> "Das ist auch eine mächtige Rune."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -251,4 +251,4 @@ cycletext "Interessant.", "Interesting."
 cycletext "Es muss noch mehr Runen geben... wenigstens vier.", "There have to be more runes... at least four."
 cycletext "Runen alleine sind noch keine Magie, erst ihre Kombination erweckt Wunder.", "Runes themselves aren't magic. Only their combination can result in miracles."
 cycletext "Shh!", "Hush!"
-cycletext "Willkommen in der Bibliothek.", "ENGLISH."
+cycletext "Willkommen in der Bibliothek.", "Welcome to the library."
