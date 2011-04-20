@@ -234,6 +234,8 @@ itemShoes = 0
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"STFU","WTF","GTFO",english->"That's also quite a powerful rune."
+"STFU","WTF","GTFO"->"Das ist auch eine mächtige Rune."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -242,11 +244,11 @@ itemShoes = 0
 
 cycletext "#me nimmt eine andere Schriftrolle vom Stapel.", "#me takes another scoll from the stack."
 cycletext "#me hebt kurz den Kopf an und blickt über den Rand seiner Brille durch den Raum.", "#me raises his head slightly and looks over the edge of his glassen through the room."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me seufzt.", "#me sighs."
+cycletext "#me macht eine Notiz mit einem Federkiel.", "#me takes a note with a quill."
+cycletext "Ich sollte dies Erzmagier Morgan melden.", "I should report this to archmage Morgan."
+cycletext "Interessant.", "Interesting."
+cycletext "Es muss noch mehr Runen geben... wenigstens vier.", "There have to be more runes... at least four."
+cycletext "Runen alleine sind noch keine Magie, erst ihre Kombination erweckt Wunder.", "Runes themselves aren't magic. Only their combination can result in miracles."
+cycletext "Shh!", "Hush!"
+cycletext "Willkommen in der Bibliothek.", "ENGLISH."
