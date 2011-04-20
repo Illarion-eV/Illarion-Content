@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Kadiya                                                           --
 --                                                                            --
--- Last parsing: April 19, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 20, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -93,9 +93,8 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("May Elara guide your way.");
+talkEntry:addResponse("Farewell and best of luck for your further studies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -104,9 +103,8 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Möge euch Elara den Weg weisen.");
+talkEntry:addResponse("Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,9 +114,8 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("May Elara guide your way.");
+talkEntry:addResponse("Farewell and best of luck for your further studies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,9 +124,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Möge euch Elara den Weg weisen.");
+talkEntry:addResponse("Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -137,9 +133,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am busy. I studied the runes of magic, so do not distract me too long.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,9 +142,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin beschäftigt. Ich erforsche die magischen Runen, also lenkt mich nicht allzu lange ab.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -175,27 +167,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am not here to entertain you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es ist nicht meine Aufgabe, euch zu beschäftigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am not here to entertain you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,9 +189,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es ist nicht meine Aufgabe, euch zu beschäftigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,18 +222,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Erzmagier Morgan sehr dankbar, dass er es mir ermöglicht hat, meine Studien fortzusetzen nach den... Ereignissen auf Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,7 +259,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("YOURTRIGGER3");
+talkEntry:addTrigger("magic");
 talkEntry:addResponse("ENGLISH1.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
@@ -315,7 +295,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
+talkEntry:addTrigger("Magie");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -393,7 +373,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("CUN");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("CUN is the rune of water and a elemental rune. It can be used to put out campfires. ");
+talkEntry:addResponse("CUN is the rune of water and a elemental rune. It can be used to put out campfires.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +399,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("SOLH");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("SOLH is the rune of earth and a elemental rune. It can be used in paralysis, storms and wall creation. ");
+talkEntry:addResponse("SOLH is the rune of earth and a elemental rune. It can be used in paralysis, storms and wall creation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,7 +412,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("FHEN");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("FHEN is the rune of fetching. It can be used to bring small and large objects towards you. Some say it has another use... ");
+talkEntry:addResponse("FHEN is the rune of fetching. It can be used to bring small and large objects towards you. Some say it has another use...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +425,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("KAH");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("KAH is the rune of nourishment and food. It can be used to relieve hunger, both minorly and thoroughly. ");
+talkEntry:addResponse("KAH is the rune of nourishment and food. It can be used to relieve hunger, both minorly and thoroughly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +438,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("LHOR");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("LHOR is the rune of illusion. It can be used to create illusionary objects like fireballs, flames, iceballs, ice flames and such things. ");
+talkEntry:addResponse("LHOR is the rune of illusion. It can be used to create illusionary objects like fireballs, flames, iceballs, ice flames and such things.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,20 +451,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("KEL");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("KEL is the rune of moving. It can be used to cast motion-related spells and has many uses. For instance, fireballs, iceballs, bringing things to you, remedying paralysis and operating doors. ");
+talkEntry:addResponse("KEL is the rune of moving. It can be used to cast motion-related spells and has many uses. For instance, fireballs, iceballs, bringing things to you, remedying paralysis and operating doors.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("KEL");
-talkEntry:addResponse("KEL ist die Rune der Bewegung. Sie kann genutzt werden für bewegungsgebundene Zauber wie zum Beispiel Feuerbälle, Eisbälle und Teleportation");
+talkEntry:addResponse("KEL ist die Rune der Bewegung. Sie kann genutzt werden für bewegungsgebundene Zauber wie zum Beispiel Feuerbälle, Eisbälle und Teleportation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("TAH");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("TAH is the rune of inverse. It can be used to remove things, such as walls, flames, iceflames, portals, poison clouds and illusions. ");
+talkEntry:addResponse("TAH is the rune of inverse. It can be used to remove things, such as walls, flames, iceflames, portals, poison clouds and illusions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,7 +477,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("TAUR");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("TAUR is the rune of creatures. It can be used in summoning and teleportation. ");
+talkEntry:addResponse("TAUR is the rune of creatures. It can be used in summoning and teleportation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,7 +503,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("IRA");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("IRA is the rune of unnaturality. It can be used to summon unnatural creatures and also to create flames, iceflames and poison clouds. ");
+talkEntry:addResponse("IRA is the rune of unnaturality. It can be used to summon unnatural creatures and also to create flames, iceflames and poison clouds.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,13 +516,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("YEG");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("YEG is the rune of poison. It can be used to cast offensive poison spells, create and put out poison clouds, as well as curing poison. ");
+talkEntry:addResponse("YEG is the rune of poison. It can be used to cast offensive poison spells, create and put out poison clouds, as well as curing poison.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("YEG");
-talkEntry:addResponse("YEG ist die Rune des Giftes. Sie wird für offensive Giftsprüche benutzt, um Giftwolken zu erschaffen oder auszulöschen aber auch um Vergiftungen zu heilen");
+talkEntry:addResponse("YEG ist die Rune des Giftes. Sie wird für offensive Giftsprüche benutzt, um Giftwolken zu erschaffen oder auszulöschen aber auch um Vergiftungen zu heilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,14 +535,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("JUS");
-talkEntry:addResponse("JUS ist die Rune des Windes und eine Elementarrune. Sie wird genutzt für defensive und offensive Windsprüche, um Objekte zu bewegen, für die Teleportation und um zu Paralysieren.");
+talkEntry:addResponse("JUS ist die Rune des Windes und eine Elementarrune. Sie wird genutzt für defensive und offensive Windsprüche, um Objekte zu bewegen, für die Teleportation und um zu paralysieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("SIH");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("SIH is the rune of healing. It can be used in strong healing spells and to heal poison. ");
+talkEntry:addResponse("SIH is the rune of healing. It can be used in strong healing spells and to heal poison.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,7 +555,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ANTH");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ANTH is the rune of objects. It can be used to summon flames, iceflames, poison clouds, to operate doors and to bring objects towards you. ");
+talkEntry:addResponse("ANTH is the rune of objects. It can be used to summon flames, iceflames, poison clouds, to operate doors and to bring objects towards you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,7 +568,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("SUL");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("SUL is the rune of standing and slowness. It can be used to paralyse people for a short time. ");
+talkEntry:addResponse("SUL is the rune of standing and slowness. It can be used to paralyse people for a short time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,7 +581,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("QWAN");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("QWAN is the rune of strength. It can be used to step up spells and make them more effective. ");
+talkEntry:addResponse("QWAN is the rune of strength. It can be used to step up spells and make them more effective.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -627,7 +607,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("PHERC");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("PHERC is the rune of harm. It can be used to create lightning and for effective poison people. ");
+talkEntry:addResponse("PHERC is the rune of harm. It can be used to create lightning and for effective poison people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,20 +633,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("LUK");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("LUK is the rune of evil. It is used to summon hostile creatures. ");
+talkEntry:addResponse("LUK is the rune of evil. It is used to summon hostile creatures.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("LUK");
-talkEntry:addResponse("LUK ist die Rune des Böse. Sie kann benutzt werden um aggresive Kreaturen herbeizubeschwören.");
+talkEntry:addResponse("LUK ist die Rune des Böse. Sie kann benutzt werden um aggressive Kreaturen herbeizubeschwören.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("LEV");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("LEV is the rune of change. I know a few people who are able to cast teleport-spells into a scroll with this rune, but I heard that this is very difficult. ");
+talkEntry:addResponse("LEV is the rune of change. I know a few people who are able to cast teleport spells into a scroll with this rune, but I heard that this is very difficult.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +659,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("BHONA");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("BHONA is the rune of teaching. It is used to teach another person runes. Only teachers can get this rune. ");
+talkEntry:addResponse("BHONA is the rune of teaching. It is used to teach another person runes. Only teachers can get this rune.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,17 +684,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Erzmagier Morgan sehr dankbar, dass er es mir ermöglicht hat, meine Studien fortzusetzen nach den... Ereignissen auf Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,18 +698,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin Erzmagier Morgan sehr dankbar, dass er es mir ermöglicht hat, meine Studien fortzusetzen nach den... Ereignissen auf Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
