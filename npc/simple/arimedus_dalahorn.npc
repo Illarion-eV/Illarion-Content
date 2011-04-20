@@ -38,14 +38,14 @@ hairID = 3
 beardID = 0
 colorHair = 192, 107, 5
 colorSkin = 169, 113, 71
-itemHead = 0
-itemChest = 0
-itemCoat = 0
-itemMainHand = 0
+itemHead = 371
+itemChest = 820
+itemCoat = 548
+itemMainHand = 2785
 itemSecondHand = 0
-itemHands = 0
-itemTrousers = 0
-itemShoes = 0
+itemHands = 2295
+itemTrousers = 823
+itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -178,48 +178,22 @@ itemShoes = 0
 "Cadomyr" -> "Cadomyr, Cadomyr... können wir nicht über etwas wichtiges reden? Runen zum Beispiel?"
 
 -- Main land factions
-"albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"albar", english -> "#me awns: 'Albar? That backward country of ignorance? Do you want to bore me?'"
+"albar" -> "#me gähnt: 'Albar? Dieses rückständige Land der Ignoranz? Wollt ihr mich zu Tode langweilen?"
+"gynk", "gync", english -> "Gynk is an important centre of trade and goods. And corruption."
+"gync", "gynk" -> "Gynk ist ein wichtiges Zentrum des Handels und des Kommerz. Und der Korruption."
 "salkama", english -> "I studied in Lor Angur, not Salkamar. But isn't that obvious?"
 "salkama" -> "Ich habe in Lor Angur studiert, nicht in Salkamar. Aber das ist doch klar, oder?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "I am a researcher! Of course I have a strong faith in the gods, as soon as you start investigating on anything in the world, you realise the importance of the gods."
+"Gott", "Götter" -> "Ich bin ein Forscher! Natürlich bin ich streng gläubig. Sobald man ernsthaft die einen umgebende Welt untersucht, stellt man fest, wie groß der Einfluss der Götter ist."
+"Adron", english -> "He's drunk I guess."
+"Adron" -> "Ist der besoffen?"
+"Elara", english -> "Elara is my patron and the patron of Runewick. Her way is my way. And I do it my way!"
+"Elara" -> "Elara ist meine Patronin und die Patronin Runewicks. Ihr Weg ist der meinige. Und ich gehe meinen Weg!"
+"Eldan", english -> "I respect Eldan, but a smart mind alone does not learn by itself. Intensive studies are necessary."
+"Eldan" -> "Ich verehre Eldan, aber ein schlauer Kopf lernt nicht von alleine. Ein intensives Studium ist nötig."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm sorry, but I don't need anything at the moment.", "I'm sorry, but I have nothing to sell."

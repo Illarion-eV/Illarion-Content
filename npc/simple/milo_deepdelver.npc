@@ -23,7 +23,8 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Nanuk"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -33,11 +34,11 @@ wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 0
+colorHair = 255, 255, 255
+colorSkin = 232, 187, 145
 itemHead = 0
-itemChest = 181
+itemChest = 810
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
@@ -190,7 +191,7 @@ itemShoes = 53
 "history" -> "The history of herb lore is very interesting. It dates back to the old seer Nifrindarai from the perished Elven domain of the Raenandor dynasty."
 "Geschichte" -> "Die Geschichte der Kräuterkunde ist sehr interessant. Sie basiert auf die Lehren des alten Sehers Nifrindarai aus den untergegangenen Elfenreichen der Geschlechter der Raenandor."
 "Nifrindarai", english -> "He has found out that all herbs contain two active substances with differnet effects. The success of a formula therefore requires a harmonic combination of the ingredients and their proportions."
-"Nifrindarai", german -> "Er hat herausgefunden, dass alle Kräuter zwei aktive Substanzen mit unterschiedlichen wirkungen beinhalten. Der Erfolg einer Formel bedarf somit einer harmonischen Zusammenstellung der Ingredienzien und deren Mischungsverhältnisse."
+"Nifrindarai", german -> "Er hat herausgefunden, dass alle Kräuter zwei aktive Substanzen mit unterschiedlichen Wirkungen beinhalten. Der Erfolg einer Formel bedarf somit einer harmonischen Zusammenstellung der Ingredienzien und deren Mischungsverhältnisse."
 "Raenandor", english -> "I don't know much about their story as even the name is so old that it is covered in dust."
 "Raenandor", german -> "Ich weiß nicht viel über ihre Geschichte, da selbst der Name schon so alt ist, dass der Staub bei deren Erwähnung aufgewirbelt wird."
 
@@ -275,7 +276,7 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Nun komm schon, Du störrischer alter Esel!", "Come on, you stubborn old mule!"
+cycletext "Nun komm schon, du störrischer alter Esel!", "Come on, you stubborn old mule!"
 cycletext "#me zieht verzweifelt am Halfter des Esels.", "#me desperately pulls at the headcollar of the mule."
 cycletext "#me versucht dem Esel gut zuzureden.", "#me tries to cajole the mule."
 cycletext "Jetzt beweg dich endlich, du Mistviech von einem Esel!", "Now move, you bastard of a mule!"
