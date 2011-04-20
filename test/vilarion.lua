@@ -10,6 +10,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     -- User:inform("- before -");
     -- world:erase( it, 1 );
+    debug( "Testing debug(...)" );
     -- User:inform("- after -");
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
