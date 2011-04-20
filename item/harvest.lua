@@ -1,5 +1,4 @@
--- Harvest various fruits and herbs
--- Nop & Nitram
+-- Harvest various fruits
 require("base.common")
 require("content.gathering")
 
@@ -19,14 +18,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
         raceBonus = { 0, -20, 10, 5, 0, 0 };   -- malus for dwarfs, bonus for halflings and elves
 
-        -- Format of entry: boden, difficulty, product, followup item, aviable in seasons[0..10]{spring,summer,fall,winter}
-        -- Acker: = 1
-        -- Wald:  = 2
-        -- Sand:  = 3
-        -- Wiese: = 4
-        -- Fels:  = 5
-        -- Wasser:= 6
-        -- Dreck: = 7
+        -- Format of entry: ground type, difficulty, product, followup item, available in seasons {spring,summer,fall,winter} (probability [0...10])
+        -- ground types:
+		-- -- all = 0
+		-- -- Acker: = 1
+        -- -- Wald:  = 2
+        -- -- Sand:  = 3
+        -- -- Wiese: = 4
+        -- -- Fels:  = 5
+        -- -- Wasser:= 6
+        -- -- Dreck: = 7
 
         harvestItem[ 14 ] = {                        -- Apfelbaum
         { 0, 0, 15, 11, {5,8,10,0}, 81, 10 } };             -- Alle: Apfel

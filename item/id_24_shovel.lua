@@ -240,8 +240,10 @@ function LocationCheck(TargetPos,DigginType)
         end
         return false;
     else -- Lehm
-        if ((( TargetPos.x > -409 ) and ( TargetPos.x < -257 ) and ( TargetPos.y > -245 ) and ( TargetPos.y < -187 )) or
-        (( TargetPos.x >  114 ) and ( TargetPos.x <  178 ) and ( TargetPos.y > -129 ) and ( TargetPos.y <  -75 ))) then
+		-- old Illarion
+        -- if ((( TargetPos.x > -409 ) and ( TargetPos.x < -257 ) and ( TargetPos.y > -245 ) and ( TargetPos.y < -187 )) or
+        -- (( TargetPos.x >  114 ) and ( TargetPos.x <  178 ) and ( TargetPos.y > -129 ) and ( TargetPos.y <  -75 ))) then
+		if true then
             return true;
         else
             return false;
