@@ -86,6 +86,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		else
 			debug("p1 not inside");
 		end
+	else
+		debug("no text found");
 	end
 	
 	if counter==0 then
