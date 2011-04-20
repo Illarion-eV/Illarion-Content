@@ -8,6 +8,7 @@ require("base.common")
 require("npc.base.patrol");
 require("base.doors")
 require("gm.items.id_382_ceilingtrowel");
+require("base.polygons");
 
 module("test.pharse", package.seeall)
 
@@ -77,6 +78,16 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		end
 		return;
 	end
+	
+	if string.find(User.lastSpokenText, "polygon") then
+		p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,1,0)},{0});
+		if p:pip(position(0,0,0)) then
+			debug("p1 inside");
+		else
+			debug("p1 not inside");
+		end
+	end
+	
 	if counter==0 then
 		local target = getTargetItem(User, SourceItem);
 		if target then

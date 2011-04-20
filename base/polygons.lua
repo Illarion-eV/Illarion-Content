@@ -104,11 +104,3 @@ function Polygon:pip(point)
 	end
 	return (count%2 == 1);
 end
-
-p = Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,1,0)},{0});
-
-if p:pip(position(0,0,0)) then
-	debug("p1 inside");
-else
-	debug("p1 not inside");
-end
