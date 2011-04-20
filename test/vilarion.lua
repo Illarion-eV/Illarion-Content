@@ -8,16 +8,16 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    -- User:inform("- before -");
+    User:inform("- before -");
     -- world:erase( it, 1 );
     debug( "Testing debug(...)" );
-    -- User:inform("- after -");
+    User:inform("- after -");
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
     -- e = CLongTimeEffect( 777, 30 );
     -- User.effects:addEffect( e );
     
-    User:increaseMentalCapacity( 100 );
+    -- User:increaseMentalCapacity( 100 );
 
 end
 
