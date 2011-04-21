@@ -141,15 +141,18 @@ function Polygon:pip(point)
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
+	local intWpoints = 0;
 	for _,curLine in pairs(self.lineList) do
 		if curLine:pointOnLine(point) then
 			return true;
 		end
 		local b,n = testLine:intersectsLine(curLine);
 		if b then
-			-- add (n + 1) to take multiple intersections with points into account
-			count = count + 1 + (n + 1);
+			count = count + 1;
+			intWpoints = intWpoints + n;
 		end
 	end
+	-- add (intWpoints + 1) to take multiple intersections with points into account
+	count = count + intWpoints + 1;
 	return (count%2 == 1);
 end
