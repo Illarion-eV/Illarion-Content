@@ -92,6 +92,8 @@ function Polygon:pip(point)
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
 		return false;
 	end
+	debug("in BB");
+	debug("max: " .. test.pharse.printPosition(self.max));
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
