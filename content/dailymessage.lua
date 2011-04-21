@@ -1,6 +1,6 @@
 module("content.dailymessage", package.seeall);
 
---[[GoodBadDayMessages = {};
+GoodBadDayMessages = {};
 
 function GetMessage( Lang, Attrib, Race, Effect )
     if not GoodBadDayMessages then
@@ -665,4 +665,4 @@ initMessages = nil;
 
 initMessages();
 
-initMessages = nil;]]
+initMessages = nil;
