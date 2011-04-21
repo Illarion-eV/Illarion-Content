@@ -81,23 +81,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	
 	if string.find(User.lastSpokenText, "polygon") then
 		p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,2,0)},{0});
-		if p:pip(position(0,0,0)) then
-			debug("p1 inside");
-		end
-		if p:pip(position(2,1,0)) then
-			debug("p2 inside");
-		end
-		if p:pip(position(2,2,0)) then
-			debug("p3 inside");
-		end
-		if p:pip(position(1,2,0)) then
-			debug("p4 inside");
-		end
-		if p:pip(position(0,1,0)) then
-			debug("p5 inside");
-		end
+		debug("p1: " .. printBool(p:pip(position(0,0,0))));
+		debug("p2: " .. printBool(p:pip(position(2,1,0))));
+		debug("p3: " .. printBool(p:pip(position(2,2,0))));
+		debug("p4: " .. printBool(p:pip(position(1,2,0))));
+		debug("p5: " .. printBool(p:pip(position(0,1,0))));
 	else
-		debug("no text found" .. true);
+		debug("no text found");
 	end
 end
 
@@ -119,4 +109,16 @@ end
 
 function printPosition(pos)
 	return "x=" .. pos.x .. "|y=" .. pos.y .. "|z=" .. pos.z;
+end
+
+function printBool(val)
+	if val==true then
+		return "true";
+	elseif val==nil then
+		return "nil";
+	elseif val==false then
+		return "false";
+	else
+		return "n.d.";
+	end
 end
