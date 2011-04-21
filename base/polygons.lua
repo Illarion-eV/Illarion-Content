@@ -2,7 +2,7 @@
 
 require("base.class");
 
-module("base.polygon",package.seeall);
+module("base.polygons",package.seeall);
 
 --- representation of a line. All positions have z=0.
 -- @param posStruct Start point
@@ -10,9 +10,9 @@ module("base.polygon",package.seeall);
 -- @return LineStruct
 Line = base.class.class(
 	function(obj, startPoint, endPoint)
-		obj.start = position(startPoint.x, startPoint.y, 0);
-		obj.end = position(endPoint.x, endPoint.y, 0);
-	end;
+		obj.startPoint = position(startPoint.x, startPoint.y, 0);
+		obj.endPoint = position(endPoint.x, endPoint.y, 0);
+	end
 );
 
 --- representation of a polygon, requires at least 3 points. All positions have z=0.
@@ -45,7 +45,7 @@ Polygon = base.class.class(
 		else
 			obj.zList = zList;
 		end
-	end;
+	end
 );
 
 --- tests intersection of two lines (actually line segments)
@@ -54,9 +54,9 @@ Polygon = base.class.class(
 -- @return boolean True if the two lines are coincident, i.e. infinite intersection points
 function Line:intersectsLine(otherLine)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
-	local denominator = (otherLine.end.y - otherLine.start.y)*(self.end.x - self.start.x) - (otherLine.end.x - otherLine.start.x)*(self.end.y - self.start.y);
-	local nominator1 = (otherLine.end.x - otherLine.start.x)*(self.start.y - otherLine.start.y) - (otherLine.end.y - otherLine.start.y)*(self.start.x - otherLine.start.x);
-	local nominator2 = (self.end.x - self.start.x)*(self.start.y - otherLine.start.y) - (self.end.y - self.start.y)*(self.start.x - otherLine.start.x);
+	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
+	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
+	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	if denominator == 0 then
 		if nominator1 == 0 and nominator2 == 0 then
 			return true,true;
@@ -79,7 +79,7 @@ end
 function Polygon:pip(point)
 	-- valid z level?
 	local zValid = false;
-	for _,level in pairs self.zList do
+	for _,level in pairs(self.zList) do
 		if (point.z == level) then
 			zValid = true;
 			break;
