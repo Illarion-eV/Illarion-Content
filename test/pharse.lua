@@ -86,6 +86,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		debug("p3: " .. printBool(p:pip(position(2,2,0))));
 		debug("p4: " .. printBool(p:pip(position(1,2,0))));
 		debug("p5: " .. printBool(p:pip(position(0,1,0))));
+		debug("p6: " .. printBool(p:pip(position(1,1,0))));
 	else
 		debug("no text found");
 	end
