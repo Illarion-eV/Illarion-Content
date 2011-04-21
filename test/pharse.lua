@@ -97,7 +97,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			debug("p5 inside");
 		end
 	else
-		debug("no text found");
+		debug("no text found" .. true);
 	end
 end
 
