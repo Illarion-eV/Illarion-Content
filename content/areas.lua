@@ -13,7 +13,7 @@ function Init()
 		{{position(0,0,0),position(1,0,0),position(1,1,0)},{0}},
 		{{position(0,0,0),position(3,0,0),position(3,2,0),position(0,2,0)},{1,2}} } );
 	
-	NOTE: 	The points form a line strip, so each neighbour is connected (and the last and first!).
+	NOTE: 	The points form a line strip, so each neighbour is connected (and the last and first!). Any polygon is allowed.
 			The z-coordinate in the positions does not matter, only the second entry of the tuple is important.
 			Please use a uniform naming format for the areas, especially lower case letters. You may use spaces.
 	]]
