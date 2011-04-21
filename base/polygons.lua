@@ -30,8 +30,8 @@ Polygon = base.class.class(
 		end
 		obj.lineList = {};
 		local s = position(positionList[1].x,positionList[1].y,0);
-		obj.min = s;
-		obj.max = s;
+		obj.min = position(s.x,s.y,s.z);
+		obj.max = position(s.x,s.y,s.z);
 		for i=2,table.getn(positionList) do
 			debug("start: " .. test.pharse.printPosition(s));
 			table.insert(obj.lineList, Line(s, positionList[i]));
