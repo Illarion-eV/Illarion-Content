@@ -81,42 +81,42 @@ end
 -- @return boolean True if point is on Line
 function Line:pointOnLine(point)
 	-- check x coordinate
-	-- debug("1");
+	debug("1");
 	if self.startPoint.x == self.endPoint.x then
 		-- horizontal line
-		-- debug("2");
+		debug("2");
 		if point.x ~= self.startPoint.x then
-			-- debug("3");
+			debug("3");
 			return false;
 		end
 	else
-		-- debug("4");
+		debug("4");
 		local px = (point.x - self.startPoint.x) / (self.endPoint.x - self.startPoint.x);
-		-- debug("px=" .. px);
+		debug("px=" .. px);
 		if not ((0<=px) and (px<=1)) then
-			-- debug("5");
+			debug("5");
 			return false;
 		end
 	end
-	-- debug("6");
+	debug("6");
 	-- check y coordinate
 	if self.startPoint.y == self.endPoint.y then
 		-- vertical line
-		-- debug("7");
+		debug("7");
 		if point.y ~= self.startPoint.y then
-			-- debug("8");
+			debug("8");
 			return false;
 		end
 	else
-		-- debug("9");
+		debug("9");
 		local py = (point.y - self.startPoint.y) / (self.endPoint.y - self.startPoint.y);
-		-- debug("py=" .. py);
+		debug("py=" .. py);
 		if not ((0<=py) and (py<=1)) then
-			-- debug("10");
+			debug("10");
 			return false;
 		end
 	end
-	-- debug("11");
+	debug("11");
 	return (px == py);
 end
 
