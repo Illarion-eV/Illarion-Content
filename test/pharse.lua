@@ -106,3 +106,7 @@ function writeWaypoint(wpFile,posFile,wpPos,wpArea,bridgePos,bridgeArea,bridgeWa
 	wpFile:write(text);
 	posFile:write("position("..wpPos.x ..","..wpPos.y ..","..wpPos.z .."),\n");
 end
+
+function printPosition(pos)
+	return "x=" .. pos.x .. "|y=" .. pos.y .. "|z=" .. pos.z;
+end

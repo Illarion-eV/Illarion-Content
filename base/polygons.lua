@@ -89,7 +89,7 @@ function Polygon:pip(point)
 	if not zValid then
 		return false;
 	end
-	debug("" .. self);
+	debug("min: " .. test.pharse.printPosition(self.min));
 	-- point in bounding box?
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
 		return false;
