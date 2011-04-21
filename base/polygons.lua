@@ -79,7 +79,7 @@ function Line:intersectsLine(otherLine)
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
-		return true,ret2;
+		return true, ret2;
 	end
 	return false, ret2;
 end
@@ -119,7 +119,7 @@ function Line:pointOnLine(point)
 		end
 	end
 	-- if the line is horizontal or vertical, then we're alright here.
-	-- otherwise the fractions px,py have to be equal for the point has to move linearly on the line
+	-- otherwise the fractions px,py have to be equal as the point has to move linearly on the line
 	return (xOkay or yOkay or (px == py));
 end
 
@@ -138,7 +138,7 @@ function Polygon:pip(point)
 	if not zValid then
 		return false;
 	end
-	-- point in bounding box?
+	-- coarse test: point in bounding box?
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
 		return false;
 	end
