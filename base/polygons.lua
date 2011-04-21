@@ -52,18 +52,22 @@ Polygon = base.class.class(
 --- tests intersection of two lines (actually line segments).
 -- @param LineStruct The otherLine for which intersection with current Line is tested
 -- @return boolean True if the two lines intersect
--- @return boolean True if the two lines are coincident, i.e. infinite intersection points
+-- @return int Number of intersections with the start/end points. [0,1,2]
 function Line:intersectsLine(otherLine)
 	-- solve for p1, p2 i.e. the fraction on the two lines from the start point to the intersection point
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
+	local ret2 = 0;
+	if nominator1 == 0 then
+		ret2 = 1;
+	end
+	if nominator2 == 0 then
+		ret2 = ret2 + 1;
+	end
 	if denominator == 0 then
-		if nominator1 == 0 and nominator2 == 0 then
-			return true,true;
-		end
-		return false,false;
+		return false,ret2;
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
@@ -71,9 +75,9 @@ function Line:intersectsLine(otherLine)
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
-		return true,false;
+		return true,ret2;
 	end
-	return false, false;
+	return false, ret2;
 end
 
 --- tests if a point is on a line.
@@ -141,8 +145,10 @@ function Polygon:pip(point)
 		if curLine:pointOnLine(point) then
 			return true;
 		end
-		if testLine:intersectsLine(curLine) then
-			count = count + 1;
+		local b,n = testLine:intersectsLine(curLine);
+		if b then
+			-- add (n + 1) to take multiple intersections with points into account
+			count = count + 1 + (n + 1);
 		end
 	end
 	return (count%2 == 1);
