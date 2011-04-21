@@ -80,7 +80,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	end
 	
 	if string.find(User.lastSpokenText, "polygon") then
-		p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,1,0)},{0});
+		p = base.polygons.Polygon({position(1,1,0), position(0,0,0), position(2,1,0), position(2,2,0)},{0});
 		if p:pip(position(0,0,0)) then
 			debug("p1 inside");
 		else
