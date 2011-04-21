@@ -103,7 +103,7 @@ function Polygon:pip(point)
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
 	for _,curLine in pairs(self.lineList) do
-		if tetLine:intersectsLine(curLine) then
+		if testLine:intersectsLine(curLine) then
 			count = count + 1;
 		end
 	end
