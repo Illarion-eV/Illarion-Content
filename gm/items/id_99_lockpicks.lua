@@ -117,6 +117,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		end
 	else
 		debug("no text found");
+		User:inform("no text found");
 	end
 	if (string.find(User.lastSpokenText,"book")~=nil) then
 		User:sendBook(1); -- testbook
