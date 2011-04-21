@@ -82,6 +82,10 @@ end
 function Line:pointOnLine(point)
 	-- check x coordinate
 	debug("1");
+	local px = -1;
+	local py = -2;
+	local xOkay = false;
+	local yOkay = false;
 	if self.startPoint.x == self.endPoint.x then
 		-- horizontal line
 		debug("2");
@@ -89,9 +93,10 @@ function Line:pointOnLine(point)
 			debug("3");
 			return false;
 		end
+		xOkay = true;
 	else
 		debug("4");
-		local px = (point.x - self.startPoint.x) / (self.endPoint.x - self.startPoint.x);
+		px = (point.x - self.startPoint.x) / (self.endPoint.x - self.startPoint.x);
 		debug("px=" .. px);
 		if not ((0<=px) and (px<=1)) then
 			debug("5");
@@ -107,9 +112,10 @@ function Line:pointOnLine(point)
 			debug("8");
 			return false;
 		end
+		yOkay = true;
 	else
 		debug("9");
-		local py = (point.y - self.startPoint.y) / (self.endPoint.y - self.startPoint.y);
+		py = (point.y - self.startPoint.y) / (self.endPoint.y - self.startPoint.y);
 		debug("py=" .. py);
 		if not ((0<=py) and (py<=1)) then
 			debug("10");
@@ -117,7 +123,9 @@ function Line:pointOnLine(point)
 		end
 	end
 	debug("11");
-	return (px == py);
+	-- if the line is horizontal or vertical, then we're alright here.
+	-- otherwise the fractions px,py have to be equal for the point has to move linearly on the line
+	return (xOkay or yOkay or (px == py));
 end
 
 --- Point-In-Polygon test
