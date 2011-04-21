@@ -270,6 +270,18 @@ function InitWegweiser()
     AddGrave({30,525,0},"","", 1,0);
     AddGrave({60,548,1},"","", 1,0);
     AddGrave({57,555,1},"","", 3,0);
+	--Runewick
+	AddGrave({896,799,0},"","", 3,5); --slums graveyard
+	AddGrave({895,803,0},"","", 3,5); --slums graveyard
+	AddGrave({891,800,0},"","", 3,5); --slums graveyard
+	AddGrave({889,803,0},"","", 3,5); --slums graveyard
+	AddGrave({891,803,0},"","", 1,5); --slums graveyard
+	AddGrave({894,801,0},"","", 1,5); --slums graveyard
+	AddGrave({892,799,0},"","", 1,5); --slums graveyard
+	AddGrave({908,803,-3},"","", 4,5); --tomb
+	AddGrave({908,805,-3},"","", 4,5); --tomb
+	AddGrave({907,803,-3},"","", 4,5); --tomb
+	AddGrave({907,805,-3},"","", 4,5); --tomb
 	--Runewick Hinterland
 	AddGrave({925,940,0},"","", 1,5); --Twin Eyes Islands
 	AddGrave({865,846,0},"","", 2,5); --Woodcutter's Hut
@@ -337,6 +349,66 @@ function InitWegweiser()
     AddPicture({318,359,1},"","", 2,5);
     --Runewick Harbour/Farm
 	AddPicture({756,797,0},"","", 4,5); --Taverne "Quadruped Red Bird"
+    --Runewick - Tower of Air
+    AddPicture({910,833,4},"","", 2,5)
+    AddPicture({910,835,4},"","", 1,5)
+    AddPicture({898,834,4},"","", 2,5)
+    AddPicture({898,836,4},"","", 1,5)
+    AddPicture({897,830,4},"","", 4,5)
+    AddPicture({906,837,3},"","", 2,5) --house of gods
+    AddPicture({906,828,3},"","", 1,5) --house of gods
+    AddPicture({910,832,3},"","", 4,5)
+    AddPicture({897,830,2},"","", 4,5) --student dorm
+    AddPicture({892,828,2},"","", 7,5) --student dorm
+    AddPicture({903,833,2},"","", 5,5)
+    AddPicture({907,830,2},"","", 5,5)
+    AddPicture({904,818,1},"","", 4,5)
+    AddPicture({904,822,1},"","", 4,5)
+    AddPicture({912,831,1},"","", 3,5)
+    AddPicture({917,831,1},"","", 3,5)
+    AddPicture({897,831,1},"","", 4,5)
+    --Runewick - Tower of Earth
+    AddPicture({956,832,0},"","", 4,5) --Adron's barrel
+    AddPicture({956,837,0},"","", 4,5) --Adron's barrel
+    AddPicture({949,819,1},"","", 3,5)
+    AddPicture({950,829,2},"","", 4,5)
+    AddPicture({947,824,2},"","", 3,5)
+    AddPicture({943,824,2},"","", 3,5)
+    AddPicture({950,830,3},"","", 5,5)
+    AddPicture({954,830,3},"","", 5,5)
+    AddPicture({956,834,3},"","", 4,5)
+    AddPicture({956,838,3},"","", 4,5)
+    AddPicture({956,831,4},"","", 2,5)
+    AddPicture({956,833,4},"","", 2,5)
+    AddPicture({956,836,4},"","", 1,5)
+    AddPicture({954,835,4},"","", 3,5)
+    --Runewick - Tower of Fire
+    AddPicture({904,778,1},"","", 4,5) --library
+    AddPicture({909,761,1},"","", 3,5)
+    AddPicture({911,761,1},"","", 3,5)
+    AddPicture({915,761,1},"","", 3,5)
+    AddPicture({917,761,1},"","", 3,5)
+    AddPicture({921,761,1},"","", 3,5)
+    AddPicture({923,761,1},"","", 3,5)
+    AddPicture({896,756,2},"","", 3,5) --archmage's room
+    AddPicture({901,762,2},"","", 4,5) --archmage's room
+    AddPicture({910,770,2},"","", 4,5) --hall of elara
+    AddPicture({910,774,2},"","", 1,5) --hall of elara
+    AddPicture({911,782,2},"","", 1,5) --hall of elara
+    AddPicture({898,766,4},"","", 3,5)
+    AddPicture({901,766,4},"","", 3,5)
+    AddPicture({900,777,4},"","", 3,5)
+    AddPicture({899,777,4},"","", 3,5)
+    --Runewick - Tower of Water
+    AddPicture({949,754,4},"","", 4,5)
+    AddPicture({949,755,4},"","", 4,5)
+    AddPicture({953,765,4},"","", 1,5)
+    AddPicture({953,766,4},"","", 2,5)
+    AddPicture({944,763,4},"","", 3,5)
+    AddPicture({948,753,3},"","", 1,5)
+    AddPicture({948,755,3},"","", 8,5)
+    AddPicture({948,757,3},"","", 2,5)
+    AddPicture({952,764,3},"","", 5,5)
     --Spider's Mouth
     AddPicture({711,314,1},"","", 1,5); --The Hemp Necktie Inn
     AddPicture({708,316,1},"","", 7,5); --The Hemp Necktie Inn
@@ -741,6 +813,8 @@ function InitWegweiser()
 	--Queens Corner
 	AddPillar({301,502,0},"","", 2,5);
 	--Runewick
+	AddPillar({910,793,1},"","", 1,5); --entrance
+	AddPillar({913,796,1},"","", 1,5); --entrance
 	AddPillar({958,788,0},"","", 1,5); --garden
 	AddPillar({759,789,0},"","", 1,5); --garden
 	AddPillar({759,791,0},"","", 1,5); --garden
@@ -762,6 +836,30 @@ function InitWegweiser()
 	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({864,813,0},"","", 1,5); --Entrance
 	AddPillar({864,821,0},"","", 1,5); --Entrance
+    --Runewick - Tower of Air
+	AddPillar({898,832,4},"","", 2, 5);
+	AddPillar({901,824,4},"","", 2, 5);
+	AddPillar({910,827,4},"","", 2, 5);
+    AddPillar({909,826,3},"","", 2, 5);
+    AddPillar({905,824,2},"","", 2, 5); --elara shrine
+    AddPillar({910,828,2},"","", 1, 5); --elara shrine
+    AddPillar({910,830,2},"","", 1, 5); --elara shrine
+    AddPillar({910,827,1},"","", 2, 5);
+    AddPillar({907,824,1},"","", 2, 5);
+    --Runewick - Tower of Earth
+    AddPillar({954,828,1},"","", 2, 5);
+    AddPillar({951,820,1},"","", 2, 5);
+	--Runewick - Tower of Fire
+	AddPillar({902,759,1},"","", 2, 5);
+    AddPillar({900,757,1},"","", 2, 5);
+	AddPillar({911,775,2},"","", 2, 5) --hall of elara
+    --Runewick - Tower of Water
+    AddPillar({750,763,4},"","", 2, 5);
+    AddPillar({954,764,3},"","", 2, 5);
+    AddPillar({949,758,2},"","", 2, 5);
+    AddPillar({953,758,2},"","", 2, 5);
+    AddPillar({945,758,1},"","", 2, 5);
+    AddPillar({943,758,1},"","", 2, 5);
 	--Snakehead Coast
 	AddPillar({598,496,0},"","", 2,5);
 	AddPillar({650,486,0},"","", 1, 5);
@@ -834,7 +932,14 @@ function InitWegweiser()
     AddChimney({311,351,1},"","", 1, 5);
 	--Runewick Harbour/Farm
 	AddChimney({789,789,0},"","", 1, 5);
-	--Spider's Mouth
+    --Runewick - Tower of Air
+    AddChimney({894,828,4},"","", 1, 5);
+    --Runewick - Tower of Earth
+    AddChimney({956,835,0},"","", 2, 5) --Adron's barrel
+    --Runewick - Tower of Fire
+    AddChimney({902,764,1},"","", 2, 5);
+    AddChimney({899,766,4},"","", 1, 5);
+ 	--Spider's Mouth
     AddChimney({705,311,1},"","", 2, 5); --The Hemp Necktie Inn
     AddChimney({705,323,1},"","", 2, 5); --The Hemp Necktie Inn
     AddChimney({711,320,0},"","", 2, 5); --The Hemp Necktie Inn
@@ -856,6 +961,16 @@ function InitWegweiser()
     AddMirror({97,611,1},"","", 1,5); --building
     --Eastland
     AddMirror({914,625,0},"","", 2,5); --Ronagan Temple
+	--Runewick - Tower of Air
+    AddMirror({905,833,4},"","", 1,5);
+	--Runewick - Tower of Earth
+    AddMirror({954,828,4},"","", 1,5);
+	--Runewick - Tower of Fire
+	AddMirror({901,761,2},"","", 2,5) --archmage's room
+	AddMirror({900,768,3},"","", 2,5)
+	AddMirror({902,769,4},"","", 2,5)
+    --Runewick - Tower of Water
+    AddMirror({945,752,4},"","", 1,5);
     --Spider's Mouth
 	AddMirror({703,319,1},"","", 1,5); --The Hemp Necktie Inn
 	AddMirror({708,319,1},"","", 1,5); --The Hemp Necktie Inn
