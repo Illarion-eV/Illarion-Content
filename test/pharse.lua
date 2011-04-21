@@ -80,13 +80,19 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	end
 	
 	if string.find(User.lastSpokenText, "polygon") then
-		p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,2,0)},{0});
-		debug("p1: " .. printBool(p:pip(position(0,0,0))));
-		debug("p2: " .. printBool(p:pip(position(2,1,0))));
-		debug("p3: " .. printBool(p:pip(position(2,2,0))));
-		debug("p4: " .. printBool(p:pip(position(1,2,0))));
-		debug("p5: " .. printBool(p:pip(position(0,1,0))));
-		debug("p6: " .. printBool(p:pip(position(1,1,0))));
+		-- p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,2,0)},{0});
+		-- debug("p1: " .. printBool(p:pip(position(0,0,0))));
+		-- debug("p2: " .. printBool(p:pip(position(2,1,0))));
+		-- debug("p3: " .. printBool(p:pip(position(2,2,0))));
+		-- debug("p4: " .. printBool(p:pip(position(1,2,0))));
+		-- debug("p5: " .. printBool(p:pip(position(0,1,0))));
+		-- debug("p6: " .. printBool(p:pip(position(1,1,0))));
+		l = base.polygons.Line(position(0,0,0), position(2,4,0));
+		debug("l1: " .. printBool(l:pointOnLine(position(0,0,0))));
+		debug("l2: " .. printBool(l:pointOnLine(position(1,2,0))));
+		debug("l3: " .. printBool(l:pointOnLine(position(0,1,0))));
+		debug("l4: " .. printBool(l:pointOnLine(position(2,4,0))));
+		debug("l5: " .. printBool(l:pointOnLine(position(1,1,0))));
 	else
 		debug("no text found");
 	end
