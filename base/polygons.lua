@@ -67,7 +67,7 @@ function Line:intersectsLine(otherLine)
 	local p2 = nominator2 / denominator;
 	-- intersection point is only on both line segments if 0 <= p1,p2 <= 1
 	-- otherwise intersection point is on the line, but not on the segments
-	if (p1-1<=0) and (p2-1<=0) then
+	if (0<p1) and (p1<=1) and (0<p2) and (p2<=1) then
 		return true,false;
 	end
 	return false, false;
