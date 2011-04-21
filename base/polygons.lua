@@ -32,6 +32,7 @@ Polygon = base.class.class(
 		local s = positionList[1];
 		obj.min = position(s.x,s.y,0);
 		obj.max = position(s.x,s.y,0);
+		table.insert(positionList, positionList[1]); -- add first point, so there is an edge between first and last point
 		for i=2,table.getn(positionList) do
 			table.insert(obj.lineList, Line(s, positionList[i]));
 			s = positionList[i];
@@ -57,7 +58,7 @@ function Line:intersectsLine(otherLine)
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
+	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1 == 0 and nominator2 == 0 then
 			return true,true;
@@ -66,7 +67,7 @@ function Line:intersectsLine(otherLine)
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
-	debug("p1=" .. p1 .. "; p2=" .. p2);
+	-- debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 <= p1,p2 <= 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<p1) and (p1<=1) and (0<p2) and (p2<=1) then
