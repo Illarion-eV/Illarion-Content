@@ -57,6 +57,7 @@ function Line:intersectsLine(otherLine)
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
+	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1 == 0 and nominator2 == 0 then
 			return true,true;
@@ -65,6 +66,7 @@ function Line:intersectsLine(otherLine)
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
+	debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 <= p1,p2 <= 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<p1) and (p1<=1) and (0<p2) and (p2<=1) then
@@ -92,8 +94,6 @@ function Polygon:pip(point)
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
 		return false;
 	end
-	debug("in BB");
-	debug("max: " .. test.pharse.printPosition(self.max));
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
