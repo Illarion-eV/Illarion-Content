@@ -49,7 +49,7 @@ Polygon = base.class.class(
 	end
 );
 
---- tests intersection of two lines (actually line segments)
+--- tests intersection of two lines (actually line segments).
 -- @param LineStruct The otherLine for which intersection with current Line is tested
 -- @return boolean True if the two lines intersect
 -- @return boolean True if the two lines are coincident, i.e. infinite intersection points
@@ -58,7 +58,7 @@ function Line:intersectsLine(otherLine)
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
+	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
 		if nominator1 == 0 and nominator2 == 0 then
 			return true,true;
@@ -67,13 +67,44 @@ function Line:intersectsLine(otherLine)
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
-	debug("p1=" .. p1 .. "; p2=" .. p2);
-	-- intersection point is only on both line segments if 0 <= p1,p2 <= 1
+	-- debug("p1=" .. p1 .. "; p2=" .. p2);
+	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
-	if (0<p1) and (p1<=1) and (0<p2) and (p2<=1) then
+	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
 		return true,false;
 	end
 	return false, false;
+end
+
+--- tests if a point is on a line.
+-- @param posStruct The point to be tested.
+-- @return boolean True if point is on Line
+function Line:pointOnLine(point)
+	-- check x coordinate
+	if self.startPoint.x == self.endPoint.x then
+		-- horizontal line
+		if point.x ~= self.startPoint.x then
+			return false;
+		end
+	else
+		local px = (point.x - self.startPoint.x) / (self.endPoint.x - self.startPoint.x);
+		if not ((0<=px) and (px<=1)) then
+			return false;
+		end
+	end
+	-- check y coordinate
+	if self.startPoint.y == self.endPoint.y then
+		-- vertical line
+		if point.y ~= self.startPoint.y then
+			return false;
+		end
+	else
+		local py = (point.y - self.startPoint.y) / (self.endPoint.y - self.startPoint.y);
+		if not ((0<=py) and (py<=1)) then
+			return false;
+		end
+	end
+	return true;
 end
 
 --- Point-In-Polygon test
@@ -99,6 +130,9 @@ function Polygon:pip(point)
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;
 	for _,curLine in pairs(self.lineList) do
+		if curLine:pointOnLine(point) then
+			return true;
+		end
 		if testLine:intersectsLine(curLine) then
 			count = count + 1;
 		end
