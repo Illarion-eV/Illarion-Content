@@ -77,6 +77,7 @@ end
 -- @param posStruct The point to be tested if inside the Polygon
 -- @return boolean True if point is in Polygon
 function Polygon:pip(point)
+	debug("1");
 	-- valid z level?
 	local zValid = false;
 	for _,level in pairs(self.zList) do
@@ -88,12 +89,12 @@ function Polygon:pip(point)
 	if not zValid then
 		return false;
 	end
-	
+	debug("2");
 	-- point in bounding box?
 	if not ( self.min.x <= point.x and self.min.y <= point.y and point.x <= self.max.x and point.y <= self.max.y) then
 		return false;
 	end
-	
+	debug("3");
 	-- create a test line from the point to the right most boundary
 	local testLine = Line(point, position(self.max.x+1, point.y, 0));
 	local count = 0;

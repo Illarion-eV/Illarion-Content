@@ -5,7 +5,6 @@
 require("gm.base.log")
 require("base.common")
 require("item.id_x_tinderbox")
-require("base.polygons");
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
@@ -109,18 +108,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		else
 			User:inform("file not found");
 		end
-	elseif string.find(User.lastSpokenText, "polygon") then
-		p = base.polygons.Polygon({position(0,0,0), position(2,1,0), position(2,2,0), position(1,1,0)},{0});
-		if p:pip(position(0,0,0)) then
-			debug("p1 inside");
-		else
-			debug("p1 not inside");
-		end
-	else
-		debug("no text found");
-		User:inform("no text found");
-	end
-	if (string.find(User.lastSpokenText,"book")~=nil) then
+	elseif (string.find(User.lastSpokenText,"book")~=nil) then
 		User:sendBook(1); -- testbook
 		User:inform("testbook");
 	elseif (string.find(User.lastSpokenText,"animation")~=nil) then
