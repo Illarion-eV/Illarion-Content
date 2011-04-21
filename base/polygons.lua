@@ -58,20 +58,24 @@ function Line:intersectsLine(otherLine)
 	local denominator = (otherLine.endPoint.y - otherLine.startPoint.y)*(self.endPoint.x - self.startPoint.x) - (otherLine.endPoint.x - otherLine.startPoint.x)*(self.endPoint.y - self.startPoint.y);
 	local nominator1 = (otherLine.endPoint.x - otherLine.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (otherLine.endPoint.y - otherLine.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
 	local nominator2 = (self.endPoint.x - self.startPoint.x)*(self.startPoint.y - otherLine.startPoint.y) - (self.endPoint.y - self.startPoint.y)*(self.startPoint.x - otherLine.startPoint.x);
-	debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
-	local ret2 = 0;
-	if nominator1 == 0 then
-		ret2 = 1;
-	end
-	if nominator2 == 0 then
-		ret2 = ret2 + 1;
-	end
+	-- debug("d=" .. denominator .. "; n1=" .. nominator1 .. "; n2=" .. nominator2);
 	if denominator == 0 then
-		return false,ret2;
+		if nominator1==0 and nominator2==0 then
+			return false,2;
+		end
+		return false,0;
 	end
 	local p1 = nominator1 / denominator;
 	local p2 = nominator2 / denominator;
-	debug("p1=" .. p1 .. "; p2=" .. p2);
+	-- count intersections with start (0) or end (1) point
+	local ret2 = 0;
+	if p1==0 or p1==1 then
+		ret2 = 1;
+	end
+	if p2==0 or p2==1 then
+		ret2 = ret2 + 1;
+	end
+	-- debug("p1=" .. p1 .. "; p2=" .. p2);
 	-- intersection point is only on both line segments if 0 < p1,p2 < 1
 	-- otherwise intersection point is on the line, but not on the segments
 	if (0<=p1) and (p1<=1) and (0<=p2) and (p2<=1) then
