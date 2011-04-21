@@ -29,18 +29,14 @@ Polygon = base.class.class(
 			return;
 		end
 		obj.lineList = {};
-		local s = position(positionList[1].x,positionList[1].y,0);
-		obj.min = position(s.x,s.y,s.z);
-		obj.max = position(s.x,s.y,s.z);
+		local s = positionList[1];
+		obj.min = position(s.x,s.y,0);
+		obj.max = position(s.x,s.y,0);
 		for i=2,table.getn(positionList) do
-			debug("start: " .. test.pharse.printPosition(s));
 			table.insert(obj.lineList, Line(s, positionList[i]));
 			s = positionList[i];
-			debug("end: " .. test.pharse.printPosition(s));
-			debug("old min: " .. test.pharse.printPosition(obj.min));
 			obj.min.x = math.min(obj.min.x, s.x);
 			obj.min.y = math.min(obj.min.y, s.y);
-			debug("new min: " .. test.pharse.printPosition(obj.min));
 			obj.max.x = math.max(obj.max.x, s.x);
 			obj.max.y = math.max(obj.max.y, s.y);
 		end;
