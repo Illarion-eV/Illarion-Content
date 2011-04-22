@@ -662,7 +662,3 @@ end;
 initMessages();
 
 initMessages = nil;
-
-initMessages();
-
-initMessages = nil;
