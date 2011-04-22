@@ -13,35 +13,29 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Someone"
+author = "& Rincewind"
 
-lookatDE = "k.a."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Ein in Fällen gekleideter Zwerg, stolz trägt er seinen prächtigen Bart zur Schau."
+lookatUS = "A proud looking dwarf, dressed in fur. His beard is enormous."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 1
-beardID = 2
-colorHair = 123, 62, 9
+hairID = 3
+beardID = 4
+colorHair = 255, 113, 3
 colorSkin = 245, 180, 137
 itemHead = 0
-itemChest = 181
+itemChest = 810
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 23
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemTrousers = 2123
+itemShoes = 697
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
 -- QuestID=81
 
 -- Queststatus Overview
