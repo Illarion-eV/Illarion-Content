@@ -1,19 +1,8 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Saren Eisenfaust                                         Galmair --
--- NPC Job:  skill for stuff                                                  --
---                                                                            --
--- NPC Race: dwarf                      NPC Position:  335, 257, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
---                                                                            --
--- Author:   someone                                                         --
---                                                                            --
--- Last parsing: December 11, 2010                       easyNPC Parser v1.02 --
---------------------------------------------------------------------------------
 
 name = "Saren Eisenfaust"
 race = dwarf
 sex = male
-position = 335, 257, 0
+position = 333, 258, 0
 direction = north
 affiliation = "galmair"
 job = "stuff for skill"
