@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,387,261,0,4,false,'Geven Durius','npc_geven_durius.lua',1);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,335,260,0,6,false,'Geven Durius','npc_geven_durius.lua',1);
 --Location: Galmair workshop
 --Task: Offers big orders for blacksmithing(NOT ALL SMITHABLE ITEMS INCLUDED)
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)

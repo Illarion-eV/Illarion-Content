@@ -1,4 +1,4 @@
--- INSERT INTO npc VALUES (nextval('npc_seq'),0,375,251,0,4,false,'Thoran','npc_thoran.lua',0);
+-- INSERT INTO npc VALUES (nextval('npc_seq'),0,333,263,0,4,false,'Thoran','npc_thoran.lua',0);
 --Location: Galmair
 --Task: Offers big orders for Carpentry(NOT ALL SMITHABLE ITEMS INCLUDED)
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
