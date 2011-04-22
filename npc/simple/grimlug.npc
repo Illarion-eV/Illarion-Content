@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Grimlug"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Rincewind"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatDE = "Dieser NPC ist Grimlug der Schamane."
+lookatUS = "This NPC is Grimlug the shaman."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -48,7 +48,7 @@ itemShoes = 369
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Grimlug the Shaman. Keyphrases: tell something, Olokwa, Creation, gods."), state = 0
+"Help" -> inform("[Game Help] This NPC is Grimlug the Shaman. Keyphrases: tell something, Olokwa, creation, gods."), state = 0
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Grimlug der Schamane. Schlüsselwörter: erzähl was, Olokwa, Schöpfung, Götter."), state = 0
 
 -- General speech
