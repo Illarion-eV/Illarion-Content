@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Valerio Guilianni"
@@ -37,13 +37,13 @@ beardID = 1
 colorHair = 180, 180, 180
 colorSkin = 210, 162, 120
 itemHead = 0
-itemChest = 181
-itemCoat = 0
+itemChest = 2390
+itemCoat = 2384
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemHands = 526
+itemTrousers = 2172
+itemShoes = 697
 
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
