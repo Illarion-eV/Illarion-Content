@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Faladron                                                         --
 --                                                                            --
--- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: April 22, 2011                          easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -811,13 +811,13 @@ mainNPC:setLookat("Aufgrund seines noblen Gebahrens und Auftretens muss dies Don
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 2390);
+mainNPC:setEquipment(11, 2384);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(4, 526);
+mainNPC:setEquipment(9, 2172);
+mainNPC:setEquipment(10, 697);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
