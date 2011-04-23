@@ -82,7 +82,7 @@ function InitWegweiser()
     AddWeg({332,254,0},"Schlackengrube","Scoria Mine",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
     AddWeg({474,251,0},"Galmair","Galmair",6,0);
     AddWeg({474,248,0},"Galmair","Galmair",6,0);
-    AddWeg({499,208,0},"Hafen + Dunkellochmine","Harbour + Dark Hole Mine",0,0);
+    AddWeg({501,212,0},"Hafen + Dunkellochmine","Harbour + Dark Hole Mine",0,0);
     AddWeg({444,123,0},"Hafen","Harbour",0,0);
     AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
@@ -94,6 +94,11 @@ function InitWegweiser()
     AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);
     AddWeg({332,251,-6},"Abwasserschächte","Sewers",4,0);
     AddWeg({330,249,-6},"Schimmersenke","Flicker Swale",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
+    AddWeg({503,213,0},"Gasthof zur Hanfschlinge; Cadomyr; Runewick","The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+    AddWeg({501,218,0},"Galmair","Galmair",4,0);
+    AddWeg({427,247,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+    AddWeg({485,248,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+    AddWeg({397,253,0},"Malachitmine","Malachite Mine",4,0);
 
     --SE/Runewick-map
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);
@@ -153,7 +158,7 @@ function InitWegweiser()
     AddWeg({717,455,0},"Cadomyr","Cadomyr",6,0);
     AddWeg({729,459,0},"Runewick","Runewick",4,0);
     AddWeg({729,448,0},"Gasthof zur Hanfschlinge; Galmair","The Hemp Necktie Inn; Galmair",0,0);
-
+    AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
 
 	-- Noobia --
 
@@ -182,6 +187,27 @@ function InitWegweiser()
 	AddGrave({108,665,-4},"","", 1,0);
 	AddGrave({157,668,-4},"","", 4,0);
 	AddGrave({158,667,-4},"","", 3,0);
+	--Cherass‘ Citadel
+	AddGrave({572,314,0},"","", 2,0);
+	AddGrave({576,314,0},"","", 3,0);
+	AddGrave({569,316,0},"","", 4,0);
+	AddGrave({570,316,0},"","", 4,0);
+	AddGrave({571,316,0},"","", 4,0);
+	AddGrave({572,316,0},"","", 4,0);
+	AddGrave({573,316,0},"","", 4,0);
+	AddGrave({569,318,0},"","", 4,0);
+	AddGrave({570,318,0},"","", 4,0);
+	AddGrave({571,318,0},"","", 4,0);
+	AddGrave({572,318,0},"","", 4,0);
+	AddGrave({573,318,0},"","", 4,0);
+	AddGrave({581,315,0},"","", 1,0);
+	AddGrave({605,327,0},"","", 1,0);
+	AddGrave({605,344,0},"","", 1,0);
+	AddGrave({592,355,0},"","", 3,0);
+	AddGrave({585,323,0},"","", 2,0);
+	AddGrave({588,326,0},"","", 3,0);
+	AddGrave({630,355,0},"","", 1,0); --outside
+	AddGrave({650,347,0},"","", 1,0); --outside
 	--Craven cave
     AddGrave({672,386,2},"","", 4,0);
     AddGrave({671,386,2},"","", 4,0);
@@ -233,6 +259,8 @@ function InitWegweiser()
     AddGrave({537,492,0},"","", 1,0);
     AddGrave({536,496,0},"","", 3,0);
     AddGrave({545,501,0},"","", 3,0);
+    --Glittering Cave
+    AddGrave({564,382,0},"Hier hat es sich ausgefunkelt!","Glittering is over now!", 3,0);
     --Glowing Forest
     AddGrave({503,536,0},"","", 3,0);
     AddGrave({481,513,0},"","", 1,0);
@@ -265,6 +293,11 @@ function InitWegweiser()
     AddGrave({252,722,0},"","", 1,0);
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);
+	--Nagrun's Plain
+    AddGrave({519,207,0},"","", 1,0);
+    AddGrave({538,250,0},"","", 1,0);
+    AddGrave({555,262,0},"","", 4,0);
+    AddGrave({614,259,0},"","", 2,0);
     --Pirate Cove
     AddGrave({12,516,0},"","", 3,0);
     AddGrave({30,525,0},"","", 1,0);
@@ -464,6 +497,9 @@ function InitWegweiser()
     AddPennant({130,530,0},"","", 2,5); --palace
     AddPennant({109,551,0},"","", 1,5); --registration
     AddPennant({104,552,0},"","", 1,5); --registration
+    --Cherass‘ Citadel
+    AddPennant({596,383,2},"","", 7,5); --outpost
+    AddPennant({601,383,2},"","", 7,5); --outpost
     --Craven cave
     AddPennant({674,389,2},"","", 6,5);
 	AddPennant({674,392,2},"","", 6,5);
@@ -695,6 +731,42 @@ function InitWegweiser()
     AddPillar({476,791,0},"","", 1,5);
 	AddPillar({470,793,0},"","", 1,5);
     AddPillar({470,798,0},"","", 1,5);
+    --Cherass‘ Citadel
+    AddPillar({568,314,0},"","", 1,5);
+    AddPillar({568,319,0},"","", 1,5);
+    AddPillar({574,314,0},"","", 1,5);
+    AddPillar({574,319,0},"","", 1,5);
+    AddPillar({587,314,0},"","", 5,5);
+    AddPillar({590,314,0},"","", 5,5);
+    AddPillar({593,314,0},"","", 5,5);
+    AddPillar({596,314,0},"","", 5,5);
+    AddPillar({596,316,0},"","", 1,5);
+    AddPillar({585,318,0},"","", 1,5);
+    AddPillar({568,329,1},"","", 1,5);
+    AddPillar({568,333,1},"","", 1,5);
+    AddPillar({572,329,1},"","", 1,5);
+    AddPillar({572,333,1},"","", 1,5);
+    AddPillar({576,330,1},"","", 1,5);
+    AddPillar({576,332,1},"","", 1,5);
+    AddPillar({579,330,1},"","", 1,5);
+    AddPillar({579,332,1},"","", 1,5);
+    AddPillar({567,325,2},"","", 1,5);
+    AddPillar({567,325,3},"","", 1,5);
+    AddPillar({567,336,2},"","", 1,5);
+    AddPillar({567,336,3},"","", 1,5);
+    AddPillar({580,325,2},"","", 1,5);
+    AddPillar({580,325,3},"","", 1,5);
+    AddPillar({580,336,2},"","", 1,5);
+    AddPillar({580,336,3},"","", 1,5);
+    AddPillar({571,328,2},"","", 7,5);
+    AddPillar({571,333,2},"","", 8,5);
+    AddPillar({576,328,2},"","", 9,5);
+    AddPillar({576,333,2},"","",10,5);
+    AddPillar({589,338,0},"","", 7,5);
+    AddPillar({589,342,0},"","", 8,5);
+    AddPillar({593,342,0},"","",10,5);
+    AddPillar({631,355,0},"","", 1,0); --outside
+    AddPillar({651,347,0},"","", 1,0); --outside
     --Craven cave
 	AddPillar({674,388,2},"","", 1, 5);
 	AddPillar({674,393,2},"","", 1, 5);
@@ -791,9 +863,24 @@ function InitWegweiser()
 	--Mount Zotmore
 	AddPillar({361,495,0},"","", 1,5);
 	AddPillar({357,495,0},"","", 1,5);
+	--Nagrun's Plain
+	AddPillar({522,240,0},"","", 2,5);
+	AddPillar({534,259,0},"","", 6,5);
+	AddPillar({554,262,0},"","", 1,5);
+	AddPillar({556,262,0},"","", 1,5);
+	AddPillar({557,219,0},"","", 2,5);
+	AddPillar({557,226,0},"","", 2,5);
+	AddPillar({604,259,0},"","", 1,5);
+	AddPillar({604,262,0},"","", 1,5);
+	AddPillar({636,270,0},"","", 1,5);
+	AddPillar({636,271,0},"","", 2,5);
+	AddPillar({636,274,0},"","", 2,5);
+	AddPillar({636,275,0},"","", 1,5);
+	AddPillar({483,248,0},"","", 6,5);
+	AddPillar({483,251,0},"","", 6,5);
     --Oldra's Corner
-	AddPillar({645,679,0},"","", 2, 5);
-	AddPillar({645,683,0},"","", 2, 5);
+	AddPillar({645,679,0},"","", 2,5);
+	AddPillar({645,683,0},"","", 2,5);
 	--Pyramide of Chaos
     AddPillar({227,581,0},"","", 1,5);
     AddPillar({237,590,0},"","", 1,5);
@@ -906,6 +993,8 @@ function InitWegweiser()
 	AddPillar({724,580,0},"","", 2,5);
     --Vrondus Farm
 	AddPillar({310,572,0},"","", 2,5);
+	--
+	AddPillar({524,397,0},"","", 3,5);
 
     
     
