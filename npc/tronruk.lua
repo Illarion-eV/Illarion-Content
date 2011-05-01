@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 24, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: May 01, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -16,6 +16,7 @@ VALUES (4, 164, 621, 0, 4, 'Tronruk', 'npc.tronruk', 0, 2, 5, 108, 86, 72, 57, 1
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
@@ -41,29 +42,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("#me nods slighty and closes his eyes again.");
+talkEntry:addResponse("#me nods slightly and closes his eyes again.");
 talkEntry:addResponse("Hurr? Yubbah, Yubbah.");
-talkEntry:addResponse("Grebbha.");
+talkEntry:addResponse("Greebas.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
 talkEntry:addResponse("#me nickt leicht und schließt seine Augen wieder.");
 talkEntry:addResponse("Hurr? Yubbah, Yubbah");
 talkEntry:addResponse("Grebbha.");
@@ -74,13 +71,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebhas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me nods slighty and closes his eyes again.");
+talkEntry:addResponse("#me nods slightly and closes his eyes again.");
 talkEntry:addResponse("Hurr? Yubbah, Yubbah.");
-talkEntry:addResponse("Grebbha.");
+talkEntry:addResponse("Greebas.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,9 +83,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebhas");
-talkEntry:addTrigger("Greebs");
+talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("#me nickt leicht und schließt seine Augen wieder.");
 talkEntry:addResponse("Hurr? Yubbah, Yubbah");
 talkEntry:addResponse("Grebbha.");
@@ -99,10 +92,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
 talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Farebrass.");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Fareebas.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -110,7 +103,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
+talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Farebrass.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -120,9 +113,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Farebrass.");
+talkEntry:addResponse("Fareebas.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -131,7 +123,6 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
 talkEntry:addResponse("Farebrass.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -141,8 +132,8 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("Hurr, meh beh fine.");
-talkEntry:addResponse("Tired as usuall");
-talkEntry:addResponse("#me scratches his ass.");
+talkEntry:addResponse("Tired as usual");
+talkEntry:addResponse("#me scratches his bum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,7 +170,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tronruk");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Yubba, dhat mina nam! *hits his chest and grunts*");
+talkEntry:addResponse("Yubba, dat meh name! *hits his chest and grunts*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,52 +181,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Meh hub nubbing.");
-talkEntry:addResponse("Meh nub selling sombhing.");
-talkEntry:addResponse("Yoo hub to ask broddhas and sisthas ib yoo want buh stuff.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Nubba quest, but storeh meh tell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Mich hub nix");
-talkEntry:addResponse("Mich nix verkaufen.");
-talkEntry:addResponse("Du müssa fragen Bruder und Schwesta wenn du wollen kaufen Sachen.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nix Mission, aber Geschicht mich erzähl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Hurr, hurr!");
-talkEntry:addResponse("Meh nub maneh stories!");
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addResponse("Nubba task, but storeh meh tell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Hurr, hurr!.");
-talkEntry:addResponse("Mich kennen viele Geschichten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("story");
-talkEntry:addTrigger("stories");
-talkEntry:addResponse("Whub old story from old Gobaith yoo want hear? 'The Day of the Hammer' oder 'Day of Green Growl'?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Geschichte");
-talkEntry:addResponse("Welche alt Geschichte von alt Gobaith du wollen hören? 'Der Tag des Hammer' oder 'Tag des Grünen Knurren'?");
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addResponse("Nix Aufgab, aber Geschicht mich erzähl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,8 +248,8 @@ talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hurr, hurr, Meh remember, yubba. *closes his eyes again*");
-talkEntry:addResponse("Dhea beh a clan beh. Berreh mighthe it beh!");
-talkEntry:addResponse("Dhat place beh ruled beh by broddhas and sisthas.");
+talkEntry:addResponse("A clan beh dere. Berreh mighteh it beh!");
+talkEntry:addResponse("Dat place beh ruled by bruddahs and sistahs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,15 +263,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("I am");
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Hurr, hurr!");
-talkEntry:addResponse("Guud to know.");
+talkEntry:addResponse("Good to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ich bin");
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Hurr, hurr!");
 talkEntry:addResponse("Gut zu wissen.");
@@ -309,7 +278,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("why are you sitting");
-talkEntry:addResponse("Dhea beh nubbing to do.");
+talkEntry:addResponse("Dere beh nubbing to do.");
 talkEntry:addResponse("Whub nub?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -317,18 +286,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stumpie");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Berreh stupid dham beh");
-talkEntry:addResponse("Shave dham before yoo cook dham.");
-talkEntry:addResponse("Hurr, meh remember 'The Day of the Hammer'!");
+talkEntry:addResponse("Berreh stoopid dem beh");
+talkEntry:addResponse("Shave dem before yoo cook dem.");
+talkEntry:addResponse("Hurr, meh remember 'Da Day of da Hammer'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dwarf");
 talkEntry:addTrigger("dwarves");
-talkEntry:addResponse("Berreh stupid dham beh");
-talkEntry:addResponse("Shave dham before yoo cook dham.");
-talkEntry:addResponse("Hurr, meh remember 'The Day of the Hammer'!");
+talkEntry:addResponse("Berreh stoopid dem beh");
+talkEntry:addResponse("Shave dem before yoo cook dem.");
+talkEntry:addResponse("Hurr, meh remember 'Da Day of da Hammer'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,8 +306,8 @@ talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elb");
 talkEntry:addTrigger("longear");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Longears hub berreh long ears. Meh nub ona broddha whub collecting dham, but meh nub remember more about him. Onleh broddha hub rank ob 'Red Skull'.");
-talkEntry:addResponse("Cut off dhea trees, ib yoo want fun whib dham!*smirks*");
+talkEntry:addResponse("Longears hub berreh long ears. Dere beh a bruddah whub collecting dem, but meh nub remember more about him. He beh onleh bruddah habs rank ob 'Red Skull'.");
+talkEntry:addResponse("Chop down dere trees, ib yoo want fun whib dem!*smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,42 +315,44 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hubling");
 talkEntry:addTrigger("halfer");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh recommend 'stuffed hubling'.");
-talkEntry:addResponse("Use dham as slave!");
+talkEntry:addResponse("Meh likee 'stuffed hubling'.");
+talkEntry:addResponse("Use dem as slave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("halfing");
-talkEntry:addResponse("Meh recommend 'stuffed hubling'.");
-talkEntry:addResponse("Use dham as slave!");
+talkEntry:addResponse("Meh likey 'stuffed hubling'.");
+talkEntry:addResponse("Use dem as slave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("slave");
-talkEntry:addResponse("Hublings beh berreh guud slaves.");
+talkEntry:addResponse("Hublings beh berreh good slaves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("ommies");
+talkEntry:addTrigger("oomie");
+talkEntry:addTrigger("ommie");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Better nub trust dham!");
-talkEntry:addResponse("Meh nub know maneh ob dham.");
+talkEntry:addResponse("Better nub trust dem!");
+talkEntry:addResponse("Meh nub know maneh ob dem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("human");
-talkEntry:addResponse("Better nub trust dham!");
-talkEntry:addResponse("Meh nub know maneh ob dham.");
+talkEntry:addResponse("Better nub trust dem!");
+talkEntry:addResponse("Meh nub know maneh ob dem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oomie town");
 talkEntry:addTrigger("Ommie town");
-talkEntry:addResponse("Maneh ob dham exist. Too maneh ib yoo ask meh!");
+talkEntry:addResponse("Dere beh maneh ob dem. Too maneh ib yoo ask meh!");
 talkEntry:addResponse("Hurr, Albar, Gynk or Salkama for exampla.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -394,15 +365,28 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("story");
+talkEntry:addTrigger("stories");
+talkEntry:addResponse("Whub old story from old Gobaith yoo want hear? 'Da Day of da Hammer' or 'Day of Green Growl'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Geschichte");
+talkEntry:addResponse("Welche alt Geschichte von alt Gobaith du wollen hören? 'Der Tag des Hammer' oder 'Tag des Grünen Knurren'?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
-talkEntry:addResponse("Dha Faddha makes us strong and powerful!");
+talkEntry:addResponse("Da Faddah make us strong and mighteh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Faddha");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dha Faddha makes us strong and powerful!");
+talkEntry:addResponse("Da Faddah make us strong and mighteh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,10 +444,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("oomies");
 talkEntry:addTrigger("ommies");
 talkEntry:addResponse("Besser nix trauen denen!");
 talkEntry:addResponse("Mich nix kenna viele.");
-talkEntry:addResponse("Dah broddha Jag won ona big tournament in dah big Ommie-town in Gobaith.");
+talkEntry:addResponse("Dah bruddah Jag won a big tournament in dah big Oomie-town in Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +461,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ommie Stadt");
+talkEntry:addTrigger("Oomie Stadt");
+talkEntry:addTrigger("Ommie town");
 talkEntry:addResponse("Viela von dena gibts. Zu viela wenn du fragen mich!");
 talkEntry:addResponse("Hurr, Albar, Gynk oda Salkama zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -502,8 +488,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("orc");
-talkEntry:addResponse("Hurr! Greenskin beh strong and proud! Praeh to dah Faddha!");
-talkEntry:addResponse("Dhat beh dah superior race, yubba!");
+talkEntry:addResponse("Hurr! Greenskin beh strong and proud! Praise beh to dah Faddah!");
+talkEntry:addResponse("Dat beh dah superior race, yubba!");
 talkEntry:addResponse("Meh beh orc! *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -524,7 +510,7 @@ talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Pahh! Wizzard!.");
 talkEntry:addResponse("Meh smash it ib meh see it.");
-talkEntry:addResponse("Betta nub meat dhat mage.");
+talkEntry:addResponse("Betta nub meet dat mage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,8 +528,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh heard it smells dhea.");
-talkEntry:addResponse("Dheh hub big towers, because dham hum short...yoo know whub meh mean *blinks*.");
+talkEntry:addResponse("Meh heard it smells dere.");
+talkEntry:addResponse("Habs big towers dere because dem hub short...yoo know whub meh mean *blinks*.");
 talkEntry:addResponse("Burn it!.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -561,9 +547,9 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Bad Ommie, bad.");
-talkEntry:addResponse("Meh like dhat dhat Ommmie hub so many coins. Mahbeh yoo bring meh dhose?");
-talkEntry:addResponse("Tricky as all oddha Ommie.");
+talkEntry:addResponse("Bad Oomie, bad.");
+talkEntry:addResponse("Dat oomie habs many coins, meh likee dat. Mahbeh yoo bring meh dem?");
+talkEntry:addResponse("Tricky as all oddha oomie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,8 +566,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh nub like dhat dhea beh so maneh Stumpies here.");
-talkEntry:addResponse("Yoo like games, go dhea.");
+talkEntry:addResponse("Meh nub like dat dere beh so maneh stumpies here.");
+talkEntry:addResponse("Yoo like games, go dere.");
 talkEntry:addResponse("#me spits.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -600,9 +586,9 @@ talkEntry:addTrigger("königin");
 talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Honoer dhat Ommie hub!.");
+talkEntry:addResponse("Dat oomie habs honor!.");
 talkEntry:addResponse("It beh nice, yubba?.");
-talkEntry:addResponse("Best Ommie meh hub ebba met.");
+talkEntry:addResponse("Best oomie meh habs ebba met.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,7 +608,7 @@ talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Nub like a cave, but it beh keh.");
 talkEntry:addResponse("Mahbeh weh should start digging bigger hole in mountain.");
-talkEntry:addResponse("Smash dah enemeh ob dhat town.");
+talkEntry:addResponse("Smash dah enemeh ob dat town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -637,8 +623,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Betta ask Ommie about dhat Ommie-town.");
-talkEntry:addResponse("Meh nub interested in dah Ommie-towns.");
+talkEntry:addResponse("Betta ask a oomie about dat oomie-town.");
+talkEntry:addResponse("Meh nub interested in dah oomie-towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,9 +639,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("On of the big empires.");
-talkEntry:addResponse("Who cares about this town?");
-talkEntry:addResponse("Hmm...I don't know if they pray to Bragon.");
+talkEntry:addResponse("One ob da big empires.");
+talkEntry:addResponse("Who cares about dat place?");
+talkEntry:addResponse("Hmm...meh nub know ib dey pray to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,9 +657,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("On of the big empires.");
-talkEntry:addResponse("Who cares about this town?");
-talkEntry:addResponse("Hmm...I don't know if they pray to Bragon.");
+talkEntry:addResponse("One ob da big empires.");
+talkEntry:addResponse("Who cares about dat place?");
+talkEntry:addResponse("Hmm...meh nub know ib dey pray to Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -687,8 +673,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Bragon, Malachin, Zambra and Cherga. But all beh ruled beh dha Faddha!");
-talkEntry:addResponse("Oldra for dha spring, Bragon for dha summer, Malachin for dha autumn, and Cherga for dha winter.");
+talkEntry:addResponse("Bragon, Malachin, Zambra and Cherga. But all beh ruled by da Faddah!");
+talkEntry:addResponse("Oldra for da spring, Bragon for da summer, Malachin for da autumn, and Cherga for da winter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,8 +689,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +705,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh praeh to dhat god in summer.");
+talkEntry:addResponse("Meh pray to dat god in summer.");
 talkEntry:addResponse("Bragon beh god against fear and weakness!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -735,7 +721,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh praeh to dhat god in winter.");
+talkEntry:addResponse("Meh pray to dat god in winter.");
 talkEntry:addResponse("Cherga beh dah 'icy witch'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -750,8 +736,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,8 +751,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,8 +766,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +781,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
 talkEntry:addResponse("#me scratches his ass and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -811,7 +797,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh praeh to dhat god in autumn.");
+talkEntry:addResponse("Meh pray to dat god in autumn.");
 talkEntry:addResponse("Malachin beh god of hunting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -827,9 +813,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Beh our Faddha who makes us strong.");
-talkEntry:addResponse("Better use Faddha for him!");
-talkEntry:addResponse("Dha Faddha rules dha World!");
+talkEntry:addResponse("Beh our Faddah whub make us strong.");
+talkEntry:addResponse("Better call him Faddah!");
+talkEntry:addResponse("Da Faddah rules da World!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -846,8 +832,8 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,8 +849,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh praeh to dhat god in spring.");
-talkEntry:addResponse("Oldra beh dah live bringer");
+talkEntry:addResponse("Meh pray to dat god in spring.");
+talkEntry:addResponse("Oldra beh dah life bringer");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,8 +864,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,8 +879,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,8 +895,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -925,8 +911,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Daht god beh weak compared to dha Faddha.");
-talkEntry:addResponse("#me scratches his ass and shakes his head.");
+talkEntry:addResponse("Dat god beh weak compared to da Faddah.");
+talkEntry:addResponse("#me scratches his bum and shakes his head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -940,7 +926,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Zhambra beh dha 'broddha-godness'.");
+talkEntry:addResponse("Zhambra beh da god ob bruddah-hood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -951,8 +937,45 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Meh habs nubbin.");
+talkEntry:addResponse("Meh nub sell nubbin.");
+talkEntry:addResponse("Yoo habs to ask bruddahs and sistahs ib yoo wanna buy stuff.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Mich hub nix");
+talkEntry:addResponse("Mich nix verkaufen.");
+talkEntry:addResponse("Du müssa fragen Bruder und Schwesta wenn du wollen kaufen Sachen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Hurr, hurr!");
+talkEntry:addResponse("Meh habs maneh stories!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Hurr, hurr!.");
+talkEntry:addResponse("Mich kennen viele Geschichten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hammer");
-talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want meh tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -965,19 +988,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 1));
-talkEntry:addResponse("Meh tell dha story as dha Warlord once did. *His voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!");
+talkEntry:addResponse("Meh tell da story as da Warlord once did. *His voice deepens and becomes hoarse* Bruddahs and sistahs, be proud! Today, da might ob da clan be known!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -994,7 +1015,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Meh tell dha story as dha Warlord once did. *his voice becomes deeper and horasely* Brothers and sisters, rejoice! Today, history was written!");
+talkEntry:addResponse("Meh tell da story as da Warlord once did. *his voice deepens and becomes hoarse* Bruddahs and sistahs, rejoice! Today, da might ob da clan be known!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1005,24 +1026,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 1));
 talkEntry:addResponse("Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(1, "=", 1));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 1));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1050,19 +1053,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("When the Warlord was about to enter the human city Trolls Bane after the meeting with the chief, he ran into the dwarven army, led by the queen herself!");
+talkEntry:addResponse("When da Warlord wubs going into da human city ob Trolls Bane after a meeting wib da chief, he met da army ob da dwarves led by da stumpie queen herself!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1079,7 +1080,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("When the Warlord was about to enter the human city after the meeting with the chief, he ran into the dwarven army, led by the queen herself!");
+talkEntry:addResponse("When da Warlord wubs going into da human city ob Trolls Bane after a meeting wib da chief, he met da army ob da dwarves led by da stumpie queen herself!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1094,24 +1095,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1135,19 +1118,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 3));
-talkEntry:addResponse("They thought that I, the Warlord, is an easy target for them!");
+talkEntry:addResponse("Dem stumpies wubs tinking dat da Warlord, wubs easy for dem ta beat!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1164,7 +1145,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("They thought that I, the Warlord, is an easy target for them!");
+talkEntry:addResponse("Dem stumpies wubs tinking dat da Warlord, wubs easy for dem ta beat!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1179,24 +1160,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 3));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 3));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1220,19 +1183,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 4));
-talkEntry:addResponse("I stood my ground to their insults and when they were just about to attack, Taliss, our allied lizard friend, appeared from the back and stood by my side!");
+talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1249,7 +1210,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I stood my ground to their insults and when they were just about to attack, Taliss, our allied lizard friend, appeared from the back and stood by my side!");
+talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1264,24 +1225,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 4));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 4));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1305,19 +1248,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 5));
-talkEntry:addResponse("Toghether we fought like bothers, slashing trough dwarves like a hot knife trough butter!");
+talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1334,7 +1275,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Toghether we fought like bothers, slashing trough dwarves like a hot knife trough butter!");
+talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1349,24 +1290,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 5));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 5));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1390,19 +1313,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 6));
-talkEntry:addResponse("The queen herself started running arround like a scared pig sent to slaughter.");
+talkEntry:addResponse("Da stumpie queen herself wubs filled wib fear ob da Faddah and ob da Warlord..");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1419,7 +1340,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The queen herself started running arround like a scared pig sent to slaughter and even though the dwarves used fierly, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!");
+talkEntry:addResponse("Da stumpie queen herself wubs filled wib fear ob da Faddah and ob da Warlord.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1434,24 +1355,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 6));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 6));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1475,19 +1378,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 7));
-talkEntry:addResponse("And even though the dwarves used fierily, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!");
+talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1504,7 +1405,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("And even though the dwarves used fierly, magic weapons that nearly sent me to the grave, they soon fell and drowned into their own pool of blood!");
+talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1519,24 +1420,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 7));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 7));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1560,19 +1443,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 8));
-talkEntry:addResponse("The queen dragged herself to the cross, where, me, Taliss and the human Tirrend, tied the queen up and dragged her all the way to the cave, shoving her into the jail! *He grins mischievous.*");
+talkEntry:addResponse("Da stumpie queen was sent to da cross dat day and da Warlord, Taliss and da human Tirrend captured da queen, bound her and dragged her all da way back to da cave where dey shoved her into da jail! *He grins mischievously.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1589,7 +1470,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The queen dragged herself to the cross, where, me, Taliss and the human Tirrend, tied the queen up and dragged her all the way to the cave, shoving her into the jail! *He grins mischievous.*");
+talkEntry:addResponse(" Da stumpie queen was sent to da cross dat day and da Warlord, Taliss and da human Tirrend captured da queen, bound her and dragged her all da way back to da cave where dey shoved her into da jail! *He grins mischievously.[/ .*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1604,24 +1485,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 8));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 8));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1645,19 +1508,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
-talkEntry:addResponse("Brothers, rejoice! We have captured the queen! Now she will face the trial of the orcs, she will face our anger!...Yubba, it happened. Dham throw her from dah holy mountain!");
+talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!?...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from da holy mountain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1674,7 +1535,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Brothers, rejoice! We have captured the queen! Now she will face the trial of the orcs, she will face our anger!...Yubba, it happened. Dham throw her from dah holy mountain!");
+talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!?...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from dah holy mountain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1685,24 +1546,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
 talkEntry:addResponse("Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1730,19 +1573,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
-talkEntry:addResponse("Let this be known as the Day of the Hammer! The day when the dwarf army got crushed under the feet of those that fought for honor! *He closes the eyes after he has finished.*");
+talkEntry:addResponse("Let dis be known as da Day ob da Hammer! Da day when da stumpie army got crushed under da feet ob dem dat fought for honor! *He closes his eyes as he finishes.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1759,7 +1600,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Let this be known as the Day of the Hammer! , the day when the dwarf army got crushed under the feet of those that fought for honor! *He closes the eyes after he has finished.*");
+talkEntry:addResponse("Let dis be known as da Day ob da Hammer! , da day when da stumpie army got crushed under da feet ob dem dat fought for honor! *He closes his eyes as he finishes.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1769,24 +1610,6 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
 talkEntry:addResponse("Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1816,7 +1639,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Growl");
-talkEntry:addResponse("Meh tell dha story as dha Chief once did. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub! *His voice becomes deeper and horasely* Bruddahs and sistahs!");
+talkEntry:addResponse("Me tell da story as da Chief once did. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub! *His voice deepens and becomes hoarse* Bruddahs and sistahs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1829,19 +1652,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 11));
-talkEntry:addResponse("Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
+talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1858,7 +1679,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Once again da Orcs hab shown deir superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
+talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1873,25 +1694,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 11));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 11));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -1915,7 +1717,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
@@ -1927,7 +1728,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -1959,24 +1759,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 12));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2000,19 +1782,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
-talkEntry:addResponse("Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!");
+talkEntry:addResponse("Due to our deep faith in da Faddah we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2029,7 +1809,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Due to our deep faith in da Father we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!");
+talkEntry:addResponse("Due to our deep faith in da Faddah we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2044,24 +1824,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2085,19 +1847,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
-talkEntry:addResponse("Hurr, meh remember dhat storeh hub two parts. Dha 'Tournament' and dha 'Aftermath'. Whub ona yoo want hear?");
+talkEntry:addResponse("Hurr, meh remember dat storeh habs two parts. Da 'Tournament' and da 'Aftermath'. Whub one yoo want hear?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2114,7 +1874,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr, meh remember dhat storeh hub two parts. Dha 'Tournament' and dha 'Aftermath'. Whub ona yoo want hear?");
+talkEntry:addResponse("Hurr, meh remember dat storeh habs two parts. Da 'Tournament' and da 'Aftermath'. Whub ona yoo want hear?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2125,24 +1885,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
 talkEntry:addResponse("Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2171,7 +1913,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tournament");
-talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo wants me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2186,7 +1928,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tournament");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
-talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2201,7 +1943,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aftermath");
-talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2216,7 +1958,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aftermath");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
-talkEntry:addResponse("Hurrkeh, meh tell yoo dha storeh about dhat day. Say 'yubba' or 'more' ib meh shall tell more and 'stop' ib yoo hub heard enub!");
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2230,19 +1972,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
-talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one orcs quite soon!");
+talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one ob da orcs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2258,7 +1998,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
-talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one orcs quite soon!");
+talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one ob da orcs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2273,24 +2013,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2314,26 +2036,24 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
-talkEntry:addResponse("In a great battle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
+talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
-talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde  machte Horde böse!");
+talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2343,7 +2063,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In a great battle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
+talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2352,26 +2072,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
-talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde  machte Horde böse!");
+talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2399,19 +2101,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
-talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da most difficult ting wus nub to kill da halfer wit heavy blow since it wus gauinst da rules.");
+talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2428,7 +2128,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da most difficult ting wus nub to kill da halfer wit heavy blow since it wus gauinst da rules.");
+talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2439,24 +2139,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
 talkEntry:addResponse("In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2484,19 +2166,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 24));
-talkEntry:addResponse("Second rounds. In second round bruddah Jag fought gainst a brave oomie and won in gud fight! Da Chief had to fight da oomie Don Andrews. Usually an easy task, though, on dis day da Father decided to test da faith ob Orcs.");
+talkEntry:addResponse("In second round bruddah Jag fought against a brave oomie and won in good fight! Da Chief had to fight da oomie Don Andrews. Dis usually easy but on dis day da Faddah decided to test da faith ob Orcs.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2513,7 +2193,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 24));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Second rounds. In second round bruddah Jag fought gainst a brave oomie and won in gud fight! Da Chief had to fight da oomie Don Andrews. Usually an easy task, though, on dis day da Father decided to test da faith ob Orcs.");
+talkEntry:addResponse("In second round bruddah Jag fought against a brave oomie and won in good fight! Da Chief had to fight da oomie Don Andrews. Dis usually easy but on dis day da Father decided to test da faith ob Orcs.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2528,24 +2208,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 24));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 24));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2569,19 +2231,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 25));
-talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled a bit and almost fell into the water.");
+talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled and almost fell into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2598,7 +2258,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 25));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled a bit and almost fell into the water.");
+talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled and almost fell into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2613,24 +2273,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 25));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 25));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2654,19 +2296,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 26));
-talkEntry:addResponse("By having lost his stance the Chief got more hard blows and finally lost the fight against Don. Orcs wus shocked and seeked for bloody revenge.");
+talkEntry:addResponse("Aftah he lost his stance da Chief got more hard blows and finally lost da fight against Don. Orcs wus shocked and dey wanted bloody revenge.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2683,7 +2323,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 26));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("By having lost his stance the Chief got more hard blows and finally lost the fight against Don. Orcs wus shocked and seeked for bloody revenge.");
+talkEntry:addResponse("Aftah he lost his stance da Chief got more hard blows and finally lost da fight against Don. Orcs wus shocked and dey wanted bloody revenge.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2698,24 +2338,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 26));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 26));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2739,19 +2361,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 27));
-talkEntry:addResponse("Final rounds. The Chief had to fight against a oomie warrior. Due to his anger it wus quick and blood fight. The Chief made the third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
+talkEntry:addResponse("In da final round da Chief had to fight against a oomie warrior. Due to his anger it was a quick and bloody fight. Da Chief made da third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2768,7 +2388,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 27));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Final rounds. The Chief had to fight against a oomie warrior. Due to his anger it wus quick and blood fight. The Chief made the third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
+talkEntry:addResponse("In da final round da Chief had to fight against a oomie warrior. Due to his anger it was a quick and bloody fight. Da Chief made da third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2783,24 +2403,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 27));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 27));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2824,19 +2426,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 28));
-talkEntry:addResponse("In a long fight they slashed for each other with such strength and speed dat one hardly could see deir weapons. Ib one ob deir blows whub hab missed and hit da wooden arena ground, dey certainly whub hab fell into water.");
+talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2853,7 +2453,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 28));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In a long fight they slashed for each other with such strength and speed dat one hardly could see deir weapons. Ib one ob deir blows whub hab missed and hit da wooden arena ground, dey certainly whub hab fell into water.");
+talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2868,24 +2468,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 28));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 28));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2909,19 +2491,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 29));
-talkEntry:addResponse("When it seemed dat Jag whub loose, da Orcs at da tribune shouted louder, growled and grunted from the side of the Arena. Jag heard that, felt the spirit ob da Father and did two sudden blows with his maces - Don was done!");
+talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -2938,7 +2518,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("When it seemed dat Jag whub loose, da Orcs at da tribune shouted louder, growled and grunted from the side of the Arena. Jag heard that, felt the spirit ob da Father and did two sudden blows with his maces - Don was done!");
+talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -2953,24 +2533,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 29));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 29));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -2994,19 +2556,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
-talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear dah rest ob dha gloreh day nuw?");
+talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3023,7 +2583,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear dah rest ob dha gloreh day nuw?");
+talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3034,24 +2594,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3079,19 +2621,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
-talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wunted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
+talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3108,7 +2648,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wunted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
+talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3119,24 +2659,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
 talkEntry:addResponse("Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3164,7 +2686,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
@@ -3176,7 +2697,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3208,24 +2728,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 32));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 32));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -3249,19 +2751,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
-talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wunted make him go and also smashed da Chief wit help ob a mage.");
+talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wanted tomake him go and also smashed da Chief wit da help ob a mage.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3278,7 +2778,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wunted make him go and also smashed da Chief wit help ob a mage.");
+talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wanted to make him go and also smashed da Chief wit da help ob a mage.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3289,24 +2789,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
 talkEntry:addResponse("Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3334,19 +2816,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
-talkEntry:addResponse("Habing dat in da mind ob da smart Chief, he called for all his brother and sisters available. Da Horde surrounded da oomie Gerron and blocked da gate.");
+talkEntry:addResponse("Wif dat in da mind ob da smart Chief, he called for all his bruddahs and sistahs. Da horde surrounded da oomie Gerron and blocked da gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3363,7 +2843,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Habing dat in da mind ob da smart Chief, he called for all his brother and sisters available. Da Horde surrounded da oomie Gerrun and blocked da gate.");
+talkEntry:addResponse("Wif dat in da mind ob da smart Chief, he called for all his bruddahs and sistahs. Da horde surrounded da oomie Gerron and blocked da gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3374,24 +2854,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
 talkEntry:addResponse("Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3419,7 +2881,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
@@ -3431,7 +2892,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3463,24 +2923,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 35));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 35));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -3504,19 +2946,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 36));
-talkEntry:addResponse("Coward Gerron began to flee after few slashes, but da Horde chased him, blocked the way many times. Then a lizurd intervened and helped da oomie Gerron to reach the gates.");
+talkEntry:addResponse("Da coward Gerron began to flee after few slashes, but da horde chased him and blocked the way many times. Then a lizard helped da oomie Gerron to reach the gates.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3533,7 +2973,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 36));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Coward Gerrun began to flee after few slashes, but da Horde chased him, blocked the way many times. Then a lizurd intervened and helped da oomie Gerrun to reach the gates.");
+talkEntry:addResponse("Da coward Gerron began to flee after few slashes, but da horde chased him and blocked the way many times. Then a lizard helped da oomie Gerron to reach the gates.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3548,24 +2988,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 36));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 36));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -3589,19 +3011,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 37));
-talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerrun fell to his knees, being nutting but a flaming oomie, his end wus sealed.");
+talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerron fell to his knees, being nuttin but a flaming oomie, his end wus sealed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3618,7 +3038,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 37));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerrun fell to his knees, being nutting but a flaming oomie, his end wus sealed.");
+talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerron fell to his knees, being nuttin but a flaming oomie, his end wus sealed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3633,24 +3053,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 37));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 37));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -3674,19 +3076,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 38));
-talkEntry:addResponse("His gods might hab welcomed his fould soul on da othurr side. Though, da fight nub wus ober yet.");
+talkEntry:addResponse("His gods might hab welcomed his fouled soul on da othurr side. Though, da fight wus nub ober yet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3703,7 +3103,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 38));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("His gods might hab welcomed his fould soul on da othurr side. Though, da fight nub wus ober yet.");
+talkEntry:addResponse("His gods might hab welcomed his fouled soul on da othurr side. Though, da fight wus nub ober yet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3718,24 +3118,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 38));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 38));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -3759,19 +3141,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
-talkEntry:addResponse("Da lizurd still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed one ob dem after da other!");
+talkEntry:addResponse("Da lizard still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed dem one after da other!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3788,7 +3168,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Da lizurd still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed one ob dem after da other!");
+talkEntry:addResponse("Da lizard still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed dem one after da other!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3799,24 +3179,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
 talkEntry:addResponse("Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3844,19 +3206,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
-talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whub beh oomies and da Temple nub whub beh da Temple ib dey nub beh very stoopid!");
+talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whud beh oomies and da Temple nub whud beh da Temple if dey nub beh very stoopid!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3873,7 +3233,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whub beh oomies and da Temple nub whub beh da Temple ib dey nub beh very stoopid!");
+talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whud beh oomies and da Temple nub whud beh da Temple if dey nub beh very stoopid!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -3884,24 +3244,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
 talkEntry:addResponse("In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3929,7 +3271,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
@@ -3941,7 +3282,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -3973,24 +3313,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 41));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 41));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -4014,19 +3336,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 42));
-talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat dat wus trap. We knew dat Father whub judge dem fer entering Orc lands once again.");
+talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -4043,7 +3363,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 42));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat dat wus trap. We knew dat Father whub judge dem fer entering Orc lands once again.");
+talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -4058,24 +3378,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 42));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 42));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
@@ -4099,19 +3401,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
-talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under day eyes ob our brave gate guard.");
+talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -4128,7 +3428,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under day eyes ob our brave gate guard.");
+talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -4139,24 +3439,6 @@ talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
 talkEntry:addResponse("So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4184,19 +3466,17 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yes");
 talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
-talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and keep silent.*");
+talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ja");
 talkEntry:addTrigger("Klar");
 talkEntry:addTrigger("Sicher");
 talkEntry:addTrigger("Gerne");
@@ -4213,7 +3493,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and keep silent.*");
+talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -4223,24 +3503,6 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
 talkEntry:addResponse("Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("No");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nein");
-talkEntry:addTrigger("Nix");
-talkEntry:addTrigger("Aufhören");
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -4270,7 +3532,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chief");
-talkEntry:addResponse("Meh remember dhat beh dah best leader ebba! But meh nub know whub happened to him!");
+talkEntry:addResponse("Meh remember dat beh dah best leader ebba! But meh nub know whub happened to him!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4284,7 +3546,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rugh");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr, daht beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkEntry:addResponse("Hurr, daht beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know if he beh around now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4296,7 +3558,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Warlord");
-talkEntry:addResponse("Meh remember dhat beh dah strongest orc ebba! Betta run ib him beh on oddha side!");
+talkEntry:addResponse("Meh remember dat beh dah strongest orc ebba! Betta run if him beh on other side!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4310,7 +3572,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rogruk");
 talkEntry:addTrigger("Bregoguk");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr, daht beh strong Warlord from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkEntry:addResponse("Hurr, dat beh strong Warlord from Clan ob Northern Mountains. Meh nub know if he beh around now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4325,8 +3587,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Murgo");
 talkEntry:addTrigger("Lokh");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He, he... Broddha Murgo beh also known as dha Flying Lokh'um, but dhat shall yoo dha broddha explain ib yoo meet him. *smirks and covers his head*");
-talkEntry:addResponse("Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkEntry:addResponse("He, he... Bruddah Murgo be also known as dah Flying Lokh'um, but dah broddah will explain dat to yoo if yoo meet him. *smirks and covers his head*");
+talkEntry:addResponse("Hurr, dat be strong Orc from Clan ob Northern Mountains. Meh nub know if he be around now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4341,8 +3603,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Jag");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hurr! Avoid to get hit by Red Skull Jag's maces...*howls*");
-talkEntry:addResponse("Hurr, daht beh strong Orc from Clan ob Northern Mountains. Meh nub know ib it beh around now.");
+talkEntry:addResponse("Hurr! Dun get hit by Red Skull Jag's maces...*howls*");
+talkEntry:addResponse("Hurr, dat be strong Orc from Clan ob Northern Mountains. Meh nub know if he be around now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4358,8 +3620,8 @@ talkEntry:addTrigger("Gerron");
 talkEntry:addTrigger("Lavence");
 talkEntry:addTrigger("Murdok");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.");
-talkEntry:addResponse("Meh know dhat Ommie also whib dha nam Murdok.");
+talkEntry:addResponse("Dat be berreh strong oomie wif wood stick. Be careful if ebba see dat oomie.");
+talkEntry:addResponse("Meh know dat oomie also wif dah name Murdok.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4375,7 +3637,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Murdok");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh berreh strong Ommie whib woodhe stick beh. Beh careful ib ebba see dhat Ommie.");
+talkEntry:addResponse("Dat be berreh strong oomie wif wood stick. Be careful if ebba see dat oomie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4388,7 +3650,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Jefferson");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh berreh chaotic Ommie beh, whub beh berreh guud and fast whib daggers. Beh careful ib ebba see dhat Ommie.");
+talkEntry:addResponse("Dat be berreh chaotic oomie. He be berreh good and fast wif daggers. Beh careful if ebba see dat oomie.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4402,7 +3664,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kry");
 talkEntry:addTrigger("Rack");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat sista ob Orcs ob dha Northern Mountains beh. Meh nub know whub she doing now!");
+talkEntry:addResponse("Dat be sistah ob Orcs ob dah Northern Mountains. Meh nub know whub she doing now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4416,7 +3678,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Slug");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat broddha beh guud warrior and smithe for Orcs ob dha Northern Mountains beh. Meh nub know whub he doing now!");
+talkEntry:addResponse("Dat bruddah be good warrior and smith for Orcs ob dah Northern Mountains. Meh nub know whub he doing now!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4429,7 +3691,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("silver skull");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh high rank ob dha Orcs ob dha Northern Mountains beh.");
+talkEntry:addResponse("Dat be high rank ob dah Orcs ob dah Northern Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4442,7 +3704,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("red skull");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh berreh high rank ob dha Orcs ob dha Northern Mountains beh.");
+talkEntry:addResponse("Dat be berreh high rank ob dah Orcs ob dah Northern Mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4454,7 +3716,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gynk fire");
-talkEntry:addResponse("Yoo nub know dhat fire in bottle? Yoo hub to open and throw it! BUMM! *smirks*");
+talkEntry:addResponse("Yoo nub know dat fire in bottle? Yoo hab to open and throw it! BOOM! *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4466,7 +3728,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("temple");
-talkEntry:addResponse("Dhat beh collection ob lower races beh whub worship dha Faddha also, but beh heresy. Smash dham!");
+talkEntry:addResponse("Dat be collection ob lower races dat whub worship dah Faddah also, but be heresy. Smash dem!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4478,7 +3740,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("holy land");
-talkEntry:addResponse("Hurr, dha holy land in north in Gobaith. Land beh ob orcs ob Northern Mountains");
+talkEntry:addResponse("Hurr, dah holy land in north in Gobaith. Land be ob orcs ob Northern Mountains");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4491,7 +3753,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Orc North");
 talkEntry:addTrigger("Clan North");
-talkEntry:addResponse("Hurr! Orc of the Norhern Mountains beh mighte Clan beh in Gobaith whib strong Chief, Warlod, Red Skulls, Silver Skulls an oddhas broddha and sisthas.");
+talkEntry:addResponse("Hurr! Orc of the Northern Mountains be mighty Clan in Gobaith wif strong Chief, Warlord, Red Skulls, Silver Skulls an other bruddahs and sistahs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4508,7 +3770,7 @@ talkEntry:addTrigger("dwarven army");
 talkEntry:addTrigger("dwarf army");
 talkEntry:addTrigger("army dwarf");
 talkEntry:addTrigger("stumpie army");
-talkEntry:addResponse("Dhat stumpie army being from Silverbrand, me remember right.");
+talkEntry:addResponse("Dhat be stumpie army from Silverbrand, me remember right.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4522,7 +3784,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Troll");
 talkEntry:addTrigger("Bane");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Dhat beh old Ommie town in Gobaith. Long tiem ago.");
+talkEntry:addResponse("Dat be old oomie town in Gobaith. Long time ago.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4537,7 +3799,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queen dwarf");
 talkEntry:addTrigger("dwarven queen");
 talkEntry:addTrigger("stumpie queen");
-talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*");
+talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dat Stumpie if yoo meet her! *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4555,7 +3817,7 @@ talkEntry:addTrigger("friedl");
 talkEntry:addTrigger("Friedwulfa");
 talkEntry:addTrigger("Silberklinge");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dhat Stumpie ib yoo meet it! *smirks*");
+talkEntry:addResponse("Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dat Stumpie if yoo meet her! *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4569,7 +3831,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("silverbrand");
-talkEntry:addResponse("Dhat beh Stumpietwon in Gobaith whib Stumpie queen whub fhink be able smashing Warlord. *smirks*");
+talkEntry:addResponse("Dat be Stumpie town in Gobaith wif Stumpie queen whub tink she be able smashing Warlord. *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4578,20 +3840,73 @@ talkEntry:addTrigger("silberbrand");
 talkEntry:addResponse("Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tronruk");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yubba, dat mah name! *hits his chest and grunts*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tronruk");
+talkEntry:addResponse("Yubba, das mein Name! *schlägt sich auf die Brust*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Hurr! Hurr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Hurr! Hurr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("#me looks confused 'how yoo can say no?'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("#me schaut verwirrt 'wie du sagen können nein?'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Meh tink it be betta now dat yoo go and annoy someone else.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Mich denken du besser gehen nun und anderen ärgern.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me rülpst.", "#me burps.");
 talkingNPC:addCycleText("#me murmelt vor sich her.", "#me mumbles to himself.");
 talkingNPC:addCycleText("#me kratzt sich am Hintern.", "#me scratches his ass.");
 talkingNPC:addCycleText("Ehre Tag des Hammers!", "Honor Day of Hammer!");
 talkingNPC:addCycleText("Ehre Tag des Grünen Knurren!", "Honor Day of Green Growl!");
-talkingNPC:addCycleText("Ehre dem Vater!", "Honor dah Faddha!");
-talkingNPC:addCycleText("Wer wolla hören Geschicht?", "Whu want hear storeh?");
-talkingNPC:addCycleText("Mich wissen viele Geschichten von Ehre.", "Meh know maneh storeh about honor.");
+talkingNPC:addCycleText("Ehre dem Vater!", "Honor dah Faddah!");
+talkingNPC:addCycleText("Wer wolla hören Geschicht?", "Who want hear storeh?");
+talkingNPC:addCycleText("Mich wissen viele Geschichten von Ehre.", "Me know maneh storeh about honor.");
 talkingNPC:addCycleText("#me öffnet seine Augen und schließt sie wieder nach einer Weile.", "#me opens his eyes and closes them again after while.");
 talkingNPC:addCycleText("Bringt Ehre der Stadt.", "Bring honor to our town.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(5);
-mainNPC:setLookat("#me sitzt auf einem Stamm und hat den Kopf gesenkt.", "#me is sitting on a log and has lowered his head.");
+mainNPC:setLookat("#me sitzt auf einem Stamm und hat den Kopf gesenkt.", "#me is sitting on a log with his head bowed.");
 mainNPC:setUseMessage("Alt und zach aber genug fur Welpen!", "Old and tough but strong enub for whelps!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
