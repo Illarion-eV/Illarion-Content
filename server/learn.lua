@@ -27,7 +27,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             user:inform("attributeFactor="..attributeFactor..".");
 			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
             user:inform("actionpointFactor="..actionpointFactor..".");
-			minorIncrease=math.max(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
+			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
             user:inform("minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
