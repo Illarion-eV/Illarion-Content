@@ -1,3 +1,5 @@
+require("base.common")
+
 module("server.learn", package.seeall)
 
 -- called by the server when user:learn(...) is issued by a script
@@ -11,5 +13,7 @@ end
 -- user:idleTime() can be used to get the number of seconds a user has been idle to check for inactivity
 
 function reduceMC( user )
+
+user:inform("Idle for:"..user:idleTime().." seconds.");
 
 end
