@@ -18,7 +18,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
         if math.random(0,99)<chanceForSkillGain then --Success?
 
             MCfactor=2000000/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
-            attributeFactor=0.5+0.5*(leadAttribute/10); --0.5 to 1.5, depending on attribute
+            attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
             actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
             minorIncrease=math.max(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
 
