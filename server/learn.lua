@@ -31,6 +31,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             user:inform("minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
+                user:inform("Total="..(minorSkill+minorIncrease)..".");
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
             else
                 user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
