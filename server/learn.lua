@@ -17,8 +17,9 @@ end
 function reduceMC( user )
 
     if user:idleTime() < 300 then --Has the user has done any action or spoken anything within the last five minutes?
-         user:increaseMentalCapacity(math.floor(-user:getMentalCapacity()*0.00025)+0.5); --reduce MC-points by 0.025, rounded correctly.
-    end
+         user:increaseMentalCapacity(math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
+         user:inform("Reduced!");
+	end
 	
     user:inform("Idle for:"..user:idleTime().." seconds.");
     user:inform("MC:"..user:getMentalCapacity().."!");
