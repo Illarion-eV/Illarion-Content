@@ -27,7 +27,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             else
                 user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
                 user:increaseSkill(skillGroup,skill,1);
-                world:gfx(13,user.pos); --swirly!
+                world:gfx(41,user.pos); --swirly!
             end
         end
         user:increaseMentalCapacity(100*actionPoints);
