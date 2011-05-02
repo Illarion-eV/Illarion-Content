@@ -8,6 +8,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
 user:inform("learn called");
 user:inform("Movepoints:"..user.movepoints.."!");
+user:increaseMentalCapacity(10*actionPoints);
+
 end
 
 
@@ -17,6 +19,6 @@ end
 function reduceMC( user )
 
 --user:inform("Idle for:"..user:idleTime().." seconds.");
-user:inform("reduceMC called");
+user:inform(user:getMentalCapacity());
 
 end
