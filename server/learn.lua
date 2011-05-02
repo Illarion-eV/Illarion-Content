@@ -24,20 +24,17 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             MCfactor=2000000/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
 			user:inform("MCfactor="..MCfactor..".");
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
-            user:inform("attributeFactor="..attributeFactor..".");
 			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
-            user:inform("actionpointFactor="..actionpointFactor..".");
 			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
             user:inform("minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
-                user:inform("Total="..(minorSkill+minorIncrease)..".");
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
             else
                 user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
                 user:increaseSkill(skillGroup,skill,1);
                 world:gfx(41,user.pos); --swirly!
-				TempInformNLS("[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill "..skill.." advanced from "..skillValue.." to "..(skillValue+1).."!");
+				InformNLS("[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill "..skill.." advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
         end
         user:increaseMentalCapacity(100*actionPoints);
