@@ -14,6 +14,7 @@ end
 
 function reduceMC( user )
 
-user:inform("Idle for:"..user:idleTime().." seconds.");
+--user:inform("Idle for:"..user:idleTime().." seconds.");
+user:inform("lol");
 
 end
