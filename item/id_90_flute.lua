@@ -13,7 +13,6 @@ item.base.music.addTalkText("#me plays an out of tune melody","#me spielt eine v
 item.base.music.addTalkText("#me plays an airy tune on the flute","#me spielt eine leichte Melodie auf der Flöte","flute");
 item.base.music.addTalkText("#me plays a wild tune on the flute","#me spielt eine wilde Melodie auf der Flöte","flute");
 
-
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,"flute");
 end

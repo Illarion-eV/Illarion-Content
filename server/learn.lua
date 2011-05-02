@@ -6,6 +6,8 @@ module("server.learn", package.seeall)
 
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
+user:inform("learn called");
+
 end
 
 
@@ -15,6 +17,6 @@ end
 function reduceMC( user )
 
 --user:inform("Idle for:"..user:idleTime().." seconds.");
-user:inform("lol");
+user:inform("reduceMC called");
 
 end
