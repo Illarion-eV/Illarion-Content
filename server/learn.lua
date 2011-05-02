@@ -8,8 +8,11 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
     scalingFactor=1200; --Here, you can mod the learning speed
     skillValue=user:getSkill(skill);
+	user:inform("skillValue="..skillValue..".");
     minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
-    MCvalue=math.max(200000,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
+    user:inform("minorSkill="..minorSkill..".");
+	MCvalue=math.max(200000,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
+    user:inform("MCvalue="..MCvalue..".");
 
     if skillValue<opponent+20 then --you only learn when your skill is lower than the skill of the opponent +20
 
