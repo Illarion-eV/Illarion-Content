@@ -9,7 +9,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
     scalingFactor=1200; --Here, you can mod the learning speed
     skillValue=user:getSkill(skill);
 	user:inform("skillValue="..skillValue..".");
-    minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
+    minorSkill=user:increaseMinorSkill(skillGroup,skill,0); --made that one up, dunno how to access the minor skill from lua
     user:inform("minorSkill="..minorSkill..".");
 	MCvalue=math.max(200000,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
     user:inform("MCvalue="..MCvalue..".");
@@ -31,7 +31,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             user:inform("minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
-                user:increaseMinorSkill(group,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
+                user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
             else
                 user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
                 user:increaseSkill(skillGroup,skill,1);
