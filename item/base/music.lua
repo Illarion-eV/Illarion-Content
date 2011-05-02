@@ -18,4 +18,5 @@ function PlayInstrument(User,Item,Skill)
     User:talkLanguage( CCharacter.say, CPlayer.german, TalkTexts[Skill][PlayVal][2]);
     User:talkLanguage( CCharacter.say, CPlayer.english, TalkTexts[Skill][PlayVal][1]);
     User:learn(Skill,8,20,100,User:increaseAttrib("dexterity",0));
+	User.movepoints=User.movepoints-20;
 end
