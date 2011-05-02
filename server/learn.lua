@@ -17,13 +17,18 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
     if skillValue<opponent+20 then --you only learn when your skill is lower than the skill of the opponent +20
 
         chanceForSkillGain=(100-skillValue);
-
+        user:inform("chanceForSkillGain="..chanceForSkillGain..".");
+	
         if math.random(0,99)<chanceForSkillGain then --Success?
 
             MCfactor=2000000/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
+			user:inform("MCfactor="..MCfactor..".");
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
-            actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
-            minorIncrease=math.max(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
+            user:inform("attributeFactor="..attributeFactor..".");
+			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
+            user:inform("actionpointFactor="..actionpointFactor..".");
+			minorIncrease=math.max(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
+            user:inform("minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
                 user:increaseMinorSkill(group,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
