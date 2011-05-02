@@ -31,8 +31,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             if minorSkill+minorIncrease<10000 then
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
             else
-                user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
                 user:increaseSkill(skillGroup,skill,1);
+     			user:increaseMinorSkill(skillGroup,skill,(minorIncrease-10000));
                 world:gfx(41,user.pos); --swirly!
 				InformNLS("[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill "..skill.." advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
