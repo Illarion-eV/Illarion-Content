@@ -18,7 +18,7 @@ end
 
 function reduceMC( user )
 
---user:inform("Idle for:"..user:idleTime().." seconds.");
-user:inform(user:getMentalCapacity());
+user:inform("Idle for:"..user:idleTime().." seconds.");
+user:inform("MC:"..user:getMentalCapacity().."!");
 
 end
