@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Kadiya                                                           --
 --                                                                            --
--- Last parsing: April 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 02, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -979,7 +979,7 @@ mainNPC:setLookat("Dieser NPC ist Arimedus Dalahorn der Bibliothekar.", "This NP
 mainNPC:setUseMessage("Ich würde es bevorzugen, wenn ihr mich nicht anfasst.", "I would prefer that you don't touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 371);
-mainNPC:setEquipment(3, 820);
+mainNPC:setEquipment(3, 818);
 mainNPC:setEquipment(11, 548);
 mainNPC:setEquipment(5, 2785);
 mainNPC:setEquipment(6, 0);
