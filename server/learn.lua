@@ -6,8 +6,6 @@ module("server.learn", package.seeall)
 
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
-user:inform("learn called");
-user:inform("Movepoints:"..user.movepoints.."!");
 user:increaseMentalCapacity(10*actionPoints);
 
 end
