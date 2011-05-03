@@ -25,7 +25,6 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
         if math.random(0,99)<chanceForSkillGain then --Success?
 
             MCfactor=2000000/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
-			user:inform("MCfactor="..MCfactor..".");
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
 			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
@@ -38,7 +37,9 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
                 --world:gfx(41,user.pos); --swirly!
 				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
-        end
+        else
+		    user:inform("No skill gained.");
+		end
         user:increaseMentalCapacity(100*actionPoints);
     end
 end
