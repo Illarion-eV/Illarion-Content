@@ -6,19 +6,21 @@ module("server.learn", package.seeall)
 
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
+    --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
+	if user:getMentalCapacity() < 1999 then
+	    user:increaseMentalCapacity(2000000); --Reduce to 200000 for brand new players. This is for existing players.
+		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst auf!","[Skill system] Adjustment of mental capacity enforced");
+	end
+	--TEMPORARY SOLUTION END
+
     scalingFactor=1200; --Here, you can mod the learning speed
     skillValue=user:getSkill(skill);
-	user:inform("skillValue="..skillValue..".");
 	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
-    --minorSkill=user:increaseMinorSkill(skillGroup,skill,0); --made that one up, dunno how to access the minor skill from lua
-    user:inform("minorSkill="..minorSkill..".");
 	MCvalue=math.max(200000,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
-    user:inform("MCvalue="..MCvalue..".");
 
     if skillValue<opponent+20 then --you only learn when your skill is lower than the skill of the opponent +20
 
         chanceForSkillGain=(100-skillValue);
-        user:inform("chanceForSkillGain="..chanceForSkillGain..".");
 	
         if math.random(0,99)<chanceForSkillGain then --Success?
 
@@ -27,14 +29,13 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
 			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
-            user:inform("minorIncrease="..minorIncrease..".");
+            user:inform("Success! minorIncrease="..minorIncrease..".");
 
             if minorSkill+minorIncrease<10000 then
                 user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
             else
-                --user:increaseSkill(skillGroup,skill,1);
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
-                world:gfx(1,user.pos); --swirly!
+                --world:gfx(41,user.pos); --swirly!
 				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
         end
@@ -52,6 +53,6 @@ function reduceMC( user )
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
 	
-    user:inform("MC: "..user:getMentalCapacity().."!");
+    user:inform("Mental Capacity: "..user:getMentalCapacity().."!");
 
 end
