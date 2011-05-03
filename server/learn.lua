@@ -13,10 +13,13 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	end
 	--TEMPORARY SOLUTION END
 
-    scalingFactor=1200; --Here, you can mod the learning speed
+    scalingFactor=1200; --Here, you can mod the learning speed. Higher value=faster ;-)
+	lowerBorder=200000; --below 0.5% of time spent online, no additional bonus is granted
+	normalMC=10*lowerBorder; --A 'normal' player invests 10x the time (=5%) into skill related actions
+	
     skillValue=user:getSkill(skill);
 	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
-	MCvalue=math.max(200000,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
+	MCvalue=math.max(lowerBorder,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
 
     if skillValue<opponent+20 then --you only learn when your skill is lower than the skill of the opponent +20
 
@@ -24,7 +27,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	
         if math.random(0,99)<chanceForSkillGain then --Success?
 
-            MCfactor=2000000/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
+            MCfactor=normalMC/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/50); --An action with 50AP is "normal"
 			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
