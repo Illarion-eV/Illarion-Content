@@ -34,8 +34,8 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
             else
                 --user:increaseSkill(skillGroup,skill,1);
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
-                world:gfx(41,user.pos); --swirly!
-				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill "..skill.." advanced from "..skillValue.." to "..(skillValue+1).."!");
+                world:gfx(1,user.pos); --swirly!
+				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
         end
         user:increaseMentalCapacity(100*actionPoints);
