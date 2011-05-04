@@ -9,14 +9,19 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
     --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if user:getMentalCapacity() < 1999 then
 	    user:increaseMentalCapacity(2000000); --Reduce to 200000 for brand new players. This is for existing players.
-		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst auf!","[Skill system] Adjustment of mental capacity enforced");
+		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst auf!","[Skill system] Adjustment of mental capacity enforced.");
 	end
 	--TEMPORARY SOLUTION END
 
-    scalingFactor=1200; --Here, you can mod the learning speed. Higher value=faster ;-)
-	lowerBorder=200000; --below 0.5% of time spent online, no additional bonus is granted
+    --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
+	scalingFactor=1200; --Here, you can mod the learning speed. Higher value=faster ;-)
+	
+	--Constants - Do not change unless you know exactly what you're doing!
+	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
+	lowerBorder=0.5*amplification/0.00025; --below 0.5% of time spent online, no additional bonus is granted
 	normalMC=10*lowerBorder; --A 'normal' player invests 10x the time (=5%) into skill related actions
 	normalAP=50; --How many movepoints does a 'normal' action take? Default=50
+	--Constants - end
 	
     skillValue=user:getSkill(skill);
 	minorSkill=user:getMinorSkill(skill); --made that one up, dunno how to access the minor skill from lua
@@ -44,7 +49,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
         else
 		    user:inform("No skill gained.");
 		end
-        user:increaseMentalCapacity(100*actionPoints);
+        user:increaseMentalCapacity(amplification*actionPoints);
     end
 end
 
