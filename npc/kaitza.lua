@@ -2,17 +2,17 @@
 -- NPC Name: Kaitza                                                      None --
 -- NPC Job:  Temple Guard                                                     --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  1000, 10, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: lizardman                  NPC Position:  841, 743, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (5, 1000, 10, 0, 4, 'Kaitza', 'npc.kaitza', 0, 0, 0, 154, 205, 50, 154, 205, 50);
+VALUES (5, 841, 743, 0, 0, 'Kaitza', 'npc.kaitza', 0, 0, 0, 154, 205, 50, 154, 205, 50);
 ---]]
 
 require("npc.base.basic")

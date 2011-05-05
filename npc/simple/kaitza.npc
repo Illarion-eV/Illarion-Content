@@ -2,19 +2,19 @@
 -- NPC Name: Kaitza                                                      None --
 -- NPC Job:  Temple Guard                                                     --
 --                                                                            --
--- NPC Race: lizardman                  NPC Position:  1000, 10, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: lizardman                  NPC Position:  841, 743, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Kaitza"
 race = lizardman
 sex = male
-position = 1000, 10, 0
-direction = south
+position = 841, 743, 0
+direction = north
 affiliation = "None"
 job = "Temple Guard"
 
