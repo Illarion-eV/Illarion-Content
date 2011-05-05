@@ -2,17 +2,17 @@
 -- NPC Name: Natiana Banius                                          Runewick --
 -- NPC Job:  Sickly Housewife                                                 --
 --                                                                            --
--- NPC Race: human                      NPC Position:  1004, 6, 0             --
+-- NPC Race: human                      NPC Position:  891, 540, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 1004, 6, 0, 4, 'Natiana Banius', 'npc.natiana_banius', 1, 2, 5, 218, 162, 39, 255, 228, 186);
+VALUES (0, 891, 540, 0, 4, 'Natiana Banius', 'npc.natiana_banius', 1, 1, 0, 218, 162, 39, 255, 228, 186);
 ---]]
 
 require("npc.base.basic")

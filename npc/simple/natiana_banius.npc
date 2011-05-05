@@ -2,18 +2,18 @@
 -- NPC Name: Natiana Banius                                          Runewick --
 -- NPC Job:  Sickly Housewife                                                 --
 --                                                                            --
--- NPC Race: human                      NPC Position:  1004, 6, 0             --
+-- NPC Race: human                      NPC Position:  891, 540, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Natiana Banius"
 race = human
 sex = female
-position = 1004, 6, 0
+position = 891, 540, 0
 direction = south
 affiliation = "Runewick"
 job = "Sickly Housewife"
@@ -32,8 +32,8 @@ useMsgUS = "#me shivers, 'D...d...don't...get...t...too...close.'"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me weakly shakes her head."
 radius = 0
-hairID = 2
-beardID = 5
+hairID = 1
+beardID = 0
 colorHair = 218, 162, 39
 colorSkin = 255, 228, 186
 itemHead = 0
