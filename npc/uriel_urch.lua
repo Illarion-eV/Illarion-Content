@@ -3,17 +3,17 @@
 -- NPC Job:  retired soldier                                                  --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  902, 773, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: April 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 902, 773, 0, 5, 'Uriel Urch', 'npc.uriel_urch', 0, 1, 5, 139, 90, 43, 238, 197, 145);
+VALUES (0, 902, 773, 0, 6, 'Uriel Urch', 'npc.uriel_urch', 0, 1, 5, 139, 90, 43, 238, 197, 145);
 ---]]
 
 require("npc.base.basic")
@@ -941,7 +941,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blutgott");
+talkEntry:addTrigger("Blut");
 talkEntry:addResponse("#me flüstert. 'Der Gott des Bösen. Ich schlage vor, ihr sprecht nicht einmal seinen Namen aus.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

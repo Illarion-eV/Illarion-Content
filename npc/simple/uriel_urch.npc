@@ -3,19 +3,19 @@
 -- NPC Job:  retired soldier                                                  --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  902, 773, 0            --
--- NPC Sex:  male                       NPC Direction: southwest              --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: April 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Uriel Urch"
 race = human
 sex = male
 position = 902, 773, 0
-direction = southwest
+direction = west
 affiliation = "Runewick"
 job = "retired soldier"
 
@@ -159,7 +159,7 @@ itemShoes = 699
 "Moshran", english -> "#me cringes at the mention of the name and mutters 'Do not even speak it's name. If you wish to speak you will refer the it as blood lord.'"
 "Moshran" -> "#me zuckt erschrocken zusammen und zischt dich an. 'Sprecht diesen Namen nicht aus! Er zieht das böse an... nennt ihn den Blutgott, solltet ihr unbedingt über ihn sprechen müssen.'"
 "blood lord" -> "#me whispers. 'The god of pure evil. I suggest you never speak his name out loud."
-"Blutgott" -> "#me flüstert. 'Der Gott des Bösen. Ich schlage vor, ihr sprecht nicht einmal seinen Namen aus.'"
+"Blut" -> "#me flüstert. 'Der Gott des Bösen. Ich schlage vor, ihr sprecht nicht einmal seinen Namen aus.'"
 "Nargun", "Nargún", "Nargùn", english -> "I only have room for two gods. As a soldier I pray to Irmorom to strenthen my blade and Cherga to take pity on my soul.", "In a soldiers life there isn't much room for the gods. Anyway - I always used to pray Irmorom and Cherga."
 "Nargun", "Nargún", "Nargùn" -> "Als Soldat bete ich zu Irmorom für eine scharfe Klinge und zu Cherga für den Frieden meiner Seele.", "Das leben in der Legion bringt nur wenige Priester hervor. Wie auch immer, meine Familie betete stets zu Irmorom und Cherga."
 "Oldra", english -> "I only have room for two gods. As a soldier I pray to Irmorom to strenthen my blade and Cherga to take pity on my soul.", "In a soldiers life there isn't much room for the gods. Anyway - I always used to pray Irmorom and Cherga."
