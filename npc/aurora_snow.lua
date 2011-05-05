@@ -2,17 +2,17 @@
 -- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  1000, 2, 0             --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: elf                        NPC Position:  910, 700, 1            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 1000, 2, 0, 4, 'Aurora Snow', 'npc.aurora_snow', 1, 2, 5, 245, 245, 245, 255, 239, 219);
+VALUES (3, 910, 700, 1, 0, 'Aurora Snow', 'npc.aurora_snow', 1, 1, 0, 245, 245, 245, 255, 239, 219);
 ---]]
 
 require("npc.base.basic")

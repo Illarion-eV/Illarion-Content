@@ -2,19 +2,19 @@
 -- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  1000, 2, 0             --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: elf                        NPC Position:  910, 700, 1            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
 race = elf
 sex = female
-position = 1000, 2, 0
-direction = south
+position = 910, 700, 1
+direction = north
 affiliation = "Runewick"
 job = "Druid"
 
@@ -32,8 +32,8 @@ useMsgUS = "Physical boundaries are a construct of society."
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me closes her eyes, nodding slowly, 'We communicate at levels far deeper than mere sounds and words.'"
 radius = 0
-hairID = 2
-beardID = 5
+hairID = 1
+beardID = 0
 colorHair = 245, 245, 245
 colorSkin = 255, 239, 219
 itemHead = 0
