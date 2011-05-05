@@ -709,7 +709,7 @@ function SpeakerCycle()
     
     if ( table.getn( CycleText ) > 0 ) then
         if not speakTime then
-            speakTime=math.random(900,3000);
+            speakTime=math.random(900,3000); --90s to 5 minutes
         end
        
         if ( speakCount>=speakTime ) then
