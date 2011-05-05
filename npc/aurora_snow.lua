@@ -1563,8 +1563,8 @@ mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Au
 mainNPC:setUseMessage("Fasst mich nicht an!", "Physical boundaries are a construct of society.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me closes her eyes, nodding slowly, 'We communicate at levels far deeper than mere sounds and words.'");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 55);
-mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(3, 0);
+mainNPC:setEquipment(11, 55);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
