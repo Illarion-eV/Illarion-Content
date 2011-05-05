@@ -2,18 +2,18 @@
 -- NPC Name: Madeline Clarbelis                                      Runewick --
 -- NPC Job:  Druid Apprentice                                                 --
 --                                                                            --
--- NPC Race: human                      NPC Position:  1004, 2, 0             --
+-- NPC Race: human                      NPC Position:  898, 835, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
 race = human
 sex = female
-position = 1004, 2, 0
+position = 898, 835, 1
 direction = south
 affiliation = "Runewick"
 job = "Druid Apprentice"
@@ -32,8 +32,8 @@ useMsgUS = "#me pulls away nervously."
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me shakes her head, seemingly embarassed."
 radius = 0
-hairID = 3
-beardID = 5
+hairID = 1
+beardID = 0
 colorHair = 255, 236, 139
 colorSkin = 255, 211, 155
 itemHead = 0

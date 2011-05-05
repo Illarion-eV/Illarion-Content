@@ -2,17 +2,17 @@
 -- NPC Name: Madeline Clarbelis                                      Runewick --
 -- NPC Job:  Druid Apprentice                                                 --
 --                                                                            --
--- NPC Race: human                      NPC Position:  1004, 2, 0             --
+-- NPC Race: human                      NPC Position:  898, 835, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: March 21, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 1004, 2, 0, 4, 'Madeline Clarbelis', 'npc.madeline_clarbelis', 1, 3, 5, 255, 236, 139, 255, 211, 155);
+VALUES (0, 898, 835, 1, 4, 'Madeline Clarbelis', 'npc.madeline_clarbelis', 1, 1, 0, 255, 236, 139, 255, 211, 155);
 ---]]
 
 require("npc.base.basic")
