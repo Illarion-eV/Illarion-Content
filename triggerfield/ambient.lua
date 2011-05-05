@@ -114,7 +114,6 @@ AmbientList = {	add = function ( self, pos, direction, german, english, hours, m
 }
 
 --SW map by Estralis et al.
-
 AmbientList:add( position(93,587,0),nil,"In der Ferne hörst du das Bellen eines Hundes.","In the distance, you can hear a barking dog.",nil,nil,1); --General Cadomyr
 AmbientList:add( position(105,569,0),nil,"Ein scharfer Wind bläßt durch die Straßen Cadomyrs.","A strong wind blows in the streets of Cadomyr.",nil,nil,1); --General Cadomyr
 AmbientList:add( position(121,551,0),nil,"Überall um dich herum spürst du den Stolz und die Ehre Cadomyrs.","All around, you can feel the pride and honor of Cadomyr.",nil,nil,1); --General Cadomyr
@@ -197,6 +196,8 @@ AmbientList:add( position(443,744,0),{1,2,3},"Als du die Höhle betrittst, ist es
 AmbientList:add( position(454,795,0),{5,6,7},"Die Straße nach Cadomyr führt durch die unwirtliche Wüste, die von manchen 'Wüste der Verzweiflung' genannt wird.","The road to Cadomyr crosses the inhospitable desert, known to some as the 'Desert of Desperation'.",nil,nil,100); --Specific location
 AmbientList:add( position(477,795,0),{5,6,7},"Dies scheint eine Grenze zu sein. Wenige Schritte weiter und du betrittst das stolze Königreich Cadomyr.","This looks like a border, a few steps further and you'll enter the proud kingdom of Cadomyr.",nil,nil,100); --Specific location
 AmbientList:add( position(115,641,0),{0,1,7},"Der Anblick Cadomyrs ist beeindruckend, eine Zitadelle der Menschheit, die der Wüste trotzt.","Beholding Cadomyr leaves you in awe, a citadel of mankind that resists the desert.",{8,9,10,11,12,13,14,15,16,17,18,19,20},nil,100); --Specific location, daylight 
+
+--Some stuff by Rincewind
 AmbientList:add( position(384,198,-6),nil,"Höhlenmalerei: Ein stattlicher Ork mit nacktem Oberkörper, trägt eine enorme Axt und schlägt auf ein derbe Trommel. 'Ib doesn't mattur ib yous prevail or cark, as long as youb look really ace doin' it!'","Cave art: A portly orc, with bare chest. He shoulders a giant axe, banging a rustic drum. 'Ib doesn't mattur ib yous prevail or cark, as long as youb look really ace doin' it!'",nil,nil,65); --Galmair Underground (Orc chambers)
 AmbientList:add( position(385,194,-6),nil,"Höhlenmalerei: Eine sinnliche Ork in spährlichen ledernen Gewändern. Ihr süßes Näschen kess in den Himmel streckend. 'Time to buckle our swash!'","Cave art: A voluptuous orcess in sparely leathern clothing. Pointing her cute nose perky into the skies. 'Time to buckle our swash!'",nil,nil,65); --Galmair Underground (Orc chambers)
 AmbientList:add( position(348,234,-6),nil,"Höhlenmalerei: Ein beängstigend ausehender Ork mit geballter Faust. Duztende hässliche Narben und eine Sammlung aufgeknüpfter Ohren zieren seine Erscheinung. 'Join Orc! Put Rock'in youb day.'","Cave art: A brawny frightening orc with baled risen fist. Dozens of ugly scars, and a chain with collection of cutted ears, ornating the appearance. 'Join Orc! Put Rock'in youb day.'",nil,nil,65); --Galmair Underground (Orc chambers)
