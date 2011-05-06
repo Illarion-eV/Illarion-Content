@@ -14,7 +14,7 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 	--TEMPORARY SOLUTION END
 
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=1200; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
