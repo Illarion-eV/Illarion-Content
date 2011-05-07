@@ -20,6 +20,7 @@ require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+
 module("npc.ioannes_faber", package.seeall)
 
 function initOrders()
@@ -672,43 +673,6 @@ mainNPC:setLookat("Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes F
 mainNPC:setUseMessage("Fasst mich nicht an!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setAutoIntroduceMode(true);
-
--- Cycletext: Add as many random messages as possible
-
--- FURTHERMORE YOU CAN ALSO CHANGE THIS STANDARD BIG ORDER Phrases for each npc if you want:
-myOrderNPC.textOrderSay = { {ger="Kommt her, ich habe einen Auftrag ihrer Majestät, den es zu erfüllen gilt.",eng="Come over here. I have one order of her majesty that has to be fulfilled."},{ger="Kommt her, ich habe %d Aufträge ihrer Majestät, die es zu erfüllen gilt.",eng="Come over here. I have %d orders of her majesty that have to be fulfilled."} };
-myOrderNPC.timeOrderSay = {min=5,max=15};
-myOrderNPC.timeOrderCycle = -1;
-myOrderNPC.textFalseNPC.ger = "Lasst mich mit den Aufträgen anderer in Frieden. Ich kümmere mich nur um die Schatzkammer Cadomyrs.";
-myOrderNPC.textFalseNPC.eng = "Leave me alone with orders of others. I only take care of the treasury of Cadomyr.";
-myOrderNPC.textNoItems.ger = "Ihr kommt zu mir mit leeren Händen. Würdet ihr es wagen, so der Königin gegenüberzutreten?";
-myOrderNPC.textNoItems.eng = "You come to me with bare hands. Would you dare to face the queen like this?";
-myOrderNPC.textSomeItems.ger = "Steter Tropfen höhlt den Stein - aber euer Auftrag ist noch nicht erledigt.";
-myOrderNPC.textGetSomeItems.ger = "Ah, gut, die Königin wird erfreut sein. Aber nun hurtig, es fehlt noch etwas.";
-myOrderNPC.textGetSomeItems.eng = "Ah, good, the queen will be pleased. But hurry now, some things are lacking.";
-myOrderNPC.textSomeItems.eng = "Constant  dripping  wears  away  the  stone. But the order is not fulfilled yet.";
-myOrderNPC.textQualityLess.ger = "Ihr wagt es, diese Schund anzuschleppen? Hier, nehmt %d Goldstücke, %d Silberstücke und %d Kupferstücke. Aus meinen Augen!";
-myOrderNPC.textQualityLess.eng = "You dare to bring this scrap to me? Here, have %d gold coins, %d silver coins and %d copper coins. Out of my sight!";
-myOrderNPC.textTimeOver.ger = "Was wagt ihr es, bei einem Auftrag der Königin zu trödeln! Ich kann euch bei solch flegelhaften Verhalten nur %d Goldstücke, %d Silberstücke und %d Kupferstücke geben.";
-myOrderNPC.textTimeOver.eng = "How dare you to dawdle during an order of the queen! With such a behaviour, I can only give you %d gold coins, %d silver coins and %d copper coins.";
-myOrderNPC.textBoth.ger = "Ich bin außer mir! Ihr bringt mir Schund, wohlmöglich noch aus Galmair, und das lange nachdem es der Königin recht wäre. Hier, %d Goldstücke, %d Silberstücke und %d Kupferstücke und lasst euch hier nicht so bald wieder blicken.";
-myOrderNPC.textBoth.eng = "I am furious! You bring gewgaw, probably from Galmair, and that later than the queen was demanding. Here, %d gold coins, %d silver coins and %d copper coins. Get lost!";
-myOrderNPC.textNotOk.ger = "So recht zufrienstellen konntet ihr mich und die Königin nicht, aber kein Grund, euch nicht zu entlohnen.";
-myOrderNPC.textNotOk.eng = "You could not quite please me and the queen, but that is not a reason not to reward you.";
-myOrderNPC.textOk.ger = "Großartig! Die Königin wird erfreut sein. Ich kann euch großzügig entlohnen.";
-myOrderNPC.textOk.eng = "Great! The queen will be amused. I can reward you generously.";
-myOrderNPC.textGetOrder.ger = "Nehmt diesen Befehl und beeilt euch mit dem Zusammentragen der Waren.";
-myOrderNPC.textGetOrder.eng = "Take this order and hurry while gathering the goods.";
-myOrderNPC.textRetentionPeriod.ger = "Mir wurde zugetragen, dass ihr nicht integer genug seit, um mit einem Auftrag ihrer Majestät betraut zu werden."
-myOrderNPC.textRetentionPeriod.eng = "I was told that your integrity is not sufficient to be entrusted with an order of her majesty.";
-myOrderNPC.textNotThrustworthy.ger = "Schlechter Leumund eilt euch vorraus. Ich denke nicht, dass ich euch einen Auftrag der Königin anvertrauen kann.";
-myOrderNPC.textNotThrustworthy.eng = "The bad reputation of yours came here in advance. I doubt I can entrust you an order of the queen.";
-myOrderNPC.textBoni.ger = "Die Königin hat mich autorisiert, euch ein kleines Zubrot für ergebene Dienste zuzuteilen.";
-myOrderNPC.textBoni.eng = "The queen authorised me to grant you a small extra income for your good services.";
-
-myOrderNPC.triggerSeeOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nsehen.*",".*[Ss]ee.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+sehen.*",".*[Au]ftr[äa][ge][eg].*","[Oo]rder.*", };
-myOrderNPC.triggerGetOrder = { ".*[Aa]uftrag.+(%d+).+[Aa]nnehmen.*",".*[Gg]et.+[Oo]rder.+(%d+).*", ".*[Aa]uftrag.+(%d+).+[Ll]iefern.*",".*[Dd]eliver.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Hh]aben.*",".*[Hh]ave.+[Oo]rder.+(%d+).*",".*[Aa]uftrag.+(%d+).+[Nn]ehmen.*",".*[Tt]ake.+[Oo]rder.+(%d+).*" };
-
 mainNPC:initDone();
 end;
 

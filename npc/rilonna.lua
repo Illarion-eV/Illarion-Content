@@ -3,16 +3,19 @@
 --Task: Offers big orders for goldsmithing and baking/cooking
 --Skill 0-30 (easy), 30-60(middle hard), 60-100(difficult items)
 
-require("npc.base.orders");
-require("npc.base.autonpcfunctions");
-module("npc.rilonna", package.seeall, package.seeall(npc.base.orders));
+require("base.orders");
+require("npc.base.basic")
+require("npc.base.condition.language")
+require("npc.base.consequence.inform")
+require("npc.base.talk")
+module("npc.rilonna", package.seeall);
 
 
 function init()
     rilonna_init = true;
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC.activeLanguage = 0;
-    initializeNpc(); --initialize talk list
+    --initializeNpc(); --initialize talk list
     allok = false;
     myOrderNPC = npc.base.orders.OrderNPC:new();
     myOrderNPC.npc = thisNPC;
@@ -117,75 +120,199 @@ function init()
     --myOrderNPC.orderPool.valuelossfortime = { {300,300},{200,400},{150,500},{100,600},{100,800} };
 end
 
-function initializeNpc()
-    if TraderFirst then
-        return true;
-    end
 
-    npc.base.autonpcfunctions.InitTalkLists();
+function initNpc()
+mainNPC = npc.base.basic.baseNPC();
+local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Help");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rilonna."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hilfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Rilonna."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("Be greeted.");
+talkEntry:addResponse("Greetings.");
+talkEntry:addResponse("Good day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("Zum Gruße.");
+talkEntry:addResponse("Seid gegrüßt.");
+talkEntry:addResponse("Guten Tag.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Be greeted.");
+talkEntry:addResponse("Greetings.");
+talkEntry:addResponse("Good day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("Zum Gruße.");
+talkEntry:addResponse("Seid gegrüßt.");
+talkEntry:addResponse("Guten Tag.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Malachin with you.");
+talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Goodbye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehab wohl");
+talkEntry:addResponse("Malachin mit Euch.");
+talkEntry:addResponse("Auf bald.");
+talkEntry:addResponse("Bis bald.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Malachin with you.");
+talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Goodbye.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("Malachin mit Euch.");
+talkEntry:addResponse("Auf bald.");
+talkEntry:addResponse("Bis bald.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("I'm fine, thank you for your concern.");
+talkEntry:addResponse("I can't complain, even if some more action wouldn't be that bad.");
+talkEntry:addResponse("Very good, and you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befind");
+talkEntry:addResponse("Mir geht es gut, danke der Nachfrage.");
+talkEntry:addResponse("Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.");
+talkEntry:addResponse("Ganz gut, und euch?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+mainNPC:addLanguage(0);
+mainNPC:addLanguage(1);
+mainNPC:setDefaultLanguage(0);
+mainNPC:setLookat("Dieser NPC ist Rilonna.", "This NPC is Rilonna.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 811);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 822);
+mainNPC:setEquipment(10, 326);
+mainNPC:setAutoIntroduceMode(true);
 
-    -- ********* START DYNAMIC PART ********
-    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]reetings","Be greeted!");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]ello");
-    npc.base.autonpcfunctions.AddAdditionalText("Greetings.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Yy]ou.+[Tt]rader","I am "..thisNPC.name..", one of Galmairs order traders!");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+sell","I don't sell anything, but I have delivery orders at which you could help me.");
+mainNPC:initDone();
 
-    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]oodbye","Be well.");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]ye");
-    npc.base.autonpcfunctions.AddAdditionalText("Farewell");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Ff]arewell");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]hat.+buy","I don't buy anything, but I have delivery orders at which you could help me.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]ho.+you?","My name is "..thisNPC.name..".");
-    npc.base.autonpcfunctions.AddTraderTrigger("I'm .+","I am "..thisNPC.name..". Nice to meet you!");
-
-    npc.base.autonpcfunctions.AddTraderTrigger("[Gg]r[üu][ßs]+","Seid gegrüßt");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Hh]allo");
-    npc.base.autonpcfunctions.AddAdditionalText("Grüße");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Dd]u.+[Hh]ändler","Ich bin "..thisNPC.name..", einer der Großauftragshändler Galmairs!");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Aa]uf.+[Bb]ald","Auf Wiedersehen");
-    npc.base.autonpcfunctions.AddAdditionalTrigger("[Bb]is.+[Bb]ald");
-    npc.base.autonpcfunctions.AddAdditionalText("Auf bald");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]as.+[Kk]auf","Ich kaufe nichts, aber ich habe Lieferaufträge bei denen du mir helfen könntest.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ww]er.+[DdIi][uh]r*?","Ich werde "..thisNPC.name.." genannt.");
-    npc.base.autonpcfunctions.AddTraderTrigger("[Ii]ch.+bin","Schön dich kennen zu lernen! Ich bin "..thisNPC.name..".");
-    -- ********* END DYNAMIC PART ********
-    TradSpeakLang={0};
-    TradStdLang=0;
-
-    npc.base.autonpcfunctions.increaseLangSkill(TradSpeakLang);
-    thisNPC.activeLanguage=TradStdLang;
-
-
-end
+end;
 
 
 function nextCycle()
-    if (rilonna_init == nil) then
+	mainNPC:nextCycle();
+
+	if (rilonna_init == nil) then
         init();
     end
     if ( myOrderNPC ~=nil) then
         myOrderNPC:nextCycle();
     end
-
-end
+end;
 
 
 function receiveText(texttype, message, originator)
-    if npc.base.autonpcfunctions.BasicNPCChecks(originator,2) then
-    	myOrderNPC:receiveText(originator,message);
-        npc.base.autonpcfunctions.TellSmallTalk(message,originator);
+	if base.common. BasicNPCChecks(originator,2, thisNPC) then
+			mainNPC:receiveText(originator, message);
+			myOrderNPC:receiveText(originator,message);
 	end
-end
+
+end;
 
 function useNPC(user,counter,param)
     if ( myOrderNPC:checkOrder(user) == true ) then
 
     else
         thisNPC:talk(CCharacter.say,"Lass mich in ruhe wenn du nichts für mich hast");
+        mainNPC:use(char);
     end
 end
+initNpc();
+initNpc = nil;
 
 
 function Price(id)
