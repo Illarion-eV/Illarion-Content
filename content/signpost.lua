@@ -69,7 +69,7 @@ function InitWegweiser()
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
 
     --NW/Galmair-map
-    AddWeg({365,247,0},"Guilianni-Residenz","Guilianni Residence",0,0); -- Don's palace
+    AddWeg({365,247,0},"Guilianni-Residenz oder Galmair's Crest","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
     AddWeg({392,249,0},"","",0,0);-- <Name hier> Gildengebäude -- <name here> guild hall
     AddWeg({376,259,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
@@ -259,6 +259,20 @@ function InitWegweiser()
     AddGrave({537,492,0},"","", 1,0);
     AddGrave({536,496,0},"","", 3,0);
     AddGrave({545,501,0},"","", 3,0);
+    --Galmair
+    AddGrave({393,178,-6},"","", 1,0);--Hog Dens
+    AddGrave({393,180,-6},"","", 3,0);--Hog Dens
+    AddGrave({392,257,-6},"","", 3,0);--Ronagans Altar
+    AddGrave({361,303,-6},"","", 3,0);--The Winged Sow Tavern        
+    AddGrave({333,265,-6},"","", 1,0);--Sewers
+    AddGrave({331,271,-6},"","", 1,0);--Sewers
+    AddGrave({331,270,-6},"","", 1,0);--Sewers
+    AddGrave({333,273,-6},"","", 3,0);--Sewers
+    AddGrave({338,282,-6},"","", 1,0);--Sewers
+    AddGrave({327,295,-6},"","", 3,0);--Sewers
+    AddGrave({298,331,-6},"","", 3,0);--Sewers
+    --Galmair hinterlands
+    AddGrave({545,501,0},"","", 3,0);--Sport Hole
     --Glittering Cave
     AddGrave({564,382,0},"Hier hat es sich ausgefunkelt!","Glittering is over now!", 3,0);
     --Glowing Forest
@@ -329,10 +343,18 @@ function InitWegweiser()
     AddGrave({690,341,0},"","", 2,0);
     AddGrave({725,369,0},"","", 1,0);
     AddGrave({665,293,0},"","", 1,0);
+    --The Swamp
+    AddGrave({485,146,0},"","", 1,0);
+    AddGrave({494,105,0},"","", 3,0);
+    AddGrave({508,102,0},"","", 3,0);
+    AddGrave({498,113,0},"","", 3,0);
+	AddGrave({503,99,0},"","", 1,0);
+    AddGrave({506,108,0},"","", 1,0);
+    AddGrave({502,114,0},"","", 1,0);
 	--Vrondus Farm
 	AddGrave({312,574,0},"","", 1,0);
 	AddGrave({308,559,0},"","", 3,0);
-	--Zumbrass Tomb
+ 	--Zumbrass Tomb
 	AddGrave({331,471,0},"","", 1,0);
 	AddGrave({323,467,0},"","", 3,0);
 	
@@ -377,7 +399,45 @@ function InitWegweiser()
     AddPicture({100,611,1},"","", 3,5); --building
     --Eastland
     AddPicture({894,540,0},"","", 2,5); --Paddock Farm
-    --Galmair Plateau
+    --Galmair
+    AddPicture({309,270,0},"","", 4,5); --Villa 'Goldvein'
+    AddPicture({309,277,0},"","", 4,5); --Villa 'Goldvein'
+    AddPicture({372,214,0},"","", 7,5); --Council Chamber
+    AddPicture({370,214,0},"","", 7,5); --Council Chamber
+    AddPicture({375,217,0},"","", 6,5); --Council Chamber
+    AddPicture({363,217,0},"","", 5,5); --Council Chamber
+    AddPicture({365,224,0},"","", 2,5); --Council Chamber
+    AddPicture({419,210,-6},"","",1,5); --Cameo Pit
+    AddPicture({419,215,-6},"","",2,5); --Cameo Pit
+    AddPicture({434,220,-6},"","",3,5); --Cameo Pit
+    AddPicture({429,227,-6},"","",5,5); --Cameo Pit
+    AddPicture({433,232,-6},"","",2,5); --Cameo Pit
+    AddPicture({435,237,-6},"","",1,5); --Cameo Pit
+    AddPicture({428,236,-5},"","",5,5); --Cameo Pit
+    AddPicture({433,236,-5},"","",5,5); --Cameo Pit
+    AddPicture({436,238,-5},"","",4,5); --Cameo Pit
+    AddPicture({436,239,-5},"","",4,5); --Cameo Pit
+    AddPicture({433,227,-5},"","",3,5); --Cameo Pit
+    AddPicture({433,228,-5},"","",8,5); --Cameo Pit
+    AddPicture({428,227,-5},"","",7,5); --Cameo Pit
+    AddPicture({437,222,-5},"","",4,5); --Cameo Pit
+    AddPicture({437,221,-5},"","",4,5); --Cameo Pit
+    AddPicture({422,210,-5},"","",4,5); --Cameo Pit
+    AddPicture({411,227,-6},"","",5,5); --Cameo Pit
+    AddPicture({416,227,-6},"","",7,5); --Cameo Pit
+    AddPicture({417,235,-5},"","",4,5); --Cameo Pit
+    AddPicture({417,229,-5},"","",4,5); --Cameo Pit
+    AddPicture({394,337,-5},"","",1,5); --The Winged Sow Tavern
+    AddPicture({394,333,-5},"","",6,5); --The Winged Sow Tavern
+    --Galmair Hinterlands
+    AddPicture({419,346,0},"","", 2,5); --Miners club
+    AddPicture({416,296,0},"","", 7,5); --Sleepy Bujhaar Inn
+    AddPicture({419,296,0},"","", 3,5); --Sleepy Bujhaar Inn
+	AddPicture({421,293,1},"","", 4,5); --Sleepy Bujhaar Inn
+	AddPicture({426,293,1},"","", 4,5); --Sleepy Bujhaar Inn
+	AddPicture({426,291,1},"","", 4,5); --Sleepy Bujhaar Inn
+	AddPicture({423,289,1},"","", 3,5); --Sleepy Bujhaar Inn
+	--Galmair Plateau
     AddPicture({318,357,1},"","", 1,5);
     AddPicture({318,359,1},"","", 2,5);
     --Runewick Harbour/Farm
@@ -532,6 +592,13 @@ function InitWegweiser()
 	--Firelimes
     AddPennant({528,587,1},"","", 3,5);
     AddPennant({525,587,1},"","", 3,5);
+    --Galmair
+    AddPennant({383,194,-6},"","", 7,5);--Hog Dens
+    AddPennant({386,194,-6},"","", 7,5);--Hog Dens
+    --Galmair Hinterland
+    AddPennant({410,350,0},"","", 3,5); --Miners club
+    AddPennant({401,270,1},"","", 1,5); --Miners club
+    AddPennant({446,118,0},"","", 3,5); --Harbour
 	--Galmair Plateau
     AddPennant({358,378,1},"","", 4,5);
     AddPennant({356,378,1},"","", 4,5);
@@ -590,6 +657,11 @@ function InitWegweiser()
     AddPennant({248,668,1},"","", 3,5);
     AddPennant({250,690,0},"","", 2,5);
     AddPennant({250,685,0},"","", 2,5);
+    --The Swamp
+    AddPennant({494,155,0},"","", 7,5);
+    AddPennant({486,155,0},"","", 7,5);
+    AddPennant({502,121,0},"","", 7,5);
+    AddPennant({500,121,0},"","", 7,5);
     --Zumbrass Tomb
 	AddPennant({331,473,0},"","", 7,5);
 
@@ -627,6 +699,8 @@ function InitWegweiser()
 	AddTree({647,465,0},"","", 6,5);
 	AddTree({653,479,0},"","", 6,5);
 	AddTree({647,465,0},"","", 6,5);
+	--The Swamp
+	AddTree({501,107,0},"","", 6,5);
 
 -------------------- Sï¿½ulen/Statuen  ----------------
     --AddPillar({X,Y,Z},german text,english text, type, needed value of perception);
@@ -823,6 +897,96 @@ function InitWegweiser()
     AddPillar({517,590,0},"","", 1,5);
     AddPillar({514,589,0},"","", 1,5);
     AddPillar({514,590,0},"","", 1,5);
+    --Galmair
+	AddPillar({311,229,1},"","", 4,5); --Irmoroms Temple
+	AddPillar({311,235,1},"","", 4,5); --Irmoroms Temple
+    AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
+    AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
+    AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
+	AddPillar({334,280,0},"","", 1, 5); --Nagrun Temple
+	AddPillar({396,237,0},"","", 6,5); --Guard House
+	AddPillar({376,240,0},"","", 6,5); --Kiln
+	AddPillar({375,216,0},"","", 4, 5); --Council Chamber
+	AddPillar({375,216,0},"","", 4, 5); --Council Chamber
+	AddPillar({373,214,0},"","", 3, 5); --Council Chamber
+	AddPillar({371,214,0},"","", 3, 5); --Council Chamber
+	AddPillar({369,214,0},"","", 3, 5); --Council Chamber
+	AddPillar({360,217,0},"","", 2, 5); --Council Chamber
+	AddPillar({355,226,0},"","", 6, 5); --Council Chamber
+	AddPillar({363,234,0},"","", 6, 5); --Don's Council Chamber
+	AddPillar({334,218,0},"","", 7, 5); --Galmair's Crest
+	AddPillar({340,218,0},"","", 10, 5); --Galmair's Crest
+    AddPillar({339,228,0},"","", 3, 5); --Galmair's Crest
+    AddPillar({335,228,0},"","", 3, 5); --Galmair's Crest
+    AddPillar({331,233,0},"","", 8, 5); --Galmair's Crest
+    AddPillar({335,215,0},"","", 2, 5); --Galmair's Crest
+    AddPillar({339,215,0},"","", 2, 5); --Galmair's Crest
+    AddPillar({338,214,0},"","", 5, 5); --Galmair's Crest
+    AddPillar({359,213,0},"","", 4, 5); --Don's Room
+    AddPillar({359,210,0},"","", 4, 5); --Don's Room
+    AddPillar({359,207,0},"","", 4, 5); --Don's Room
+    AddPillar({359,204,0},"","", 4, 5); --Don's Room
+    AddPillar({359,201,0},"","", 4, 5); --Don's Room
+    AddPillar({359,198,0},"","", 4, 5); --Don's Room
+    AddPillar({359,195,0},"","", 4, 5); --Don's Room
+    AddPillar({359,192,0},"","", 4, 5); --Don's Room
+    AddPillar({359,189,0},"","", 4, 5); --Don's Room
+    AddPillar({359,186,0},"","", 4, 5); --Don's Room
+    AddPillar({358,184,0},"","", 3, 5); --Don's Room
+    AddPillar({360,190,-3},"","", 3, 5); --Treasury
+    AddPillar({364,190,-3},"","", 3, 5); --Treasury
+    AddPillar({384,207,-6},"","", 1, 5); --Hog Dens
+	AddPillar({385,207,-6},"","", 3, 5); --Hog Dens
+    AddPillar({386,207,-6},"","", 1, 5); --Hog Dens
+    AddPillar({389,208,-6},"","", 1, 5); --Hog Dens
+	AddPillar({390,208,-6},"","", 3, 5); --Hog Dens
+    AddPillar({391,208,-6},"","", 1, 5); --Hog Dens
+    AddPillar({394,211,-6},"","", 1, 5); --Hog Dens
+	AddPillar({394,212,-6},"","", 4, 5); --Hog Dens
+    AddPillar({394,213,-6},"","", 1, 5); --Hog Dens
+    AddPillar({387,246,-6},"","", 1, 5); --Ronagans Altar
+	AddPillar({387,247,-6},"","", 4, 5); --Ronagans Altar
+    AddPillar({387,248,-6},"","", 1, 5); --Ronagans Altar
+    AddPillar({385,246,-6},"","", 1, 5); --Ronagans Altar
+	AddPillar({386,247,-6},"","", 4, 5); --Ronagans Altar
+    AddPillar({387,248,-6},"","", 1, 5); --Ronagans Altar
+    AddPillar({387,284,-6},"","", 1, 5); --Ronagans Altar
+	AddPillar({387,285,-6},"","", 4, 5); --Ronagans Altar
+    AddPillar({387,286,-6},"","", 1, 5); --Ronagans Altar
+    AddPillar({378,292,-6},"","", 1, 5); --Ronagans Altar
+	AddPillar({377,292,-6},"","", 3, 5); --Ronagans Altar
+    AddPillar({376,292,-6},"","", 1, 5); --Ronagans Altar
+    AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
+    AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern
+    AddPillar({384,341,-6},"","", 3, 5); --The Winged Sow Tavern
+    AddPillar({386,341,-6},"","", 3, 5); --The Winged Sow Tavern
+    AddPillar({337,241,-6},"","", 4, 5); --Scoria Mine
+    AddPillar({338,242,-6},"","", 3, 5); --Scoria Mine
+    AddPillar({337,247,-6},"","", 4, 5); --Scoria Mine
+    AddPillar({338,248,-6},"","", 3, 5); --Scoria Mine
+    AddPillar({331,247,-6},"","", 4, 5); --Scoria Mine
+    AddPillar({332,248,-6},"","", 3, 5); --Scoria Mine
+    AddPillar({331,241,-6},"","", 4, 5); --Scoria Mine
+    AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine
+    AddPillar({255,292,-5},"","", 1, 5); --Flicker Swale
+    AddPillar({255,294,-5},"","", 1, 5); --Flicker Swale
+    AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
+    AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
+    AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
+    AddPillar({251,298,-5},"","", 3, 5); --Flicker Swale
+    AddPillar({336,293,-6},"","", 1, 5); --Sewers
+    AddPillar({331,293,-6},"","", 1, 5); --Sewers
+    AddPillar({293,334,-6},"","", 1, 5); --Sewers
+    AddPillar({296,334,-6},"","", 1, 5); --Sewers
+	--Galmair Hinterland
+    AddPillar({418,289,0},"","", 2,5); --Sleepy Bujhaar Inn
+    AddPillar({420,291,0},"","", 2,5); --Sleepy Bujhaar Inn
+    AddPillar({423,296,1},"","", 2,5); --Sleepy Bujhaar Inn
+    AddPillar({423,298,1},"","", 2,5); --Sleepy Bujhaar Inn
+    AddPillar({417,289,1},"","", 3,5); --Sleepy Bujhaar Inn
+    AddPillar({415,298,1},"","", 3,5); --Sleepy Bujhaar Inn
+    AddPillar({483,248,0},"","", 6,5); --Copperbridge
+    AddPillar({483,251,0},"","", 6,5); --Copperbridge
 	--Galmair Plateau
 	AddPillar({357,365,1},"","", 4,5);
 	--Grugmutz's cave
@@ -988,6 +1152,9 @@ function InitWegweiser()
     AddPillar({216,696,0},"","", 10,5);
     AddPillar({210,684,0},"","", 10,5);
     AddPillar({216,684,0},"","", 10,5);
+    --The Swamp
+    AddPillar({488,143,0},"","", 2,5);
+    AddPillar({491,143,0},"","", 2,5);
 	--Three Fingertips
 	AddPillar({724,576,0},"","", 2,5);
 	AddPillar({724,580,0},"","", 2,5);
@@ -1016,6 +1183,18 @@ function InitWegweiser()
     AddChimney({104,615,0},"","", 2, 5); --building
     --Death Marsh
     AddChimney({795,347,0},"","", 1, 5);
+	--Galmair
+	AddChimney({309,227,1},"","", 1,5); --Irmoroms Temple
+    AddChimney({301,269,0},"","", 1,5); --Villa 'Goldvein'
+    AddChimney({359,233,0},"","", 1, 5); --Don's Council Chamber
+    AddChimney({392,326,-6},"","", 2, 5); --The Winged Sow Tavern
+	--Galmair Hinterlands
+    AddChimney({419,348,0},"","", 2,5); --Miners club
+    AddChimney({420,298,0},"","", 2,5); --Sleepy Bujhaar Inn
+    AddChimney({427,292,-3},"","", 1,5); --Sleepy Bujhaar Inn
+    AddChimney({419,289,1},"","", 1,5); --Sleepy Bujhaar Inn
+    AddChimney({410,289,1},"","", 1,5); --Sleepy Bujhaar Inn
+    AddChimney({416,296,1},"","", 1,5); --Sleepy Bujhaar Inn
     --Galmair Plateau
     AddChimney({326,366,1},"","", 2, 5);
     AddChimney({311,351,1},"","", 1, 5);
@@ -1050,6 +1229,17 @@ function InitWegweiser()
     AddMirror({97,611,1},"","", 1,5); --building
     --Eastland
     AddMirror({914,625,0},"","", 2,5); --Ronagan Temple
+    --Galmair
+    AddMirror({306,269,0},"","", 1,5); --Villa 'Goldvein'
+    AddMirror({374,227,0},"","", 1,5); --Kiln
+    AddMirror({428,219,-6},"","",1,5); --Cameo Pit
+    AddMirror({426,236,-6},"","",1,5); --Cameo Pit
+    AddMirror({424,212,-5},"","",2,5); --Cameo Pit
+    AddMirror({413,227,-6},"","",1,5); --Cameo Pit
+    AddMirror({417,230,-5},"","",2,5); --Cameo Pit
+	--Galmair Hinterlands
+    AddMirror({412,294,1},"","", 2,5); --Sleepy Bujhaar Inn
+	AddMirror({421,296,1},"","", 2,5); --Sleepy Bujhaar Inn
 	--Runewick - Tower of Air
     AddMirror({905,833,4},"","", 1,5);
 	--Runewick - Tower of Earth
