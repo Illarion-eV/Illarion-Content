@@ -935,27 +935,27 @@ function InitWegweiser()
     AddPillar({358,184,0},"","", 3, 5); --Don's Room
     AddPillar({360,190,-3},"","", 3, 5); --Treasury
     AddPillar({364,190,-3},"","", 3, 5); --Treasury
-    AddPillar({384,207,-6},"","", 1, 5); --Hog Dens
-	AddPillar({385,207,-6},"","", 3, 5); --Hog Dens
-    AddPillar({386,207,-6},"","", 1, 5); --Hog Dens
-    AddPillar({389,208,-6},"","", 1, 5); --Hog Dens
-	AddPillar({390,208,-6},"","", 3, 5); --Hog Dens
-    AddPillar({391,208,-6},"","", 1, 5); --Hog Dens
-    AddPillar({394,211,-6},"","", 1, 5); --Hog Dens
-	AddPillar({394,212,-6},"","", 4, 5); --Hog Dens
-    AddPillar({394,213,-6},"","", 1, 5); --Hog Dens
-    AddPillar({387,246,-6},"","", 1, 5); --Ronagans Altar
-	AddPillar({387,247,-6},"","", 4, 5); --Ronagans Altar
-    AddPillar({387,248,-6},"","", 1, 5); --Ronagans Altar
-    AddPillar({385,246,-6},"","", 1, 5); --Ronagans Altar
-	AddPillar({386,247,-6},"","", 4, 5); --Ronagans Altar
-    AddPillar({387,248,-6},"","", 1, 5); --Ronagans Altar
-    AddPillar({387,284,-6},"","", 1, 5); --Ronagans Altar
-	AddPillar({387,285,-6},"","", 4, 5); --Ronagans Altar
-    AddPillar({387,286,-6},"","", 1, 5); --Ronagans Altar
-    AddPillar({378,292,-6},"","", 1, 5); --Ronagans Altar
-	AddPillar({377,292,-6},"","", 3, 5); --Ronagans Altar
-    AddPillar({376,292,-6},"","", 1, 5); --Ronagans Altar
+    AddPillar({384,207,-6},"Der Don beschützt dich wenn du die Gebühr bezahlst.","", 1, 5); --Hog Dens
+	AddPillar({385,207,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 3, 5); --Hog Dens
+    AddPillar({386,207,-6},"Der Don beschützt dich wenn du die Gebühr bezahlst.","", 1, 5); --Hog Dens
+    AddPillar({389,208,-6},"Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","", 1, 5); --Hog Dens
+	AddPillar({390,208,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 3, 5); --Hog Dens
+    AddPillar({391,208,-6},"Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","", 1, 5); --Hog Dens
+    AddPillar({394,211,-6},"Handle frei, bleibe und gehe wie es dir beliebt.","", 1, 5); --Hog Dens
+	AddPillar({394,212,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 4, 5); --Hog Dens
+    AddPillar({394,213,-6},"Handle frei, bleibe und gehe wie es dir beliebt.","", 1, 5); --Hog Dens
+    AddPillar({387,246,-6},"Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","", 1, 5); --Ronagans Altar
+	AddPillar({387,247,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+    AddPillar({387,248,-6},"Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","", 1, 5); --Ronagans Altar
+    AddPillar({385,246,-6},"Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","", 1, 5); --Ronagans Altar
+	AddPillar({386,247,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+    AddPillar({387,248,-6},"Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","", 1, 5); --Ronagans Altar
+    AddPillar({387,284,-6},"Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","", 1, 5); --Ronagans Altar
+	AddPillar({387,285,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 4, 5); --Ronagans Altar
+    AddPillar({387,286,-6},"Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","", 1, 5); --Ronagans Altar
+    AddPillar({378,292,-6},"Folge diesen einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
+	AddPillar({377,292,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don which points the two dark columns next to it.", 3, 5); --Ronagans Altar
+    AddPillar({376,292,-6},"Folge diesen einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
     AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,341,-6},"","", 3, 5); --The Winged Sow Tavern
