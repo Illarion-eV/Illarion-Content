@@ -38,12 +38,12 @@ function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.min(10000,math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor));
             user:inform("Success! minorIncrease="..minorIncrease..".");
+			user:inform("scalingFactor: "..scalingFactor..", attributeFactor: "..attributeFactor..", actionpointFactor: "..actionpointFactor..", MCFactor: "..MCfactor.."!");
 
             if minorSkill+minorIncrease<10000 then
-                user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 8-9 actions of 50AP for a swirlie at 5% activity
+                user:increaseMinorSkill(skillGroup,skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
             else
      			user:increaseMinorSkill(skillGroup,skill,minorIncrease);
-                --world:gfx(41,user.pos); --swirly!
 				base.common.TempInformNLS(user,"[Levelaufstieg] Deine Fertigkeit steigt von "..skillValue.." auf "..(skillValue+1).."!","[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
             end
         else
