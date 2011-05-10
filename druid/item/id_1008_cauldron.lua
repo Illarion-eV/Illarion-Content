@@ -78,6 +78,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Hier noch einen Text einbauen, dass man gerade eine Pflanze verarbeitet...
         world:changeItem(bottleInHand);
         
+		User.movepoints=User.movepoints-20; --Delay of 20 movepoints for scaling skillgain and prevent macro abuse. If you change this, also change the movepoints in the learn(...) line in alchemy.lua
+			
         -- Und der Spieler soll noch was lernen
         druid.base.alchemy.ds_skillgain(User);
         return;
