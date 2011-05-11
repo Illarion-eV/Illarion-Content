@@ -8,7 +8,7 @@ module("monster.mon_29_animals")
 function ini(Monster)
 
 init=true;
-monster.base.quest.iniQuests();
+monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 end
