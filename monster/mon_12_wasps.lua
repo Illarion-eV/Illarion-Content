@@ -96,7 +96,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
 
     monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs

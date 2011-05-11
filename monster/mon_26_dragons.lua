@@ -155,7 +155,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     if (MonID==261) then --Fire Dragon, Level: 8, Armourtype: -, Weapontype: wrestling
 

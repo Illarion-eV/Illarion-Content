@@ -87,7 +87,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
 
 --No drops
 

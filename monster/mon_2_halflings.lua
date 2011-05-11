@@ -95,7 +95,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     if (MonID==21) then --Halfling, Level: 3, Armourtype: cloth, Weapontype: slashing
 

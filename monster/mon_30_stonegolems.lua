@@ -128,7 +128,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
 if (MonID==301) then --Stone Golem, Level: 7, Armourtype: -, Weapontype: wrestling
 

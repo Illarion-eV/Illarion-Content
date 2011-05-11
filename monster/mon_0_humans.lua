@@ -98,7 +98,7 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     if (MonID==1) then --Human, Level: 5, Armourtype: medium, Weapontype: slashing
 

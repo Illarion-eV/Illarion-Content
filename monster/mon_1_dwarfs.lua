@@ -107,7 +107,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     if (MonID==11) then --Dwarf, Level: 5, Armourtype: medium, Weapontype: slashing
 

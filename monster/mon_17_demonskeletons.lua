@@ -143,7 +143,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     
 if (MonID==171) then --Demon Skeleton, Level: 6, Armourtype: heavy, Weapontype: slashing

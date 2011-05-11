@@ -90,7 +90,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     monster.base.drop.AddDropItem(63,1,50,333,0,1); --inners
     monster.base.drop.AddDropItem(2586,1,100,333,0,2); --fur
     monster.base.drop.Dropping(Monster);

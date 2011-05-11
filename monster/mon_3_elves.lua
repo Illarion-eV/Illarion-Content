@@ -100,7 +100,7 @@ function onDeath(Monster)
         end
     end
 
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
 
    if (MonID==31) then --Elf, Level: 5, Armourtype: light, Weapontype: distance

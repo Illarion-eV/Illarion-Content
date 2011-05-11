@@ -104,7 +104,7 @@ function onDeath(Monster)
         end
     end
     
-    monster.base.drop.Clearmonster.base.drop.Dropping();
+    monster.base.drop.ClearDropping();
     local MonID=Monster:get_mon_type();
     if (MonID==281) then --Female Drow, Level: 6, Armourtype: light, Weapontype: distance
 
