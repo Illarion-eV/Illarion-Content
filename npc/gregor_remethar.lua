@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 11, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -48,13 +48,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, value of life."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Wert des Lebens."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +709,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tomb");
-talkEntry:addResponse("The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners.");
+talkEntry:addResponse("The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners. They are buried in different chambers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -748,7 +748,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gruft");
 talkEntry:addTrigger("Grab");
-talkEntry:addResponse("Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk.");
+talkEntry:addResponse("Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk. Alle werden in unterschiedlichen Kammern beigesetzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,6 +774,56 @@ talkEntry:addTrigger("grab");
 talkEntry:addTrigger("urne");
 talkEntry:addTrigger("Sarg");
 talkEntry:addResponse("Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raum");
+talkEntry:addTrigger("Kammer");
+talkEntry:addResponse("Die Gruft hat drei Kammern: Die Kammer des Lichtes, die Kammer des Zwielichtes und die Kammer der Dunkelheit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("room");
+talkEntry:addTrigger("chamber");
+talkEntry:addResponse("The tomb of Runewick has three chambers: The Chamber of Light, the Chamber of Twilight and the Chamber of Darkness.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zwielicht");
+talkEntry:addResponse("In der Kammer des Zwielichtes stehen die Särge der Lehrlinge - falls ihre Körper nochmal gebraucht werden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Twilight");
+talkEntry:addResponse("In the Chamber of Twilight there are the coffins of the apprentices - for future use.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dunkel");
+talkEntry:addResponse("In der Kammer der Dunkelheit rotten die Knochen der Unwürdigen vor sich hin, die es zu Lebzeiten nicht verstanden haben, der Weisheit nachzustreben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dark");
+talkEntry:addResponse("In the Chamber of Darkness the bones of the unworthy rot. They did not strive for wisdom while alive for they were simple minded.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Licht");
+talkEntry:addResponse("In der Kammer des Lichtes werden die weisen Magier Runewicks beigesetzt, nachdem man ihren Körper eingeäschert hat, wie es seit jeher Sitte ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Light");
+talkEntry:addResponse("In the Chamber of Light the mages of Runewick are buried. Their bodies are cremated according to old customs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

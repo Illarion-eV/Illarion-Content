@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 11, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Gregor Remethar"
@@ -67,8 +67,8 @@ itemShoes = 53
 ".+", queststatus(105) > 2 -> inform("[Status error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, value of life.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Wert des Lebens.")
+"Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keyphrases: Hello, quest, mortician, tomb, chambers, value of life.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, one of the living visits me. What brought you here - do you want to honour your ancestors in the tomb?"
@@ -163,15 +163,23 @@ itemShoes = 53
 "mein Name" -> "Darf ich schonmal eure Maße aufnehmen?"
 
 -- More small talk; add at least five triggers
-"tomb" -> "The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners."
+"tomb" -> "The tomb of Runewick is a place where the people seperates; urns for the mages, coffins for the apprentices and darkness for the commoners. They are buried in different chambers."
 "value", "fame", "fate" -> "Depening on the value of one's life, there are three methods to get buried. I could tell you more on these methods..."
 "assess", "earn", "judge" -> "Who am I to judge over one's life you might say? I do not judge. One's fame usually arrives here long before one's body."
 "method", "urn", english -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
 "bury", "grave", "coffin" -> "Those who earned most fame in life are cremated so that their body cannot be spoiled. Those who did well are buried in coffins - for future use. And those who failed are tossed into darkness..."
-"Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk."
+"Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk. Alle werden in unterschiedlichen Kammern beigesetzt."
 "Wert", "Ansehen", "Schicksal" -> "Je nachdem, wie hoch der Wert des Lebens war, gibt es drei Methoden, jemanden zu begraben. Ich könnte euch mehr über diese Methoden erzählen..."
 "verdien", "schätz", "Urteil" -> "Was ich mir einbilde, den Wert eines Lebens einschätzen zu können? Das muss ich gar nicht; der Ruf eilten einer Leiche zumeist vorraus."
 "method", "grab", "urne", "Sarg" -> "Die, deren Leben einen hohen Wert hatte, werden eingeäschert, so dass ihre Leiche nicht geschändet werden kann. Die, die guter Dinge waren, werden in Särgen begraben - für weitere Verwendung. Die, die versagten, werden in die Dunkelheit geworfen."
+"Raum", "Kammer" -> "Die Gruft hat drei Kammern: Die Kammer des Lichtes, die Kammer des Zwielichtes und die Kammer der Dunkelheit."
+"room", "chamber" -> "The tomb of Runewick has three chambers: The Chamber of Light, the Chamber of Twilight and the Chamber of Darkness."
+"Zwielicht" -> "In der Kammer des Zwielichtes stehen die Särge der Lehrlinge - falls ihre Körper nochmal gebraucht werden."
+"Twilight" -> "In the Chamber of Twilight there are the coffins of the apprentices - for future use."
+"Dunkel" -> "In der Kammer der Dunkelheit rotten die Knochen der Unwürdigen vor sich hin, die es zu Lebzeiten nicht verstanden haben, der Weisheit nachzustreben."
+"dark" -> "In the Chamber of Darkness the bones of the unworthy rot. They did not strive for wisdom while alive for they were simple minded."
+"Licht" -> "In der Kammer des Lichtes werden die weisen Magier Runewicks beigesetzt, nachdem man ihren Körper eingeäschert hat, wie es seit jeher Sitte ist."
+"Light" -> "In the Chamber of Light the mages of Runewick are buried. Their bodies are cremated according to old customs."
 
 -- Easter egg
 "Calaway", english -> "I am not the undertaker! I prefer the term mortician."
