@@ -92,7 +92,7 @@ function onDeath(Monster)
     
         if murderer then --Checking for quests
 
-            monster.base.quest.checkQuest(murderer,Monster);
+            monster.base.quests.checkQuest(murderer,Monster);
             killer[Monster.id]=nil;
             murderer=nil;
 
