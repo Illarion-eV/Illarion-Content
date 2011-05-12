@@ -2,7 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-module("monster.mon_3_elves")
+module("monster.mon_3_elves", package.seeall)
 
 
 function ini(Monster)
