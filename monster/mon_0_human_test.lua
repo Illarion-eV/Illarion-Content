@@ -24,7 +24,7 @@ base.messages.msgs:addMessage("#me tippelt hin und her.", "#me hops on the spot.
 base.messages.msgs:addMessage("Achtung! Alarm!", "Careful! Alert!");
 base.messages.msgs:addMessage("Das war's!", "That does it!");
 base.messages.msgs:addMessage("Die Leute werden auch immer schwächer!", "People get weaker every day!");
-base.messages.msgs:addMessage("Dieses Gebiet gehört mir!", "This area belongs me!");
+base.messages.msgs:addMessage("Dieses Gebiet gehört mir!", "This area belongs to me!");
 base.messages.msgs:addMessage("Ein Drache ist nichts gegen mich!", "A dragon is nothing compared to me!");
 base.messages.msgs:addMessage("Fressen oder gefressen werden, so läuft das.", "Kill or be killed, that's the way it is");
 base.messages.msgs:addMessage("Für die Götter!", "For the gods!");
