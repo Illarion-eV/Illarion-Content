@@ -634,17 +634,18 @@ end;
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender)
     if (Attacker.skill >= Defender.dodge - 10) then
-        Defender.Char:learn(5, "dodge", 2,
-            base.common.Limit(Attacker.skill + 10, 0, 100 ));
+        --Defender.Char:learn(5, "dodge", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
+		--Replace with new learn function, see learn.lua 
     end;
     
     if (Defender.dodge >= Attacker.skill - 10) then
-        Attacker.Char:learn(5, Attacker.Skillname, 2,
-            base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+		--Replace with new learn function, see learn.lua
     end;
     
     if base.common.Chance(0.25) then
-        Attacker.Char:learn(5, "tactics", 1, 100);
+        --Attacker.Char:learn(5, "tactics", 1, 100);
+		--Replace with new learn function, see learn.lua 
     end;
 end;
 
@@ -655,12 +656,13 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSucess(Attacker, Defender)
     if (math.max(Defender.dodge, Defender.parry) >= Attacker.skill - 10) then
-        Attacker.Char:learn(5, Attacker.Skillname, 2,
-            base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+		--Replace with new learn function, see learn.lua 
     end;
     
     if base.common.Chance(0.33) then
-        Attacker.Char:learn(5, "tactics", 1, 100);
+        --Attacker.Char:learn(5, "tactics", 1, 100);3
+		--Replace with new learn function, see learn.lua
     end;
 end;
 
@@ -671,17 +673,18 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender)
     if (Attacker.skill >= Defender.parry - 10) then
-        Defender.Char:learn(5, "parry", 2,
-            base.common.Limit(Attacker.skill + 10, 0, 100 ));
+        --Defender.Char:learn(5, "parry", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
+		--Replace with new learn function, see learn.lua
     end;
         
     if (Defender.parry >= Attacker.skill - 10) then
-        Attacker.Char:learn(5, Attacker.Skillname, 2,
-            base.common.Limit(Defender.dodge + 10, 0, 100 ));
+        --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
+		--Replace with new learn function, see learn.lua
     end;
         
     if base.common.Chance(0.25) then
-        Attacker.Char:learn(5, "tactics", 1, 100);
+        --Attacker.Char:learn(5, "tactics", 1, 100);
+		--Replace with new learn function, see learn.lua
     end;
 end;
 
