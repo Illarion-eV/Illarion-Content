@@ -1,6 +1,6 @@
 --Generic 'Kill X monsters'-Quests by Estralis Seborian
 
-module("monster.base.quests")
+module("monster.base.quests", package.seeall)
 
 --TEMPLATE TO ADD A QUEST TO function iniQuests()
 
