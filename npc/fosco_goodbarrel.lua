@@ -2,17 +2,17 @@
 -- NPC Name: Fosco Goodbarrel                                            None --
 -- NPC Job:  Mischievous halfling                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  871, 866, 0            --
+-- NPC Race: halfling                   NPC Position:  870, 866, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 12, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 871, 866, 0, 6, 'Fosco Goodbarrel', 'npc.fosco_goodbarrel', 0, 5, 1, 123, 62, 9, 245, 180, 137);
+VALUES (2, 870, 866, 0, 6, 'Fosco Goodbarrel', 'npc.fosco_goodbarrel', 0, 5, 1, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")

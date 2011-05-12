@@ -2,18 +2,18 @@
 -- NPC Name: Fosco Goodbarrel                                            None --
 -- NPC Job:  Mischievous halfling                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  871, 866, 0            --
+-- NPC Race: halfling                   NPC Position:  870, 866, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 12, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fosco Goodbarrel"
 race = halfling
 sex = male
-position = 871, 866, 0
+position = 870, 866, 0
 direction = west
 affiliation = "None"
 job = "Mischievous halfling"
