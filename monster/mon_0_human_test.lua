@@ -1,7 +1,7 @@
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
-require("base.messages");
+require("base.messages")
 module("monster.mon_0_human_test", package.seeall)
 
 

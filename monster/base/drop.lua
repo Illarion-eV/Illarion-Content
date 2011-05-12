@@ -1,4 +1,6 @@
 require("base.common")
+require("base.messages")
+
 module("monster.base.drop", package.seeall)
 
 function ClearDropping()
