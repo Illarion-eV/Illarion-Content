@@ -66,7 +66,8 @@ end;
 
 function talkNPC:nextCycle(counter)
     if (counter >= self._nextCycleText) then
-        self._nextCycleText = math.random(6000, 18000);
+	    self._nextCycleText = math.random(60, 180);
+        --self._nextCycleText = math.random(6000, 18000);
         local german, english = self._cycleText:getRandomMessage();
         thisNPC:talkLanguage(CCharacter.say, CPlayer.german, german);
         thisNPC:talkLanguage(CCharacter.say, CPlayer.english, english);
