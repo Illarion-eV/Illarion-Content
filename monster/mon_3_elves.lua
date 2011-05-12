@@ -14,16 +14,16 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-msgs:addMessage("Bei der Macht des Waldes!", "By the power of nature!");
-msgs:addMessage("Die Götter mögen mir beistehen.", "May the gods be with me.");
-msgs:addMessage("#mes Augen blitzen vor verzweifelter Wut auf.", "#me's eyes flash in desperate fury.");
-msgs:addMessage("#me bewegt sich mit geschwinden Schritten über den Boden.", "#me moves with wide steps over the ground.");
-msgs:addMessage("Oh, welch Schicksal, dass ich eine Waffe gegen euch erheben muss. Verzeiht mir.", "Oh, what fate is this that I have to raise a weapon against you. Forgive me!");
-msgs:addMessage("Die Gerechtigkeit wird euch einholen, sei es heute, sei es in hundert Jahren.", "Justice will overcome you, be it now, be it in a hundred years.");
-msgs:addMessage("Ich fürchte den Tod nicht, er kann auch eine Erlösung sein, verglichen mit einem Leben in Feigheit.", "I do not fear death, for it is far superior to a life in fear.");
-msgs:addMessage("Ihr mögt mich heute niederstrecken, doch wird man meine Taten besingen, wenn der Name eures Volkes bereits vergessen wurde.", "You may slay me today, but my deeds will be sung about when the name of your people will be long forgotten.");
-msgs:addMessage("Mein Volk wird Rache an eurem Stamm nehmen bis die siebte Generation eurer Brut vertilgt ist.", "My people will take revenge on your tribe until the seventh generation of your offspring has passed.");
-msgs:addMessage("Die, die ihre Hand gegen das unsterbliche Volk erheben, bringen Unheil über sich.", "Those who raise their weapon against the eternal people bring doom upon themselves.");
+base.messages.msgs:addMessage("Bei der Macht des Waldes!", "By the power of nature!");
+base.messages.msgs:addMessage("Die Götter mögen mir beistehen.", "May the gods be with me.");
+base.messages.msgs:addMessage("#mes Augen blitzen vor verzweifelter Wut auf.", "#me's eyes flash in desperate fury.");
+base.messages.msgs:addMessage("#me bewegt sich mit geschwinden Schritten über den Boden.", "#me moves with wide steps over the ground.");
+base.messages.msgs:addMessage("Oh, welch Schicksal, dass ich eine Waffe gegen euch erheben muss. Verzeiht mir.", "Oh, what fate is this that I have to raise a weapon against you. Forgive me!");
+base.messages.msgs:addMessage("Die Gerechtigkeit wird euch einholen, sei es heute, sei es in hundert Jahren.", "Justice will overcome you, be it now, be it in a hundred years.");
+base.messages.msgs:addMessage("Ich fürchte den Tod nicht, er kann auch eine Erlösung sein, verglichen mit einem Leben in Feigheit.", "I do not fear death, for it is far superior to a life in fear.");
+base.messages.msgs:addMessage("Ihr mögt mich heute niederstrecken, doch wird man meine Taten besingen, wenn der Name eures Volkes bereits vergessen wurde.", "You may slay me today, but my deeds will be sung about when the name of your people will be long forgotten.");
+base.messages.msgs:addMessage("Mein Volk wird Rache an eurem Stamm nehmen bis die siebte Generation eurer Brut vertilgt ist.", "My people will take revenge on your tribe until the seventh generation of your offspring has passed.");
+base.messages.msgs:addMessage("Die, die ihre Hand gegen das unsterbliche Volk erheben, bringen Unheil über sich.", "Those who raise their weapon against the eternal people bring doom upon themselves.");
 
 end
 

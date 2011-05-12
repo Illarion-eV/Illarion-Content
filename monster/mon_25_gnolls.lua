@@ -14,19 +14,19 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-msgs:addMessage("#me bellt vor Wut.", "#me barks in fury.");
-msgs:addMessage("#me fletscht die Zähne.", "#me bares its teeth.");
-msgs:addMessage("#me hechelt.", "#me utters a noise, half cackle, half howl.");
-msgs:addMessage("#me jault.", "#me howls.");
-msgs:addMessage("#me kichert schrill und laut.", "#me cackles with a loud and piercing sound.");
-msgs:addMessage("#me kneift seine Augen zusammen.", "#me squints its eyes.");
-msgs:addMessage("#me knurrt leise.", "#me snarls quietly.");
-msgs:addMessage("#me schnappt.", "#me snaps its jaw.");
-msgs:addMessage("#me schnauft laut.", "#me gasps loudly.");
-msgs:addMessage("#me's Schwanz sträubt sich.", "#me's tail rises.");
-msgs:addMessage("#me zieht die Luft scharf schnüffelnd durch die Nase ein.", "#me breathes through its nose, sniffing.");
-msgs:addMessage("#me legt den Kopf in den Nacken und stößt eine Mischung aus Heulen und Gebell hervor.", "#me throws back its head and lets out a mixture of howling and barking.");
-msgs:addMessage("#me fährt sich mit seiner rauhen Zunge über die Schnauze, ehe er leise verärgert kläfft.", "#me licks its nose with its rough tongue before it yaps angrily.");
+base.messages.msgs:addMessage("#me bellt vor Wut.", "#me barks in fury.");
+base.messages.msgs:addMessage("#me fletscht die Zähne.", "#me bares its teeth.");
+base.messages.msgs:addMessage("#me hechelt.", "#me utters a noise, half cackle, half howl.");
+base.messages.msgs:addMessage("#me jault.", "#me howls.");
+base.messages.msgs:addMessage("#me kichert schrill und laut.", "#me cackles with a loud and piercing sound.");
+base.messages.msgs:addMessage("#me kneift seine Augen zusammen.", "#me squints its eyes.");
+base.messages.msgs:addMessage("#me knurrt leise.", "#me snarls quietly.");
+base.messages.msgs:addMessage("#me schnappt.", "#me snaps its jaw.");
+base.messages.msgs:addMessage("#me schnauft laut.", "#me gasps loudly.");
+base.messages.msgs:addMessage("#me's Schwanz sträubt sich.", "#me's tail rises.");
+base.messages.msgs:addMessage("#me zieht die Luft scharf schnüffelnd durch die Nase ein.", "#me breathes through its nose, sniffing.");
+base.messages.msgs:addMessage("#me legt den Kopf in den Nacken und stößt eine Mischung aus Heulen und Gebell hervor.", "#me throws back its head and lets out a mixture of howling and barking.");
+base.messages.msgs:addMessage("#me fährt sich mit seiner rauhen Zunge über die Schnauze, ehe er leise verärgert kläfft.", "#me licks its nose with its rough tongue before it yaps angrily.");
 
 end
 

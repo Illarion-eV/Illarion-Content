@@ -14,17 +14,17 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-msgs:addMessage("#me bewegt alle ihre Beine näher ihrem Körper.", "#me moves all of its legs closer to its body.");
-msgs:addMessage("#me bewegt ihre Klauen hin und her.", "#me moves its claws back and forth.");
-msgs:addMessage("#me fährt sich mit den Vorderbeinen über ihren Kopf.", "#me touches its head with its forelegs.");
-msgs:addMessage("#me faucht angriffslustig.", "#me spits aggressively.");
-msgs:addMessage("#me gibt ein paar zischende Laute von sich.", "#me does some frizzling noises.");
-msgs:addMessage("#me hält zwei Beine schützend vor ihr Gesicht.", "#me holds two legs up protectively.");
-msgs:addMessage("#me krabbelt schnell umher.", "#me crawls around quickly.");
-msgs:addMessage("#me schüttelt ein Netz von einem ihrer Beine ab, in dem es sich verfangen hatte.", "#me shakes a web off one of its legs, where it had become entangled.");
-msgs:addMessage("#me schüttelt ihren Körper etwas.", "#me shakes its head a little.");
-msgs:addMessage("#me zieht beim Laufen einige Spinnennetze mit sich.", "#me tugs as it walks a cobweb with it.");
-msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's legs make cracking sounds as they touch the ground.");
+base.messages.msgs:addMessage("#me bewegt alle ihre Beine näher ihrem Körper.", "#me moves all of its legs closer to its body.");
+base.messages.msgs:addMessage("#me bewegt ihre Klauen hin und her.", "#me moves its claws back and forth.");
+base.messages.msgs:addMessage("#me fährt sich mit den Vorderbeinen über ihren Kopf.", "#me touches its head with its forelegs.");
+base.messages.msgs:addMessage("#me faucht angriffslustig.", "#me spits aggressively.");
+base.messages.msgs:addMessage("#me gibt ein paar zischende Laute von sich.", "#me does some frizzling noises.");
+base.messages.msgs:addMessage("#me hält zwei Beine schützend vor ihr Gesicht.", "#me holds two legs up protectively.");
+base.messages.msgs:addMessage("#me krabbelt schnell umher.", "#me crawls around quickly.");
+base.messages.msgs:addMessage("#me schüttelt ein Netz von einem ihrer Beine ab, in dem es sich verfangen hatte.", "#me shakes a web off one of its legs, where it had become entangled.");
+base.messages.msgs:addMessage("#me schüttelt ihren Körper etwas.", "#me shakes its head a little.");
+base.messages.msgs:addMessage("#me zieht beim Laufen einige Spinnennetze mit sich.", "#me tugs as it walks a cobweb with it.");
+base.messages.msgs:addMessage("#mes Beine machen knackende Geräusche auf dem Boden.", "#me's legs make cracking sounds as they touch the ground.");
 
 end
 

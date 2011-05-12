@@ -14,22 +14,22 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-msgs:addMessage("#mes Augenhöhlen flammen mit einem Male vor blauen Flammen auf, die sich schnell über den ganzen Schädel ausbreiten. Sie strahlen eine unheimliche Kälte aus.", "#me's eye sockets suddenly glare up with blue flames which spread quickly across the entire skull. They exude an eerie coldness.");
-msgs:addMessage("#mes Unterkiefer klappt runter und eine kurze Stichflamme schiesst zwischen den gefährlich spitzen Zähnen hervor.", "#me's jaw drops and and a short tongue of flames shoots out from between the dangerously sharp teeth.");
-msgs:addMessage("#me öffnet sein gewaltiges Maul und ein fürchterliches Lachen schallt aus den Untiefen des Schädels empor.", "#me opens its huge mouth and a terrible laughter echoes from the depths of the skull.");
-msgs:addMessage("Ah, sie köpften mich, doch die wahrlich klugen Köpfe sind nicht unterzubringen…hahahaha!", "Ah, they beheaded me, but wisest heads are invincible... hahahaha!");
-msgs:addMessage("Achtung, Sterblicher… niemals kopflos handeln.", "Remember, mortal... never lose your head.");
-msgs:addMessage("Ihr wagt es, vor mein Antlitz zu treten… ihr bewahrt fürwahr einen kühlen Kopf.", "You dare to face my face... you really need to keep a cool head.");
-msgs:addMessage("#me knackt mit dem Kiefer.", "#me clacks its jaw.");
-msgs:addMessage("#me singt Unverständliches.", "#me chants unintelligibly.");
-msgs:addMessage("#me klappert mit den Zähnen.", "#me rattles its teeth.");
-msgs:addMessage("#me stöhnt vor sich hin.", "#me moans to itself.");
-msgs:addMessage("#mes Augen, der Fähigkeit zu blinzeln beraubt, sind von einer klebrigen Flüssigkeit erfüllt.", "#me's eyes drip with liquid, unable to blink.");
-msgs:addMessage("#me starrt düster drein.", "#me stares forward sadly.");
-msgs:addMessage("#mes Augen sind erfüllt von Leid und Boshaftigkeit.", "#me's eyes are filled with suffering and malice.");
-msgs:addMessage("#me zischt: 'Lasst mich alleine…'", "#me hisses: 'Leave me…'");
-msgs:addMessage("Toood!", "Deaaath...");
-msgs:addMessage("Er verbleibt - nichts.", "Nothing... left...");
+base.messages.msgs:addMessage("#mes Augenhöhlen flammen mit einem Male vor blauen Flammen auf, die sich schnell über den ganzen Schädel ausbreiten. Sie strahlen eine unheimliche Kälte aus.", "#me's eye sockets suddenly glare up with blue flames which spread quickly across the entire skull. They exude an eerie coldness.");
+base.messages.msgs:addMessage("#mes Unterkiefer klappt runter und eine kurze Stichflamme schiesst zwischen den gefährlich spitzen Zähnen hervor.", "#me's jaw drops and and a short tongue of flames shoots out from between the dangerously sharp teeth.");
+base.messages.msgs:addMessage("#me öffnet sein gewaltiges Maul und ein fürchterliches Lachen schallt aus den Untiefen des Schädels empor.", "#me opens its huge mouth and a terrible laughter echoes from the depths of the skull.");
+base.messages.msgs:addMessage("Ah, sie köpften mich, doch die wahrlich klugen Köpfe sind nicht unterzubringen…hahahaha!", "Ah, they beheaded me, but wisest heads are invincible... hahahaha!");
+base.messages.msgs:addMessage("Achtung, Sterblicher… niemals kopflos handeln.", "Remember, mortal... never lose your head.");
+base.messages.msgs:addMessage("Ihr wagt es, vor mein Antlitz zu treten… ihr bewahrt fürwahr einen kühlen Kopf.", "You dare to face my face... you really need to keep a cool head.");
+base.messages.msgs:addMessage("#me knackt mit dem Kiefer.", "#me clacks its jaw.");
+base.messages.msgs:addMessage("#me singt Unverständliches.", "#me chants unintelligibly.");
+base.messages.msgs:addMessage("#me klappert mit den Zähnen.", "#me rattles its teeth.");
+base.messages.msgs:addMessage("#me stöhnt vor sich hin.", "#me moans to itself.");
+base.messages.msgs:addMessage("#mes Augen, der Fähigkeit zu blinzeln beraubt, sind von einer klebrigen Flüssigkeit erfüllt.", "#me's eyes drip with liquid, unable to blink.");
+base.messages.msgs:addMessage("#me starrt düster drein.", "#me stares forward sadly.");
+base.messages.msgs:addMessage("#mes Augen sind erfüllt von Leid und Boshaftigkeit.", "#me's eyes are filled with suffering and malice.");
+base.messages.msgs:addMessage("#me zischt: 'Lasst mich alleine…'", "#me hisses: 'Leave me…'");
+base.messages.msgs:addMessage("Toood!", "Deaaath...");
+base.messages.msgs:addMessage("Er verbleibt - nichts.", "Nothing... left...");
 
 end
 
