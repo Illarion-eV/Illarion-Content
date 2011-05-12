@@ -5,14 +5,14 @@
 -- NPC Race: halfling                   NPC Position:  791, 798, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: May 12, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 791, 798, 0, 4, 'Nana Winterbutter', 'npc.nana_winterbutter', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (2, 791, 798, 0, 4, 'Nana Winterbutter', 'npc.nana_winterbutter', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -1278,12 +1278,25 @@ talkingNPC:addCycleText("#me starrt besorgt in die Schüssel in ihrem linken Arm.
 talkingNPC:addCycleText("Das wird nie und nimmer reichen.", "This won't never ever last.");
 talkingNPC:addCycleText("#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me pours carefully some water into the bowl in her left arm.");
 talkingNPC:addCycleText("Vielleicht sollte ich doch etwas anderes kochen.", "Maybe I should cook something else.");
+talkingNPC:addCycleText("Willkommen im Eibenthal!", "Welcome to Yewdale!");
+talkingNPC:addCycleText("#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes a dough she's stirring.");
+talkingNPC:addCycleText("Und noch etwas Knoblauch... oder besser nicht?", "And a little bit of garlic... or not?");
+talkingNPC:addCycleText("Ohje, ohje.", "O my dear.");
+talkingNPC:addCycleText("Das wird lecker!", "That's going to be tasty!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

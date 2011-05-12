@@ -5,9 +5,9 @@
 -- NPC Race: halfling                   NPC Position:  791, 798, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 16, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: May 12, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Nana Winterbutter"
@@ -23,7 +23,7 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."
@@ -242,3 +242,8 @@ cycletext "#me starrt besorgt in die Schüssel in ihrem linken Arm.", "#me stare
 cycletext "Das wird nie und nimmer reichen.", "This won't never ever last."
 cycletext "#me gießt vorsichtig etwas Wasser in Schüssel in ihrem linken Arm.", "#me pours carefully some water into the bowl in her left arm."
 cycletext "Vielleicht sollte ich doch etwas anderes kochen.", "Maybe I should cook something else."
+cycletext "Willkommen im Eibenthal!", "Welcome to Yewdale!"
+cycletext "#me nascht von einem Teig, den sie gerade anrührt.", "#me tastes a dough she's stirring."
+cycletext "Und noch etwas Knoblauch... oder besser nicht?", "And a little bit of garlic... or not?"
+cycletext "Ohje, ohje.", "O my dear."
+cycletext "Das wird lecker!", "That's going to be tasty!"
