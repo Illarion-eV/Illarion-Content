@@ -4,6 +4,18 @@ module("server.learn", package.seeall)
 
 -- called by the server when user:learn(...) is issued by a script
 
+--[[
+Aufruf: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
+
+skill: Name des Skills als string, z.B. "mining"
+skillGroup: Gruppe, in der der Skill sich befindet als Integer (z.B. 2 für crafting).  
+movePoints: Die movePoints, die von der Handlung erfordert/abgezogen werden als Integer. NICHT 0 eintragen, denn jede skillrelevante Handlung MUSS einen Zeitbedarf haben.
+opponent: Falls die Handlung einen Mindestskill aufweißt, diesen hier als Integer eintragen. Falls eine Handlung nur bis zu einem gewissen Skillwert einen Lernerfolg bringen soll, diesen Wert-20 hier eintragen. Ansonsten 100 eintragen.
+leadAttribute: Den Wert des Leitattributes als Integer eintragen. Die Festlegung der Leitattribute ist hier zu finden: viewtopic.php?p=643700#p643700
+
+Beispiel: Character:learn("mining",2,20,100,Character:increaseAttrib("constitution",0));
+]]
+
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
     --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
