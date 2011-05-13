@@ -55,8 +55,10 @@ local MonID=Monster:get_mon_type();
         ini(Monster);
     end
 
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
+    if math.random(1,10) == 1 then
+        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    end
+	
     return false
 end
 

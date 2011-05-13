@@ -20,16 +20,14 @@ end
 
 function enemyNear(Monster,Enemy)
 
-    Enemy:inform("Ich bin dir nah!!");
-    Monster.movepoints=0;
-    return true;
-end
-   --[[ if init==nil then
+    if init==nil then
         ini(Monster);
     end
 
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
+    if math.random(1,10) == 1 then
+        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    end
+	
     local MonID=Monster:get_mon_type();
     if (MonID==144) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{44,5},{46,5},{51,5}},{},40,1) == true );
@@ -37,7 +35,7 @@ end
         return false;
     end
 end
---]]
+
 
 function setTarget(Monster, targetList)
 

@@ -33,8 +33,10 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
+    if math.random(1,10) == 1 then
+        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    end
+	
     local MonID=Monster:get_mon_type();
     if (MonID==223) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,6,{1000,1500},{{9,5},{36,5},{38,5}},{{359,320,500,0,7}},40,1,{30,60}) );

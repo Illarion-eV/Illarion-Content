@@ -46,7 +46,9 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    if math.random(1,10) == 1 then
+        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    end
 
     if (MonID==3) then
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonMagic(Monster,Enemy,7,{1000,2000},{{4,5},{9,5},{51,5}},{},40,1,{35,50}) );

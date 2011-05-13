@@ -390,7 +390,7 @@ end
 
 function MonsterRandomTalk(Monster,msgs)
 
-    if (math.random(1,6000) == 1 ) then --once each 10 minutes (6000) in average a message is spoken
+    if (math.random(1,600) == 1 ) then --once each 10 minutes (600s) in average a message is spoken
         
         Monster:increaseSkill(1,"common language",100-Monster:getSkill("common language")); --if the monster could not talk, it can talk now
 

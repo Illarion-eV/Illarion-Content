@@ -23,7 +23,7 @@ msgs:addMessage("#me kneift seine Augen zusammen.", "#me squints its eyes.");
 msgs:addMessage("#me knurrt leise.", "#me snarls quietly.");
 msgs:addMessage("#me schnappt.", "#me snaps its jaw.");
 msgs:addMessage("#me schnauft laut.", "#me gasps loudly.");
-msgs:addMessage("#me's Schwanz sträubt sich.", "#me's tail rises.");
+msgs:addMessage("#mes Schwanz sträubt sich.", "#me's tail rises.");
 msgs:addMessage("#me zieht die Luft scharf schnüffelnd durch die Nase ein.", "#me breathes through its nose, sniffing.");
 msgs:addMessage("#me legt den Kopf in den Nacken und stößt eine Mischung aus Heulen und Gebell hervor.", "#me throws back its head and lets out a mixture of howling and barking.");
 msgs:addMessage("#me fährt sich mit seiner rauhen Zunge über die Schnauze, ehe er leise verärgert kläfft.", "#me licks its nose with its rough tongue before it yaps angrily.");
@@ -36,8 +36,10 @@ function enemyNear(Monster,Enemy)
         ini(Monster);
     end
 
-    monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
+    if math.random(1,10) == 1 then
+        monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
+    end
+	
     local MonID=Monster:get_mon_type();
     if (MonID==253) then
         return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1000,3000},{{4,5},{9,5},{51,5}},{},40,1) == true );
