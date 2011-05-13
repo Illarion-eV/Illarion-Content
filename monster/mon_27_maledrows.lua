@@ -14,22 +14,22 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me fährt mit einer Hand durch sein Haar, ein grausames Grinsen liegt auf seinem Gesicht.", "#me runs a hand through his hair, a cruel smirk covering his face.");
-base.messages.msgs:addMessage("#me fasst seine Waffe fester.", "#me tightly grips his weapon.");
-base.messages.msgs:addMessage("#me schließt seine Augen und beginnt wie wahnsinnig zu lachen.", "#me closes his eyes and begins to laugh maniacally.");
-base.messages.msgs:addMessage("#mes Mund ist an den Mundwinkeln zu einem verdrehten Lächeln verzogen.", "#me's mouth curles up into a twisted smile.");
-base.messages.msgs:addMessage("#mes verengte Augen starren geradeaus.", "#me's narrow eyes stare straight ahead.");
-base.messages.msgs:addMessage("Brüder! Lasst uns Jagd auf die Schwachen machen.", "Brothers! Let us prey upon the weak.");
-base.messages.msgs:addMessage("Dein Unbehagen amüsiert mich.", "Your discomfort amuses me.");
-base.messages.msgs:addMessage("Deine Schmerzen sind meine Freude.", "Your pain; my pleasure.");
-base.messages.msgs:addMessage("Deine Schreie werden wie Musik in meinen Ohren klingen.", "Your screams shall be music to my ears.");
-base.messages.msgs:addMessage("Der Blutgott soll heute nacht nicht hungrig bleiben.", "The Blood-God shall not hunger on this night.");
-base.messages.msgs:addMessage("Du hast jahrelang darauf gewartet vom Tod begrüßt zu werden... was machen da ein paar Stunden mehr?", "You have waited years for death to greet you... what is a few more hours?");
-base.messages.msgs:addMessage("Geduld, Sterblicher... Geduld. Du wirst früh genug mit der Gegenwart des Blutgottes gesegnet werden.", "Patience, mortal… patience. You shall be blessed with the Blood-God's company soon enough.");
-base.messages.msgs:addMessage("Ich finde dein Leiden... unterhaltsam.", "I find your suffering... enchanting.");
-base.messages.msgs:addMessage("Langsam und schmerzhaft, so wird dein Tod sein.", "Slow and painful, so your death shall be.");
-base.messages.msgs:addMessage("Moshran! Empfange diesen Sterblichen!", "Moshran! Receive this mortal!");
-base.messages.msgs:addMessage("Schreist du etwa? Das solltest du.", "Do you scream? You shall.");
+msgs:addMessage("#me fährt mit einer Hand durch sein Haar, ein grausames Grinsen liegt auf seinem Gesicht.", "#me runs a hand through his hair, a cruel smirk covering his face.");
+msgs:addMessage("#me fasst seine Waffe fester.", "#me tightly grips his weapon.");
+msgs:addMessage("#me schließt seine Augen und beginnt wie wahnsinnig zu lachen.", "#me closes his eyes and begins to laugh maniacally.");
+msgs:addMessage("#mes Mund ist an den Mundwinkeln zu einem verdrehten Lächeln verzogen.", "#me's mouth curles up into a twisted smile.");
+msgs:addMessage("#mes verengte Augen starren geradeaus.", "#me's narrow eyes stare straight ahead.");
+msgs:addMessage("Brüder! Lasst uns Jagd auf die Schwachen machen.", "Brothers! Let us prey upon the weak.");
+msgs:addMessage("Dein Unbehagen amüsiert mich.", "Your discomfort amuses me.");
+msgs:addMessage("Deine Schmerzen sind meine Freude.", "Your pain; my pleasure.");
+msgs:addMessage("Deine Schreie werden wie Musik in meinen Ohren klingen.", "Your screams shall be music to my ears.");
+msgs:addMessage("Der Blutgott soll heute nacht nicht hungrig bleiben.", "The Blood-God shall not hunger on this night.");
+msgs:addMessage("Du hast jahrelang darauf gewartet vom Tod begrüßt zu werden... was machen da ein paar Stunden mehr?", "You have waited years for death to greet you... what is a few more hours?");
+msgs:addMessage("Geduld, Sterblicher... Geduld. Du wirst früh genug mit der Gegenwart des Blutgottes gesegnet werden.", "Patience, mortal… patience. You shall be blessed with the Blood-God's company soon enough.");
+msgs:addMessage("Ich finde dein Leiden... unterhaltsam.", "I find your suffering... enchanting.");
+msgs:addMessage("Langsam und schmerzhaft, so wird dein Tod sein.", "Slow and painful, so your death shall be.");
+msgs:addMessage("Moshran! Empfange diesen Sterblichen!", "Moshran! Receive this mortal!");
+msgs:addMessage("Schreist du etwa? Das solltest du.", "Do you scream? You shall.");
 
 end
 

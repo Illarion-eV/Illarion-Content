@@ -14,21 +14,21 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me brüllt laut und kraftvoll.", "#me roars loudly and powerfully.");
-base.messages.msgs:addMessage("#me fletscht grässliche gelbe Zähne.", "#me bares ugly yellow teeth.");
-base.messages.msgs:addMessage("#me grunzt bösartig.", "#me grunts angrily.");
-base.messages.msgs:addMessage("#me knurrt leise und bedrohlich.", "#me snarls quietly and threateningly.");
-base.messages.msgs:addMessage("#me lacht heiser.", "#me laughs hoarsely.");
-base.messages.msgs:addMessage("#me spuckt auf den Boden, ein boßhaftes Grinsen auf dem Gesicht.", "#me spits at the ground, an evil grin stands in the face.");
-base.messages.msgs:addMessage("Bluuuuut!", "Bloooood!");
-base.messages.msgs:addMessage("D' Vatherr mit mirr ist!", "Da Fadha beh whib me!");
-base.messages.msgs:addMessage("Für d'n Vatherr von alle Orks!", "For da Fadha op all orcis!");
-base.messages.msgs:addMessage("Mirr zermatsch! Hurr! Hässliche Fresse!", "Me smash! Hurr! Ugly fais!");
-base.messages.msgs:addMessage("Renn wie Feigling, renn!", "Run coward, run!");
-base.messages.msgs:addMessage("Starr mirr nischt so an!", "Nub stare at me like dat!");
-base.messages.msgs:addMessage("Mir wütend. Mir dir nun auseinandernehmen wie Spinne! Mir dir zertreten wie Made!", "Me angry! Me smash yoos like spider. Mes stomp yoos like maggot!");
-base.messages.msgs:addMessage("#me schlägt sich an die Brust und röhrt heiser: 'In den Kampf, ein Ork drückt sich nicht!'", "#me slams his fist on his chest and roars: 'On dem! Orcis nub retreat!'");
-base.messages.msgs:addMessage("#me ist grün.", "#me is green.");
+msgs:addMessage("#me brüllt laut und kraftvoll.", "#me roars loudly and powerfully.");
+msgs:addMessage("#me fletscht grässliche gelbe Zähne.", "#me bares ugly yellow teeth.");
+msgs:addMessage("#me grunzt bösartig.", "#me grunts angrily.");
+msgs:addMessage("#me knurrt leise und bedrohlich.", "#me snarls quietly and threateningly.");
+msgs:addMessage("#me lacht heiser.", "#me laughs hoarsely.");
+msgs:addMessage("#me spuckt auf den Boden, ein boßhaftes Grinsen auf dem Gesicht.", "#me spits at the ground, an evil grin stands in the face.");
+msgs:addMessage("Bluuuuut!", "Bloooood!");
+msgs:addMessage("D' Vatherr mit mirr ist!", "Da Fadha beh whib me!");
+msgs:addMessage("Für d'n Vatherr von alle Orks!", "For da Fadha op all orcis!");
+msgs:addMessage("Mirr zermatsch! Hurr! Hässliche Fresse!", "Me smash! Hurr! Ugly fais!");
+msgs:addMessage("Renn wie Feigling, renn!", "Run coward, run!");
+msgs:addMessage("Starr mirr nischt so an!", "Nub stare at me like dat!");
+msgs:addMessage("Mir wütend. Mir dir nun auseinandernehmen wie Spinne! Mir dir zertreten wie Made!", "Me angry! Me smash yoos like spider. Mes stomp yoos like maggot!");
+msgs:addMessage("#me schlägt sich an die Brust und röhrt heiser: 'In den Kampf, ein Ork drückt sich nicht!'", "#me slams his fist on his chest and roars: 'On dem! Orcis nub retreat!'");
+msgs:addMessage("#me ist grün.", "#me is green.");
 
 end
 

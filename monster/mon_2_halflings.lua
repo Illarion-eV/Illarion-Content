@@ -14,17 +14,17 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me grinst breit.", "#me grins widely.");
-base.messages.msgs:addMessage("#me kichert.", "#me giggles.");
-base.messages.msgs:addMessage("#me lacht.", "#me laughs.");
-base.messages.msgs:addMessage("Bei Adron's Laute!", "By Adron's lute!");
-base.messages.msgs:addMessage("Der lauteste Tyrann stirbt mit einer Faust im Gemächt!", "The worst tyrant dies by a fist in his sleep!");
-base.messages.msgs:addMessage("Du bekommst keinen Kuchen von mir!", "You don't get a cake from me!");
-base.messages.msgs:addMessage("Einen toten Halbling ehren Hunderte!", "A dead halfling is honoured by hundreds!");
-base.messages.msgs:addMessage("Ich geb dir 'nen Nachschlag!", "Here, let me give you a second helping!");
-base.messages.msgs:addMessage("Lange Beine, kleines Hirn. Hau ab!", "Long legs, little brain. Go away!");
-base.messages.msgs:addMessage("Von deinem Gesicht wird ja die Milch sauer!", "Milk goes sour after seeing your face!");
-base.messages.msgs:addMessage("Von dir kann man sich eine Scheibe abschneiden!", "I'll cut a slice off of you!");
+msgs:addMessage("#me grinst breit.", "#me grins widely.");
+msgs:addMessage("#me kichert.", "#me giggles.");
+msgs:addMessage("#me lacht.", "#me laughs.");
+msgs:addMessage("Bei Adron's Laute!", "By Adron's lute!");
+msgs:addMessage("Der lauteste Tyrann stirbt mit einer Faust im Gemächt!", "The worst tyrant dies by a fist in his sleep!");
+msgs:addMessage("Du bekommst keinen Kuchen von mir!", "You don't get a cake from me!");
+msgs:addMessage("Einen toten Halbling ehren Hunderte!", "A dead halfling is honoured by hundreds!");
+msgs:addMessage("Ich geb dir 'nen Nachschlag!", "Here, let me give you a second helping!");
+msgs:addMessage("Lange Beine, kleines Hirn. Hau ab!", "Long legs, little brain. Go away!");
+msgs:addMessage("Von deinem Gesicht wird ja die Milch sauer!", "Milk goes sour after seeing your face!");
+msgs:addMessage("Von dir kann man sich eine Scheibe abschneiden!", "I'll cut a slice off of you!");
 
 end
 

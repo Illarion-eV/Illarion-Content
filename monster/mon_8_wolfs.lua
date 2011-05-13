@@ -14,19 +14,19 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me bleibt steifbeinig und aufgerichtet stehen.", "#me stands stiff legged and tall.");
-base.messages.msgs:addMessage("#me duckt sich, bereit anzugreifen.", "#me crouches, ready to strike.");
-base.messages.msgs:addMessage("#me hat Schaum vor dem Maul.", "#me foams at the mouth.");
-base.messages.msgs:addMessage("#me hebt seinen Kopf und heult.", "#me raises its head and howls.");
-base.messages.msgs:addMessage("#me kläfft laut.", "#me barks loudly.");
-base.messages.msgs:addMessage("#me knirscht mit den Zähnen.", "#me gnashes its teeth.");
-base.messages.msgs:addMessage("#me knurrt, das Geräusch ist kaum hörbar.", "#me growls, the noise barely audible.");
-base.messages.msgs:addMessage("#me krümmt seinen Rücken.", "#me arches its back.");
-base.messages.msgs:addMessage("#me lässt ein böses Knurren hören.", "#me lets out a vicious snarl.");
-base.messages.msgs:addMessage("#me stellt seine Ohren auf.", "#me's ears perk up.");
-base.messages.msgs:addMessage("#me bleckt die Zähne.", "#me bares its teeth.");
-base.messages.msgs:addMessage("#mes Fell sträubt sich.", "#me's fur bristles");
-base.messages.msgs:addMessage("#mes Schwanz streckt sich hinter seinem Körper gerade aus.", "#me's tail extends straight out from its body.");
+msgs:addMessage("#me bleibt steifbeinig und aufgerichtet stehen.", "#me stands stiff legged and tall.");
+msgs:addMessage("#me duckt sich, bereit anzugreifen.", "#me crouches, ready to strike.");
+msgs:addMessage("#me hat Schaum vor dem Maul.", "#me foams at the mouth.");
+msgs:addMessage("#me hebt seinen Kopf und heult.", "#me raises its head and howls.");
+msgs:addMessage("#me kläfft laut.", "#me barks loudly.");
+msgs:addMessage("#me knirscht mit den Zähnen.", "#me gnashes its teeth.");
+msgs:addMessage("#me knurrt, das Geräusch ist kaum hörbar.", "#me growls, the noise barely audible.");
+msgs:addMessage("#me krümmt seinen Rücken.", "#me arches its back.");
+msgs:addMessage("#me lässt ein böses Knurren hören.", "#me lets out a vicious snarl.");
+msgs:addMessage("#me stellt seine Ohren auf.", "#me's ears perk up.");
+msgs:addMessage("#me bleckt die Zähne.", "#me bares its teeth.");
+msgs:addMessage("#mes Fell sträubt sich.", "#me's fur bristles");
+msgs:addMessage("#mes Schwanz streckt sich hinter seinem Körper gerade aus.", "#me's tail extends straight out from its body.");
 
 end
 

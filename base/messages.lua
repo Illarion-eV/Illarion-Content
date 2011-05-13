@@ -12,8 +12,8 @@
 --      msgs = Messages();
 --
 --      Append messages to the message object:
---      base.messages.msgs:addMessage("German Text 1", "English Text 1");
---      base.messages.msgs:addMessage("German Text 2", "English Text 2");
+--      msgs:addMessage("German Text 1", "English Text 1");
+--      msgs:addMessage("German Text 2", "English Text 2");
 --
 --      Get the count of messages in the message object:
 --      #msgs == 2

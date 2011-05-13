@@ -14,17 +14,17 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me gackert bösartig.", "#me cackles softly.");
-base.messages.msgs:addMessage("#me haucht die Worte: 'Ihr werdet sterrrrrrben.'", "#me wheezes the words: 'You will dieee.'");
-base.messages.msgs:addMessage("#me hüpft auf und ab während er schwebt.", "#me bobs up and down as it floats.");
-base.messages.msgs:addMessage("#me keucht erzürnt.", "#me wheezes angrily.");
-base.messages.msgs:addMessage("#me öffnet weit seinen Mund als wolle er etwas essen, heraus kommt jedoch nur ein knarrender Ton.", "#me opens its mouth wide as if to eat, but only a creaking sound follows.");
-base.messages.msgs:addMessage("#me stößt einen hohen und lautet Ton aus.", "#me releases a piercing and haunting shriek.");
-base.messages.msgs:addMessage("#me verströmt eine tödliche kälte.", "#me emanates a deathly chill.");
-base.messages.msgs:addMessage("#me zischt etwas unverständliches.", "#me hisses words incomprehensibly.");
-base.messages.msgs:addMessage("#me zischt: 'Betretet Chergas Reich!'", "#me hisses: 'Enter Cherga's realm!'.");
-base.messages.msgs:addMessage("Der Schatten erwartet dich!", "Shadow followsss.");
-base.messages.msgs:addMessage("Die Dunkelheit wartet.", "Darrrkness awaitsss.");
+msgs:addMessage("#me gackert bösartig.", "#me cackles softly.");
+msgs:addMessage("#me haucht die Worte: 'Ihr werdet sterrrrrrben.'", "#me wheezes the words: 'You will dieee.'");
+msgs:addMessage("#me hüpft auf und ab während er schwebt.", "#me bobs up and down as it floats.");
+msgs:addMessage("#me keucht erzürnt.", "#me wheezes angrily.");
+msgs:addMessage("#me öffnet weit seinen Mund als wolle er etwas essen, heraus kommt jedoch nur ein knarrender Ton.", "#me opens its mouth wide as if to eat, but only a creaking sound follows.");
+msgs:addMessage("#me stößt einen hohen und lautet Ton aus.", "#me releases a piercing and haunting shriek.");
+msgs:addMessage("#me verströmt eine tödliche kälte.", "#me emanates a deathly chill.");
+msgs:addMessage("#me zischt etwas unverständliches.", "#me hisses words incomprehensibly.");
+msgs:addMessage("#me zischt: 'Betretet Chergas Reich!'", "#me hisses: 'Enter Cherga's realm!'.");
+msgs:addMessage("Der Schatten erwartet dich!", "Shadow followsss.");
+msgs:addMessage("Die Dunkelheit wartet.", "Darrrkness awaitsss.");
 
 end
 

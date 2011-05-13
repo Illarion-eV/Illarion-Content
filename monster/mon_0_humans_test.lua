@@ -15,27 +15,27 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 msgs = base.messages.Messages();
 
-base.messages.msgs:addMessage("#me flucht vor sich hin.", "#me swears to himself.");
-base.messages.msgs:addMessage("#me grinst siegessicher.", "#me grins, certain of success.");
-base.messages.msgs:addMessage("#me ist in Schweiß gebadet.", "#me is bathed in sweat.");
-base.messages.msgs:addMessage("#me lacht laut.", "#me laughs.");
-base.messages.msgs:addMessage("#me spuckt auf den Boden.", "#me spits at the ground.");
-base.messages.msgs:addMessage("#me tippelt hin und her.", "#me hops on the spot.");
-base.messages.msgs:addMessage("Achtung! Alarm!", "Careful! Alert!");
-base.messages.msgs:addMessage("Das war's!", "That does it!");
-base.messages.msgs:addMessage("Die Leute werden auch immer schwächer!", "People get weaker every day!");
-base.messages.msgs:addMessage("Dieses Gebiet gehört mir!", "This area belongs to me!");
-base.messages.msgs:addMessage("Ein Drache ist nichts gegen mich!", "A dragon is nothing compared to me!");
-base.messages.msgs:addMessage("Fressen oder gefressen werden, so läuft das.", "Kill or be killed, that's the way it is");
-base.messages.msgs:addMessage("Für die Götter!", "For the gods!");
-base.messages.msgs:addMessage("Geld oder Leben!", "Money or life!");
-base.messages.msgs:addMessage("Heute ist ein guter Tag zum Töten.", "This day is a good day for killing.");
-base.messages.msgs:addMessage("Ich bin der Stärkste!", "I am the strongest!");
-base.messages.msgs:addMessage("Ich zerquetsche jeden Feind wie 'ne kleine Fee!", "I crush every enemy like a little fairy!");
-base.messages.msgs:addMessage("Niemand wird mich je besiegen!", "No one will ever defeat me!");
-base.messages.msgs:addMessage("Rollende Köpfe sind immer eine schöne Abwechslung.", "Rolling heads are always welcome.");
-base.messages.msgs:addMessage("Verboten!", "Verboten!");
-base.messages.msgs:addMessage("Wer wagt es mich zu stören?", "Who dares to bother me?");
+msgs:addMessage("#me flucht vor sich hin.", "#me swears to himself.");
+msgs:addMessage("#me grinst siegessicher.", "#me grins, certain of success.");
+msgs:addMessage("#me ist in Schweiß gebadet.", "#me is bathed in sweat.");
+msgs:addMessage("#me lacht laut.", "#me laughs.");
+msgs:addMessage("#me spuckt auf den Boden.", "#me spits at the ground.");
+msgs:addMessage("#me tippelt hin und her.", "#me hops on the spot.");
+msgs:addMessage("Achtung! Alarm!", "Careful! Alert!");
+msgs:addMessage("Das war's!", "That does it!");
+msgs:addMessage("Die Leute werden auch immer schwächer!", "People get weaker every day!");
+msgs:addMessage("Dieses Gebiet gehört mir!", "This area belongs to me!");
+msgs:addMessage("Ein Drache ist nichts gegen mich!", "A dragon is nothing compared to me!");
+msgs:addMessage("Fressen oder gefressen werden, so läuft das.", "Kill or be killed, that's the way it is");
+msgs:addMessage("Für die Götter!", "For the gods!");
+msgs:addMessage("Geld oder Leben!", "Money or life!");
+msgs:addMessage("Heute ist ein guter Tag zum Töten.", "This day is a good day for killing.");
+msgs:addMessage("Ich bin der Stärkste!", "I am the strongest!");
+msgs:addMessage("Ich zerquetsche jeden Feind wie 'ne kleine Fee!", "I crush every enemy like a little fairy!");
+msgs:addMessage("Niemand wird mich je besiegen!", "No one will ever defeat me!");
+msgs:addMessage("Rollende Köpfe sind immer eine schöne Abwechslung.", "Rolling heads are always welcome.");
+msgs:addMessage("Verboten!", "Verboten!");
+msgs:addMessage("Wer wagt es mich zu stören?", "Who dares to bother me?");
 
 end
 

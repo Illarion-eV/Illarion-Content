@@ -14,16 +14,16 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me knurrt bedrohlich.", "#me snarls menacingly.");
-base.messages.msgs:addMessage("#me prustet vor Lachen.", "#me snorts with laughter.");
-base.messages.msgs:addMessage("Das ist dein letzter Tag!", "You shall not live to see another day!");
-base.messages.msgs:addMessage("Dein Schicksal ist besiegelt!", "Your fate is sealed!");
-base.messages.msgs:addMessage("Deine Versuche sind erbärmlich!", "Your attempts are pathetic!");
-base.messages.msgs:addMessage("Die Kammerjäger sind da!", "This is pest control!");
-base.messages.msgs:addMessage("Du widerst mich an!", "You disgust me!");
-base.messages.msgs:addMessage("Erwarte keine Gnade!", "Do not expect mercy!");
-base.messages.msgs:addMessage("Ich werde es kurz machen!", "I shall make this quick!");
-base.messages.msgs:addMessage("Irgendwelche letzten Worte?!", "Any last words?!");
+msgs:addMessage("#me knurrt bedrohlich.", "#me snarls menacingly.");
+msgs:addMessage("#me prustet vor Lachen.", "#me snorts with laughter.");
+msgs:addMessage("Das ist dein letzter Tag!", "You shall not live to see another day!");
+msgs:addMessage("Dein Schicksal ist besiegelt!", "Your fate is sealed!");
+msgs:addMessage("Deine Versuche sind erbärmlich!", "Your attempts are pathetic!");
+msgs:addMessage("Die Kammerjäger sind da!", "This is pest control!");
+msgs:addMessage("Du widerst mich an!", "You disgust me!");
+msgs:addMessage("Erwarte keine Gnade!", "Do not expect mercy!");
+msgs:addMessage("Ich werde es kurz machen!", "I shall make this quick!");
+msgs:addMessage("Irgendwelche letzten Worte?!", "Any last words?!");
 
 end
 

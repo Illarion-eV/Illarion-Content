@@ -14,29 +14,29 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me brüllt ohrenbetäubend.", "#me roars deafeningly.");
-base.messages.msgs:addMessage("#me lacht kühn.", "#me laughs audaciously.");
-base.messages.msgs:addMessage("Auf die Knie!", "Kneel before me!");
-base.messages.msgs:addMessage("Das Blut der letzten Sterblichen, die vorbei kamen, ist noch gar nicht richtig getrocket.", "The blood of the last mortals walking by here is not even dry yet.");
-base.messages.msgs:addMessage("Dein Ende ist nah!", "Your end is nigh!");
-base.messages.msgs:addMessage("Dein Fleisch wird ein Festschmaus.", "I will feast on your flesh!");
-base.messages.msgs:addMessage("Du hast keine Chance!", "You don't stand a chance!");
-base.messages.msgs:addMessage("Du hättest nicht herkommen sollen.", "It was foolish to come here.");
-base.messages.msgs:addMessage("Du hättest weglaufen sollen, Sterblicher. Nun ist es zu spät für dich.", "You should be running away, mortal. Now its too late for you.");
-base.messages.msgs:addMessage("Erbärmliche Kreatur!", "Pitiful creature!");
-base.messages.msgs:addMessage("Euch zu töten ist so einfach, gerade zu langweilig. Wieso werft ihr Sterblichen euer Leben so weg?", "Killing you is so simple, it's boring. Why do you mortals throw your lives away like this?");
-base.messages.msgs:addMessage("Flieht, ihr Narren!", "Start running, coward!");
-base.messages.msgs:addMessage("Frischfleisch!", "Fresh meat!");
-base.messages.msgs:addMessage("Heute Nacht speist du an Cherga's Tafel!", "Tonight you dine in Cherga's realm!");
-base.messages.msgs:addMessage("Ihr Sterblichen seid so jämmerlich. Immer wieder versucht ihr euch gegen mich und immer wieder scheitert ihr.", "You mortals are so miserable. Again and again you challenge me and again and again you fail.");
-base.messages.msgs:addMessage("Komm nur Sterblicher, bald werden die Ratten sich an deinem Körper laben. Vielleicht ist dabei sogar noch ein Rest deines Lebensfunken in dir.", "Come, mortal. Soon enough, the rats shall feast upon your flesh, and I will make sure you're still breathing when they start!");
-base.messages.msgs:addMessage("Komm zu mir Sterblicher, ich werde dich in die Dunkelheit führen wo deine Seele ewige Qualen erfahren wird.", "Come to me mortal. I will guide you into the darkness where your soul will suffer for eternity.");
-base.messages.msgs:addMessage("Lass mich dir den Weg zeigen in die Dunkelheit und Kälte.", "Let me show you the way into the darkness and the cold.");
-base.messages.msgs:addMessage("Nieder, kleiner Sterblicher!", "Cower, foolish mortal!");
-base.messages.msgs:addMessage("Sieh dich um, Sterblicher. Dies ist der letzte Ort den deine Augen erblicken werden!", "Look around, mortal. This is the last place you will ever see!");
-base.messages.msgs:addMessage("Spürst du die Kälte, Sterblicher? Spürst du wie das Leben aus dir weicht, jetzt so kurz vor deinem Ende?", "Do you feel the cold, mortal? Do you feel the spark of life vanishing? Soon the end will come.");
-base.messages.msgs:addMessage("Vielleicht solltest du zu deinen Göttern beten. Auch wenn sie dir hier nicht helfen können.", "Maybe you should pray to your gods, though they can't help you anymore.");
-base.messages.msgs:addMessage("Wenn du Dunkelheit und Tod gesucht hast, Sterblicher, dann bist du hier genau richtig.", "If you were looking for darkness and death, mortal, then you are in the right place.");
+msgs:addMessage("#me brüllt ohrenbetäubend.", "#me roars deafeningly.");
+msgs:addMessage("#me lacht kühn.", "#me laughs audaciously.");
+msgs:addMessage("Auf die Knie!", "Kneel before me!");
+msgs:addMessage("Das Blut der letzten Sterblichen, die vorbei kamen, ist noch gar nicht richtig getrocket.", "The blood of the last mortals walking by here is not even dry yet.");
+msgs:addMessage("Dein Ende ist nah!", "Your end is nigh!");
+msgs:addMessage("Dein Fleisch wird ein Festschmaus.", "I will feast on your flesh!");
+msgs:addMessage("Du hast keine Chance!", "You don't stand a chance!");
+msgs:addMessage("Du hättest nicht herkommen sollen.", "It was foolish to come here.");
+msgs:addMessage("Du hättest weglaufen sollen, Sterblicher. Nun ist es zu spät für dich.", "You should be running away, mortal. Now its too late for you.");
+msgs:addMessage("Erbärmliche Kreatur!", "Pitiful creature!");
+msgs:addMessage("Euch zu töten ist so einfach, gerade zu langweilig. Wieso werft ihr Sterblichen euer Leben so weg?", "Killing you is so simple, it's boring. Why do you mortals throw your lives away like this?");
+msgs:addMessage("Flieht, ihr Narren!", "Start running, coward!");
+msgs:addMessage("Frischfleisch!", "Fresh meat!");
+msgs:addMessage("Heute Nacht speist du an Cherga's Tafel!", "Tonight you dine in Cherga's realm!");
+msgs:addMessage("Ihr Sterblichen seid so jämmerlich. Immer wieder versucht ihr euch gegen mich und immer wieder scheitert ihr.", "You mortals are so miserable. Again and again you challenge me and again and again you fail.");
+msgs:addMessage("Komm nur Sterblicher, bald werden die Ratten sich an deinem Körper laben. Vielleicht ist dabei sogar noch ein Rest deines Lebensfunken in dir.", "Come, mortal. Soon enough, the rats shall feast upon your flesh, and I will make sure you're still breathing when they start!");
+msgs:addMessage("Komm zu mir Sterblicher, ich werde dich in die Dunkelheit führen wo deine Seele ewige Qualen erfahren wird.", "Come to me mortal. I will guide you into the darkness where your soul will suffer for eternity.");
+msgs:addMessage("Lass mich dir den Weg zeigen in die Dunkelheit und Kälte.", "Let me show you the way into the darkness and the cold.");
+msgs:addMessage("Nieder, kleiner Sterblicher!", "Cower, foolish mortal!");
+msgs:addMessage("Sieh dich um, Sterblicher. Dies ist der letzte Ort den deine Augen erblicken werden!", "Look around, mortal. This is the last place you will ever see!");
+msgs:addMessage("Spürst du die Kälte, Sterblicher? Spürst du wie das Leben aus dir weicht, jetzt so kurz vor deinem Ende?", "Do you feel the cold, mortal? Do you feel the spark of life vanishing? Soon the end will come.");
+msgs:addMessage("Vielleicht solltest du zu deinen Göttern beten. Auch wenn sie dir hier nicht helfen können.", "Maybe you should pray to your gods, though they can't help you anymore.");
+msgs:addMessage("Wenn du Dunkelheit und Tod gesucht hast, Sterblicher, dann bist du hier genau richtig.", "If you were looking for darkness and death, mortal, then you are in the right place.");
 
 end
 

@@ -15,15 +15,15 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
-base.messages.msgs:addMessage("#me bewegen sich in der Luft auf und ab.", "#me hang in the air bobbing up and down.");
-base.messages.msgs:addMessage("#me brummen einfach herum, wie es Insekten mit Flügeln so tun.", "#me's simple buzzing drone leads one to consider the life of a winged insect.");
-base.messages.msgs:addMessage("#me fliegen ziellos vor und zurück.", "#me fly back and forth aimlessly.");
-base.messages.msgs:addMessage("#me kreisen wild umher.", "#me spin furiously.");
-base.messages.msgs:addMessage("#me landen auf der Erde und bleiben dort nur für einen Augenblick.", "#me land on the ground for a moment");
-base.messages.msgs:addMessage("#me schwirren umher.", "#me buzz around.");
-base.messages.msgs:addMessage("#me sind auf Streifzug.", "#me prowl around.");
-base.messages.msgs:addMessage("Bzzzzz!", "Bzzzzz!");
-base.messages.msgs:addMessage("Summ, summ.", "Buzz, buzz.");
+msgs:addMessage("#me bewegen sich in der Luft auf und ab.", "#me hang in the air bobbing up and down.");
+msgs:addMessage("#me brummen einfach herum, wie es Insekten mit Flügeln so tun.", "#me's simple buzzing drone leads one to consider the life of a winged insect.");
+msgs:addMessage("#me fliegen ziellos vor und zurück.", "#me fly back and forth aimlessly.");
+msgs:addMessage("#me kreisen wild umher.", "#me spin furiously.");
+msgs:addMessage("#me landen auf der Erde und bleiben dort nur für einen Augenblick.", "#me land on the ground for a moment");
+msgs:addMessage("#me schwirren umher.", "#me buzz around.");
+msgs:addMessage("#me sind auf Streifzug.", "#me prowl around.");
+msgs:addMessage("Bzzzzz!", "Bzzzzz!");
+msgs:addMessage("Summ, summ.", "Buzz, buzz.");
 
 end
 
