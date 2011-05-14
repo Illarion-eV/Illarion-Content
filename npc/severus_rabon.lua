@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 14, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Kay Darknight> the < waiter >. Keyphrases: Hello, Good day, Hi, Good morning, Pleasure to meet you"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Severus Rabon the Waiter. Keyphrases: Hello, Good day."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Severus Rabon der Ober. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -67,25 +67,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greet");
-talkEntry:addTrigger("Hail");
-talkEntry:addTrigger("Good day");
-talkEntry:addTrigger("Good morning");
-talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Please talk to my wife. She will seat you and then I will take your order.");
-talkEntry:addResponse("If you're a regular please seat yourself. My business is your home.");
-talkEntry:addResponse("If I may be of service I would recommend the sand rat. It's our signature dish.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Please talk to my wife. She will seat you and then I will take your order.");
+talkEntry:addResponse("If you're a regular please seat yourself. My business is your home.");
+talkEntry:addResponse("If I may be of service I would recommend the sand rat. It's our signature dish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,14 +355,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
@@ -384,6 +365,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
+talkEntry:addTrigger("Queen");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I await the day when the queen graces our restaurant with a visit.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -459,24 +441,24 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("GERMAN");
+talkEntry:addTrigger("Geheimnis");
 talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<Kay>");
-talkEntry:addTrigger("<Darknight>");
+talkEntry:addTrigger("Severus");
+talkEntry:addTrigger("Rabon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Oh, did you need something?");
 talkEntry:addResponse("That is me.");
-talkEntry:addResponse("Hello. I am Kay Darknight. I would be glad to help you with anything that you need.");
+talkEntry:addResponse("Hello. I am Severus Rabon. I would be glad to help you with anything that you need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Severus");
+talkEntry:addTrigger("Rabon");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -533,13 +515,20 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("ENGLISH.", "Charred sand rat is the perfect way to fill stomach empied from a trek across the desert. The meet is both fulfilling and tantalizing to the tongue.");
-talkingNPC:addCycleText("", "What will you be having tonight. I suggest something a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life.");
-talkingNPC:addCycleText("ENGLISH.", "");
+talkingNPC:addCycleText("GERMAN.", "Charred sand rat is the perfect way to fill stomach emptied from a trek across the desert. The meet is both fulfilling and tantalizing to the tongue.");
+talkingNPC:addCycleText("GERMAN.", "What will you be having tonight. I suggest something a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life.");
+talkingNPC:addCycleText("GERMAN.", "This place is a mess. I hope Rose doesn?t make me mop.");
+talkingNPC:addCycleText("GERMAN.", "I should check up on Linda. I hope she?s not to tired.");
+talkingNPC:addCycleText("GERMAN.", "Maybe I should hire a gleeman. I bet the customers would enjoy a story teller.");
+talkingNPC:addCycleText("GERMAN.", "Real men tell the women in their lives how much they mean to them. Real men love.");
+talkingNPC:addCycleText("GERMAN.", "The hardest part of work is working.");
+talkingNPC:addCycleText("GERMAN.", "Please come again. We would like nothing better than to serve you another meal.");
+talkingNPC:addCycleText("GERMAN.", "I?m sorry it?s so hot in here. My wife won?t let me hire a bunch of girls to fan everyone. She said I could hire guys, but I would never allow that.");
+talkingNPC:addCycleText("GERMAN.", "Linda! Is everything alright in there?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist Severus Rabon der Ober.", "This NPC is Severus Rabon the Waiter.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
