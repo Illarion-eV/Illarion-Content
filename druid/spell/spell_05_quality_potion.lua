@@ -28,7 +28,8 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 	for i=1,table.getn(pList) do
 		if pList[i] == TargetItem.id then
 			qualstat = math.floor(TargetItem.quality/100);
-			Caster:learn(6,"exquirere",3,100);
+			--Caster:learn(6,"exquirere",3,100);
+			--Replace with new learn function, see learn.lua 
 			textDE = "Dieser Trank hat eine "..qListDe[qualstat].." Qualität.";
 			textEN = "This potion has a "..qListEn[qualstat].." quality.";
 			base.common.InformNLS(Caster, textDE, textEN);

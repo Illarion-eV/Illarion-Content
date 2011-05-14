@@ -119,7 +119,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddEnglishBookText("\n It seems you are ~level~ in the Art of parry",0,"parry");
         end
         SendBookPage(User,Counter)
-        User:learn(4,"library research",2,100)
+        --User:learn(4,"library research",2,100)
+		--Replace with new learn function, see learn.lua
     end
 end
 

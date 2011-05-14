@@ -235,7 +235,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         end
     end
     base.common.GetHungry( User, 200 );
-    User:learn( 2, "smithing", 2, 10 );
+    --User:learn( 2, "smithing", 2, 10 );
+	--Replace with new learn function, see learn.lua 
 end -- function
 
 -- Arbeitszeit generieren

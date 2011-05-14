@@ -82,7 +82,8 @@ end
 
 function LearnMagicResistance( Char )
     if (MaximalMagicResistance( Char ) > Char:getSkill("magic resistance")) then
-        Char:learn(3,"magic resistance",2,100);
+        --Char:learn(3,"magic resistance",2,100);
+		--Replace with new learn function, see learn.lua 
     end
 end
 

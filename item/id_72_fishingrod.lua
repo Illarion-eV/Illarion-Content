@@ -84,7 +84,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 			base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
 			return false
 		end
-		User:learn(2, "fishing", 2, 100);
+		--User:learn(2, "fishing", 2, 100);
+		--Replace with new learn function, see learn.lua 
 	elseif(chance <= 9) then -- Skill wird nur noch bei GenWorkTime beachtet, Chance beträgt 60% für Forelle
 		local notcreated = User:createItem(355, 1, 333, 0);
 		if(notcreated > 0) then
@@ -92,9 +93,11 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 			base.common.InformNLS(User, "Du kannst nichts mehr halten!", "You can't carry anymore!");
 			return false
 		end
-		User:learn(2, "fishing", 2, 100);
+		--User:learn(2, "fishing", 2, 100);
+		--Replace with new learn function, see learn.lua 
 	else
-		User:learn(2, "fishing", 1, 100);
+		--User:learn(2, "fishing", 1, 100);
+		--Replace with new learn function, see learn.lua 
 	end
 	
 	-- GFX + Sound

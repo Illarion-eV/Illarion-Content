@@ -111,7 +111,8 @@ function MakeSprout( User, SourceItem, TargetItem )
             "#w Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.", 
             "#w The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
         end    
-        User:learn( 2, "peasantry", 1, 100 )
+        --User:learn( 2, "peasantry", 1, 100 )
+		--Replace with new learn function, see learn.lua 
     end
 end
 

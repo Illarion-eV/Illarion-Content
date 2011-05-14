@@ -167,7 +167,8 @@ function SetSeeds( User, SourceItem, TargetPos )
         world:createItemFromId( seed[1], 1, TargetPos, false, 233 ,1);
     end
     
-    User:learn( 2, "peasantry", 2, 100 );
+    --User:learn( 2, "peasantry", 2, 100 );
+	--Replace with new learn function, see learn.lua 
     world:erase( SourceItem, 1 );
 
     base.common.GetHungry( User, 100 );

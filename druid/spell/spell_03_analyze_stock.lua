@@ -41,7 +41,8 @@ function CastMagicOnItem(Caster,TargetItem,counter,param)
 			TextDE = TextDE.."nichts.";
 			TextEN = TextEN.."nothing.";
 		end
-		Caster:learn(6,"exquirere",3,100);
+		--Caster:learn(6,"exquirere",3,100);
+		--Replace with new learn function, see learn.lua 
 		base.common.InformNLS(Caster, TextDE, TextEN);
 	else
 		base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Kräutersud benutzen.", "You have to use this analyzing spell with a herbage brooth.");

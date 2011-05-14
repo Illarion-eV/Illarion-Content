@@ -115,7 +115,8 @@ function WriteTeleSpell(Caster, ltstate )
                     if (CasterVal>0) then
                         -- magic.base.basics.SayRunes(Caster);
                         if (LuaAnd(Caster:getQuestProgress(24),1) == 0 ) then
-                            Caster:learn(3,NeededSkill,3,math.max(0,math.min(100,CasterVal+30)));
+                            --Caster:learn(3,NeededSkill,3,math.max(0,math.min(100,CasterVal+30)));
+							--Replace with new learn function, see learn.lua 
                         end
                         --quality setzen
 

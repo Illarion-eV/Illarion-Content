@@ -393,7 +393,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	
     if not checkSucc(Skill) then
         User:startAction( base.gcraft.GenWorkTime(User), 0, 0, 8, 15);
-        User:learn(2,"mining",1,100);
+        --User:learn(2,"mining",1,100);
+		--Replace with new learn function, see learn.lua 
         return
     end
 
@@ -418,7 +419,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         return
     end
 
-    User:learn(2,"mining",1,100);
+    --User:learn(2,"mining",1,100);
+	--Replace with new learn function, see learn.lua 
 
     -- End edit
 

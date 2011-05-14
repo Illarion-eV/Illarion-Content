@@ -141,7 +141,8 @@ function UseShovelWithField( User, SourceItem, TargetPos, ltstate )
 		end
 	end
 
-    User:learn( 2, "mining", 2, 50 );
+    --User:learn( 2, "mining", 2, 50 );
+	--Replace with new learn function, see learn.lua 
     local Skill = User:getSkill( "mining" );
     gem1, str1, gem2, str2=getBonusFromItem(SourceItem);
     step=0;

@@ -204,7 +204,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 User:startAction( 12, 0, 0, 6, 15);
             end
             if (User:getSkill("lumberjacking") < 100) then
-                User:learn( 2, "lumberjacking", 2, 100 );
+                --User:learn( 2, "lumberjacking", 2, 100 );
+				--Replace with new learn function, see learn.lua 
             end
         else
             if base.common.ToolBreaks( User, SourceItem ) then
@@ -213,7 +214,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 "The old and used axe in your hands breaks.");
             end
             --if (User:getSkill("lumberjacking") < 100) then
-                User:learn( 2, "lumberjacking", 2, 100 );
+                --User:learn( 2, "lumberjacking", 2, 100 );
+				--Replace with new learn function, see learn.lua 
            -- end
         end
     elseif ( ltstate == Action.abort ) then

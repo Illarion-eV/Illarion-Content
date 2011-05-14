@@ -536,7 +536,8 @@ function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
     if didSomething and (ltstate == Action.success) then
         base.common.ToolBreaks( User, toolItem, true );
         base.common.GetHungry( User, neededFood );
-        User:learn(self.LeadSkillGroup,self.LeadSkill,2,math.min(100,ProduceItem.Difficulty[2]));
+        --User:learn(self.LeadSkillGroup,self.LeadSkill,2,math.min(100,ProduceItem.Difficulty[2]));
+		--Replace with new learn function, see learn.lua 
     end
 end
 

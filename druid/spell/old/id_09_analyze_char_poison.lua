@@ -39,7 +39,8 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	  	end 
 	  	          
 	  end       
-    Caster:learn(6,"sanitas",3,100)
+    --Caster:learn(6,"sanitas",3,100)
+	--Replace with new learn function, see learn.lua 
 	else
     base.common.InformNLS( Caster,
         "Deine F�higkeiten reichen noch nicht aus.",

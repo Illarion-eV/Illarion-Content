@@ -27,7 +27,8 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 		textDE = "Dieser Sud hat eine "..qListDe[qualstat].." Qualität."
 		textEN = "This stock has a "..qListEn[qualstat].." quality."
 		base.common.InformNLS(Caster, textDE, textEN);
-		Caster:learn(6,"exquirere",3,100)
+		--Caster:learn(6,"exquirere",3,100)
+		--Replace with new learn function, see learn.lua 
 	else
 		base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Kräutersood benutzen.", "You have to use this quality analyzing spell with a herbage brooth.");  
 	end     

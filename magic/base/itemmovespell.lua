@@ -83,7 +83,8 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
         return;
     end
 
-    Caster:learn( 3, Skill.name, 2, Skill.max );
+    --Caster:learn( 3, Skill.name, 2, Skill.max );
+	--Replace with new learn function, see learn.lua 
 end
 
 function CastMagic(Caster,counter,param,ltstate)

@@ -77,7 +77,8 @@ function SendBookPage(User,DataVal,Counter)
         SendText=ModifyText(User,SendText,BookTexts[Counter][3],BookLang[DataVal]);
         --User:inform("#b|"..math.min(Counter,pages).."|"..PicID.."|"..SendText);
         User:inform("#b|"..Counter.."|"..PicID.."|"..SendText);
-        User:learn(4,"library research",2,100)
+        --User:learn(4,"library research",2,100)
+		--Replace with new learn function, see learn.lua 
     end
 end
 

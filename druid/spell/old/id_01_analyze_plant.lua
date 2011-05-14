@@ -59,7 +59,8 @@ function CastMagicOnItem(Caster,TargetItem,counter,param)
 			Caster:inform("#b|0|0|"..textEN)
 		end
   	
-		Caster:learn(6,"vegetabilistia",3,100)
+		--Caster:learn(6,"vegetabilistia",3,100)
+		--Replace with new learn function, see learn.lua 
   	           
 	else
 		base.common.InformNLS(Caster,   

@@ -118,7 +118,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             else
                 User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
             end
-            User:learn(2,"carpentry",2,20); -- Lernen
+            --User:learn(2,"carpentry",2,20); -- Lernen
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 200 ); -- Hunger
             return
         end

@@ -1113,7 +1113,8 @@ function Dodge( Attacker, Defender, Globals )
 --]]
 
     if( math.random(0, 100) <= ChanceToDodge ) then
-        Defender.Char:learn(5,"dodge",2,base.common.Limit(AttackerTry+10, 0, 100 ));
+        --Defender.Char:learn(5,"dodge",2,base.common.Limit(AttackerTry+10, 0, 100 ));
+		--Replace with new learn function, see learn.lua 
         return true;
     end
 
@@ -1235,7 +1236,8 @@ function Parry( Attacker, Defender, Globals )
 --]]
 
     if( math.random(0, 100) <= ChanceToParry ) then
-        Defender.Char:learn(5,"parry",2,base.common.Limit(AttackerTry+20, 0, 100 ));
+        --Defender.Char:learn(5,"parry",2,base.common.Limit(AttackerTry+20, 0, 100 ));
+		--Replace with new learn function, see learn.lua 
         return true;
     end
 
@@ -1732,7 +1734,8 @@ function SpecialActiveItemEffects( Attacker, Defender, Globals )
                 if (Defender.Char:getPoisonValue()<PoisonStr) then
                     Defender.Char:setPoisonValue(PoisonStr);
                 end
-                Attacker.Char:learn(5,"poisoning",1,100);
+                --Attacker.Char:learn(5,"poisoning",1,100);
+				--Replace with new learn function, see learn.lua 
             end
         end
     end
@@ -1754,18 +1757,23 @@ function Learning( Attacker, Defender, Globals )
         big = 20;
         small = 10;
     end
-    Attacker.Char:learn(5,Attacker.Skillname,2,math.min(100,Defender.parry+big));
-    Defender.Char:learn(5,"parry",1,math.min(100,Attacker.skill+big));
+    --Attacker.Char:learn(5,Attacker.Skillname,2,math.min(100,Defender.parry+big));
+	--Replace with new learn function, see learn.lua 
+    --Defender.Char:learn(5,"parry",1,math.min(100,Attacker.skill+big));
+	--Replace with new learn function, see learn.lua 
 
     if not Defender.noDodge then
-        Defender.Char:learn(5,"dodge",1,math.min(100,Attacker.skill+small));
+        --Defender.Char:learn(5,"dodge",1,math.min(100,Attacker.skill+small));
+		--Replace with new learn function, see learn.lua 
     end
 
     if (math.random(1,base.common.Scale(6,1,Globals.PositionMod/19)) == 1) then
-        Attacker.Char:learn(5,"tactics",2,math.min(100,Defender.parry+small));
+        --Attacker.Char:learn(5,"tactics",2,math.min(100,Defender.parry+small));
+		--Replace with new learn function, see learn.lua 
     end
     if (math.random(1,base.common.Scale(6,1,Globals.PositionMod/19)) == 1) then
-        Defender.Char:learn(5,"tactics",2,math.min(100,Attacker.skill+small));
+        --Defender.Char:learn(5,"tactics",2,math.min(100,Attacker.skill+small));
+		--Replace with new learn function, see learn.lua 
     end
 end
 

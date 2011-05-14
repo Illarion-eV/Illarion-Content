@@ -110,7 +110,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "The glasblow pipe breaks." );
                 return
             end
-            User:learn(2,"glass blowing",2,20);
+            --User:learn(2,"glass blowing",2,20);
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 300 );
             didSomething = true;
         else
@@ -159,7 +160,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             else
                 User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
             end
-            User:learn(2,"fireing bricks",2,100);
+            --User:learn(2,"fireing bricks",2,100);
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 300 );
             didSomething = true;
         elseif (User:countItemAt("belt",26)>0) then
@@ -200,7 +202,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             else
                 User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
             end
-            User:learn(2,"fireing bricks",2,100);
+            --User:learn(2,"fireing bricks",2,100);
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 200 );
             didSomething = true;
         elseif toolFound then

@@ -117,7 +117,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         end
     end     
                   
-    --User:learn( 2, "peasantry", 2, 100 ); -- Lernen
+    --User:learn( 2, "mining", 2, 100 ); -- Lernen
+	--Replace with new learn function, see learn.lua 
     base.common.GetHungry( User, 200 ); -- Hungrig werden
 end
 

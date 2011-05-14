@@ -39,7 +39,8 @@ end
 
 function Succeed(Caster)
     if (LuaAnd(Caster:getQuestProgress(24),1) == 0 ) then
-        Caster:learn(3,"transformo",1,20);
+        --Caster:learn(3,"transformo",1,20);
+		--Replace with new learn function, see learn.lua 
     end
     Caster:increaseAttrib("mana",-100);
     world:makeSound(13,Caster.pos);

@@ -118,7 +118,8 @@ function DoGFXSpell(Caster, TargetPos, ltstate)
     end
 
     if HittedSomeone then
-        Caster:learn( 3, Skill.name, 2, Skill.max );
+        --Caster:learn( 3, Skill.name, 2, Skill.max );
+		--Replace with new learn function, see learn.lua 
     end
 end
 
@@ -264,7 +265,8 @@ function TargetHitting( Caster, Target, CasterValue, Resistance, Percent)
     end
 
     if (magic.base.basics.MaximalMagicResistance( Target ) > Target:getSkill("magic resistance")) then
-        Target:learn(3,"magic resistance",2,100);
+        --Target:learn(3,"magic resistance",2,100);
+		--Replace with new learn function, see learn.lua 
     end
     return true;
 end

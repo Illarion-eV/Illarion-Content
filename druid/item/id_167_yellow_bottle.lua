@@ -104,7 +104,8 @@ function PoisonCharacter(User,SourceItem,Character)
 					"Jemand versuchte dir den Inhalt einer Flasche in den Mund zu schütten.",
 					"Someone tried to make you drink a potion.");
 			end
-			User:learn(5,SkillName,1,(3*AttribValDef)+40);
+			--User:learn(5,SkillName,1,(3*AttribValDef)+40);
+			--Replace with new learn function, see learn.lua 
 			return true;
 		else
 			base.common.TempInformNLS(User,

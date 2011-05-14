@@ -118,6 +118,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
 			-- Lernen wird noch eingebaut
             --User:learn(2,"dying and tanning",2,20); -- Lernen
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 200 ); -- Hunger
             return
         end

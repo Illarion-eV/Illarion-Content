@@ -112,7 +112,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             end
         end
     end
-    User:learn(4,"library research",2,100)
+    --User:learn(4,"library research",2,100)
+	--Replace with new learn function, see learn.lua 
 end
 
 function LookAtItem(User,Item)

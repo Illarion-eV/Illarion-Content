@@ -477,7 +477,8 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
         textDE, textEN = ds_analyse_330(Caster,TargetItem)
 			end
 
-  	Caster:learn(6,"exquirere",3,100)
+  	--Caster:learn(6,"exquirere",3,100)
+	--Replace with new learn function, see learn.lua 
 
 		end
 	end

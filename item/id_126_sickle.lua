@@ -227,10 +227,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
                 User.movepoints=User.movepoints-4;
                 if( harvest[ 2 ] > 0 ) then
-                    User:learn( 2, "herb lore", 2, 100 );
+                    --User:learn( 2, "herb lore", 2, 100 );
+					--Replace with new learn function, see learn.lua 
                     base.common.GetHungry( User, 200 );
                 else
-                    User:learn( 2, "herb lore", 2, 5 );
+                    --User:learn( 2, "herb lore", 2, 5 );
+					--Replace with new learn function, see learn.lua 
                 end
 
                 if base.common.ToolBreaks( User, SourceItem ) then

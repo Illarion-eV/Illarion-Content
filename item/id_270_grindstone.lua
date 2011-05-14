@@ -106,7 +106,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 "The "..world:getItemName(Gem[2],1).." breaks in your hands.");
                 User:startAction( GenWorkTime(User,Gem[1]), 0, 0, 0, 0 );
             end
-            User:learn(2,"gemcutting",2,100); -- Lernen
+            --User:learn(2,"gemcutting",2,100); -- Lernen
+			--Replace with new learn function, see learn.lua 
             base.common.GetHungry( User, 200 ); -- Hunger
             return
         end
