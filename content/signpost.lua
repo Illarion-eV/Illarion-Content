@@ -678,10 +678,14 @@ function InitWegweiser()
     -- 7 = scandrel pine
 
     --Adron's Covert
-    AddTree({734,764,0},"","", 6,5);
-	AddTree({734,770,0},"","", 6,5);
-	AddTree({754,764,0},"","", 6,5);
-	AddTree({754,770,0},"","", 6,5);
+    AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
+	AddTree({734,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
+	AddTree({754,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
+	AddTree({754,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
+	AddTree({734,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({734,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({754,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({754,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	--Gnuremground
 	AddTree({578,708,0},"","", 1,5);
 	AddTree({576,712,0},"","", 1,5);
@@ -1077,7 +1081,6 @@ function InitWegweiser()
 	AddPillar({744,798,2},"","",10,5); --Lighttower
 	AddPillar({742,796,2},"","", 7,5); --Lighttower
 	AddPillar({742,798,2},"","", 8,5); --Lighttower
-	AddPillar({743,797,2},"","", 1,5); --Lighttower
 	--Runewick Hinterland
 	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
 	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands
