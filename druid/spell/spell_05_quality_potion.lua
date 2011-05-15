@@ -6,7 +6,7 @@
 require("base.common")
 require("druid.base.alchemy")
 
-module("druid.spell.spell_06_quality_potion", package.seeall, package.seeall(druid.base.alchemy))
+module("druid.spell.spell_05_quality_potion", package.seeall, package.seeall(druid.base.alchemy))
 
 -- INSERT INTO spells VALUES (2^6,3,'druid.spell.spell_06_quality_potion');
 
