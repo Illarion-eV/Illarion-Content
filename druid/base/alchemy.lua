@@ -49,8 +49,8 @@ require("base.common");
 module("druid.base.alchemy", package.seeall)
 
 dataZList = { }
-plantList =     { 9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}
-plantDataList = {   81, 15, 16, 17, 18, 25, 26, 27, 28, 35,  36, 37, 38, 45,  46, 47,  48, 51, 52,  53,  54, 61,  62,  63,  64,  71,  72,  73,  82,  74,  83,  84}
+plantList =     { 158,159,160,161,162,758,759,763,15,155,388,81,80,151,147,199,9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}
+plantDataList = {   1,  2,  3,  4,  5,  6,  7,  8,10, 20, 30,40,50, 60, 70, 80,  81, 15, 16, 17, 18, 25, 26, 27, 28, 35,  36, 37, 38, 45,  46, 47,  48, 51, 52,  53,  54, 61,  62,  63,  64,  71,  72,  73,  82,  74,  83,  84}
 
 plantDataListById = {};
 for i,plant in pairs(plantList) do
@@ -227,11 +227,16 @@ function CheckIfGemInHand(User)
 end
 -- --------------------------------------------------------------------
 function SplitPlantData(Plant)
-
-  local plantData = plantDataListById[Plant];
-  local plusWertPos = math.floor(plantData/10)
-  local minusWertPos= plantData-plusWertPos*10
-  return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
+    local plantData = plantDataListById[Plant];
+    local plusWertPos = math.floor(plantData/10)
+    local minusWertPos= plantData-plusWertPos*10
+    if minusWertPos == 0 then
+      return plusWertPos,minusWertPos        
+    elseif plusWertPos == 0 then
+      return plusWertPos,minusWertPos
+    else   
+      return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
+    end
 end
 -- --------------------------------------------------------------------
 function CheckIfBottleInHand(User)
