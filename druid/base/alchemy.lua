@@ -233,7 +233,7 @@ function SplitPlantData(Plant)
     if minusWertPos == 0 then
       return plusWertPos,minusWertPos        
     elseif plusWertPos == 0 then
-      return plusWertPos,minusWertPos
+      return minusWertPos,plusWertPos
     else   
       return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
     end
