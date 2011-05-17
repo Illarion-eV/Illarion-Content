@@ -58,11 +58,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
         if minusWertPos == 0 then
 		   dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
-		end
-		if PlusWertPos == 0 then
+		
+	    elseif PlusWertPos == 0 then
 		   dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
-		end
-		if MinusWertPos == 0 or PlusWertPos == 0 then
+		
+		elseif MinusWertPos == 0 or PlusWertPos == 0 then
 		     dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
              dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
         end
