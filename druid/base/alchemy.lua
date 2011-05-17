@@ -231,9 +231,9 @@ function SplitPlantData(Plant)
     local plusWertPos = math.floor(plantData/10)
     local minusWertPos= plantData-plusWertPos*10
     if minusWertPos == 0 then
-      return minusWertPos,plusWertPos        
+      return plusWertPos,minusWertPos        
     elseif plusWertPos == 0 then
-      return minusWertPos,plusWertPos
+      return plusWertPos,minusWertPos
     else   
       return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
     end
