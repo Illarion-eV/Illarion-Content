@@ -1,45 +1,45 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: John Doe                                                    None --
--- NPC Job:  Insert profession here                                           --
+-- NPC Name: Baldo Proudtoe                                          Runewick --
+-- NPC Job:  Gardener                                                         --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: halfling                   NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Insert your name here                                            --
+-- Author:   Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
-name = "John Doe"
-race = human
+name = "Baldo Proudtoe"
+race = halfling
 sex = male
 position = 0, 0, 0
 direction = south
-affiliation = "None"
-job = "Insert profession here"
+affiliation = "Runewick"
+job = "Gardener"
 
 language = common
-language = human
+language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "Insert your name here"
+author = "Estralis Seborian"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatDE = "Dieser NPC ist Baldo Proudtoe der Gärtner."
+lookatUS = "This NPC is Baldo Proudtoe the gardener."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
-colorHair = 123, 62, 9
-colorSkin = 245, 180, 137
+beardID = 0
+colorHair = 89, 46, 6
+colorSkin = 243, 169, 120
 itemHead = 0
-itemChest = 181
+itemChest = 810
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 24
 itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
@@ -53,29 +53,67 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
+-- Quest 118: Runewick Gardens / Die Gärten von Runewick
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keyphrases: Hello, Quest, Garden, Runewick, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Hallo, Quest, Garten, Runewick, TRIGGER5.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
 "Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "My name is Baldo, Baldo Proudtoe. I'm the local gardener!", "Proudtoe. Baldo Proudtoe.", "I'm Baldo, the gardener. A garden requires a lot of attention."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
 
--- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- 1st quest: Gather 10 apples
+"quest", "mission", queststatus(118) = 0, english -> inform("[New quest] Runewick Gardens I"), "I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.", queststatus(118) = 1
+"quest", "mission", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ich kÃ¶nnte etwas Hilfe gebrauchen, um eine Robe fÃ¼r den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(118) = 1
+"task", "adventure", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.", queststatus(118) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ich kÃ¶nnte etwas Hilfe gebrauchen, um eine Robe fÃ¼r den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(118) = 1
+
+-- 1st quest solved, reward: cidre, +5 rankpoints if Runewick
+".+", queststatus(118) = 1, item(170, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
+".+", queststatus(118) = 1, item(170, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, danke! Ich habe keine Belohnung fÃ¼r dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
+".+", queststatus(118) = 1, item(170, all) > 19, english -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2
+".+", queststatus(118) = 1, item(170, all) > 19 -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."), "Oh, danke! Ich habe keine Belohnung fÃ¼r dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2
+
+-- 1st quest not solved, repeat the instructions
+"quest", "mission", queststatus(118) = 1, english -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time."
+"quest", "mission", queststatus(118) = 1 -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe fÃ¼r den Erzmagier rechtzeitig fertig kriegen."
+"task", "adventure", queststatus(118) = 1 -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 1 -> "Hast du es schon vergessen? Ich brauche zwanzig Wollballen. Bitte, ich muss die Robe fÃ¼r den Erzmagier rechtzeitig fertig kriegen."
+
+-- 2nd quest: Gather 10 grapes
+"quest", "mission", queststatus(118) = 2, english -> inform("[New quest] Runewick Gardens II"), "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.", queststatus(118) = 3
+"quest", "mission", queststatus(118) = 2 -> inform("[Neues Quest] Die Gärten von Runewick II"), "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn fÃ¼r die Robe brauchen. Bring mir doch bitte fÃ¼nfzehn Spulen.", queststatus(118) = 3
+"task", "adventure", queststatus(118) = 2 -> inform("[New quest] Runewick Gardens II"), "Oh, you want to help me some more? Well, I certainly need some thread for the robe. Bring me fifteen bobbins of thread, please.", queststatus(118) = 3
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 2 -> inform("[Neues Quest] Die Gärten von Runewick II"), "Oh, du willst mir noch mehr helfen? Nun, ich werde sicherlich einiges an Garn fÃ¼r die Robe brauchen. Bring mir doch bitte fÃ¼nfzehn Spulen.", queststatus(118) = 3
+
+-- 2nd quest solved, reward: +1 peasantry, 20cp, +5 rankpoints if Runewick
+".+", queststatus(118) = 3, item(50, all) > 14, english, town = Runewick -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(118) = 4, rankpoints(Runewick) + 10
+".+", queststatus(118) = 3, item(50, all) > 14, town = Runewick -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, vielen lieben Dank. Ich weiÃŸ das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(118) = 4, rankpoints(Runewick) + 10
+".+", queststatus(118) = 3, item(50, all) > 14, english -> inform("[Quest solved] You are awarded a blue dress and your tailoring skill increases."), "Ah, thank you so much! I appreciate this greatly, I hope you accept this dress as compensation.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(118) = 4
+".+", queststatus(118) = 3, item(50, all) > 14 -> inform("[Quest gelöst] Du erhältst ein blaues Kleid und deine Schneidereifähigkeit steigt."), "Ah, vielen lieben Dank. Ich weiÃŸ das zu schätzen und hoffe, du aktzeptierst dieses Kleid als Zeichen meines Anerkennung.", skill(tailoring) + 1, deleteItem(50, 15), item(385, 1, 999, 0), queststatus(118) = 4
+
+-- 2nd quest not solved, repeat the instructions
+"quest", "mission", queststatus(118) = 3, english -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+"quest", "mission", queststatus(118) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
+"task", "adventure", queststatus(118) = 3 -> "Thread, thread, my dear, I lack thread and you don't have enough!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 3 -> "Garn, Garn, ohje, mir ist das Garn ausgegangen und du hast auch nicht genug!"
+
+-- Final dialogue: No more quests, just nice hints
+"quest", "mission", queststatus(118) = 6, english -> "I don't need anything else, but thank you! You saved my day!"
+"quest", "mission", queststatus(118) = 6 -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schÃ¶n aus der Patsche geholfen."
+"task", "adventure", queststatus(118) = 6 -> "I don't need anything else, but thank you! You saved my day!"
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 6 -> "Ich brauche nichts weiter, aber danke nochmal! Du hast mir ganz schÃ¶n aus der Patsche geholfen!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -88,12 +126,12 @@ itemShoes = 53
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Garden" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Garten" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -130,36 +168,12 @@ itemShoes = 53
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Adron", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Bragon", "Brágon", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Cherga", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Elara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Eldan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Findari", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Irmorom", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Malachin", "Malachín", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Moshran", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Nargun", "Nargún", "Nargùn", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ronagan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Sirani", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Zhambra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -168,26 +182,26 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Baldo", "Proudtoe", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Baldo", "Proudtoe" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-".*", german, chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- Easteregg
+"Samwise", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Samwise" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me klappert mit einer Heckenschere.", "#me rattles with hedge clippers."
+cycletext "Willkommen in meinem Garten!", "Welcome to my garden!"
+cycletext "Immer dieses Unkraut überall!", "Weed, everywhere is weed!"
+cycletext "#me jätet vor sich hingrummelnd Unkraut.", "#me pulls up weed, cursing to himself."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
 cycletext "GERMAN.", "ENGLISH."
