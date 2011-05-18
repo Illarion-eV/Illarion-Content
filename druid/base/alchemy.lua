@@ -447,7 +447,7 @@ end
 
 function ds_skillgain(User)
 	--Alchemieskill erhöhen
-	User:learn("alchemy",6,20,100,User:increaseAttrib("willpower",0));
+	User:learn("alchemy",6,30,100,User:increaseAttrib("willpower",0));
 	--Auf Runengewinn prüfen
 	if(User:getMagicType() == 3) then
 		local alcskill = User:getSkill("alchemy");
