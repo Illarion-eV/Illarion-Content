@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zerarisa"
@@ -27,7 +27,7 @@ author = "Estralis Seborian"
 
 lookatDE = "Dieser NPC ist die Fischerin Zerarisa."
 lookatUS = "This NPC is the fisherwoman Zerarisa."
-useMsgDE = "Fass mich nicht an!"
+useMsgDE = "Fassens mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
@@ -103,12 +103,6 @@ itemShoes = 369
 "rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
 "rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."
 
--- Link to other quest
-"Nana", english -> "Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?"
-"Nana", german -> "Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?"
-"Winterbutter", english -> "Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?"
-"Winterbutter", german -> "Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?"
-
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
 "quest", "mission", "job", queststatus(71) = 0, english -> inform("[New quest] Cape Farewell I"), "Zerarisa hass hurt her paw, if you could collect ten trout for me, I give you coinsss.", item(72, 1, 399, 0), queststatus(71) = 1
 "quest", "mission", "job", queststatus(71) = 0 -> inform("[Neues Quest] Kap des Abschiedes I"), "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen.", item(72, 1, 399, 0), queststatus(71) = 1
@@ -170,6 +164,12 @@ itemShoes = 369
 "quest", "mission", "job", queststatus(71) = 8 -> "Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch."
 "task", "adventure", queststatus(71) = 8 -> "Zerarisa hass enough fissh, no more jobss for you."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(71) = 8 -> "Zerarisa habenss nichts mehr Aufgabe für dich, habenss genug Fissch."
+
+-- Link to other quest
+"Nana", english -> "Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?"
+"Nana" -> "Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?"
+"Winterbutter", english -> "Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?"
+"Winterbutter" -> "Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I catch fisssh and ssell them to landlingss."

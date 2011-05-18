@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 22, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -260,34 +260,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rute");
 talkEntry:addTrigger("angel");
 talkEntry:addResponse("Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nana");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nana");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Winterbutter");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Winterbutter");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,6 +885,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nana");
+talkEntry:addResponse("Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yesss, the halfling... sshe'll want ssalmonss from me, but I don't have enough for her too. Could you catch ssome yourssself and give them to her?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Winterbutter");
+talkEntry:addResponse("Ja, Halblingsss... Wollenss Lachsss, aber habensss nicht genug für sssie. Fangenss sselbsst und gebensss ihr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I catch fisssh and ssell them to landlingss.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1267,7 +1265,7 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist die Fischerin Zerarisa.", "This NPC is the fisherwoman Zerarisa.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setUseMessage("Fassens mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 181);
