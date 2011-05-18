@@ -2,7 +2,7 @@
 -- NPC Name: Baldo Proudtoe                                          Runewick --
 -- NPC Job:  Gardener                                                         --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  0, 0, 0                --
+-- NPC Race: halfling                   NPC Position:  941, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 0, 0, 0, 4, 'Baldo Proudtoe', 'npc.baldo_proudtoe', 0, 2, 0, 89, 46, 6, 243, 169, 120);
+VALUES (2, 941, 790, 0, 4, 'Baldo Proudtoe', 'npc.baldo_proudtoe', 0, 2, 0, 89, 46, 6, 243, 169, 120);
 ---]]
 
 require("npc.base.basic")

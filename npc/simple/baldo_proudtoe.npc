@@ -2,7 +2,7 @@
 -- NPC Name: Baldo Proudtoe                                          Runewick --
 -- NPC Job:  Gardener                                                         --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  0, 0, 0                --
+-- NPC Race: halfling                   NPC Position:  941, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Baldo Proudtoe"
 race = halfling
 sex = male
-position = 0, 0, 0
+position = 941, 790, 0
 direction = south
 affiliation = "Runewick"
 job = "Gardener"
