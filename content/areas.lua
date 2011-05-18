@@ -5,6 +5,9 @@ require("base.polygons");
 module("content.areas", package.seeall);
 
 function Init()
+	if AreaList then
+		return;
+	end
 	AreaList = {};
 	
 	--[[ Example: I want to add the area "test area", which comprises a triangle on level 0 and a rectangle on level 1 and 2.
@@ -17,6 +20,7 @@ function Init()
 			The z-coordinate in the positions does not matter, only the second entry of the tuple is important.
 			Please use a uniform naming format for the areas, especially lower case letters. You may use spaces.
 	]]
+	-- ## ADD AREAS BELOW ##
 end
 
 --- adds an area

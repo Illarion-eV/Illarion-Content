@@ -7,6 +7,7 @@ require("base.doors")
 require("content.signpost")
 require("content.gods")
 require("item.lever")
+require("content.areas")
 
 module("server.reload_defs", package.seeall)
 
@@ -21,6 +22,7 @@ function onReload()
 	initTreasureChests();
     -- logToFile("end onReload");
     item.lever.init();
+	content.areas.Init();
     
     return true;
 end

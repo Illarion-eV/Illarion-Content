@@ -2,8 +2,6 @@
 -- note that !fr is a !rd with additional npc and spawn reloading
 -- note further that reload_defs will be called before this if and only if the included !rd was successful
 
-require("content.lightmasters")
-
 module("server.reload_tables", package.seeall)
 
 function onReload()
@@ -31,8 +29,6 @@ function onReload()
         -- Abhandlung von Transporttieren fertig
     end
 
-	placeLightmasters();
-
     return true;
 end
 
@@ -52,10 +48,4 @@ function createCow( Char )
         end
     end
     return false;
-end
-
-function placeLightmasters()
-	for _,this in pairs(content.lightmasters.LightmasterList) do
-		world:createDynamicNPC(this.name,this.race,this.pos,this.sex,this.script);
-	end
 end
