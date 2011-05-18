@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 19, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -100,9 +100,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Have a nice day! And do not stomp on any flowers.");
+talkEntry:addResponse("You are always welcome in my garden... so will you come back?");
+talkEntry:addResponse("Oh, you have to leave? That's sad! I don't get visitors here that often.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,9 +111,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Einen schönen Tag noch! Und trampelt keine Blumen platt.");
+talkEntry:addResponse("Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?");
+talkEntry:addResponse("Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -123,9 +123,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Have a nice day! And do not stomp on any flowers.");
+talkEntry:addResponse("You are always welcome in my garden... so will you come back?");
+talkEntry:addResponse("Oh, you have to leave? That's sad! I don't get visitors here that often.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -134,9 +134,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Einen schönen Tag noch! Und trampelt keine Blumen platt.");
+talkEntry:addResponse("Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?");
+talkEntry:addResponse("Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,7 +144,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
+talkEntry:addResponse("I feel lonely, really. But the hedges are always here with me.");
 talkEntry:addResponse("ENGLISH2.");
 talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);

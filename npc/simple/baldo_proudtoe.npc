@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 19, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Baldo Proudtoe"
@@ -64,11 +64,11 @@ itemShoes = 53
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Farewell", "Bye", "Fare well", "See you" -> "Have a nice day! And do not stomp on any flowers.", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag noch! Und trampelt keine Blumen platt.", "Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?", "Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a nice day! And do not stomp on any flowers.", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag noch! Und trampelt keine Blumen platt.", "Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?", "Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier."
+"How are you", "How feel", "How do you do" -> "I feel lonely, really. But the hedges are always here with me.", "ENGLISH2.", "ENGLISH3."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "your name", "who are you", "who art thou" -> "My name is Baldo, Baldo Proudtoe. I'm the local gardener!", "Proudtoe. Baldo Proudtoe.", "I'm Baldo, the gardener. A garden requires a lot of attention."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
