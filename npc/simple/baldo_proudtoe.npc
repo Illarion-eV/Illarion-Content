@@ -170,8 +170,8 @@ itemShoes = 53
 "Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Oldra", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Tanora", "Zelphia", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tanora", "Zelphia", english -> "Tanora sends the rain, so I should thank her from time to time. But not too often, hihi.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "Tanora bringt uns den Regen, also sollte ich ihr hin und wieder dankbar sein. Aber bitte nicht zu oft, hihi.", "GERMAN2.", "GERMAN3."
 "Ushara", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
@@ -190,8 +190,8 @@ itemShoes = 53
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Easteregg
-"Samwise", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Samwise" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Samwise", english -> "How comes everyone asks me about a 'Samwise'?", "My name is not 'Samwise'! Who is that, anyway?", "Pardon me? 'Samwise', who's that? "
+"Samwise" -> "Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?.", "Mein Name ist nicht 'Samwise'. Wer ist das überhaupt?", "Pardon? 'Samwise', wer soll das sein?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
