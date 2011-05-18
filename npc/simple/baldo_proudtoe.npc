@@ -74,10 +74,10 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
 
 -- 1st quest: Gather 10 apples
-"quest", "mission", queststatus(118) = 0, english -> inform("[New quest] Runewick Gardens I"), "I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.", queststatus(118) = 1
-"quest", "mission", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ich kÃ¶nnte etwas Hilfe gebrauchen, um eine Robe fÃ¼r den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(118) = 1
-"task", "adventure", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.", queststatus(118) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ich kÃ¶nnte etwas Hilfe gebrauchen, um eine Robe fÃ¼r den Erzmagier zu schneidern. Bring mir doch bitte zwanzig Wollballen, ich habe keine mehr.", queststatus(118) = 1
+"quest", "mission", queststatus(118) = 0, english -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
+"quest", "mission", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "GERMAN.", queststatus(118) = 1
+"task", "adventure", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "GERMAN.", queststatus(118) = 1
 
 -- 1st quest solved, reward: cidre, +5 rankpoints if Runewick
 ".+", queststatus(118) = 1, item(170, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
@@ -160,7 +160,7 @@ itemShoes = 53
 "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"salkama", english -> "I heard they have nice gardens in Salkamar. But that is all I heard; people do not talk much to me these days."
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
