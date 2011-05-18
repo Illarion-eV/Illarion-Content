@@ -19,9 +19,9 @@ Beispiel: Character:learn("mining",2,20,100,Character:increaseAttrib("constituti
 function learn( user, skill, skillGroup, actionPoints, opponent, leadAttrib )
 
     --TEMPORARY SOLUTION TO CATCH NEW PLAYERS
-	if user:getMentalCapacity() < 1999 then
-	    user:increaseMentalCapacity(2000000); --Reduce to 200000 for brand new players. This is for existing players.
-		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst auf!","[Skill system] Adjustment of mental capacity enforced.");
+	if user:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> New player. However, new players should start with a higher value
+	    user:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
+		base.common.TempInformNLS(user,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced.");
 	end
 	--TEMPORARY SOLUTION END
 
@@ -75,6 +75,4 @@ function reduceMC( user )
      	user:increaseMentalCapacity(-1*math.floor(user:getMentalCapacity()*0.00025+0.5)); --reduce MC-points by 0.025%, rounded correctly.
 	end
 	
-    user:inform("Mental Capacity: "..user:getMentalCapacity().."!");
-
 end
