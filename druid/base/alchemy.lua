@@ -230,12 +230,16 @@ function SplitPlantData(Plant)
 local plantData = plantDataListById[Plant];
 local plusWertPos = math.floor(plantData/10)
 local minusWertPos= plantData-plusWertPos*10
-      if minusWertPos == 0 then
-         return plusWertPos,minusWertPos        
+   
+	  if minusWertPos == 0 then
+         User:inform("Helloone.")
+		 return plusWertPos,minusWertPos        
       elseif plusWertPos == 0 then
-         return plusWertPos,minusWertPos
+         User:inform("Hellotwo.")
+		 return plusWertPos,minusWertPos
       elseif not minusWertPos == 0 and plusWertPos == 0 then
-         return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
+         User:inform("Hellothree.")
+		 return math.min(8,math.max(1,plusWertPos)),math.min(8,math.max(1,minusWertPos))
        end
 end
 
