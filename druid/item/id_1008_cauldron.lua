@@ -60,7 +60,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
 		elseif minusWertPos == 0 then
 		   dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
-		elseif minusWertPos == 0 or plusWertPos == 0 then
+		elseif not minusWertPos == 0 and plusWertPos == 0 then
 		     dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
              dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
         end
