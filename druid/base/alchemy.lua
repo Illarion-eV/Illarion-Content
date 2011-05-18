@@ -229,7 +229,7 @@ end
 function SplitPlantData(Plant)
 local plantData = plantDataListById[Plant];
 local plusWertPos = math.floor(plantData/10)
-local minusWertPos= plantData-plusWertPos*10
+local minusWertPos = plantData-plusWertPos*10
    
 	  if minusWertPos == 0 then
          User:inform("Helloone.")
