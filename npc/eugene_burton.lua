@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,7 +47,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1218,7 +1218,7 @@ talkingNPC:addCycleText("Shh!", "Shh!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Wilderer Eugene Burton.", "This NPC is the poacher Eugene Burton.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);

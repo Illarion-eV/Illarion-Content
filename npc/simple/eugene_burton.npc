@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 04, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Eugene Burton"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Wilderer Eugene Burton."
+lookatUS = "This NPC is the poacher Eugene Burton."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -75,7 +75,7 @@ itemShoes = 53
 ".+", queststatus(4) > 33 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals.")
+"Help" -> inform("[Game Help] This NPC is the poacher Eugene Burton. Keyphrases: Hello, quest, poacher, animals.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Wilderer Eugene Burton. Schlüsselwörter: Hallo, Quest, Wilderer, Tiere.")
 
 -- General speech
