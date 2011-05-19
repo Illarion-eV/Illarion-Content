@@ -56,9 +56,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
         -- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
-        dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
-        dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
-        
+        if plusWertPos == 0 then
+		   dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
+		elseif minusWertPos == 0 then
+		       dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
+		else
+		     dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
+             dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
+        end
         
         -- Aus den modifizierten Daten erstellen wir den neuen Datawert.
         bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
