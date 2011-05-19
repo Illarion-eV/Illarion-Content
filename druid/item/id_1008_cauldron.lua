@@ -65,17 +65,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
              dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
         end
         
-        if dataZList[10] or dataZList[0] then
-		world:erase( bottleInHand, 1 );
-		world:makeSound(0,User.pos);
-		world:gfx(1,User.pos);
-	    base.common.InformNLS( User,
-                "BOOOOOOOM!",
-                "BOOOOOOOM!"
-            );
-		return;
-		end
-		-- Aus den modifizierten Daten erstellen wir den neuen Datawert.
+        -- Aus den modifizierten Daten erstellen wir den neuen Datawert.
         bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
         
         -- die Pflanze löschen
