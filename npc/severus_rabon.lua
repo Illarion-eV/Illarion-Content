@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 14, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -146,7 +146,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
-talkEntry:addResponse("I feel um, I wish Ce would take a break more often. She looks so tired.");
+talkEntry:addResponse("I feel um, I wish Linda would take a break more often. She looks so tired.");
 talkEntry:addResponse("I feel um, Rose is working too hard. Maybe I should hire an extra hostess.");
 talkEntry:addResponse("I feel however you want me to feel. May I take your order?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -167,9 +167,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Kay Darknight. Father, husband shop owner extrodinaire.");
-talkEntry:addResponse("I am Kay Darknight father of the Cadomyr's most famous cook Ce Darknight.");
-talkEntry:addResponse("I am Kay. This is my shop the Glass speigal. Me and my wife built this place from scratch a long with our first home. Please have a seat, a mean and become part of the family.");
+talkEntry:addResponse("I am Severus Rabon, father, husband shop owner extrodinaire.");
+talkEntry:addResponse("I am  Severus Rabon father of the Cadomyr's most famous cook Linda Rabon.");
+talkEntry:addResponse("I am Severus. This is my shop the Glass Speigal. Me and my wife built this place from scratch along with our first home. Please have a seat, a meal and become part of the family.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,8 +186,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Kay.");
-talkEntry:addResponse("Right Now I am the waiter. I open the place and I used to be the cook, but My beautiful and talented daughter is has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you.");
+talkEntry:addResponse("I own this place here. So what would I call myself? Shop owner, Business man? I don't know, just call me Severus.");
+talkEntry:addResponse("Right Now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,8 +202,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Kay.");
-talkEntry:addResponse("Right Now I am the waiter. I open the place and I used to be the cook, but My beautiful and talented daughter is has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you.");
+talkEntry:addResponse("I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Severus.");
+talkEntry:addResponse("Right Now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,13 +234,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass Spiegal");
-talkEntry:addResponse("It started out as a stand. I only sold sand rat back then. After I got married I opened up this place. Now it is run by me My beautiful daughter and my dutiful wife.");
+talkEntry:addResponse("It started out as a stand. I only sold sand rat back then. After I got married I opened up this place. Now it is run by me my beautiful daughter and my dutiful wife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Daughter");
-talkEntry:addTrigger("Ce");
+talkEntry:addTrigger("Linda");
 talkEntry:addResponse("She's my stress and my masseuse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -262,7 +262,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ouchpan");
 talkEntry:addTrigger("yang");
-talkEntry:addResponse("Ouchpan is too nice to nice to be a body guard. He also plays the oboe quiet well. He's big though, and each of us have our place.");
+talkEntry:addResponse("Ouchpan is too nice. Too nice to be a body guard. He also plays the oboe quite well. He's big though, and each of us have our place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,7 +430,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("He's the only one that ever cared about me. I give him 10% of my earnings.");
+talkEntry:addResponse("He's the only one that ever cared about me. I give him 10% of my all the money I make.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,10 +515,10 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "Charred sand rat is the perfect way to fill stomach emptied from a trek across the desert. The meet is both fulfilling and tantalizing to the tongue.");
-talkingNPC:addCycleText("GERMAN.", "What will you be having tonight. I suggest something a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life.");
+talkingNPC:addCycleText("GERMAN.", "Charred sand rat is the perfect way to fill a stomach emptied from a trek across the desert. The meat is both fulfilling and tantalizing to the tongue.");
+talkingNPC:addCycleText("GERMAN.", "What will you be having tonight. I suggest a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life.");
 talkingNPC:addCycleText("GERMAN.", "This place is a mess. I hope Rose doesn?t make me mop.");
-talkingNPC:addCycleText("GERMAN.", "I should check up on Linda. I hope she?s not to tired.");
+talkingNPC:addCycleText("GERMAN.", "I should check up on Linda. I hope she?s not too tired.");
 talkingNPC:addCycleText("GERMAN.", "Maybe I should hire a gleeman. I bet the customers would enjoy a story teller.");
 talkingNPC:addCycleText("GERMAN.", "Real men tell the women in their lives how much they mean to them. Real men love.");
 talkingNPC:addCycleText("GERMAN.", "The hardest part of work is working.");
