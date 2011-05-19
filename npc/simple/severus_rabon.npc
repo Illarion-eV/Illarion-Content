@@ -46,7 +46,7 @@ itemHands = 0
 itemTrousers = 367
 itemShoes = 369
 
--- Waiter:  Kay Darknight
+-- Waiter: Severus Rabon
 -- Occupation: waiter
 -- Age: 31
 -- Race: Human
@@ -73,23 +73,24 @@ itemShoes = 369
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Thank you please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
 "Farewell", "Bye", "Fare well", "See you" -> ""
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel" -> "I feel um, I wish Ce would take a break more often. She looks so tired.", "I feel um, Rose is working too hard. Maybe I should hire an extra hostess.", "I feel however you want me to feel. May I take your order?"
+"How are you", "How feel" -> "I feel um, I wish Linda would take a break more often. She looks so tired.", "I feel um, Rose is working too hard. Maybe I should hire an extra hostess.", "I feel however you want me to feel. May I take your order?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "I am Kay Darknight. Father, husband shop owner extrodinaire.", "I am Kay Darknight father of the Cadomyr's most famous cook Ce Darknight.", "I am Kay. This is my shop the Glass speigal. Me and my wife built this place from scratch a long with our first home. Please have a seat, a mean and become part of the family."
+"your name", "who are you", "who art thou" -> "I am Severus Rabon, father, husband shop owner extrodinaire.", "I am  Severus Rabon father of the Cadomyr's most famous cook Linda Rabon.", "I am Severus. This is my shop the Glass Speigal. Me and my wife built this place from scratch along with our first home. Please have a seat, a meal and become part of the family."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Kay.", "Right Now I am the waiter. I open the place and I used to be the cook, but My beautiful and talented daughter is has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you."
+-- Small talk: The talk here sho
+-- focus on possible questions. Feel free to add more!
+"profession" -> "I own this place here. So what would I call myself? Shop owner, Business man? I don't know, just call me Severus.", "Right Now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Kay.", "Right Now I am the waiter. I open the place and I used to be the cook, but My beautiful and talented daughter is has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you."
+"job", english -> "I own this place here. So what would I call myself. Shop owner, Business man? I don't know, just call me Severus.", "Right Now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook. I wait on costumers and my wife waits at the door for wonderful people like you."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Gobaith", "Gobiath", english -> "It's all I've known my entire life."
 "Gobaith", "Gobiath" -> "GERMAN1", "GERMAN2.", "GERMAN3."
-"Glass Spiegal" -> "It started out as a stand. I only sold sand rat back then. After I got married I opened up this place. Now it is run by me My beautiful daughter and my dutiful wife."
-"Daughter", "Ce" -> "She's my stress and my masseuse."
+"Glass Spiegal" -> "It started out as a stand. I only sold sand rat back then. After I got married I opened up this place. Now it is run by me my beautiful daughter and my dutiful wife."
+"Daughter", "Linda" -> "She's my stress and my masseuse."
 "wife", "Rose" -> "I spent all the money I saved up for two years on her. Best investement ever. She went from wife, to lover to part of my soul."
 "Pal", "Por" -> "His cello brings life to this place. He's so quiet himself though. Maybe he will open up someday."
-"Ouchpan", "yang" -> "Ouchpan is too nice to nice to be a body guard. He also plays the oboe quiet well. He's big though, and each of us have our place."
+"Ouchpan", "yang" -> "Ouchpan is too nice. Too nice to be a body guard. He also plays the oboe quite well. He's big though, and each of us have our place."
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Elvaine", "Morgan", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -113,7 +114,7 @@ itemShoes = 369
 "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my earnings."
+"Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my all the money I make."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "secret" -> "I'm too bland of a person to have any."
@@ -136,10 +137,10 @@ itemShoes = 369
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "Charred sand rat is the perfect way to fill stomach emptied from a trek across the desert. The meet is both fulfilling and tantalizing to the tongue."
-cycletext "GERMAN.", "What will you be having tonight. I suggest something a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life."
+cycletext "GERMAN.", "Charred sand rat is the perfect way to fill a stomach emptied from a trek across the desert. The meat is both fulfilling and tantalizing to the tongue."
+cycletext "GERMAN.", "What will you be having tonight. I suggest a cool drink followed by a hot meal. Balance is the key to dining as it is in any other aspect of life."
 cycletext "GERMAN.", "This place is a mess. I hope Rose doesn’t make me mop."
-cycletext "GERMAN.", "I should check up on Linda. I hope she’s not to tired."
+cycletext "GERMAN.", "I should check up on Linda. I hope she’s not too tired."
 cycletext "GERMAN.", "Maybe I should hire a gleeman. I bet the customers would enjoy a story teller."
 cycletext "GERMAN.", "Real men tell the women in their lives how much they mean to them. Real men love."
 cycletext "GERMAN.", "The hardest part of work is working."
