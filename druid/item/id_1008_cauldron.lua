@@ -65,7 +65,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
              dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
         end
         
-        if dataZList[plusWertPos] > 9 or dataZList[minusWertPos] < 1 then
+        if dataZList[10] or dataZList[0] then
 		world:erase( bottleInHand, 1 );
 		world:makeSound(0,User.pos);
 		world:gfx(1,User.pos);
