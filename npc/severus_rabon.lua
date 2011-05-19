@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 20, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -363,9 +363,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("I await the day when the queen graces our restaurant with a visit.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addTrigger("Queen");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I await the day when the queen graces our restaurant with a visit.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -431,6 +436,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He's the only one that ever cared about me. I give him 10% of my all the money I make.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,7 +512,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("This discussion is not relevant to me");
+talkEntry:addResponse("This discussion is not relevant to me.");
 talkEntry:addResponse("Maybe say something like Quest or Task. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
 talkingNPC:addTalkingEntry(talkEntry);

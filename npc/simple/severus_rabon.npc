@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 14, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 20, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Severus Rabon"
@@ -102,7 +102,8 @@ itemShoes = 369
 "Galmair", english -> ""
 "Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"rosaline", "edwards", "Queen", english -> "I await the day when the queen graces our restaurant with a visit."
+"Queen" -> "I await the day when the queen graces our restaurant with a visit."
+"rosaline", "edwards", english -> "I await the day when the queen graces our restaurant with a visit."
 "rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Main land factions
@@ -115,6 +116,7 @@ itemShoes = 369
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "Irmorom", english -> "He's the only one that ever cared about me. I give him 10% of my all the money I make."
+"Irmorom" -> "GERMAN."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "secret" -> "I'm too bland of a person to have any."
@@ -129,7 +131,7 @@ itemShoes = 369
 "Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20) -> "This discussion is not relevant to me", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
+".*", english, chance(20) -> "This discussion is not relevant to me.", "Maybe say something like Quest or Task. People respond well to those words.", "I have no intention of buying your chicken."
 ".*", chance(20) -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
