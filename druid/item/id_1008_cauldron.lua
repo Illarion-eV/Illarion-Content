@@ -57,15 +57,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
         -- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
         if plusWertPos == 0 then
-		   dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
+		   dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
 		elseif minusWertPos == 0 then
-		       dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
+		       dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
 		else
-		     dataZList[plusWertPos] = math.min( 9, dataZList[plusWertPos] + 1 );
-             dataZList[minusWertPos] = math.max( 1,dataZList[minusWertPos] - 1 );
+		     dataZList[plusWertPos] = dataZList[plusWertPos] + 1 ;
+             dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
         end
         
-        -- Aus den modifizierten Daten erstellen wir den neuen Datawert.
+        if dataZList[plusWertPos] > 9 or dataZList[minusWertPos] < 1 then
+		world:erase( bottleInHand, 1 );
+		world:makeSound(0,User.pos);
+		world:gfx(1,User.pos);
+	    base.common.InformNLS( User,
+                "BOOOOOOOM!",
+                "BOOOOOOOM!"
+            );
+		return;
+		end
+		-- Aus den modifizierten Daten erstellen wir den neuen Datawert.
         bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
         
         -- die Pflanze löschen
