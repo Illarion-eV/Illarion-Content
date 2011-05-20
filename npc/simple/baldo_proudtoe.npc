@@ -79,13 +79,13 @@ itemShoes = 53
 "task", "adventure", queststatus(118) = 0 -> inform("[New quest] Runewick Gardens I"), "Ah, you want to help me? Look, I'd like to plant some apple trees in my garden. But for that, I need apple seeds. So, please, bring me ten apples!", queststatus(118) = 1
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(118) = 0 -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!", queststatus(118) = 1
 
--- Bis hier!
+-- 1st quest solved, reward: goblet with cider (1844), +5 rankpoints if Runewick
+".+", queststatus(118) = 1, item(15, all) > 9, english, town = Runewick -> inform("[Quest solved] You are awarded a goblet with cider. You advance in Archmage Elvaine Morgan's favour."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!", deleteItem(15, 10), item(1844, 1, 699, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
+".+", queststatus(118) = 1, item(15, all) > 9, town = Runewick -> inform("[Quest gelöst] Du erhältst einen Krug Cidre. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!", deleteItem(15, 10), item(1844, 1, 699, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
+".+", queststatus(118) = 1, item(15, all) > 9, english -> inform("[Quest solved] You are awarded a goblet with cider."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!", deleteItem(15, 10), item(1844, 1, 699, 0), queststatus(118) = 2
+".+", queststatus(118) = 1, item(15, all) > 9 -> inform("[Quest gelöst] Du erhältst einen Krug Cidre."), "Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!", deleteItem(15, 10), item(1844, 1, 699, 0), queststatus(118) = 2
 
--- 1st quest solved, reward: cidre, +5 rankpoints if Runewick
-".+", queststatus(118) = 1, item(170, all) > 19, english, town = Runewick -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
-".+", queststatus(118) = 1, item(170, all) > 19, town = Runewick -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, danke! Ich habe keine Belohnung fÃ¼r dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2, rankpoints(Runewick) + 5
-".+", queststatus(118) = 1, item(170, all) > 19, english -> inform("[Quest solved] You are awarded a needle and your tailoring skill increases."), "Why thank you! I don't have a real reward for you, but you can have my spare needle.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2
-".+", queststatus(118) = 1, item(170, all) > 19 -> inform("[Quest gelöst] Du erhältst eine Nadel und deine Schneidereifähigkeit steigt."), "Oh, danke! Ich habe keine Belohnung fÃ¼r dich, aber du kannst meine Ersatznadel haben.", skill(tailoring) + 1, deleteItem(170, 20), item(47, 1, 999, 0), queststatus(118) = 2
+-- Bis hier!
 
 -- 1st quest not solved, repeat the instructions
 "quest", "mission", queststatus(118) = 1, english -> "Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time."
