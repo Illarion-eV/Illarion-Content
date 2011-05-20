@@ -15,7 +15,7 @@ end
 
 -- death reason unknown
 function playerKilled(Player)
-world:makeSound(1,Player.pos);
+world:makeSound(2,Player.pos);
 base.common.TempInformNLS( Player,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
 end
 
