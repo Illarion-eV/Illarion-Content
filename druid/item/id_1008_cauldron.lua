@@ -55,18 +55,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Und wir generieren eine Liste die jeden Eintrag des Datawertes einzeln enthält
         local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
-        if dataZList[minusWertPos] == dataZList[1] or dataZList[plusWertPos] == dataZList[9] then
-		   base.common.InformNLS( User,
-                "BOOOOM!",
-                "BOOOOM!"
-            );
-		   world:makeSound(0,User.pos);
-	       world:gfx(1,User.pos);
-           world:erase( bottleInHand, 1 );
-		   return;
-		end
-		
-		-- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
+        -- Abhängig der Effektdaten der Planze wird ein Wert angehoben und ein anderer abgesenkt
         if plusWertPos == 0 then
 		   dataZList[minusWertPos] = dataZList[minusWertPos] - 1 ;
 		elseif minusWertPos == 0 then
