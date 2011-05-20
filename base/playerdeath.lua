@@ -3,19 +3,19 @@ module("base.playerdeath", package.seeall)
 
 -- player got killed by direct a magic spell (summoned flames are no direct magic spells)
 function playerKilledByMagic(Player, Killer)
-world:makeSound(1,Player.pos);
+world:makeSound(25,Player.pos);
 base.common.TempInformNLS( Player,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
 end
 
 -- player got killed by another player / monster
 function playerKilledByFighting(Player, Killer)
-world:makeSound(1,Player.pos);
+world:makeSound(25,Player.pos);
 base.common.TempInformNLS( Player,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
 end
 
 -- death reason unknown
 function playerKilled(Player)
-world:makeSound(2,Player.pos);
+world:makeSound(25,Player.pos);
 base.common.TempInformNLS( Player,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
 end
 
