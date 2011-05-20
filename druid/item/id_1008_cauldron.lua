@@ -55,7 +55,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         -- Und wir generieren eine Liste die jeden Eintrag des Datawertes einzeln enthält
         local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
-        if dataZList[minusWertPos] == 1 or dataZList[plusWertPos] == 9 then
+        if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
 		   world:erase( bottleInHand, 1 );
 		   base.common.InformNLS( User,
                 "Flasche weg.",
