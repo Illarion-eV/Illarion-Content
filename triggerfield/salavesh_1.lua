@@ -5,7 +5,7 @@ require("base.common")
 
 module("triggerfield.salavesh_1", package.seeall)
 
-function MoveToField( user )
+function MoveToField( User )
     
 	base.common.TempInformNLS(User,"Du trittst durch das Portal. Eine wohlmöglich schlechte Idee!","You step through the portal. A bad idea!"); --sending a message
     world:gfx(41,position(731,441,-3));
