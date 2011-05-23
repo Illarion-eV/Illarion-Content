@@ -23,21 +23,23 @@ end
 
 function CharacterOnField( User )
     local SetOff=false;
-    repeat
-        local SourceItem = world:getItemOnField( User.pos );
-        if (User:increaseAttrib("hitpoints",0)>0) then
-            if( SourceItem.id >= 377 ) and (SourceItem.id <= 381) then
-                base.common.InformNLS( User,"Du löst eine Falle aus!","You set off a trap!" );
-                world:gfx(14,User.pos);
-                User:increaseAttrib("hitpoints", -4999);
-                world:swap(SourceItem,376,333);
-                SetOff=true;
-            else
-                world:erase(SourceItem,1);
+	if (User:increaseAttrib("hitpoints",0)>0) then --ghosts do not set off traps
+        repeat
+            local SourceItem = world:getItemOnField( User.pos );
+            if (User:increaseAttrib("hitpoints",0)>0) then
+                if( SourceItem.id >= 377 ) and (SourceItem.id <= 381) then
+                    base.common.InformNLS( User,"Du löst eine Falle aus!","You set off a trap!" );
+                    world:gfx(14,User.pos);
+                    User:increaseAttrib("hitpoints", -4999);
+                    world:swap(SourceItem,376,333);
+                    SetOff=true;
+                else
+                    world:erase(SourceItem,1);
+                end
             end
-        end
-    until ( SetOff == true )
-    User.movepoints=User.movepoints-10;
+        until ( SetOff == true )
+        User.movepoints=User.movepoints-10;
+	end
 end
 
 function LookAtItem(User,Item)
