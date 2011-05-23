@@ -10,7 +10,7 @@ function InitTraps()
 	--AddPoisonTrap(POSITION, STRENGTH, GFX, SOUND, {DE_INFORM, EN_INFORM});
 	--AddExplosionTrap(POSITION, STRENGTH, GFX, SOUND, {DE_INFORM, EN_INFORM});
 	
-	AddMonsterTrap(position(527, 573, 0), 2, 8, 23, {"Du lï¿½st eine Monsterfalle aus, du dummer Noob.", "Too lazy to write it in english as well."}); -- For Testing
+	AddMonsterTrap(position(527, 573, 0), 2, 8, 23, {"Du löst eine Monsterfalle aus, du dummer Noob.", "Too lazy to write it in english as well."}); -- For Testing
 	
 	-- ADD TRAPS HERE
 	

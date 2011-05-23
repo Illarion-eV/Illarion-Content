@@ -26,7 +26,7 @@ end
 
 function LookAtItem(User,Item)
     if (Item.data~=0) then
-        DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trï¿½gt die Nummer "..Item.data,"A marker stone of the Explorers Guild; it has the number "..Item.data);
+        DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trägt die Nummer "..Item.data,"A marker stone of the Explorers Guild; it has the number "..Item.data);
         WriteStone(User,Item.data, Item.quality);
     else
         DisplayText = base.common.GetNLS( User, "Stein", "stone");

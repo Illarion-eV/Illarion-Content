@@ -2,7 +2,7 @@
 
 -- Honigwaben (2529) zu Wachs (431)
 -- Arbeitscyclus: 2s
--- Zusï¿½tzliches Werkzeug: Zange mit Tiegel ( 2751 )
+-- Zusätzliches Werkzeug: Zange mit Tiegel ( 2751 )
 
 -- UPDATE common SET com_script='item.id_428_candletable' WHERE com_itemid IN (428);
 
@@ -29,9 +29,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert beim Arbeiten.",
+        "Deine Rüstung behindert beim Arbeiten.",
         "Your armour disturbes you while working." );
         return
     end
@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",2751)==0) then -- Tiegelzange
         base.common.InformNLS( User,
-        "Du benï¿½tigst eine Tiegelzange um Wachs zu schmelzen.",
+        "Du benötigst eine Tiegelzange um Wachs zu schmelzen.",
         "You need a crucible-pincers to smelt wax." );
         return
     end
@@ -56,7 +56,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool, true) then -- Tiegelzange beschï¿½digen
+    if base.common.ToolBreaks( User, Tool, true) then -- Tiegelzange beschädigen
         base.common.InformNLS( User, 
         "Die Zange geht zu Bruch.", 
         "The pincers break." );
@@ -66,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ((User:countItemAt("belt",2529) < 1)) then     -- Hongwaben vorhanden?
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du benï¿½tigst Honigwaben um Wachs daraus herzustellen.", 
+            "Du benötigst Honigwaben um Wachs daraus herzustellen.", 
             "You need honeycomb to make some wax." );
         end
         return
@@ -83,18 +83,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local selectMessage = math.random(1,2);
         if ( selectMessage == 1 ) then
             base.common.InformNLS(User,
-            "Du wischst dir den Schweiï¿½ von der Stirn.",
+            "Du wischst dir den Schweiß von der Stirn.",
             "You wipe sweat off your forehead.");
         elseif ( selectMessage == 2 ) then
             base.common.InformNLS(User,
-            "Du verschï¿½ttest heiï¿½es Wachs, aber glï¿½cklicherweise nicht ï¿½ber deine Finger. Trotzdem musst du von Neuem beginnen.",
+            "Du verschüttest heißes Wachs, aber glücklicherweise nicht über deine Finger. Trotzdem musst du von Neuem beginnen.",
             "You overwhelm some hot wax and need to repeat your work. Lucky that the wax did not hit your fingers.");
         end
         return
     end
     
     if (User:countItemAt("belt",2529) > 0) then
-        User:eraseItem( 2529, 1 ); --Honigwabe wird gelï¿½scht
+        User:eraseItem( 2529, 1 ); --Honigwabe wird gelöscht
         local notcreated = User:createItem(431, 1, 333 ,0 );
         if (notcreated > 0) then
             world:createItemFromId( 431, 1, User.pos, true, 333 ,0); -- Wachs wird erstellt

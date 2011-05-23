@@ -1,4 +1,4 @@
--- Script muss noch in die Datenbank eingefï¿½gt werden (Handspiegel, ID 336)
+-- Script muss noch in die Datenbank eingefügt werden (Handspiegel, ID 336)
 
 require("content.chardescription")
 

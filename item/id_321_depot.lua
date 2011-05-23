@@ -25,7 +25,7 @@ function LookAtItem(User,Item)
         LookAtStr = LookAtStr.."Farmers Union";
     elseif (Item.data==6) then
         if (lang==0) then
-            LookAtStr = LookAtStr.."Ork-Hï¿½hle";
+            LookAtStr = LookAtStr.."Ork-Höhle";
         else
             LookAtStr = LookAtStr.."Orc Cave";
         end

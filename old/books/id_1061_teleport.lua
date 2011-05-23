@@ -73,20 +73,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
             -- no free space found
             if not success then
                 base.common.InformNLS( User,
-                "Rings um Dich erzittern Boden und GegenstÃ¤nde!",
+                "Rings um Dich erzittern Boden und Gegenstände!",
                 "All around you ground and items are trembling!" );
             end
 
             -- use up the book
             --if math.random( 1, 3 )==2 then
             --base.common.InformNLS( User,
-            --"Das Buch wurde zu oft verwendet. Es zerfï¿½lt zu Staub.",
+            --"Das Buch wurde zu oft verwendet. Es zerfällt zu Staub.",
             --"The book was used too often. It decays into dust." );
             world:erase( SourceItem, 1 );
             --end
         else
             base.common.InformNLS( User,
-            "Nimm das Buch zum Lesen in die HÃ¤nde.",
+            "Nimm das Buch zum Lesen in die Hände.",
             "Take the book in your hands to read it." );
         end
 

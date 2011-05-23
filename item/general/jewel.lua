@@ -43,7 +43,7 @@ function LookAtItem(User,Item)
             return true;
         elseif ( Item.data == 123 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst die Krone des Kï¿½nigs von Silberbrand");
+                world:itemInform(User,Item,"Du siehst die Krone des Königs von Silberbrand");
             else
                 world:itemInform(User,Item,"You see the crown of the king of Silverbrand");
             end
@@ -57,7 +57,7 @@ function LookAtItem(User,Item)
             return true;
         elseif ( Item.data == 202 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst eine vollstï¿½ndig edelsteinbestï¿½ckte Goldkrone");
+                world:itemInform(User,Item,"Du siehst eine vollständig edelsteinbestückte Goldkrone");
             else
                 world:itemInform(User,Item,"You see a fully jeweled gold crown");
             end
@@ -71,7 +71,7 @@ function LookAtItem(User,Item)
             return true;
         elseif ( Item.data == 10000 ) then
             if (User:getPlayerLanguage() == 0) then
-                world:itemInform(User,Item,"Du siehst einen auffï¿½lligen Krone");            
+                world:itemInform(User,Item,"Du siehst einen auffälligen Krone");            
             else
                 world:itemInform(User,Item,"You see a peculiar crown");
             end
@@ -114,7 +114,7 @@ function MoveItemBeforeMove( Character, SourceItem, TargetItem)
         end
 
 	if ( SourceItem.data == 666 ) then
-		Character:talkLanguage( CCharacter.say, CPlayer.german, "#me fï¿½hrt mit "..gText.." Hand direkt durch die Krone hindurch. "..gText2.." scheint nicht in der Lage zu sein das Metall zu berï¿½hren.");
+		Character:talkLanguage( CCharacter.say, CPlayer.german, "#me fährt mit "..gText.." Hand direkt durch die Krone hindurch. "..gText2.." scheint nicht in der Lage zu sein das Metall zu berühren.");
         Character:talkLanguage( CCharacter.say, CPlayer.english, "#me run's with "..eText.." hand directly through the crown. It seems, that "..eText2.."'s not able to touch the metal.");
         return false;
 	end

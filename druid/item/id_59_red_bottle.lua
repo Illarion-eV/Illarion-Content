@@ -14,13 +14,13 @@ topBorder = 30;
 bottomBorder = 2;
 taste = {};
 attribList ={"strength","willpower","perception","intelligence","constitution","agility","dexterity","essence"};
-taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"s√º√ü"};
+taste[0]   ={"fruchtig","herb"     ,"bitter"    ,"faulig"      ,"sauer"       ,"salzig" ,"scharf"   ,"s¸ﬂ"};
 taste[1]   ={"fruity"  ,"tartly"   ,"bitter"    ,"putrefactive","acidly"      ,"salt"   ,"hot"      ,"sweet"};
 
 function DoDruidism(Character,SourceItem)
 
 	if (druid.base.alchemy.checkPotionSpam(Character)) then
-		base.common.InformNLS(Character, "Dein exzessives Trinken von Tr√§nken hat wohl dazu gef√ºhrt, dass Tr√§nke vorr√ºbergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
+		base.common.InformNLS(Character, "Dein exzessives Trinken von Tr‰nken hat wohl dazu gef¸hrt, dass Tr‰nke vorr¸bergehend ihre Wirkung nicht mehr entfachen.", "The excessive drinking of potions seems to led to the fact that potions have no effects on you temporary.");
 		return;
 	end
 
@@ -77,7 +77,7 @@ end
 function UseItem(Character,SourceItem,TargetItem,Counter,Param)
 
     if (ltstate == Action.abort) then
-        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me versch√ºttet den Trank.");
+        Character:talkLanguage(CCharacter.say, CPlayer.german, "#me versch¸ttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
         -- Chance for a new bottle 19/20
@@ -90,7 +90,7 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param)
     end
 
     if Character.attackmode then
-        base.common.InformNLS(Character, "Du kannst nichts trinken w√§hrend du k√§mpfst.", "You can't drink something while fighting.");
+        base.common.InformNLS(Character, "Du kannst nichts trinken w‰hrend du k‰mpfst.", "You can't drink something while fighting.");
 		return
 	end
 	

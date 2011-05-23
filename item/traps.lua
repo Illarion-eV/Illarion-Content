@@ -10,10 +10,10 @@ module("item.traps", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if ((User:increaseAttrib("dexterity",0) + 0.5*User:increaseAttrib("perception",0) + math.random(1,30)) >= 30) then
-        base.common.InformNLS( User,"Du entschÃ¤rfst die Falle.","You disarm the trap." );
+        base.common.InformNLS( User,"Du entschärfst die Falle.","You disarm the trap." );
         world:swap(SourceItem,375,333);
     else
-        base.common.InformNLS( User,"Du lÃ¶st die Falle aus!","You set off the trap!" );
+        base.common.InformNLS( User,"Du löst die Falle aus!","You set off the trap!" );
         world:gfx(14,SourceItem.pos);
         User:increaseAttrib("hitpoints", -5000);
         world:swap(SourceItem,376,333);
@@ -28,7 +28,7 @@ function CharacterOnField( User )
             local SourceItem = world:getItemOnField( User.pos );
             if (User:increaseAttrib("hitpoints",0)>0) then
                 if( SourceItem.id >= 377 ) and (SourceItem.id <= 381) then
-                    base.common.InformNLS( User,"Du lÃ¶st eine Falle aus!","You set off a trap!" );
+                    base.common.InformNLS( User,"Du löst eine Falle aus!","You set off a trap!" );
                     world:gfx(14,User.pos);
                     User:increaseAttrib("hitpoints", -4999);
                     world:swap(SourceItem,376,333);

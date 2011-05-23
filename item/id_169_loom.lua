@@ -1,9 +1,9 @@
 -- Webstuhl ( 169 )
 
--- Wollknï¿½ule  --> grauer Stoff
+-- Wollknäule  --> grauer Stoff
 
 -- Arbeitscyclus: 1s - 4s
--- Zusï¿½tzliches Werkzeug: Schere ( 6 )
+-- Zusätzliches Werkzeug: Schere ( 6 )
 
 -- UPDATE common SET com_script='item.id_169_loom' WHERE com_itemid IN (169);
 
@@ -30,9 +30,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife Rï¿½stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rï¿½stung behindert dich bei deiner Arbeit.",
+        "Deine Rüstung behindert dich bei deiner Arbeit.",
         "Your armor disturbs you while working." );
         return
     end
@@ -66,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("belt",170) < 5) then
         base.common.InformNLS( User, 
-        "Du brauchst ein Bï¿½del Wolle in deinem Gï¿½rtel, um Stoff herzustellen.", 
+        "Du brauchst ein Knäuel Wolle in deinem Gürtel, um Stoff herzustellen.", 
         "You need some wool in your belt to make cloth." );
         return
     end

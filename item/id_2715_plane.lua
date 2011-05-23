@@ -24,11 +24,11 @@ function InitCraftingTool( )
         carpentry:AddTool( 725 ); -- Werkbank
         
         carpentry:AddInterruptMessage(
-        "Du wischst dir den SchweiÃŸ von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
         
         carpentry:AddInterruptMessage(
-        "Du pustest kurz die SÃ¤gespÃ¤ne von deiner Kleidung.",
+        "Du pustest kurz die Sägespäne von deiner Kleidung.",
         "You blow some sawdust off your clothes.");
         
         carpentry:AddInterruptMessage(
@@ -40,7 +40,7 @@ function InitCraftingTool( )
         "You throw away some rubbish to get more working space.");
         
         carpentry:AddInterruptMessage(
-        "Du bekommst einige SpÃ¤ne in den Mund und musst husten.",
+        "Du bekommst einige Späne in den Mund und musst husten.",
         "Sawdust finds its way into your mouth, causing you to cough loudly.");
         
         carpentry:AddInterruptMessage(
@@ -48,7 +48,7 @@ function InitCraftingTool( )
         "You get a splinter of wood in your finger and have to take a break to pull it out.");
         
         carpentry:AddInterruptMessage(
-        "Du Ã¼berprÃ¼fst kurz die MaÃŸe des WerkstÃ¼cks.",
+        "Du überprüfst kurz die Maße des Werkstücks.",
         "You check the fine details of your work.");
 
         --------------------------------------------------------------------------------------------
@@ -296,7 +296,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if menstate[ User.id ]==nil then                           -- MenÃ¼status initialisieren.
+    if menstate[ User.id ]==nil then                           -- Menüstatus initialisieren.
         menstate[ User.id ]=0;
     end
     
@@ -316,9 +316,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife RÃ¼stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine RÃ¼stung behindert beim Hobeln.",
+        "Deine Rüstung behindert beim Hobeln.",
         "Your armour disturbs you while slicing." );
         carpenter:SwapToInactiveItem( User );
         return

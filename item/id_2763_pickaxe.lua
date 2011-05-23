@@ -330,7 +330,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if base.common.Encumbrence(User) then
         base.common.InformNLS( User,
-        "Deine RÃ¼stung behindert Dich Rohstoffe abzubauen.",
+        "Deine Rüstung behindert Dich Rohstoffe abzubauen.",
         "Your armour disturbes you when mining ores" );
         return
     end
@@ -350,7 +350,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if ( AreaID == false ) then
         base.common.InformNLS(User,
-        "Die Gegend sieht nicht so aus, als kÃ¶nnte man hier etwas finden.",
+        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
         "The area doesn't look like a area to mine.");
         return
     end
@@ -373,13 +373,13 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     if base.common.ToolBreaks( User, SourceItem, true ) then
         base.common.InformNLS(User,
-        "Die alte und abgenutzte Spitzhacke in deinen HÃ¤nden zerbricht.",
+        "Die alte und abgenutzte Spitzhacke in deinen Händen zerbricht.",
         "The old and used pick-axe in your hands breaks.");
         return
     end
 
     if breakRock(TargetItem) then
-        User:talkLanguage( CCharacter.say, CPlayer.german, "#me zertrÃ¼mmert den Stein.");
+        User:talkLanguage( CCharacter.say, CPlayer.german, "#me zertrümmert den Stein.");
         User:talkLanguage( CCharacter.say, CPlayer.english, "#me destroys the rock.");
         return
     end
@@ -442,7 +442,7 @@ function DigForTresure(User,TargetPos)
     
     if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
                                                 base.common.GetNLS( User,
-                                                    "Du schwingst deine Spitzhacke gegen den steinigen Boden und stÃ¶ÃŸt auf etwas das noch hÃ¤rter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
+                                                    "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
                                                     "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The teasure! Digging another time and it yours!" ), false ) then
         return;
     end
@@ -451,15 +451,15 @@ function DigForTresure(User,TargetPos)
     if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
         if ( GroundType == 1 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grÃ¤bt sich tief in den Ackerboden.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Ackerboden.",
             "You swing your pick-axe towards the ground and it digs deeply into the farm land.");
         elseif ( GroundType == 2 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grÃ¤bt sich tief in den Waldboden.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Waldboden.",
             "You swing your pick-axe towards the ground and it digs deeply into the forest ground.");
         elseif ( GroundType == 4 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie grÃ¤bt sich tief in die Wiese.",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in die Wiese.",
             "You swing your pick-axe towards the ground and it digs deeply into the gras.");
         elseif ( GroundType == 5 ) then
             base.common.InformNLS( User,
@@ -471,7 +471,7 @@ function DigForTresure(User,TargetPos)
             "You swing your pick-axe towards the ground and it runs with a splash into the water.");
         else
             base.common.InformNLS(User,
-            "Dein Versuch, an dieser Stelle zu graben, dÃ¼rfte nicht von Erfolge gekrÃ¶nt werden.",
+            "Dein Versuch, an dieser Stelle zu graben, dürfte nicht von Erfolge gekrönt werden.",
             "This isn't a good place to dig.");
         end
         return

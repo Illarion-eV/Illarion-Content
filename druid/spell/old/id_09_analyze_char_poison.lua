@@ -15,7 +15,7 @@ end
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 --Caster:inform("debug #09.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
-		--TargetChar auf "PoisonValue" abprï¿½fen
+		--TargetChar auf "PoisonValue" abprüfen
 	  if TargetCharacter:getPoisonValue() ~= 0 then
 	  	
 	--  Caster:inform("#b|0|0|Der Patient hat eine Vergiftung, wovon auch immer")  
@@ -43,7 +43,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	--Replace with new learn function, see learn.lua 
 	else
     base.common.InformNLS( Caster,
-        "Deine Fï¿½higkeiten reichen noch nicht aus.",
+        "Deine Fähigkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );	
 	end	    

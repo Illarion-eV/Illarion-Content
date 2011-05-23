@@ -2,7 +2,7 @@
 
 -- INSERT INTO spells VALUES (2^29+2^30,0,'gm_30_31.lua');
 
--- GM Spell zum Instand Skillverï¿½ndern
+-- GM Spell zum ad-hoc Skillverändern
 
 -- Syntax:
 -- [modus] [skill] [value]

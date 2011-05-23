@@ -66,13 +66,13 @@ function checkNoobiaSigns( User,TargetPos )
 		NoobiaSigns[2] = {position(68,32,101),"Silberbrand, Stadt der Zwerge.","Silverbrand, town of the dwarves."};
 		NoobiaSigns[3] = {position(70,32,101),"Tol Vanima, Insel der Elben.","Tol Vanima, island of the elves."};
 		NoobiaSigns[4] = {position(72,34,101),"Greenbriar, Stadt der Halblinge.","Greenbriar, town of the halflings."};
-		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wï¿½stenstadt.","Varshikar, the desert town."};
+		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wüstenstadt.","Varshikar, the desert town."};
 		--[[
-		NoobiaSigns[1] = {position(68,35,101),"Troll's Bane. Derzeitige Bevï¿½lkerung: %POPULATION","Troll's Bane. Current population: %POPULATION"};
-		NoobiaSigns[2] = {position(68,32,101),"Silberbrand, Stadt der Zwerge. Derzeitige Bevï¿½lkerung: %POPULATION","Silverbrand, town of the dwarves. Current population: %POPULATION"};
-		NoobiaSigns[3] = {position(70,32,101),"Tol Vanima, Insel der Elben. Derzeitige Bevï¿½lkerung: %POPULATION","Tol Vanima, island of the elves. Current population: %POPULATION"};
-		NoobiaSigns[4] = {position(72,34,101),"Greenbriar, Stadt der Halblinge. Derzeitige Bevï¿½lkerung: %POPULATION","Greenbriar, town of the halflings. Current population: %POPULATION"};
-		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wï¿½stenstadt. Derzeitige Bevï¿½lkerung: %POPULATION","Varshikar, the desert town. Current population: %POPULATION"};
+		NoobiaSigns[1] = {position(68,35,101),"Troll's Bane. Derzeitige Bevölkerung: %POPULATION","Troll's Bane. Current population: %POPULATION"};
+		NoobiaSigns[2] = {position(68,32,101),"Silberbrand, Stadt der Zwerge. Derzeitige Bevölkerung: %POPULATION","Silverbrand, town of the dwarves. Current population: %POPULATION"};
+		NoobiaSigns[3] = {position(70,32,101),"Tol Vanima, Insel der Elben. Derzeitige Bevölkerung: %POPULATION","Tol Vanima, island of the elves. Current population: %POPULATION"};
+		NoobiaSigns[4] = {position(72,34,101),"Greenbriar, Stadt der Halblinge. Derzeitige Bevölkerung: %POPULATION","Greenbriar, town of the halflings. Current population: %POPULATION"};
+		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wüstenstadt. Derzeitige Bevölkerung: %POPULATION","Varshikar, the desert town. Current population: %POPULATION"};
 		]]
 	end
 	for i=1,5 do

@@ -7,7 +7,7 @@ function UseItem( User, Item, TargetItem, counter, param )
         local lang=User:getPlayerLanguage();
         if ( (User:getQuestProgress(5) == 1) or (User:isAdmin()) ) then
                 if lang==0 then
-                    User:inform("Als du die Wand abtastet bemerkst du einen losen Ziegel. Im Inneren der Mauer findest du einige Mï¿½nzen.");
+                    User:inform("Als du die Wand abtastet bemerkst du einen losen Ziegel. Im Inneren der Mauer findest du einige Münzen.");
                 else
                     User:inform("As you feel the wall you notice a loose brick. In the interior of the wall you find some coins.");
                 end
@@ -22,7 +22,7 @@ function UseItem( User, Item, TargetItem, counter, param )
             end;
         elseif (User:getQuestProgress(5) == 2) then
                 if lang==0 then
-                    User:inform("Als deine Hand noch tiefer hineinfï¿½hrt findest du einen kleinen Ring.");
+                    User:inform("Als deine Hand noch tiefer hineinfährt findest du einen kleinen Ring.");
                 else
                     User:inform("As you reach deeper into the hole you find a tiny ring.");
                 end

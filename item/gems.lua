@@ -67,7 +67,7 @@ function LookAtItem(User,Item)
 
     ItemName=world:getItemName( Item.id, User:getPlayerLanguage() );
 
-    GEM_DATA_DE= { "latent ", "bedingt ", "leicht ", "mï¿½ï¿½ig ", "", "bemerkenswert ", "stark ", "sehr stark ", "unglaublich ", "einzigartig " }
+    GEM_DATA_DE= { "latent ", "bedingt ", "leicht ", "mäßig ", "", "bemerkenswert ", "stark ", "sehr stark ", "unglaublich ", "einzigartig " }
     GEM_DATA_EN= { "latent ", "limited ", "slight ", "moderate ", "", "notable ", "strong ", "very strong ", "unbelievable ", "unique " }
 
     if ( (Item.data > 0) and (Item.data < 11) ) then
@@ -87,10 +87,10 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     -- 1 -> Waffen
-    -- 2 -> Bï¿½gen (Fernkampfwaffen)
-    -- 3 -> Rï¿½stung
+    -- 2 -> Bögen (Fernkampfwaffen)
+    -- 3 -> Rüstung
     -- 4 -> Schilde
-    -- 5 -> Zauberstï¿½be
+    -- 5 -> Zauberstäbe
     -- 6 -> Werkzeuge
     -- 7 -> Schmuck
 	local TargetItem = base.common.GetTargetItem(User, SourceItem);
@@ -106,7 +106,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    	        world:changeItem(TargetItem);
 	    	        world:erase(SourceItem,1);
 	    	    else
-					base.common.InformNLS(User, "Dieser Edelstein kann dort nicht eingefï¿½gt werden.", "The gem cannot be inserted here!");
+					base.common.InformNLS(User, "Dieser Edelstein kann dort nicht eingefügt werden.", "The gem cannot be inserted here!");
 	    	    end
 			end
 		else

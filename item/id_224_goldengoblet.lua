@@ -16,7 +16,7 @@ function LookAtItem(User,Item)
 		gText = "Neue Sprache Barde des Jahres 26";
 		eText = "New language bard of the year 26";
 	elseif Item.data == 10000 then
-		gText = gText.."einen auffï¿½lligen Kelch";
+		gText = gText.."einen auffälligen Kelch";
 		eText = eText.."a peculiar goblet";
 	elseif Item.data > 2^30 then
 		world:itemInform(User,Item,text);

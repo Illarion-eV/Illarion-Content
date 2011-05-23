@@ -19,7 +19,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 		klassenDE = {"Magie","Priester","Barde","Druide"}
 		klassenEN = {"mage","priest","bard","druid"}
 		local magieklasse=TargetCharacter:getMagicType() 
-		textDE="Magiezugehï¿½rigkeit: "..klassenDE[magieklasse+1]
+		textDE="Magiezugehörigkeit: "..klassenDE[magieklasse+1]
 		textEN="Magic classification: "..klassenEN[magieklasse+1]
 		if Caster:getPlayerLanguage() == 0 then
 			Caster:inform("#b|0|0|"..textDE)
@@ -32,7 +32,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
   		
 	else
     base.common.InformNLS( Caster,
-        "Deine Fï¿½higkeiten reichen noch nicht aus.",
+        "Deine Fähigkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end

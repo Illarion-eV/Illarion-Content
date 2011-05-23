@@ -11,15 +11,15 @@ module("druid.spell.spell_05_quality_potion", package.seeall, package.seeall(dru
 -- INSERT INTO spells VALUES (2^6,3,'druid.spell.spell_06_quality_potion');
 
 function CastMagic(Caster,counter,param,ltstate)
-	base.common.InformNLS(Caster, "Du musst diesen Qualit√§tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
+	base.common.InformNLS(Caster, "Du musst diesen Qualit‰tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
 function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
-	base.common.InformNLS(Caster, "Du musst diesen Qualit√§tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
+	base.common.InformNLS(Caster, "Du musst diesen Qualit‰tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
 function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
-	base.common.InformNLS(Caster, "Du musst diesen Qualit√§tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
+	base.common.InformNLS(Caster, "Du musst diesen Qualit‰tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
 function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
@@ -30,11 +30,11 @@ function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
 			qualstat = math.floor(TargetItem.quality/100);
 			--Caster:learn(6,"exquirere",3,100);
 			--Replace with new learn function, see learn.lua 
-			textDE = "Dieser Trank hat eine "..qListDe[qualstat].." Qualit√§t.";
+			textDE = "Dieser Trank hat eine "..qListDe[qualstat].." Qualit‰t.";
 			textEN = "This potion has a "..qListEn[qualstat].." quality.";
 			base.common.InformNLS(Caster, textDE, textEN);
 			return
 		end
 	end
-	base.common.InformNLS(Caster, "Du musst diesen Qualit√§tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
+	base.common.InformNLS(Caster, "Du musst diesen Qualit‰tsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end

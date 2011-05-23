@@ -29,7 +29,7 @@ function CastMagicOnItem(Caster,TargetItem,counter,param)
   if TargetItem.id == 331 then
     dataZList = SplitBottleData(Caster,TargetItem.data)
     i = math.random(table.getn(dataZList))
-    textDE= "Dieser Sud enthï¿½lt "..wirkung_de[dataZList[i]].." "..wirkstoff[i]
+    textDE= "Dieser Sud enthält "..wirkung_de[dataZList[i]].." "..wirkstoff[i]
     textEN= "This stock contains "..wirkung_en[dataZList[i]].." "..wirkstoff[i] 
 
     if Caster:getPlayerLanguage() == 0 then
@@ -42,6 +42,6 @@ function CastMagicOnItem(Caster,TargetItem,counter,param)
 
   else
     base.common.InformNLS(Caster,   
-    "Das ist kein Krï¿½utersud","This is not a stock")       		         
+    "Das ist kein Kräutersud","This is not a stock")       		         
   end
 end

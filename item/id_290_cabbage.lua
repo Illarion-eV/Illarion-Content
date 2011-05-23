@@ -7,7 +7,7 @@ module("item.id_290_cabbage", package.seeall)
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
     if (SourceItem.data > 0) then
         if (User:getPlayerLanguage() == 0) then
-            User:inform("Du wï¿½rdest den Kohl beschï¿½digen, ziehst du ihn einfach so heraus. Du benï¿½tigst eine Sichel um ihn abzuschneiden.");
+            User:inform("Du würdest den Kohl beschädigen, ziehst du ihn einfach so heraus. Du benötigst eine Sichel um ihn abzuschneiden.");
         else
             User:inform("You would damage the cabbage, if you pull it out. You need a sickle to cut it");
         end

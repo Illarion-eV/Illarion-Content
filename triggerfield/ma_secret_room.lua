@@ -18,7 +18,7 @@ function CharacterOnField(Character)
         CharsInRange = world:getPlayersInRangeOf(DoorPos,15);
         for i, Chara in pairs(CharsInRange) do
             if (Chara:getPlayerLanguage() == 0) then
-                Chara:inform("Du hï¿½rst das Gerï¿½usch von sich verschiebendem Stein");
+                Chara:inform("Du hörst das Geräusch von sich verschiebendem Stein");
             else
                 Chara:inform("You hear the sound of moving stone");
             end

@@ -24,11 +24,11 @@ function InitCraftingTool( )
         carpentery:AddTool( 725 ); -- Werkbank
 
         carpentery:AddInterruptMessage(
-        "Du wischst dir den SchweiÃŸ von der Stirn.",
+        "Du wischst dir den Schweiß von der Stirn.",
         "You wipe sweat off your forehead.");
 
         carpentery:AddInterruptMessage(
-        "Du pustest kurz die SÃ¤gespÃ¤ne von deiner Kleidung.",
+        "Du pustest kurz die Sägespäne von deiner Kleidung.",
         "You blow some sawdust off your clothes.");
 
         carpentery:AddInterruptMessage(
@@ -40,15 +40,15 @@ function InitCraftingTool( )
         "You throw away some rubbish to get more working space.");
 
         carpentery:AddInterruptMessage(
-        "Du bekommst einige SpÃ¤ne in den Mund und muÃŸt husten.",
+        "Du bekommst einige Späne in den Mund und mußt husten.",
         "Sawdust finds its way into your mouth, causing you to cough loudly.");
 
         carpentery:AddInterruptMessage(
-        "Du bekommst einen Holzsplitter in den Finger und muÃŸt Pause machen um ihn zu entfernen.",
+        "Du bekommst einen Holzsplitter in den Finger und mußt Pause machen um ihn zu entfernen.",
         "You get a splinter of wood in your finger and have to take a break to pull it out.");
 
         carpentery:AddInterruptMessage(
-        "Du Ã¼berprÃ¼fst kurz die MaÃŸe des WerkstÃ¼cks.",
+        "Du überprüfst kurz die Maße des Werkstücks.",
         "You check the fine details of your work.");
 
         --------------------------------------------------------------------------------------------
@@ -307,7 +307,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
         return
     end
 
-    if menstate[ User.id ]==nil then                           -- MenÃ¼status initialisieren.
+    if menstate[ User.id ]==nil then                           -- Menüstatus initialisieren.
         menstate[ User.id ]=0;
     end
 
@@ -322,14 +322,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 
     if ( SourceItem:getType() ~= 4 ) then -- Schnitzmesser in der Hand
         base.common.InformNLS( User,
-        "Du muÃŸt die Schnitzmesser in die Hand nehmen um damit zu arbeiten.",
+        "Du mußt die Schnitzmesser in die Hand nehmen um damit zu arbeiten.",
         "You have to take the carving tools in your hand, to work with it." )
         return
     end
 
-    if base.common.Encumbrence(User) then -- Sehr streife RÃ¼stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine RÃ¼stung behindert beim schnitzen.",
+        "Deine Rüstung behindert beim schnitzen.",
         "Your armour disturbes you while carve." );
         carpenter:SwapToInactiveItem( User );
         return

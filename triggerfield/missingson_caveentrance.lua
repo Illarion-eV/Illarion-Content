@@ -10,7 +10,7 @@ function MoveToField(User)
 	local ChildPosition = position(0,0,0);
 	if (User:getQuestProgress(QuestID) == 2) then
 		base.common.InformNLS(User,
-			"Als du durch den Eingangsspalt blickst, fÃ¤llt dir auf, dass in der HÃ¶hle Licht brennt.",
+			"Als du durch den Eingangsspalt blickst, fällt dir auf, dass in der Höhle Licht brennt.",
 			"As you look trough the entrance, you notice that there's light in the cave.");
 		local m = world:getMonstersInRange(MonsterPositions[0], 10);
 		for i = table.getn(m), table.getn(MonsterPositions), 1  do

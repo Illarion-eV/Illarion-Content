@@ -4,7 +4,7 @@
 -- Sibanac --> Garn
 
 -- Arbeitscyclus: 1s - 4s
--- Zusï¿½tzliches Werkzeug: Schere ( 6 )
+-- Zusätzliches Werkzeug: Schere ( 6 )
 
 -- UPDATE common SET com_script='item.id_171_spinningwheel' WHERE com_itemid IN (171);
 
@@ -35,9 +35,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return
     end
     
-    if base.common.Encumbrence(User) then -- Sehr streife RÃ¼stung?
+    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine RÃ¼stung behindert beim Spinnen.",
+        "Deine Rüstung behindert beim Spinnen.",
         "Your armour disturbes you while spinning." );
         return
     end
@@ -48,7 +48,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if (User:countItemAt("body",6)==0) then -- Schere
         base.common.InformNLS( User,
-        "Du benÃ¶tigst eine Schere um die Wolle oder Sibanac zu spinnen.",
+        "Du benötigst eine Schere um die Wolle oder Sibanac zu spinnen.",
         "You need scissors to spin the wool or sibanac." );
         return
     end
@@ -58,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         Tool = User:getItemAt(CCharacter.right_tool); -- In anderer Hand nachsehen
     end
     
-    if base.common.ToolBreaks( User, Tool, true) then -- Schere beschï¿½digen
+    if base.common.ToolBreaks( User, Tool, true) then -- Schere beschädigen
         base.common.InformNLS( User, 
         "Die Schere wird stumpf.", 
         "The scissors went blunt." );
@@ -68,7 +68,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if ((User:countItemAt("belt",170) < 1) and (User:countItemAt("belt",155) < 3)) then
         if (ltstate ~= Action.success) then
             base.common.InformNLS( User, 
-            "Du benÃ¶tigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
+            "Du benötigst Wolle oder Sibanac um am Spinnrad zu arbeiten.", 
             "You need some wool or sibanac to work at the spinning wheel." );
         end
         return

@@ -16,7 +16,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	--Caster:inform("debug #14.2")	
 	if Caster:getSkill("exquirere")>math.random(100) then	
 
-	--Feststellung, was TC in den Hï¿½nden hï¿½lt
+	--Feststellung, was TC in den Händen hält
 	  lH=TargetCharacter:getItemAt(5)
 	  rH=TargetCharacter:getItemAt(6)
 		if Caster:getPlayerLanguage() == 0 then
@@ -35,7 +35,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
         --Replace with new learn function, see learn.lua 		
 	else
     base.common.InformNLS( Caster,
-        "Deine Fï¿½higkeiten reichen noch nicht aus.",
+        "Deine Fähigkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end  	    

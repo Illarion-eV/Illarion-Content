@@ -20,7 +20,7 @@ function MoveToField(User)
 		for i,char in charList do
 			if char.pos.z == WALLPOS.z then
 				char:inform(char:getPlayerLanguage()==0 and
-					"#w Du hï¿½rst das Gerï¿½usch von sich verschiebendem Gestein." or
+					"#w Du hörst das Geräusch von sich verschiebendem Gestein." or
 					"#w You hear the sound of moving stone.");
 			end
 		end

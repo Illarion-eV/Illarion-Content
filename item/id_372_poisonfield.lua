@@ -41,7 +41,7 @@ function CharacterOnField(User)
             RaceStrenght=100;
             PoisStrength=100;
         end
-        resist=SpellResistence(User);      -- Magie Resistenz prï¿½fen
+        resist=SpellResistence(User);      -- Magie Resistenz prüfen
         if (resist<FieldItem.quality) then
             damageDealt=math.random((7/1000)*math.floor((FieldItem.quality-resist)*RaceStrenght),(9/1000)*math.floor((FieldItem.quality-resist)*RaceStrenght));--AffectedStren[i]
             poisonDealt=math.random((2/100)*math.floor((FieldItem.quality-resist)*(PoisStrength/20)),(5/100)*math.floor((FieldItem.quality-resist)*(PoisStrength/20)));

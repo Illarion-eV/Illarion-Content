@@ -9,7 +9,7 @@ function CharacterOnField(Character)
     end
     Character:warp(position(252,-362,-6));
     if (Character:getPlayerLanguage()==0) then
-        Character:inform("Eine unsichtbare Kraft wirft dich zurï¿½ck!");
+        Character:inform("Eine unsichtbare Kraft wirft dich zurück!");
     else
         Character:inform("A invisible force throws you backwards!");
     end

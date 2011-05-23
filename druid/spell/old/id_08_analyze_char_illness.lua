@@ -45,7 +45,7 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	    
 	else
     base.common.InformNLS( Caster,
-        "Deine Fï¿½higkeiten reichen noch nicht aus.",
+        "Deine Fähigkeiten reichen noch nicht aus.",
         "Your abilities do not last out yet."
     );		
 	end			  	 
