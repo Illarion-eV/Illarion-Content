@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Beror Oakaxe"
@@ -74,12 +74,8 @@ itemShoes = 770
 -- 16: Quest 6 solved, reward: coppered dagger, +20 rankpoints
 -- 17: Quest 7 taken, provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
 -- 18: Quest 7 solved, reward: +20 rankpoints
-"give naldor" -> "U GOT WOOD.", item(546, 20, 333, 0)
-"give brick" -> "Brickified omg!", item(2588, 20, 333, 0)
-"give stuff" -> "CHEATER!", item(334, 1, 333, 0), item(2559, 1, 333, 0), item(315, 1, 333, 0)
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0."), queststatus(111) = 0, queststatus(110) = 0, queststatus(115) = 0, queststatus(116) = 0, queststatus(117) = 0
 ".+", queststatus(111) > 18 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

@@ -71,7 +71,6 @@ itemShoes = 53
 -- 33: Quest 4 solved, reward: Magical ruby ring
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(4) = 0
 ".+", queststatus(4) > 33 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

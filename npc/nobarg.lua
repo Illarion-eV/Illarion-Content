@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: November 21, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -16,223 +16,19 @@ VALUES (0, 475, 795, 0, 6, 'Nobarg', 'npc.nobarg', 0, 1, 3, 139, 87, 74, 211, 13
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.state")
 require("npc.base.talk")
 module("npc.nobarg", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 0");
-talkEntry:addResponse("Quest status set to 0");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 5");
-talkEntry:addResponse("Quest status set to 5");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 6");
-talkEntry:addResponse("Quest status set to 6");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 7");
-talkEntry:addResponse("Quest status set to 7");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 8");
-talkEntry:addResponse("Quest status set to 8");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 8));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 11");
-talkEntry:addResponse("Quest status set to 11");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 11));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 12");
-talkEntry:addResponse("Quest status set to 12");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 12));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 13");
-talkEntry:addResponse("Quest status set to 13");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 14");
-talkEntry:addResponse("Quest status set to 14");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 14));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 15");
-talkEntry:addResponse("Quest status set to 15");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 15));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 16");
-talkEntry:addResponse("Quest status set to 16");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 16));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 17");
-talkEntry:addResponse("Quest status set to 17");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 17));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 18");
-talkEntry:addResponse("Quest status set to 18");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 18));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 19");
-talkEntry:addResponse("Quest status set to 19");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 19));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 20");
-talkEntry:addResponse("Quest status set to 20");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 21");
-talkEntry:addResponse("Quest status set to 21");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 22");
-talkEntry:addResponse("Quest status set to 22");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 22));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 23");
-talkEntry:addResponse("Quest status set to 23");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 23));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 24");
-talkEntry:addResponse("Quest status set to 24");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 24));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 25");
-talkEntry:addResponse("Quest status set to 25");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 25));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 26");
-talkEntry:addResponse("Quest status set to 26");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 26));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 27");
-talkEntry:addResponse("Quest status set to 27");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 27));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 28");
-talkEntry:addResponse("Quest status set to 28");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 28));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 29");
-talkEntry:addResponse("Quest status set to 29");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 29));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 30");
-talkEntry:addResponse("Quest status set to 30");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 40");
-talkEntry:addResponse("Quest status set to 40");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 40));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -243,6 +39,141 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Priester Nobarg. Schlüsselwörter: Hallo, Quest, Bragon, Götter, information."));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hello");
+talkEntry:addTrigger("Greet");
+talkEntry:addTrigger("Hail");
+talkEntry:addTrigger("Good day");
+talkEntry:addTrigger("Good morning");
+talkEntry:addTrigger("Good evening");
+talkEntry:addResponse("#me nods slightly and continuous praying.");
+talkEntry:addResponse("Hmm? Yes, yes.");
+talkEntry:addResponse("Bragon with you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Grüß");
+talkEntry:addTrigger("Gruß");
+talkEntry:addTrigger("Guten Tag");
+talkEntry:addTrigger("Guten Abend");
+talkEntry:addTrigger("Mahlzeit");
+talkEntry:addTrigger("Tach");
+talkEntry:addTrigger("Moin");
+talkEntry:addResponse("#me nickt leicht und betet weiter.");
+talkEntry:addResponse("Hmm? Ja, ja.");
+talkEntry:addResponse("Bragon mit euch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("#me nods slightly and continuous praying.");
+talkEntry:addResponse("Hmm? Yes, yes.");
+talkEntry:addResponse("Bragon with you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("#me nickt leicht und betet weiter.");
+talkEntry:addResponse("Hmm? Ja, ja.");
+talkEntry:addResponse("Bragon mit euch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Farewell");
+talkEntry:addTrigger("Bye");
+talkEntry:addTrigger("Fare well");
+talkEntry:addTrigger("See you");
+talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Good bye.");
+talkEntry:addResponse("Bragon with you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tschüß");
+talkEntry:addTrigger("Tschüss");
+talkEntry:addTrigger("Wiedersehen");
+talkEntry:addTrigger("Gehab wohl");
+talkEntry:addResponse("Lebt wohl.");
+talkEntry:addResponse("Aufwiedersehen.");
+talkEntry:addResponse("Bragon sei mit euch!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("Good bye.");
+talkEntry:addResponse("Bragon with you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ciao");
+talkEntry:addTrigger("Adieu");
+talkEntry:addTrigger("Au revoir");
+talkEntry:addTrigger("Farebba");
+talkEntry:addResponse("Lebt wohl.");
+talkEntry:addResponse("Aufwiedersehen.");
+talkEntry:addResponse("Bragon sei mit euch!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How are you");
+talkEntry:addTrigger("How feel");
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("If Bragon listens to me today, better.");
+talkEntry:addResponse("Do you want pray with me?");
+talkEntry:addResponse("Fine, Bragen to honour!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wie geht");
+talkEntry:addTrigger("Wie fühlst");
+talkEntry:addTrigger("Wie ist es ergangen");
+talkEntry:addTrigger("Wie Befinden");
+talkEntry:addResponse("Wenn Bragon mich heute erhört, besser.");
+talkEntry:addResponse("Möchtet ihr mit mir beten?");
+talkEntry:addResponse("Gut, Bragon zu Ehren!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("your name");
+talkEntry:addTrigger("who are you");
+talkEntry:addTrigger("who art thou");
+talkEntry:addResponse("Nobarg.");
+talkEntry:addResponse("Nobarg, priest of Bragon");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dein name");
+talkEntry:addTrigger("wer bist du");
+talkEntry:addTrigger("wer seid ihr");
+talkEntry:addTrigger("wie heißt");
+talkEntry:addResponse("Nobarg");
+talkEntry:addResponse("Nobarg, Priester von Bragon");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1146,188 +1077,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
-talkEntry:addTrigger("Greet");
-talkEntry:addTrigger("Hail");
-talkEntry:addTrigger("Good day");
-talkEntry:addTrigger("Good morning");
-talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("#me nods slightly and continuous praying.");
-talkEntry:addResponse("Hmm? Yes, yes.");
-talkEntry:addResponse("Bragon with you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
-talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
-talkEntry:addTrigger("Guten Tag");
-talkEntry:addTrigger("Guten Abend");
-talkEntry:addTrigger("Mahlzeit");
-talkEntry:addTrigger("Tach");
-talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("mit dir");
-talkEntry:addResponse("#me nickt leicht und betet weiter.");
-talkEntry:addResponse("Hmm? Ja, ja.");
-talkEntry:addResponse("Bragon mit euch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("#me nods slightly and continuous praying.");
-talkEntry:addResponse("Hmm? Yes, yes.");
-talkEntry:addResponse("Bragon with you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greebas");
-talkEntry:addTrigger("Greebs");
-talkEntry:addResponse("#me nickt leicht und betet weiter.");
-talkEntry:addResponse("Hmm? Ja, ja.");
-talkEntry:addResponse("Bragon mit euch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Farewell");
-talkEntry:addTrigger("Good bye");
-talkEntry:addTrigger("Bye");
-talkEntry:addTrigger("Fare thee well");
-talkEntry:addResponse("Farewell.");
-talkEntry:addResponse("Good bye.");
-talkEntry:addResponse("Bragon with you!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tschüß");
-talkEntry:addTrigger("Tschüss");
-talkEntry:addTrigger("Wiedersehen");
-talkEntry:addTrigger("Gehabt euch wohl");
-talkEntry:addResponse("Lebt wohl.");
-talkEntry:addResponse("Aufwiedersehen.");
-talkEntry:addResponse("Bragon sei mit euch!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Adieu");
-talkEntry:addTrigger("Au revoir");
-talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Farewell.");
-talkEntry:addResponse("Good bye.");
-talkEntry:addResponse("Bragon with you!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ciao");
-talkEntry:addTrigger("Adieu");
-talkEntry:addTrigger("Au revoir");
-talkEntry:addTrigger("Farebba");
-talkEntry:addTrigger("See you");
-talkEntry:addResponse("Lebt wohl.");
-talkEntry:addResponse("Aufwiedersehen.");
-talkEntry:addResponse("Bragon sei mit euch!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("How are you");
-talkEntry:addTrigger("How feel");
-talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("If Bragon listens to me today, better.");
-talkEntry:addResponse("Do you want pray with me?");
-talkEntry:addResponse("Fine, Bragen to honour!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wie geht");
-talkEntry:addTrigger("Wie fühlst");
-talkEntry:addTrigger("Wie ist es ergangen");
-talkEntry:addTrigger("Wie Befinden");
-talkEntry:addResponse("Wenn Bragon mich heute erhört, besser.");
-talkEntry:addResponse("Möchtet ihr mit mir beten?");
-talkEntry:addResponse("Gut, Bragon zu Ehren!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("your name");
-talkEntry:addTrigger("who are you");
-talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Nobarg.");
-talkEntry:addResponse("Nobarg, priest of Bragon");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("dein name");
-talkEntry:addTrigger("wer bist du");
-talkEntry:addTrigger("wer seid ihr");
-talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Nobarg");
-talkEntry:addResponse("Nobarg, Priester von Bragon");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Do I look as I sell something?");
-talkEntry:addResponse("I don't sell something.");
-talkEntry:addResponse("I'm not a merchant, but priest.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Sehe ich aus als würde ich etwas verkaufen?");
-talkEntry:addResponse("Ich verkaufe nichts.");
-talkEntry:addResponse("Ich bin kein Händler, sondern Priester.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("In Bragon I believe.");
-talkEntry:addResponse("Another time maybe. Now I have to pray.");
-talkEntry:addResponse("It is not the time for stories, yet.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("An Bragon glaube ich.");
-talkEntry:addResponse("Vielleicht ein andermal. Jetzt muss ich beten.");
-talkEntry:addResponse("Nun ist nicht die Zeit um Geschichten zu erzählen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("work");
 talkEntry:addResponse("Priest of Bragon of course.");
@@ -1523,10 +1272,24 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Does he believe in Bragon? Otherwise I do not care about him.");
+talkEntry:addResponse("He rules Runewick as far as I know.");
+talkEntry:addResponse("I think he knows many things about arcane magic.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Glaubt er an Bragon? Ansonsten interessiert er mich nicht.");
+talkEntry:addResponse("Er regiert Runewick soweit ich weiß.");
+talkEntry:addResponse("Ich denke er weiß viele Dinge über arkane Magie.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Does he believe in Bragon? Otherwise I do not care about him.");
 talkEntry:addResponse("He rules Runewick as far as I know.");
@@ -1537,8 +1300,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Glaubt er an Bragon? Ansonsten interessiert er mich nicht.");
 talkEntry:addResponse("Er regiert Runewick soweit ich weiß.");
 talkEntry:addResponse("Ich denke er weiß viele Dinge über arkane Magie.");
@@ -1601,9 +1362,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Does she believe in Bragon? Otherwise I do not care about her.");
+talkEntry:addResponse("She is on a quick road to ruin Cadomyr.");
+talkEntry:addResponse("Lovely face, but not more.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.");
+talkEntry:addResponse("Sie stürzt Cadomyr in den Ruin.");
+talkEntry:addResponse("Nettes Gesicht, aber nicht mehr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Does she believe in Bragon? Otherwise I do not care about her.");
@@ -1614,8 +1389,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Glaubt sie an Bragon? Ansonsten interessiert sie mich nicht.");
 talkEntry:addResponse("Sie stürzt Cadomyr in den Ruin.");
@@ -1987,6 +1760,100 @@ talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich .");
 talkEntry:addResponse("Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Das ist einer der jungen Götter. Nichts im Vergleich zu Bragon.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("Do I look as I sell something?");
+talkEntry:addResponse("I don't sell something.");
+talkEntry:addResponse("I'm not a merchant, but priest.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Sehe ich aus als würde ich etwas verkaufen?");
+talkEntry:addResponse("Ich verkaufe nichts.");
+talkEntry:addResponse("Ich bin kein Händler, sondern Priester.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("In Bragon I believe.");
+talkEntry:addResponse("Another time maybe. Now I have to pray.");
+talkEntry:addResponse("It is not the time for stories, yet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("An Bragon glaube ich.");
+talkEntry:addResponse("Vielleicht ein andermal. Jetzt muss ich beten.");
+talkEntry:addResponse("Nun ist nicht die Zeit um Geschichten zu erzählen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC first name>");
+talkEntry:addTrigger("<NPC last name>");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Yes? How can I help you? Do you like to know more about gods?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("<NPC-Vorname>");
+talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addResponse("Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("Very well. I feared you would say no.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Sehr gut. Ich fürchtete ihr sagt nein.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("No? Are you sure?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Nein? Seid ihr sicher?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Don't you think it is time for another pray now?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20));
+talkEntry:addResponse("Denkt ihr nicht es ist an der Zeit für ein weiteres Gebet?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me kniet vor dem Altar.", "#me kneels in front of the altar.");

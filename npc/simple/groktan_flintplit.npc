@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 08, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Groktan Flintsplit"
@@ -76,7 +76,6 @@ itemShoes = 53
 -- 14: Quest 5 solved, reward: icebird amueltt (334), (20 rankpoints)
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(107) = 0
 ".+", queststatus(107) > 14 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

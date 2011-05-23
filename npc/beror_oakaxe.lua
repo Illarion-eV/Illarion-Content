@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 03, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,40 +31,6 @@ module("npc.beror_oakaxe", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("give naldor");
-talkEntry:addResponse("U GOT WOOD.");
-talkEntry:addConsequence(npc.base.consequence.item.item(546, 20, 333, 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("give brick");
-talkEntry:addResponse("Brickified omg!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2588, 20, 333, 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("give stuff");
-talkEntry:addResponse("CHEATER!");
-talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.item.item(2559, 1, 333, 0));
-talkEntry:addConsequence(npc.base.consequence.item.item(315, 1, 333, 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 0");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(115, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(116, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(117, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");

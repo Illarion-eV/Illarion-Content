@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Raban"
@@ -66,9 +66,6 @@ itemShoes = 369
 -- 6: Quest 3 solved
 -- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
 -- 8: Quest 4 solved
-
--- Debugging
-"set 0" -> "Quest status set to 0", queststatus(66) = 0
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the hermit Raban. Keyphrases: Hello, quest, sickle, herbs.")

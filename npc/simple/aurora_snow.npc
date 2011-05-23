@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
@@ -60,7 +60,6 @@ itemShoes = 0
 -- Druidhouse
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(333) = 0, queststatus(322) = 0
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 ".+", queststatus(322) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 

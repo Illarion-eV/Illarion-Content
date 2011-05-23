@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: February 15, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zaida"
@@ -65,9 +65,6 @@ itemShoes = 53
 -- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
 
 -- Debugging
-"set 0" -> "Quest status set to 0", queststatus(76) = 0
-"set 1" -> "Quest status set to 1", queststatus(76) = 1
-"set 2" -> "Quest status set to 2", queststatus(76) = 2
 ".*", queststatus(76) > 2 -> "Error! Something went wrong, please inform a developer."
 
 -- Help

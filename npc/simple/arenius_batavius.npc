@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 05, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -80,7 +80,6 @@ itemShoes = 53
 -- 35: Quest 6 solved, reward: albarian noble's armor with magical topaz (2367), 2000cp, 20 rankpoints if Cadomyr
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(104) = 0
 ".+", queststatus(104) > 35 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

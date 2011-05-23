@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 13, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Bathelor"
@@ -54,7 +54,6 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(113) = 0, queststatus(114) = 0
 ".+", queststatus(113) > 7 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

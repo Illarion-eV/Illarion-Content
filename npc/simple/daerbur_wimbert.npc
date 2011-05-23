@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: February 18, 2011                       easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Daerbur Wimbert"
@@ -66,17 +66,6 @@ itemShoes = 53
 -- 6: Quest 3 solved
 -- 7: Quest 4 taken - gather 10 distant raw materials for 200cp
 -- 8: Quest 4 solved
-
--- Debugging
-"set 0" -> "Quest status set to 0", queststatus(68) = 0
-"set 1" -> "Quest status set to 1", queststatus(68) = 1
-"set 2" -> "Quest status set to 2", queststatus(68) = 2
-"set 3" -> "Quest status set to 3", queststatus(68) = 3
-"set 4" -> "Quest status set to 4", queststatus(68) = 4
-"set 5" -> "Quest status set to 5", queststatus(68) = 5
-"set 6" -> "Quest status set to 6", queststatus(68) = 6
-"set 7" -> "Quest status set to 7", queststatus(68) = 7
-"set 8" -> "Quest status set to 8", queststatus(68) = 8
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the miner Daerbur Wimbert. Keyphrases: Hello, quest, pick-axe, miner.")

@@ -73,7 +73,6 @@ itemShoes = 53
 -- 22: Quest 3 solved, reward: brown priest robe, +20 rankpoints
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(78) = 0
 ".+", queststatus(78) > 22 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help

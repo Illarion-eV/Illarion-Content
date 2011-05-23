@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: May 05, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Madeline Clarbelis"
@@ -59,7 +59,6 @@ itemShoes = 53
 -- Position, direction, affiliation
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(1337) = 0
 ".+", queststatus(334) > 2 -> inform("[Error] Something went wrong, please inform a developer.")
 ".+", queststatus(333) > 12 -> inform("[Error] Something went wrong, please inform a developer.")
 

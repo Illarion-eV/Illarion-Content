@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Hassan"
@@ -64,7 +64,6 @@ itemShoes = 53
 -- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
 
 -- Debugging
-"set 0" -> "Quest status set to 0", queststatus(75) = 0
 ".*", queststatus(75) > 2 -> "Error! Something went wrong, please inform a developer."
 
 -- Help

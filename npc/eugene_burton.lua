@@ -8,6 +8,7 @@
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
 -- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1240,4 +1241,3 @@ function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
 initNpc = nil;
--- END

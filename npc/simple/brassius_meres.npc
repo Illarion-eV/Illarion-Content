@@ -64,7 +64,6 @@ itemShoes = 697
 -- 6: Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(109) = 0
 ".+", queststatus(109) > 6 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Runewick New Player Quest

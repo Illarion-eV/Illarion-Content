@@ -33,69 +33,6 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 0");
-talkEntry:addResponse("Quest status set to 0");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 1");
-talkEntry:addResponse("Quest status set to 1");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 2");
-talkEntry:addResponse("Quest status set to 2");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 3");
-talkEntry:addResponse("Quest status set to 3");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 4");
-talkEntry:addResponse("Quest status set to 4");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 5");
-talkEntry:addResponse("Quest status set to 5");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 6");
-talkEntry:addResponse("Quest status set to 6");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 7");
-talkEntry:addResponse("Quest status set to 7");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 8");
-talkEntry:addResponse("Quest status set to 8");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 8));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the forester Valandil Elensar. Keyphrases: Hello, quest, hatchet, forester, wood."));
 talkingNPC:addTalkingEntry(talkEntry);

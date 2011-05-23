@@ -63,7 +63,6 @@ itemShoes = 53
 -- 2: Quest 1 solved, reward: random, see below
 
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(105) = 0
 ".+", queststatus(105) > 2 -> inform("[Status error] Something went wrong, please inform a developer.")
 
 -- Help

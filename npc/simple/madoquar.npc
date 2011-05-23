@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: March 23, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Madoquar"
@@ -105,10 +105,7 @@ itemShoes = 369
 -- 10: Killing 1 wraith
 -- 11: Quest 4 solved, reward: magical amethyst ring (277)
 
--- CAVE: replace (112) with valid queststatus
-
 -- Debugging
-"set 0" -> inform("[Debugging] Quest status set to 0"), queststatus(112) = 0
 ".+", queststatus(112) > 11 -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
