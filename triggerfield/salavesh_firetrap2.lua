@@ -1,6 +1,6 @@
 require("base.common")
 
-module("triggerfield.salavesh_firetrap", package.seeall)
+module("triggerfield.salavesh_firetrap2", package.seeall)
 
 --This script shoots a fireball down the hall in the "Errant Crusade" quest map
 --Can be used with various triggerfields, players shall "abuse" this to fight the monsters down there
@@ -11,15 +11,15 @@ function MoveToField(User)
 	    
 		base.common.TempInformNLS(User,"Ein Feuerball schießt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
         
-		xcord=User.pos.x; --The x-coordinate of the triggerfield
+		ycord=User.pos.y; --The y-coordinate of the triggerfield
 		
-		for i=399,415 do --replace with proper coordinates
+		for i=733,749 do --replace with proper coordinates
 	
 		    if world:isCharacterOnField(position(xcord,i,-3)) then --there is someone!
 						
 		        target=world:getCharacterOnField(position(xcord,i,-3)); --and who is it?	
 				
-                if (target:increaseAttrib("hitpoints",0)>0) then --ghosts do not get hit
+                if (target:increaseAttrib("hitpoints",0)>0) then --ghosts do not set off traps	
 				
 				    world:gfx(9,position(xcord,i,-3)); --Fireball!
 				    world:makeSound(5,position(xcord,i,-3)); --BOOM!
