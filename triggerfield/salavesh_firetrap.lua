@@ -14,11 +14,10 @@ function MoveToField(User)
 		xcord=User.pos.x; --The x-coordinate of the triggerfield
 		
 		for i=399,415 do --replace with proper coordinates
-		
-		    target=world:getCharacterOnField(position(xcord,i,-3)); --replace with proper coordinates
+	
+		    if world:isCharacterOnField(position(xcord,i,-3)) then --there is someone!
 			
-		    if target ~= nil then --there is someone!
-			
+		        target=world:getCharacterOnField(position(xcord,i,-3)); --replace with proper coordinates			
 				world:gfx(9,position(xcord,i,-3)); --Fireball!
 				world:makeSound(5,position(xcord,i,-3)); --BOOM!
 			    target:increaseAttrib("hitpoints",math.random(-2500,-1000)); --damaging the target
