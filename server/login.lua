@@ -6,12 +6,11 @@ module("server.login", package.seeall);
 
 function onLogin( player )
 
-    base.common.InformNLS( player,
-        "#w Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
-        "#w Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
-    );
-
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
+	players=world:getPlayersOnline(); --Reading all players online so we can count them
+	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+    player:inform("Test: "..world:getTime("year")..world:getTime("month")..world:getTime("day")..world:getTime("hour")..world:getTime("minute").."!");
+	--base.common.TempInformNLS(player,"[Login] PLATZ FÜR EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
 
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
@@ -48,15 +47,17 @@ function onLogin( player )
 		player.effects:addEffect( CLongTimeEffect(2,10) );
 	end
 
-	-- Geruchs-Effekt setzen
+	-- Smell effect removed for the time being (annoying!!!)
+	--[[ Geruchs-Effekt setzen
 	find, stinkEffekt = player.effects:find(18);
 	if not find then
 		player.effects:addEffect( CLongTimeEffect(18,10) );
-	end
+	end]]
 
-	if not( player.pos.z == 100 or player.pos.z == 101 ) then
+	--Good/Bad days removed for the time being (confusing!!!)
+	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
 		HowAreYouToday( player );
-	end
+	end]]
 
 	-- Langzeitefekt für Runenlehren
     year=world:getTime("year");
@@ -157,7 +158,7 @@ function onLogin( player )
 				setNewbiePos(newbieEffect, player);
 			end
 		end
-	elseif (NewbieState == 36 or NewbieState == 322) then  --player logged out on Newbieisland during fighting,lets warp him back to the npc
+	elseif (NewbieState == 36 or NewbieState == 322) then  --player logged out on Noobia during fighting,lets warp him back to the npc
 		player:warp(position(63,41,100));
 		if (world:isCharacterOnField(position(41,50,100))==true) then
 			if (world:isCharacterOnField(position(43,50,100))==true) then
@@ -201,7 +202,8 @@ function setNewbiePos(newbieEffect,Character)
 	newbieEffect:addValue("newbiePosZ",Character.pos.z);
 end
 
-function HowAreYouToday( Char )
+--Good/Bad days removed for the time being (confusing!!!)
+--[[function HowAreYouToday( Char )
     if not listOfAttribs then
         listOfAttribs = {"strength","dexterity","constitution","agility","willpower","perception","essence","intelligence"};
     end
@@ -239,4 +241,4 @@ function AttribMessage( Char, attrib, value )
     if msg then
 		Char:inform( base.common.GetNLS( Char, "#w Deine heutige Verfassung: ", "#w Your condition today: " )..msg );
     end
-end
+end]]
