@@ -23,7 +23,7 @@ function MoveToField(User)
 				
 				    world:gfx(9,position(i,ycord,-3)); --Fireball!
 				    world:makeSound(5,position(i,ycord,-3)); --BOOM!
-			        target:increaseAttrib("hitpoints",math.random(-1500,-750)); --damaging the target
+			        target:increaseAttrib("hitpoints",math.random(-1000,-500)); --damaging the target
                     return; --got one, bailing out.
 					
 				else --it's a ghost
