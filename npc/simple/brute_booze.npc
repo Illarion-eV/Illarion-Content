@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Brute Booze                                           None --
+-- NPC Name: Brute Booze                                                 None --
 -- NPC Job:  adventurer                                                       --
 --                                                                            --
--- NPC Race: orc                     NPC Position:  674,320,0                 --
+-- NPC Race: orc                        NPC Position:  674, 320, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 22, 2010                      easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
 race = orc
 sex = male
-position = 674,320,0
+position = 674, 320, 0
 direction = southwest
 affiliation = "None"
 job = "adventurer"
@@ -53,7 +53,7 @@ itemShoes = 53
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
---Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
+-- Borgate: 1908, 1909 beer, 2923 onion soup, 2456 mushroom soup
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Brute Booze an fameous orcish adventurer. Keyphrases: heoric deeds, tell something")
@@ -69,7 +69,7 @@ itemShoes = 53
 "Ciao", "Adieu", "Au revoir", "Farebba", english -> "Save Travel!", "ENGLISH2.", "ENGLISH3."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Reise!", "... oder wie die südlichen Echsenmenschen sprechen: 'Mögt ihr von reinem Wasser umgebigt sein.'", "Iche will Euch gute Stiefel an die Füße wünsch-higen..."
 "How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?","Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ja-h! Dem alten Brute geht's prächtigens. Irgendwann werde iche wohl zu einem neuen Abenteuer aufbrechen.", "Ach, das iset doch nicht wichti-hig, wie's mir geht! Sagt mir, wie gehthigt's Euch?", "Es geht mir wie an großen Tagen. Einst als iche noch Orkling war."
 "your name", "who are you", "who art thou" -> "xxx", "ENGLISH2.", "ENGLISH3."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Iche binne der berühmte Brute Booze! Lebendihige Legende und Berühmtheit! Sicherheitlich habt ihr von meinen Taten gehöright."
 
@@ -90,70 +90,60 @@ itemShoes = 53
 "mein Name" -> "Das klinghigt sehr wohl in meinen Ohren.", "Grossartig!", "Eine sehr feine Sache iset das."
 
 -- More small talk; add at least five triggers
-"heoric","deeds" -> "xxx"
-"Heldentaten"-> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!.","Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.","Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.","Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.","Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins."
-
-"Kroch","Gurak","Kroch'Gurak",english-> "xxx"
-"Fireshine",english -> "xxx"
+"heoric", "deeds" -> "xxx"
+"Heldentaten" -> "Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!.", "Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.", "Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.", "Vor vier Wintern, gelang es den Hofmagiern des Triumvirats in Falmarha, mit meiniger Hilfe Lad'Nothratar den Metzger zu pfählen. Ein altertühmlicher Vampir, dessen Tot, iche den Ehrentitel 'Ehrenhafter Magier Falmarhas' verdankige.", "Hossa! Seit einem Jahr besitze iche, Brute Booze das kupferige Fell des Löwen Azzors, der einst dutzende mutige Krieger Nubris' verschlang. Mich zu Ehre steht ein kupferiges Abbild des Kampfes vor einem dem Tempel Malachins."
+"Kroch", "Gurak", "Kroch'Gurak", english -> "xxx"
+"Fireshine", english -> "xxx"
 "Judgement[' ][s ] Flame" -> "xxx"
 "Light [o ][f ] Khaari" -> "xxx"
-"Kroch","Gurak","Kroch'Gurak" -> "Kroch'Gurak! Das Winterlager, der wilden Klans. Ein kolossales Höhlengebilde, druchdrungen vom rythmischen Klang der Trommeln. Alles iset voll mit Orklingen die Vieh herumtreiben und es riecht nach Bohnenschnaps!"
+"Kroch", "Gurak", "Kroch'Gurak" -> "Kroch'Gurak! Das Winterlager, der wilden Klans. Ein kolossales Höhlengebilde, druchdrungen vom rythmischen Klang der Trommeln. Alles iset voll mit Orklingen die Vieh herumtreiben und es riecht nach Bohnenschnaps!"
 "Fireshine" -> "Fireshine! Die Drachenburg der Flammenorks. Aus schwarzem Lava-Stein herausgehauen, werden die Orks von Khor-Anthalatosh, Träger der Inneren Flamme, großer Drache des Nordens, geleitet. Diese Festung iset im wahren Sinn des Worts, erleuchtigt."
 "Flamme [d ][e ][r ] Gerechtigkeit" -> "Die Flamme der Gerechtigkeit iset eine Klosterburg der Flammenorks. Dreimal täglich rufen laute, tief schallende Hörner in den Tempeln, die Paladine und Mönche zum Gebet. Allerdings verschließt man den Reisenden den Inneren Teil der Stadt."
 "Licht [v ][o ][n ] Khaari" -> "Iche will Euch sagen, das Licht von Khaaei iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht."
-
-"Sevenhill"->"xxx"
-"Storm[' ][s ] Keep",english->"xxx"
-"Arn-Gharrach","Arn Gharrach",english->"xxx"
-"Ironsiege",english->"xxx"
-"Siebenberg"->"Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich."
-"Storm[' ][s ] Keep"->"Es war wirklich schwierig nach Storm's Keeo zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär."
-"Arn-Gharrach","Arn Gharrach"->"Arn-Gharrach, wohl das älteste Zwergenreich. Es iset die Stadt des Handels und auch 'Oberwelter' wie man dort sagt, haben Zutritt. Vor allem möchte iche das Bier der Zwerge lobend erwähnen."
-"Ironsiege"->" "
-
-"Firnismill"->"xxx"
-"pennymill"->"xxx"
-"oldwillows"->"xxx"
-"Firnismühle"->"Firnismühle iset für seine Gastfreundschaft berühmt. Als Ork, iset man aber trotzdem nicht gern gesehen. Jedenfalls iset es dort sehr Grün und voll mit Gärten."
-"Pfennigmühle"->"In Pfennigmühle iset das Gemüse für gewöhnlich doppelt so groß wie anders wo. Mir war's dort allerdings zu ruhig und iche blieb nicht besonders lange."
-"Altweiden"->"Ach, in Altweiden war iche nie. Aber iche glaub kaum, dass es die Reise wert iset."
-
-"Kan-Ann-Irulaith","Quenn-G'Arah","Shir-Ann-Assiri","Sor-Ann-Arah",english->"xxx"
-"Kan-Ann-Irulaith","Quenn-G'Arah","Shir-Ann-Assiri","Sor-Ann-Arah"->"Das iset so eine Gnom-Stadt nicht wahr? Iche kann mir nicht vorstellen das die in der Wüste gutes Bier brauen, also war iche dort auch nie."
-
-"Kjelt",english->""
-"Karras",english->""
-"Kjelt"->"Die Sturmumtoste Stadt! Kjelt. Nachdem man Monate lang durch kalte trostlose Steppe reist, findet man eine anschauliche Festung. Die Menschen dort sind uns Orks teils ähnlich und dann doch wieder ganz anders."
-"Karras"->"Karras die Stadt aus Eis. Es iset selbst im Sommer nicht warm genug um die Mauern zu schmelzen, ließ iche mir sagen. Man bekommt heißes Bier zum saufen und würzigen Wein. Die Reise war mir jede abgefrorigte Zehe wert!"
-
-"Ann-Korr",english->""
-"Fennsworth",english->""
-"Kang-Arr",english->""
-"Oldford",english->""
-"Ann-Korr"->"Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders."
-"Fennsworth"->"Wenn man n' Ork iset, darf man Fennsworth nur als Sklave betrethigen. Also war iche dort nie."
-"Kang-Arr"->"Kang-Arr iset wohl die bekömmlichste Stadt für einen Reisenden im ganzen Albarischen Reich. Gi-hibt eine Menge Menschen aus dem Norden dort. Schätze das hat einen nützlichen Einfluss."
-"Altfurten"->"Altfurten iset ein Dorf, wird man sagen, wenn man so viele große Städte beschaut hat wie iche. Aber der Gasthof 'The Grumbler's Head' iset berüchtigend."
-
-"Myr-Tobar",english->""
-"Khenserra",english->""
-
-"Myr-Tobar"->"Myr-Tobar, die Jadestadt, das grüne Herz des Dschungels. Die sieben großen Tempel gehören angesehen. Und überhaupt möchten diese Menschen die Zahl Sieben sehr gern."
-"Khenserra"->"Khenserra iset eine staubige Mienenstadt. Sogar'n Oger hab iche dort gesehen. Eine gute Stadt wenn ein Ork schnell Geld braucht. Es riecht zwar nicht schön, iset aber Elfenfrei."
-
-"Falmarha",english->""
-"Laris",english->""
-"Nubris",english->""
-"Mitsobar",english->""
-"Koldamar",english->""
-"Falmarha"->"Falmarha iset eine Art Festung im Meer. Die Gasthöfe sind günstig und die Menschen bedienen einen wie Sklaven. Iche will sagen, so viele Schiffe sah iche dort zum Ersten Mal."
-"Laris"->"Laris iset auch eine Festung, wenn man das so sagen will. Man hat sogar einen Fluss gezähmhigt und umgegraben. Das wichtigste iset aber der Wein. DER WEIN!...sollte man getrunken haben."
-"Nubris"->"Lassigt Euch sagen, die Menschen in Nubris, haben schwarze Haut, wie meine Grün iset. Ihre Stadt nennen sie das goldene Juwel des Südens und es giehebt unzählige Gewürze und anderen Kram zu kaufigen."
-"Mitsobar"->"In Mitsobar gibt es kräftiges Bier und starkigen , braunen Schnaps. Und davon saufen die Menschen beachtlicher Menge. Außerdem fressen die Menschen dorte Fische als wären sie Echsen."
-"Koldamar"->"Koldamar iset eine langweilige windige Stadt. Alle denken viel nach und sprechen wene-hig. Wenn ihr den Dschungel nicht mögt, könnt ihr dort Echsenmenschen sehigen... - Sodar die Götter es wollen."
-
-"Lor-Angur","Lor Angur",english->"xxx"
-"Lor-Angur","Lor Angur"->"In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte fröhnen sie der Zauberei und solch gefährlichen Sachen."
+"Sevenhill" -> "xxx"
+"Storm[' ][s ] Keep", english -> "xxx"
+"Arn-Gharrach", "Arn Gharrach", english -> "xxx"
+"Ironsiege", english -> "xxx"
+"Siebenberg" -> "Tja, nichtmal Menschen lass-hen die Zwerge nach Siebenberg hinein. Also kann iche Euch nur sagigen, was man hört. Es soll eine Miene sein, und die ausgegrabigten Schätze unermässlich."
+"Storm[' ][s ] Keep" -> "Es war wirklich schwierig nach Storm's Keeo zu gelangen. Sehr weit im Norden und nur wenig Fremde dort. Die Schmiedekunst dort, iset jedoch weithin legendär."
+"Arn-Gharrach", "Arn Gharrach" -> "Arn-Gharrach, wohl das älteste Zwergenreich. Es iset die Stadt des Handels und auch 'Oberwelter' wie man dort sagt, haben Zutritt. Vor allem möchte iche das Bier der Zwerge lobend erwähnen."
+"Ironsiege" -> " "
+"Firnismill" -> "xxx"
+"pennymill" -> "xxx"
+"oldwillows" -> "xxx"
+"Firnismühle" -> "Firnismühle iset für seine Gastfreundschaft berühmt. Als Ork, iset man aber trotzdem nicht gern gesehen. Jedenfalls iset es dort sehr Grün und voll mit Gärten."
+"Pfennigmühle" -> "In Pfennigmühle iset das Gemüse für gewöhnlich doppelt so groß wie anders wo. Mir war's dort allerdings zu ruhig und iche blieb nicht besonders lange."
+"Altweiden" -> "Ach, in Altweiden war iche nie. Aber iche glaub kaum, dass es die Reise wert iset."
+"Kan-Ann-Irulaith", "Quenn-G'Arah", "Shir-Ann-Assiri", "Sor-Ann-Arah", english -> "xxx"
+"Kan-Ann-Irulaith", "Quenn-G'Arah", "Shir-Ann-Assiri", "Sor-Ann-Arah" -> "Das iset so eine Gnom-Stadt nicht wahr? Iche kann mir nicht vorstellen das die in der Wüste gutes Bier brauen, also war iche dort auch nie."
+"Kjelt", english -> ""
+"Karras", english -> ""
+"Kjelt" -> "Die Sturmumtoste Stadt! Kjelt. Nachdem man Monate lang durch kalte trostlose Steppe reist, findet man eine anschauliche Festung. Die Menschen dort sind uns Orks teils ähnlich und dann doch wieder ganz anders."
+"Karras" -> "Karras die Stadt aus Eis. Es iset selbst im Sommer nicht warm genug um die Mauern zu schmelzen, ließ iche mir sagen. Man bekommt heißes Bier zum saufen und würzigen Wein. Die Reise war mir jede abgefrorigte Zehe wert!"
+"Ann-Korr", english -> ""
+"Fennsworth", english -> ""
+"Kang-Arr", english -> ""
+"Oldford", english -> ""
+"Ann-Korr" -> "Ann'Korr iset eine besonders alte Hafenstadt. Man hat sie in verschiedene Viertel geteilt, und je wohlhabender man iset hat man sein Haus wo anders."
+"Fennsworth" -> "Wenn man n' Ork iset, darf man Fennsworth nur als Sklave betrethigen. Also war iche dort nie."
+"Kang-Arr" -> "Kang-Arr iset wohl die bekömmlichste Stadt für einen Reisenden im ganzen Albarischen Reich. Gi-hibt eine Menge Menschen aus dem Norden dort. Schätze das hat einen nützlichen Einfluss."
+"Altfurten" -> "Altfurten iset ein Dorf, wird man sagen, wenn man so viele große Städte beschaut hat wie iche. Aber der Gasthof 'The Grumbler's Head' iset berüchtigend."
+"Myr-Tobar", english -> ""
+"Khenserra", english -> ""
+"Myr-Tobar" -> "Myr-Tobar, die Jadestadt, das grüne Herz des Dschungels. Die sieben großen Tempel gehören angesehen. Und überhaupt möchten diese Menschen die Zahl Sieben sehr gern."
+"Khenserra" -> "Khenserra iset eine staubige Mienenstadt. Sogar'n Oger hab iche dort gesehen. Eine gute Stadt wenn ein Ork schnell Geld braucht. Es riecht zwar nicht schön, iset aber Elfenfrei."
+"Falmarha", english -> ""
+"Laris", english -> ""
+"Nubris", english -> ""
+"Mitsobar", english -> ""
+"Koldamar", english -> ""
+"Falmarha" -> "Falmarha iset eine Art Festung im Meer. Die Gasthöfe sind günstig und die Menschen bedienen einen wie Sklaven. Iche will sagen, so viele Schiffe sah iche dort zum Ersten Mal."
+"Laris" -> "Laris iset auch eine Festung, wenn man das so sagen will. Man hat sogar einen Fluss gezähmhigt und umgegraben. Das wichtigste iset aber der Wein. DER WEIN!...sollte man getrunken haben."
+"Nubris" -> "Lassigt Euch sagen, die Menschen in Nubris, haben schwarze Haut, wie meine Grün iset. Ihre Stadt nennen sie das goldene Juwel des Südens und es giehebt unzählige Gewürze und anderen Kram zu kaufigen."
+"Mitsobar" -> "In Mitsobar gibt es kräftiges Bier und starkigen , braunen Schnaps. Und davon saufen die Menschen beachtlicher Menge. Außerdem fressen die Menschen dorte Fische als wären sie Echsen."
+"Koldamar" -> "Koldamar iset eine langweilige windige Stadt. Alle denken viel nach und sprechen wene-hig. Wenn ihr den Dschungel nicht mögt, könnt ihr dort Echsenmenschen sehigen... - Sodar die Götter es wollen."
+"Lor-Angur", "Lor Angur", english -> "xxx"
+"Lor-Angur", "Lor Angur" -> "In Lor-Angur iset's voll mit Elfen die meinen sie sind besonderig klug. Und die Menschen sind nichtig besser. Allesamte fröhnen sie der Zauberei und solch gefährlichen Sachen."
 
 -- Faction stuff
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -174,8 +164,8 @@ itemShoes = 53
 "Cadomyr" -> "Es iset mir zu trocken in Cadomyr. Und kein Bier dort iset gut genug um lange dort zu bleibigen."
 
 -- Main land factions
-"Albar",english->""
-"Albar"->"Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
+"Albar", english -> ""
+"Albar" -> "Iche muss Euch gestehen, um Albar hab iche einen weiten Bogen gemacht. 's heißt dort sperrt man Leute ohne Arbeit in die Mienen. Von Orks will iche gar nicht sprechen."
 "gynk", "gync", english -> ""
 "gynk", "gync" -> "Lasst Euch sagen, wenn ihr was verbotenes machen wollt, macht es in Gynk. Stechkarut und Sibanac, wir einem überall feilgeboten. Und die Sklaven sind reicher als die Arbeiter."
 "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -218,10 +208,10 @@ itemShoes = 53
 "Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" ->"x"
+"what sell", "what buy", "list wares", "price of" -> "x"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Iche bedauerige sehr, nichts habe iche zu verkaufen und keine Eurer Sachen sind mir von Wertlichkeit."
-"tell something" -> "x","ENGLISH"
-"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.","Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
+"tell something" -> "x", "ENGLISH"
+"erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "<NPC first name>", "<NPC last name>", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -234,9 +224,8 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-
-".*",english,chance(40)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-".*",german,chance(40)->"Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?","Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.","Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
+".*", english, chance(40) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", german, chance(40) -> "Aber, sahegt mir, was wollt ihr alles getan haben, seid ihr erst einmalig tot?", "Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelbären Kang-Arr's zur strecke danieder brachte.", "Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

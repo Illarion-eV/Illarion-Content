@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Advari Stonebog                                             None --
--- NPC Job:  trader                                                             --
+-- NPC Name: Advari Stonebog                                          Galmair --
+-- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  261,250,0            --
+-- NPC Race: dwarf                      NPC Position:  261, 250, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Rincewind                                                         --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 261,250,0
+position = 261, 250, 0
 direction = east
 affiliation = "Galmair"
 job = "Trader"
@@ -56,20 +56,20 @@ itemShoes = 326
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Hiho", "Hallo", "Hey", "Greeb", english ->"Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
-"Hiho", "Hallo", "Hey", "Greeb" ->"Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-"Farewell", "Bye", "Fare well", "See you" ->  "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" ->  "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
-"Ciao", "Adieu", "Au revoir", "Farebba", english ->  "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, traveler.", "Abundance and Wealth, my friend.", "Hail Irmorom.", "Gr'duzk. - would I say and means good day.", "H'druk g'har. This's my cottage. Do you like to buy something?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
-"How are you", "How feel", "How do you do" ->"Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" ->  "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
+"How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
 "your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you need to know."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
 
 -- Catching quest triggers
-"quest", "mission", english-> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission"-> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 "task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
@@ -89,7 +89,7 @@ itemShoes = 326
 "name", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "hagar", "wernson", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "gold", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"advari","stonebog",english->"ENGLISH"
+"advari", "stonebog", english -> "ENGLISH"
 "beer" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.(the winged sow)"
 "zwerg" -> "Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflößende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtesten Poeten und Barden!", "Hey Zwerge, hey Zwerge - hey Zwerge ho! Hey Zwerge, hey Zwerge go-go-go!"
 "or[ck]" -> "Arr, der Don hat ganze zwei Marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.", "Siehste den Ork, gegenüber? J'uk, der lümmelt den ganzen Tag rum und säuft die eigene Wahre weg. Das Bier schmeckt wie Pisse, frag mich nicht wo er das her hat. jedenfalls nicht von uns Zwergen."
@@ -97,7 +97,7 @@ itemShoes = 326
 "hagar", "wernson" -> "Arr, Hager hat ne gute Taverne. Gut für ein Langbein, natürlich. Er wird von uns Zwergen mit Getränken beliefert. Glück für ihn, sonst würde wohl niemand beim ihm saufen!"
 "gold" -> "#me fängt mit kehliger tiefer Stimme an zu singen: 'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'"
 "Bier" -> "Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen heilender Trunk wär und mir ne Axt in der Schulter steckt!"
-"advari","stonebog"->"Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
+"advari", "stonebog" -> "Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
 
 -- Faction stuff
 "archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
@@ -134,8 +134,8 @@ itemShoes = 326
 "Ronagan" -> "Aye, ich opfere einen guten Teil meiner Einkünfte dem Schattengott. So sorgt er dafür, dass ich vom diebischen Gesindel verschont bleibe! Arr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" ->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" ->"Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr."
+"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe alle Dinge, die eines Farmers Herz begehren könnte. Und noch ein Bisschen mehr."
 "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
 

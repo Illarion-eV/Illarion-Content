@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Prandlin                                                    None --
--- NPC Job:  profesional sleeper (quest)                                      --
+-- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  786, 790,0            --
+-- NPC Race: halfling                   NPC Position:  786, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Prandlin"
 race = halfling
 sex = male
-position = 786, 790,0
+position = 786, 790, 0
 direction = northeast
 affiliation = "None"
 job = "none"
@@ -66,8 +66,8 @@ itemShoes = 53
 ".+", queststatus(304) = 1, english -> inform("'xxx'"), "xxx", queststatus(304) = 2
 ".+", queststatus(304) = 2, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ", queststatus(304) = 3
 ".+", queststatus(304) = 2, english -> inform("'xxx'"), "xxx", queststatus(304) = 3
-"#me (.+) stab", "#me (.+) bein", queststatus(304) = 3, item(208, all,1) => 1 -> inform("Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
-"#me (.+) staff", "#me (.+) leg", queststatus(304) = 3, item(208, all,1) => 1 -> inform("xxx"), "#me xxx", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
+"#me (.+) stab", "#me (.+) bein", queststatus(304) = 3, item(208, all, 1) => 1 -> inform("Großartig! es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
+"#me (.+) staff", "#me (.+) leg", queststatus(304) = 3, item(208, all, 1) => 1 -> inform("xxx"), "#me xxx", deleteItem(208, 1), item(208, 1, 933, 0), queststatus(304) = 4
 ".+", queststatus(304) = 3, german -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.", queststatus(304) = 3
 ".+", queststatus(304) = 3, english -> inform("'xxx'"), "xxx"
 "hilfe" -> "#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab."

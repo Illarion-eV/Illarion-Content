@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Ruggero Bloom                                               None --
--- NPC Job:  pirate                                                            --
+-- NPC Job:  pirate                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  5, 557, 0              --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   Rincewind                                                         --
+-- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Ruggero Bloom"
@@ -44,6 +44,9 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+itemChest = 180
+itemTrousers = 824
+itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -55,11 +58,11 @@ itemShoes = 53
 
 -- questID not necessery, but this NPC is a important part of quest 305.
 
---blockade tile: 6,558,0
---(this tile must be blocked in some way. No character should be able to pass. Make the blockade invisible. RP-wise, the NPC guards the entrance.)
---create a warptile: 6,559,0 -> 6,556,0
---(The Player shoul dbe able to leave the tobacco field. To pass the blockade, he will warp behind it.)
---warpjump to 6,560,0 if NPC is started.
+-- blockade tile: 6,558,0
+-- (this tile must be blocked in some way. No character should be able to pass. Make the blockade invisible. RP-wise, the NPC guards the entrance.)
+-- create a warptile: 6,559,0 -> 6,556,0
+-- (The Player shoul dbe able to leave the tobacco field. To pass the blockade, he will warp behind it.)
+-- warpjump to 6,560,0 if NPC is started.
 
 -- NPC by Rincewind
 -- Ruggero guards the bridge to tobacco field in pirate Bay. When the Player is dressed like a pirate he is allowed to pass (warped on the bridge). There shall be warp-tile, so the Player is able to return in front of the NPC.
@@ -74,10 +77,10 @@ itemShoes = 53
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
 
 -- language: human, common
-".*",state=5, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!", state =6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".*",state=5, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state =6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
-".*",state=6, english -> "#me's face becomes red like a tomato and he gives you a proper beating.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
-".*",state=6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
+".*", state = 5, english -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
+".*", state = 5, german -> "#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
+".*", state = 6, english -> "#me's face becomes red like a tomato and he gives you a proper beating.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
+".*", state = 6, german -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
 
 -- shirtcheck +++ warpsprung hinter den NPC +++place a waptile behind him.
 "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer", item(356, body) => 1, item(182, body) => 1 -> "Aye, du darfst vorbei, Kumpel!", state = 0
@@ -185,10 +188,6 @@ itemShoes = 53
 "Gobaith", german -> "Besser ist's du gehst mir nich auf die Nerven.", state + 1
 ".*", english -> "Listen... I won't talk to you. Get out of here, or I will shove my boot up your butt. Got it?", "I won't tell you again. GET OUT!", state + 1
 ".*", german -> "Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.", "Ich sags nicht nochmal. VERSCHWINDE!", state + 1
-
-itemChest = 180
-itemTrousers = 824
-itemShoes = 53
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -1,19 +1,19 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Sam                                           None --
+-- NPC Name: Sam                                                         None --
 -- NPC Job:  alcoholic                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  674,326,0              --
+-- NPC Race: human                      NPC Position:  674, 326, 0            --
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 22, 2010                      easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Sam"
 race = human
 sex = male
-position = 674,326,0
+position = 674, 326, 0
 direction = southwest
 affiliation = "None"
 job = "alcoholic"
@@ -72,10 +72,10 @@ itemShoes = 53
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Sam... isch bin Sam. Einfach nur Sam.", "Sam. Ja DER Sam, von d' Grauhen Zuflucht. Aba... dasch kennt heute natürlisch keiner mehr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" ->"#me sighs. 'Nothing....simple, just, plain nothing. Everything is gone! They took everything...ewh. Some time ago...yes...Sam sold everything. But now, there is nothing left."
+"what sell", "what buy", "list wares", "price of" -> "#me sighs. 'Nothing....simple, just, plain nothing. Everything is gone! They took everything...ewh. Some time ago...yes...Sam sold everything. But now, there is nothing left."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "#me seufzt. 'Nischts... einfach gar nischts. Allesch isch weg! Sie habn mir allesch genommn... ewh. Damalsch - ja da hätt Euch Sam allesch verkauft. Aber jetsch ischt mein Laden wech."
 "tell something" -> "Where? Where? Is the old time gone? I'd like to follow her. But now - I drown my sorrows in Borgate's beer... good old Borgate.", "Yes. In former times I had my shop in the castle of the Grey Orders. But...like everything that's gone now! Gone! Gone...", "#me makes an angry gesture. 'Ewh-h! Let me drink in peace! Go away!! Grnrh?'"
-"erzähl was", "erzähl etwas" -> "Wo? WO? Ischt die alte Zeit hin? Gern würd isch ihr folgn. Aber jetz - ertrink isch mein Leid mit Borgates Bier... guter alter Borgate.","Ja. Damlas hatt isch men Laden in der Burg der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...","#me macht eine verärgerte Handbewgung. 'Ewh-h! Lascht misch einfach in Friedn trinkn! Verschwind hier! Gnrh?'"
+"erzähl was", "erzähl etwas" -> "Wo? WO? Ischt die alte Zeit hin? Gern würd isch ihr folgn. Aber jetz - ertrink isch mein Leid mit Borgates Bier... guter alter Borgate.", "Ja. Damlas hatt isch men Laden in der Burg der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...", "#me macht eine verärgerte Handbewgung. 'Ewh-h! Lascht misch einfach in Friedn trinkn! Verschwind hier! Gnrh?'"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I a-am..eh...was a trader."
@@ -84,18 +84,18 @@ itemShoes = 53
 "job" -> "Isch b-bin... eh war n' Händler."
 "Gobaith", "Gobiath", english -> "Yeah! Everything was pretty nice in Gobaith. Not so complicated like here!", "Argh! Go away! Don't bother me! I don't talk with strangers...", "I'll tell you, the Grey Orders decided about Gobaith. That didn't happen... and, good old Sam was in the middle of it!"
 "Gobaith", "Gobiath" -> "Jah! In Gobaith war allesch noch schön Ordnlisch. Nich so verworrn wie hie-r!", "Ärgh! Geh weg! Lasch misch in ruh! Ich sprech nisch mit Fremdn...", "Sag isch dir, die Grauen Orden, haben über Gobaith entschiedn. Da hatsch sonscht nicht gegeben und, der gute Sam war mittn drin!"
-"I am", "my name" -> "Yesh..!","Leave me alone!","Uargh. Never mind!"
+"I am", "my name" -> "Yesh..!", "Leave me alone!", "Uargh. Never mind!"
 "Ich bin", "mein Name" -> "Jah...!", "Hau ab! Verschwind, Gsindel...", "Uargh. Wasch sollt misch dasch kümmern?"
 
 -- More small talk; add at least five triggers
-"Borgate","barkeeper","innkeeper","Northoff",english -> "Borgate is an old chum. He always knows what he has to do. Eh-h. Borgate, me and Eliza are left. I heard she lives in the swamp now."
-"refuge","grey" -> "The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. If I would have stayed at my store I would be dead now. Dead...but happy."
-"sam",english -> "Huh? Did someone call me?","#me raises his head. 'I am Sam!'"," Ah-Leave me alone."
-"market","shop","market","store" -> "Yes, my old store is gone. Far away..and I am here and ... drunk. Who can tell what's happening there?!"
-"eliza",english -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?."
-"Borgate","wirt","Northoff",german-> "Borgate kenn isch von damalsch, alsch wir auf Gobaith warn. Wie immer hat er schein Ding gemacht, alsch wir alle weg muschten von dort. Eh-h. Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
-"Zuflucht","grau" -> "Der Orden desch graun Lischts und die Graue Rosche. Jeh-nau. Einst beschtimmten die mächtigsten Ritter und Meischter über deren Lande. Wer isch bei meinem Laden gebliebn, wär isch jetzt genau scho tot. Aber glücklisch."
-"laden","schop","Gesch[aeä]ft","Markt" -> "Ja-h men alter Laden isch weg. Weit weg und isch bin hier und sauf. Wer kann schon sagen was jetz dort paschiert?"
+"Borgate", "barkeeper", "innkeeper", "Northoff", english -> "Borgate is an old chum. He always knows what he has to do. Eh-h. Borgate, me and Eliza are left. I heard she lives in the swamp now."
+"refuge", "grey" -> "The Order of the Grey Light and Grey Rose. Yessh! Once the most powerful knights and landowners. If I would have stayed at my store I would be dead now. Dead...but happy."
+"sam", english -> "Huh? Did someone call me?", "#me raises his head. 'I am Sam!'", " Ah-Leave me alone."
+"market", "shop", "market", "store" -> "Yes, my old store is gone. Far away..and I am here and ... drunk. Who can tell what's happening there?!"
+"eliza", english -> "Awh-h. Eliza lives in the s-shh-swamp. Alone, you know? - We both lost our stores. But you can't do anything about it..it's too late...all too late. Isn't it?."
+"Borgate", "wirt", "Northoff", german -> "Borgate kenn isch von damalsch, alsch wir auf Gobaith warn. Wie immer hat er schein Ding gemacht, alsch wir alle weg muschten von dort. Eh-h. Wir zwe' und Eliza sin übrich gebliebn. Die soll jetz im Sumpf lebn."
+"Zuflucht", "grau" -> "Der Orden desch graun Lischts und die Graue Rosche. Jeh-nau. Einst beschtimmten die mächtigsten Ritter und Meischter über deren Lande. Wer isch bei meinem Laden gebliebn, wär isch jetzt genau scho tot. Aber glücklisch."
+"laden", "schop", "Gesch[aeä]ft", "Markt" -> "Ja-h men alter Laden isch weg. Weit weg und isch bin hier und sauf. Wer kann schon sagen was jetz dort paschiert?"
 "sam" -> "Häh? Hat misch wer gerufn?", "#me hebt zackig seinen Kopf. 'Isch bin Sam!'", "Äh - Lascht misch in Friedn."
 "eliza" -> "Awh-h. Eliza soll irgendwo im Sumpf lebn. Gansch allein. Wischt du? - Wir habn beide unschern Laden verloren. Aber da kann man jetz nischt dagegen machen... Jetzsch nicht mehr. Oder?"
 
@@ -122,14 +122,14 @@ itemShoes = 53
 "salkama", german -> "Isch komm ausch Salkamar. Aber wasch sollt misch dort gehaltn habn? Und warum scholt isch zurückehrn? Wischt ihr's?"
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Eh-h? Do you think you're some kind of friend of mine or what? I don't know you! I only talk about gods with friends.","Leave me alone! I don't wanna think about gods with you around."
-"Gott", "Götter" -> "Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.","Hau ab! Isch will allein über die Götter grübeln."
+"god" -> "Eh-h? Do you think you're some kind of friend of mine or what? I don't know you! I only talk about gods with friends.", "Leave me alone! I don't wanna think about gods with you around."
+"Gott", "Götter" -> "Eh-h? Bischt du 'n freund von mir? Isch kenn disch nich, nur mit mein'n Freunden sprech isch über Götter.", "Hau ab! Isch will allein über die Götter grübeln."
 
 -- Catching quest triggers
 "quest", english -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
 "quest", german -> "Sche ich scho auch als hätt isch arbeit für disch? Verschwinde du dummer Bauer."
 "task", "adventure" -> "Do I look like someone who has work for you? Leave, you stupid farmer!"
-"Auftrag", "Aufgabe", "Abenteuer" ->"Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Sche ich scho auch als hhätt isch Arbeit für disch? Verschwinde du dummer Bauer."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
 "Yes" -> "Eh-h?!", "Fiiiiiine.", "Yes-s!"
@@ -140,15 +140,15 @@ itemShoes = 53
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger / Response is only given 1/5 of the time
-
-".*",english,chance(20)->"Why do you talk with me? I don't even know you!","You talk like some smart ass elven girl.","Shut up and bring me another beer!."
-".*",german,chance(20)->"Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!","Du quaschelscht wie so'n neunmal kluges Elfnweib.","Halt's Maul und bring mir noch 'n Bier!"
+".*", english, chance(20) -> "Why do you talk with me? I don't even know you!", "You talk like some smart ass elven girl.", "Shut up and bring me another beer!."
+".*", german, chance(20) -> "Warum quatscht Ihr misch su? Wir kenn'n unsch nich. Verschwindet!", "Du quaschelscht wie so'n neunmal kluges Elfnweib.", "Halt's Maul und bring mir noch 'n Bier!"
 
 -- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
--- Every NPC should contain at least 10 of
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me rülpst herzhaft.", "#me belches loudly.."
 cycletext "#me gähnt mit müdem Blick.", "#me yawns."

@@ -3,16 +3,16 @@
 -- NPC Job:  alcoholic                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  674, 326, 0            --
--- NPC Sex:  male                       NPC Direction: north              --
+-- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 09, 2010                        easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 700, 325, 0, 0, 'Sam', 'npc.sam', 0, 1, 0, 40, 23, 15, 217, 154, 123);
+VALUES (0, 674, 326, 0, 5, 'Sam', 'npc.sam', 0, 1, 0, 40, 23, 15, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")

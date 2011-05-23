@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Julio Canaille                                              None --
--- NPC Job:  quester                                                             --
+-- NPC Job:  quester                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  29, 525, 0             --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Julio Canaille"
@@ -84,16 +84,16 @@ itemShoes = 0
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Julio Canaille. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 4, item(208, all,1) => 1 -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5,rankpoints(Galmair)+17,rankpoints(runewick)+10,rankpoints(cadomyr)+17
-"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 4, item(208, all,1) => 1 -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5,rankpoints(Galmair)+17,rankpoints(runewick)+10,rankpoints(cadomyr)+17
-"quest", "job", "problem", queststatus(304) = 4, item(208, all,1) => 1, english -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5,rankpoints(Galmair)+17,rankpoints(runewick)+10,rankpoints(cadomyr)+17
-"quest", "job", "problem", queststatus(304) = 4, item(208, all,1) => 1, german -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5,rankpoints(Galmair)+17,rankpoints(runewick)+10,rankpoints(cadomyr)+17
+"peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 4, item(208, all, 1) => 1 -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 4, item(208, all, 1) => 1 -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
+"quest", "job", "problem", queststatus(304) = 4, item(208, all, 1) => 1, english -> inform("xxx"), "xxx", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
+"quest", "job", "problem", queststatus(304) = 4, item(208, all, 1) => 1, german -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999, 43), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
 "peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 4 -> "xxx"
 "Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 4 -> "Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
 "quest", "job", "problem", queststatus(304) = 4, english -> "xxx"
 "quest", "job", "problem", queststatus(304) = 4, german -> "Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
 "peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) = 5 -> "Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
-"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 5 -> "Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran, %CHARNAME: 'Es ist nicht wichtig ob man gewinnt oder verliert, solange das was man tut wirklich cool aussieht.''"
+"Holz", "verdienen", "aufgabe", "abenteuer", queststatus(304) = 5 -> "Aye-ch. Viel Spass mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran, %CHARNAME: 'Es ist nicht wichtig ob man gewinnt oder verliert, solange das was man tut wirklich cool aussieht.\""
 "quest", "job", "problem", queststatus(304) = 5, english -> "Aye-ch. Have fun with the rapier. I hope you become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'"
 "quest", "job", "problem", queststatus(304) = 5, german -> "Aye-ch. Viel Spaß mit dem Rapier. Ich hoffe du wirst ein großer Held. Ch. Und denke immer daran, %CHARNAME: 'Es ist nicht wichtig ob man gewinnt oder verliert, solange das was man tut wirklich cool aussieht.'"
 "peg leg", "task", "adventure", "mission", "money", "earn", queststatus(304) => 2, item(208, all) => 1 -> "xxx"
@@ -120,8 +120,8 @@ itemShoes = 0
 "mein Name" -> "Arr! Heldenhafte Taten erfordern wohl klingende Namen!"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Skipper", "Captn","Captain" -> "xxx"
-"Kaptn","Kapitän","Kapiten" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
+"Skipper", "Captn", "Captain" -> "xxx"
+"Kaptn", "Kapitän", "Kapiten" -> "Aye-aye! Wer kenn nicht die Geschichtn vom berühmten Holzbein-Jack? Ahoi, das bin ich! Sogar die Götter fandens öd, als sie mich dann doch an den Galgen geknüpft haben."
 "prandlin", english -> "xxx"
 "prandlin" -> "Aye, der alte Prandlin lebt irgendwo in Runewick und wartet darauf nicht mehr aufwachen zu müssen. Früher hatter Piratn gejagt... irgendwann ist er zu alt dafür gewordn. Aye, aber davor hatte er noch Zeit mich an den Galgen zu bringen."
 
@@ -204,9 +204,8 @@ itemShoes = 0
 -- Absolutely last catch: Everything a player says and is not caught earlier
 -- This response should give the player a hint about what to ask the NPC
 -- Optional Trigger /  Response is only given 1/5 of the time
-
-".*",english,chance(20)->"ENGLISH1.","ENGLISH2.","ENGLISH3."
-".*",german,chance(20)->"Die Toten sin' tot. Das sollte überall so sein.","Argh-ch...","...Landratte!"
+".*", english, chance(20) -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+".*", german, chance(20) -> "Die Toten sin' tot. Das sollte überall so sein.", "Argh-ch...", "...Landratte!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

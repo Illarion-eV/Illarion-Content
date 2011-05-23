@@ -1,13 +1,13 @@
 --------------------------------------------------------------------------------
--- NPC Name: Advari Stonebog                                             None --
--- NPC Job:  trader                                                           --
+-- NPC Name: Advari Stonebog                                          Galmair --
+-- NPC Job:  Trader                                                           --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  261, 250, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: December 07, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Advari Stonebog the trader. Keyphrases: usual trading trigers."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Advari Stonebog the trader. Dwarf, Beer, Orcs, Name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Schlüsselwörter: die üblichen Handelstrigger."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. Zwerg, Bier, Orks, Name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,7 +78,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho, traveler.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Hail Irmorom.");
-talkEntry:addResponse("Gr'duzk.");
+talkEntry:addResponse("Gr'duzk. - would I say and means good day.");
 talkEntry:addResponse("H'druk g'har. This's my cottage. Do you like to buy something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -91,7 +91,7 @@ talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Hiho, Reisender.");
 talkEntry:addResponse("Wohlstand und profitable Geschäfte, mein Freund.");
 talkEntry:addResponse("Heil Irmorom.");
-talkEntry:addResponse("Gr'duzk.");
+talkEntry:addResponse("Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.");
 talkEntry:addResponse("H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -101,7 +101,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("G'hruk. Farewell.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Arr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -115,7 +115,7 @@ talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Gehabt Euch wohl.");
 talkEntry:addResponse("Wohlstand und profitable Geschäfte, mein Freund.");
 talkEntry:addResponse("Arr. N' schönen Tag noch.");
-talkEntry:addResponse("G'hruk. ");
+talkEntry:addResponse("G'hruk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -125,10 +125,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Farewell.");
+talkEntry:addResponse("G'hruk. Farewell.");
 talkEntry:addResponse("Abundance and Wealth, my friend.");
 talkEntry:addResponse("Arr.");
-talkEntry:addResponse("G'hruk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,9 +168,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog");
+talkEntry:addResponse("Advari Stonebog. And that's all someone like you need to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -706,6 +704,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("Aye, ist das so? Das ist mir neu.");
 talkEntry:addResponse("#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'");
@@ -727,14 +726,10 @@ talkingNPC:addCycleText("Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada!
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn.", "A grey dwarf. blabla  ENGLISH TRANSLATION PLZ!");
+mainNPC:setLookat("Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn.", "An hoary dwarf. In the corner of his mouth tucks a ornated pipe and small cloud of smoke surround him.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 2390);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
-mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 2116);
 mainNPC:setEquipment(10, 326);

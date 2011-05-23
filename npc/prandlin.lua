@@ -2,17 +2,17 @@
 -- NPC Name: Prandlin                                                    None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  786, 790,0           --
+-- NPC Race: halfling                   NPC Position:  786, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: October 26, 2010                        easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 786, 790,0, 1, 'Prandlin', 'npc.prandlin', 0, 1, 0, 189, 182, 164, 217, 154, 123);
+VALUES (2, 786, 790, 0, 1, 'Prandlin', 'npc.prandlin', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -204,7 +204,12 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Ein steinalter Halbling, der friedlich in seine Decke gekuschelt vor sich hin schlummert.", "ENGLISH1");
 mainNPC:setUseMessage("#me dreht sich auf die andere Seite und schläft weiter.", "ENGLISH1");
 mainNPC:setConfusedMessage("#me schnarcht laut.", "#me snorts loudly.");
+mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 811);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 460);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);

@@ -5,14 +5,14 @@
 -- NPC Race: human                      NPC Position:  5, 557, 0              --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   Rincewind                                                          --
+-- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: November 28, 2010                        easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 5, 557, 0, 0, 'Ruggero Bloom', 'npc.ruggero_bloom', 0, 3, 3, 74, 74, 51, 217, 154, 123);
+VALUES (0, 5, 557, 0, 0, 'Ruggero Bloom', 'npc.ruggero_bloom', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -744,6 +744,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!", "Arr, this seems like a ugly wild pirate! Be careful!");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setEquipment(3, 180);
 mainNPC:setEquipment(9, 824);
 mainNPC:setEquipment(10, 53);

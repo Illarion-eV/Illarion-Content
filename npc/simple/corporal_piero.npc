@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Corporal Piero                                              None --
--- NPC Job:  guard (quest)                                                    --
+-- NPC Job:  quester                                                          --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  39, 649, 0             --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: August 26, 2010                         easyNPC Parser v1.01 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Corporal Piero"
@@ -34,7 +34,7 @@ wrongLangUS = "#me looks at you confused."
 radius = 0
 hairID = 0
 beardID = 1
-colorHair = 15, 22,15
+colorHair = 15, 22, 15
 colorSkin = 217, 154, 123
 itemHead = 2287
 itemChest = 2369
@@ -69,10 +69,12 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keyphrases: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
 -- Help
 "hilfe" -> "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.", state = 0
 "helfen" -> "Helfen? Ich weiß nicht wie ich Euch helfen soll. Aber Ihr könntet mir helfen, insofern ihr nach einem 'Abenteuer' sucht.", state = 0
 "help" -> "Help? I don't know how to help you. But you shoul dbe able to help me, as long as you are looking for an little 'adventure'.", state = 0
+
 -- quest done
 "hilfe", queststatus(305) = 6 -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.", state = 0
 "helfen", queststatus(305) = 6 -> "Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.", state = 0
@@ -103,12 +105,10 @@ itemShoes = 53
 "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 6, german -> "Nochmals... Habt Dank. Ihr habt Cadomyr sehr geholfen. Zhambra soll Euch schützen."
 "Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 6, english -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
 "Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 6 -> "Thanks, again. You helped Cadomyr very much. Zhambra shall bless you."
-
-"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 5 -> "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6,rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 5, german -> "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6,rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
-"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 5, english -> "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6,rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
-"Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 5 -> "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6,rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) -6
-
+"Botschaft", "verdienen", "aufgabe", "abenteuer", queststatus(305) = 5 -> "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
+"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 5, german -> "Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
+"Tobis", "Vunu", "Coporal", "Piero", "info", "quest", "job", "problem", queststatus(305) = 5, english -> "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
+"Mesage", "task", "adventure", "mission", "money", "earn", queststatus(305) = 5 -> "Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.", item(505, 1, 733, 0), item(356, 1, 999, 0), queststatus(305) = 6, rankpoints(Cadomyr) + 9, rankpoints(Runewick) + 5, rankpoints(Galmair) - 6
 "verdienen", "aufgabe", "abenteuer", queststatus(305) = 1 -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
 "info", "quest", "job", "problem", queststatus(305) = 1, german -> inform("'Großartig. Also auf in die Piratenbucht! Arrr, Landratte!'"), "Irgendwo im Piratebay treibt sich mein Freund Tobis Vunu herum. Sage ihm das ich Euch sende und er wird Euch sich Euch anvertrauen. Seine Informationen sind ausgesprochen wichtig für die Wache Cadomyrs. Viel Glück."
 "info", "quest", "job", "problem", queststatus(305) = 1, english -> inform("'Awesome! Let's find a way to Pirate Bay! Arr, lubber!'"), "My friend Tobis Vunu roams the caves of Pirate Bay. Tell him, I send you and he will talk to you. His information is very important for the guard of Cadomyr. Good luck."
@@ -131,7 +131,6 @@ itemShoes = 53
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "murgo", english -> "Murgo. Sure I heared about him. He's quite fameous on this lands."
 "murgo" -> "Murgo. Sicher hab ich von ihm gehört. Er is richtig berühmt in diesen Landen."
-
 "your name", "who are you", "who art thou" -> "I am Corporal Piero. Servant of the queen in Cadomyr."
 "wie hei[sß]+t du", "wie hei[sß]+t ihr", "dein name", "wer seid", "wer bist" -> "Ich bin Corporal Piero. Diener der Königin von Cadomyr"
 
