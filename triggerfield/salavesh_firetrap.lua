@@ -11,7 +11,7 @@ function MoveToField(User)
 	    
 		base.common.TempInformNLS(User,"Ein Feuerball schieﬂt aus einem kleinen Loch in der Wand die Halle entlang!","A firewall is shot from a small hole in the wall down the hallway!"); --sending a message
         
-		--[[x=User.pos.x; --The x-coordinate of the triggerfield
+		x=User.pos.x; --The x-coordinate of the triggerfield
 		
 		for i=399,415 do --replace with proper coordinates
 		
@@ -34,7 +34,7 @@ function MoveToField(User)
 		
 	    --No one got hit! Fireball hits the other wall
 	    world:gfx(9,position(x,415,-3)); --Fireball!
-	    wordl:makeSound(5,position(x,415,-3)); --BOOM!]]
+	    wordl:makeSound(5,position(x,415,-3)); --BOOM!
 	
     end
 end
