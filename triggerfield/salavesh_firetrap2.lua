@@ -15,34 +15,34 @@ function MoveToField(User)
 		
 		for i=733,749 do --replace with proper coordinates
 	
-		    if world:isCharacterOnField(position(xcord,i,-3)) then --there is someone!
+		    if world:isCharacterOnField(position(i,ycord,-3)) then --there is someone!
 						
-		        target=world:getCharacterOnField(position(xcord,i,-3)); --and who is it?	
+		        target=world:getCharacterOnField(position(i,ycord,-3)); --and who is it?	
 				
-                if (target:increaseAttrib("hitpoints",0)>0) then --ghosts do not set off traps	
+                if (target:increaseAttrib("hitpoints",0)>0) then --ghosts do not get hit
 				
-				    world:gfx(9,position(xcord,i,-3)); --Fireball!
-				    world:makeSound(5,position(xcord,i,-3)); --BOOM!
+				    world:gfx(9,position(i,ycord,-3)); --Fireball!
+				    world:makeSound(5,position(i,ycord,-3)); --BOOM!
 			        target:increaseAttrib("hitpoints",math.random(-2500,-1000)); --damaging the target
                     return; --got one, bailing out.
 					
 				else --it's a ghost
 				
-				world:gfx(10,position(xcord,i,-3)); --Smokecloud!
+				world:gfx(10,position(i,ycord,-3)); --Smokecloud!
 				
 				end
 				
 			else --there is no one
 			
-				world:gfx(10,position(xcord,i,-3)); --Smokecloud!
+				world:gfx(10,position(i,ycord,-3)); --Smokecloud!
 				
 			end
 			
 		end --next tile
 		
 	    --No one got hit! Fireball hits the other wall. VERY unlikely.
-	    world:gfx(9,position(xcord,415,-3)); --Fireball!
-	    wordl:makeSound(5,position(xcord,415,-3)); --BOOM!
+	    world:gfx(9,position(749,ycord,-3)); --Fireball!
+	    wordl:makeSound(5,position(749,ycord,-3)); --BOOM!
 	
     end
 end
