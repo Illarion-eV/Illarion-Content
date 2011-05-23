@@ -57,6 +57,12 @@ function onLogin( player )
 	if find then
 		player.effects:removeEffect(18);
 	end
+	
+	-- Cold effect removed for the time being (annoying!!!)
+	find, coldEffekt = player.effects:find(3);
+	if find then
+		player.effects:removeEffect(3);
+	end
 
 	--Good/Bad days removed for the time being (confusing!!!)
 	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
