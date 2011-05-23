@@ -42,7 +42,7 @@ function MoveToField(User)
 		
 	    --No one got hit! Fireball hits the other wall. VERY unlikely.
 	    world:gfx(9,position(xcord,415,-3)); --Fireball!
-	    wordl:makeSound(5,position(xcord,415,-3)); --BOOM!
+	    world:makeSound(5,position(xcord,415,-3)); --BOOM!
 	
     end
 end

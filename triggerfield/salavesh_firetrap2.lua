@@ -13,7 +13,7 @@ function MoveToField(User)
         
 		ycord=User.pos.y; --The y-coordinate of the triggerfield
 		
-		for i=733,749 do --replace with proper coordinates
+		for i=733,751 do --replace with proper coordinates
 	
 		    if world:isCharacterOnField(position(i,ycord,-3)) then --there is someone!
 						
@@ -41,8 +41,8 @@ function MoveToField(User)
 		end --next tile
 		
 	    --No one got hit! Fireball hits the other wall. VERY unlikely.
-	    world:gfx(9,position(749,ycord,-3)); --Fireball!
-	    wordl:makeSound(5,position(749,ycord,-3)); --BOOM!
+	    world:gfx(9,position(751,ycord,-3)); --Fireball!
+	    world:makeSound(5,position(751,ycord,-3)); --BOOM!
 	
     end
 end
