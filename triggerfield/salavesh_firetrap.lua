@@ -1,6 +1,6 @@
 require("base.common")
 
-module("triggerfield.salavesh_fireballtrap", package.seeall)
+module("triggerfield.salavesh_firetrap", package.seeall)
 
 --This script shoots a fireball down the hall in the "Errant Crusade" quest map
 --Can be used with various triggerfields, players shall "abuse" this to fight the monsters down there
