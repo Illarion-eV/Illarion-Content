@@ -9,9 +9,14 @@ function onLogin( player )
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 	players=world:getPlayersOnline(); --Reading all players online so we can count them
 	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-    player:inform("Test: "..world:getTime("year")..world:getTime("month")..world:getTime("day")..world:getTime("hour")..world:getTime("minute").."!");
-	--base.common.TempInformNLS(player,"[Login] PLATZ FÜR EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
 
+	--base.common.TempInformNLS(player,"[Login] PLATZ FÜR EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
+    base.common.TempInformNLS( player,
+        "Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
+        "Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
+    );
+
+	
 	player:increaseAttrib("foodlevel",-1);
 	-- Abhandlung von Transporttieren
 	local cowStatus = player:getQuestProgress(8);
