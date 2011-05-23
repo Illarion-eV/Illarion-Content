@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Flora"
@@ -80,8 +80,8 @@ itemShoes = 53
 "hello", queststatus(558) = 10 -> "Hello again there! It is so nice to see you."
 "greet", queststatus(558) = 10 -> "Greetings once again. It is always nice seeing you."
 "farewell", queststatus(558) = 10 -> "Farewell and come back soon to see me!"
-"yes", attrib(hitpoints) < 1500, queststatus(558) = 11 -> "#me uses a small bottle of liquid which helps cure the wounds, 'There you go. You should feel better.'", attrib(hitpoints) + 5000), queststatus(558) = 10
-"sure", attrib(hitpoints) < 1500, queststatus(558) = 11 -> "#me applies a small bottle of liquid, soothing the pain of the wounds, 'There. You should feel less pain now.'", attrib(hitpoints) + 5000), queststatus(558) = 10
+"yes", attrib(hitpoints) < 1500, queststatus(558) = 11 -> "#me uses a small bottle of liquid which helps cure the wounds, 'There you go. You should feel better.'", attrib(hitpoints) + 5000, queststatus(558) = 10
+"sure", attrib(hitpoints) < 1500, queststatus(558) = 11 -> "#me applies a small bottle of liquid, soothing the pain of the wounds, 'There. You should feel less pain now.'", attrib(hitpoints) + 5000, queststatus(558) = 10
 "yes", queststatus(558) = 11 -> "Oh well, you aren't that bad. I'll heal you when you are in a worse condition."
 "no", queststatus(558) = 11 -> "If you insist. Take care then.", queststatus(558) = 10
 "thank", state = 6, queststatus(558) = 10 -> "I am glad to be of help, just as you were to me."

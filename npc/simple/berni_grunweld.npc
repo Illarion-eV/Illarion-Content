@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Berni Grunweld"
@@ -71,17 +71,17 @@ itemShoes = 53
 "Hilfe" -> "[Spielhilfe] Dieser NPC ist der Koch Berni Grunweld. Schlüsselwörter: Hallo, Quest, Aufgaben, Samen, Beil, Kochlöffel "
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, take a seat next me if you are hungry", "Huhu, sit next me I have something great to eat for you"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho du, setzt dich doch zu mir falls du Hunger hast", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Hiho, take a seat next me if you are hungry.", "Huhu, sit next me I have something great to eat for you"
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hiho du, setzt dich doch zu mir falls du Hunger hast.", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho, take a seat next me if you are hungry", "Huhu, sit next me I have something great to eat for you"
 "Hiho", "Hallo", "Hey", "Greeb", german -> "Hiho du, setzt dich doch zu mir falls du Hunger hast", "Huhu, schnapp dir ein Plätzchen neben mir, ich hab was ganz tolles zu essen."
 "Farewell", "good bye", "bye", "see you" -> "Bye, i hope you will visit me again", "Good day to you, if you are hungry, just come to me again."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüßi und besuch mich mal wieder.", "Mach es gut du und komme schnell wieder wenn du Hunger hast."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Bye, i hope you will visit me again", "Good day to you, if you are hungry, just come to me again."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Bye, i hope you will visit me again.", "Good day to you, if you are hungry, just come to me again."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüßi und besuch mich mal wieder.", "Mach es gut du und komme schnell wieder wenn du Hunger hast."
 "how are you", "how feel", "how do you do" -> "I'm prett good, thank you, and how are you if I may ask?", "I feel very well, yes very, very well, how about you?"
 "wie gehts", "wie fühlst" -> "Mir geht es ganz prima, danke. Wie geht es denn dir?", "Ich fühle mich toll, ganz toll und du, geht es dir auch so gut?"
-"your name", "who are you", "who art thou" -> "I'm Berni Grunweld the great cook and who are you?", "I'm Berni, yes Berni is alright"
+"your name", "who are you", "who art thou" -> "I'm Berni Grunweld the great cook and who are you?", "I'm Berni, yes Berni is alright."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin der Berni Grunweld der großartige Koch und wer bist denn du?", "Ich bin der Berni, ja Berni reicht vollkommen."
 
 -- Catching quest triggers. Modify if the NPC does quests.

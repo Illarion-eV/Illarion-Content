@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Ward Blankman"
@@ -52,7 +52,6 @@ itemShoes = 53
 -- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
-
 "greet", "hello" -> "Greetings to you. My name is %NPCNAME. I'm guarding the undead right there."
 "gr[üu][sß]", "grue[sß]", "hallo" -> "Grüß' dich. Mein Name ist %NPCNAME. Ich bewache die Untoten dort drüben."
 "bye", "farewell", "be well" -> "Be well.", "Farewell.", "Good bye."

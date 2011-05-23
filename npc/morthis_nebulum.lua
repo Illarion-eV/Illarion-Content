@@ -1,14 +1,19 @@
 --------------------------------------------------------------------------------
--- NPC Name: Morthis Nebulum                                             None --
--- NPC Job:  none                                                             --
+-- NPC Name: Morthis Nebulum                                         Runewick --
+-- NPC Job:  Mage                                                             --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  898, 799, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Flux                                                             --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
+
+--[[SQL
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
+VALUES (0, 898, 799, 0, 4, 'Morthis Nebulum', 'npc.morthis_nebulum', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+---]]
 
 require("npc.base.basic")
 require("npc.base.condition.basestate")
@@ -24,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Erzmagier, Blood."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Morthis Nebulum the Necromancer. Keyphrases: Magic, Lor Angur, Necromany, Archmage, Blood."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -884,7 +889,7 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("blätter durch einen dicken, schwarzen Wälzer.", "#me leafs through a thick black tome.");
+talkingNPC:addCycleText("#me blätter durch einen dicken, schwarzen Wälzer.", "#me leafs through a thick black tome.");
 talkingNPC:addCycleText("Wenn du nichts sinnvolles zu sagen hast, geh weg.", "If you don't have anything useful to say, go away.");
 talkingNPC:addCycleText("'Oh wow, Elvaine ist ja so toll!', denen werde ich es zeigen", "'Oh wow, Elvaine is so great!', I'll show them..");
 talkingNPC:addCycleText("Ich sollte das da oben sein..", "Should be me up there..");
@@ -896,10 +901,19 @@ talkingNPC:addCycleText("Ich würde bei solch schwachsinnigen Bürgern sowieso nic
 talkingNPC:addCycleText("Denkt er doch, er sei so toll, nur wegen seinem Titel.", "Thinks he's so great just because of his title.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
+mainNPC:addLanguage(10);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "The cloaked figure stands, book in hand, watching you carefully from beneath his hood.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Lay a finger on me again and I'll have you killed.");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "How about you speak a real language?");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

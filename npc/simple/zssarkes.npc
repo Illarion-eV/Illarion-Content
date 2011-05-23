@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Zssarkes"
@@ -26,7 +26,7 @@ autointroduce = on
 author = "not set"
 
 lookatDE = "Eine Echse in stattlicher Rüstung."
-lookatUS = "A lizardman with an impressive armor. "
+lookatUS = "A lizardman with an impressive armor."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."

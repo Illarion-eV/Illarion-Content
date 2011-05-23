@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Morthis Nebulum                                             None --
--- NPC Job:  none                                                             --
+-- NPC Name: Morthis Nebulum                                         Runewick --
+-- NPC Job:  Mage                                                             --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  898, 799, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Flux                                                          --
+-- Author:   Flux                                                             --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Morthis Nebulum"
@@ -214,7 +214,7 @@ itemShoes = 53
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "blätter durch einen dicken, schwarzen Wälzer.", "#me leafs through a thick black tome."
+cycletext "#me blätter durch einen dicken, schwarzen Wälzer.", "#me leafs through a thick black tome."
 cycletext "Wenn du nichts sinnvolles zu sagen hast, geh weg.", "If you don't have anything useful to say, go away."
 cycletext "'Oh wow, Elvaine ist ja so toll!', denen werde ich es zeigen", "'Oh wow, Elvaine is so great!', I'll show them.."
 cycletext "Ich sollte das da oben sein..", "Should be me up there.."

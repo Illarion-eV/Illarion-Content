@@ -5,9 +5,9 @@
 -- NPC Race: halfling                   NPC Position:  883, 632, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Nanuk                                                            --
 --                                                                            --
--- Last parsing: August 09, 2010                         easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Flori"
@@ -23,7 +23,7 @@ language = halfling
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Nanuk"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
 lookatUS = "This is a NPC who's developer was too lazy to type in a description."

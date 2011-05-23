@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: July 25, 2010                           easyNPC Parser v1.00 --
+-- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Fredegar Bumbleroot"
@@ -76,6 +76,7 @@ itemShoes = 53
 "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "Auftrag", "Aufgabe", "Abenteuer" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
 -- questid=558
 " ", german, busy -> "Tut mir leid, ich bin beschäftigt. Warte bitte einen Moment bis ich mein Gespräch beendet habe."
 " ", english, busy -> "I'm sorry, but I'm busy at the moment. Could you please wait until i finished by speech?"
