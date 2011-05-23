@@ -53,11 +53,10 @@ function onLogin( player )
 	end
 
 	-- Smell effect removed for the time being (annoying!!!)
-	--[[ Geruchs-Effekt setzen
 	find, stinkEffekt = player.effects:find(18);
-	if not find then
-		player.effects:addEffect( CLongTimeEffect(18,10) );
-	end]]
+	if find then
+		player.effects:removeEffect( CLongTimeEffect(18) );
+	end
 
 	--Good/Bad days removed for the time being (confusing!!!)
 	--[[if not( player.pos.z == 100 or player.pos.z == 101 ) then
