@@ -55,7 +55,7 @@ function onLogin( player )
 	-- Smell effect removed for the time being (annoying!!!)
 	find, stinkEffekt = player.effects:find(18);
 	if find then
-		player.effects:removeEffect( CLongTimeEffect(18) );
+		player.effects:removeEffect(18);
 	end
 
 	--Good/Bad days removed for the time being (confusing!!!)
