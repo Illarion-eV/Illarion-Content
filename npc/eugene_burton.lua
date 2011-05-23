@@ -7,7 +7,6 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 18, 2011                            easyNPC Parser v1.02 --
 -- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
@@ -31,13 +30,6 @@ module("npc.eugene_burton", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("set 0");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 0));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
@@ -1241,3 +1233,4 @@ function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
 function useNPC(char, counter, param) mainNPC:use(char); end;
 initNpc();
 initNpc = nil;
+-- END
