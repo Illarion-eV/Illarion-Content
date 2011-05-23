@@ -229,7 +229,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				User:setAttrib(spoken,Counter);
 				User:inform(spoken.." set to "..User:increaseAttrib(spoken,0));
 				-- LogGMAction(User,User.name.."("..User.id..") changed attribute "..spoken.." to "..User:increaseAttrib(spoken,0));
-			elseif (string.find(User.lastSpokenText,"cold")~=nil) then
+			--[[elseif (string.find(User.lastSpokenText,"cold")~=nil) then
 				fndRes, resEffect = User.effects:find(3);
 				if not fndRes then                                  -- if not...
 					resEffect=User.effects:addEffect( CLongTimeEffect(3,1) );     -- add effect (400) to resurrected player
@@ -239,12 +239,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				else            -- if he has the effect already...
 					User:inform("Du bist schon angesteckt.");
 					resEffect.nextCalled =20;
-				end
+				end]]
 			elseif ((string.find(User.lastSpokenText,"show map")~=nil)) then
 				User:inform("Okay, now showing map");
 				for i=1, 200 do
-					newx=math.random(-500,500);
-					newy=math.random(-500,500);
+					newx=math.random(0,1024);
+					newy=math.random(0,1024);
 					User:warp(position(newx,newy,0));
 				end
 			end
