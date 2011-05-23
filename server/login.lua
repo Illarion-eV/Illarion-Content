@@ -12,8 +12,8 @@ function onLogin( player )
 
 	--base.common.TempInformNLS(player,"[Login] PLATZ FÜR EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
     base.common.TempInformNLS( player,
-        "Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
-        "Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
+        "[Login] Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
+        "[Login] Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
     );
 
 	
