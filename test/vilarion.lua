@@ -8,10 +8,12 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    User:inform("- before -");
+    User:eraseItem(326,1);
+
+    -- User:inform("- before -");
     -- world:erase( it, 1 );
-    debug( "Testing debug(...)" );
-    User:inform("- after -");
+    -- debug( "Testing debug(...)" );
+    -- User:inform("- after -");
 
     -- world:createDynamicNPC("Test1",1,position(User.pos.x-1,User.pos.y,User.pos.z),0,"test.vilarion");
     -- e = CLongTimeEffect( 777, 30 );
