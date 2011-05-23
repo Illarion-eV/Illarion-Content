@@ -56,8 +56,8 @@ itemShoes = 53
 -- Quest 118: Runewick Gardens / Die Gärten von Runewick
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keyphrases: Hello, Quest, Garden, Runewick, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Hallo, Quest, Garten, Runewick, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Baldo Proudtoe the gardener. Keyphrases: Hello, Quest, Garden, Runewick, Loneliness.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Baldo Proudtoe der Gärtner. Schlüsselwörter: Hallo, Quest, Garten, Runewick, Einsamkeit.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
