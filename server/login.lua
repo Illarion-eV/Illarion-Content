@@ -6,6 +6,11 @@ module("server.login", package.seeall);
 
 function onLogin( player )
 
+    base.common.InformNLS( player,
+        "#w Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
+        "#w Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
+    );
+
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 
 	player:increaseAttrib("foodlevel",-1);
