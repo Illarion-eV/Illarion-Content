@@ -53,9 +53,9 @@ itemShoes = 0
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- Queststatus 1337: Waiting time until next daily mission in queststatus*5s
+-- Queststatus 120: Waiting time until next daily mission in queststatus*5s
 
--- Queststatus Overview (4711)
+-- Queststatus Overview (119)
 
 -- 0: No Quest taken
 -- 1: Quest 1 taken, get 5 strawberries, reward: 5 rankpoints
@@ -89,28 +89,28 @@ itemShoes = 0
 "Auftrag", "Aufgabe", "Abenteuer", town = Runewick -> "GERMAN1."
 
 -- Catching quest triggers of those who have to wait for a new quest
-"quest", "mission", queststatus(1337) ~= 0, english, town = Cadomyr -> "ENGLISH1."
-"quest", "mission", queststatus(1337) ~= 0, town = Cadomyr -> "GERMAN1."
-"task", "adventure", queststatus(1337) ~= 0, town = Cadomyr -> "ENGLISH1."
-"Auftrag", "Aufgabe", queststatus(1337) ~= 0, town = Cadomyr -> "GERMAN1."
+"quest", "mission", queststatus(120) ~= 0, english, town = Cadomyr -> "ENGLISH1."
+"quest", "mission", queststatus(120) ~= 0, town = Cadomyr -> "GERMAN1."
+"task", "adventure", queststatus(120) ~= 0, town = Cadomyr -> "ENGLISH1."
+"Auftrag", "Aufgabe", queststatus(120) ~= 0, town = Cadomyr -> "GERMAN1."
 
 -- A quest is chosen by random!
 
 -- Quest 1: Gather five strawberries (151)
-"quest", "mission", queststatus(4711) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(4711) = 1
-"quest", "mission", queststatus(4711) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(4711) = 1
-"task", "adventure", queststatus(4711) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(4711) = 1
-"Auftrag", "Aufgabe", queststatus(4711) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(4711) = 1
+"quest", "mission", queststatus(119) = 0, english, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 1
+"quest", "mission", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 1
+"task", "adventure", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 1
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(5), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 1
 
 -- Quest 1 solved, reward: 20cp, 5 rankpoints, delay: 2h
-".*", queststatus(4711) = 1, item(151, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 20, deleteItem(151, 5), queststatus(4711) = 0, queststatus(1337) = 1440, rankpoints(Cadomyr) + 5
-".*", queststatus(4711) = 1, item(151, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 20, deleteItem(151, 5), queststatus(4711) = 0, queststatus(1337) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 1, item(151, all) > 4, english, town = Cadomyr -> inform("[Quest solved] You are awarded twenty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH.", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 1, item(151, all) > 4, town = Cadomyr -> inform("[Quest gelöst] Du erhältst zwanzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN.", money + 20, deleteItem(151, 5), queststatus(119) = 0, queststatus(120) = 1440, rankpoints(Cadomyr) + 5
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(4711) = 1, item(151, all) < 5, english, town = Cadomyr -> "ENGLISH."
-"quest", "mission", queststatus(4711) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
-"task", "adventure", queststatus(4711) = 1, item(151, all) < 5, town = Cadomyr -> "ENGLISH."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(4711) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
+"quest", "mission", queststatus(119) = 1, item(151, all) < 5, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
