@@ -58,7 +58,8 @@ itemShoes = 771
 -- Queststatus Overview (119)
 
 -- 0: No Quest taken
--- 1: Quest 1 taken, get 5 strawberries, reward: 5 rankpoints
+-- 1: Quest 1 taken, get 5 strawberries, reward: 20cp, 5 rankpoints
+-- 20: Quest 20 taken, get a gold nugget, reward: 50cp, 5 rankpoints
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Anthar Vilicon the chancellor. Keyphrases: Hello, Mission, Chancellor, Cadomyr, TRIGGER5.")
