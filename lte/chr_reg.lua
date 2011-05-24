@@ -50,7 +50,13 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     ------------------------POSITION ANZEIGEN FERTIG--------------------------
 
-   
+    --Addition by Estralis: Quest 119 (Cadomyr daily missions
+	theQuestStatus=Char:getQuestProgress(119);
+	if theQuestStatus > 0 then
+	    Char:setQuestProgress(119,theQuestStatus-1);
+		base.common.InformNLS(Char,"Quest: "..theQuestStatus.."!","Quest: "..theQuestStatus.."!");
+    end
+	
     if ( Hitpoints == 0 ) then -- Charakter ist tot
         leadToCross( Char , Effect ); -- Warp char to cross
 
@@ -355,7 +361,6 @@ function leadToCross( Char , Effect )
     
     if not foundValue then
         Effect:addValue("cycleCounter",1); --Start counting
-        --base.common.TempInformNLS( Char,"[Tod] Du bist gestorben. Die Welt um dich herum verblasst und du bereitest dich darauf vor, den Göttern in Chergas Reich der Toten gegenüberzutreten.","[Death] You have died. The world around you fades and you prepare yourself to face the Gods in the afterlife of Cherga's Realm.");
     end
 
     if cycleCounter>=12 then --Time is over!
