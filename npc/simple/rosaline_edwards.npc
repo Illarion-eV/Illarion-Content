@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 24, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Rosaline Edwards"
@@ -119,6 +119,7 @@ itemShoes = 369
 "lizard" -> "The lizardmen have proven loyal subjects. Most of them call Cape Farewell home."
 "orc" -> "You might presume that a queen of Albarian origin would dislike orcs. But he who swears loyalty to me and follows the old customs is my subject, even if green."
 "Ioannes", "Faber", english -> "Ah, you are speaking about my royal treasurer. He serves me right and just. I trust him to manage the treasury of Cadomyr."
+"Anthar", "Vilicon", english -> "My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyality to the throne!"
 
 -- More small talk; add at least five triggers - german
 "Hexe", "Schlampe" -> "Was? Jemand behauptet, ich sei eine Hexe? Auf den Scheiterhaufen mit ihm!"
@@ -147,6 +148,7 @@ itemShoes = 369
 "Echse" -> "Fürwahr, sogar die Echsenwesen gehorchen meinen Befehlen. Einige von ihnen leben am Kap des Abschiedes."
 "Ork" -> "Ihr denkt vielleicht, eine Königin aus albarischem Geschlecht verabscheut Orks. Aber wer mir die Treue schwört und die alten Sitten achtet, der ist mein Untertan, sei er auch grün."
 "Ioannes", "Faber" -> "Ah, ihr redet von meinem königlichen Kämmerer. Er dient mir aufrichtig und treu. Ich vertraue ihm bei der Verwaltung der königlichen Reichtümer."
+"Anthar", "Vilicon" -> "Mein mir ergebener Kanzler; ihr wundert euch, dass er ein Elf ist? Er ist ein Musterbeispiel der Loyalität gegenüber dem Thron!"
 
 -- Faction stuff
 "Elvaine", "Morgan", english -> "A renegade mage who I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "I do attest, negotiations with him are far more challenging than simply thrusting a pike into his stomach."

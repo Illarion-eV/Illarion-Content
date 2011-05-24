@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
 --                                                                            --
--- Last parsing: March 22, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 24, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -485,6 +485,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthar");
+talkEntry:addTrigger("Vilicon");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyality to the throne!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hexe");
 talkEntry:addTrigger("Schlampe");
 talkEntry:addResponse("Was? Jemand behauptet, ich sei eine Hexe? Auf den Scheiterhaufen mit ihm!");
@@ -652,6 +660,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ioannes");
 talkEntry:addTrigger("Faber");
 talkEntry:addResponse("Ah, ihr redet von meinem königlichen Kämmerer. Er dient mir aufrichtig und treu. Ich vertraue ihm bei der Verwaltung der königlichen Reichtümer.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthar");
+talkEntry:addTrigger("Vilicon");
+talkEntry:addResponse("Mein mir ergebener Kanzler; ihr wundert euch, dass er ein Elf ist? Er ist ein Musterbeispiel der Loyalität gegenüber dem Thron!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
