@@ -50,10 +50,10 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     end
     ------------------------POSITION ANZEIGEN FERTIG--------------------------
 
-    --Addition by Estralis: Quest 119 (Cadomyr daily missions
-	theQuestStatus=Char:getQuestProgress(119);
+    --Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
+	theQuestStatus=Char:getQuestProgress(120);
 	if theQuestStatus > 0 then
-	    Char:setQuestProgress(119,theQuestStatus-1);
+	    Char:setQuestProgress(120,theQuestStatus-1);
 		base.common.InformNLS(Char,"Quest: "..theQuestStatus.."!","Quest: "..theQuestStatus.."!");
     end
 	
