@@ -56,7 +56,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local dataZList = druid.base.alchemy.SplitBottleData(User,bottleData);
 
         if dataZList[plusWertPos] == 9 or dataZList[minusWertPos] == 1 then
+		   world:makeSound(10,User.pos);
+	       User:increaseAtPos(plantInHand.itempos,-1);
 		   world:erase( bottleInHand, 1 );
+		   world:makeSound(5,User.pos);
+	       world:gfx(0,User.pos);
 		   base.common.InformNLS( User,
                 "Flasche weg.",
                 "Bottle gone."
@@ -78,17 +82,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         bottleData = druid.base.alchemy.PasteBottleData(User,dataZList);
         
         -- die Pflanze löschen
-        User:increaseAtPos(plantInHand.itempos,-1);
+        world:makeSound(10,User.pos);
+		User:increaseAtPos(plantInHand.itempos,-1);
         
         -- Das Flascheitem wird entsprechend aller Daten modifiziert
-        bottleInHand.id = 331;
-        -- Die Qualität des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
-		local quali = (User:getSkill("alchemy") + 10) * 10;
-		if(quali > 999) then
-			quali = 999;
-		end
-		bottleInHand.quality = quali;
         
+        -- Die Qualität des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
+		if bottleInHand.id == 331 then
+		   if math.random(1,100) <= math.floor(120/(User:getSkill("alchemy")+User:increaseAttrib("perception",0))) then
+		      quali = bottleInHand.quality - 100;
+          else 
+		      quali = bottleInHand.quality;
+		   end		
+		elseif bottleInHand.id == 164 then
+		       quali = math.floor(User:getSkill("alchemy")+User:increaseAttrib("perception",0)*8);
+		end
+		
+		bottleInHand.id = 331;
+		bottleInHand.quality = quali;
         bottleInHand.data = bottleData;
         -- Hier noch einen Text einbauen, dass man gerade eine Pflanze verarbeitet...
         world:changeItem(bottleInHand);
