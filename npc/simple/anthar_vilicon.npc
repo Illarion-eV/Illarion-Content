@@ -112,6 +112,22 @@ itemShoes = 771
 "task", "adventure", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "ENGLISH."
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 1, item(151, all) < 5, town = Cadomyr -> "GERMAN."
 
+-- Quest 20: Gather a gold nugget (234)
+"quest", "mission", queststatus(119) = 0, english, chance(100), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 20
+"quest", "mission", queststatus(119) = 0, chance(100), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 20
+"task", "adventure", queststatus(119) = 0, chance(100), town = Cadomyr -> inform("[New Quest] Do a good turn daily for Cadomyr"), "ENGLISH1.", queststatus(119) = 20
+"Auftrag", "Aufgabe", queststatus(119) = 0, chance(100), town = Cadomyr -> inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"), "GERMAN1.", queststatus(119) = 20
+
+-- Quest 20 solved, reward: 20cp, 5 rankpoints, delay: 3h
+".*", queststatus(119) = 20, item(234, all) > 0, english, town = Cadomyr -> inform("[Quest solved] You are awarded fifty coppercoins. You advance in Queen Rosaline Edwards' favour."), "ENGLISH234.", money + 50, deleteItem(234, 1), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+".*", queststatus(119) = 20, item(234, all) > 0, town = Cadomyr -> inform("[Quest gelöst] Du erhältst fünfzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "GERMAN234.", money + 50, deleteItem(234, 1), queststatus(119) = 0, queststatus(120) = 2160, rankpoints(Cadomyr) + 5
+
+-- Quest 20 taken but not solved, repeat the instructions
+"quest", "mission", queststatus(119) = 20, item(234, all) < 1, english, town = Cadomyr -> "ENGLISH."
+"quest", "mission", queststatus(119) = 20, item(234, all) < 1, town = Cadomyr -> "GERMAN."
+"task", "adventure", queststatus(119) = 20, item(234, all) < 1, town = Cadomyr -> "ENGLISH."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(119) = 20, item(234, all) < 1, town = Cadomyr -> "GERMAN."
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
