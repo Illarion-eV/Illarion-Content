@@ -2,7 +2,7 @@
 -- NPC Name: Anthar Vilicon                                           Cadomyr --
 -- NPC Job:  Chancellor                                                       --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: elf                        NPC Position:  117, 528, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -13,7 +13,7 @@
 name = "Anthar Vilicon"
 race = elf
 sex = male
-position = 0, 0, 0
+position = 117, 528, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Chancellor"
@@ -37,13 +37,13 @@ beardID = 0
 colorHair = 85, 107, 47
 colorSkin = 255, 218, 185
 itemHead = 0
-itemChest = 0
-itemCoat = 0
-itemMainHand = 0
+itemChest = 2367
+itemCoat = 193
+itemMainHand = 2627
 itemSecondHand = 0
-itemHands = 0
-itemTrousers = 0
-itemShoes = 0
+itemHands = 2295
+itemTrousers = 2116
+itemShoes = 771
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.

@@ -2,7 +2,7 @@
 -- NPC Name: Anthar Vilicon                                           Cadomyr --
 -- NPC Job:  Chancellor                                                       --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: elf                        NPC Position:  117, 528, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 0, 0, 0, 4, 'Anthar Vilicon', 'npc.anthar_vilicon', 0, 2, 0, 85, 107, 47, 255, 218, 185);
+VALUES (3, 117, 528, 0, 4, 'Anthar Vilicon', 'npc.anthar_vilicon', 0, 2, 0, 85, 107, 47, 255, 218, 185);
 ---]]
 
 require("npc.base.basic")
@@ -911,13 +911,13 @@ mainNPC:setLookat("Dieser NPC ist Anthar Vilicon der Kanzler.", "This NPC is Ant
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 0);
-mainNPC:setEquipment(11, 0);
-mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(3, 2367);
+mainNPC:setEquipment(11, 193);
+mainNPC:setEquipment(5, 2627);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 0);
-mainNPC:setEquipment(9, 0);
-mainNPC:setEquipment(10, 0);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 2116);
+mainNPC:setEquipment(10, 771);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
