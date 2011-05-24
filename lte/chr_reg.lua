@@ -52,7 +52,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
 
     --Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
 	theQuestStatus=Char:getQuestProgress(120);
-	if theQuestStatus > 0 then
+	if theQuestStatus > 0 and Char:idleTime() < 300 then --Has the Char done any action or spoken anything within the last five minutes?
 	    Char:setQuestProgress(120,theQuestStatus-1);
     end
 	--Addition end
