@@ -54,8 +54,8 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
 	theQuestStatus=Char:getQuestProgress(120);
 	if theQuestStatus > 0 then
 	    Char:setQuestProgress(120,theQuestStatus-1);
-		base.common.InformNLS(Char,"Quest: "..theQuestStatus.."!","Quest: "..theQuestStatus.."!");
     end
+	--Addition end
 	
     if ( Hitpoints == 0 ) then -- Charakter ist tot
         leadToCross( Char , Effect ); -- Warp char to cross
