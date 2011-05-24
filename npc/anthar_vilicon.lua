@@ -911,7 +911,7 @@ mainNPC:setLookat("Dieser NPC ist Anthar Vilicon der Kanzler.", "This NPC is Ant
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 2367);
+mainNPC:setEquipment(3, 2399);
 mainNPC:setEquipment(11, 193);
 mainNPC:setEquipment(5, 2757);
 mainNPC:setEquipment(6, 0);
