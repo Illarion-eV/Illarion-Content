@@ -210,7 +210,8 @@ end
 --]]
 
 function infectUser(victim, sumOdds)
-	avgOdds = sumOdds / 3;
+    --No one gets infected, this script sucks! ~Estralis
+	--[[avgOdds = sumOdds / 3;
 	const = victim:increaseAttrib("constitution", 0);
 	avgOdds = avgOdds/const;
 	debug(victim, "const: "..const..", sumOdds: "..sumOdds..", final odds:"..avgOdds);
@@ -218,7 +219,7 @@ function infectUser(victim, sumOdds)
 		if user.name == "Emhyr van Emreis" then
 			victim.effects:addEffect(CLongTimeEffect(3), true);
 		end
-	end
+	end]]
 end
 
 -- Based on the odds of becoming ill from having too little protection against wind/cold/rain, this
