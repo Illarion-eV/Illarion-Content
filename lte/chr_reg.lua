@@ -24,6 +24,9 @@ function addEffect( Effect, Character)
 end;
 
 function callEffect( Effect, Char ) -- Effect wird ausgeführt
+
+if Char:idleTime() < 300 then --absolutely no regneration effect if the player is afk for more than five minutes
+
     -----------------------EINLESEN ANFANG------------------------------------
     local Hitpoints   = Char:increaseAttrib("hitpoints",0);   -- Hitpoints einlesen    ( 0 - 10000 )
     local Manapoints  = Char:increaseAttrib("mana",0);        -- Manapoints einlesen   ( 0 - 10000 )
@@ -52,7 +55,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
 
     --Addition by Estralis: Quest 119/120 (Cadomyr daily missions)
 	theQuestStatus=Char:getQuestProgress(120);
-	if theQuestStatus > 0 and Char:idleTime() < 300 then --Has the Char done any action or spoken anything within the last five minutes?
+	if theQuestStatus > 0 then --Has the Char done any action or spoken anything within the last five minutes?
 	    Char:setQuestProgress(120,theQuestStatus-1);
     end
 	--Addition end
@@ -302,7 +305,7 @@ function callEffect( Effect, Char ) -- Effect wird ausgeführt
     ChangeAttrib( Char, "foodlevel", Foodvalue );
 
     --------------ÄNDERUNGEN PRÜFEN UND DURCHFÜHREN FERTIG--------------------
-
+end --all above is only conducted for players that aren't afk for more than five minutes
     return leaveSavely( Effect );
 end
 
