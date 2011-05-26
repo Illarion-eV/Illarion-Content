@@ -25,11 +25,7 @@ end;
 
 function callEffect( Effect, Char ) -- Effect wird ausgeführt
 
-if Char:idleTime() > 30 then
-        base.common.InformNLS( Char,"Reg: AFK","Reg: AFK");
-end
-
-if Char:idleTime() < 30 then --absolutely no regneration effect if the player is afk for more than five minutes
+if Char:idleTime() < 300 then --absolutely no regeneration effect if the player is afk for more than five minutes
 
     -----------------------EINLESEN ANFANG------------------------------------
     local Hitpoints   = Char:increaseAttrib("hitpoints",0);   -- Hitpoints einlesen    ( 0 - 10000 )
