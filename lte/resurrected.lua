@@ -5,13 +5,12 @@ attribs={"strength","dexterity","constitution","agility","intelligence","percept
 
 function addEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-        Reborn:inform("Please avoid getting killed with an admin character.");
 	  return false;
     end
 
-        base.common.InformNLS( Reborn,
-        "Du fühlst dich noch sehr schwach.",
-        "You feel very weak." );
+        base.common.TempInformNLS( Reborn,
+        "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
+        "[Respawn] You feel very weak." );
     local maxChange = 0;
     local changeBy = 0;
     for _,attrib in pairs(attribs) do
@@ -44,9 +43,9 @@ function loadEffect( rebirthEffect, Reborn )
     end
 
 
-    base.common.InformNLS( Reborn,
-        "Du fühlst dich noch immer schwach.",
-        "You feel still weak." );
+    base.common.TempInformNLS( Reborn,
+        "[Wiederbelebung] Du fühlst dich noch immer schwach.",
+        "[Respawn] You feel still weak." );
 
     local changeBy = 0;
     local foundChange = false;
@@ -134,6 +133,10 @@ function removeEffect( rebirthEffect, Reborn )
     Reborn:inform("Admins do not suffer from resurrection.");
 	  return;
     end
+	
+	base.common.TempInformNLS( Reborn,
+        "[Wiederbelebung] Du hast dich vollständig erholt.",
+        "[Respawn] You have fully recovered." );
 
     local changeBy = 0;
     local foundChange = false;
@@ -153,13 +156,12 @@ end;
 -- NOTE: function is saved locally in npc_yellowcross.lua; Workaround for Mantis issue #451
 function doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-    Reborn:inform("The resurrection effect is already active.");
 	  return false;
     end
 
-    base.common.InformNLS( Reborn,
-        "Du fühlst dich noch sehr schwach.",
-        "You feel very weak." );
+    base.common.TempInformNLS( Reborn,
+        "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
+        "[Respawn] You feel very weak." );
     local maxChange = 0;
     local changeBy = 0;
     local foundChange = false;

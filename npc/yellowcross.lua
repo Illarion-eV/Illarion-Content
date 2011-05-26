@@ -62,13 +62,12 @@ attribs={"strength","dexterity","constitution","agility","intelligence","percept
 
 function doubleEffect( rebirthEffect, Reborn )
     if Reborn:isAdmin() then
-    Reborn:inform("double...");
 	  return false;
     end
 
-    base.common.InformNLS( Reborn,
-        "Du fühlst dich noch sehr schwach.",
-        "You feel very weak." );
+    base.common.TempInformNLS( Reborn,
+        "[Wiederbelebung] Du fühlst dich noch sehr schwach.",
+        "[Respawn] You feel very weak." );
     local maxChange = 0;
     local changeBy = 0;
     local foundChange = false;
@@ -81,12 +80,9 @@ function doubleEffect( rebirthEffect, Reborn )
         rebirthEffect:addValue( attrib, changeBy );
         maxChange = math.max( maxChange, changeBy );
         Reborn:increaseAttrib( attrib, 1 - Reborn:increaseAttrib( attrib, 0 ) );
-        --Reborn:inform(attrib.." changed by -"..changeBy);
     end;
     local foundRegen, regEffect = Reborn.effects:find(2);
     if foundRegen then
-        --Reborn:inform("maxChange: "..maxChange);
-        --Reborn:inform("maxHP: "..math.floor( 10000 / ( maxChange + 1 ) ) );
         regEffect:addValue( "maxHP", math.floor( 10000 / ( maxChange + 1 ) ) );
         rebirthEffect:addValue( "maxChange", maxChange );
     end;
