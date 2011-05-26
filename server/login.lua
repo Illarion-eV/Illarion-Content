@@ -8,12 +8,15 @@ function onLogin( player )
 
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
 	players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online. Viel Spaß beim Spielen!","[Login] Welcome to Illarion! There are "..table.getn(players).." players online. Have fun playing!"); --sending a message
 
+	--Message of the day
 	--base.common.TempInformNLS(player,"[Login] PLATZ FÜR EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
-    base.common.TempInformNLS( player,
-        "[Login] Bitte besuche uns auch in unserem IRC Chat auf irc.quakenet.org in #illarion um schnelle Hilfe zu erhalten und nette Gespräche mit anderen Spielern zu führen. Dies geht auch, indem du auf illarion.org auf \"Chat\" klickst. Viel Spaß beim Spielen!",
-        "[Login] Please join us in our IRC chat on irc.quakenet.org in #illarion to receive fast help and have a friendly chat with other players. Also available by clicking \"Chat\" on illarion.org. Have fun playing!"
+    
+	--Default message of the day
+	base.common.TempInformNLS( player,
+        "[Login] Bitte besuche uns im IRC-Chat: #illarion auf Quakenet.",
+        "[Login] Please join our IRC chat: #illarion on Quakenet."
     );
 
 	
