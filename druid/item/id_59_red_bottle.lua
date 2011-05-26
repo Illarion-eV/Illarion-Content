@@ -27,6 +27,7 @@ function DoDruidism(Character,SourceItem)
     -- if there is already a push of attributs by a potion, it will be removed by the new potion
 	if Character.effects:find(59) then
 	   Character.effects:removeEffect(59);
+	   base.common.InformNLS(Character, "alte Trankwirkung weg", "alte Trankwirkung weg");
 	end
 	
 	local dataZList = SplitBottleData(Character,Sourceitem.id_data);
