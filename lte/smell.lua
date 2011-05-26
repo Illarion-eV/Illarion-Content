@@ -53,8 +53,8 @@ end
 
 
 function removeEffect( Effect, Character )
-    LogString=os.date()..": Patient "..Character.name.."completely healed because the cold ended.\n";
-    logToFile(LogString);
+    --LogString=os.date()..": Patient "..Character.name.."completely healed because the cold ended.\n";
+    --logToFile(LogString);
     --base.common.InformNLS(Character,
     --"Du fühlst dich endlich wieder besser.",
     --"You finally feel better now.");
