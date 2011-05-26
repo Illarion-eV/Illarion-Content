@@ -37,14 +37,6 @@ function DoDruidism(Character,SourceItem)
 
 	druid.base.alchemy.generateTasteMessage(Character,dataZList);
 
-    if Sourceitem.id_data == 75357464 and Character.effects:find(28) then
-        Character.effects:removeEffect(28);
-        return;
-    elseif Sourceitem.id_data == 75676578 and Character.effects:find(29) then
-        Character.effects:removeEffect(29);
-        return;
-    end
-
     -- Hier kommt die Sache mit dem Langzeiteffekt:
     foundEffect, myEffect = Character.effects:find(59);
     if not foundEffect then
