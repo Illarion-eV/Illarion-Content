@@ -7,8 +7,8 @@ module("server.login", package.seeall);
 function onLogin( player )
 
     world:gfx(31,player.pos); --A nice GFX that announces clearly: A player logged in.
-	players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online. Viel Spaﬂ beim Spielen!","[Login] Welcome to Illarion! There are "..table.getn(players).." players online. Have fun playing!"); --sending a message
+	--players=world:getPlayersOnline(); --Reading all players online so we can count them
+	--base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online. Viel Spaﬂ beim Spielen!","[Login] Welcome to Illarion! There are "..table.getn(players).." players online. Have fun playing!"); --sending a message
 
 	--Message of the day
 	--base.common.TempInformNLS(player,"[Login] PLATZ F‹R EINE NACHRICHT DES TAGES.","[Login] ROOM FOR A MESSAGE OF THE DAY."); --sending a message
