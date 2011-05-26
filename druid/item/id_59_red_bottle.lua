@@ -24,7 +24,12 @@ function DoDruidism(Character,SourceItem)
 		return;
 	end
 
-    local dataZList = SplitBottleData(Character,Sourceitem.id_data);
+    -- if there is already a push of attributs by a potion, it will be removed by the new potion
+	if Character.effects:find(59) then
+	   Character.effects:removeEffect(59);
+	end
+	
+	local dataZList = SplitBottleData(Character,Sourceitem.id_data);
 
 --    for i=1,8 do
 --      Character:inform("PIN "..i..": "..dataZList[i])
