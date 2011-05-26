@@ -33,8 +33,8 @@ function addEffect( rebirthEffect, Reborn )
 		multi = 2;
 	end
 	rebirthEffect:addValue("multiRes",multi); -- multiplier for multiple resurrection
-	local callValue = 1200 * multi;
-	rebirthEffect.nextCalled=math.random(callValue-600,callValue+600);
+	local callValue = 600 * multi;
+	rebirthEffect.nextCalled=math.random(callValue-300,callValue+300);
     return true;
 end;
 
