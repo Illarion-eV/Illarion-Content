@@ -18,8 +18,8 @@ function Init()
       messageG[2]="[Queststatus] Der 'Palast' des Dons - Du solltest die Ohren aufsperren, aber nicht deine Geldbörse.";
       messageG[3]="[Queststatus] Unerträgliches Gewäsch kommt aus dem Mund des Erzmagiers. Diesen Unsinn willst du gar nicht erst daheim vermelden.";
       messageE={};
-      messageE[1]="[Quest status] You enter the Hemp Necktie Inn. What a filthy and dishonorable place, it doesn't take too long to figure out there is nothing of worth in this place!";
-      messageE[2]="[Quest status] The Don's 'palace' - you should drop an ear here. You acquire the necessary information in just a few moments- best report back to the quartermaster.";
+      messageE[1]="[Quest status] You enter the Hemp Necktie Inn. What a filthy and dishonourable place, it doesn't take too long to figure out there is nothing of worth in this place!";
+      messageE[2]="[Quest status] The Don's 'palace' - you should drop an ear here. You acquire the necessary information in just a few moments - best report back to the quartermaster.";
       messageE[3]="[Quest status] Unbearable babbling comes out of the mouth of the Archmage. You don't want to report this nonsense at home...";
        InitDone = true;
     

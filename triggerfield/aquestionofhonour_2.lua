@@ -18,7 +18,7 @@ function Init()
       messageG[1]="[Queststatus] Du erblickst einen betenden komischen Kauz, als du dich der Ostgrenze näherst.";
       messageG[2]="[Queststatus] den Blutkreis, der Arena des Landes, scheint es nach frischem Blut zu dürsten.";
       messageG[3]="[Queststatus] Der Grundstein der Aufrichtigkeit steht wie ein Fels in der Brandung der Dünen.";
-      messageG[4]="[Queststatus] Du überquerst den Kantabifluss. Banditen haben dir wohl aufgelauert, ein Hinterhalt!.";
+      messageG[4]="[Queststatus] Du überquerst den Kantabifluss. Banditen haben dir wohl aufgelauert, ein Hinterhalt!";
       messageE={};
       messageE[1]="[Quest status] You spot a strange fellow chanting prayers as you approach the eastern border.";
       messageE[2]="[Quest status] The Circle of Blood thirsts for fresh blood but all looks clear.";
