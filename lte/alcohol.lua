@@ -107,7 +107,7 @@ function loadEffect(Effect, Character)
     found,value = Effect:findValue("alcohol");    
     found3,value3 = Effect:findValue("AlcEffect");
     if found2 then
-        Character:inform(Informing(Character,"Dein Kopf dröhnt und fühlt sich doppelt so schwer an wie er wirklich ist.","Your head hurts and feels like it weighs twice as much."));
+        Character:inform(Informing(Character,"Dein Kopf dröhnt, er fühlt sich doppelt so schwer an wie üblich.","Your head hurts and feels like it weighs twice as much."));
         Effect.nextCalled = 1200;
         Effect:addValue("hangover",2);
         return true
