@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,8 +53,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addResponse("Hiho! You must have come to help me!");
-talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume.");
-talkEntry:addResponse("#me gives a charming smile.");
+talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume?");
+talkEntry:addResponse("#me gives a charming smile, 'Are you here to help me?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,8 +79,8 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Hiho! You must have come to help me!");
-talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume.");
-talkEntry:addResponse("#me gives a charming smile.");
+talkEntry:addResponse("Oh my, hello there! You are here to assist me, I assume?");
+talkEntry:addResponse("#me gives a charming smile, 'Are you here to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,7 +183,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
-talkEntry:addResponse("I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
+talkEntry:addResponse("I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -203,7 +203,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress I"));
-talkEntry:addResponse("I could use some help at tailoring a robe for the archmage, yes! Please get me twenty pieces of wool, I am short on that.");
+talkEntry:addResponse("I could use some help tailoring a robe for the Archmage! Could you help? If so please get me twenty pieces of wool, I am short on that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -282,7 +282,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
+talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,7 +298,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 1));
-talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish the robe for the archmage in time.");
+talkEntry:addResponse("Did you forget? I need twenty bundles of wool! Oh please, I need to finish this robe for the Archmage in time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +451,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress III"));
-talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkEntry:addResponse("I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -471,7 +471,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Lazy Tailoress III"));
-talkEntry:addResponse("I'm short on red cloth! But I need some for the robe for Elvaine Morgan. Can you please get me five panels?");
+talkEntry:addResponse("I'm short on red cloth, but I need some for the robe I'm making for Archmage Elvaine Morgan. Can you please get me five panels?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -483,7 +483,7 @@ talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
@@ -513,7 +513,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(174, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a master mage robe and your tailoring skill increases."));
-talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for archmage Morgan. Here, take my last attempt, he sent it back, it was too tight for him.");
+talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finish the robe for Archmage Morgan. Here, take my last attempt he sent it back it was too tight for him.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "tailoring", "+", 1));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, 0));
@@ -584,7 +584,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I don't need anything else, but thank you! You saved my day!");
+talkEntry:addResponse("I don't need anything else, but thank you! You saved the day!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(73, "=", 6));
-talkEntry:addResponse("I don't need anything else, but thank you! You saved my day!");
+talkEntry:addResponse("I don't need anything else, but thank you! You saved the day!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +679,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
+talkEntry:addResponse("Oh dear, the Archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,7 +692,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("robe");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh dear, the archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
+talkEntry:addResponse("Oh dear, the Archmage ordered a new robe. I totally forgot working on it! Maybe you can help me with this task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -955,22 +955,22 @@ talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Hrm? Worüber sprichst du? Soll ich dir dummes Zeug erzählen wie ein Waschweib?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me summt ein Liedchen.", "#me hums a small song.");
+talkingNPC:addCycleText("#me summt ein Liedchen.", "#me hums a sweet song.");
 talkingNPC:addCycleText("#me schaut zum Himmel und murmelt: 'Fast schon Zeit für ein Stück Kuchen.'", "#me looks at the sky, and mumbles: 'Nearly time for pie...'");
 talkingNPC:addCycleText("#me streichelt ein Schaf.", "#me pats a sheep.");
 talkingNPC:addCycleText("Oh, ist schon wieder Essenszeit?", "Oh, is it nearly time to eat again?");
 talkingNPC:addCycleText("Hallo da drüben!", "Hello over there!");
 talkingNPC:addCycleText("#me kichert freudig.", "#me giggles.");
 talkingNPC:addCycleText("Ohje, ich muss fertig werden.", "Oh, I have to get things done.");
-talkingNPC:addCycleText("#me gähnt: 'So viel zu tun und so wenig Süßes zu essen!'.", "#me yawns: 'So much work and so little sweets!'.");
+talkingNPC:addCycleText("#me gähnt: 'So viel zu tun und so wenig Süßes zu essen!'.", "#me yawns, 'So much work and so little sweets!'");
 talkingNPC:addCycleText("Ich bin hungrig!", "I feel hungry!");
-talkingNPC:addCycleText("Bestellungen, Bestellungen, Bestellungen. Warum kauft nicht einfach immer jemand das, was ich gerade fertig habe?", "Order, orders, orders. Why won't they buy what I complete anyway?");
+talkingNPC:addCycleText("Bestellungen, Bestellungen, Bestellungen. Warum kauft nicht einfach immer jemand das, was ich gerade fertig habe?", "Order, orders, orders. Why won't they buy what I complete instead?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist die Schneiderin Lilith.", "This NPC is the tailor Lilith.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you clearly confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 801);
 mainNPC:setEquipment(11, 0);
