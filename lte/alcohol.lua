@@ -22,7 +22,7 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
     elseif found2 and not found then -- Keine Direkten Alkohol Effekte mehr. Warten auf nächsten Login
         Character:inform("Keine direkten Alkohol folgen mehr");
         if (value2 == 2) then
-            User:inform(Informing(Character,"Deine Kopfschmerzen lassen langsam nach.","Your headache becomes less slowly."));
+            User:inform(Informing(Character,"Deine Kopfschmerzen lassen langsam nach.","Your headache slowly eases."));
             return false
         else
             Effect.nextCalled = 1000000;
@@ -47,7 +47,7 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
         if found then
             Effect:removeValue("alcohol");
         end
-        User:inform(Informing(Character,"Du merkst das der Alkohol aufhört zu wirken.","You feel stops affecting you."));
+        User:inform(Informing(Character,"Du merkst das der Alkohol aufhört zu wirken.","You don't feel the affects of the alcohol anymore."));
         Character:inform("Zurück gesetzt");
         return true
     end
@@ -60,9 +60,9 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
         Effect:addValue("AlcEffect",1);
         Effect:addValue("time",(world:getTime("day")*24)+world:getTime("hour"));
         Character:inform("auswirkungen ausgeführt");
-        User:inform(Informing(Character,"Du merkst wie der Alkohol seine Wirkung entfaltet.","You feel that the alcohol starts to affect you."));
+        User:inform(Informing(Character,"Du merkst wie der Alkohol seine Wirkung entfaltet.","You feel how the alcohol starts to affect you."));
         Character:talkLanguage( CCharacter.say, CPlayer.german, "#me 's Nase bekommt eine leicht rötliche Färbung.");
-        Character:talkLanguage( CCharacter.say, CPlayer.english, "#me 's nose get a slightly red color.");
+        Character:talkLanguage( CCharacter.say, CPlayer.english, "#me 's cheeks start to turn flush.");
     end
     if found3 then
         EffectValue = value - ( Character:increaseAttrib("constitution",0)*24 ) - RaceBon;
@@ -74,7 +74,7 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
                 Effect.nextCalled = 40; -- Gleich nochmal versuchen
             else -- Schritt wurde gemacht
                 Character:talkLanguage( CCharacter.say, CPlayer.german, "#me stolpert.");
-                Character:talkLanguage( CCharacter.say, CPlayer.english, "#me stumbles.");
+                Character:talkLanguage( CCharacter.say, CPlayer.english, "#me teeters slightly.");
                 Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0)*10)); -- Alkohol abbauen
                 Effect.nextCalled = 400; -- Warten wir erstmal wieder etwas
             end
@@ -107,7 +107,7 @@ function loadEffect(Effect, Character)
     found,value = Effect:findValue("alcohol");    
     found3,value3 = Effect:findValue("AlcEffect");
     if found2 then
-        Character:inform(Informing(Character,"Dein Kopf dröhnt und fühlt sich doppelt so schwer an wie er wirklich ist.","You head hurts and feels like it weights the twice as normal."));
+        Character:inform(Informing(Character,"Dein Kopf dröhnt und fühlt sich doppelt so schwer an wie er wirklich ist.","Your head hurts and feels like it weighs twice as much."));
         Effect.nextCalled = 1200;
         Effect:addValue("hangover",2);
         return true
@@ -118,7 +118,7 @@ function loadEffect(Effect, Character)
         Character:increaseAttrib("intelligence",-5);
         Character:increaseAttrib("perception",-5);
         Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0)*8)); -- Alkohol abbauen
-        Character:inform(Informing(Character,"Der Alkohol scheint dich noch immer zu beeinflussen.","The alcohol still seems to effect you."));
+        Character:inform(Informing(Character,"Der Alkohol scheint dich noch immer zu beeinflussen.","The alcohol still seems to affect you."));
     end
 end
 
