@@ -953,7 +953,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bathelor");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("My name is not that important, you can called me your 'Highness' or 'Excellency'.");
+talkEntry:addResponse("My name is not that important, you can call me your 'Highness' or 'Excellency'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1002,7 +1002,7 @@ talkingNPC:addCycleText("Ihr hattet genug Zeit zu rasten, diese ist nun abgelauf
 talkingNPC:addCycleText("Feuer!", "Fire!");
 talkingNPC:addCycleText("Es brennt!", "It burns!");
 talkingNPC:addCycleText("Gelobt sei Brágon!", "Blessed be Brágon!");
-talkingNPC:addCycleText("Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I <remove - only> dreaming or is this fire, the eternal flame?");
+talkingNPC:addCycleText("Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this fire, the eternal flame?");
 talkingNPC:addCycleText("Vollbringt Taten im Namen Brágons.", "Complete ambitious actions in the name of Brágon.");
 talkingNPC:addCycleText("Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the God of Fire. And he will bring you... fire!");
 mainNPC:addLanguage(0);

@@ -206,7 +206,7 @@ itemShoes = 53
 "erzähl was", "erzähl etwas" -> "Gerne erzähle ich euch von den Fünf und Brágon im Besonderen."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-"Bathelor", english -> "My name is not that important, you can called me your 'Highness' or 'Excellency'."
+"Bathelor", english -> "My name is not that important, you can call me your 'Highness' or 'Excellency'."
 "Bathelor" -> "Mein Name ist nicht so wichtig, ihr könnt mich auch 'Durchlaucht' oder 'Exzellenz' nennen."
 "Yes" -> "Blessed be Brágon!", "Praise Brágon!", "Honour Brágon!"
 "Ja" -> "Gelobet sei Brágon!", "Lobet Brágon!", "Ehret Brágon!"
@@ -226,6 +226,6 @@ cycletext "Ihr hattet genug Zeit zu rasten, diese ist nun abgelaufen.", "You<rem
 cycletext "Feuer!", "Fire!"
 cycletext "Es brennt!", "It burns!"
 cycletext "Gelobt sei Brágon!", "Blessed be Brágon!"
-cycletext "Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I <remove - only> dreaming or is this fire, the eternal flame?"
+cycletext "Träume ich oder ist dieses Feuer die ewige Flamme?", "Am I only dreaming or is this fire, the eternal flame?"
 cycletext "Vollbringt Taten im Namen Brágons.", "Complete ambitious actions in the name of Brágon."
 cycletext "Ich diene dem Gott des Feuers. Und er bringt euch... Feuer!", "I serve the God of Fire. And he will bring you... fire!"
