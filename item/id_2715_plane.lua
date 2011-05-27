@@ -25,11 +25,11 @@ function InitCraftingTool( )
         
         carpentry:AddInterruptMessage(
         "Du wischst dir den Schweiß von der Stirn.",
-        "You wipe sweat off your forehead.");
+        "You wipe sweat from your forehead.");
         
         carpentry:AddInterruptMessage(
         "Du pustest kurz die Sägespäne von deiner Kleidung.",
-        "You blow some sawdust off your clothes.");
+        "You brush some sawdust off your clothes.");
         
         carpentry:AddInterruptMessage(
         "Du schleifst kurz eine raue Stelle nach.",
@@ -45,11 +45,11 @@ function InitCraftingTool( )
         
         carpentry:AddInterruptMessage(
         "Du bekommst einen Holzsplitter in den Finger und musst Pause machen um ihn zu entfernen.",
-        "You get a splinter of wood in your finger and have to take a break to pull it out.");
+        "You get a splinter of wood in your finger and have to pause to remove it.");
         
         carpentry:AddInterruptMessage(
         "Du überprüfst kurz die Maße des Werkstücks.",
-        "You check the fine details of your work.");
+        "You inspect the finer details of your work.");
 
         --------------------------------------------------------------------------------------------
         local CurrentCatID = carpentry:AddCategory( 2715 ) -- Tools and Other Items
@@ -325,15 +325,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     end
 
     local TargetItem = base.common.GetTargetItem(User, SourceItem);
-	if TargetItem then
-		if carpenter:IsProduct(TargetItem.id) then
-			base.common.InformNLS( User,
-			"Du versuchst den Gegenstand in deiner Hand zu bearbeiten.",
-			"You try to work on the item in your hand." );
-			carpenter:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
-			return;
-		end
-	end
+   if TargetItem then
+      if carpenter:IsProduct(TargetItem.id) then
+         base.common.InformNLS( User,
+         "Du versuchst den Gegenstand in deiner Hand zu bearbeiten.",
+         "You try to work on the item in your hand." );
+         carpenter:ToolCreateItem( User, 0, TargetItem, ltstate, SourceItem );
+         return;
+      end
+   end
 
     if (Param == 0) then
         menstate[ User.id ]=1;
