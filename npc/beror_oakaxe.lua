@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,6 +31,40 @@ module("npc.beror_oakaxe", package.seeall)
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("give naldor");
+talkEntry:addResponse("U GOT WOOD.");
+talkEntry:addConsequence(npc.base.consequence.item.item(546, 20, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("give brick");
+talkEntry:addResponse("Brickified omg!");
+talkEntry:addConsequence(npc.base.consequence.item.item(2588, 20, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("give stuff");
+talkEntry:addResponse("CHEATER!");
+talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(2559, 1, 333, 0));
+talkEntry:addConsequence(npc.base.consequence.item.item(315, 1, 333, 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("set 0");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Debugging] Quest status set to 0."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(115, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(116, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(117, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
@@ -58,8 +92,8 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Ha! A new recruit. You came here to get your orders for today, right?");
-talkEntry:addResponse("Attention! The queen issued new orders. And her majesty does not like to see any delay.");
+talkEntry:addResponse("Ha! A new recruit, bet your looking for orders aren't you, greenhorn?");
+talkEntry:addResponse("Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -83,7 +117,8 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Ha! A new recruit. You came here to get your orders for today, right?");
-talkEntry:addResponse("Attention! The queen issued new orders. And her majesty does not like to see any delay.");
+talkEntry:addResponse("Ha! A new recruit, bet your looking for orders aren't you, greenhorn?");
+talkEntry:addResponse("Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -163,7 +198,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am the royal quartermaster Beror Oakaxe. And yes, I am a dwarf. An angry dwarf!");
+talkEntry:addResponse("I am the royal quartermaster, Beror Oakaxe, and yes, I am a dwarf. An angry dwarf!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -181,7 +216,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addResponse("I do not issue quests to honourless people, sorry.");
+talkEntry:addResponse("I do not issue quests to honorless commoners, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,7 +232,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addResponse("I do not issue quests to honourless people, sorry.");
+talkEntry:addResponse("I do not issue quests to honorless commoners, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +250,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addResponse("I do not issue quests to braindead people, sorry.");
+talkEntry:addResponse("I do not issue quests to brain-dead wanderers, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +266,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addResponse("I do not issue quests to braindead people, sorry.");
+talkEntry:addResponse("I do not issue quests to brain-dead wanderers, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,7 +286,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
-talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Sir Reginald's statue is where you can study them.");
+talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -275,7 +310,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
-talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Sir Reginald's statue is where you can study them.");
+talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -299,7 +334,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very well, now you are ready for real missions. You didn't expect a reward, did you?");
+talkEntry:addResponse("Very well, now you are ready for a real mission. You didn't expect a reward, did you?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -322,7 +357,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace.");
+talkEntry:addResponse("You cannot defend Cadomyr's way of life if you do not even know our laws. They are clearly engraved upon Sir Reginald's statue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +375,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("You cannot defend Cadomyrs way of life if you do not even know our laws. They are inscripted at Sir Reginald's statue in front of the palace.");
+talkEntry:addResponse("You cannot defend Cadomyr's way of life if you do not even know our laws. They are clearly engraved upon Sir Reginald's statue in front of the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,7 +396,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
+talkEntry:addResponse("Keep your head out of the clouds, Greenhorn! Your on patrol duty till I'm in a better mood!  Head to the notary's office, then the palace, and be sure to check the gate! Report back with an uncommon events.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -383,7 +418,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
+talkEntry:addResponse("Ah, Greenhorn, just the recruit I wanted to see. Ready yourself for patrol duty. Head toward the notary's office, then the palace, and then to the gate. Report back any unusual events!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -404,8 +439,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Any uncommon events? I expect your written report later. Now let's have a beer before I send you on your next mission.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a beer, and you've advanced in Queen Rosaline Edwards' favor."));
+talkEntry:addResponse("Any uncommon events? I expect a written report later. Now let's have a beer before I send you out again!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
@@ -430,7 +465,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("What are you waiting for? Patrol the notary's office, the palace and the town gate!");
+talkEntry:addResponse("What are you waiting for Greenhorn? Patrol the notary's office, the palace, and the town gate!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +483,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("What are you waiting for? Patrol the tavern, the palace and the town gate!");
+talkEntry:addResponse("What are you waiting for Greenhorn? Patrol the notary's office, the palace, and the town gate!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +504,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
+talkEntry:addResponse("Less ye be blind you had to notice the small breach in the town wall. It's time you labor in the name of our Queen, Greenhorn; bring me twenty bricks so we can fix the breach. That is all, you are dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -491,7 +526,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
+talkEntry:addResponse("Less ye be blind you had to notice the small breach in the town wall. It's time you labor in the name of our Queen, Greenhorn; bring me twenty bricks so we can fix the breach. That is all, you are dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -513,8 +548,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster the next time!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brick mould, and you've advanced in Queen Rosaline Edwards' favor."));
+talkEntry:addResponse("Greenhorn! Imagine if we were under siege and it took you that long to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster the next time!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 599, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 8));
@@ -542,7 +577,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place.");
+talkEntry:addResponse("Twenty fired bricks are needed  to fix that town wall. If you need help, ask Robertus at the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,7 +595,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place.");
+talkEntry:addResponse("Twenty fired bricks are needed  to fix that town wall. If you need help, ask Robertus at the marketplace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -581,7 +616,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
+talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -603,7 +638,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
+talkEntry:addResponse("Alright Greenhorn you've proven yourself to be a grunt. Now it's time for some real work, need you to check out the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River, and the eastern border. We've unconfirmed reports of suspicious activity going on in those locations. You're dismissed.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -624,8 +659,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an albarian soldier helmet, and you've advanced in Queen Rosaline Edwards' favor."));
+talkEntry:addResponse("What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, Grunt! Take this fine Cadomyrian helm and wear it with honor!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 699, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
@@ -650,7 +685,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border.");
+talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +703,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border.");
+talkEntry:addResponse("The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north, and your patrol should also lead you to the eastern border..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -689,7 +724,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour V"));
-talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
+talkEntry:addResponse("You've proven yourself trustworthy Grunt, and I need you to scout several locations for me. Intelligence is vital for the kingdom's survival. We do not spy, but we do need to know about our enemies. Reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair, and the Archmage's chamber in Runewick.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -711,7 +746,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 11));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour V"));
-talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
+talkEntry:addResponse("You've proven yourself trustworthy Grunt, and I need you to scout several locations for me. Intelligence is vital for the kingdom's survival. We do not spy, but we do need to know about our enemies. Reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair, and the Archmage's chamber in Runewick.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -732,8 +767,8 @@ talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded enchanted albarian steelboots. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are rewarded with a pair of enchanted albarian steelboots, and you've advanced in Queen Rosaline Edwards' favor."));
+talkEntry:addResponse("Worry about the report later. For now, I am happy you made it back alive, Grunt. For your next patrol at least you'll have fitting footwear.");
 talkEntry:addConsequence(npc.base.consequence.item.item(771, 1, 699, 61));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
@@ -758,7 +793,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe.");
+talkEntry:addResponse("Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair, and the Archmage's chamber in Runewick.  Let me know who is friend or who is foe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -776,7 +811,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 12));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe.");
+talkEntry:addResponse("Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair, and the Archmage's chamber in Runewick.  Let me know who is friend or who is foe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +832,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VI"));
-talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
+talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on lubber as you might know. So I need you to provide twenty naldor wood boards for the reconstruction of the Malachín's temple.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -819,7 +854,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 14));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VI"));
-talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
+talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on lubber as you might know. So I need you to provide twenty naldor wood boards for the reconstruction of the Malachín's temple.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -841,8 +876,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
 talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a coppered dagger. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Good job, recruit! You did a good deed today for the glory of Cadomyr and Malachín. I award you this dagger which identifies you as a defender of Cadomyr.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a coppered dagger, and you've advanced in Queen Rosaline Edwards' favor."));
+talkEntry:addResponse("Good job, Grunt! You did a good deed today for the glory of Cadomyr and Malachín. I award you this dagger which identifies you as a defender of Cadomyr.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(546, 20));
 talkEntry:addConsequence(npc.base.consequence.item.item(398, 1, 799, 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 16));
@@ -870,7 +905,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause..");
+talkEntry:addResponse("Malachín is the patron of all knights and his temple really needs new panelling. Please fetch twenty naldor wood boards for this holy cause.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +923,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 15));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause.");
+talkEntry:addResponse("Malachín is the patron of all knights and his temple really needs new panelling. Please fetch twenty naldor wood boards for this holy cause.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,7 +944,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 16));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VII"));
-talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
+talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage, and a vase. All defenders that desire the title of knight must be willing to sacrifice for the glory of Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -931,7 +966,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 16));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VII"));
-talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
+talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage, and a vase. All defenders that desire the title of knight must be willing to sacrifice for the glory of Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -955,7 +990,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2559, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an enchanted knight shield. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an enchanted knight shield, and you've advanced in Queen Rosaline Edwards' favor."));
 talkEntry:addResponse("You are truly an altruistic knight of Cadomyr. Bear the crest of Cadomyr on your shield, the shield of a knight. I salute you!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(334, 1));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2559, 1));
@@ -990,7 +1025,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 17));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself.");
+talkEntry:addResponse("The Queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not fail your Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1008,7 +1043,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 17));
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addResponse("The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself.");
+talkEntry:addResponse("The Queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not fail your Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1144,7 +1179,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quartermaster");
-talkEntry:addResponse("I take my job serious and I am serious. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!");
+talkEntry:addResponse("I take my job serious and I am a serious person. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1157,7 +1192,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("knight");
 talkEntry:addTrigger("page");
-talkEntry:addResponse("So, you want to become a queen's knight like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!");
+talkEntry:addResponse("So, you want to become a knight of the Queen like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1237,7 +1272,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("What I totally miss in Runewick is a clear chain of command. They discuss and talk a lot and act little.");
+talkEntry:addResponse("What they totally miss in Runewick is a clear chain of command. They discuss and talk a lot and act little.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1252,7 +1287,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You can say whatever one wants to about Don Valerio: But he won't become a prince charming as long as I can still breath.");
+talkEntry:addResponse("You can say whatever you want about Don Valerio, but he'll never become a prince as long as I can still breath.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,7 +1302,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is a disturbing place. Everyone who can hold a sword holds also a grudge against Galmair... because... of the past.");
+talkEntry:addResponse("Galmair, swine and peasants the lot of them. If you call Cadomyr home you should remember your history and loath those bastards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1279,8 +1314,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.");
-talkEntry:addResponse("Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands.");
+talkEntry:addResponse("I swore loyalty to Queen Rosaline many years ago, and not a single day has gone by with regret. She is the most wise and just ruler a kingdom can have.");
+talkEntry:addResponse("Sometimes, a woman can be twice as courageous as a man, and our Queen is that example!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1295,8 +1330,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I swore loyality to Queen Rosaline many years ago. And not a single day I had to reget this decision. She is the most wise and just ruler a kingdom can have.");
-talkEntry:addResponse("Sometimes, a woman can be twice as courageous as a man. But only sometimes and queens are rather uncommon in these lands.");
+talkEntry:addResponse("I swore loyalty to Queen Rosaline many years ago, and not a single day has gone by with regret. She is the most wise and just ruler a kingdom can have.");
+talkEntry:addResponse("Sometimes, a woman can be twice as courageous as a man, and our Queen is that example!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1311,7 +1346,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Cadomyr is not just a town or a kingdom. It is an idea, a way of life. A vision and feeling - if you don't fit in, better leave us, now.");
+talkEntry:addResponse("Cadomyr is not just a town or a kingdom. This place is an idea and a way of life, a vision and a feeling. If you don't fit in you'd better leave us, be assured.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1324,7 +1359,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I know that the albarian kingdom does not really appreciate the existance of Cadomyr. But the albarians also accept that we are not the foe.");
+talkEntry:addResponse("I know that the Albarian kingdom does not really appreciate the existence of Cadomyr, but the Albarians also accept that we are not their foe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1338,7 +1373,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Did you know what they do in Gynk to punish foreigners that commit a crime? They release them - in the slums of Gynk. A capital punishment...");
+talkEntry:addResponse("Do you know what they do in Gynk to punish foreigners that commit a crime? They release them into the slums of Gynk. A capital punishment...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1352,7 +1387,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Salkamar lacks organisation. Other than that, it seems to be quite a nice place.");
+talkEntry:addResponse("Salkamar lacks organization. Other than that, it seems to be quite a nice place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1378,7 +1413,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1419,7 +1454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1432,7 +1467,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1445,7 +1480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1458,7 +1493,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1472,7 +1507,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Ah, yes, all proud knights pray to Malachín and eat their vegetables - forget all that! Loyality is what makes a knight, not begging for divine assistance.");
+talkEntry:addResponse("Ah, yes, all proud knights pray to Malachín and eat their vegetables - forget all that! Loyalty is what makes a knight, not begging for divine assistance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1486,7 +1521,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may even worship Moshran, I have no problem with that. But any jokes about the queen and you'd wish that you were never born.");
+talkEntry:addResponse("You may even worship Moshran, I have no problem with that, but any jokes about the Queen and you'd wish that you were never born.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1501,7 +1536,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1516,7 +1551,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1529,7 +1564,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1556,7 +1591,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1570,7 +1605,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("You may worship whatever god you want as long as you do obey the orders of her majesty. Loyality counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1613,7 +1648,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I would really enjoy talking to you all day long about soap and flowers, but meanwhile, our enemies would massacre Cadomyrs children.");
+talkEntry:addResponse("I would really enjoy talking to you all day long about soap and flowers, but meanwhile, our enemies would massacre Cadomyr's children.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1676,20 +1711,20 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Cadomyr.", "Welcome to Cadomyr.");
 talkingNPC:addCycleText("Zwerge sind ungewöhnlich für Cadomyr? Sehe ich ungewöhnlich aus? Ich zeig dir gleich ungewöhnlich!", "Dwarves are uncommon in Cadomyr? Do I look uncommon? I'll show you something uncommon!");
-talkingNPC:addCycleText("Ich bin es gewohnt, Befehle zu schreien. Hier im Inneren eines Hauses, brauche ich nicht zu schreien. Ihr werdet es aber, solltet ihr meine Befehle missachten.", "I am used to yell orders. But inside this house, I won't yell - but you'll scream if you disobey!");
+talkingNPC:addCycleText("Ich bin es gewohnt, Befehle zu schreien. Hier im Inneren eines Hauses, brauche ich nicht zu schreien. Ich werde es aber, solltet ihr meine Befehle missachten.", "I am used to yelling orders, but inside this house I'll keep my voice down. Should you disobey though, I promise you'll be the one yelling.");
 talkingNPC:addCycleText("Achtung!", "Attention!");
 talkingNPC:addCycleText("Du da! Komm mal her.", "You! Come here.");
-talkingNPC:addCycleText("Wo ist Gefreiter Rasselschwinger schon wieder!?", "Where is private Rattleswinger again!?");
+talkingNPC:addCycleText("Wo ist Gefreiter Rasselschwinger schon wieder!?", "Where is private Rattleswinger!?");
 talkingNPC:addCycleText("#me grummelt vor sich hin.", "#me curses silently.");
-talkingNPC:addCycleText("#me geht eine Liste durch und streicht einen Namen durch: 'Armer Kerl...'.", "#me browses a list and rules out a name: 'Poor fellow.'.");
-talkingNPC:addCycleText("Es gibt nichts ehrbareres als ein Duell bis zum Tod. Seine Prinzipien bis in den Tod treu zu bleiben, das macht einen Mann aus.", "There is nothing more honourable than a duell to death. To be true to one's principles until death, that is what makes a man.");
+talkingNPC:addCycleText("#me geht eine Liste durch und streicht einen Namen durch: 'Armer Kerl...'.", "#me browses a list and marks out a name, 'Poor fellow.'.");
+talkingNPC:addCycleText("Es gibt nichts ehrbareres als ein Duell bis zum Tod. Seine Prinzipien bis in den Tod treu zu bleiben, das macht einen Mann aus.", "There is nothing more honorable than a duel to death. To be true to one's principles until death, that is the mark of a true man.");
 talkingNPC:addCycleText("Alles in bester Ordnung.", "All clear.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Beror Oakaxe der königliche Quartiermeister.", "This NPC is Beror Oakaxe the royal quartermaster.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
+mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confusion etched over his face.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 101);
 mainNPC:setEquipment(11, 195);
