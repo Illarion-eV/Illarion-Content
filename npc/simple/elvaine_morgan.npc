@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Elvaine Morgan                                          Runewick --
--- NPC Job:  Archmage                                                         --
---                                                                            --
--- NPC Race: elf                        NPC Position:  898, 775, 2            --
--- NPC Sex:  male                       NPC Direction: east                   --
---                                                                            --
--- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: February 07, 2011                       easyNPC Parser v1.02 --
---------------------------------------------------------------------------------
-
 name = "Elvaine Morgan"
 race = elf
 sex = male
@@ -27,15 +15,15 @@ autointroduce = on
 author = "Rincewind"
 
 lookatDE = "Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und gewandt erscheinen seine Bewegungen."
-lookatUS = "translate!"
+lookatUS = "A gallant elv, long plaited Hair and gloomy grey eyes. A aura of insight and perspicuity surrounds him, affecting all people close to him. His face seems calm and his moves dexterous."
 useMsgDE = "Macht Euch doch keine Mühe, ihr verletzt Euch noch selbst."
-useMsgUS = "TRANSLATE"
+useMsgUS = "Do not bother yourself, you could possibly hurt yourself."
 wrongLangDE = "#me schaut dich ausdruckslos an. 'Wie bitte?'"
 wrongLangUS = "#me looks at you motionless. 'Excuse me?'"
 radius = 0
-hairID = 1
+hairID = 2
 beardID = 0
-colorHair = 209, 197, 199
+colorHair = 168, 165, 187
 colorSkin = 250, 239, 237
 itemHead = 0
 itemChest = 807
@@ -47,31 +35,24 @@ itemTrousers = 823
 itemShoes = 53
 
 -- Template Version 1.03 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
 
--- NPC by Rincewind
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Archmage Elvaine Morgan the ruler of Runewick. Keyphrases: Runewick, quest, gods, tower, magic.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Erzmagier Elvaine Morgan, der Herrscher über Runewick. Schlüsselwörter: Runewick, Quest, Götter, Türme, Magie.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "ENGLISH1", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Elara may be with you. Do you have a  request?", "Be greeted. Wich concern leads you to me?", "Good day. What for, you desire speaking to me?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "Elara may be with you. Do you have a  request?", "Be greeted. Wich concern leads you to me?", "Good day. What for, you desire speaking to me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Elara sei mit Euch. Habt ihr ein Anliegen das Ihr vortragen wollt?", "Seid gegrüßt. Welches Anliegen führt Euch zu mir?", "Guten Tag. Wozu, wollt Ihr mit mir sprechen?"
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell. I hope you estimate this conversation satisfying.", "Elara shall guard your way. May it be leaded by wisdom and perspicuity", "See you soon! For sure the gods inweaved us both destiny. Altough if it is just a tin thread."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer und kleiner Faden ist."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english ->"Farewell. I hope you estimate this conversation satisfying.", "Elara shall guard your way. May it be leaded by wisdom and perspicuity", "See you soon! For sure the gods inweaved us both destiny. Altough if it is just a tin thread."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl. Ich hoffe, Ihr befandet diese Unterhaltung für zufrieden stellend.", "Elara geleite Euch auf Euren Weg. Möge er von Weisheit erleuchtet sein.", "Bis bald, denn gewiss haben die Götter unsere Schicksale miteinander verwoben. - Auch wenn es nur ein geringer und kleiner Faden ist."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" -> "All in all, your question is noble but not very important.", "I'm pleased to see you caring about my wellfare. Altough I like to affirm, that there are only few problams a man of my abilities isn't able to handle.", "#me opens his hands in a welcome dramatic gesture. 'Runewick is my child and I'm worry about it, like every parents be worry about thier children.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Im Großen und Ganzen gesehen, ist Eure Frage sehr höflich aber nicht besonders wichtig.", "Ich freue mich zu sehen, das ihr Euch um mein Wohlergehen sorgt. Dennoch möchte ich Euch versichern, es gibt nur wenige Probleme die ein Mann meiner Fähigkeiten nicht zu überwinden vermag.", "#me breitet in einer dramatischen Geste die Arme aus. 'Runewick ist mein Kind und es bereitet mir Sorge, so wie alle Kinder ihren Eltern Sorgen bereiten.'"
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"your name", "who are you", "who art thou" -> "My name is old like long forgotten tales of early years and some of them my contain my name as well. 'Elvaine Morgan', founder and lord of this town.", "Morgan... Elvaine Morgan. Archmage of the four towers - Runewick's. Whats your desire to speak about?", "I'm archmage Morgan. - I hope your request is worth my time?"
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist so alt wie die Sagen aus vergangenen Zeiten und in manchen wird er wohl auch genannt werden. 'Elvaine Morgan', Gründer und Herr dieser Stadt.", "Morgan... Elvaine Morgen. Erzmagier der vier Türme von Runewick. Worüber wollt Ihr mit mir sprechen?", "Ich bin Erzmagier Morgan. - Ich hoffe Euer Anliegen ist es tatsächlich Wert beredet zu werden?"
 
 -- Quest 108: A message from Hector Valerion
@@ -81,27 +62,27 @@ itemShoes = 53
 "Hector", "Valerion", "quest", "mission", queststatus(108) = 12 -> inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."), "#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'", queststatus(108) = 13
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"quest", "mission", english -> "I regret, at the moment I don't like committing any tasks to you.", "For sure there are many things need to be done, altough I won't assign any to you right now.", "Selfunderstood there are many tasks to give away, but without any doubt you will fail at each single one of them. Therefore I have to take care about them in person."
 "quest", "mission" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
-"task", "adventure" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"task", "adventure" -> "I regret, at the moment I don't like committing any tasks to you.", "For sure there are many things need to be done, altough I won't assign any to you right now.", "Selfunderstood there are many tasks to give away, but without any doubt you will fail at each single one of them. Therefore I have to take care about them in person."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Ich bedaure, zur Zeit möchte ich keine meiner Aufgaben Euch anvertrauen.", "Gewiss muss viel erledigt werden, aber an Euch werde ich im Moment nichts delegieren.", "Selbstverständlich habe ich eine Reihe an Aufgaben zu vergeben, aber zweifellos würdet Ihr an jeder einzellnen scheitern. Also muss ich mich persönlich damit befassen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"profession" -> "I am the archmage. Therefor my person bears the responsibility for the four towers of Runewick and their properties", "It's my independent chosen duty to advise Runewick with my most prudent advice. - Now and again supporting with concrete deeds, occasionally.", "I'm the archmage, therefore very busy. I advise you to ask a novice for details of my position."
 "beruf" -> "Ich bin der Erzmagier. Also obliegt mir die Verantwortung über die Türme Runewicks und deren Wirken. Nicht mehr, aber auch nicht weniger.", "Es ist meine selbst auferlegte Pflicht, Runwick mit meinem bestem Rat und der einen oder anderen Tat zur Seite zu stehen.", "Ich bin der Erzmagier hier, demnach sehr sehr beschäftigt. Am Besten lasst ihr Euch das von einem Novizen erklären."
-"job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job", english -> "I am the archmage. Therefor my person bears the responsibility for the four towers of Runewick and their properties", "It's my independent chosen duty to advise Runewick with my most prudent advice. - Now and again supporting with concrete deeds, occasionally.", "I'm the archmage, therefore very busy. I advise you to ask a novice for details of my position."
 "job" -> "Ich bin der Erzmagier. Also obliegt mir die Verantwortung über die Türme Runewicks und deren Wirken. Nicht mehr, aber auch nicht weniger.", "Es ist meine selbst auferlegte Pflicht, Runwick mit meinem bestem Rat und der einen oder anderen Tat zur Seite zu stehen.", "Ich bin der Erzmagier hier, demnach sehr sehr beschäftigt. Am Besten lasst ihr Euch das von einem Novizen erklären."
-"Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath", english -> "Indeed, I am aware of Gobaith. But don't let us waste time and words beside the point.", "Selfunderstood I know about gobaith. A little group of siles far away from the mainland. I'm sure you understand that it couldn't be interesting for me in any matter.", "They told me, there are people who lived on Gobaith once. You should seek those, when insterested so much in this topic."
 "Gobaith", "Gobiath" -> "In der Tat ist mir Gobaith nicht unbekannt. Aber lasst uns keine Worte darüber verlieren, denn sie sind wohl kaum von Wert.", "Natürlich weiß ich von Gobaith. Eine kleinere Inselgruppe, weit entfert vom Festland. Aber sicher versteht ihr, dass es kaum von Interesse für mich ist.", "Ich ließ mir sagen es gibt Leute hier, die einst auf Gobaith lebten. Ihr solltet sie suchen und befragen, wenn ihr so bemüht seid mehr zu erfahren."
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "#me nickt etwas steif. 'Sehr erfreut. Wie kann ich Euch helfen?'", "Ausgezeichnet. Ich dachte mir bereits das ihr Euch vorstellen wolltet.", "#me schmunzelt: 'Das weiß ich natürlich, schließlich bin ich hier der Erzmagier.'"
+"my name" -> "#me gives a stiffy nod. 'Be welcome. How may I help you?'", "Excellent. I thought alredy you are willing to introduce yourself.", "#me smirks. 'Selfunderstood, I'm aware of this fact, after all I'm the archmage here.'"
+"mein Name" -> "#me nickt etwas steif. 'Sehr erfreut. Wie kann ich Euch helfen?'", "Ausgezeichnet. Ich dachte mir bereits das ihr Euch vorstellen wolltet.", "#me schmunzelt. 'Das weiß ich natürlich, schließlich bin ich hier der Erzmagier.'"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"holy", "ancestors", "path", "seeker" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"tower", "four" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mage", "magic", "wizard", "theurgy" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Lor Angur" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"holy", "ancestors", "path", "seeker" -> "The traditional belive of the elven folk. - 'The Path of the Seeker'", "Founded by years of meditation and a livespan wich exceed the life of menkind several times, most the elven folk beholds circumstances and happenings out of a diffrent point of view."
+"tower", "four" -> "The four towers of Runewick. The tower of earth. The tower of water. The tower of fire and the tower of air. Together they form a mighty arcane structure and wich is important fackt as well - they are looking good."
+"mage", "magic", "wizard", "theurgy" -> "Well, Runwick is floated by magic and many scholars predent to feel the prikle in the top of their fingers. *he twinkles*", "Magic and wizardry, since the beginning those are the tools of Runewick's aims. Not for nothing a archmage is the leader of the four towers.", "Magic is omnipresent, in the towers of Runewick. Do not touch wrong stuff, otherwise you will end as a toad one sad day."
+"Lor Angur" -> "Yes, you asked arround allredy I assume? Some time ago I moved here and placed the headstone of the four towers.", "Indeed, long time ago I spend my time in Lor Angur. But this age is past and there a only few reasons to invest my time by thinking of it.", "You are well aware, once I lived in Lor Angur. But actually I do not mind to talk about yet."
+"Runewick", english -> "This is Runewick. each of the four towers represents an elemet. Earth. Water. Fire. Air. Here is wisdom the most precious good.", "Runewick isn't just a twon, you have to know. Runewick's name symbols wisdom and the power of mind.", "I thank Elara every day for the prudence mind, she awards the citizens of the four towers."
 "Runewick" -> "Dies ist Runewick. Jeder der vier Türme steht für ein Element. Erde. Wasser. Feuer. Luft. Hier ist die Weisheit der Leute Gut.", "Runewick ist nicht nur eine Stadt, müsst Ihr wissen. Runewick's Name steht für Weisheit und die Kraft des Geistes.", "Ich danke Elara jeden Tag für die starke geistige Kraft die sie den Bürgern der vier Türme verleiht. Denn die Weisheit selbst ist unser höchstes Gut."
 "Lor Angur" -> "Ja, ihr habt Euch wohl bereits umgehört, nicht wahr? Ich zog einst aus Lor Angur hier her und legte den Grundstein der vier Türme.", "In der Tat, vor langer Zeit lebte ich in Lor Angur. Aber diese Zeit ist fern und es gibt wenig Gründe meine Zeit damit zu vertun, darüber zu sinnieren.", "Einst lebte ich in Lor Angur, ihr seid gut unterichtet. Aber es liegt mir fern mich mit Euch darüber zu unterhalten."
 "Magie", "zauber" -> "Nun, Runewick ist durchwirkt von Magie und viele Gelehrte meinen sie könnten das Prickeln in den Fingerspitzen fühlen. *zwinkert*", "Magie und Zauberei, darauf hat sich Runewick seit je her besonnen. Nun schließlich leitet nicht umsonst ein Erzmagier das Geschick der vier Türme.", "Magie ist hier in den Türmen Runewicks allgegenwärtig. Fasst nicht die falschen Dinge an, oder es mag sein, dass Ihr Euch eines Tages in einen Frosch verwandelt."
@@ -109,16 +90,16 @@ itemShoes = 53
 "heilig", "Urahnen", "suchenden", "pfad" -> "Der traditionelle Glaube der Elfengemeinschaft. - Der Pfad der Suchenden.", "Durch meditationsbedingter geistiger Klarheit und einem Leben das über viele Lebensspannen der Menschen hinaus geht sehen wir Elfen die Dinge und Geschehnisse oft aus einer anderen Sichtweiße."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"Valerio", "Guilianni", "Don", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don", english -> "It doesn't matter to pretend I havn't dissension with Valerio, altough this is nothing concerning you.", "Well... I think you would know these things alredy, if you would be supposed to know such things. Therefore I won't give information concering the leader of Galmair.", "Selfunderstood you are aware of, that my opinion about Don Guilianni is a thing beetween the two of us only."
 "Valerio", "Guilianni", "Don" -> "Es macht keinen Sinn vorzugeben ich hätte keine Differenzen mit Valerio, aber näheres geht Euch jetzt wirklich nicht's an.", "Nun... ich denke, wenn ihr von diesen Dingen wissen solltet wüsstet Ihr es bereits. Also bin ich nicht bereit Auskünfte hierüber zu verteilen.", "Sicherlich seid Ihr Euch im klaren darüber, dass meine Meinung über Don Guilianni eine Sache ist, die ausschließlich mich und Don Guilianni selbst betrifft."
-"Galmair", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair", english -> "The metall and the coal in the mines of Galmair feeds the cupidity of the citizens since years. When the mines became empty they have to see, that wisdom is the only worthwhile good.", "Galmair trys to reach wealth and abundance since all along. Rationality and temperateness are unknwon. Dissoluteness and greedy decicions will put the town to an end once.", "I don't take the citizens of Galmair for unconscious fools. But their aims and plans wich are always dominated by greedines, are hard unpredictable."
 "Galmair" -> "Das Metall und die Kohlen in den Böden Galmairs nähren die Habgier seiner Bürger. Doch wenn die Minen erschöpft sind wird man erkennen müssen, dass Weisheit das einzige erstrebenswerte Gut ist.", "Galmair trachtet seit jäh her nach Wohlstand und Reichtum. Vernunft und Gemäßigtheit sind ihnen fremd. Zügellosigkeit und gierige Entscheidungen werden diese Stadt einmal zu Grunde richten.", "Ich halte die Bürger Galmairs keinesweges für besinnungloße Leichtgeistige. Doch ihre Ziele und Pläne die stehts von Gier dominiert werden, sind nur wenig undurchschaubar."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Queen" -> "Queen Rosaline, well she is... a sphinx without mystery. I'm allways supprised how few, this bloodline learned out of the mistakes maked by their ancestors.", "The short lifespan of menkind may delimitate their world. On the other hand they suprise me again and again with thier impressive deeds.", "Well I remember Rosalines grandfather. A noteable human in several aspects. - Like his son, and now we have to observe the destiny of his doughter."
 "Königin" -> "Königin Rosaline, nun sie ist... eine Sphinx ohne Geheimnisse. Dabei ist es erstaunlich wie wenig diese Blutslinie aus den Fehlern ihrer Vorfahren gelernt hat.", "Die kurzlebigkeit der Menschen mag ihre Welt beschränken. Allerdings finde ich es doch immer wieder erstaunlich wozu sie denoch fähig sind.", "Nun, ich errinere mich noch gut an Rosalines Großvater. Ein bemerkenswerter Mensch in mancherlei Hinsicht. So wie sein Sohn. Und nun, soll sich zeigen ob dessen Tochter ein ähnliches Schicksal erwartet."
-"rosaline", "edwards", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards", english -> "Queen Rosaline, well she is... a sphinx without mystery. I'm allways supprised how few, this bloodline learned out of the mistakes maked by their ancestors.", "The short lifespan of menkind may delimitate their world. On the other hand they suprise me again and again with thier impressive deeds.", "Well I remember Rosalines grandfather. A noteable human in several aspects. - Like his son, and now we have to observe the destiny of his doughter."
 "rosaline", "edwards" -> "Königin Rosaline, nun sie ist... eine Sphinx ohne Geheimnisse. Dabei ist es erstaunlich wie wenig diese Blutslinie aus den Fehlern ihrer Vorfahren gelernt hat.", "Die kurzlebigkeit der Menschen mag ihre Welt beschränken. Allerdings finde ich es doch immer wieder erstaunlich wozu sie denoch fähig sind.", "Nun, ich errinere mich noch gut an Rosalines Großvater. Ein bemerkenswerter Mensch in mancherlei Hinsicht. So wie sein Sohn. Und nun, soll sich zeigen ob dessen Tochter ein ähnliches Schicksal erwartet."
-"Cadomyr", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "Wenn ein Feind um jemandens ehrenhaften Kodex weiß, mag sich das für den dem die Ehre ein göttliches Gut ist, eventuell als gefährliches Hinderniss erweisen.", "Cadomyrs Kodex der Ehre, macht es langsam und träge - vorhersehbar. Stets, könnte ein kluger Mann die Pläne der Stadt ersinnen. Veränderung ereignen sich nur langsam, wenn sie nicht so und so versickern.", "Cadomyr mag standhafte Streiter haben. Doch viel zu nah liegt der Unterschied zwischen Tapferkeit und Torheit. Der Adel Cadomyrs spaltet sich an der Weiblichkeit von Rosaline Edwards und Uneinigkeit schwächt die Stadt."
+"Cadomyr", english -> "If an enemy knows about somones honorable code, may this be a dangerous barrier for those who admit the honor as godly good.", "Cadomyrs code of honor slows it down and makes their army shiftless - predictable. Always a smart man will be able to fugure out the plans of the town. Change occour slowly, or is drain away anyway.", "Cadomyr may possess firm combatants. But too slippery is the difference between courage and foolery. Cadomyrs nobility is twain by Rosaline Edwards muliebrity - making the town even weaker."
+"Cadomyr" -> "Wenn ein Feind um jemandens ehrenhaften Kodex weiß, mag sich das für den dem die Ehre ein göttliches Gut ist, eventuell als gefährliches Hindernis erweisen.", "Cadomyrs Kodex der Ehre, macht es langsam und träge - vorhersehbar. Stets, könnte ein kluger Mann die Pläne der Stadt ersinnen. Veränderung ereignen sich nur langsam, wenn sie nicht so und so versickern.", "Cadomyr mag standhafte Streiter haben. Doch viel zu nah liegt der Unterschied zwischen Tapferkeit und Torheit. Der Adel Cadomyrs spaltet sich an der Weiblichkeit von Rosaline Edwards und Uneinigkeit schwächt die Stadt."
 
 -- Main land factions
 "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
