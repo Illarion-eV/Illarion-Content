@@ -19,7 +19,7 @@ function Init()
     messageG={};
    messageE[0]="This monument shows Sir Reginald Edwards, the departed king of Cadomyr and father of Queen Rosaline. The customs of Cadomyr are engraved upon a brass plate at the bottom of the pedestal."
    messageG[0]="Dieses Monument zeigt Sir Reginald Edwards, den verstorbenen König Cadomyrs und Vater von Königin Rosaline. Die Sitten Cadomyrs sind auf einer Messingtafel am Sockel den Monuments zu lesen.";
-    messageE[1]="I. Faith: Worship the gods, they alone are true and almighty."
+    messageE[1]="I. Faith: Worship the Gods, they alone are true and almighty."
    messageG[1]="I. Glaube: Ehre die Götter. Nur sie alleine sind wahrhaftig allmächtig.";
     messageE[2]="II. Obedience: Be loyal and obedient, your monarch represents the will of the gods."
    messageG[2]="II. Gehorsam: Sei loyal und folgsam. Dein Monarch verkörpert den Willen der Götter.";
@@ -35,7 +35,7 @@ function Init()
    messageG[7]="VII. Courage: Fürchte nicht. Stehe für deinen Monarchen und dein Ehre ein. Kein Rückzug, niemals aufgeben.";
    messageE[8]="VIII. Patriarchy: Obey your father, obey your husband, but never your lesser."
    messageG[8]="VIII. Patriarchat: Gehorche dem Vater. Gehorche dem Ehemann. Aber gehorche nicht dem Sohn.";
-   messageE[9]="IX. Property: What is yours will remain yours be it crop, dog, or man."
+   messageE[9]="IX. Property: What is yours will remain yours, be it crop, dog, or man."
    messageG[9]="IX. Besitz: Was dein ist, soll auch dein bleiben, sei es Getreide, Hund oder Mann.";
    messageE[10]="X. Responsibility: In all things you are bound to your word and duty. The origin of success is effort and determination."
    messageG[10]="X. Verantwortung: Deine Taten hängen dir nach. Nur du bist ihr Ursprung.";
