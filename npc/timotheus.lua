@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 30, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -294,7 +294,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.");
 talkEntry:addResponse("Ja, genau! All diese Flüchtlinge aus Gobaith...");
 talkEntry:addResponse("Die gute alte Insel gibt es nicht mehr, richtig?");
@@ -447,7 +446,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich glaube zu wissen, dass Sir Reginald von Cadomyr Land in Albar besessen hat.");
 talkEntry:addResponse("Merkwürdige Sitten haben sie, die Albarier.");
 talkEntry:addResponse("Ist das nicht irgendwo am Ende der Aramonberge?");
@@ -466,7 +464,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ruchlose Schweine, das sind sie.");
 talkEntry:addResponse("Umgeben von Pirateninseln, mich überrascht gar nichts mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -483,7 +480,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Oberhalb der Mittelberge - eine schöne Stadt, das ist es wahrhaftig.");
 talkEntry:addResponse("Erzmagier Morgan stammt aus Salkamar, wußtet ihr das?");
 talkEntry:addResponse("Oh, wie ich mich nach den Gassen von Salkamar sehne.");
@@ -527,7 +523,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -583,7 +578,7 @@ talkingNPC:addCycleText("GERMAN", "#me begins to mumble: '...and so Mesha Gobble
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Schneider Timotheus.", "This NPC is the tailor Timotheus.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);

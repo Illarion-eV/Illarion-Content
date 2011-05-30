@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: May 30, 2011                            easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -25,8 +25,8 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatDE = "Dieser NPC ist der Schneider Timotheus."
+lookatUS = "This NPC is the tailor Timotheus."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -109,7 +109,7 @@ itemShoes = 53
 "trader", "merchant", "collegue", "vendor", "market" -> "Well of course there is NAME. He sells the goods all the farmers have been working for on the fields.", "Wise old NAME, he sells all the goods for your studies late at night.", "NAME over there is the finest cook there has been in a long time."
 "händler", "kollege", "höker", "markt" -> "Nun, da gibt es Fred. Er handelt mit all dem, was Bauern auf den Feldern bestellt haben.", "Der alte, weise Wilbert wird euch alles verkaufen, was ihr bei nächtlichen Studien benötigt.", "Carlton dort drüben ist der beste Koch weit und breit."
 "Gobaith", english -> "Gobaith? No one goes there anymore man! It's a shadow of it's former glory.", "Ah that's right! All these Gobaithian refugees...", "That good old island isn't much anymore is it?"
-"Gobaith", german -> "Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.", "Ja, genau! All diese Flüchtlinge aus Gobaith...", "Die gute alte Insel gibt es nicht mehr, richtig?"
+"Gobaith" -> "Gobaith? Da wagt sich niemand mehr hin. Es ist nur noch ein Schatten längst vergangenen Ruhmes.", "Ja, genau! All diese Flüchtlinge aus Gobaith...", "Die gute alte Insel gibt es nicht mehr, richtig?"
 "Timmy", english -> "I am not living a lie!"
 "Timmy" -> "Ich lebe keine Lüge!"
 
@@ -129,11 +129,11 @@ itemShoes = 53
 
 -- Main land factions
 "albar", english -> "Sir Reginald of Cadomyr owned land in Albar I believe.", "Strange customs, those albarians.", "Isn't that somewhere at the end of the Aramon mountains?"
-"albar", german -> "Ich glaube zu wissen, dass Sir Reginald von Cadomyr Land in Albar besessen hat.", "Merkwürdige Sitten haben sie, die Albarier.", "Ist das nicht irgendwo am Ende der Aramonberge?"
+"albar" -> "Ich glaube zu wissen, dass Sir Reginald von Cadomyr Land in Albar besessen hat.", "Merkwürdige Sitten haben sie, die Albarier.", "Ist das nicht irgendwo am Ende der Aramonberge?"
 "gynk", "gync", english -> "Lawless pigs, that's what they are.", "Surrounded by pirate islands. Doesn't surprise me!"
-"gync", "gynk", german -> "Ruchlose Schweine, das sind sie.", "Umgeben von Pirateninseln, mich überrascht gar nichts mehr."
+"gync", "gynk" -> "Ruchlose Schweine, das sind sie.", "Umgeben von Pirateninseln, mich überrascht gar nichts mehr."
 "salkama", english -> "Above the Middle Mountains. Beautiful city, truely it is!", "Archmage Morgan came from Salkamar, did you know that?", "Oh how I long for it's streets."
-"salkama", german -> "Oberhalb der Mittelberge - eine schöne Stadt, das ist es wahrhaftig.", "Erzmagier Morgan stammt aus Salkamar, wußtet ihr das?", "Oh, wie ich mich nach den Gassen von Salkamar sehne."
+"salkama" -> "Oberhalb der Mittelberge - eine schöne Stadt, das ist es wahrhaftig.", "Erzmagier Morgan stammt aus Salkamar, wußtet ihr das?", "Oh, wie ich mich nach den Gassen von Salkamar sehne."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "Elara", english -> "Elara brings us all knowledge. At least, that is what I believe.", "Elara's blessings elevated one."
@@ -143,7 +143,7 @@ itemShoes = 53
 
 -- Catching quest triggers
 "quest", english -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
-"quest", german -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
+"quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
 "task", "adventure" -> "Adventures? I'm pretty happy with my robes thank you."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
 
