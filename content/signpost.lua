@@ -232,17 +232,10 @@ function InitWegweiser()
     AddGrave({725,369,0},"","", 1,0);
     AddGrave({745,369,0},"","", 3,0);
     AddGrave({773,369,0},"","", 2,0);
-    AddGrave({791,353,0},"","", 2,0);
+    AddGrave({791,353,0},"","", 2,0);--Witch's Cottage
     AddGrave({712,371,0},"","", 1,0);
     --Death's Stench
     AddGrave({805,586,0},"","", 3,0);
-    --Elstree Plain
-    AddGrave({751,378,0},"","", 1,0);
-    AddGrave({720,426,0},"","", 1,0);
-    --Elven Ruins
-    AddGrave({549,451,0},"","", 1,0);
-    AddGrave({547,439,0},"","", 1,0);
-    AddGrave({547,440,0},"","", 1,0);
     --Death Swath
     AddGrave({501,462,0},"","", 1,0);
     AddGrave({504,463,0},"","", 3,0);
@@ -259,6 +252,13 @@ function InitWegweiser()
     AddGrave({537,492,0},"","", 1,0);
     AddGrave({536,496,0},"","", 3,0);
     AddGrave({545,501,0},"","", 3,0);
+	--Elstree Plain
+    AddGrave({751,378,0},"","", 1,0);
+    AddGrave({720,426,0},"","", 1,0);
+    --Elven Ruins
+    AddGrave({549,451,0},"","", 1,0);
+    AddGrave({547,439,0},"","", 1,0);
+    AddGrave({547,440,0},"","", 1,0);
     --Galmair
     AddGrave({393,178,-6},"","", 1,0);--Hog Dens
     AddGrave({393,180,-6},"","", 3,0);--Hog Dens
@@ -568,10 +568,10 @@ function InitWegweiser()
 	AddPennant({666,448,0},"","", 7,5);
 	AddPennant({670,448,0},"","", 7,5);
 	--Death Marsh
-	AddPennant({795,361,0},"","", 7,5);
-    AddPennant({797,361,0},"","", 7,5);
-	AddPennant({795,356,0},"","", 7,5);
-    AddPennant({797,356,0},"","", 7,5);
+	AddPennant({795,361,0},"","", 7,5);--Witch's Cottage
+    AddPennant({797,361,0},"","", 7,5);--Witch's Cottage
+	AddPennant({795,356,0},"","", 7,5);--Witch's Cottage
+    AddPennant({797,356,0},"","", 7,5);--Witch's Cottage
     --Dragon lair
 	AddPennant({837,677,1},"","", 7, 5);
 	AddPennant({837,677,1},"","", 7, 5);
@@ -686,6 +686,8 @@ function InitWegweiser()
 	AddTree({734,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	AddTree({754,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	AddTree({754,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	--Bramus REst
+	AddTree({752,378,0},"","", 1,5);
 	--Gnuremground
 	AddTree({578,708,0},"","", 1,5);
 	AddTree({576,712,0},"","", 1,5);
@@ -864,6 +866,7 @@ function InitWegweiser()
     --Death Marsh
     AddPillar({748,337,0},"","", 1,5);
     AddPillar({709,378,0},"","", 1,5);
+    AddPillar({732,379,0},"","", 2,5);
     --Death's Stench
     AddPillar({804,549,0},"","", 5, 5);
     AddPillar({784,581,0},"","", 2, 5);
