@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: April 11, 2011                          easyNPC Parser v1.02 --
+-- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -84,16 +84,6 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hiho");
-talkEntry:addTrigger("Hallo");
-talkEntry:addTrigger("Hey");
-talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -128,7 +118,9 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("");
+talkEntry:addResponse("Please come again. I will cook better next time, I promise.");
+talkEntry:addResponse("Oh, You're leaving already? Was the food bad?");
+talkEntry:addResponse("Thank you, come again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -157,7 +149,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
-talkEntry:addResponse("I feel like a thousand sun shines upon a cloudless sky. Hehehhe, that's what daddy allays says.");
+talkEntry:addResponse("I feel like a thousand suns shineing upon a cloudless sky. Hehehhe, that's what daddy allways says.");
 talkEntry:addResponse("I'm very very very busy. No time to chit chat.");
 talkEntry:addResponse("AHH! The chicken is on fire! Why would you try to talk to me while I'm cooking.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -178,9 +170,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Ce Darknight. I may not look it, but I am the best cook in Cadomyr.");
-talkEntry:addResponse("I am Ce. Hahhahahahaha. I'm sorry you made a funny face.");
-talkEntry:addResponse("I'm Ce I'll cook you something special if you ask.");
+talkEntry:addResponse("I'm Linda Rabon I may not look it, but I am the best cook in Cadomyr.");
+talkEntry:addResponse("I am Linda. Hahhahahahaha. I'm sorry you made a funny face.");
+talkEntry:addResponse("I'm Linda I'll cook you something special if you ask.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,7 +189,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a cook. Well I'm the cook. Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
+talkEntry:addResponse("I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
 talkEntry:addResponse("I make the food that you all eat.");
 talkEntry:addResponse("Daddy says that I am part owner of this shop.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -214,7 +206,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm a cook. Well I'm the cook. Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
+talkEntry:addResponse("I'm a cook. Well I'm the cook. I Can make hummus, boiled noodle leaf, breaded red sweet and my specialty is fried sand rat.");
 talkEntry:addResponse("I make the food that you all eat.");
 talkEntry:addResponse("Daddy says that I am part owner of this shop.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -232,8 +224,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("We live there.");
-talkEntry:addResponse("Mommy says it's an island surrounded by water.");
+talkEntry:addResponse("I think we live there.");
 talkEntry:addResponse("Is Cadomyr in Golbaith? I don't know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -250,14 +241,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass Spiegal");
 talkEntry:addResponse("Daddy and Mommy built this place");
-talkEntry:addResponse("This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it, get it?");
+talkEntry:addResponse("This place is called glass because sand turns to glass when it is cooked. And we cook in this place. Get it.. get it?");
 talkEntry:addResponse("I want to get married here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Daddy");
-talkEntry:addTrigger("Kay");
+talkEntry:addTrigger("Severus");
 talkEntry:addResponse("He says he is the best dad in Cadomyr. I agree with him. His is the best dad. And if anyone says he's not. Well, they get no dinner from me.");
 talkEntry:addResponse("I wonder what daddy's going to get me for my birthday?");
 talkEntry:addResponse("Daddy wishes he could be as good of a cook as me.");
@@ -268,7 +259,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mommy");
 talkEntry:addTrigger("Rose");
 talkEntry:addResponse("Daddy used to be the cook and mommy the waitress, but since I am the best cook in Cadomyr. I am the cook, Daddy is the waitress, and Mommy greets people at the door.");
-talkEntry:addResponse("Mommy say when I grow Up I'm going to be beautiful.");
+talkEntry:addResponse("Mommy says when I grow Up I'm going to be beautiful.");
 talkEntry:addResponse("Mommy is too nice. She is even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -287,7 +278,7 @@ talkEntry:addTrigger("Ouchpan");
 talkEntry:addTrigger("yang");
 talkEntry:addResponse("He's soooooo big. He picked me up once. I felt like I was touching the stars.");
 talkEntry:addResponse("Did you know that Mr. Yang can play the Oboe. He plays it sometimes. You should ask him to play.");
-talkEntry:addResponse("Mr Yang Is very nice. Him and my mother never get mad.");
+talkEntry:addResponse("Mr Yang is very nice. Him and my mother never get mad.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -398,6 +389,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
+talkEntry:addTrigger("queen");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("She is beautiful isn't she.");
 talkEntry:addResponse("My mom says that Rosaline is very smart.");
@@ -453,7 +445,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("That place has a cool name, where is it.");
+talkEntry:addResponse("That place has a cool name, where is it?");
 talkEntry:addResponse("Nope I've never been to Saikama.");
 talkEntry:addResponse("I've never left cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -730,8 +722,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Linda");
+talkEntry:addTrigger("Rabon");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -774,7 +766,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
-talkEntry:addResponse("This discussion is not relevant to me");
+talkEntry:addResponse("This discussion is not relevant to me.");
 talkEntry:addResponse("Maybe say something like Quest or Task. People respond well to those words.");
 talkEntry:addResponse("I have no intention of buying your chicken.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -782,6 +774,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20));
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
@@ -789,7 +782,7 @@ talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("ENGLISH.", "Suger, spice, everything nice, rat, cat everthings great.");
-talkingNPC:addCycleText("ENGLISH.", "It's almost my birthday. I CAN'T WAIT");
+talkingNPC:addCycleText("ENGLISH.", "It's almost my birthday. I can't wait!");
 talkingNPC:addCycleText("ENGLISH.", "Today I am cooking a unique dish. It requires smails lightly touched in flame. Pepper from the black forest. Juice for a sour fruit, and like three other things I can't tell you. Hahahahaha. This is going to be good.");
 talkingNPC:addCycleText("ENGLISH.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking. I mean all my cooking goes to time. Wait what?");
 talkingNPC:addCycleText("ENGLISH.", "Daddy can you bring up more chicken please.");
