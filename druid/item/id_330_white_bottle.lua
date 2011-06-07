@@ -25,10 +25,10 @@ function DoDruidism(Character,SourceItem)
 		ListSkillID = {}
 		firsttime = 1
 	end
-	ListCodecs={45942235,62483256,32529515,15751754,82897532,63296636,49582625,95738184,53261566,93538334}
+	ListCodecs={45942235,62483256,32529515,15751754,82897532,63296636,93538334}
 	ListLanguages={"human language","dwarf language","elf language","lizard language","orc language","halfling language","fairy language","gnome language","goblin language","ancient language"}
-	ListSkillID = {1,2,3,4,5,6,7,8,9,10}
-	ListSkillGroup={1,1,1,1,1,1,1,1,1,1}
+	ListSkillID = {1,2,3,4,5,6,10}
+	ListSkillGroup={1,1,1,1,1,1,1}
 
 
   for i=1,table.getn(ListCodecs) do
@@ -269,15 +269,6 @@ function LookAtItem(User,Item)
     elseif Item.data == 63296636 then
         EtikettDe = "Halblingssprache"
         EtikettEn = "Halfling Language Potion"
-    elseif Item.data == 49582625 then
-        EtikettDe = "Feensprache"
-        EtikettEn = "Fairy Language Potion"
-    elseif Item.data == 95738184 then
-        EtikettDe = "Gnomsprache"
-        EtikettEn = "Gnomish Language Potion"
-    elseif Item.data == 53261566 then
-        EtikettDe = "Goblinsprache"
-        EtikettEn = "Goblin Language Potion"
     elseif Item.data == 93538334 then
         EtikettDe = "Alten Sprache"
         EtikettEn = "Ancient Language Potion"
