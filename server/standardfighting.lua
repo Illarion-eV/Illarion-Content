@@ -176,21 +176,27 @@ end;
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
 function CalculateDamage(Attacker, Globals)
-    local BaseDamage = 500;
-    local weaponDamage;
+    local BaseDamage;
+    local StrengthBonus;
+    local PerceptionBonus;
+    local DexterityBonus;
+    local SkillBonus;
+    local TacticsBonus;
     
     if Attacker.IsWeapon then
-        weaponDamage = BaseDamage + (Attacker.Weapon.Attack - 100) / 100
-        * (BaseDamage / 2);
+        BaseDamage = Attacker.Weapon.Attack * 10;
     else
-        weaponDamage = BaseDamage
-        + (content.fighting.GetWrestlingAttack( Attacker.Race ) - 100) / 100
-        * (BaseDamage / 2);
+        BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
     
-    Globals["Damage"] = weaponDamage + (weaponDamage * ((Attacker.tactics / 140
-        + Attacker.strength / 80 + Attacker.perception / 120
-        + Attacker.skill / 180)));
+    StrengthBonus = (Attacker.strength - 6) * 3;
+    PerceptionBonus = (Attacker.perception - 6) * 1;
+    DexterityBonus = (Attacker.dexterity - 6) * 1;
+    SkillBonus = (Attacker.skill - 20) * 1;
+    TacticsBonus = (Attacker.tactics - 20) * 0.5;
+
+    Globals["Damage"] = BaseDamage * (100 + BaseDamage + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus)/100;
+    
 end;
 
 --- Deform some final checks on the damage that would be caused and send it to
@@ -261,12 +267,14 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = ((20 + Attacker.skill)
-        * (100 + content.fighting.BonusHitChance(Attacker, Defender)))
+    local chance = (20 + Attacker.skill)
         / ((20 + Defender.dodge)
-            * (100 + content.fighting.BonusDodgeChance(Attacker, Defender))
             * 2);
-    
+    if (Attacker.isWeapon) then
+        chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
+    else
+        chance = chance * (40 + content.fighting.GetWrestlingAccuracy( Attacker.Race )) / 100;
+    end;
     return base.common.Chance(chance);
 end;
 
