@@ -159,51 +159,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         return;
     end
     
-    -- Letzter Versuch. Vielleicht ist es ja Faulbaumrinde
-    local rtbInHand = druid.base.alchemy.CheckIfRtbInHand(User);
-    if rtbInHand then
-        -- Faulbaumrinde ist da
-        if not bottleInHand then
-            -- aber keine Flasche
-            base.common.InformNLS( User,
-                "Du brauchst eine Flasche wenn du einen Sud mischen willst.",
-                "You need a bottle if you want to brew a broth."
-            );
-            return;
-        end
-        
-        -- Flasche ist da
-        if( bottleInHand.id == 164 )then
-            -- doch die Flasche ist leer
-            base.common.InformNLS( User,
-                "Du musst schon erst einen Sud mischen wenn du ihn mit Faulbaumrinde neutralisieren willst.",
-                "You need to mix a broth before you neutralize it with rotten tree bark."
-            );
-            return;
-        end
-        
-        -- alles in Ordnung! Weg mit der Rinde
-        User:increaseAtPos(rtbInHand.itempos,-1);
-        
-        -- Datawert der Flasche aufspalten
-        local dataZList = SplitBottleData(User,bottleInHand.data);
-        
-        -- Und alle Werte um 1 dem Mittelwert annähern
-        for i=1,8 do
-            if (dataZList[i] > 5) then
-                dataZList[i] = dataZList[i] - 1
-            elseif (dataZList[i] < 5) then
-                dataZList[i] = dataZList[i] + 1         
-            end        
-        end
-        
-        -- neuen Datawert generieren
-        bottleInHand.data = druid.base.alchemy.PasteBottleData(User,dataZList);
-        
-        -- und das Item speichern
-        world:changeItem(bottleInHand);
-        return;
-    end
+    
  
     base.common.InformNLS( User,
         "Du musst eine Sud-Pflanze in die Hand nehmen.",
