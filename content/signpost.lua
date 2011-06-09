@@ -1377,11 +1377,11 @@ function DirToItemID(Value)
         return 3083
     elseif (Value==11) then
         return 519
-    elseif (Value==13) then
-        return 521
-    elseif (Value==14) then
-        return 520
     elseif (Value==12) then
+        return 521
+    elseif (Value==13) then
+        return 520
+    elseif (Value==14) then
 	    return 337
     elseif (Value==21) then
         return 1914
