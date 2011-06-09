@@ -302,8 +302,8 @@ function InitWegweiser()
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);
    	--Moshran's Brood
-    AddGrave({410,726,0},"","", 1,0);
-    AddGrave({409,734,0},"","", 3,0);
+    AddGrave({410,726,0},"Bald deines!","Soon yours!", 1,5);
+    AddGrave({409,734,0},"~Als du den Grabstein näher untersuchst vernimmst du einen schmerzerfüllten Schrei.~","~You hear a painful cry when you investigate the tomb stone.~", 3,0);
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims.", 3,0);
@@ -618,12 +618,13 @@ function InitWegweiser()
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);
 	--Moshran's Brood
-    AddPennant({391,743,0},"","", 1,5);
-    AddPennant({393,743,0},"","", 1,5);
-    AddPennant({398,743,0},"","", 7,5);
+    AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
+    AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
+    AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you have still your legs!", 7,5);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
-    --Lost Building (2)
+    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
+	--Lost Building (2)
     AddPennant({277,605,0},"","", 5,5);
     AddPennant({277,596,0},"","", 5,5);
     AddPennant({269,599,0},"","", 6,5);
@@ -632,8 +633,8 @@ function InitWegweiser()
     AddPennant({290,474,0},"","", 5,5);
     AddPennant({262,488,0},"","", 6,5);
 	--Lumpskrums Band
-	AddPennant({361,752,0},"","", 1,5);
-    AddPennant({357,752,0},"","", 1,5);
+	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
+    AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
     --Royal Slave Market
 	AddPennant({325,627,0},"","", 5,5);
 	AddPennant({325,629,0},"","", 5,5);
@@ -807,10 +808,10 @@ function InitWegweiser()
     AddPillar({155,670,-3},"","", 8,5); --dungeon
     AddPillar({159,670,-3},"","", 8,5); --dungeon
 	--Chapel of the Five
-	AddPillar({476,800,0},"","", 1,5);
-    AddPillar({476,791,0},"","", 1,5);
-	AddPillar({470,793,0},"","", 1,5);
-    AddPillar({470,798,0},"","", 1,5);
+	--AddPillar({476,800,0},"","", 1,5);
+    --AddPillar({476,791,0},"","", 1,5);
+	--AddPillar({470,793,0},"","", 1,5);
+    --AddPillar({470,798,0},"","", 1,5);
     --Cherass‘ Citadel
     AddPillar({568,314,0},"","", 1,5);
     AddPillar({568,319,0},"","", 1,5);
@@ -1030,10 +1031,13 @@ function InitWegweiser()
 	AddPillar({848,704,0},"","", 2,5);
 	AddPillar({841,741,0},"","", 6,5);
 	--Moshran's Brood
-	AddPillar({401,733,0},"","", 1,5);
+	AddPillar({401,733,0},"Was ist klein und stinkt? - Ein Zwerg. Was ist groß und stinkt? - Ein Elf. Was ist dumm und stinkt? - Ein Mensch.","What is small and smells? - A Dwarf. What is tall and smells? - An Elf. What is dumb and smells? - A Human.", 1,5);
+    AddPillar({389,727,0},"Wer das liest stirbt gleich!","Read this line and die!", 1,5);
 	--Mount Zotmore
-	AddPillar({361,495,0},"","", 1,5);
-	AddPillar({357,495,0},"","", 1,5);
+	AddPillar({361,495,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
+	AddPillar({357,495,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
+	AddPillar({366,497,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
+	AddPillar({366,501,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
 	--Nagrun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
