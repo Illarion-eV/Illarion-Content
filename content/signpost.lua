@@ -283,12 +283,6 @@ function InitWegweiser()
     AddGrave({489,582,0},"","", 4,0);
     --Hammerfall Mine
     AddGrave({264,418,0},"","", 3,0);
-	--Moshran's Brood
-    AddGrave({410,726,0},"","", 1,0);
-    AddGrave({409,734,0},"","", 3,0);
-    --Mount Zotmore
-    AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
-    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims-", 3,0);
 	--Lighthouse
 	AddGrave({536,608,0},"","", 1,0);
 	AddGrave({538,615,0},"","", 1,0);
@@ -307,6 +301,12 @@ function InitWegweiser()
     AddGrave({252,722,0},"","", 1,0);
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);
+   	--Moshran's Brood
+    AddGrave({410,726,0},"","", 1,0);
+    AddGrave({409,734,0},"","", 3,0);
+    --Mount Zotmore
+    AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
+    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims.", 2,0);
 	--Nagrun's Plain
     AddGrave({519,207,0},"","", 1,0);
     AddGrave({538,250,0},"","", 1,0);
