@@ -306,7 +306,7 @@ function InitWegweiser()
     AddGrave({409,734,0},"","", 3,0);
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
-    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims.", 1,0);
+    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims.", 4,0);
 	--Nagrun's Plain
     AddGrave({519,207,0},"","", 1,0);
     AddGrave({538,250,0},"","", 1,0);
