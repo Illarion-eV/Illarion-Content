@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: May 27, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 09, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1436,12 +1436,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("five");
 talkEntry:addResponse("There are five elder gods and several younger gods. The elder gods are Bragon, Ushara, Eldan, Tanora and Findari. They, past one, have left us to another realm for our protection.");
+talkEntry:addResponse("Bragon, Ushara, Eldan, Tanora and Findari are their names. We have of each of them a statue here. Only exception is Eldan... So, take a look!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fünf");
 talkEntry:addResponse("Es gibt fünf alte Götter und mehrere junge Götter. Die alten sind Bragon, Ushara, Eldan, Tanora und Findari. Sie haben uns in eine andere Ebene verlassen.");
+talkEntry:addResponse("Bragon, Ushara, Eldan, Tanora und Findari sind ihre Namen. Wir haben von jeden von ihnen eine Statue hier. Eldan ist die Ausnahme... Aber werft doch einen Blick auf sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1454,6 +1456,43 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ebene");
 talkEntry:addResponse("Ja Ebene. Andere nennen sie auch Welt. Wie dem auch sei, Illarion ist unsere Ebene. Für mehr Information fragt jemand anderen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chapel");
+talkEntry:addResponse("Chapel of the Five? The name of this place. It has been built after one of the many wars between the factions to praise the Five for the pease. But don't ask after which war. I don't know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kapelle");
+talkEntry:addResponse("Kapelle der Fünf? Der Name dieses Orts. Sie wurde nach einem der vielen Kriege zwischen den Fraktionen erbaut um die Fünf für den Frieden zu huldigen. Aber ich habe keine Ahung nach welchem Krieg.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("statue");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("If you take a look our statues here you will find representations of the Five.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("statue");
+talkEntry:addResponse("Wenn ihr einen Blick auf die Statuen hier werft, werdet ihr die Fünf sehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("four");
+talkEntry:addResponse("Four? Statues? Of course! There is no need for Eldan. We are surrounded by Eldan anyway.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("vier");
+talkEntry:addResponse("Vier? Statuen? Natürlich! Es besteht kein Grund für Eldan. Wir sind ohnehin umgeben von Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1692,6 +1731,7 @@ talkEntry:addTrigger("Brágon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Yes, this god exists, but he has left this level. I hope he is coming back one day.");
 talkEntry:addResponse("He is the elder god of fire and stands for a wisdom, strength, and nobility.");
+talkEntry:addResponse("One of the statues in the front of me represents him. Just take a look if you want to know how he could look like.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1700,6 +1740,7 @@ talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Ja, dieser Gott existiert. Aber er hat diese Ebene verlassen. Ich hoffe er kommt zurück eines Tages. Das ist auch der Grund warum ich bete.");
 talkEntry:addResponse("Er ist einer der alten Götter und steht für eine weise, starke, noble und ansehnliche  Persönlichkeit.");
+talkEntry:addResponse("Eine der Statuen hinter mir repräsentiert ihn. Wirf einen Blick darauf wenn du wissen möchtest wie er aussehen könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1760,6 +1801,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("I give little attention to this god.");
 talkEntry:addResponse("I cannot recall anyone I know worshipping her.");
 talkEntry:addResponse("Like Brágon she is an elder god.");
+talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she could look like.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1768,6 +1810,7 @@ talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
+talkEntry:addResponse("Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1903,6 +1946,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("She is of little interest to me.");
 talkEntry:addResponse("Search yourself a lizardman if you seek answers about her");
 talkEntry:addResponse("That's one of the elder gods like Brágon.");
+talkEntry:addResponse("One of the statues behind me represents her. Just take a look if you want to know how she could look like.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1912,6 +1956,7 @@ talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
+talkEntry:addResponse("Eine der Statuen hinter mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1921,6 +1966,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("She is of little concern to me.");
 talkEntry:addResponse("Never heard of a priest dedicated to Ushara.");
 talkEntry:addResponse("She is an elder god but nothing compared to Brágon.");
+talkEntry:addResponse("One of the statues in front of me me represents her. Just take a look if you want to know how she could look like.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1929,6 +1975,7 @@ talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Ja, dieser Gott existiert aber ist nicht von Interesse für mich.");
 talkEntry:addResponse("Ich hörte von einem Priester dieser Gottheit, aber ich kann mich nicht an den Namen des Priesters erinnern.");
 talkEntry:addResponse("Das ist einer der alten Götter wie Bragon.");
+talkEntry:addResponse("Eine der Statuen vor mir repräsentiert sie. Wirf einen Blick darauf wenn du wissen möchtest wie sie aussehen könnte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

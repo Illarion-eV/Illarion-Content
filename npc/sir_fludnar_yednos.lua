@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 09, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -2206,13 +2206,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("brood");
-talkEntry:addResponse("Moshran's Brood... Evil orcs in the Katanbi Desert on the way to Cadomyr.");
+talkEntry:addResponse("Moshran's Brood... Rather dumb than evil orcs in the Katanbi Desert on the way to Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("brut");
-talkEntry:addResponse("Moshran's Brut... Bösartige Orks in der Katanbi Wüste am Weg nach Cadomyr.");
+talkEntry:addResponse("Moshran's Brut... Eher dämliche als bösartige Orks in der Katanbi Wüste am Weg nach Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
