@@ -8,9 +8,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         return;
     end;
 
-    User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
+    -- User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
 
-    -- User:eraseItem(326,1);
+    User:eraseItem(326,1);
 
     -- User:inform("- before -");
     -- world:erase( it, 1 );
