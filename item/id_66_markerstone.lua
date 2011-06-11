@@ -16,6 +16,20 @@ function CheckStone(Char,StoneNumber)
     return retVal;
 end
 
+function CountStones(Char)
+    nrStones=0;
+    StoneBase=130;
+    StoneEnd=149;
+    for i=StoneBase,StoneEnd do
+        stones=Char:getQuestProgress(i);
+        while stones~=0 do
+            nrStones=nrStones+math.mod(stones,2);
+            stones=math.floor(stones/2);
+        end
+    end
+    return nrStones
+end
+
 function WriteStone(Char,StoneNumber)
     StoneBase=130+math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
@@ -32,6 +46,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     else
         User:talk(CCharacter.say,"don't have it");
     end
+    User:talk(CCharacter.say,"YOU Have ****** : "..CountStones(User));
 end
 
 function LookAtItem(User,Item)
