@@ -2,7 +2,7 @@
 
 require("base.common")
 
-module("item.id_1272_markerstone", package.seeall)
+module("item.id_66_markerstone", package.seeall)
 
 function CheckStone(Char,StoneNumber)
     retVal=false;
