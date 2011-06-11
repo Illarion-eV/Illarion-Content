@@ -1149,8 +1149,8 @@ function InitWegweiser()
     AddPillar({261,665,0},"","", 9,5);
     AddPillar({261,670,0},"","", 10,5);
     AddPillar({256,670,0},"","", 8,5);
-    AddPillar({250,683,0},"","", 5,5);
-    AddPillar({266,683,0},"","", 5,5);
+    AddPillar({250,683,1},"","", 5,5);
+    AddPillar({266,683,1},"","", 5,5);
 	--The Royal Academy of Gladiators
     AddPillar({228,714,0},"","", 1,5);
     AddPillar({228,712,0},"","", 1,5);
