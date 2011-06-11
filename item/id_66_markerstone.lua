@@ -25,7 +25,7 @@ Char:talk(CCharacter.say,"now setting.........");
     --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=Char:getQuestProgress(1001+StoneBase);
     Char:talk(CCharacter.say,"3");
-    Char:setQuestProgress(1001+StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
+    Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
     Char:talk(CCharacter.say,"DONE");
 end
 
