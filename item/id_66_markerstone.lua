@@ -26,7 +26,12 @@ function WriteStone(Char,StoneNumber)
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
-    User:talk(CCharacter.say,"HAHAAAA");
+    User:talk(CCharacter.say,"Using");
+    if (CheckStone(User, SourceItem.data)) then
+        User:talk(CCharacter.say,"have it");
+    else
+        User:talk(CCharacter.say,"don't have it");
+    end
 end
 
 function LookAtItem(User,Item)
