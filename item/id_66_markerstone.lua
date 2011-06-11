@@ -24,6 +24,10 @@ function WriteStone(Char,StoneNumber)
     Char:setQuestProgress(1001+StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
 end
 
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+    User:talk(CCharacter.say,"HAHAAAA");
+end
+
 function LookAtItem(User,Item)
 User:talk(CCharacter.say,"HAHAAAA");
     if (Item.data~=0) then
