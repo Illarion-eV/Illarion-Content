@@ -17,6 +17,7 @@ function CheckStone(Char,StoneNumber)
 end
 
 function WriteStone(Char,StoneNumber)
+User:talk(CCharacter.say,"now setting.........");
     StoneBase=math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
     --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
