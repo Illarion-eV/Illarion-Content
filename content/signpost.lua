@@ -54,14 +54,15 @@ function InitWegweiser()
 	AddWeg({433,637,0},"Galmair","Galmair",6,0);
     AddWeg({400,739,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
     AddWeg({389,771,0},"Moshrans Brut - Bleibt fern!","Moshran's Brood - Stay away!",0,0); -- <Name hier> Oase/Ruine -- <name here> oasis/ruin
-    AddWeg({203,724,0},"Berg Letma","Mount Letma",4,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
+    AddWeg({203,724,0},"Siranitempel, Berg Letma","Mount Letma, Tear of Sirani",4,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
     AddWeg({208,774,0},"Berg Letma","Mount Letma",2,0); -- <Name hier> Küstengebirge/Gebirgskette -- <name here> mountain range
     AddWeg({112,817,0},"Verlorener Hafen","Lost Harbour",4,0); -- <Name hier> Ruinen -- <name here> ruins
     AddWeg({294,700,0},"Wüstenloch","Desert Hole",2,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({294,680,0},"Wüstenloch","Desert Hole",6,0); -- <Name hier> ehemaliges Bergwerk -- <name here> former pit
     AddWeg({347,692,0},"Sternenoase","Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
     AddWeg({253,690,0},"Königlicher Sklavenmarkt; Wüstenloch; Sternenoase","Royal Slave Market; Desert Hole; Oasis of Stars",2,0); -- <Name hier> Sandcamp -- <name here> sandcamp
-    AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
+    AddWeg({200,757,0},"Träne der Sirani","Tear of Sirani",6,0);
+	AddWeg({166,758,0},"Siranitempel","Temple of Sirani",2,0);
     AddWeg({468,794,0},"Katanbi Wüste; dahinter Cadomyr","Katanbi Desert; behind Cadomyr",6,0);
     AddWeg({481,794,0},"Wachstützpunkt; Leuchtturm; Galmair; Runewick","Sentry Outpost; Lighthouse; Galmair; Runewick",2,0);
     AddWeg({290,673,0},"Königlicher Sklavenmarkt","Royal Slave Market",0,0);
@@ -1000,6 +1001,8 @@ function InitWegweiser()
 	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1,5);
     AddPillar({169,561,0},"","", 1,5);
+    --Harp of Pain
+    AddPillar({132,795,0},"","", 3,5);
 	--Harrowd Mount
 	AddPillar({541,681,2},"","", 1,5);
 	AddPillar({541,681,2},"","", 1,5);
