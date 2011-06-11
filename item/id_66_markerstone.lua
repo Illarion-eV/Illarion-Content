@@ -19,10 +19,14 @@ end
 function WriteStone(Char,StoneNumber)
 Char:talk(CCharacter.say,"now setting.........");
     StoneBase=math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+    Char:talk(CCharacter.say,"1");
     StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
+    Char:talk(CCharacter.say,"2");
     --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
     currentStones=Char:getQuestProgress(1001+StoneBase);
+    Char:talk(CCharacter.say,"3");
     Char:setQuestProgress(1001+StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
+    Char:talk(CCharacter.say,"DONE");
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
