@@ -6,9 +6,9 @@ module("item.id_66_markerstone", package.seeall)
 
 function CheckStone(Char,StoneNumber)
     retVal=false;
-    StoneBase=math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
+    StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
-    HasStones=Char:getQuestProgress(130+StoneBase);
+    HasStones=Char:getQuestProgress(StoneBase);
     GotStone=LuaAnd(2^(StoneNumber-1),HasStones);
     if GotStone>0 then
         retVal=true;
@@ -17,14 +17,10 @@ function CheckStone(Char,StoneNumber)
 end
 
 function WriteStone(Char,StoneNumber)
-Char:talk(CCharacter.say,"now setting.........");
-    StoneBase=math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
-    Char:talk(CCharacter.say,"1");
+    StoneBase=130+math.floor(StoneNumber/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber,32);  -- StoneNr inside range
-    Char:talk(CCharacter.say,"2");
     --Char:inform("Base offset: " .. StoneBase .. " Stone Nr "..StoneBaseOffset .. " for stone "..StoneNumber);
-    currentStones=Char:getQuestProgress(1001+StoneBase);
-    Char:talk(CCharacter.say,"3");
+    currentStones=Char:getQuestProgress(StoneBase);
     Char:setQuestProgress(StoneBase,LuaOr(2^StoneBaseOffset,currentStones));
     Char:talk(CCharacter.say,"DONE");
 end
