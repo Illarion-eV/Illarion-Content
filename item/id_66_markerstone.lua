@@ -25,6 +25,7 @@ function WriteStone(Char,StoneNumber)
 end
 
 function LookAtItem(User,Item)
+User:talk(CCharacter.say,"HAHAAAA");
     if (Item.data~=0) then
         DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trägt die Nummer "..Item.data,"A marker stone of the Explorers Guild; it has the number "..Item.data);
         WriteStone(User,Item.data, Item.quality);
@@ -32,5 +33,5 @@ function LookAtItem(User,Item)
         DisplayText = base.common.GetNLS( User, "Stein", "stone");
     end
     world:itemInform(User,Item, DisplayText );
-    User:talk(CCharacter.say,"HAHAAAA");
+    
 end
