@@ -32,4 +32,5 @@ function LookAtItem(User,Item)
         DisplayText = base.common.GetNLS( User, "Stein", "stone");
     end
     world:itemInform(User,Item, DisplayText );
+    User:talk(CCharacter.say,"HAHAAAA");
 end
