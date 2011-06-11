@@ -9,7 +9,7 @@ function CheckStone(Char,StoneNumber)
     StoneBase=130+math.floor((StoneNumber-1)/32);  -- Stone 0 to 31 -> 0, 32-.. ->2 etc.
     StoneBaseOffset=math.mod(StoneNumber-1,32);  -- StoneNr inside range
     HasStones=Char:getQuestProgress(StoneBase);
-    GotStone=LuaAnd(2^(StoneNumber-1),HasStones);
+    GotStone=LuaAnd(2^(StoneNumber),HasStones);
     if GotStone>0 then
         retVal=true;
     end
