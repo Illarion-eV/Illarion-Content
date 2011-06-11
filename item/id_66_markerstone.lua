@@ -32,7 +32,7 @@ function LookAtItem(User,Item)
 User:talk(CCharacter.say,"HAHAAAA");
     if (Item.data~=0) then
         DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trägt die Nummer "..Item.data,"A marker stone of the Explorers Guild; it has the number "..Item.data);
-        WriteStone(User,Item.data, Item.quality);
+        WriteStone(User,Item.data);
     else
         DisplayText = base.common.GetNLS( User, "Stein", "stone");
     end
