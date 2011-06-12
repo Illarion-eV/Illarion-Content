@@ -506,7 +506,7 @@ function InitWegweiser()
     --Spider's Mouth
     AddPicture({711,314,1},"","", 1,5); --The Hemp Necktie Inn
     AddPicture({708,316,1},"","", 7,5); --The Hemp Necktie Inn
-    AddPicture({708,316,1},"","", 5,5); --The Hemp Necktie Inn
+    AddPicture({702,316,1},"","", 5,5); --The Hemp Necktie Inn
     AddPicture({700,307,1},"","", 5,5); --The Hemp Necktie Inn
     AddPicture({711,320,1},"","", 4,5); --The Hemp Necktie Inn
     AddPicture({705,326,1},"","", 5,5); --The Hemp Necktie Inn
