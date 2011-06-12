@@ -386,7 +386,7 @@ function InitWegweiser()
     AddPicture({129,524,0},"","", 7,5); --palace
     AddPicture({130,518,0},"","", 5,5); --queens room
     AddPicture({135,516,0},"","", 3,5); --queens room
-    AddPicture({137,516,0},"","", 3,5); --queens room
+    AddPicture({138,516,0},"","", 3,5); --queens room
     AddPicture({117,579,0},"","", 4,5); --taverne
     AddPicture({91,572,0},"","", 4,5); --inn
     AddPicture({91,574,0},"","", 4,5); --inn
