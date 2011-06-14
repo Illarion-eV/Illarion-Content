@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 14, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 15, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -217,7 +217,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade I"));
-talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, would you bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists?");
+talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -227,7 +227,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"));
-talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, mögt ihr mir ein halbes Dutzend weiße Stoffbahnen bringen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann?");
+talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -237,7 +237,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade I"));
-talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, would you bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists?");
+talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -248,7 +248,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"));
-talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, mögt ihr mir ein halbes Dutzend weiße Stoffbahnen bringen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann?");
+talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

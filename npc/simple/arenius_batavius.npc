@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 14, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 15, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -109,10 +109,10 @@ itemShoes = 53
 -- 1st quest: Provide six panels of white cloth.
 
 -- Give out quest 1
-"quest", "mission", queststatus(104) = 0, english -> inform("[New quest] The Errant Crusade I"), "Stranger, before I can tell you about the evil Cult of Salavesh, would you bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists?", queststatus(104) = 1
-"quest", "mission", queststatus(104) = 0 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"), "Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, mögt ihr mir ein halbes Dutzend weiße Stoffbahnen bringen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann?", queststatus(104) = 1
-"task", "adventure", queststatus(104) = 0 -> inform("[New quest] The Errant Crusade I"), "Stranger, before I can tell you about the evil Cult of Salavesh, would you bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists?", queststatus(104) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 0 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"), "Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, mögt ihr mir ein halbes Dutzend weiße Stoffbahnen bringen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann?", queststatus(104) = 1
+"quest", "mission", queststatus(104) = 0, english -> inform("[New quest] The Errant Crusade I"), "Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.", queststatus(104) = 1
+"quest", "mission", queststatus(104) = 0 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"), "Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.", queststatus(104) = 1
+"task", "adventure", queststatus(104) = 0 -> inform("[New quest] The Errant Crusade I"), "Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.", queststatus(104) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 0 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"), "Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.", queststatus(104) = 1
 
 -- Quest 1 solved, reward: 60cp, 5 rankpoints if Cadomyr
 ".+", queststatus(104) = 1, item(178, all) > 5, english, town = Cadomyr -> inform("[Quest solved] You are awarded 60 copper coins. You advance in Queen Rosaline Edwards's favour."), "Thank you for the bandages. Here, this should cover your expenses. Now I can tell you about the mission that I failed in.", money + 60, deleteItem(178, 6), queststatus(104) = 2, rankpoints(Cadomyr) + 5
