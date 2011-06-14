@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 14, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -144,7 +144,7 @@ itemShoes = 53
 "quest", "mission", queststatus(104) > 2, queststatus(104) < 9, english -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remains."
 "quest", "mission", queststatus(104) > 2, queststatus(104) < 9 -> "Bitte rächt meine Niederlage. Gehet zum Unterschlupf des Kultes der Salavesh und streckt ein halbes Dutzend ihrer Diener nieder. Kommt zu mit mir ihren Überresten."
 "task", "adventure", queststatus(104) > 2, queststatus(104) < 9 -> "Please, avenge my defeat. Head for the stronghold of the Cult of Salavesh and smite half a dozen of its minions. Come back with their remains."
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 2, queststatus(104) < 9 -> ""
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) > 2, queststatus(104) < 9 -> "Bitte rächt meine Niederlage. Gehet zum Unterschlupf des Kultes der Salavesh und streckt ein halbes Dutzend ihrer Diener nieder. Kommt zu mit mir ihren Überresten."
 
 -- Too few items
 "quest", "mission", queststatus(104) = 9, item(63, all) < 1, english -> "You are back, alive! But I cannot see any remains of the undead minions; I can gather much information from their entrails."
