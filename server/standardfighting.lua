@@ -31,6 +31,7 @@ module("server.standardfighting", package.seeall)
 --                      to attack
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender, AttackPos)
+    
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -638,10 +639,10 @@ function HandleMovepoints(Attacker)
     if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
         base.character.ChangeFightingpoints(Attacker.Char,
             -math.floor(reduceMovepoints));
-            Attacker:talk(CCharacter.say,"Enough AP..."..Attacker.Char.movepoints);
+            Attacker.Char:talk(CCharacter.say,"Enough AP..."..Attacker.Char.movepoints);
         return true;
     else
-        Attacker:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints);
+        Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints);
         return false;
     end
 -- ********************************************** END NEW
