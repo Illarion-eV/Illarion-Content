@@ -54,7 +54,10 @@ function onAttack(Attacker, Defender, AttackPos)
     
     Attacker.Char:talk(CCharacter.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
-    if not CheckAttackOK(Attacker, Globals.AttackPos) then return false; end;
+    if not CheckAttackOK(Attacker, Globals.AttackPos) then 
+        Attacker.Char:talk(CCharacter.say,"ATTER NOT OK");
+        return false; 
+    end;
     
         Attacker.Char:talk(CCharacter.say,"ATTER OK");
     -- Check if ammunition is needed and use it
