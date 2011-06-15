@@ -208,15 +208,15 @@ function LookAtItem(User,Item)
     local PotionLabel = Item:getValue(1);
 	if Item:getValue(1) then
 	    if (User:getPlayerLanguage()==0) then
-           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: ..PotionLabel..")
+           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: " ..PotionLabel);
         else
-            world:itemInform(User,Item,"You look at a sticker telling: ..PotionLabel..")
+            world:itemInform(User,Item,"You look at a sticker telling: "..PotionLabel);
         end
     else
         if (User:getPlayerLanguage()==0) then
-           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"")
+           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"");
         else
-            world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"")
+            world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"");
         end
     end
 end
