@@ -146,7 +146,7 @@ function PoisonCharacter(User,SourceItem,Character)
 	return false;
 end
 
-function UseItem(Character,SourceItem,TargetItem,Counter,Param, ltstate)
+function UseItem(User,Character,SourceItem,TargetItem,Counter,Param, ltstate)
      if druid.base.alchemy.CheckIfQuillInHand(User) then 
 	    return;
      end
