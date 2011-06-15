@@ -651,7 +651,7 @@ function HandleMovepoints(Attacker)
     local reduceMovepoints = (weaponMovepoints / 2)
         - math.floor(Attacker.agility / 6) * 2.5;
 -- ********************************************** NEWWWWWW 
-    if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
+    if (math.floor(reduceMovepoints)>=Attacker.Char.movepoints) then
         base.character.ChangeFightingpoints(Attacker.Char,
             -math.floor(reduceMovepoints));
             --Attacker.Char:
