@@ -40,9 +40,11 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
     
+    Attacker.Char:talk(CCharacter.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker, Globals.AttackPos);
     
+        Attacker.Char:talk(CCharacter.say,"WP OK");
     -- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
     
@@ -52,9 +54,12 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker, Globals.AttackPos) then return false; end;
     
+        Attacker.Char:talk(CCharacter.say,"ATTER OK");
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
     
+    
+        Attacker.Char:talk(CCharacter.say,"AMMO OK");
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
     
