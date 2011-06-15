@@ -643,7 +643,7 @@ function HandleMovepoints(Attacker)
             Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
         return true;
     else
-        -- Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints);
+         Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
         return false;
     end
 -- ********************************************** END NEW
