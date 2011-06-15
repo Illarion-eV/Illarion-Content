@@ -13,13 +13,10 @@ attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitud
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-     local PotionLabel = char.lastSpokenText;
-     
-	 if not druid.base.alchemy.ChekIfQuillInHand(User) then
+     if not druid.base.alchemy.ChekIfQuillInHand(User) then
            return;
         end
-
-    SourceItem:setValue(1,char.lastSpokenText);
+SourceItem:setValue(1,User.lastSpokenText);
 end	
 
 function DrinkPotion(Character,SourceItem)
