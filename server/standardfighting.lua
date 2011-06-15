@@ -60,15 +60,18 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
+
+    -- Calculate and reduce the required movepoints ******************* NEW **********************
+    if not HandleMovepoints(Attacker) then
+        return false;
+    end
+
     
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
     
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
-    
-    -- Calculate and reduce the required movepoints
-    HandleMovepoints(Attacker);
     
     -- Calculate the chance to hit
     if not ChanceToHit(Attacker, Defender) then
@@ -631,8 +634,15 @@ function HandleMovepoints(Attacker)
     
     local reduceMovepoints = (weaponMovepoints / 2)
         - math.floor(Attacker.agility / 6) * 2.5;
-    base.character.ChangeFightingpoints(Attacker.Char,
-        -math.floor(reduceMovepoints));
+-- ********************************************** NEWWWWWW 
+    if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
+        base.character.ChangeFightingpoints(Attacker.Char,
+            -math.floor(reduceMovepoints));
+        return true;
+    else
+        return false;
+    end
+-- ********************************************** END NEW
 end;
 
 --- Learning function called when ever the attacked character dodges the attack.
