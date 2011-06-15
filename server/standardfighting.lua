@@ -48,9 +48,11 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Check the range between the both fighting characters
     if not CheckRange(Attacker, Defender.Char) then return false; end;
     
+    Attacker.Char:talk(CCharacter.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
     
+    Attacker.Char:talk(CCharacter.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker, Globals.AttackPos) then return false; end;
     
