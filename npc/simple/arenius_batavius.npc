@@ -121,10 +121,10 @@ itemShoes = 53
 ".+", queststatus(104) = 1, item(178, all) > 5 -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke."), "Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.", money + 60, deleteItem(178, 6), queststatus(104) = 2
 
 -- Quest 1 taken but not solved, repeat the instructions
-"quest", "mission", queststatus(104) = 1, english -> "My wounds continue to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
-"quest", "mission", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Könntet ihr mir bitte ein halbes Dutzend weiße Stoffbahnen bringen, um sie zu versorgen?"
-"task", "adventure", queststatus(104) = 1 -> "My wounds continue to bleed, will you bring me half a dozen panels of white cloth to tend them, please?"
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Könntet ihr mir bitte ein halbes Dutzend weiße Stoffbahnen bringen, um sie zu versorgen?"
+"quest", "mission", queststatus(104) = 1, english -> "My wounds continue to bleed, please bring me half a dozen panels of white cloth to tend them."
+"quest", "mission", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Bringt mir mir bitte ein halbes Dutzend weiße Stoffbahnen, um sie zu versorgen."
+"task", "adventure", queststatus(104) = 1 -> "My wounds continue to bleed, please bring me half a dozen panels of white cloth to tend them."
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 1 -> "Meine Wunden haben erneut zu bluten begonnen. Bringt mir mir bitte ein halbes Dutzend weiße Stoffbahnen, um sie zu versorgen."
 
 -- 2nd quest: Kill 6 mummies, provide 1 entrails
 
@@ -195,10 +195,10 @@ itemShoes = 53
 -- 5th quest: Kill 1 demon skeleton warrior
 
 -- Give out quest 5
-"quest", "mission", queststatus(104) = 29, english -> inform("[New quest] The Errant Crusade V"), "I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Will you return to the cave and if you find this beast, end its existance?", queststatus(104) = 30
-"quest", "mission", queststatus(104) = 29 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"), "Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Werdet ihr in die Höhle zurückkehren und wenn ihr dieses Unwesen findet, sein Dasein beenden?", queststatus(104) = 30
-"task", "adventure", queststatus(104) = 29 -> inform("[New quest] The Errant Crusade V"), "I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Will you return to the cave and if you find this beast, end its existance?", queststatus(104) = 30
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 29 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"), "Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Werdet ihr in die Höhle zurückkehren und wenn ihr dieses Unwesen findet, sein Dasein beenden?", queststatus(104) = 30
+"quest", "mission", queststatus(104) = 29, english -> inform("[New quest] The Errant Crusade V"), "I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.", queststatus(104) = 30
+"quest", "mission", queststatus(104) = 29 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"), "Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Kehrt in in die Höhle zurück und wenn ihr dieses Unwesen findet, beendet sein Dasein.", queststatus(104) = 30
+"task", "adventure", queststatus(104) = 29 -> inform("[New quest] The Errant Crusade V"), "I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.", queststatus(104) = 30
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 29 -> inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"), "", queststatus(104) = 30
 
 -- Quest 5 solved, reward: steel tower shield with magical bluestone (96), 500cp, 15 rankpoints if Cadomyr
 ".+", queststatus(104) = 31, english, town = Cadomyr -> inform("[Quest solved] You are awarded 500 copper coins and a steel tower shield. You advance in Queen Rosaline Edwards's favour."), "Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.", money + 500, item(96, 1, 888, 51), queststatus(104) = 32, rankpoints(Cadomyr) + 15
