@@ -1,8 +1,6 @@
 -- Spinnennetze
 -- Nitram
 
--- Removed the freeze function, because it was just annoying. ~Blay09
-
 -- UPDATE common SET com_script='item.spidernet' WHERE com_itemid IN (3093,3094,3095,3096);
 
 module("item.spidernet", package.seeall)
@@ -29,7 +27,7 @@ function CharacterOnField(User)
         Ensnarl = true;
     end
     if Ensnarl then
-        --User.movepoints=User.movepoints-50;
+        User.movepoints=User.movepoints-40;
         if (User:getPlayerLanguage() == 0) then
             User:inform("Du verf‰ngst dich im Spinnennetz, kannst es aber zerreiﬂen.");
         else
