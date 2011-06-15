@@ -12,8 +12,21 @@ topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000     
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
 
 
-function DrinkPotion(Character,SourceItem)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+     local PotionLabel = char.lastSpokenText;
+     
+	 if not druid.base.alchemy.ChekIfQuillInHand(User) then
+           return;
+        end
 
+    SourceItem:setValue(1,char.lastSpokenText);
+end	
+
+function DrinkPotion(Character,SourceItem)
+     if druid.base.alchemy.CheckIfQuillInHand(User) then 
+	    return;
+     end
+		
 	local dataZList = druid.base.alchemy.SplitBottleData(Character,SourceItem.data);
 	druid.base.alchemy.generateTasteMessage(Character,dataZList);
 
@@ -60,6 +73,10 @@ end
 -- TODO: implement poisoning of items (also in food script)
 -- @return true if poisoning was successful
 function PoisonItem(Character,SourceItem,TargetItem)
+     if druid.base.alchemy.CheckIfQuillInHand(User) then 
+	    return;
+     end
+
 -- Vergiften von Items
 -- Liste der vergiftbaren Items
 	local ListPo = {15,47,49,64,73,80,81,147,151,160,163,191,199,200,201,237,293,294,302,303,306,307,322,353,354,355,388,552,553,554,555,553,557,559,2276,2277,2278,2456,2459,2922,2923}
@@ -82,6 +99,10 @@ end
 
 -- @return true if potion has been used
 function PoisonCharacter(User,SourceItem,Character)
+	if druid.base.alchemy.CheckIfQuillInHand(User) then 
+	    return;
+     end
+	
 	if User.id == Character.id then
 		return false;
 	end
@@ -126,8 +147,11 @@ function PoisonCharacter(User,SourceItem,Character)
 end
 
 function UseItem(Character,SourceItem,TargetItem,Counter,Param, ltstate)
-
-    if (ltstate == Action.abort) then
+     if druid.base.alchemy.CheckIfQuillInHand(User) then 
+	    return;
+     end
+    
+	if (ltstate == Action.abort) then
         Character:talkLanguage(CCharacter.say, CPlayer.german, "#me verschüttet den Trank.");
         Character:talkLanguage(CCharacter.say, CPlayer.english, "#me spills the potion.");
         world:erase(SourceItem,1);
@@ -181,9 +205,19 @@ function UseItem(Character,SourceItem,TargetItem,Counter,Param, ltstate)
 end
 
 function LookAtItem(User,Item)
-    if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"")
+    local PotionLabel = Item:getValue(1);
+	if Item:getValue(1) then
+	    if (User:getPlayerLanguage()==0) then
+           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: ..PotionLabel..")
+        else
+            world:itemInform(User,Item,"You look at a sticker telling: ..PotionLabel..")
+        end
     else
-        world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"")
+        if (User:getPlayerLanguage()==0) then
+           world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Zaubertrank\"")
+        else
+            world:itemInform(User,Item,"You look at a sticker telling: \"Potion\"")
+        end
     end
 end
+

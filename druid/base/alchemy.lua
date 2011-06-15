@@ -500,3 +500,19 @@ function checkPotionSpam(Character)
 		return false;
 	end
 end
+
+function CheckIfQuillInHand(User) -- we need this check for labeling the potions   
+	local checkId = 463;
+	local retVal = nil;
+	local theItem = nil;
+	theItem = User:getItemAt(5);
+	if theItem.id == checkId then
+		retVal = theItem;
+	else
+		theItem = User:getItemAt(6);
+		if theItem.id == checkId then
+			retVal = theItem;
+		end
+	end
+	return retVal;
+end
