@@ -652,13 +652,12 @@ function HandleMovepoints(Attacker)
         - math.floor(Attacker.agility / 6) * 2.5;
 -- ********************************************** NEWWWWWW 
     if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
+        --Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
         base.character.ChangeFightingpoints(Attacker.Char,
             -math.floor(reduceMovepoints));
-            --Attacker.Char:
-            Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
         return true;
     else
-         Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
+        --Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
         return false;
     end
 -- ********************************************** END NEW
