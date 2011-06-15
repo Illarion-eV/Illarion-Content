@@ -31,7 +31,7 @@ function CharacterOnField(User)
         if (User:getPlayerLanguage() == 0) then
             User:inform("Du verf‰ngst dich im Spinnennetz, kannst es aber zerreiﬂen.");
         else
-            User:inform("You become entangled in the spiderweb, but you can rip it.");
+            User:inform("You become entangled in the spiderweb but you can rip it.");
         end
         --LastChar = User.id;
         LastWarp[PosVal] = AktTime;
