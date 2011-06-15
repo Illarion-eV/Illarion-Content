@@ -61,7 +61,7 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
-
+Attacker.Char:talk(CCharacter.say,"before MovePointsCalc");
     -- Calculate and reduce the required movepoints ******************* NEW **********************
     if not HandleMovepoints(Attacker) then
         return false;
