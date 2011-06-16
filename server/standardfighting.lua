@@ -649,7 +649,7 @@ function HandleMovepoints(Attacker)
     end;
     
     local reduceMovepoints = (weaponMovepoints / 2)
-        - math.floor(Attacker.agility / 6) * 2.5;
+        - math.floor(Attacker.agility / 6)/4;
 -- ********************************************** NEWWWWWW 
     if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
         --Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
