@@ -2,7 +2,7 @@
 
 require("base.common")
 require("druid.base.alchemy")
-require("quest.explorersguild")
+--require("quest.explorersguild")
 
 module("druid.item.id_166_pink_bottle", package.seeall)
 
@@ -25,7 +25,7 @@ attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitud
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
     User:talk(CCharacter.say,"Using");
-    User:talk(CCharacter.say,"You have seen "..quest.explorersguild.CountStones(User).." different stones in your lifetime.");
+ --   User:talk(CCharacter.say,"You have seen "..quest.explorersguild.CountStones(User).." different stones in your lifetime.");
 end
 
 function DrinkPotion(Character,SourceItem)
