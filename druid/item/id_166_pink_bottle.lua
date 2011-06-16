@@ -2,6 +2,7 @@
 
 require("base.common")
 require("druid.base.alchemy")
+require("quest.explorersguild")
 
 module("druid.item.id_166_pink_bottle", package.seeall)
 
