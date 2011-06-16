@@ -11,7 +11,7 @@ bottomBorder = 2;
 topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+--function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     User:talk(CCharacter.say,"Bin in UseItem");
    -- if not druid.base.alchemy.ChekIfQuillInHand(User) then
    --     return;
@@ -20,7 +20,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    -- SourceItem:setValue(1,User.lastSpokenText);
    -- User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
    -- User:talk(CCharacter.say,"Geschrieben wurde: "..SourceItem.getValue(1));
-end	
+--end	
+
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+    User:talk(CCharacter.say,"Using");
+    User:talk(CCharacter.say,"You have seen "..quest.explorersguild.CountStones(User).." different stones in your lifetime.");
+end
 
 function DrinkPotion(Character,SourceItem)
      if druid.base.alchemy.CheckIfQuillInHand(User) then 
