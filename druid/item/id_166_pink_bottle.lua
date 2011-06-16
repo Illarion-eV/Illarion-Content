@@ -20,6 +20,7 @@ User:talk(CCharacter.say,"Bin in UseItem");
 User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
 SourceItem:setValue(1,User.lastSpokenText);
 User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
+User:talk(CCharacter.say,"Geschrieben wurde: "..SourceItem.getValue(1));
 end	
 
 function DrinkPotion(Character,SourceItem)
