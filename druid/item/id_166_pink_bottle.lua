@@ -5,4 +5,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     User:talk(CCharacter.say,"Using");
     User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
     SourceItem:setValue(1,User.lastSpokenText);
+    User:talk(CCharacter.say,"gesetzt auf: "..SourceItem:getValue(1));
 end
