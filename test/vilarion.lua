@@ -11,8 +11,8 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
     -- User:inform("ID: "..SourceItem.id.."; Quality: "..SourceItem.quality.."; Data: "..SourceItem.data);
 
 
-    User:inform( "setValue( 4, 'blabla' )" );
-    SourceItem:setValue( 4, "blabla" );
+    -- User:inform( "setValue( 4, 'blabla' )" );
+    -- SourceItem:setValue( 4, "blabla" );
     local value = SourceItem:getValue( 4 );
     User:inform( "getValue: "..value );
 
