@@ -13,6 +13,7 @@ attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitud
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+User:talk(CCharacter.say,"Bin in UseItem");
      if not druid.base.alchemy.ChekIfQuillInHand(User) then
            return;
         end
