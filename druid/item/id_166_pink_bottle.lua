@@ -16,6 +16,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
      if not druid.base.alchemy.ChekIfQuillInHand(User) then
            return;
         end
+User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
 SourceItem:setValue(1,User.lastSpokenText);
 User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
 end	
