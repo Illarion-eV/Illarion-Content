@@ -11,16 +11,15 @@ bottomBorder = 2;
 topBorder = {7000      ,100          ,50000      ,100   ,10000        ,9000      ,800             ,7000}
 attribList ={"hitpoints","body_height","foodlevel","luck","poisonvalue","attitude","mental capacity","mana"};
 
-
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-User:talk(CCharacter.say,"Bin in UseItem");
-     if not druid.base.alchemy.ChekIfQuillInHand(User) then
-           return;
-        end
-User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
-SourceItem:setValue(1,User.lastSpokenText);
-User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
-User:talk(CCharacter.say,"Geschrieben wurde: "..SourceItem.getValue(1));
+    User:talk(CCharacter.say,"Bin in UseItem");
+   -- if not druid.base.alchemy.ChekIfQuillInHand(User) then
+   --     return;
+   -- end
+   -- User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
+   -- SourceItem:setValue(1,User.lastSpokenText);
+   -- User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
+   -- User:talk(CCharacter.say,"Geschrieben wurde: "..SourceItem.getValue(1));
 end	
 
 function DrinkPotion(Character,SourceItem)
