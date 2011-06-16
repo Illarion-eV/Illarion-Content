@@ -17,6 +17,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
            return;
         end
 SourceItem:setValue(1,User.lastSpokenText);
+User:talk(CCharacter.say,"Ich setze auf: "..User.lastSpokenText);
 end	
 
 function DrinkPotion(Character,SourceItem)
@@ -203,7 +204,7 @@ end
 
 function LookAtItem(User,Item)
     local PotionLabel = Item:getValue(1);
-	if Item:getValue(1) then
+	if (Item:getValue(1) ~= nil) then
 	    if (User:getPlayerLanguage()==0) then
            world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: " ..PotionLabel);
         else
