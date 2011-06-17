@@ -746,6 +746,8 @@ function LoadAttribsSkills(CharStruct, Offensive)
         CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
         CharStruct["natpoison"] = NotNil(CharStruct.Char:getSkill("poisonstrength"));
         CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill("tactics"));
+        CharStruct["dexterity"]
+            = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
     else
         CharStruct["dexterity"]
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
