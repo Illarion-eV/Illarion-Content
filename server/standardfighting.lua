@@ -770,17 +770,17 @@ function LoadWeapons(CharStruct, AttackPos)
     local Item = CharStruct.Char:getItemAt(CCharacter.right_tool);
     local AttFound, AttWeapon = world:getWeaponStruct(Item.id);
     if (AttackPos == CCharacter.right_tool) then
-        CharStruct.Char:inform("Right hand attpos, right hand item as weapon "..Item.id);
+        --CharStruct.Char:inform("Right hand attpos, right hand item as weapon "..Item.id);
         CharStruct["WeaponItem"] = Item;
         CharStruct["IsWeapon"] = AttFound;
         CharStruct["Weapon"] = AttWeapon;
     elseif (AttackPos == CCharacter.left_tool) then
-        CharStruct.Char:inform("left hand attpos, right hand item as second weapon "..Item.id);
+        --CharStruct.Char:inform("left hand attpos, right hand item as second weapon "..Item.id);
         CharStruct["SecWeaponItem"] = Item;
         CharStruct["SecIsWeapon"] = AttFound;
         CharStruct["SecWeapon"] = AttWeapon;
     else
-        CharStruct.Char:inform("seomething else; attpos, right hand item ? "..Item.id);
+        --CharStruct.Char:inform("seomething else; attpos, right hand item ? "..Item.id);
         CharStruct["RightWeaponItem"] = Item;
         CharStruct["RightIsWeapon"] = AttFound;
         CharStruct["RightWeapon"] = AttWeapon;
@@ -789,17 +789,17 @@ function LoadWeapons(CharStruct, AttackPos)
     Item = CharStruct.Char:getItemAt(CCharacter.left_tool);
     AttFound, AttWeapon = world:getWeaponStruct(Item.id);
     if (AttackPos == CCharacter.left_tool) then
-        CharStruct.Char:inform("left hand attpos, left hand item as weapon "..Item.id);
+        --CharStruct.Char:inform("left hand attpos, left hand item as weapon "..Item.id);
         CharStruct["WeaponItem"] = Item;
         CharStruct["IsWeapon"] = AttFound;
         CharStruct["Weapon"] = AttWeapon;
     elseif (AttackPos == CCharacter.right_tool) then
-        CharStruct.Char:inform("left hand attpos, left hand item as second weapon "..Item.id);
+        --CharStruct.Char:inform("left hand attpos, left hand item as second weapon "..Item.id);
         CharStruct["SecWeaponItem"] = Item;
         CharStruct["SecIsWeapon"] = AttFound;
         CharStruct["SecWeapon"] = AttWeapon;
     else
-        CharStruct.Char:inform("something else hand attpos, left hand item as left weapon ? "..Item.id);
+        --CharStruct.Char:inform("something else hand attpos, left hand item as left weapon ? "..Item.id);
         CharStruct["LeftWeaponItem"] = Item;
         CharStruct["LeftIsWeapon"] = AttFound;
         CharStruct["LeftWeapon"] = AttWeapon;
