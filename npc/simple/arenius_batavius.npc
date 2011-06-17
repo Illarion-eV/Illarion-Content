@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 15, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 17, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Arenius Batavius"
@@ -235,7 +235,7 @@ itemShoes = 53
 -- No more quests, just nice words of gratitude
 "quest", "mission", queststatus(104) = 35, english -> "Now that you stopped the foul deeds of the Cult of Salavesh, there is nothing you can do for me, for I am battered and lost in this world. So, set out to new adventures!"
 "quest", "mission", queststatus(104) = 35 -> "Nun, da ihr dem niederträchtigen Kult der Salavesh das Handwerk gelegt habt, gibt es nichts, was ihr für mich tun könntet, denn ich bin geschlagen und fehl am Platz auf dieser Welt. Ihr, auf zu neuen Abenteuern!"
-"task", "adventure", queststatus(104) = 35 -> "Now that you stopped the foul deeds of the Cult of Salavesh, there is nothing you can do for me,for I am battered and lost in this world. So, set out to new adventures!"
+"task", "adventure", queststatus(104) = 35 -> "Now that you stopped the foul deeds of the Cult of Salavesh, there is nothing you can do for me, for I am battered and lost in this world. So, set out to new adventures!"
 "Auftrag", "Aufgabe", "Abenteuer", queststatus(104) = 35 -> "Nun, da ihr dem niederträchtigen Kult der Salavesh das Handwerk gelegt habt, gibt es nichts, was ihr für mich tun könntet, denn ich bin geschlagen und fehl am Platz auf dieser Welt. Ihr, auf zu neuen Abenteuern!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -254,6 +254,8 @@ itemShoes = 53
 "Orden", "Silberdrache" -> "Der Orden der Silberdrachen mag in diesem Land unbekannt sein; aber im Reiche Albar fürchtet man unseren Namen."
 "Ork" -> "Ich habe einige Orks in der Nähe der Höhle, welche ich für den Unterschlupf eines bösen Kultes von Blutmagiern halte, umherstreifen gesehen. Ich frage mich, welche Verbindung sie miteinander haben."
 "Kult" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
+"Salavesh", english -> "The cult I am fighting is the Cult of Salavesh. Evil blood mages, they are. Their minions ambushed me on my way to their stronghold. Rumours say it is within a cave."
+"Salavesh" -> "Ich bekämpfe den Kult der Salavesh, ein Haufen böser Blutmagier. Die Diener des Kultes haben mir aufgelauert, als ich mich auf dem Weg zu ihrem Unterschlupf befand. Gerüchten zufolge ist er in einer Höhle."
 "Drache" -> "Drachen sind majestätische Wesen und ich bin stolz darauf, einst einen gesehen zu haben. Gerüchten zufolge macht der Kult der Salavesh Jagd auf Drachen."
 "Blutmagie", "totenbeschwör" -> "Blutmagie ist das Böse in Reinform. Die alten Sitten verbieten es, solche Praktiken auch nur in Erwägung zu ziehen."
 "Höhle", "Unterschlupf" -> "Ich bin mir sicher, dass der Unterschlupf des Kults der Salavesh sich in einer Höhle, nordöstlich von hier, befindet."
