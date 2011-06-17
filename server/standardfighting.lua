@@ -724,6 +724,14 @@ function LearnParry(Attacker, Defender)
     end;
 end;
 
+function NotNil(val)
+    if val==nil then
+        return 0;
+    end
+    return val;
+end
+
+
 --- Load the attributes and skills of a character. Depending on the offensive
 -- parameter the skills for attacking or for defending are load.
 -- @param CharStruct The character table of the char the values are load for
@@ -731,20 +739,20 @@ end;
 --                      load
 function LoadAttribsSkills(CharStruct, Offensive)
     if Offensive then
-        CharStruct["strength"] = CharStruct.Char:increaseAttrib("strength", 0);
-        CharStruct["agility"] = CharStruct.Char:increaseAttrib("agility", 0);
+        CharStruct["strength"] = NotNil(CharStruct.Char:increaseAttrib("strength", 0));
+        CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
         CharStruct["perception"]
-            = CharStruct.Char:increaseAttrib("perception", 0);
-        CharStruct["skill"] = CharStruct.Char:getSkill(CharStruct.Skillname);
-        CharStruct["natpoison"] = CharStruct.Char:getSkill("poisonstrength");
-        CharStruct["tactics"] = CharStruct.Char:getSkill("tactics");
+            = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
+        CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
+        CharStruct["natpoison"] = NotNil(CharStruct.Char:getSkill("poisonstrength"));
+        CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill("tactics"));
     else
         CharStruct["dexterity"]
-            = CharStruct.Char:increaseAttrib("dexterity", 0);
+            = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
         CharStruct["constitution"]
-            = CharStruct.Char:increaseAttrib("constitution", 0);
-        CharStruct["parry"] = CharStruct.Char:getSkill("parry");
-        CharStruct["dodge"] = CharStruct.Char:getSkill("dodge");
+            = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
+        CharStruct["parry"] = NotNil(CharStruct.Char:getSkill("parry"));
+        CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill("dodge"));
     end;
     CharStruct["Race"] = CharStruct.Char:get_race();
 end;
