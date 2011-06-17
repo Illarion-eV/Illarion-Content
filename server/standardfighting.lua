@@ -31,6 +31,7 @@ module("server.standardfighting", package.seeall)
 --                      to attack
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender, AttackPos)
+    Attacker:inform("attPos: "..AttackPos);
     --Attacker:talk(CCharacter.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
