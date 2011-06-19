@@ -762,7 +762,7 @@ function LoadWeapons(CharStruct)
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id);
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id);
     
-    CharStruct.Char:inform("R: "..rAttWeapon .. " L: "..lAttWeapon);
+    CharStruct.Char:inform("R: "..rItem.id .. " L: "..lItem.id);
     
     -- the right item is ALWAYS used as the weapon now!
     
