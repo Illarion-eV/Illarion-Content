@@ -210,7 +210,7 @@ function CalculateDamage(Attacker, Globals, Defender)
     SkillBonus = (Attacker.skill - 20) * 1;
     TacticsBonus = (Attacker.tactics - 20) * 0.5;
 
-    Globals["Damage"] = BaseDamage * (100 + BaseDamage + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus)/100;
+    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus)/100;
     
 end;
 
