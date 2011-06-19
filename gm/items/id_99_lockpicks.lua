@@ -275,6 +275,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         elseif (string.find(User.lastSpokenText,"current weather"))~=nil then
             m_Weather = world.weather;
             User:inform("cld: "..m_Weather.cloud_density.." fg: "..m_Weather.fog_density.." w_dir: "..m_Weather.wind_dir.." gust: "..m_Weather.gust_strength.." perstr: "..m_Weather.percipitation_strength.." perTyp: "..m_Weather.percipitation_type.." new thund: "..m_Weather.thunderstorm.." temp: "..m_Weather.temperature);
+        elseif (string.find(Use.lastSpokenText,"heal"))~=nil then
+            acHP=User:increaseAttrib("hitpoints",0);
+            User:increaseAttrib("hitpoints",10000-acHP);
         end
     end
 end
