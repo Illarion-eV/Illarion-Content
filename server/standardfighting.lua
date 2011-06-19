@@ -216,7 +216,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    --Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
+    Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
