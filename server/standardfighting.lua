@@ -105,18 +105,18 @@ function onAttack(Attacker, Defender)
     end;
     
     -- Calculate the damage caused by the attack
-    CalculateDamage(Attacker, Globals, Defender);
+    CalculateDamage(Attacker, Globals);
 
-Defender.Char:inform("BaseDamage: "..Globals.Damage);
+--Defender.Char:inform("BaseDamage: "..Globals.Damage);
     
     -- Reduce the damage due the absorbtion of the armor
     ArmorAbsorbtion(Attacker, Defender, Globals);
     
-Defender.Char:inform("BaseDamage after Armor: "..Globals.Damage);    
+--Defender.Char:inform("BaseDamage after Armor: "..Globals.Damage);    
     -- The effect of the constitution. After this the final damage is avaiable.
     ConstitutionEffect(Defender, Globals);
 
-Defender.Char:inform("BaseDamage after Consti: "..Globals.Damage);     
+--Defender.Char:inform("BaseDamage after Consti: "..Globals.Damage);     
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals);
     
@@ -190,7 +190,7 @@ end;
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
-function CalculateDamage(Attacker, Globals, Defender)
+function CalculateDamage(Attacker, Globals)
     local BaseDamage;
     local StrengthBonus;
     local PerceptionBonus;
@@ -203,7 +203,7 @@ function CalculateDamage(Attacker, Globals, Defender)
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
-  Defender.Char:inform("Base Damage 1 "..BaseDamage);  
+  --Defender.Char:inform("Base Damage 1 "..BaseDamage);  
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
@@ -220,7 +220,7 @@ end;
 -- @param Defender The table of the attacked Character
 -- @param Globals The table of the global values
 function CauseDamage(Attacker, Defender, Globals)
-    Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
+    --Defender.Char:talk(CCharacter.say, "-" .. Globals.Damage .. "HP");
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
