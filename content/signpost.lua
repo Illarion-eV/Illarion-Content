@@ -646,7 +646,7 @@ function InitWegweiser()
 	AddPennant({323,632,0},"","", 6,5);
 	AddPennant({323,634,0},"","", 6,5);
 	--Sentry Outpost
-	AddPennant({641,706,3},"","", 3,5);
+	AddPennant({641,706,3},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 3,0);
 	--Snakehead Coast
     AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
     --Spider's Mouth
@@ -703,10 +703,14 @@ function InitWegweiser()
 	--Runewick Hinterland
 	AddTree({853,778,0},"","", 6,5); --Holy Oak
 	--Snakehead Coast
-	AddTree({653,465,0},"","", 6,5);
-	AddTree({647,465,0},"","", 6,5);
-	AddTree({653,479,0},"","", 6,5);
-	AddTree({647,465,0},"","", 6,5);
+	AddTree({653,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
+	AddTree({647,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
+	AddTree({653,479,0},"Zwischen uns führt der Weg zum Licht.","The way to the Light starts between us.", 6,5);
+	AddTree({647,479,0},"Zwischen uns führt der Weg zum Licht.","The way to the Light starts between us.", 6,5);
+	AddTree({653,465,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({647,465,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
+	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	--The Swamp
 	AddTree({501,107,0},"","", 6,5);
 
