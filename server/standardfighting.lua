@@ -105,7 +105,7 @@ function onAttack(Attacker, Defender)
     end;
     
     -- Calculate the damage caused by the attack
-    CalculateDamage(Attacker, Globals);
+    CalculateDamage(Attacker, Globals, Defender);
 
 Defender.Char:inform("BaseDamage: "..Globals.Damage);
     
@@ -190,7 +190,7 @@ end;
 -- character.
 -- @param Attacker The table of the character who is attacking
 -- @param Globals The global data table
-function CalculateDamage(Attacker, Globals)
+function CalculateDamage(Attacker, Globals, Defender)
     local BaseDamage;
     local StrengthBonus;
     local PerceptionBonus;
@@ -203,7 +203,7 @@ function CalculateDamage(Attacker, Globals)
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
-    
+  Defender.Char:inform("Base Damage 1 "..BaseDamage);  
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
