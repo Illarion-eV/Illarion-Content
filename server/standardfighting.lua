@@ -27,23 +27,19 @@ module("server.standardfighting", package.seeall)
 -- right hand will be used to perform the attack.
 -- @param Attacker The character who attacks
 -- @param Defender The character who is attacked
--- @param AttackPos The position (left or right hand) of the item that is used
---                      to attack
 -- @return true in case a attack was performed, else false
-function onAttack(Attacker, Defender, AttackPos)
-    Attacker:inform("attPos: "..AttackPos);
+function onAttack(Attacker, Defender)
     --Attacker:talk(CCharacter.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
-    local Globals  = { ["AttackPos"] = AttackPos };
     
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
     
     --Attacker.Char:talk(CCharacter.say,"NI OK");
     -- Load the weapons of the attacker
-    LoadWeapons(Attacker, Globals.AttackPos);
+    LoadWeapons(Attacker);
     
      --   Attacker.Char:talk(CCharacter.say,"WP OK");
     -- Check the range between the both fighting characters
@@ -55,7 +51,7 @@ function onAttack(Attacker, Defender, AttackPos)
     
     --Attacker.Char:talk(CCharacter.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
-    if not CheckAttackOK(Attacker, Globals.AttackPos) then 
+    if not CheckAttackOK(Attacker) then 
        -- Attacker.Char:talk(CCharacter.say,"ATTER NOT OK");
         return false; 
     end;
@@ -72,7 +68,6 @@ function onAttack(Attacker, Defender, AttackPos)
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
---Attacker.Char:talk(CCharacter.say,"before MovePointsCalc");
     -- Calculate and reduce the required movepoints ******************* NEW **********************
     if not HandleMovepoints(Attacker) then
         return false;
@@ -376,9 +371,8 @@ end;
 
 --- Check if the setting of items the character is using is good for a attack
 -- @param CharStruct The table of the attacker that holds all values load
--- @param AttackPos The position of the hand used to attack
 -- @return true in case the attack is fine
-function CheckAttackOK(CharStruct, AttackPos)
+function CheckAttackOK(CharStruct)
     if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed
         return false;
     end;
@@ -401,10 +395,6 @@ function CheckAttackOK(CharStruct, AttackPos)
             -- but a wand in the first
             --CharStruct.Char:talk(CCharacter.say,"check 5 ok");
             return false;
-        elseif (AttackPos == CCharacter.left_tool
-            and CharStruct.UsedHands == 1) then -- weapon in both hands
-            --CharStruct.Char:talk(CCharacter.say,"check 6 ok");
-            return false; -- only the right hand is allowed to attack
         end;
     end;
    -- CharStruct.Char:talk(CCharacter.say,"check 7 ok");
@@ -761,49 +751,35 @@ function LoadAttribsSkills(CharStruct, Offensive)
 end;
 
 --- Load all weapon data for a character. The data is stored in the table that
--- is used as the parameter. The naming of the data depends on the value of the
--- AttackPos parameter.
+-- is used as the parameter. 
 -- @param CharStruct The table of the character the weapons are supposed to be
 --                      load for
--- @param AttackPos The hand that is used for the attack
-function LoadWeapons(CharStruct, AttackPos)
-    local Item = CharStruct.Char:getItemAt(CCharacter.right_tool);
-    local AttFound, AttWeapon = world:getWeaponStruct(Item.id);
-    if (AttackPos == CCharacter.right_tool) then
-        --CharStruct.Char:inform("Right hand attpos, right hand item as weapon "..Item.id);
-        CharStruct["WeaponItem"] = Item;
-        CharStruct["IsWeapon"] = AttFound;
-        CharStruct["Weapon"] = AttWeapon;
-    elseif (AttackPos == CCharacter.left_tool) then
-        --CharStruct.Char:inform("left hand attpos, right hand item as second weapon "..Item.id);
-        CharStruct["SecWeaponItem"] = Item;
-        CharStruct["SecIsWeapon"] = AttFound;
-        CharStruct["SecWeapon"] = AttWeapon;
-    else
-        --CharStruct.Char:inform("seomething else; attpos, right hand item ? "..Item.id);
-        CharStruct["RightWeaponItem"] = Item;
-        CharStruct["RightIsWeapon"] = AttFound;
-        CharStruct["RightWeapon"] = AttWeapon;
-    end;
+function LoadWeapons(CharStruct)
+    local rItem = CharStruct.Char:getItemAt(CCharacter.right_tool);
+    local lItem = CharStruct.Char:getItemAt(CCharacter.left_tool);
+    local rAttFound, rAttWeapon = world:getWeaponStruct(Item.id);
+    local lAttFound, lAttWeapon = world:getWeaponStruct(Item.id);
     
-    Item = CharStruct.Char:getItemAt(CCharacter.left_tool);
-    AttFound, AttWeapon = world:getWeaponStruct(Item.id);
-    if (AttackPos == CCharacter.left_tool) then
-        --CharStruct.Char:inform("left hand attpos, left hand item as weapon "..Item.id);
-        CharStruct["WeaponItem"] = Item;
-        CharStruct["IsWeapon"] = AttFound;
-        CharStruct["Weapon"] = AttWeapon;
-    elseif (AttackPos == CCharacter.right_tool) then
-        --CharStruct.Char:inform("left hand attpos, left hand item as second weapon "..Item.id);
-        CharStruct["SecWeaponItem"] = Item;
-        CharStruct["SecIsWeapon"] = AttFound;
-        CharStruct["SecWeapon"] = AttWeapon;
-    else
-        --CharStruct.Char:inform("something else hand attpos, left hand item as left weapon ? "..Item.id);
-        CharStruct["LeftWeaponItem"] = Item;
-        CharStruct["LeftIsWeapon"] = AttFound;
-        CharStruct["LeftWeapon"] = AttWeapon;
-    end;
+    -- the right item is ALWAYS used as the weapon now!
+    
+    CharStruct["WeaponItem"] = rItem;
+    CharStruct["IsWeapon"] = rAttFound;
+    CharStruct["Weapon"] = rAttWeapon;
+    
+    -- the left item is ALWAYS used as shield or ammunition
+ 
+    CharStruct["SecWeaponItem"] = lItem;
+    CharStruct["SecIsWeapon"] = lAttFound;
+    CharStruct["SecWeapon"] = lAttWeapon;
+    
+    CharStruct["LeftWeaponItem"] = lItem;
+    CharStruct["LeftIsWeapon"] = lAttFound;
+    CharStruct["LeftWeapon"] = lAttWeapon;
+    
+    CharStruct["RightWeaponItem"] = lItem;
+    CharStruct["RightIsWeapon"] = lAttFound;
+    CharStruct["RightWeapon"] = lAttWeapon;
+
 end;
 
 --- Check if the character is on newbie island and reject the attack in that.
