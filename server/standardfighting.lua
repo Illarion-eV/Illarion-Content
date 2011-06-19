@@ -757,8 +757,8 @@ end;
 function LoadWeapons(CharStruct)
     local rItem = CharStruct.Char:getItemAt(CCharacter.right_tool);
     local lItem = CharStruct.Char:getItemAt(CCharacter.left_tool);
-    local rAttFound, rAttWeapon = world:getWeaponStruct(Item.id);
-    local lAttFound, lAttWeapon = world:getWeaponStruct(Item.id);
+    local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id);
+    local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id);
     
     -- the right item is ALWAYS used as the weapon now!
     
@@ -776,9 +776,9 @@ function LoadWeapons(CharStruct)
     CharStruct["LeftIsWeapon"] = lAttFound;
     CharStruct["LeftWeapon"] = lAttWeapon;
     
-    CharStruct["RightWeaponItem"] = lItem;
-    CharStruct["RightIsWeapon"] = lAttFound;
-    CharStruct["RightWeapon"] = lAttWeapon;
+    CharStruct["RightWeaponItem"] = rItem;
+    CharStruct["RightIsWeapon"] = rAttFound;
+    CharStruct["RightWeapon"] = rAttWeapon;
 
 end;
 
