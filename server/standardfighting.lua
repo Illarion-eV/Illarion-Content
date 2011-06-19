@@ -644,7 +644,7 @@ function HandleMovepoints(Attacker)
         - math.floor(Attacker.agility / 6)/4;
 -- ********************************************** NEWWWWWW 
     if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
-        --Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
+        Attacker.Char:inform("AP: "..Attacker.Char.movepoints .. " FP: " .. Attacker.Char.fightpoints);
         base.character.ChangeFightingpoints(Attacker.Char,
             -math.floor(reduceFightpoints));
         Attacker.Char.movepoints=Attacker.Char.movepoints-7
@@ -761,6 +761,8 @@ function LoadWeapons(CharStruct)
     local lItem = CharStruct.Char:getItemAt(CCharacter.left_tool);
     local rAttFound, rAttWeapon = world:getWeaponStruct(rItem.id);
     local lAttFound, lAttWeapon = world:getWeaponStruct(lItem.id);
+    
+    CharStruct:inform("R: "..rAttWeapon .. " L: "..lAttWeapon);
     
     -- the right item is ALWAYS used as the weapon now!
     
