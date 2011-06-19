@@ -106,13 +106,17 @@ function onAttack(Attacker, Defender)
     
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
+
+Defender.Char:inform("BaseDamage: "..Globals.Damage);
     
     -- Reduce the damage due the absorbtion of the armor
     ArmorAbsorbtion(Attacker, Defender, Globals);
     
+Defender.Char:inform("BaseDamage after Armor: "..Globals.Damage);    
     -- The effect of the constitution. After this the final damage is avaiable.
     ConstitutionEffect(Defender, Globals);
-    
+
+Defender.Char:inform("BaseDamage after Consti: "..Globals.Damage);     
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals);
     
