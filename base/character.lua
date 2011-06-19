@@ -53,7 +53,7 @@ end;
 -- @info This is currently set to change the movepoints also because the
 --          fighting points do not seem to work on the current server
 function ChangeFightingpoints(User, Value)
-    User.movepoints = User.movepoints + Value;
+    User.fightpoints = User.fightpoints + Value;
 end;
 
 --- Check if the character is a player character.

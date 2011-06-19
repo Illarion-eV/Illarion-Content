@@ -632,21 +632,22 @@ end;
 -- movepoints by the fitting value.
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker)
-    local weaponMovepoints;
+    local weaponFightpoints;
     if Attacker.IsWeapon then
-        weaponMovepoints = Attacker.Weapon.ActionPoints;
+        weaponFightpoints = Attacker.Weapon.ActionPoints;
     else
-        weaponMovepoints = content.fighting.GetWrestlingMovepoints(
+        weaponFightpoints = content.fighting.GetWrestlingMovepoints(
             Attacker.Race);
     end;
     
-    local reduceMovepoints = (weaponMovepoints / 2)
+    local reduceMovepoints = (weaponFightpoints / 2)
         - math.floor(Attacker.agility / 6)/4;
 -- ********************************************** NEWWWWWW 
-    if (math.floor(reduceMovepoints)<=Attacker.Char.movepoints) then
+    if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
         --Attacker.Char:talk(CCharacter.say,"#me Enough AP..."..Attacker.Char.movepoints);
         base.character.ChangeFightingpoints(Attacker.Char,
-            -math.floor(reduceMovepoints));
+            -math.floor(reduceFightpoints));
+        Attacker.Char.movepoints=Attacker.Char.movepoints-7
         return true;
     else
         --Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
