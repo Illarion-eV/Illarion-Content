@@ -643,7 +643,7 @@ function HandleMovepoints(Attacker)
             Attacker.Race);
     end;
     
-    local reduceFightpoints = (weaponFightpoints
+    local reduceFightpoints = math.max(7,weaponFightpoints
         - math.floor(Attacker.agility / 2));
     base.character.ChangeFightingpoints(Attacker.Char,
         -math.floor(reduceFightpoints));
