@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 07, 2011                           easyNPC Parser v1.02 --
+
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,7 +35,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Kˆchin. Schl¸sselwˆrter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Linda Rabon die Kˆchin. SchlÅEselwˆrter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -53,7 +53,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gr¸ﬂ");
+talkEntry:addTrigger("GrÅE");
 talkEntry:addTrigger("Gruﬂ");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
@@ -102,8 +102,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tsch¸ﬂ");
-talkEntry:addTrigger("Tsch¸ss");
+talkEntry:addTrigger("TschÅE");
+talkEntry:addTrigger("TschÅEs");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("GERMAN1.");
@@ -157,7 +157,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wie geht");
-talkEntry:addTrigger("Wie f¸hlst");
+talkEntry:addTrigger("Wie fÅElst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("GERMAN1.");
@@ -558,7 +558,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("MalachÌn");
+talkEntry:addTrigger("Malach˙ã");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("He's the wolf god. I want a wolf. I'm going to ask daddy tonight if I can have a wolf.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -566,7 +566,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("MalachÌn");
+talkEntry:addTrigger("Malach˙ã");
 talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
@@ -700,18 +700,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("etymology");
-talkEntry:addResponse("Me, My daddy, my mommy, Mr. Yang and Pal Por's names come form Final Fantasy IV.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("GERMAN");
-talkEntry:addResponse("GERMAN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Linda");
 talkEntry:addTrigger("Rabon");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -781,14 +769,13 @@ talkEntry:addResponse("GERMAN2.");
 talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("ENGLISH.", "Suger, spice, everything nice, rat, cat everthings great.");
-talkingNPC:addCycleText("ENGLISH.", "It's almost my birthday. I can't wait!");
-talkingNPC:addCycleText("ENGLISH.", "Today I am cooking a unique dish. It requires smails lightly touched in flame. Pepper from the black forest. Juice for a sour fruit, and like three other things I can't tell you. Hahahahaha. This is going to be good.");
+talkingNPC:addCycleText("ENGLISH.", "Suger, spice, everything nice, rat, cat everthings great.");talkingNPC:addCycleText("ENGLISH.", "It's almost my birthday. I CAN'T WAIT!");
+talkingNPC:addCycleText("ENGLISH.", "Today I am cooking a unique dish. It requires snails lightly touched in flame, pepper from the black forest. Juice from a sour fruit, and like three other things I can't tell you. Hahahahaha. This is going to be good.");
 talkingNPC:addCycleText("ENGLISH.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking. I mean all my cooking goes to time. Wait what?");
 talkingNPC:addCycleText("ENGLISH.", "Daddy can you bring up more chicken please.");
 talkingNPC:addCycleText("ENGLISH.", "Mr. Yang!");
-talkingNPC:addCycleText("ENGLISH.", "They eat to fast Upstairs. A patiently cooked meal is more important than the monsters they cook.");
-talkingNPC:addCycleText("ENGLISH.", "What time is it. Shouldn't we be closing soon.");
+talkingNPC:addCycleText("ENGLISH.", "These people eat to fast Upstairs.");
+talkingNPC:addCycleText("ENGLISH.", "What time is it? Shouldn't we be closing soon.");
 talkingNPC:addCycleText("ENGLISH.", "Oh gods! Why is the chicken on fire again?");
 talkingNPC:addCycleText("ENGLISH", "I wonder if there are schools for cooking. I would be the best teacher ever.");
 mainNPC:addLanguage(0);
