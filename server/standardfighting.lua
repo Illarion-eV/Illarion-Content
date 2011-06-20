@@ -72,7 +72,7 @@ function onAttack(Attacker, Defender)
     -- Calculate and reduce the required movepoints ******************* NEW **********************
     HandleMovepoints(Attacker)
 
-    base.common.TurnTo(Attacker,Defender.pos);
+    base.common.TurnTo(Attacker.Char,Defender.Char.pos);
 
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
