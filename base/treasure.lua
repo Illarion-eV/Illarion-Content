@@ -208,6 +208,13 @@ module("base.treasure", package.seeall)
         User:inform("Real Target --> x: "..RealTarget.x.." - y: "..RealTarget.y.." - z: "..RealTarget.z );
         User:inform("Modified Target --> x: "..TargetLocation.x.." - y: "..TargetLocation.y.." - z: "..TargetLocation.z );
         local dir = base.common.GetDirection( User.pos, TargetLocation );
+        
+        if dir~=nil then 
+            User:inform("dir = "..dir);
+        else
+            User:inform("dir = nil");
+        end
+        
         if ( dir == 0 ) then
             return base.common.GetNLS( User, "Norden", "north" );
         elseif ( dir == 1 ) then
