@@ -644,7 +644,7 @@ function HandleMovepoints(Attacker)
             Attacker.Race);
     end;
     
-    local reduceFightpoints = math.max(7,weaponFightpoints
+    local reduceFightpoints = (weaponFightpoints
         - math.floor(Attacker.agility / 2));
 -- ********************************************** NEWWWWWW 
     if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
