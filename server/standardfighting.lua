@@ -70,11 +70,10 @@ function onAttack(Attacker, Defender)
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
     -- Calculate and reduce the required movepoints ******************* NEW **********************
-    if not HandleMovepoints(Attacker) then
-        return false;
-    end
+    HandleMovepoints(Attacker)
 
-    
+    base.common.TurnTo(Attacker,Defender.pos);
+
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
     
@@ -646,18 +645,10 @@ function HandleMovepoints(Attacker)
     
     local reduceFightpoints = (weaponFightpoints
         - math.floor(Attacker.agility / 2));
--- ********************************************** NEWWWWWW 
-    --if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
-        --Attacker.Char:inform("AP: "..Attacker.Char.movepoints .. " FP: " .. Attacker.Char.fightpoints);
-        base.character.ChangeFightingpoints(Attacker.Char,
-            -math.floor(reduceFightpoints));
-        Attacker.Char.movepoints=Attacker.Char.movepoints-7
-        return true;
-    --else
-        --Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
-    --    return false;
-    --end
--- ********************************************** END NEW
+    base.character.ChangeFightingpoints(Attacker.Char,
+        -math.floor(reduceFightpoints));
+    Attacker.Char.movepoints=Attacker.Char.movepoints-7; 
+    return true;
 end;
 
 --- Learning function called when ever the attacked character dodges the attack.
