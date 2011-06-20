@@ -1079,7 +1079,7 @@ end
     @return integer - The value that contains the position
 ]]
 function PositionToData(posi)
-    return 1048576 * (500 + posi.x) + 1024 * (500 + posi.y) + (500 + posi.z);
+    return 1048576 * (posi.x) + 1024 * (posi.y) + (posi.z+500);
 end;
 
 --[[
@@ -1091,9 +1091,9 @@ end;
 function DataToPosition(value)
     local z = math.mod(value, 1024) - 500;
     value = math.floor(value / 1024);
-    local y = math.mod(value, 1024) - 500;
+    local y = math.mod(value, 1024);
     value = math.floor(value / 1024);
-    local x = math.mod(value, 1024) - 500;
+    local x = math.mod(value, 1024);
     return position(x,y,z);
 end;
 
