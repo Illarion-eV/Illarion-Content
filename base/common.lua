@@ -186,7 +186,7 @@ end;
 -- @param User The character who shall be turned
 -- @param Location The position the character shall turn to
 function TurnTo(User, Location)
-    local oldDir = User:get_face_to();
+    local oldDir = User.face_to; --User:get_face_to();
     local newDir = GetDirection(User.pos, Location);
 
     if (newDir ~= oldDir) then
