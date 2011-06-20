@@ -22,3 +22,7 @@ function LookAtItem(User, Item)
     end;
 
 end;
+
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+    base.treasure.createMap( User )
+end
