@@ -644,8 +644,8 @@ function HandleMovepoints(Attacker)
             Attacker.Race);
     end;
     
-    local reduceFightpoints = (weaponFightpoints / 2)
-        - math.floor(Attacker.agility / 6)/4;
+    local reduceFightpoints = math.max(7,weaponFightpoints
+        - math.floor(Attacker.agility / 2));
 -- ********************************************** NEWWWWWW 
     if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
         --Attacker.Char:inform("AP: "..Attacker.Char.movepoints .. " FP: " .. Attacker.Char.fightpoints);
