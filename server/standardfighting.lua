@@ -647,16 +647,16 @@ function HandleMovepoints(Attacker)
     local reduceFightpoints = (weaponFightpoints
         - math.floor(Attacker.agility / 2));
 -- ********************************************** NEWWWWWW 
-    if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
+    --if (math.floor(reduceFightpoints)<=Attacker.Char.fightpoints) then
         --Attacker.Char:inform("AP: "..Attacker.Char.movepoints .. " FP: " .. Attacker.Char.fightpoints);
         base.character.ChangeFightingpoints(Attacker.Char,
             -math.floor(reduceFightpoints));
         Attacker.Char.movepoints=Attacker.Char.movepoints-7
         return true;
-    else
+    --else
         --Attacker.Char:talk(CCharacter.say,"NOT      enough AP..."..Attacker.Char.movepoints.." needed: "..math.floor(reduceMovepoints));
-        return false;
-    end
+    --    return false;
+    --end
 -- ********************************************** END NEW
 end;
 
