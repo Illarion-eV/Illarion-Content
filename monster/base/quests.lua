@@ -495,7 +495,7 @@ function checkQuest(User,Monster)
 
             else --debugging
 
-                base.common.TempInformNLS(User,"[Queststatus] Debugging: Bedingungen für Kill nicht erfüllt.","[Quest status] Debugging: Conditions for kill not fulfilled."); 
+                --base.common.TempInformNLS(User,"[Queststatus] Debugging: Bedingungen für Kill nicht erfüllt.","[Quest status] Debugging: Conditions for kill not fulfilled."); 
 
             end
         end
