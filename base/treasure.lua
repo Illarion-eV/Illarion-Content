@@ -137,13 +137,14 @@ module("base.treasure", package.seeall)
             end
 
             mon = world:getCharacterOnField( newPos );
+            User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
             table.insert( treasureMonsters[User.id], mon );
         end
     end
 
     function CheckMonsters( User )
         if not treasureMonsters[User.id] then
-        User:inform("CheckMonsters 1");
+            User:inform("CheckMonsters 1");
             return true;
         end
 
