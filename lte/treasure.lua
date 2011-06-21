@@ -42,7 +42,7 @@ function callEffect(trsEff, trsHunter)
     if not fnd then
         return false;       -- treasure lost!
     end
-
+trsHunter:inform("trsHunter now checking monsters:");
     if base.treasure.CheckMonsters( trsHunter ) then
         base.common.TempInformNLS( trsHunter,
         "Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",

@@ -163,6 +163,7 @@ module("base.treasure", package.seeall)
     function KillMonsters( User )
         User:inform("KillMonsters 1");
         if not treasureMonsters[User.id] then
+            User:inform("KillMonsters returns true");
             return true;
         end
 
@@ -173,6 +174,7 @@ module("base.treasure", package.seeall)
             end
         end
         treasureMonsters[User.id] = nil;
+        User:inform("KillMonsters returns true 2");
         return true;
     end
 
