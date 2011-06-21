@@ -169,9 +169,11 @@ module("base.treasure", package.seeall)
 User:inform("KillMonsters 2");
         for i,mon in pairs(treasureMonsters[User.id]) do
         User:inform("KillMonsters 3");
-            if mon and mon:increaseAttrib("hitpoints",0) > 0 then
-                User:inform("Killmonsters 2");
-                mon:increaseAttrib("hitpoints",-10000);
+            if isValidChar(mon) then
+                if mon:increaseAttrib("hitpoints",0) > 0 then
+                    User:inform("Killmonsters 2");
+                    mon:increaseAttrib("hitpoints",-10000);
+                end
             end
         end
         User:inform("KillMonsters 4");
