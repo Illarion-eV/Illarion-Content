@@ -178,7 +178,7 @@ User:inform("KillMonsters 2");
         end
         User:inform("KillMonsters 4");
         treasureMonsters[User.id] = nil;
-        User:inform("KillMonsters returns true 2");
+        User:inform("KillMonsters returns true 2.1");
         return true;
     end
 
