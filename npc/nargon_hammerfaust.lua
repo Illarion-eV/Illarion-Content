@@ -848,17 +848,16 @@ function lookAtNpc(Char, mode)
 end
 
 function createMonster()
-	world:createMonster(101,monsterpos,20);
+	myMummy=world:createMonster(101,monsterpos,20);
 	world:gfx(7,monsterpos);
     world:makeSound(4,monsterpos);
     ---------Variable for nextCycle----------
     mummyCreated=true;
     ------------------------------------------
-	mummy_list=world:getMonstersInRangeOf(ArenaCenterPosition, searchRadius);
-	if (mummy_list[1]~=nil) then
-		mummy_list[1]:increaseAttrib("hitpoints",-5000); --makes the mummy weaker!
+    if not isValidChar(myMummy) then
+	    mummyCreated = false;
 	end
-
 	return mummyCreated;
+	    
 end
 
