@@ -150,12 +150,14 @@ module("base.treasure", package.seeall)
         end
 
         for i,mon in pairs(treasureMonsters[User.id]) do
-            if mon and mon:increaseAttrib("hitpoints",0) > 0 then
-                User:inform("CheckMonsters 2. some are still alive");
-                return false;
+            if isValidChar(mon) then
+                if mon:increaseAttrib("hitpoints",0) > 0 then
+                    User:inform("CheckMonsters 2. some are still alive");
+                    return false;
+                end
             end
         end
-
+User:inform("CheckMonsters true");
         treasureMonsters[User.id] = nil;
         return true;
     end
