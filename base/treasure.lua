@@ -135,7 +135,7 @@ module("base.treasure", package.seeall)
                     "The dragon gleams and shimmers in the air. It seems that it is 'just' an illusion." }
                 );
             end
-
+            User:inform("trying to fetch monster");
             mon = world:getCharacterOnField( newPos );
             User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
             table.insert( treasureMonsters[User.id], mon );
