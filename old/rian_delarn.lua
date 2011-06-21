@@ -186,16 +186,16 @@ function nextCycle()  -- ~10 times per second
                 thisNPC.activeLanguage=Language;
                 world:makeSound(13,position(26,57,50));
                 world:gfx(5,position(26,57,50));
-	        world:createMonster(116,position(26,57,50),10);
-	     end
-             CastHarml=CastHarml-1;
+	            world:createMonster(116,position(26,57,50),10);
+	        end
+            CastHarml=CastHarml-1;
         else
              if (Round==10) then
                  Round=1;
              else
                  Round=Round+1;
              end
-	end
+	    end
     end
 
     npc.base.autonpcfunctions.npc.base.functions.SpeakerCycle();

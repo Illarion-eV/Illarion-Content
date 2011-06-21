@@ -44,9 +44,10 @@ function createRabbits( targetArea )
 
     for i, posi in pairs(targetArea) do
         if not world:isCharacterOnField( posi ) then
-            world:createMonster(295,posi,-20);
-            rabbit = world:getCharacterOnField( posi );
-		rabbit:setPoisonValue( lifeTime );
+            rabbit = world:createMonster(295,posi,-20);
+            if isValidChar(rabbit) then
+		        rabbit:setPoisonValue( lifeTime );
+		    end
             --rabbit:increasePoisonValue( lifeTime );
         end
     end

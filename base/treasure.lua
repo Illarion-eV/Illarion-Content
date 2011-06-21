@@ -127,18 +127,19 @@ module("base.treasure", package.seeall)
             newPos=getFreePos( TargetPos, 4 );
             User:inform("found pos x="..newPos.x.." pos y="..newPos.y.." spawning monster "..monID );
             world:gfx(31,newPos);
-            world:createMonster(monID, newPos, 10);
-
-            if ( monID > 260 and monID < 270 ) then
-                table.insert( showMsgs, {
-                    "Der Drache schimmert und flirrt in der Luft. Er scheint 'nur' eine real wirkende Illusion zu sein.",
-                    "The dragon gleams and shimmers in the air. It seems that it is 'just' an illusion." }
-                );
+            mon = world:createMonster(monID, newPos, 10);
+            if isValidChar(mon) then
+                if ( monID > 260 and monID < 270 ) then
+                    table.insert( showMsgs, {
+                        "Der Drache schimmert und flirrt in der Luft. Er scheint 'nur' eine real wirkende Illusion zu sein.",
+                        "The dragon gleams and shimmers in the air. It seems that it is 'just' an illusion." }
+                    );
+                end
+                User:inform("trying to fetch monster");
+                -- mon = world:getCharacterOnField( newPos );
+                User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
+                table.insert( treasureMonsters[User.id], mon );
             end
-            User:inform("trying to fetch monster");
-            mon = world:getCharacterOnField( newPos );
-            User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
-            table.insert( treasureMonsters[User.id], mon );
         end
     end
 

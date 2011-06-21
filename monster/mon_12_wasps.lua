@@ -199,10 +199,11 @@ function SetNextTrap(Posi,CenterPos)
     end
     
     if ((TestItem.id >= 377) and (TestItem.id <=381)) then
-        world:createMonster(401,Posi,-50);
-        local tempmonster = world:getCharacterOnField(Posi);
-        tempmonster.fightpoints = tempmonster.fightpoints - 100;
-        return true
+        local tempmonster = world:createMonster(401,Posi,-50);
+        if isValidChar(tempmonster) then
+            tempmonster.fightpoints = tempmonster.fightpoints - 100;
+            return true
+        end
     end
     return false
 end
