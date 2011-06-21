@@ -54,7 +54,7 @@ function generateData(gemItem,TargetItem,itemCl,dummy)
 end
 
 function LookAtItem(User,Item)
-    -- Data 1       -> latent
+    -- Data 1           -> latent
     -- Data 2           -> bedingt
     -- Data 3           -> leicht
     -- Data 4           -> maessig

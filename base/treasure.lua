@@ -48,6 +48,7 @@ module("base.treasure", package.seeall)
         --Please add any new monsters according to their level!
 
         monsters={};
+      --[[  
         monsters[-1]={131, 132, 133, 134, 124, 126}; --Insects, Flies, Gnats, Mosquitos, Small Wasp, Fire Wasp
         monsters[0]={131, 132, 133, 134, 124, 126}; --Insects, Flies, Gnats, Mosquitos, Small Wasp, Fire Wasp
         monsters[1]={131, 132, 133, 134, 124, 126}; --Insects, Flies, Gnats, Mosquitos, Small Wasp, Fire Wasp
@@ -59,6 +60,13 @@ module("base.treasure", package.seeall)
         monsters[7]={155, 172, 173, 174, 191, 262, 285, 301, 302, 303, 341, 352}; --Spider Queen, Demon Skeleton Mage, Demon Skeleton Warrior, Old Demon Skeleton, Lower Demon, Fire Dragon Cub, Drow Matriarch, Stone Golem, Copper Golem, Iron Golem, Fallen, Ice Dragon Cub
         monsters[8]={175, 192, 193, 194, 195, 201, 202, 203, 204, 261, 263, 264, 304, 342, 343, 344, 351, 353, 354}; --Lich, Unholy Alcolyte, Moshran's Warrior, Undead Raptor, Lower Demon Mage, Higher Demon, Higher Demon Warrior, Unholy Archmage, Red Ram, Fire Dragon, Big Red Dragon, Ancient Fire Dragon, Gold Golem, Drown, Swamp Body, Swamp Crawler, Ice Dragon, Big Blue Dragon, Ancient Ice Dragon
         monsters[9]={205, 265, 305, 345, 355}; --Son of Ashkatuul, Son of Bragon, Merinium Golem, Drown King, Son of Tanora
+        
+        --]]
+        
+        -- temporary: to check everything
+        for i=-1,9 do
+            monsters[i]={102};
+        end
 
         monster1=monsters[level][math.random(1,table.getn(monsters[level]))];
         monster2=monsters[level-1][math.random(1,table.getn(monsters[level-1]))];
@@ -108,12 +116,16 @@ module("base.treasure", package.seeall)
         if not treasureMonsters[User.id] then
             treasureMonsters[User.id] = {};
         end
+        
+        User:inform("now calling getmonster. level: "..level);
+        
         local monList = GetMonsterList( level );
         local newPos;
         local showMsgs = {};
         local mon;
         for i, monID in pairs(monList) do
             newPos=getFreePos( TargetPos, 4 );
+            User:inform("found pos x="..newPos.x.." pos y="..newPos.y.." spawning monster "..monID );
             world:gfx(31,newPos);
             world:createMonster(monID, newPos, 10);
 
@@ -131,11 +143,13 @@ module("base.treasure", package.seeall)
 
     function CheckMonsters( User )
         if not treasureMonsters[User.id] then
+        User:inform("CheckMonsters 1");
             return true;
         end
 
         for i,mon in pairs(treasureMonsters[User.id]) do
             if mon and mon:increaseAttrib("hitpoints",0) > 0 then
+                User:inform("CheckMonsters 2. some are still alive");
                 return false;
             end
         end
@@ -145,12 +159,14 @@ module("base.treasure", package.seeall)
     end
 
     function KillMonsters( User )
+        User:inform("KillMonsters 1");
         if not treasureMonsters[User.id] then
             return true;
         end
 
         for i,mon in pairs(treasureMonsters[User.id]) do
             if mon and mon:increaseAttrib("hitpoints",0) > 0 then
+                User:inform("Killmonsters 2");
                 mon:increaseAttrib("hitpoints",-10000);
             end
         end
