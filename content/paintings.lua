@@ -33,7 +33,7 @@ function InitPaintings()
     AddPicture({141,607,0},"","", 7,5); --flats
     AddPicture({139,613,0},"","", 3,5); --flats
     AddPicture({143,613,0},"","", 3,5); --flats]]--
-    AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,5); --palace
+    AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,0); --palace
     --AddPicture({130,518,0},"","", 5,5); --queens room
     --AddPicture({135,516,0},"","", 3,5); --queens room
     --AddPicture({138,516,0},"","", 3,5); --queens room
