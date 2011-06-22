@@ -36,7 +36,7 @@ function LookAtItemIdent(User,Item)
 				end
 			end
 		end
-	end
+	end 
 
 	local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
