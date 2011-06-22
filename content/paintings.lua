@@ -1,6 +1,6 @@
 module("content.paintings", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitPainting()
     signTextDe={};
     signTextEn={};
     signCoo={};
