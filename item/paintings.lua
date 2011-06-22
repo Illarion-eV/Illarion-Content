@@ -100,8 +100,8 @@ PaintingListEnglish =
 };
 
 
-function LookAtPaintingItem( User, Item )
-    --[[local test = "no value";
+--[[function LookAtPaintingItem( User, Item )
+    local test = "no value";
 	if (first==nil) then
         content.signpost.InitPainting()
         first=1;
@@ -129,22 +129,22 @@ function LookAtPaintingItem( User, Item )
 				end
 			end
 		end
-	end
+	end 
 
 	local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
 		world:itemInform(User,Item,outText);
 		found = true;
-	end
+	end 
 
 	if not found then
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
-    end
+    end 
 
 		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test); ]]--
 	
-	
+	--[[
 	
 	local val = 0;
     if ( Item.data == 0 ) then
@@ -158,4 +158,49 @@ end
 
 function LookAtItem(User,Item)
     LookAtPaintingItem(User,Item);  
+end ]]--
+
+function LookAtItemIdent(User,Item)
+    local test = "no value";
+	if (first==nil) then
+        content.signpost.InitPainting()
+        first=1;
+    end
+    
+    -- fetching local references
+    local signTextDe     = content.signpost.signTextDe;
+    local signTextEn     = content.signpost.signTextEn;
+    local signCoo        = content.signpost.signCoo;
+    local signItemId     = content.signpost.signItemId;
+    local signPerception = content.signpost.signPerception;
+    
+    found = false;
+    UserPer = User:increaseAttrib("perception",0);
+    tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
+	if signCoo ~= nil then
+		if (signCoo[tablePosition] ~= nil) then
+			for i, signpos in pairs(signCoo[tablePosition]) do
+				if equapos(Item.pos,signpos) then
+					if (UserPer >= signPerception[tablePosition][i]) then
+						found = true;
+						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
+						test = signTextDe[tablePosition][i];
+					end
+				end
+			end
+		end
+	end 
+
+	local outText = checkNoobiaSigns(User,Item.pos);
+	if outText and not found then
+		world:itemInform(User,Item,outText);
+		found = true;
+	end 
+
+	if not found then
+        world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
+    end 
+
+		User:inform("in LookAtItem of base_wegweiser.lua");
+		User:inform(test); 
 end
