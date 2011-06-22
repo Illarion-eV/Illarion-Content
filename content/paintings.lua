@@ -1,6 +1,6 @@
 module("content.paintings", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitPainting()
+function InitPaintings()
     signTextDe={};
     signTextEn={};
     signCoo={};
