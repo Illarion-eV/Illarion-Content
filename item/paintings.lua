@@ -1,4 +1,5 @@
 require("base.common")
+require("content.paintings")
 
 module("item.paintings", package.seeall)
 

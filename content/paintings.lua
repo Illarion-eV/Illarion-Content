@@ -1,4 +1,4 @@
-module("content.signpost", package.seeall)
+module("content.paintings", package.seeall)
 --UNDER CONSTRUCTION by envi--
 function InitWegweiser()
     signTextDe={};
