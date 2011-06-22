@@ -5,7 +5,7 @@ module("item.paintings", package.seeall)
 
 -- UPDATE common SET com_script='item.paintings' WHERE com_itemid IN (264, 265, 748, 749, 750, 751, 1914, 1915);
 
-PaintingListGerman = 
+--[[PaintingListGerman = 
 {
 "Du siehst eine Waldlichtung mit einem Schrein, voller Tiere und Feen.", 
 "Du siehst einen jungen Mann beim Experimentieren mit der Alchemie.",
@@ -97,56 +97,11 @@ PaintingListEnglish =
 "You see a smeared painting. It appears as if a fairy is placed in the middle of the picture." ,
 "You see an elf who stares into the forest and you recognize that something is hiding and lurking inside." ,
 "You see a lizard coming up from the water.",
-};
+};    ]]--
 
 
 --[[function LookAtPaintingItem( User, Item )
-    local test = "no value";
-	if (first==nil) then
-        content.signpost.InitPainting()
-        first=1;
-    end
-    
-    -- fetching local references
-    local signTextDe     = content.signpost.signTextDe;
-    local signTextEn     = content.signpost.signTextEn;
-    local signCoo        = content.signpost.signCoo;
-    local signItemId     = content.signpost.signItemId;
-    local signPerception = content.signpost.signPerception;
-    
-    found = false;
-    UserPer = User:increaseAttrib("perception",0);
-    tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
-	if signCoo ~= nil then
-		if (signCoo[tablePosition] ~= nil) then
-			for i, signpos in pairs(signCoo[tablePosition]) do
-				if equapos(Item.pos,signpos) then
-					if (UserPer >= signPerception[tablePosition][i]) then
-						found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
-						test = signTextDe[tablePosition][i];
-					end
-				end
-			end
-		end
-	end 
-
-	local outText = checkNoobiaSigns(User,Item.pos);
-	if outText and not found then
-		world:itemInform(User,Item,outText);
-		found = true;
-	end 
-
-	if not found then
-        world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
-    end 
-
-		User:inform("in LookAtItem of base_wegweiser.lua");
-		User:inform(test); ]]--
-	
-	--[[
-	
-	local val = 0;
+    local val = 0;
     if ( Item.data == 0 ) then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
@@ -168,11 +123,11 @@ function LookAtItemIdent(User,Item)
     end
     
     -- fetching local references
-    local signTextDe     = content.signpost.signTextDe;
-    local signTextEn     = content.signpost.signTextEn;
-    local signCoo        = content.signpost.signCoo;
-    local signItemId     = content.signpost.signItemId;
-    local signPerception = content.signpost.signPerception;
+    local signTextDe     = content.paintings.signTextDe;
+    local signTextEn     = content.paintings.signTextEn;
+    local signCoo        = content.paintings.signCoo;
+    local signItemId     = content.paintings.signItemId;
+    local signPerception = content.paintings.signPerception;
     
     found = false;
     UserPer = User:increaseAttrib("perception",0);
@@ -201,7 +156,7 @@ function LookAtItemIdent(User,Item)
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
     end 
 
-		User:inform("in LookAtItem of base_wegweiser.lua");
+		User:inform("in LookAtItem of base_weiser.lua");
 		User:inform(test); 
 end
 
