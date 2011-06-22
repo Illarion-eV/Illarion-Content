@@ -101,7 +101,7 @@ PaintingListEnglish =
 
 
 function LookAtPaintingItem( User, Item )
-    local test = "no value";
+    --[[local test = "no value";
 	if (first==nil) then
         content.signpost.InitPainting()
         first=1;
@@ -142,11 +142,11 @@ function LookAtPaintingItem( User, Item )
     end
 
 		User:inform("in LookAtItem of base_wegweiser.lua");
-		User:inform(test);
+		User:inform(test); ]]--
 	
 	
 	
-	--[[local val = 0;
+	local val = 0;
     if ( Item.data == 0 ) then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
@@ -157,5 +157,5 @@ function LookAtPaintingItem( User, Item )
 end
 
 function LookAtItem(User,Item)
-    LookAtPaintingItem(User,Item);  ]]--
+    LookAtPaintingItem(User,Item);  
 end
