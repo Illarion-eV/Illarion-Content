@@ -383,21 +383,21 @@ function InitWegweiser()
     AddPicture({141,607,0},"","", 7,5); --flats
     AddPicture({139,613,0},"","", 3,5); --flats
     AddPicture({143,613,0},"","", 3,5); --flats
-    AddPicture({129,524,0},"","", 7,5); --palace
+    AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,5); --palace
     AddPicture({130,518,0},"","", 5,5); --queens room
     AddPicture({135,516,0},"","", 3,5); --queens room
     AddPicture({138,516,0},"","", 3,5); --queens room
-    AddPicture({117,579,0},"","", 4,5); --taverne
-    AddPicture({91,572,0},"","", 4,5); --inn
-    AddPicture({91,574,0},"","", 4,5); --inn
-    AddPicture({91,576,0},"","", 4,5); --inn
-    AddPicture({86,574,0},"","", 4,5); --inn
-    AddPicture({88,578,1},"","", 5,5); --inn
-    AddPicture({85,578,1},"","", 5,5); --inn
-    AddPicture({96,600,1},"","", 4,5); --building
-    AddPicture({96,599,1},"","", 4,5); --building
-    AddPicture({96,602,0},"","", 4,5); --building
-    AddPicture({100,611,1},"","", 3,5); --building
+    AddPicture({117,579,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --taverne
+    AddPicture({91,572,0},"","An outnumbered red-white dressed knight raises his sword to counter an attack of hundred black-yellow dressed soldiers. Other thousand of these soldiers lying around. They are probably dead. At the bottom right is a date: 118 BS.", 4,5); --inn
+    AddPicture({91,574,0},"","The pictures shows how red-white dressed knights are slaughtering an orc-tribe leaded by an obviously powerful shaman. The action takes place close at a high mountain where glowing water comes out. At the bottom right is a date: 66 BS.", 4,5); --inn
+    AddPicture({91,576,0},"","You see two knights fighting each other with joy. You can also see other people who watching and cheering them. Big red-white banners on the roof of the building are shimmering in the sun. At the bottom right is a date: since 56 BS.", 4,5); --inn
+    AddPicture({86,574,0},"","You see proud and fearless knights walking on red-white adorned ships. Women stay at the shore and waving white towels. There is also a priest on the picture who obviously prays. At the bottom right is a date: 16 BS.", 4,5); --inn
+    AddPicture({88,578,1},"","A red-white dressed knight kneels in front of dark-dressed man with a wizard hat. The knights holds his sword triumphing at the throat of the man. Folk of different races are watching and celebrating the knight. At the bottom right is a date: 0 AS.", 5,5); --inn
+    AddPicture({85,578,1},"","Knights with swords and red-white banners are slaughtering a dragon who tries to cover them with flames while in the background a group of blue-grey dressed mages running away with a treasure chest. At the bottom right is a date: 105 BS.", 5,5); --inn
+    AddPicture({96,600,1},"","You can see a small group of red-white dressed knights chasing fearless hundreds of bandits over a big river in a desert. At the bottom right is a date: 109 BS.", 4,5); --building
+    AddPicture({96,599,1},"","A knight with a raised blade and a red-white shield watches workers building a harbor while blue-grey ships disappearing at the horizon. At the bottom right is a date: 78 BS. ", 4,5); --building
+    AddPicture({96,602,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --building
+    AddPicture({100,611,1},"","The picture shows a man fighting numberless soldiers dressed as pirates in front of a burning building. His sword cuts through them and the fear in the eyes of his opponents cannot be ignored. At the bottom right is a date: 22 BS.", 3,5); --building
     --Eastland
     AddPicture({894,540,0},"","", 2,5); --Paddock Farm
     --Galmair
@@ -784,7 +784,7 @@ function InitWegweiser()
     AddPillar({143,562,0},"","", 6,5); --temple
     AddPillar({144,566,0},"","", 1,5); --temple
     AddPillar({144,562,0},"","", 1,5); --temple
-    AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 1,5); --palace
+    AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 1,0); --palace
     AddPillar({120,548,0},"11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 1,5); --palace
     AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
