@@ -162,8 +162,8 @@ function InitWegweiser()
     AddWeg({564,394,0},"Funkelhöhle","Glittering Cave",0,0);
 
 	-- Noobia --
-	AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,0); --palace
-    AddPicture({127,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 6,0); --palace
+	AddPicture({129,524,0},"TEST","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,0); --palace
+    AddPicture({127,524,0},"TEST","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 6,0); --palace
 
 	  
 	
