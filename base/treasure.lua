@@ -136,7 +136,6 @@ module("base.treasure", package.seeall)
                     );
                 end
                 User:inform("trying to fetch monster");
-                -- mon = world:getCharacterOnField( newPos );
                 User:inform("inserting into treasureMonsters for "..User.id.." monsterID "..mon.id);
                 table.insert( treasureMonsters[User.id], mon );
             end
