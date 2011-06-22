@@ -173,7 +173,7 @@ function InitWegweiser()
     -- 2 = east-west direction 2
     -- 3 = all directions (column)
     -- 4 = coffin
-
+    --[[
     --Cadomyr
     AddGrave({134,638,0},"","", 1,0);
     AddGrave({134,640,0},"","", 2,0);
@@ -273,10 +273,10 @@ function InitWegweiser()
     AddGrave({327,295,-6},"","", 3,0);--Sewers
     AddGrave({298,331,-6},"","", 3,0);--Sewers
     --Galmair hinterlands
-    AddGrave({545,501,0},"","", 3,0);--Sport Hole
+    AddGrave({545,501,0},"","", 3,0);--Sport Hole]]--
     --Glittering Cave
     AddGrave({564,382,0},"Hier hat es sich ausgefunkelt!","Glittering is over now!", 3,0);
-    --Glowing Forest
+    --[[--Glowing Forest
     AddGrave({503,536,0},"","", 3,0);
     AddGrave({481,513,0},"","", 1,0);
     AddGrave({520,523,0},"","", 3,0);
@@ -301,14 +301,14 @@ function InitWegweiser()
 	--Lost Building (1)
     AddGrave({252,722,0},"","", 1,0);
     AddGrave({247,728,0},"","", 3,0);
-    AddGrave({256,725,0},"","", 3,0);
+    AddGrave({256,725,0},"","", 3,0);]]--
    	--Moshran's Brood
     AddGrave({410,726,0},"Bald deines!","Soon yours!", 1,5);
     AddGrave({409,734,0},"~Als du den Grabstein näher untersuchst vernimmst du einen schmerzerfüllten Schrei.~","~You hear a painful cry when you investigate the tomb stone.~", 3,0);
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
     AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour of Zot's victims.", 3,0);
-	--Nagrun's Plain
+	--[[--Nagrun's Plain
     AddGrave({519,207,0},"","", 1,0);
     AddGrave({538,250,0},"","", 1,0);
     AddGrave({555,262,0},"","", 4,0);
@@ -357,7 +357,7 @@ function InitWegweiser()
 	AddGrave({308,559,0},"","", 3,0);
  	--Zumbrass Tomb
 	AddGrave({331,471,0},"","", 1,0);
-	AddGrave({323,467,0},"","", 3,0);
+	AddGrave({323,467,0},"","", 3,0);]]--
 	
 	
     ---------------- BILDER ----------------
@@ -373,7 +373,7 @@ function InitWegweiser()
     -- 7 = north wall wood picture
     -- 8 = east wall wood picture
 
-    --Cadomyr
+    --[[--Cadomyr
     AddPicture({147,622,1},"","", 2,5); --flats
     AddPicture({147,616,1},"","", 4,5); --flats
     AddPicture({141,612,1},"","", 3,5); --flats
@@ -382,11 +382,11 @@ function InitWegweiser()
     AddPicture({144,604,0},"","", 4,5); --flats
     AddPicture({141,607,0},"","", 7,5); --flats
     AddPicture({139,613,0},"","", 3,5); --flats
-    AddPicture({143,613,0},"","", 3,5); --flats
+    AddPicture({143,613,0},"","", 3,5); --flats]]--
     AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,5); --palace
-    AddPicture({130,518,0},"","", 5,5); --queens room
-    AddPicture({135,516,0},"","", 3,5); --queens room
-    AddPicture({138,516,0},"","", 3,5); --queens room
+    --AddPicture({130,518,0},"","", 5,5); --queens room
+    --AddPicture({135,516,0},"","", 3,5); --queens room
+    --AddPicture({138,516,0},"","", 3,5); --queens room
     AddPicture({117,579,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --taverne
     AddPicture({91,572,0},"","An outnumbered red-white dressed knight raises his sword to counter an attack of hundred black-yellow dressed soldiers. Other thousand of these soldiers lying around. They are probably dead. At the bottom right is a date: 118 BS.", 4,5); --inn
     AddPicture({91,574,0},"","The pictures shows how red-white dressed knights are slaughtering an orc-tribe leaded by an obviously powerful shaman. The action takes place close at a high mountain where glowing water comes out. At the bottom right is a date: 66 BS.", 4,5); --inn
@@ -398,7 +398,7 @@ function InitWegweiser()
     AddPicture({96,599,1},"","A knight with a raised blade and a red-white shield watches workers building a harbor while blue-grey ships disappearing at the horizon. At the bottom right is a date: 78 BS. ", 4,5); --building
     AddPicture({96,602,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --building
     AddPicture({100,611,1},"","The picture shows a man fighting numberless soldiers dressed as pirates in front of a burning building. His sword cuts through them and the fear in the eyes of his opponents cannot be ignored. At the bottom right is a date: 22 BS.", 3,5); --building
-    --Eastland
+    --[[--Eastland
     AddPicture({894,540,0},"","", 2,5); --Paddock Farm
     --Galmair
     AddPicture({309,270,0},"","", 4,5); --Villa 'Goldvein'
@@ -512,7 +512,7 @@ function InitWegweiser()
     AddPicture({705,326,1},"","", 5,5); --The Hemp Necktie Inn
     AddPicture({700,318,1},"","", 3,5); --The Hemp Necktie Inn
 	AddPicture({698,307,0},"","", 5,5); --The Hemp Necktie Inn
-	AddPicture({711,324,0},"","", 4,5); --The Hemp Necktie Inn
+	AddPicture({711,324,0},"","", 4,5); --The Hemp Necktie Inn]]--
 
     ---------------- STANDARTEN ----------------
 
@@ -526,7 +526,8 @@ function InitWegweiser()
     -- 6 = scull post - west
     -- 7 = scull post - south
     
-    --Abtruse Dwelling
+    --[[
+	--Abtruse Dwelling
     AddPennant({44,607,0},"","", 6,5);
     AddPennant({44,602,0},"","", 6,5);
     AddPennant({46,634,0},"","", 7,5);
@@ -549,7 +550,7 @@ function InitWegweiser()
     AddPennant({196,487,0},"","", 6,5);
     AddPennant({201,483,0},"","", 7,5);
     AddPennant({200,487,0},"","", 7,5);
-    AddPennant({204,487,0},"","", 7,5);
+    AddPennant({204,487,0},"","", 7,5);]]--
     --Cadomyr
     AddPennant({121,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
 	AddPennant({122,519,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
@@ -558,7 +559,7 @@ function InitWegweiser()
     AddPennant({130,530,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
     AddPennant({109,551,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
-    --Cherass‘ Citadel
+    --[[--Cherass‘ Citadel
     AddPennant({596,383,2},"","", 7,5); --outpost
     AddPennant({601,383,2},"","", 7,5); --outpost
     --Craven cave
@@ -617,7 +618,7 @@ function InitWegweiser()
     AddPennant({257,419,0},"","", 1,5);
     AddPennant({258,419,0},"","", 3,5);
     AddPennant({260,419,0},"","", 3,5);
-	AddPennant({261,419,0},"","", 1,5);
+	AddPennant({261,419,0},"","", 1,5);]]--
 	--Moshran's Brood
     AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
@@ -625,18 +626,18 @@ function InitWegweiser()
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
     AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
-	--Lost Building (2)
+	--[[--Lost Building (2)
     AddPennant({277,605,0},"","", 5,5);
     AddPennant({277,596,0},"","", 5,5);
     AddPennant({269,599,0},"","", 6,5);
     AddPennant({265,605,0},"","", 6,5);
     --Lost Building (3)
     AddPennant({290,474,0},"","", 5,5);
-    AddPennant({262,488,0},"","", 6,5);
+    AddPennant({262,488,0},"","", 6,5);]]--
 	--Lumpskrums Band
 	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
     AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
-    --Royal Slave Market
+    --[[--Royal Slave Market
 	AddPennant({325,627,0},"","", 5,5);
 	AddPennant({325,629,0},"","", 5,5);
 	AddPennant({325,632,0},"","", 5,5);
@@ -644,10 +645,10 @@ function InitWegweiser()
 	AddPennant({323,627,0},"","", 6,5);
 	AddPennant({323,629,0},"","", 6,5);
 	AddPennant({323,632,0},"","", 6,5);
-	AddPennant({323,634,0},"","", 6,5);
+	AddPennant({323,634,0},"","", 6,5);]]--
 	--Sentry Outpost
 	AddPennant({641,706,3},"In schimmernden Rot und Weiß ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 3,0);
-	--Snakehead Coast
+	--[[--Snakehead Coast
     AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
     --Spider's Mouth
     AddPennant({675,346,0},"","", 4,5);
@@ -665,7 +666,7 @@ function InitWegweiser()
     AddPennant({502,121,0},"","", 7,5);
     AddPennant({500,121,0},"","", 7,5);
     --Zumbrass Tomb
-	AddPennant({331,473,0},"","", 7,5);
+	AddPennant({331,473,0},"","", 7,5);]]--
 
     ---------------- Bï¿½UME ----------------
 
@@ -688,7 +689,7 @@ function InitWegweiser()
 	AddTree({734,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	AddTree({754,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	AddTree({754,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	--Bramus REst
+	--[[--Bramus REst
 	AddTree({752,378,0},"","", 1,5);
 	--Gnuremground
 	AddTree({578,708,0},"","", 1,5);
@@ -701,7 +702,7 @@ function InitWegweiser()
 	--Oldra's Corner
 	AddTree({653,681,0},"","", 6,5);
 	--Runewick Hinterland
-	AddTree({853,778,0},"","", 6,5); --Holy Oak
+	AddTree({853,778,0},"","", 6,5); --Holy Oak]]--
 	--Snakehead Coast
 	AddTree({653,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
 	AddTree({647,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
@@ -712,7 +713,7 @@ function InitWegweiser()
 	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	--The Swamp
-	AddTree({501,107,0},"","", 6,5);
+	--[[AddTree({501,107,0},"","", 6,5);]]--
 
 -------------------- Sï¿½ulen/Statuen  ----------------
     --AddPillar({X,Y,Z},german text,english text, type, needed value of perception);
@@ -728,7 +729,7 @@ function InitWegweiser()
     -- 9 = riderstatue (south)
     -- 10 = riderstatue (west)
 
-	--Abtruse Dwelling
+	--[[--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1,5);
 	AddPillar({54,602,0},"","", 1,5);
 	--Adron's Covert
@@ -783,10 +784,10 @@ function InitWegweiser()
     AddPillar({143,566,0},"","", 6,5); --temple
     AddPillar({143,562,0},"","", 6,5); --temple
     AddPillar({144,566,0},"","", 1,5); --temple
-    AddPillar({144,562,0},"","", 1,5); --temple
+    AddPillar({144,562,0},"","", 1,5); --temple]]--
     AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 1,0); --palace
     AddPillar({120,548,0},"11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 1,5); --palace
-    AddPillar({122,547,1},"","", 2,5); --palace
+    --[[AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
     AddPillar({124,528,0},"","", 5,5); --palace
     AddPillar({130,529,0},"","", 2,5); --palace
@@ -812,13 +813,13 @@ function InitWegweiser()
     AddPillar({155,665,-3},"","", 9,5); --dungeon
     AddPillar({159,665,-3},"","", 9,5); --dungeon
     AddPillar({155,670,-3},"","", 8,5); --dungeon
-    AddPillar({159,670,-3},"","", 8,5); --dungeon
+    AddPillar({159,670,-3},"","", 8,5); --dungeon]]--
 	--Chapel of the Five
 	AddPillar({476,800,0},"~Du siehst eine zeitlose und ruhige Frau mit blondem Haar in einem hell-blauen Kleid, die als Tänzerin posiert.~","~You see an ageless and quite woman with blond hair and a light blue dress that postures as dancer.~", 6,0);
     AddPillar({476,791,0},"~Du siehst eine ungeschmückte Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.~","~You see an unadorned beauty. She appears quite, patient and a little sad.~", 6,0);
 	AddPillar({470,793,0},"~Du siehst einen dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.~","~You see a dark-haired knight with his armor on fire. He appears strong, noble and handsome.~", 4,0);
     AddPillar({470,798,0},"~Du siehst eine junge, dunkelhäutige Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.~","~You can see a young, dark-skinned woman with dark hairs and a dark dress, She appears wise and calm.~", 4,0);
-    --Cherass‘ Citadel
+    --[[--Cherass‘ Citadel
     AddPillar({568,314,0},"","", 1,5);
     AddPillar({568,319,0},"","", 1,5);
     AddPillar({574,314,0},"","", 1,5);
@@ -948,7 +949,7 @@ function InitWegweiser()
     AddPillar({359,186,0},"","", 4, 5); --Don's Room
     AddPillar({358,184,0},"","", 3, 5); --Don's Room
     AddPillar({360,190,-3},"","", 3, 5); --Treasury
-    AddPillar({364,190,-3},"","", 3, 5); --Treasury
+    AddPillar({364,190,-3},"","", 3, 5); --Treasury  ]]--
     AddPillar({384,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
 	AddPillar({385,207,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Hog Dens
     AddPillar({386,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
@@ -970,7 +971,7 @@ function InitWegweiser()
     AddPillar({378,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
 	AddPillar({377,292,-6},"Du siehst eine Statue die das Abild des Don trägt und auf die beiden dunklen Säulen neben ihr zeigt.","You see a representation of the Don as a statue which points the two dark columns next to it.", 3, 5); --Ronagans Altar
     AddPillar({376,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
-    AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
+    --[[AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,341,-6},"","", 3, 5); --The Winged Sow Tavern
     AddPillar({386,341,-6},"","", 3, 5); --The Winged Sow Tavern
@@ -1037,7 +1038,7 @@ function InitWegweiser()
 	AddPillar({104,831,0},"","", 2,5);
 	--Merryglade
 	AddPillar({848,704,0},"","", 2,5);
-	AddPillar({841,741,0},"","", 6,5);
+	AddPillar({841,741,0},"","", 6,5);]]--
 	--Moshran's Brood
 	AddPillar({401,733,0},"Was ist klein und stinkt? - Ein Zwerg. Was ist groß und stinkt? - Ein Elf. Was ist dumm und stinkt? - Ein Mensch.","What is small and smells? - A Dwarf. What is tall and smells? - An Elf. What is dumb and smells? - A Human.", 1,5);
     AddPillar({389,727,0},"Wer das liest stirbt gleich!","Read this line and die!", 1,5);
@@ -1046,7 +1047,7 @@ function InitWegweiser()
 	AddPillar({357,495,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
 	AddPillar({366,497,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
 	AddPillar({366,501,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
-	--Nagrun's Plain
+	--[[--Nagrun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
 	AddPillar({554,262,0},"","", 1,5);
@@ -1179,7 +1180,7 @@ function InitWegweiser()
     --Vrondus Farm
 	AddPillar({310,572,0},"","", 2,5);
 	--
-	AddPillar({524,397,0},"","", 3,5);
+	AddPillar({524,397,0},"","", 3,5);]]--
 
     
     
@@ -1191,7 +1192,7 @@ function InitWegweiser()
 	-- 1 = facing south
 	-- 2 = facing west
 	
-    --Cadomyr
+    --[[--Cadomyr
     AddChimney({142,601,1},"","", 1, 5); --flats
 	AddChimney({146,623,0},"","", 2, 5); --flats
     AddChimney({140,554,0},"","", 2, 5); --library
@@ -1228,7 +1229,7 @@ function InitWegweiser()
  	--Spider's Mouth
     AddChimney({705,311,1},"","", 2, 5); --The Hemp Necktie Inn
     AddChimney({705,323,1},"","", 2, 5); --The Hemp Necktie Inn
-    AddChimney({711,320,0},"","", 2, 5); --The Hemp Necktie Inn
+    AddChimney({711,320,0},"","", 2, 5); --The Hemp Necktie Inn]]--
     
     
     
@@ -1239,7 +1240,7 @@ function InitWegweiser()
 	-- 1 = facing south
 	-- 2 = facing west
 
-	--Cadomyr
+	--[[--Cadomyr
 	AddMirror({149,516,0},"","", 2,5); --queens room
     AddMirror({91,552,0},"","", 1,5); --room
     AddMirror({84,576,1},"","", 2,5); --inn
@@ -1272,7 +1273,7 @@ function InitWegweiser()
 	AddMirror({703,319,1},"","", 1,5); --The Hemp Necktie Inn
 	AddMirror({708,319,1},"","", 1,5); --The Hemp Necktie Inn
 	AddMirror({707,307,1},"","", 1,5); --The Hemp Necktie Inn
-	AddMirror({705,309,1},"","", 2,5); --The Hemp Necktie Inn
+	AddMirror({705,309,1},"","", 2,5); --The Hemp Necktie Inn ]]--
 
 end
 
