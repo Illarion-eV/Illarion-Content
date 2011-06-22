@@ -551,13 +551,13 @@ function InitWegweiser()
     AddPennant({200,487,0},"","", 7,5);
     AddPennant({204,487,0},"","", 7,5);
     --Cadomyr
-    AddPennant({121,519,0},"","", 1,5); --palace
-	AddPennant({122,519,0},"","", 1,5); --palace
-    AddPennant({123,519,0},"","", 1,5); --palace
-    AddPennant({130,528,0},"","", 2,5); --palace
-    AddPennant({130,530,0},"","", 2,5); --palace
-    AddPennant({109,551,0},"","", 1,5); --registration
-    AddPennant({104,552,0},"","", 1,5); --registration
+    AddPennant({121,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
+	AddPennant({122,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
+    AddPennant({123,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
+    AddPennant({130,528,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
+    AddPennant({130,530,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
+    AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
+    AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
     --Cherassë Citadel
     AddPennant({596,383,2},"","", 7,5); --outpost
     AddPennant({601,383,2},"","", 7,5); --outpost
@@ -742,6 +742,7 @@ function InitWegweiser()
 	AddPillar({775,763,0},"","", 2,5);
 	AddPillar({776,763,0},"","", 1,5);
 	--Cadomyr
+	AddPillar({118,566,0},"","", 9,5);
 	AddPillar({88,655,1},"","", 6,5); --outside
 	AddPillar({88,659,1},"","", 6,5); --outside
     AddPillar({108,655,1},"","", 5,5); --outside
@@ -783,8 +784,8 @@ function InitWegweiser()
     AddPillar({143,562,0},"","", 6,5); --temple
     AddPillar({144,566,0},"","", 1,5); --temple
     AddPillar({144,562,0},"","", 1,5); --temple
-    AddPillar({124,548,0},"","", 1,5); --palace
-    AddPillar({120,548,0},"","", 1,5); --palace
+    AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 1,5); --palace
+    AddPillar({120,548,0},"11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 1,5); --palace
     AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
     AddPillar({124,528,0},"","", 5,5); --palace
