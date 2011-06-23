@@ -118,7 +118,7 @@ end ]]--
 function LookAtItemIdent(User,Item)
     local test = "no value";
 	if (first==nil) then
-        content.signpost.InitPaintings()
+        content.paintings.InitPaintings()
         first=1;
     end
     
