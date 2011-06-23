@@ -106,9 +106,6 @@ function LookAtItemIdent(User,Item)
         content.paintings.InitPaintings()
         first=1
     end
-
-    
-    
         
     -- fetching local references
     local signTextDe     = content.paintings.signTextDe;
@@ -141,7 +138,7 @@ function LookAtItemIdent(User,Item)
 	end ]]
                      
                       
-    if test and not found then
+    if ( Item.data == 0 ) then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
         val = (Item.data % table.getn(PaintingListGerman))+1;
