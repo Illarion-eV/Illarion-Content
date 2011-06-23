@@ -5,7 +5,7 @@ module("item.paintings", package.seeall)
 
 -- UPDATE common SET com_script='item.paintings' WHERE com_itemid IN (264, 265, 748, 749, 750, 751, 1914, 1915);
 
---[[PaintingListGerman = 
+PaintingListGerman = 
 {
 "Du siehst eine Waldlichtung mit einem Schrein, voller Tiere und Feen.", 
 "Du siehst einen jungen Mann beim Experimentieren mit der Alchemie.",
@@ -97,23 +97,8 @@ PaintingListEnglish =
 "You see a smeared painting. It appears as if a fairy is placed in the middle of the picture." ,
 "You see an elf who stares into the forest and you recognize that something is hiding and lurking inside." ,
 "You see a lizard coming up from the water.",
-};    ]]--
-
-
---[[function LookAtPaintingItem( User, Item )
-    local val = 0;
-    if ( Item.data == 0 ) then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
-    else
-        val = (Item.data % table.getn(PaintingListGerman))+1;
-    end
-    
-    world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-end
-
-function LookAtItem(User,Item)
-    LookAtPaintingItem(User,Item);  
-end ]]--
+};    
+			  
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
@@ -165,4 +150,21 @@ end
   ]]
 LookAtItem = LookAtItemIdent;
  
+
+--[[function LookAtPaintingItem( User, Item )
+    local val = 0;
+    if ( Item.data == 0 ) then
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
+    else
+        val = (Item.data % table.getn(PaintingListGerman))+1;
+    end
+    
+    world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
+end
+
+function LookAtItem(User,Item)
+    LookAtPaintingItem(User,Item);  
+end ]]--
+
+
 
