@@ -39,6 +39,7 @@ function InitPaintings()
     --AddPicture({135,516,0},"","", 3,5); --queens room
     --AddPicture({138,516,0},"","", 3,5); --queens room
     AddPicture({117,579,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --taverne
+    AddPicture({117,575,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,15); --taverne
     AddPicture({91,572,0},"","An outnumbered red-white dressed knight raises his sword to counter an attack of hundred black-yellow dressed soldiers. Other thousand of these soldiers lying around. They are probably dead. At the bottom right is a date: 118 BS.", 4,5); --inn
     AddPicture({91,574,0},"","The pictures shows how red-white dressed knights are slaughtering an orc-tribe leaded by an obviously powerful shaman. The action takes place close at a high mountain where glowing water comes out. At the bottom right is a date: 66 BS.", 4,5); --inn
     AddPicture({91,576,0},"","You see two knights fighting each other with joy. You can also see other people who watching and cheering them. Big red-white banners on the roof of the building are shimmering in the sun. At the bottom right is a date: since 56 BS.", 4,5); --inn
