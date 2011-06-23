@@ -162,9 +162,9 @@ end
 --[[
 	LookAtItemIdent
 	identity of LookAtItem
-
+  ]]
 LookAtItem = LookAtItemIdent;
- ]]
+ 
 --[[function checkNoobiaSigns( User,TargetPos )
 
 	if NoobiaSigns == nil then
