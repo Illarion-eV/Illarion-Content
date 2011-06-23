@@ -27,10 +27,6 @@ function InitTree()
 	AddTree({734,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
 	AddTree({754,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
 	AddTree({754,770,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
-	AddTree({734,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({734,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({754,764,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({754,770,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	--[[--Bramus REst
 	AddTree({752,378,0},"","", 1,5);
 	--Gnuremground
@@ -50,10 +46,6 @@ function InitTree()
 	AddTree({647,465,0},"Zwischen uns führt der Weg zur Finsternis.","The way to the Darkness starts between us.", 6,5);
 	AddTree({653,479,0},"Zwischen uns führt der Weg zum Licht.","The way to the Light starts between us.", 6,5);
 	AddTree({647,479,0},"Zwischen uns führt der Weg zum Licht.","The way to the Light starts between us.", 6,5);
-	AddTree({653,465,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({647,465,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
-	AddTree({647,479,0},"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~", 6,0);
 	--The Swamp
 	--[[AddTree({501,107,0},"","", 6,5);]]--
 

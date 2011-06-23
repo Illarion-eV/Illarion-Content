@@ -32,6 +32,9 @@ function LookAtItemIdent(User,Item)
 						found = true;
 						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
 						test = signTextDe[tablePosition][i];
+					else
+                        found = true;
+						world:itemInform(User,Item,base.common.GetNLS(User,"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~"));
 					end
 				end
 			end
