@@ -148,11 +148,11 @@ function LookAtItemIdent(User,Item)
     end
         world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
 	                     
-	if not found then
+	--[[if not found then
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
     end                                                   
 
-	--[[	User:inform("in LookAtItem of base_weiser.lua");  
+		User:inform("in LookAtItem of base_weiser.lua");  
 		User:inform(test);                                     ]]
 end
 --[[
