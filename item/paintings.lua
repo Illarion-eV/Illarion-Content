@@ -151,8 +151,8 @@ function LookAtItemIdent(User,Item)
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
     end                    
 
-		User:inform("in LookAtItem of base_weiser.lua");
-		User:inform(test);   ]]
+		User:inform("in LookAtItem of base_weiser.lua");  ]]
+		User:inform(test);   
 end
 --[[
 	LookAtItemIdent
