@@ -1,25 +1,25 @@
 -- Wegweiser Script
 -- Nitram
 require("base.common")
-require("content.mirror")
+require("content.tree")
 
-module("item.mirror", package.seeall)
+module("item.tree", package.seeall)
 
--- UPDATE common SET com_script='item.mirror' WHERE com_itemid IN (2873, 2874);
+-- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (308, 586, 1804, 1807, 1808, 1809, 1817);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
 	if (first==nil) then
-        content.mirror.InitMirror()
+        content.tree.InitTree()
         first=1;
     end
     
     -- fetching local references
-    local signTextDe     = content.mirror.signTextDe;
-    local signTextEn     = content.mirror.signTextEn;
-    local signCoo        = content.mirror.signCoo;
-    local signItemId     = content.mirror.signItemId;
-    local signPerception = content.mirror.signPerception;
+    local signTextDe     = content.tree.signTextDe;
+    local signTextEn     = content.tree.signTextEn;
+    local signCoo        = content.tree.signCoo;
+    local signItemId     = content.tree.signItemId;
+    local signPerception = content.tree.signPerception;
     
     found = false;
     UserPer = User:increaseAttrib("perception",0);

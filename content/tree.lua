@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.tree", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitTree()
     signTextDe={};
     signTextEn={};
     signCoo={};
