@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.mirror", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitMirror()
     signTextDe={};
     signTextEn={};
     signCoo={};
@@ -15,6 +15,9 @@ function InitWegweiser()
 	-- types:
 	-- 1 = facing south
 	-- 2 = facing west
+    
+	
+	AddPicture({125,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,0); --palace
 
 	--[[--Cadomyr
 	AddMirror({149,516,0},"","", 2,5); --queens room
