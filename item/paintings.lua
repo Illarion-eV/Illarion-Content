@@ -133,13 +133,13 @@ function LookAtItemIdent(User,Item)
 			end
 		end
 	end 
-							  --[[
+							 
 	local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
 		world:itemInform(User,Item,outText);
 		found = true;
 	end 
-                      ]]
+                     
                       
     if not found then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
