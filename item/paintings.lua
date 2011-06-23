@@ -106,7 +106,7 @@ function LookAtItemIdent(User,Item)
         content.paintings.InitPaintings()
         first=1
     end
-function LookAtPaintingItem( User, Item )
+
     local test = 0;
     if ( Item.data == 0 ) then
         test = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
@@ -115,7 +115,7 @@ function LookAtPaintingItem( User, Item )
     end
     
     world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-	end
+	
         
     -- fetching local references
     local signTextDe     = content.paintings.signTextDe;
