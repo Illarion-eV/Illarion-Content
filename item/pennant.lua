@@ -5,7 +5,7 @@ require("content.pennant")
 
 module("item.pennant", package.seeall)
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
+-- UPDATE common SET com_script='item.pennant' WHERE com_itemid IN (2046, 2069, 512, 2924, 2925, 2926, 2927);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";

@@ -5,7 +5,7 @@ require("content.chimney")
 
 module("item.chimney", package.seeall)
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (268, 269);
+-- UPDATE common SET com_script='item.chimney' WHERE com_itemid IN (268, 269);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";

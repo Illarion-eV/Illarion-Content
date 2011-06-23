@@ -5,7 +5,7 @@ require("content.grave")
 
 module("item.grave", package.seeall)
 
--- UPDATE common SET com_script='item.tree' WHERE com_itemid IN (337, 519, 520, 521);
+-- UPDATE common SET com_script='item.grave' WHERE com_itemid IN (337, 519, 520, 521);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
