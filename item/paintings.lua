@@ -165,7 +165,7 @@ end
 ]]
 LookAtItem = LookAtItemIdent;
 
-function checkNoobiaSigns( User,TargetPos )
+--[[function checkNoobiaSigns( User,TargetPos )
 
 	if NoobiaSigns == nil then
 		NoobiaSigns = {};
@@ -174,7 +174,7 @@ function checkNoobiaSigns( User,TargetPos )
 		NoobiaSigns[3] = {position(70,32,101),"Tol Vanima, Insel der Elben.","Tol Vanima, island of the elves."};
 		NoobiaSigns[4] = {position(72,34,101),"Greenbriar, Stadt der Halblinge.","Greenbriar, town of the halflings."};
 		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wüstenstadt.","Varshikar, the desert town."};   
-		
+		   ]]
 		--[[
 		NoobiaSigns[1] = {position(68,35,101),"Troll's Bane. Derzeitige Bevölkerung: %POPULATION","Troll's Bane. Current population: %POPULATION"};
 		NoobiaSigns[2] = {position(68,32,101),"Silberbrand, Stadt der Zwerge. Derzeitige Bevölkerung: %POPULATION","Silverbrand, town of the dwarves. Current population: %POPULATION"};
@@ -182,7 +182,7 @@ function checkNoobiaSigns( User,TargetPos )
 		NoobiaSigns[4] = {position(72,34,101),"Greenbriar, Stadt der Halblinge. Derzeitige Bevölkerung: %POPULATION","Greenbriar, town of the halflings. Current population: %POPULATION"};
 		NoobiaSigns[5] = {position(72,36,101),"Varshikar, die Wüstenstadt. Derzeitige Bevölkerung: %POPULATION","Varshikar, the desert town. Current population: %POPULATION"};
 		]]
-	end
+--[[	end
 	for i=1,5 do
 		if equapos(TargetPos,NoobiaSigns[i][1]) then
 			local lang = User:getPlayerLanguage();
@@ -230,4 +230,4 @@ function getPlayersOnLevel( Position, Range )
 		end
 	end
 	return retVal;
-end
+end      ]]
