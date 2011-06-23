@@ -33,12 +33,12 @@ function InitPaintings()
     AddPicture({141,607,0},"","", 7,5); --flats
     AddPicture({139,613,0},"","", 3,5); --flats
     AddPicture({143,613,0},"","", 3,5); --flats]]--
-    AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,10); --palace
+    AddPicture({129,524,0},"","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 7,5); --palace
     	--AddPicture({129,524,0},"","You can see that there is something but you are too blind to recognize it.", 7,0); --palace
     --AddPicture({130,518,0},"","", 5,5); --queens room
     --AddPicture({135,516,0},"","", 3,5); --queens room
     --AddPicture({138,516,0},"","", 3,5); --queens room
-    AddPicture({117,579,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,15); --taverne
+    AddPicture({117,579,0},"","The picture shows proud knights watching ordinary folk building a palace at the periphery of a desert close at a mountain. One of the knights has a long beard and wears a crown. He holds also a red-white banner. At the bottom right is a date: 137 BS.", 4,5); --taverne
     AddPicture({91,572,0},"","An outnumbered red-white dressed knight raises his sword to counter an attack of hundred black-yellow dressed soldiers. Other thousand of these soldiers lying around. They are probably dead. At the bottom right is a date: 118 BS.", 4,5); --inn
     AddPicture({91,574,0},"","The pictures shows how red-white dressed knights are slaughtering an orc-tribe leaded by an obviously powerful shaman. The action takes place close at a high mountain where glowing water comes out. At the bottom right is a date: 66 BS.", 4,5); --inn
     AddPicture({91,576,0},"","You see two knights fighting each other with joy. You can also see other people who watching and cheering them. Big red-white banners on the roof of the building are shimmering in the sun. At the bottom right is a date: since 56 BS.", 4,5); --inn
