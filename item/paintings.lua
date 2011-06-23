@@ -142,9 +142,9 @@ function LookAtItemIdent(User,Item)
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
         val = (Item.data % table.getn(PaintingListGerman))+1;
-    end
+    
         world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-	                     
+	end                     
 	--[[if not found then
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
     end                                                   
