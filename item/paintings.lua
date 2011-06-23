@@ -142,9 +142,9 @@ function LookAtItemIdent(User,Item)
                       ]]
                       
     if not found then
-        test = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
+        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
-        test = (Item.data % table.getn(PaintingListGerman))+1;
+        val = (Item.data % table.getn(PaintingListGerman))+1;
     end
         world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
 	                     
