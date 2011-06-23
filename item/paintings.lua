@@ -108,14 +108,14 @@ function LookAtItemIdent(User,Item)
     end
 
     
-    if ( Item.data == 0 ) then
+    --[[if ( Item.data == 0 ) then
         test = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
         test = (Item.data % table.getn(PaintingListGerman))+1;
     end
     
     world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-	
+	    ]]
         
     -- fetching local references
     local signTextDe     = content.paintings.signTextDe;
@@ -140,7 +140,7 @@ function LookAtItemIdent(User,Item)
 			end
 		end
 	end 
-
+							  --[[
 	local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
 		world:itemInform(User,Item,outText);
@@ -149,7 +149,7 @@ function LookAtItemIdent(User,Item)
 
 	if not found then
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
-    end 
+    end                     ]]
 
 		User:inform("in LookAtItem of base_weiser.lua");
 		User:inform(test); 
