@@ -17,7 +17,7 @@ function InitMirror()
 	-- 2 = facing west
     
 	
-	AddPicture({124,524,0},"test","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 6,0); --palace
+	AddMirror({124,524,0},"test","A man is lying in his bed. He seems very sick. A young woman is sitting next to him and is holding one of his hands. He hands her a crown while she is shimmering in an almost divine sun light. At the bottom right is a date: 22 AS.", 1,0); --palace
 
 	--[[--Cadomyr
 	AddMirror({149,516,0},"","", 2,5); --queens room
