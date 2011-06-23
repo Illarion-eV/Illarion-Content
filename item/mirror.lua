@@ -5,7 +5,7 @@ require("content.mirror")
 
 module("item.mirror", package.seeall)
 
--- UPDATE common SET com_script='item.signpost' WHERE com_itemid IN (1817,1809,1808,1807,308,1804,586,3084,3081,3082,3083,519,520,521,337,1914,1915,2046,2069,512,2924,2925,2926,2927);
+-- UPDATE common SET com_script='item.mirror' WHERE com_itemid IN (2873, 2874);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
@@ -38,18 +38,18 @@ function LookAtItemIdent(User,Item)
 		end
 	end 
 
-	local outText = checkNoobiaSigns(User,Item.pos);
+	--[[local outText = checkNoobiaSigns(User,Item.pos);
 	if outText and not found then
 		world:itemInform(User,Item,outText);
 		found = true;
-	end
+	end ]]--
 
 	if not found then
         world:itemInform(User,Item,base.common.GetNLS(User,"Du siehst ","You see ")..world:getItemName(Item.id,User:getPlayerLanguage()));
     end
 
-		User:inform("in LookAtItem of base_wegweiser.lua");
-		User:inform(test);
+	--[[	User:inform("in LookAtItem of base_wegweiser.lua");
+		User:inform(test); ]]
 end
 
 --[[
