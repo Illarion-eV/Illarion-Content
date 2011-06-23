@@ -141,7 +141,7 @@ function LookAtItemIdent(User,Item)
 	end 
                       ]]
                       
-    if ( Item.data == 0 ) then
+    if not found then
         test = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
     else
         test = (Item.data % table.getn(PaintingListGerman))+1;
