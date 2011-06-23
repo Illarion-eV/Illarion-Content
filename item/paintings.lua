@@ -151,7 +151,7 @@ end
 LookAtItem = LookAtItemIdent;
  
 
---[[function LookAtPaintingItem( User, Item )
+function LookAtPaintingItem( User, Item )
     local val = 0;
     if ( Item.data == 0 ) then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
@@ -164,7 +164,7 @@ end
 
 function LookAtItem(User,Item)
     LookAtPaintingItem(User,Item);  
-end ]]--
+end 
 
 
 
