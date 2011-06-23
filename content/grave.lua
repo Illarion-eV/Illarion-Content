@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.grave", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitGrave()
     signTextDe={};
     signTextEn={};
     signCoo={};

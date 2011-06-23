@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.chimney", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitChimey()
     signTextDe={};
     signTextEn={};
     signCoo={};

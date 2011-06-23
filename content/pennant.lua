@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.pennant", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitPennant()
     signTextDe={};
     signTextEn={};
     signCoo={};

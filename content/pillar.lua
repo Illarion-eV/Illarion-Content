@@ -1,6 +1,6 @@
-module("content.signpost", package.seeall)
+module("content.pillar", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitWegweiser()
+function InitPillar()
     signTextDe={};
     signTextEn={};
     signCoo={};

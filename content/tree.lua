@@ -21,7 +21,6 @@ function InitTree()
     -- 5 = ceridern tree
     -- 6 = eldan oak
     -- 7 = scandrel pine
-    AddTree({734,762,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
 
     --Adron's Covert
     AddTree({734,764,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);

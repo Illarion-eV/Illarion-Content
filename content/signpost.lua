@@ -17,7 +17,6 @@ function InitWegweiser()
     -- 2 = east
     -- 4 = south
     -- 6 = west
-    AddTree({734,762,0},"Zur Mitte, zum Saft, zack, zack!","To the middle, to the juice, zack, zack!", 6,5);
 
     --SW/Cadomyr map
     AddWeg({42,634,0},"Piratenbucht","Pirate Cove",0,0); -- <Name hier> Piratenbucht -- <name here> pirate cove
