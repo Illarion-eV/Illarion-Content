@@ -1,6 +1,6 @@
 module("content.mirror", package.seeall)
 --UNDER CONSTRUCTION by envi--
-function InitMirror()
+function InitWegweiser()
     signTextDe={};
     signTextEn={};
     signCoo={};

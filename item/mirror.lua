@@ -10,7 +10,7 @@ module("item.mirror", package.seeall)
 function LookAtItemIdent(User,Item)
     local test = "no value";
 	if (first==nil) then
-        content.signpost.InitMirror()
+        content.signpost.InitWegweiser()
         first=1;
     end
     
