@@ -105,8 +105,11 @@ function LookAtItemIdent(User,Item)
 	if (first==nil) then
         content.paintings.InitPaintings()
         first=1;
+    else
+        val = (Item.data % table.getn(PaintingListGerman))+1;
     end
-    
+        world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
+        
     -- fetching local references
     local signTextDe     = content.paintings.signTextDe;
     local signTextEn     = content.paintings.signTextEn;
@@ -151,7 +154,7 @@ end
 LookAtItem = LookAtItemIdent;
  
 
-function LookAtPaintingItem( User, Item )
+--[[function LookAtPaintingItem( User, Item )
     local val = 0;
     if ( Item.data == 0 ) then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
@@ -164,7 +167,7 @@ end
 
 function LookAtItem(User,Item)
     LookAtPaintingItem(User,Item);  
-end 
+end  ]]
 
 
 
