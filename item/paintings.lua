@@ -139,9 +139,6 @@ function LookAtItemIdent(User,Item)
                      
                       
     if not found then
-       --[[ val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
-    else
-        val = (Item.data % table.getn(PaintingListGerman))+1; ]]
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
         world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
 	end                     
@@ -150,7 +147,7 @@ function LookAtItemIdent(User,Item)
     end                                                   
 
 		User:inform("in LookAtItem of base_weiser.lua");  
-		User:inform(test);                                     ]]
+		User:inform(test);]]
 end
 --[[
 	LookAtItemIdent
@@ -159,6 +156,8 @@ end
 LookAtItem = LookAtItemIdent;
  
 
+
+--orignal function
 --[[function LookAtPaintingItem( User, Item )
     local val = 0;
     if ( Item.data == 0 ) then
