@@ -106,7 +106,7 @@ function LookAtItemIdent(User,Item)
         content.paintings.InitPaintings()
         first=1;
     else
-        test = (Item.data % table.getn(PaintingListGerman))+1;
+        val = (Item.data % table.getn(PaintingListGerman))+1;
     end
         
         
