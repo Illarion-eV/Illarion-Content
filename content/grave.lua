@@ -148,7 +148,7 @@ function InitGrave()
     AddGrave({247,728,0},"","", 3,0);
     AddGrave({256,725,0},"","", 3,0);]]--
    	--Moshran's Brood
-    AddGrave({410,726,0},"Bald deines!","Soon yours!", 1,5);
+    AddGrave({410,726,0},"Bald deines!","Soon yours!", 1,0);
     AddGrave({409,734,0},"~Als du den Grabstein näher untersuchst vernimmst du einen schmerzerfüllten Schrei.~","~You hear a painful cry when you investigate the tomb stone.~", 3,0);
     --Mount Zotmore
     AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's sparetime rests here!", 1,0);
