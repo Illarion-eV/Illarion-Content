@@ -23,6 +23,7 @@ function InitPillar()
     -- 8 = riderstatue (north)
     -- 9 = riderstatue (south)
     -- 10 = riderstatue (west)
+    -- 11 = dark column with light
 
 	--[[--Abtruse Dwelling
 	AddPillar({54,608,0},"","", 1,5);
@@ -80,8 +81,8 @@ function InitPillar()
     AddPillar({143,562,0},"","", 6,5); --temple
     AddPillar({144,566,0},"","", 1,5); --temple
     AddPillar({144,562,0},"","", 1,5); --temple]]--
-    AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 1,0); --palace
-    AddPillar({120,548,0},"11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 1,5); --palace
+    AddPillar({124,548,0},"1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...","1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS; 10. Sir Runbold I. 51 BS;...", 11,0); --palace
+    AddPillar({120,548,0},"11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 11,0); --palace
     --[[AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
     AddPillar({124,528,0},"","", 5,5); --palace
@@ -481,55 +482,6 @@ function InitPillar()
     
 end
 
-function AddWeg(Posi,dText,eText,Dir,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Dir));
-end
-
-function AddGrave(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+10));
-end
-
-function AddPicture(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+20));
-end
-
-function AddPennant(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+30));
-end
-
-function AddTree(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+40));
-end
 
 function AddPillar(Posi,dText,eText,Type,Percept)
     local tablePos = Posi[1]..Posi[2]..Posi[3];
@@ -540,27 +492,6 @@ function AddPillar(Posi,dText,eText,Type,Percept)
     table.insert(signPerception[tablePos],Percept);
     CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+50));
 end
-
-function AddChimney(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+60));
-end
-
-function AddMirror(Posi,dText,eText,Type,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
-    PrepareTables(tablePos);
-    table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
-    table.insert(signTextDe[tablePos],dText);
-    table.insert(signTextEn[tablePos],eText);
-    table.insert(signPerception[tablePos],Percept);
-    CheckAndPlaceItem(position(Posi[1],Posi[2],Posi[3]),DirToItemID(Type+70));
-end
-
 
 function CheckAndPlaceItem(Posi,ItemID)
     if world:isItemOnField(Posi) then
@@ -584,67 +515,7 @@ end
 -- DirToItemID converts item IDs into local type values for the Add functions to work with
 
 function DirToItemID(Value)
-    if (Value==0) then
-        return 3081
-    elseif (Value==2) then
-        return 3084
-    elseif (Value==4) then
-        return 3082
-    elseif (Value==6) then
-        return 3083
-    elseif (Value==11) then
-        return 519
-    elseif (Value==12) then
-        return 521
-    elseif (Value==13) then
-        return 520
-    elseif (Value==14) then
-	    return 337
-    elseif (Value==21) then
-        return 1914
-    elseif (Value==22) then
-        return 1915
-    elseif (Value==23) then
-        return 264
-    elseif (Value==24) then
-        return 265
-    elseif (Value==25) then
-        return 748
-    elseif (Value==26) then
-        return 749
-    elseif (Value==27) then
-        return 750
-    elseif (Value==28) then
-        return 751
-    elseif (Value==31) then
-        return 2046
-    elseif (Value==32) then
-        return 2069
-    elseif (Value==33) then
-        return 512
-    elseif (Value==34) then
-        return 2924
-    elseif (Value==35) then
-        return 2925
-    elseif (Value==36) then
-        return 2926
-    elseif (Value==37) then
-        return 2927
-    elseif (Value==41) then
-        return 308
-    elseif (Value==42) then
-        return 586
-    elseif (Value==43) then
-        return 1804
-    elseif (Value==44) then
-        return 1807
-    elseif (Value==45) then
-        return 1808
-    elseif (Value==46) then
-        return 1809
-    elseif (Value==47) then
-        return 1817
-    elseif (Value==51) then
+    if (Value==51) then
         return 2805
     elseif (Value==52) then
         return 272
@@ -665,12 +536,6 @@ function DirToItemID(Value)
     elseif (Value==60) then
         return 443
     elseif (Value==61) then
-		return 268
-	elseif (Value==62) then
-		return 269
-	elseif (Value==71) then
-		return 2873
-	elseif (Value==72) then
-		return 2874
+		return 467
 	end
 end

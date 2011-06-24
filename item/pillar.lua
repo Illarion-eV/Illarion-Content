@@ -5,7 +5,7 @@ require("content.pillar")
 
 module("item.pillar", package.seeall)
 
--- UPDATE common SET com_script='item.pillar' WHERE com_itemid IN (272, 440, 441, 442, 443, 692, 693, 694, 695, 2805);
+-- UPDATE common SET com_script='item.pillar' WHERE com_itemid IN (272, 440, 441, 442, 443, 467, 692, 693, 694, 695, 2805);
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
