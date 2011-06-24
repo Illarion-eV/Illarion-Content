@@ -41,11 +41,11 @@ colorSkin = 232, 187, 145
 itemHead = 0
 itemChest = 810
 itemCoat = 0
-itemMainHand = 0
+itemMainHand = 126
 itemSecondHand = 0
 itemHands = 48
-itemTrousers = 34
-itemShoes = 53
+itemTrousers = 367
+itemShoes = 369
 
 -- NPC by Nanuk
 -- Revised by Estralis Seborian
