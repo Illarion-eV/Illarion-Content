@@ -1,13 +1,14 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Flori                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Beast of burden                                                  --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  883, 632, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Nanuk                                                            --
+-- Authors:  Nanuk                                                            --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 name = "Flori"
@@ -16,7 +17,7 @@ sex = male
 position = 883, 632, 0
 direction = south
 affiliation = "None"
-job = "none"
+job = "Beast of burden"
 
 language = common
 language = halfling
@@ -24,13 +25,14 @@ defaultLanguage = common
 autointroduce = on
 
 author = "Nanuk"
+author = "Estralis Seborian"
 
-lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
-useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
-wrongLangDE = "#me schaut dich verwirrt an."
-wrongLangUS = "#me looks at you confused."
+lookatDE = "Dies ist Flori, der störrische Esel. Aus technischen Gründen wird der NPC als Kuh angezeigt."
+lookatUS = "This is Flori, the stubborn mule. Due to technical reasons, this NPC is shown as cow."
+useMsgDE = "Iiihhhh-aahhhh!"
+useMsgUS = "Iiihhhh-aahhhh!"
+wrongLangDE = "Iiihhhh-aahhhh?"
+wrongLangUS = "Iiihhhh-aahhhh?"
 
 -- NPC by Nanuk
 -- Revised by Estralis Seborian

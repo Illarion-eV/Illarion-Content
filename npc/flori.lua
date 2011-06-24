@@ -1,13 +1,14 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Flori                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Job:  Beast of burden                                                  --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  883, 632, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Nanuk                                                            --
+-- Authors:  Nanuk                                                            --
+--           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,9 +35,9 @@ talkingNPC:addCycleText("#me schlägt mit dem Schwanz nach ein paar Fliegen.", "#
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
-mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setLookat("Dies ist Flori, der störrische Esel. Aus technischen Gründen wird der NPC als Kuh angezeigt.", "This is Flori, the stubborn mule. Due to technical reasons, this NPC is shown as cow.");
+mainNPC:setUseMessage("Iiihhhh-aahhhh!", "Iiihhhh-aahhhh!");
+mainNPC:setConfusedMessage("Iiihhhh-aahhhh?", "Iiihhhh-aahhhh?");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
