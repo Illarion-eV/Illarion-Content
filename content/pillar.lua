@@ -110,10 +110,10 @@ function InitPillar()
     AddPillar({155,670,-3},"","", 8,5); --dungeon
     AddPillar({159,670,-3},"","", 8,5); --dungeon]]--
 	--Chapel of the Five
-	AddPillar({476,800,0},"~Du siehst eine zeitlose und ruhige Frau mit blondem Haar in einem hell-blauen Kleid, die als Tänzerin posiert.~","~You see an ageless and quite woman with blond hair and a light blue dress that postures as dancer.~", 6,0);
-    AddPillar({476,791,0},"~Du siehst eine ungeschmückte Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.~","~You see an unadorned beauty. She appears quite, patient and a little sad.~", 6,0);
-	AddPillar({470,793,0},"~Du siehst einen dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.~","~You see a dark-haired knight with his armor on fire. He appears strong, noble and handsome.~", 4,0);
-    AddPillar({470,798,0},"~Du siehst eine junge, dunkelhäutige Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.~","~You can see a young, dark-skinned woman with dark hairs and a dark dress, She appears wise and calm.~", 4,0);
+	AddPillar({476,800,0},"Du siehst eine zeitlose und ruhige Frau mit blondem Haar in einem hell-blauen Kleid, die als Tänzerin posiert.","You see an ageless and quite woman with blond hair and a light blue dress that postures as dancer.", 6,0);
+    AddPillar({476,791,0},"Du siehst eine ungeschmückte Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.","You see an unadorned beauty. She appears quite, patient and a little sad.", 6,0);
+	AddPillar({470,793,0},"Du siehst einen dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.","You see a dark-haired knight with his armor on fire. He appears strong, noble and handsome.", 4,0);
+    AddPillar({470,798,0},"Du siehst eine junge, dunkelhäutige Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.","You can see a young, dark-skinned woman with dark hairs and a dark dress, She appears wise and calm.", 4,0);
     --[[--Cherass‘ Citadel
     AddPillar({568,314,0},"","", 1,5);
     AddPillar({568,319,0},"","", 1,5);
@@ -338,10 +338,10 @@ function InitPillar()
 	AddPillar({401,733,0},"Was ist klein und stinkt? - Ein Zwerg. Was ist groß und stinkt? - Ein Elf. Was ist dumm und stinkt? - Ein Mensch.","What is small and smells? - A Dwarf. What is tall and smells? - An Elf. What is dumb and smells? - A Human.", 1,5);
     AddPillar({389,727,0},"Wer das liest stirbt gleich!","Read this line and die!", 1,5);
 	--Mount Zotmore
-	AddPillar({361,495,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
-	AddPillar({357,495,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
-	AddPillar({366,497,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
-	AddPillar({366,501,0},"~Auf der Säule steht mit großen Buchstaben geschrieben:~ 'Mount Zotmore'.","~With big letters is written at the column:~ 'Mount Zotmore'.", 1,5);
+	AddPillar({361,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
+	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
+	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
+	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,5);
 	--[[--Nagrun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);

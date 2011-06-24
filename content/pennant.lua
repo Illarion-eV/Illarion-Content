@@ -120,8 +120,8 @@ function InitPennant()
     AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
     AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you have still your legs!", 7,5);
     --Mount Zotmore
-    AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
-    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be carful, there could be a Zot around.", 6,0);
+    AddPennant({365,497,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
+    AddPennant({359,506,0},"Sei vorsichtig, hier könnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
 	--[[--Lost Building (2)
     AddPennant({277,605,0},"","", 5,5);
     AddPennant({277,596,0},"","", 5,5);
