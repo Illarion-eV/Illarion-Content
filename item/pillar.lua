@@ -78,12 +78,12 @@ function LookAtItem(User,Item)
     if Item.pos == position (118,566,0) then --Queen Rosaline's statue
    
        	if messageG1[queststatus] ~= nil and messageE1[queststatus] ~= nil then
-           	base.common.InformNLS(User,messageG1[queststatus],messageE[queststatus]); --sending the text
+           	base.common.InformNLS(User,messageG1[queststatus],messageE1[queststatus]); --sending the text
        	else
           	base.common.InformNLS(User,"[Fehler] Fehler im Queststatus 110, bitte einem Entwickler melden!","[Error] Error in queststatus 110, please report to a developer!"); --sending the message
     	end
    
-        	if queststatus<10 then 
+        	if queststatus<2 then 
            		User:setQuestProgress(610,queststatus+1); --the player read a text
        		else
         		User:setQuestProgress(610,0); --start from the beginning
