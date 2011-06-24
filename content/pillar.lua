@@ -65,10 +65,10 @@ function InitPillar()
     AddPillar({139,632,1},"","", 4,5); --
     AddPillar({139,636,1},"","", 5,5); --
     AddPillar({136,636,1},"","", 5,5); --
-  	AddPillar({132,566,0},"","", 1,5); --temple
-    AddPillar({132,562,0},"","", 1,5); --temple
-    AddPillar({136,560,0},"","", 1,5); --temple
-    AddPillar({136,568,0},"","", 1,5); --temple
+  	AddPillar({132,566,0},"","", 11,5); --temple
+    AddPillar({132,562,0},"","", 11,5); --temple
+    AddPillar({136,560,0},"","", 11,5); --temple
+    AddPillar({136,568,0},"","", 11,5); --temple
     AddPillar({137,560,0},"","", 9,5); --temple
     AddPillar({138,560,0},"","", 9,5); --temple
     AddPillar({139,560,0},"","", 9,5); --temple
@@ -79,11 +79,11 @@ function InitPillar()
 	AddPillar({140,568,0},"","", 8,5); --temple
     AddPillar({143,566,0},"","", 6,5); --temple
     AddPillar({143,562,0},"","", 6,5); --temple
-    AddPillar({144,566,0},"","", 1,5); --temple
-    AddPillar({144,562,0},"","", 1,5); --temple]]--
+    AddPillar({144,566,0},"","", 11,5); --temple
+    AddPillar({144,562,0},"","", 11,5); --temple
     AddPillar({124,548,0},"","", 11,0); --palace
     AddPillar({120,548,0},"","", 11,0); --palace
-    --[[AddPillar({122,547,1},"","", 2,5); --palace
+    AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
     AddPillar({124,528,0},"","", 5,5); --palace
     AddPillar({130,529,0},"","", 2,5); --palace
