@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
--- NPC Name: Milo Deepdelver                                             None --
--- NPC Job:  none                                                             --
+-- NPC Name: Milo Deepdelver                                         Runewick --
+-- NPC Job:  Herbalist                                                        --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  883, 634, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: May 23, 2011                            easyNPC Parser v1.02 --
+-- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1536,7 +1536,7 @@ talkingNPC:addCycleText("Wegen dir kommen wir zu spät zum Essen, du dickköpfige 
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is a NPC who's developer was too lazy to type in a description.");
+mainNPC:setLookat("Dieser NPC ist der Kräuterkundige Milo Deepdelver.", "This NPC is the herbalist Milo Deepdelver.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
