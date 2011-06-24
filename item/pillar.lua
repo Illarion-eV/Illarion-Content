@@ -99,7 +99,7 @@ function LookAtItem(User,Item)
       		end   
     else
     
-	queststatus=User:getQuestProgress(610); --This queststatus counts the read laws  
+	queststatus=User:getQuestProgress(610); --This queststatus counts the read rulers  
     if Item.pos == position (118,566,0) then --Queen Rosaline's statue
    
        	if messageG1[queststatus] ~= nil and messageE1[queststatus] ~= nil then
