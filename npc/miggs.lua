@@ -1,18 +1,18 @@
 --------------------------------------------------------------------------------
--- NPC Name: Miggs                                                       None --
--- NPC Job:  none                                                             --
+-- NPC Name: Miggs                                                    Galmair --
+-- NPC Job:  Henchman                                                         --
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  374, 216, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: November 03, 2010                       easyNPC Parser v1.02 --
+-- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 374, 216, 0, 6, 'Miggs', 'npc.miggs', 0, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (1, 374, 216, 0, 6, 'Miggs', 'npc.miggs', 0, 2, 2, 242, 182, 0, 208, 160, 118);
 ---]]
 
 require("npc.base.basic")
@@ -1143,6 +1143,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Miggs, der Handlanger von Don Valerio.", "This NPC is Miggs, the henchman of Don Valerio.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(11, 0);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
