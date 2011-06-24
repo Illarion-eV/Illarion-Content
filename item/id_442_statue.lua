@@ -5,7 +5,7 @@
 --Queststatus 110: Keeps track which laws were read
 --Queststatus 111: Set to 1 if all laws were read
 
-require("base.common")
+--[[require("base.common")
 
 module("item.id_442_statue", package.seeall)
 
@@ -73,4 +73,4 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
     LookAtItem(User,SourceItem);
 
-end
+end            ]]--
