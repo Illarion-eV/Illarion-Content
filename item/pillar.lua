@@ -74,7 +74,7 @@ function LookAtItem(User,Item)
       		end   
     else
     
-	queststatus=User:getQuestProgress(610); --This queststatus counts the read laws    
+	queststatus=User:getQuestProgress(110); --This queststatus counts the read laws    
     if Item.pos == position (122,566,0) then --Queen Rosaline's statue
    
        	if messageG[queststatus] ~= nil and messageE1[queststatus] ~= nil then
@@ -84,11 +84,11 @@ function LookAtItem(User,Item)
     	end
    
         	if queststatus<10 then 
-           		User:setQuestProgress(610,queststatus+1); --the player read a text
+           		User:setQuestProgress(110,queststatus+1); --the player read a text
        		else
-        		User:setQuestProgress(610,0); --start from the beginning
-         		if User:getQuestProgress(611)==0 then --change when quest is ready!
-              		User:setQuestProgress(611,1); --the player read all laws
+        		User:setQuestProgress(110,0); --start from the beginning
+         		if User:getQuestProgress(111)==0 then --change when quest is ready!
+              		User:setQuestProgress(111,1); --the player read all laws
               		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Herrscher Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian rulers."); --sending the message
          		end
       		end   
