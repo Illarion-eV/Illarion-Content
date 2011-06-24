@@ -38,6 +38,16 @@ function Init()
    messageE[10]="X. Responsibility: In all things you are bound to your word and duty. The origin of success is effort and determination."
    messageG[10]="X. Verantwortung: Deine Taten hängen dir nach. Nur du bist ihr Ursprung.";
    
+	messageE1={}; --the inscription arrays (english/german)
+    messageG1={};
+	messageE1[0]="This monument shows young Queen Rosaline. A register of the rulers of Cadomyr is engraved upon a brass plate at the bottom of the pedestal."
+	messageG1[0]="Dieses Monument zeigt die junge Königin Rosaline. Eine Auflistung der Herrscher von Cadomyr ist auf einer Messingtafel am Sockel den Monuments zu lesen.";
+	messageE1[1]="1. Sir Edward I. 137 BS"
+	messageG1[1]="1. Sir Edward I. 137 BS";
+	messageE1[2]="2. Sir Edward II. 132 BS"
+	messageG1[2]="2. Sir Edward II. 132 BS";
+
+   
    InitDone=true; --Script wants to read all that crap only once
 end
 
@@ -63,9 +73,27 @@ function LookAtItem(User,Item)
          		end
       		end   
     else
-        --[[base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a statue of a rider on his horse."); --default ]]--
     
-	
+	queststatus=User:getQuestProgress(610); --This queststatus counts the read laws    
+    if Item.pos == position (122,566,0) then --Queen Rosaline's statue
+   
+       	if messageG[queststatus] ~= nil and messageE1[queststatus] ~= nil then
+           	base.common.InformNLS(User,messageG1[queststatus],messageE[queststatus]); --sending the text
+       	else
+          	base.common.InformNLS(User,"[Fehler] Fehler im Queststatus 610, bitte einem Entwickler melden!","[Error] Error in queststatus 110, please report to a developer!"); --sending the message
+    	end
+   
+        	if queststatus<10 then 
+           		User:setQuestProgress(610,queststatus+1); --the player read a text
+       		else
+        		User:setQuestProgress(610,0); --start from the beginning
+         		if User:getQuestProgress(611)==0 then --change when quest is ready!
+              		User:setQuestProgress(611,1); --the player read all laws
+              		base.common.InformNLS(User,"[Queststatus] Du hast nun alle Herrscher Cadomyrs gelesen.","[Quest progress] You read all the Cadomyrian rulers."); --sending the message
+         		end
+      		end   
+    else
+	       --[[base.common.InformNLS(User,"Du siehst eine Reiterstatue.","You see a statue of a rider on his horse."); --default ]]--
 	local test = "no value";
 	if (first==nil) then
         content.pillar.InitPillar()
@@ -112,6 +140,7 @@ function LookAtItem(User,Item)
 		User:inform("in LookAtItem of base_wegweiser.lua");
 		User:inform(test);
 	
+	end
 	end
 end
 
