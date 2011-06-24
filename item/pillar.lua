@@ -171,8 +171,8 @@ end   ]]--
 --[[
 	LookAtItemIdent
 	identity of LookAtItem
-  ]]
-LookAtItem = LookAtItemIdent;
+  
+LookAtItem = LookAtItemIdent;     ]]
 
 
 
