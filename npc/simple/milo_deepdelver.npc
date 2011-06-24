@@ -53,10 +53,8 @@ itemShoes = 369
 -- Milo Deepdelver with his mule
 
 -- Help
-"Help", queststatus(106) = 0 -> inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore.")
-"Hilfe", queststatus(106) = 0 -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde.")
-"Help", queststatus(106) => 3 -> inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore.")
-"Hilfe", queststatus(106) => 3 -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde.")
+"Help" -> inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde.")
 
 -- General speech
 "Hello", "Greetings", "Be greeted", "Hail", "Good day", "Good morning", "Good evening" -> "Greetings my friend and may the Gods be with you. I don't have much time, as this bullheaded mule of mine doesn't take a step forward. But if you know anything about mules lent me a hand, will you?"
@@ -267,10 +265,6 @@ itemShoes = 369
 -- typical NPC phrases
 "sell" -> "Sorry, I don't sell anything. I am trying to get this stupid mule to move. So, get out of my way if you don't want to help me."
 "verkauf" -> "Entschuldigt, aber ich verkaufe nichts. Ich versuche diesen dummen Esel in Bewegung zu setzten. Also, geht mir aus dem Weg, wenn ihr mir nicht helfen wollt."
-
--- NPC doesn't understand
--- ".+",english->"I didn't understand you. Just say 'help' if you need some general information."
--- ".+",german->"Ich habe euch nicht verstanden. Ihr könnt ein paar allgemeine Informationen bekommen, wenn ihr 'Hilfe' sagt."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

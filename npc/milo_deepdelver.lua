@@ -35,28 +35,12 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Help");
-talkEntry:addCondition(npc.base.condition.quest.quest(106, "=>", 3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the herbalist Milo Deepdelver. He knows some things about the Gods and herb lore."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hilfe");
-talkEntry:addCondition(npc.base.condition.quest.quest(106, "=>", 3));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Kräuterkundige Milo Deepdelver. Er weiß ein paar Dinge über die Götter und Kräuterkunde."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
