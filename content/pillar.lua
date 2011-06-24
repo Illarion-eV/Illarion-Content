@@ -81,8 +81,8 @@ function InitPillar()
     AddPillar({143,562,0},"","", 6,5); --temple
     AddPillar({144,566,0},"","", 1,5); --temple
     AddPillar({144,562,0},"","", 1,5); --temple]]--
-    AddPillar({124,548,0},"Unsere Herrscher: 1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS;...","Our rulers: 1. Sir Edward I. 137 BS; 2. Sir Edward II. 132 BS; 3. Sir Amalroch I. 118 BS; 4. Sir Adufrin 103 BS; 5. Sir Adefror 101 BS; 6. Sir Luvwick 91 BS; 7. Sir Raufwill 85 BS; 8. Sir Edward III. 72 BS; 9. Sir Linolf 60 BS;...", 11,0); --palace
-    AddPillar({120,548,0},"Unsere Herrscher: ...10. Sir Runbold I. 51 BS; 11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS","Our rulers: ...10. Sir Runbold I. 51 BS; 11. Sir Runbold II. 24 BS; 12. Sir Amalroch II. 19 BS; 13. Sir Edward IV. 14 BS; 14. Sir Reginald 0; 15. Rosaline Edwards 22 AS", 11,0); --palace
+    AddPillar({124,548,0},"","", 11,0); --palace
+    AddPillar({120,548,0},"","", 11,0); --palace
     --[[AddPillar({122,547,1},"","", 2,5); --palace
     AddPillar({119,528,0},"","", 5,5); --palace
     AddPillar({124,528,0},"","", 5,5); --palace
