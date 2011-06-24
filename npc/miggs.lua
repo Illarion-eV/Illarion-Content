@@ -132,7 +132,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Geht und beehrt mich mal wieder. Aber nicht zu bald.");
 talkEntry:addResponse("Hinfort!");
 talkEntry:addResponse("Haut ab.");
@@ -177,438 +176,6 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Miggs!");
 talkEntry:addResponse("Ich bin Miggs. Und dies ist meine Faust. Ich und sie freuen uns darauf, deine Bekanntschaft zu machen.");
 talkEntry:addResponse("Ich bin Miggs, die rechte Hand... nein, die rechte Faust Don Valerios.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not a trader. You may give me your money, though.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Ich bin kein Händler. Ihr könnt mir aber trotzdem euer Gold geben.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Let me tell you something: Never mess with the Don. Messing with him is just as bad as messing with me.");
-talkEntry:addResponse("Do you see any campfire here? No? So, no tales for you.");
-talkEntry:addResponse("Leave me alone.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Lasst euch das gesagt sein: Legt euch nie mit dem Don an. Das würde bedeuten, ihr bekommt es mit mir zu tun.");
-talkEntry:addResponse("Seht ihr hier irgendwo ein Lagerfeuer? Nein? Also, keine Märchen für euch!");
-talkEntry:addResponse("Haut ab.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("profession");
-talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("castle");
-talkEntry:addResponse("Some say, this castle was once built by dwarves. I don't care at all!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Burg");
-talkEntry:addResponse("Manche behaupten, diese Burg wurde einst von Zwergen erbaut. Das ist mir sowas von egal!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("trader");
-talkEntry:addTrigger("merchant");
-talkEntry:addTrigger("collegue");
-talkEntry:addTrigger("vendor");
-talkEntry:addTrigger("market");
-talkEntry:addResponse("In Galmair, you may trade whatever you want with whoever you want whenever you want.");
-talkEntry:addResponse("The market place is a good place to trade. It is outside. So... get out!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("händler");
-talkEntry:addTrigger("kollege");
-talkEntry:addTrigger("höker");
-talkEntry:addTrigger("markt");
-talkEntry:addResponse("In Galmair könnt ihr Handel treiben, was immer ihr wollt, mit wem ihr wollt und wann ihr es wollt.");
-talkEntry:addResponse("Der Marktplatz ist ein guter Ort, um Handeln zu treiben. Er ist draußen. Also... raus mit euch!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Grobian? Ihr nennt mich einen Grobian? Recht habt ihr!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Ruffian? You call me a ruffian? You're so right!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("henchman");
-talkEntry:addTrigger("henchman");
-talkEntry:addTrigger("thug");
-talkEntry:addResponse("I'm not a simple henchman. I'm a convincer. With irresistible arguments.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halfling");
-talkEntry:addResponse("Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("hobbit");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fly");
-talkEntry:addTrigger("flies");
-talkEntry:addResponse("Blasted flies! They buzz all day long. Nothing wrong with that, but they should know who's head they may buzz around.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("mummy");
-talkEntry:addTrigger("mummies");
-talkEntry:addResponse("Blasted mummies! They moan all day long. Nothing wrong with that, but they should know about they should not moan about.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("dwarf");
-talkEntry:addTrigger("dwarves");
-talkEntry:addResponse("So, you think us dwarves kneel to a king, drink beer and dig for pebbles all day long? Bad guess!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("protection");
-talkEntry:addTrigger("fee");
-talkEntry:addResponse("Protection can be paid with money. The more money, the more protection. No money... bad idea.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("favour");
-talkEntry:addTrigger("favor");
-talkEntry:addResponse("Everyone in Galmair owes the Don a favour; some more than one. For the Don helps everyone, he is our godfather.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Handlanger");
-talkEntry:addTrigger("Gauner");
-talkEntry:addResponse("Ich bin kein einfacher Handlanger. Ich bin ein Überzeugungskünstler - mit schlagenden Argumenten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("halbling");
-talkEntry:addResponse("Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hobbit");
-talkEntry:addResponse("Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fliege");
-talkEntry:addResponse("Verdammte Fliegen! Sie summen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, um welchen Kopf sie besser nicht herumsummen sollten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Mumie");
-talkEntry:addResponse("Verdammte Mumien! Sie stöhnen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, über was sie besser nicht stöhnen sollten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zwerg");
-talkEntry:addResponse("So, ihr denkt also, wir Zwerge knien vor einem König, saufen Bier und buddeln den ganzen Tag nach Kieselsteinen? Falsch gedacht!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schutzgeld");
-talkEntry:addTrigger("Schutzgebühr");
-talkEntry:addResponse("Sicherheit kann man erkaufen. Je mehr Geld, desto mehr Schutz. Kein Geld... Schlechte Idee.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gefallen");
-talkEntry:addTrigger("Gefälligkeit");
-talkEntry:addResponse("Jeder Galmair schuldet dem Don einen Gefallen, manche mehr als einen. Denn der Don hilft jedem, er ist unser Pate.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rules");
-talkEntry:addResponse("1. The Don protects you if you pay the fee.");
-talkEntry:addResponse("2. Pay the toll and the interest and no harm will be done.");
-talkEntry:addResponse("3. Trade freely, stay and depart as you wish.");
-talkEntry:addResponse("4. Come to the Don if you need help. He is your godfather.");
-talkEntry:addResponse("5. A deal with the Don is a deal with your fate.");
-talkEntry:addResponse("6. If you did harm, compensate generously twice the damage.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Regeln");
-talkEntry:addResponse("1. Der Don beschützt euch, wenn ihr die Gebühr bezahlt.");
-talkEntry:addResponse("2. Zahlt den Zoll und den Zins und kein Leid wird euch zugefügt.");
-talkEntry:addResponse("3. Handelt frei, kommt und geht, wie es euch beliebt.");
-talkEntry:addResponse("4. Kommt zum Don, wenn ihr Hilfe braucht. Er euer Pate.");
-talkEntry:addResponse("5. Ein Handel mit dem Don ist ein Handel mit dem Schicksal.");
-talkEntry:addResponse("6. Habt ihr Schaden verursacht, gleicht den Schaden zweifach aus.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elvaine");
-talkEntry:addTrigger("Morgan");
-talkEntry:addTrigger("archmage");
-talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Sich hinter Büchern verstecken und mit Worten zu kämpfen; das ziemt sich nicht für einen Mann. Der Erzmagier von Runewick kann kein echter Mann sein!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Runewick is ruled by a man... by Elvaine Morgan. I'd never follow such a weak person. I have no explaination how he gathered so many followers.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick wird von einem Mann... von Elvaine Morgan regiert. Ich würde nie so einer schwachen Persönlichkeit gehorchen. Ich habe keine Erklärung dafür, wie er so viele Anhänger gewinnen konnte.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("The Don made up some very clear rules. Obey them and you'll have a good time in Galmair.");
-talkEntry:addResponse("The Don is a good man. If you owe him a favour, never forget about that in your life. He won't!");
-talkEntry:addResponse("One bad word about the Don and a knife in the dark could make you stop spreading lies. Keep that in mind.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Valerio");
-talkEntry:addTrigger("Guilianni");
-talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don hat einige einfache Regeln aufgestellt. Befolgt sie und ihr werdet eine gute Zeit in Galmair haben.");
-talkEntry:addResponse("Der Dong ist ein guter Mann. Wenn ihr ihm einen Gefallen schuldet, so vergesst dies niemals. Er wird es jedenfalls nicht.");
-talkEntry:addResponse("Ein falsches Wort über den Don und ein Messer in der Dunkelheit könnte eure Lügen ein für alle mal beenden. Denkt immer daran.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Galmair is the only town in this region where the word 'freedom' still has meaning.");
-talkEntry:addResponse("When I first came to Galmair, I was a poor dwarf with no hope. The Don gave me hope and I pay back all the favours he granted.");
-talkEntry:addResponse("If you like good beer, a good tavern brawl and good business, Galmair is your place to be.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair ist die einzige Stadt in dieser Region, wo das Wort 'Freiheit' noch eine Bedeutung hat.");
-talkEntry:addResponse("Als ich nach Galmair kam, war ich ein armer Zwerg ohne Hoffnung. Der Don gab mir Hoffnung und ich zahle all seine Gefälligkeiten gerne zurück.");
-talkEntry:addResponse("Wenn ihr ein gutes Bier, eine gute Tavernenschlägerei und ein gutes Geschäft schätzt, dann ist Galmair der Ort für euch.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Rosaline Guilianni; sounds good, eh?");
-talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better begs that he does a second time!");
-talkEntry:addResponse("I somehow adore queen Rosaline; she knows how to rule a kingdom. As queen. A queendom, har, har.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("rosaline");
-talkEntry:addTrigger("königin");
-talkEntry:addTrigger("queen");
-talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Rosaline Guilianni; klingt gut, oder?");
-talkEntry:addResponse("Der Don hat der Königin von Cadomyr einst einen Heiratsantrag gemacht. Sie hat ihn abgelehnt; sie sollte darum betteln, dass er es noch ein zweites mal macht.");
-talkEntry:addResponse("Ich bewundere Königin Rosaline irgendwie. Sie weiß, wie man ein Königreich regiert. Als Königin. Ein Königinnenreich, har, har.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I ask myself how they survive in that barren desert. Cadomyr is proud, but it has to rely on food deliveries. This might turn out... violent one day.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Ich frage mich, wie sie in dieser trockenen Wüste überleben. Cadomyr ist stolz, doch ist es von Nahrungslieferungen abhängig. Das könnte mal recht... blutig ausgehen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("In Albar, they don't obey women. I'd obey Rosaline Edwards of Cadomyr if she'd be the Don's wife; she is of Albarian origin, though. Strange, isn't it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("albar");
-talkEntry:addResponse("In Albar gehorcht man keinem Weibe. Ich aber würde Rosaline Edwards von Cadomyr gehorchen wenn sie die Ehefrau des Dons wäre. Sie ist von albarischem Geblüt; merkwürdig, oder?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gynk");
-talkEntry:addTrigger("gync");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Honestly, I've never been to Gynk, but I was told it is like Galmair... just bigger.");
-talkEntry:addResponse("Gynk is the home of Don Valerio. So, you should better not say it is filthy!");
-talkEntry:addResponse("If I ever depart from Galmair, I'd move to Gynk.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Ehrlich gesagt war ich noch nie in Gynk, aber man sagt, es sei wie Galmair... nur größer.");
-talkEntry:addResponse("Gynk ist die Heimat von Don Valerio. Also sollte ihr besser nicht behaupten, es sei dreckig!");
-talkEntry:addResponse("Wenn ich jemals Galmair verlasse, dann ziehe ich nach Gynk.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Oh, Salk... what was that? I never heard of that place.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Oh Salk... wie bitte? Ich hab noch nie von solch einem Ort gehört.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Well, well, well. You think I am a criminal and hence, I pray to Ronagan, right? Right. Except for the 'criminal'.");
-talkEntry:addResponse("Ronagan is the patron saint of Galmair. So... hail Ronagan!");
-talkEntry:addResponse("Do you have the slightest clue what Ronagan did for Illarion? No? If you knew, you'd pray to him all day long.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Ja, ja, ja. Ihr denkt also, ich bin ein Gauner und deshalb bete ich zu Ronagan, richtig? Richtig. Außer das mit dem 'Gauner'.");
-talkEntry:addResponse("Ronagan ist der Schutzgott Galmairs. Also... lobet Ronagan!");
-talkEntry:addResponse("Habt ihr die geringste Ahnung davon, was Ronagan für Illarion getan hat? Nein? Wenn ihr es wüßtet, würdet ihr ihn den ganzen Tag lang anbeten.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("All dwarves worship Irmorom - that is as false as the statement that all dwarves are greedy bastards.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Dass alle Zwerge Irmorom anhimmeln ist so falsch wie dass alle Zwerge geizige Bastarde sind.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Sirani, Sirani... The Don mentioned something about Sirani. Better ask him about Sirani.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Sirani, Sirani... der Don erwähnte irgendwas über Sirani. Fragt ihn besser selbst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1080,6 +647,482 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Some call me a henchman. I work for the Don; and I am good in what I do.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("castle");
+talkEntry:addResponse("Some say, this castle was once built by dwarves. I don't care at all!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Burg");
+talkEntry:addResponse("Manche behaupten, diese Burg wurde einst von Zwergen erbaut. Das ist mir sowas von egal!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("trader");
+talkEntry:addTrigger("merchant");
+talkEntry:addTrigger("collegue");
+talkEntry:addTrigger("vendor");
+talkEntry:addTrigger("market");
+talkEntry:addResponse("In Galmair, you may trade whatever you want with whoever you want whenever you want.");
+talkEntry:addResponse("The market place is a good place to trade. It is outside. So... get out!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("händler");
+talkEntry:addTrigger("kollege");
+talkEntry:addTrigger("höker");
+talkEntry:addTrigger("markt");
+talkEntry:addResponse("In Galmair könnt ihr Handel treiben, was immer ihr wollt, mit wem ihr wollt und wann ihr es wollt.");
+talkEntry:addResponse("Der Marktplatz ist ein guter Ort, um Handeln zu treiben. Er ist draußen. Also... raus mit euch!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Ruffian? You call me a ruffian? You're so right!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Grobian? Ihr nennt mich einen Grobian? Recht habt ihr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("Who cares!?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Na und!?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("henchman");
+talkEntry:addTrigger("henchman");
+talkEntry:addTrigger("thug");
+talkEntry:addResponse("I'm not a simple henchman. I'm a convincer. With irresistible arguments.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("halfling");
+talkEntry:addResponse("Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("hobbit");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("fly");
+talkEntry:addTrigger("flies");
+talkEntry:addResponse("Blasted flies! They buzz all day long. Nothing wrong with that, but they should know who's head they may buzz around.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mummy");
+talkEntry:addTrigger("mummies");
+talkEntry:addResponse("Blasted mummies! They moan all day long. Nothing wrong with that, but they should know about they should not moan about.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dwarf");
+talkEntry:addTrigger("dwarves");
+talkEntry:addResponse("So, you think us dwarves kneel to a king, drink beer and dig for pebbles all day long? Bad guess!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("protection");
+talkEntry:addTrigger("fee");
+talkEntry:addResponse("Protection can be paid with money. The more money, the more protection. No money... bad idea.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("favour");
+talkEntry:addTrigger("favor");
+talkEntry:addResponse("Everyone in Galmair owes the Don a favour; some more than one. For the Don helps everyone, he is our godfather.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Handlanger");
+talkEntry:addTrigger("Gauner");
+talkEntry:addResponse("Ich bin kein einfacher Handlanger. Ich bin ein Überzeugungskünstler - mit schlagenden Argumenten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("halbling");
+talkEntry:addResponse("Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Hobbit");
+talkEntry:addResponse("Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fliege");
+talkEntry:addResponse("Verdammte Fliegen! Sie summen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, um welchen Kopf sie besser nicht herumsummen sollten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Mumie");
+talkEntry:addResponse("Verdammte Mumien! Sie stöhnen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, über was sie besser nicht stöhnen sollten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zwerg");
+talkEntry:addResponse("So, ihr denkt also, wir Zwerge knien vor einem König, saufen Bier und buddeln den ganzen Tag nach Kieselsteinen? Falsch gedacht!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schutzgeld");
+talkEntry:addTrigger("Schutzgebühr");
+talkEntry:addResponse("Sicherheit kann man erkaufen. Je mehr Geld, desto mehr Schutz. Kein Geld... Schlechte Idee.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gefallen");
+talkEntry:addTrigger("Gefälligkeit");
+talkEntry:addResponse("Jeder Galmair schuldet dem Don einen Gefallen, manche mehr als einen. Denn der Don hilft jedem, er ist unser Pate.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rules");
+talkEntry:addResponse("1. The Don protects you if you pay the fee.");
+talkEntry:addResponse("2. Pay the toll and the interest and no harm will be done.");
+talkEntry:addResponse("3. Trade freely, stay and depart as you wish.");
+talkEntry:addResponse("4. Come to the Don if you need help. He is your godfather.");
+talkEntry:addResponse("5. A deal with the Don is a deal with your fate.");
+talkEntry:addResponse("6. If you did harm, compensate generously twice the damage.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Regeln");
+talkEntry:addResponse("1. Der Don beschützt euch, wenn ihr die Gebühr bezahlt.");
+talkEntry:addResponse("2. Zahlt den Zoll und den Zins und kein Leid wird euch zugefügt.");
+talkEntry:addResponse("3. Handelt frei, kommt und geht, wie es euch beliebt.");
+talkEntry:addResponse("4. Kommt zum Don, wenn ihr Hilfe braucht. Er euer Pate.");
+talkEntry:addResponse("5. Ein Handel mit dem Don ist ein Handel mit dem Schicksal.");
+talkEntry:addResponse("6. Habt ihr Schaden verursacht, gleicht den Schaden zweifach aus.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("archmage");
+talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Sich hinter Büchern verstecken und mit Worten zu kämpfen; das ziemt sich nicht für einen Mann. Der Erzmagier von Runewick kann kein echter Mann sein!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Sich hinter Büchern verstecken und mit Worten zu kämpfen; das ziemt sich nicht für einen Mann. Der Erzmagier von Runewick kann kein echter Mann sein!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Runewick is ruled by a man... by Elvaine Morgan. I'd never follow such a weak person. I have no explaination how he gathered so many followers.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Runewick wird von einem Mann... von Elvaine Morgan regiert. Ich würde nie so einer schwachen Persönlichkeit gehorchen. Ich habe keine Erklärung dafür, wie er so viele Anhänger gewinnen konnte.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("The Don made up some very clear rules. Obey them and you'll have a good time in Galmair.");
+talkEntry:addResponse("The Don is a good man. If you owe him a favour, never forget about that in your life. He won't!");
+talkEntry:addResponse("One bad word about the Don and a knife in the dark could make you stop spreading lies. Keep that in mind.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Der Don hat einige einfache Regeln aufgestellt. Befolgt sie und ihr werdet eine gute Zeit in Galmair haben.");
+talkEntry:addResponse("Der Dong ist ein guter Mann. Wenn ihr ihm einen Gefallen schuldet, so vergesst dies niemals. Er wird es jedenfalls nicht.");
+talkEntry:addResponse("Ein falsches Wort über den Don und ein Messer in der Dunkelheit könnte eure Lügen ein für alle mal beenden. Denkt immer daran.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Galmair is the only town in this region where the word 'freedom' still has meaning.");
+talkEntry:addResponse("When I first came to Galmair, I was a poor dwarf with no hope. The Don gave me hope and I pay back all the favours he granted.");
+talkEntry:addResponse("If you like good beer, a good tavern brawl and good business, Galmair is your place to be.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Galmair ist die einzige Stadt in dieser Region, wo das Wort 'Freiheit' noch eine Bedeutung hat.");
+talkEntry:addResponse("Als ich nach Galmair kam, war ich ein armer Zwerg ohne Hoffnung. Der Don gab mir Hoffnung und ich zahle all seine Gefälligkeiten gerne zurück.");
+talkEntry:addResponse("Wenn ihr ein gutes Bier, eine gute Tavernenschlägerei und ein gutes Geschäft schätzt, dann ist Galmair der Ort für euch.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("Rosaline Guilianni; sounds good, eh?");
+talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better begs that he does a second time!");
+talkEntry:addResponse("I somehow adore queen Rosaline; she knows how to rule a kingdom. As queen. A queendom, har, har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Rosaline Guilianni; klingt gut, oder?");
+talkEntry:addResponse("Der Don hat der Königin von Cadomyr einst einen Heiratsantrag gemacht. Sie hat ihn abgelehnt; sie sollte darum betteln, dass er es noch ein zweites mal macht.");
+talkEntry:addResponse("Ich bewundere Königin Rosaline irgendwie. Sie weiß, wie man ein Königreich regiert. Als Königin. Ein Königinnenreich, har, har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Rosaline Guilianni; sounds good, eh?");
+talkEntry:addResponse("The Don once proposed marriage to the Queen of Cadomyr. She refused; she'd better begs that he does a second time!");
+talkEntry:addResponse("I somehow adore queen Rosaline; she knows how to rule a kingdom. As queen. A queendom, har, har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Rosaline Guilianni; klingt gut, oder?");
+talkEntry:addResponse("Der Don hat der Königin von Cadomyr einst einen Heiratsantrag gemacht. Sie hat ihn abgelehnt; sie sollte darum betteln, dass er es noch ein zweites mal macht.");
+talkEntry:addResponse("Ich bewundere Königin Rosaline irgendwie. Sie weiß, wie man ein Königreich regiert. Als Königin. Ein Königinnenreich, har, har.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I ask myself how they survive in that barren desert. Cadomyr is proud, but it has to rely on food deliveries. This might turn out... violent one day.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Ich frage mich, wie sie in dieser trockenen Wüste überleben. Cadomyr ist stolz, doch ist es von Nahrungslieferungen abhängig. Das könnte mal recht... blutig ausgehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("In Albar, they don't obey women. I'd obey Rosaline Edwards of Cadomyr if she'd be the Don's wife; she is of Albarian origin, though. Strange, isn't it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("albar");
+talkEntry:addResponse("In Albar gehorcht man keinem Weibe. Ich aber würde Rosaline Edwards von Cadomyr gehorchen wenn sie die Ehefrau des Dons wäre. Sie ist von albarischem Geblüt; merkwürdig, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("gync");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Honestly, I've never been to Gynk, but I was told it is like Galmair... just bigger.");
+talkEntry:addResponse("Gynk is the home of Don Valerio. So, you should better not say it is filthy!");
+talkEntry:addResponse("If I ever depart from Galmair, I'd move to Gynk.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gync");
+talkEntry:addTrigger("gynk");
+talkEntry:addResponse("Ehrlich gesagt war ich noch nie in Gynk, aber man sagt, es sei wie Galmair... nur größer.");
+talkEntry:addResponse("Gynk ist die Heimat von Don Valerio. Also sollte ihr besser nicht behaupten, es sei dreckig!");
+talkEntry:addResponse("Wenn ich jemals Galmair verlasse, dann ziehe ich nach Gynk.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Oh, Salk... what was that? I never heard of that place.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("salkama");
+talkEntry:addResponse("Oh Salk... wie bitte? Ich hab noch nie von solch einem Ort gehört.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("god");
+talkEntry:addResponse("Ha! Then tell me all the names of the gods! At once! Quick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gott");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Ha! Na dann zählt mal alle Götter auf! Los, zack, zack!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Well, well, well. You think I am a criminal and hence, I pray to Ronagan, right? Right. Except for the 'criminal'.");
+talkEntry:addResponse("Ronagan is the patron saint of Galmair. So... hail Ronagan!");
+talkEntry:addResponse("Do you have the slightest clue what Ronagan did for Illarion? No? If you knew, you'd pray to him all day long.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ronagan");
+talkEntry:addResponse("Ja, ja, ja. Ihr denkt also, ich bin ein Gauner und deshalb bete ich zu Ronagan, richtig? Richtig. Außer das mit dem 'Gauner'.");
+talkEntry:addResponse("Ronagan ist der Schutzgott Galmairs. Also... lobet Ronagan!");
+talkEntry:addResponse("Habt ihr die geringste Ahnung davon, was Ronagan für Illarion getan hat? Nein? Wenn ihr es wüßtet, würdet ihr ihn den ganzen Tag lang anbeten.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("All dwarves worship Irmorom - that is as false as the statement that all dwarves are greedy bastards.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Irmorom");
+talkEntry:addResponse("Dass alle Zwerge Irmorom anhimmeln ist so falsch wie dass alle Zwerge geizige Bastarde sind.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Sirani, Sirani... The Don mentioned something about Sirani. Better ask him about Sirani.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sirani");
+talkEntry:addResponse("Sirani, Sirani... der Don erwähnte irgendwas über Sirani. Fragt ihn besser selbst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("what sell");
+talkEntry:addTrigger("what buy");
+talkEntry:addTrigger("list wares");
+talkEntry:addTrigger("price of");
+talkEntry:addResponse("I'm not a trader. You may give me your money, though.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("was verkauf");
+talkEntry:addTrigger("was kauf");
+talkEntry:addTrigger("warenliste");
+talkEntry:addTrigger("preis von");
+talkEntry:addResponse("Ich bin kein Händler. Ihr könnt mir aber trotzdem euer Gold geben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("tell something");
+talkEntry:addResponse("Let me tell you something: Never mess with the Don. Messing with him is just as bad as messing with me.");
+talkEntry:addResponse("Do you see any campfire here? No? So, no tales for you.");
+talkEntry:addResponse("Leave me alone.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("erzähl was");
+talkEntry:addTrigger("erzähl etwas");
+talkEntry:addResponse("Lasst euch das gesagt sein: Legt euch nie mit dem Don an. Das würde bedeuten, ihr bekommt es mit mir zu tun.");
+talkEntry:addResponse("Seht ihr hier irgendwo ein Lagerfeuer? Nein? Also, keine Märchen für euch!");
+talkEntry:addResponse("Haut ab.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("privateer");
 talkEntry:addResponse("Did Mr Lynch send you?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1088,6 +1131,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Freibeuter");
 talkEntry:addResponse("Schickt euch Mr. Lynch?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Miggs");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Aye?");
+talkEntry:addResponse("Shut it!");
+talkEntry:addResponse("What!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Miggs");
+talkEntry:addResponse("Ja?");
+talkEntry:addResponse("Schnauze!");
+talkEntry:addResponse("Was!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
