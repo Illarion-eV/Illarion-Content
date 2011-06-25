@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: January 27, 2011                        easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -39,8 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greetings");
-talkEntry:addTrigger("Be greeted");
+talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
@@ -52,9 +51,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Seid gegrüßt");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
@@ -123,7 +121,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Gehabt euch wohl, geht mit den Göttern.");
 talkEntry:addResponse("Auf wiedersehen, mein Kunde.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -211,15 +208,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addResponse("Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert.");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I'm a tailor, I even made a dress for the queen once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I'm a tailor, I even made a dress for the queen once.");
+talkEntry:addResponse("Ich bin Schneider, einst habe ich sogar ein Kleid für die Königin geschneidert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +457,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -512,12 +507,31 @@ talkEntry:addResponse("Wie jetzt...");
 talkEntry:addResponse("Könntet ihr das anders beschreiben?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Thomas");
+talkEntry:addTrigger("Dalenus");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("There are many by the name of Thomas, but few of the name Dalenus. And only one Thomas Dalenus, best tailor of Cadomyr!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Thomas");
+talkEntry:addTrigger("Dalenus");
+talkEntry:addResponse("Es gibt viele, die Thomas heißen, aber nur wenige namens Dalenus. Und nur einen Thomas Dalenus, den besten Schneider Cadomyrs!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("Autsch!", "Ouch!");
 talkingNPC:addCycleText("#me zerschneidet einige Stoffbahnen.", "#me cuts some clothes.");
 talkingNPC:addCycleText("#me stickt ein Muster in ein Stoffstück.", "#me stitches a pattern into a piece of cloth.");
 talkingNPC:addCycleText("Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirt for your daughter!");
 talkingNPC:addCycleText("Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have!");
 talkingNPC:addCycleText("Kundschaft!", "Customers!");
+talkingNPC:addCycleText("Einmal gekleidet sein wie Königin Rosaline - beste Kleider im Angebot.", "Once dressed like Queen Rosaline - I offer best dresses.");
+talkingNPC:addCycleText("Thomas Dalenus ist euer Mann, wenn es um Stickereien geht!", "Thomas Dalenus is your man for stitching!");
+talkingNPC:addCycleText("Eine Frau ohne Kleid ist meist nur halb so schön.", "A woman without a dress is commonly half as beautiful.");
+talkingNPC:addCycleText("#me streicht ein fein gewobenes Kleid glatt.", "#me smoothes down a finely woven dress.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
