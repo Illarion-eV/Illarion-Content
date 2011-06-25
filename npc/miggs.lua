@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: June 24, 2011                           easyNPC Parser v1.02 --
+-- Last parsing: June 25, 2011                           easyNPC Parser v1.02 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -271,44 +271,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
-talkEntry:addResponse("Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
-talkEntry:addResponse("I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
-talkEntry:addResponse("Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -357,6 +319,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
+talkEntry:addResponse("Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
+talkEntry:addResponse("I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 11));
+talkEntry:addResponse("Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers II"));
@@ -393,44 +393,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Kanalisation von Galmair II"));
 talkEntry:addResponse("Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
-talkEntry:addResponse("Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
-talkEntry:addResponse("Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,6 +449,44 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
+talkEntry:addResponse("Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
+talkEntry:addResponse("Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 19));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair Sewers III"));
@@ -561,52 +561,6 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 21));
 talkEntry:addResponse("Die Halblingdiebe bestehlen weiterhin die Klientel des Dons. Spürt ihren Anführer auf und erledigt ihn!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("You taught those blasted halfers a lesson they won't forget! Never mess with Don Valerio! Here, have these gloves - for the extra punch.");
-talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves."));
-talkEntry:addResponse("You taught those blasted halfers a lesson they won't forget! Never mess with Don Valerio! Here, have these gloves - for the extra punch.");
-talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Ihr habt den Halblingen eine Lektion erteilt, die sie sobald nicht vergessen werden. Legt euch nie mit Don Valerio an! Hier, nehmt diese Handschuhe - damit ihr auch morgen noch kraftvoll zuschlagen könnt.");
-talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".+");
-talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe."));
-talkEntry:addResponse("Ihr habt den Halblingen eine Lektion erteilt, die sie sobald nicht vergessen werden. Legt euch nie mit Don Valerio an! Hier, nehmt diese Handschuhe - damit ihr auch morgen noch kraftvoll zuschlagen könnt.");
-talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
